@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-vectors-2d">
+ <title>1.1 Vectors in Two Dimensions</title>
+    <p>
+    A vector is a quantity that has both magnitude and direction. In two dimensions, vectors can 
+    be represented as arrows in a plane, where the length of the arrow corresponds to the magnitude of the vector, 
+    and the direction of the arrow indicates the direction of the vector.   
+    </p>    
+<definition xml:id="def-vector-basics">
+    <statement>
+        <p>
+            A velocity or force has both magnitude and direction and is often represented by a 
+            <term>directed line segment</term> or a <term>vector</term>. We denote the vector with 
+            <term>initial point</term> <m>P</m> and <term>terminal point</term> <m>Q</m> as <m>\vec{PQ}</m>. The direction of the vector indicates arrowhead at <m>Q</m>. The <term>magnitude</term> of <m>\vec{PQ}</m> is the length of the segment <m>PQ</m> and is denoted by <m>\|\vec{PQ}\|</m>. Vectors that have the same magnitude and direction are called <term>equivalent</term>.
+        </p>
+    </statement>
+</definition>
+
+<p>
+    A vector may be translated from one location to another, provided neither the magnitude nor the direction
+     is changed. If <m>\vec{PS} = \vec{PQ} + \vec{PR}</m> and <m>\vec{PQ}</m> and <m>\vec{PR}</m> are two 
+     forces acting at <m>P</m>, then <m>\vec{PS}</m> is the <term>resultant force</term> (sum). 
+</p>
+<p>     
+     If <m>c</m> is a scalar and <m>\vec{v}</m> is a vector, then <m>c\vec{v}</m> (a <term>scalar multiple</term>) 
+     is defined as a vector whose magnitude is <m>|c|</m> times the magnitude <m>\|\vec{v}\|</m> of <m>\vec{v}</m> 
+     with the same direction (<m>c \gt 0</m>) or the opposite direction (<m>c \lt 0</m>) of <m>\vec{v}</m>. 
+</p>
+<p>     
+     A vector with the initial point at the origin is called the <term>position vector</term>. We use the 
+     symbol <m>\langle a_1, a_2 \rangle</m> for an ordered pair that represents the vector and denote it by 
+     a lowercase letter <m>\vec{v} = \langle a_1, a_2 \rangle</m>. 
+</p>
+<p>     
+     Two vectors <m>\langle a_1, a_2 \rangle</m> and <m>\langle b_1, b_2 \rangle</m> are <term>equal</term> 
+     <m>\iff a_1 = b_1</m> and <m>a_2 = b_2</m>.
+</p>
+
+<example xml:id="ex-sketch-position-vectors">
+    <statement>
+        <p>
+            Sketch the position vectors for:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    <m>\vec{a} = \langle -3,2 \rangle</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>\vec{b} = \langle 0,-2 \rangle</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>\vec{c} = \left\langle \frac{4}{5}, \frac{3}{5} \right\rangle</m>
+                </p>
+            </li>
+        </ol>
+    <figure xml:id="fig-position-vectors-sketch">
+            <caption>The position vectors <m>\vec{a}</m>, <m>\vec{b}</m>, and <m>\vec{c}</m> drawn in the Cartesian plane.</caption>
+            <image xml:id="img-position-vectors" width="60%">
+                <shortdescription>A Cartesian grid showing three position vectors originating at the origin (0,0). Vector a is blue and ends at (-3,2). Vector b is red and points straight down to (0,-2). Vector c is violet and ends a short distance out at (0.8, 0.6).</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[>=stealth, scale=1.2]
+                        % Draw Cartesian grid
+                        \draw[color=gray!30, step=1cm] (-4,-3) grid (2,3);
+                        
+                        % Draw Axes (FIXED: Swapped xml math elements for native LaTeX math strings)
+                        \draw[->, thick] (-4.2,0) -- (2.2,0) node[right] {\small $x$};
+                        \draw[->, thick] (0,-3.2) -- (0,3.2) node[above] {\small $y$};
+                        
+                        % Add axis tick numbers
+                        \foreach \x in {-3,-2,-1,1,2}
+                            \draw (\x,0.05) -- (\x,-0.05) node[below] {\footnotesize $\x$};
+                        \foreach \y in {-2,-1,1,2}
+                            \draw (0.05,\y) -- (-0.05,\y) node[left] {\footnotesize $\y$};
+                        \node[below left] at (0,0) {\footnotesize $0$};
+
+                        % Vector a = \langle -3, 2 \rangle (angle brackets escaped in XML-safe comment)
+                        \draw[->, ultra thick, blue] (0,0) -- (-3,2) node[above left] {$\vec{a} = \langle -3,2 \rangle$};
+                        
+                        % Vector b = \langle 0, -2 \rangle (angle brackets escaped in XML-safe comment)
+                        \draw[->, ultra thick, red] (0,0) -- (0,-2) node[below right] {$\vec{b} = \langle 0,-2 \rangle$};
+                        
+                        % Vector c = \left\langle 4/5, 3/5 \right\rangle (angle brackets escaped in XML-safe comment)
+                        \draw[->, ultra thick, violet] (0,0) -- (0.8,0.6) node[above right] {$\vec{c} = \left\langle \frac{4}{5}, \frac{3}{5} \right\rangle$};
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+     </figure>
+    </statement>
+    <solution>
+        <p>
+            To sketch a position vector, always place its initial point at the origin <m>(0,0)</m>. The terminal point will match the components of the vector:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    For <m>\vec{a} = \langle -3,2 \rangle</m>, draw an arrow starting at <m>(0,0)</m> and ending at the point <m>(-3,2)</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    For <m>\vec{b} = \langle 0,-2 \rangle</m>, draw an arrow starting at <m>(0,0)</m> and pointing straight down to end at the point <m>(0,-2)</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    For <m>\vec{c} = \left\langle \frac{4}{5}, \frac{3}{5} \right\rangle</m>, draw an arrow starting at <m>(0,0)</m> and ending at the point <m>(0.8, 0.6)</m> in the first quadrant.
+                </p>
+            </li>
+        </ol>
+    </solution>
+</example>
+
+<definition xml:id="def-vector-magnitude">
+    <statement>
+        <p>
+            The <term>magnitude</term> (or length) <m>\|\vec{a}\|</m> of the vector <m>\vec{a} = \langle a_1,a_2 \rangle</m> is 
+            <me>\|\vec{a}\| = \|\langle a_1,a_2 \rangle\| = \sqrt{a_1^2+a_2^2}</me>.
+        </p>
+    </statement>
+</definition>
+
+<example xml:id="ex-find-vector-magnitude">
+    <statement>
+        <p>
+            Find the magnitude of each vector:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    <m>\vec{a} = \langle -3,2 \rangle</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>\vec{b} = \langle 0,-2 \rangle</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>\vec{c} = \left\langle \frac{4}{5},\frac{3}{5} \right\rangle</m>
+                </p>
+            </li>
+        </ol>
+    </statement>
+    <solution>
+        <p>
+            We apply the magnitude formula <m>\|\vec{v}\| = \sqrt{v_1^2 + v_2^2}</m> to each vector:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    For <m>\vec{a} = \langle -3,2 \rangle</m>:
+                    <me>\|\vec{a}\| = \sqrt{(-3)^2 + 2^2} = \sqrt{9 + 4} = \sqrt{13}</me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    For <m>\vec{b} = \langle 0,-2 \rangle</m>:
+                    <me>\|\vec{b}\| = \sqrt{0^2 + (-2)^2} = \sqrt{0 + 4} = \sqrt{4} = 2</me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    For <m>\vec{c} = \left\langle \frac{4}{5},\frac{3}{5} \right\rangle</m>:
+                    <me>\|\vec{c}\| = \sqrt{\left(\frac{4}{5}\right)^2 + \left(\frac{3}{5}\right)^2} = \sqrt{\frac{16}{25} + \frac{9}{25}} = \sqrt{\frac{25}{25}} = 1</me>
+                </p>
+                <p>
+                    Because its magnitude is <m>1</m>, <m>\vec{c}</m> is a unit vector.
+                </p>
+            </li>
+        </ol>
+    </solution>
+</example>
+
+<fact xml:id="fact-vector-operations">
+    <title>Vector Operations</title>
+    <statement>
+        <p>
+            <term>Addition of vectors</term>
+            <me>\langle a_1,a_2 \rangle + \langle b_1,b_2 \rangle = \langle a_1+b_1, a_2+b_2 \rangle</me>
+            <term>Scalar multiple of a vector</term>
+            <me>c \langle a_1,a_2 \rangle = \langle ca_1, ca_2 \rangle</me>
+        </p>
+    </statement>
+</fact>
+
+<example xml:id="ex-vector-arithmetic-sketch">
+    <statement>
+        <p>
+            Let <m>\vec{a} = \langle -1,3 \rangle</m> and <m>\vec{b} = \langle 4,3 \rangle</m>.
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    Find <m>\vec{a}+\vec{b}</m> and <m>-3\vec{a}+2\vec{b}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Sketch vectors <m>\vec{a}+\vec{b}</m> and <m>-\frac{3}{2}\vec{b}</m>.
+                </p>
+            </li>
+        </ol>
+    </statement>
+    <solution>
+        <ol marker="1">
+            <li>
+                <p>
+                    To find <m>\vec{a}+\vec{b}</m>, add the corresponding components:
+                    <me>\vec{a}+\vec{b} = \langle -1+4, 3+3 \rangle = \langle 3,6 \rangle</me>
+                </p>
+                <p>
+                    To find <m>-3\vec{a}+2\vec{b}</m>, apply scalar multiplication first, then add:
+                    <me>-3\vec{a} = -3\langle -1,3 \rangle = \langle 3,-9 \rangle</me>
+                    <me>2\vec{b} = 2\langle 4,3 \rangle = \langle 8,6 \rangle</me>
+                    <me>-3\vec{a}+2\vec{b} = \langle 3+8, -9+6 \rangle = \langle 11,-3 \rangle</me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    First, calculate the scalar multiple: <m>-\frac{3}{2}\vec{b} = -\frac{3}{2}\langle 4,3 \rangle = \left\langle -6, -\frac{9}{2} \right\rangle = \langle -6, -4.5 \rangle</m>.
+                </p>
+                <p>
+                    Below is the sketch of the two position vectors on the coordinate plane:
+                </p>
+                <figure xml:id="fig-vector-ops-sketch">
+    <caption>The vectors <m>\vec{a}+\vec{b}</m> and <m>-\frac{3}{2}\vec{b}</m>.</caption>
+    <image xml:id="img-vector-ops" width="60%">
+        <shortdescription>A Cartesian grid showing two position vectors. The blue arrow is vector a plus b, pointing to (3,6). The red arrow is negative 3 halves vector b, pointing down and left to (-6, -4.5).</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.6]
+                % Draw Cartesian grid
+                \draw[color=gray!30, step=1cm] (-8,-6) grid (5,8);
+                
+                % Draw Axes
+                \draw[->, thick] (-8.5,0) -- (5.5,0) node[right] {\small $x$};
+                \draw[->, thick] (0,-6.5) -- (0,8.5) node[above] {\small $y$};
+                
+                % Add axis tick numbers
+                \foreach \x in {-8,-6,-4,-2,2,4}
+                    \draw (\x,0.1) -- (\x,-0.1) node[below] {\footnotesize $\x$};
+                \foreach \y in {-6,-4,-2,2,4,6,8}
+                    \draw (0.1,\y) -- (-0.1,\y) node[left] {\footnotesize $\y$};
+                \node[below left] at (0,0) {\footnotesize $0$};
+
+                % Vector a+b (FIXED: Removed all raw angle brackets from comment text)
+                \draw[->, ultra thick, blue] (0,0) -- (3,6) node[above right] {$\vec{a}+\vec{b} = \langle 3,6 \rangle$};
+                
+                % Vector -3/2 b
+                \draw[->, ultra thick, red] (0,0) -- (-6,-4.5) node[below left] {$-\frac{3}{2}\vec{b} = \langle -6,-4.5 \rangle$};
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+            </li>
+        </ol>
+    </solution>
+</example>
+
+<definition xml:id="def-zero-negative-vector">
+    <statement>
+        <p>
+            The <term>zero vector 0</term> is defined as <m>\vec{0} = \langle 0,0 \rangle</m>, and the <term>negative -a</term> of a vector <m>\vec{a} = \langle a_1,a_2 \rangle</m> is defined as:
+            <me>-\vec{a} = -\langle a_1,a_2 \rangle = \langle -a_1,-a_2 \rangle</me>
+        </p>
+    </statement>
+</definition>
+
+<theorem xml:id="thm-properties-of-vectors">
+    <title>Properties of Vectors</title>
+    <statement>
+        <p>
+            Let <m>\vec{a}</m>, <m>\vec{b}</m>, and <m>\vec{c}</m> be vectors, and let <m>c</m> and <m>d</m> be scalars. Then:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    <m>\vec{a}+\vec{b}=\vec{b}+\vec{a}</m>, and <m>c(\vec{a}+\vec{b})=c\vec{a}+c\vec{b}</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>\vec{a}+(\vec{b}+\vec{c})=(\vec{a}+\vec{b})+\vec{c}</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>\vec{a}+\vec{0}=\vec{a}</m>, and <m>\vec{a}+(-\vec{a})=\vec{0}</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>(c+d)\vec{a}=c\vec{a}+d\vec{a}</m>, and <m>(cd)\vec{a}=c(d\vec{a})=d(c\vec{a})</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>1\vec{a}=\vec{a}</m>, and <m>0\vec{a}=\vec{0}=c\vec{0}</m>
+                </p>
+            </li>
+        </ol>
+    </statement>
+</theorem>
+
+<definition xml:id="def-vector-difference">
+    <statement>
+        <p>
+            Let <m>\vec{a}=\langle a_1,a_2 \rangle</m> and <m>\vec{b}=\langle b_1,b_2 \rangle</m>. The <term>difference a-b</term> is:
+            <me>\vec{a}-\vec{b}=\vec{a}+(-\vec{b}) = \langle a_1-b_1, a_2-b_2 \rangle</me>
+        </p>
+    </statement>
+</definition>
+
+<example xml:id="ex-vector-subtraction">
+    <statement>
+        <p>
+            If <m>\vec{a}=\langle 5,-3 \rangle</m> and <m>\vec{b}=\langle -2,3 \rangle</m>, find:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    <m>\vec{a}-\vec{b}</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>3\vec{a}-2\vec{b}</m>
+                </p>
+            </li>
+        </ol>
+    </statement>
+    <solution>
+        <ol marker="1">
+            <li>
+                <p>
+                    To find <m>\vec{a}-\vec{b}</m>, subtract the components of <m>\vec{b}</m> from the components of <m>\vec{a}</m>:
+                    <me>\vec{a}-\vec{b} = \langle 5 - (-2), -3 - 3 \rangle = \langle 5 + 2, -6 \rangle = \langle 7,-6 \rangle</me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    To find <m>3\vec{a}-2\vec{b}</m>, perform the scalar multiplications first, then subtract:
+                    <me>3\vec{a} = 3\langle 5,-3 \rangle = \langle 15,-9 \rangle</me>
+                    <me>2\vec{b} = 2\langle -2,3 \rangle = \langle -4,6 \rangle</me>
+                </p>
+                <p>
+                    Now subtract the resulting components:
+                    <me>3\vec{a}-2\vec{b} = \langle 15 - (-4), -9 - 6 \rangle = \langle 15 + 4, -15 \rangle = \langle 19,-15 \rangle</me>
+                </p>
+            </li>
+        </ol>
+    </solution>
+</example>
+
+<theorem xml:id="thm-vector-between-points">
+    <title>Vector from Two Points</title>
+    <statement>
+        <p>
+            If <m>P_1(x_1,y_1)</m> and <m>P_2(x_2,y_2)</m> are any two points, the vector <m>\vec{a}</m> in <m>V_2</m> that corresponds to the directed line segment <m>\vec{P_1P_2}</m> is:
+            <me>\vec{a} = \langle x_2-x_1, y_2-y_1 \rangle</me>
+        </p>
+    </statement>
+</theorem>
+
+<example xml:id="ex-vector-from-points">
+    <statement>
+        <p>
+            Given points <m>P(3,2)</m> and <m>Q(-1,5)</m>:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    Sketch <m>\vec{PQ}</m> and <m>\vec{QP}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Find vectors <m>\vec{a}</m> and <m>\vec{b}</m> in <m>V_2</m> that correspond to <m>\vec{PQ}</m> and <m>\vec{QP}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Sketch the position vectors for <m>\vec{a}</m> and <m>\vec{b}</m>.
+                </p>
+            </li>
+        </ol>
+    </statement>
+    <solution>
+        <ol marker="1">
+            <li>
+                <p>
+                    To sketch the directed line segments, draw an arrow starting at point <m>P(3,2)</m> and ending at point <m>Q(-1,5)</m> for <m>\vec{PQ}</m>. For <m>\vec{QP}</m>, reverse the direction so it starts at <m>Q(-1,5)</m> and ends at <m>P(3,2)</m>. (See the left graph below).
+                </p>
+            </li>
+            <li>
+                <p>
+                    To find the vector components, subtract the initial coordinates from the terminal coordinates ("terminal minus initial"):
+                </p>
+                <p>
+                    For <m>\vec{a}</m> corresponding to <m>\vec{PQ}</m>:
+                    <me>\vec{a} = \langle -1 - 3, 5 - 2 \rangle = \langle -4,3 \rangle</me>
+                </p>
+                <p>
+                    For <m>\vec{b}</m> corresponding to <m>\vec{QP}</m>:
+                    <me>\vec{b} = \langle 3 - (-1), 2 - 5 \rangle = \langle 4,-3 \rangle</me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    To sketch the position vectors <m>\vec{a}</m> and <m>\vec{b}</m>, shift them so their initial points sit exactly at the origin <m>(0,0)</m>. The terminal points will be <m>(-4,3)</m> and <m>(4,-3)</m>, respectively. Notice that they are perfectly parallel to and have the same lengths as the original segments (See the right graph below).
+                </p>
+                
+                <sidebyside widths="45% 45%">
+                    <figure xml:id="fig-directed-segments">
+                        <caption>The directed line segments <m>\vec{PQ}</m> and <m>\vec{QP}</m> in space.</caption>
+                        <image xml:id="img-directed-segments">
+                            <shortdescription>A coordinate grid showing a blue arrow starting at P(3,2) and ending at Q(-1,5), and a dashed red arrow pointing in the opposite direction from Q to P.</shortdescription>
+                            <latex-image>
+                                \begin{tikzpicture}[>=stealth, scale=0.5]
+                                    \draw[color=gray!30, step=1cm] (-5,-4) grid (5,6);
+                                    \draw[->, thick] (-5.5,0) -- (5.5,0) node[right] {\small $x$};
+                                    \draw[->, thick] (0,-4.5) -- (0,6.5) node[above] {\small $y$};
+                                    
+                                    \filldraw (3,2) circle (3pt) node[right] {$P(3,2)$};
+                                    \filldraw (-1,5) circle (3pt) node[above left] {$Q(-1,5)$};
+                                    
+                                    % Vector PQ
+                                    \draw[->, ultra thick, blue] (3,2) -- (-1,5) node[midway, above right] {$\vec{PQ}$};
+                                    % Vector QP (slightly offset or dashed to avoid overlay collision)
+                                    \draw[->, thick, dashed, red] (-1,5) -- (3,2) node[midway, below left] {$\vec{QP}$};
+                                \end{tikzpicture}
+                            </latex-image>
+                        </image>
+                    </figure>
+
+                    <figure xml:id="fig-position-vectors-shifted">
+    <caption>The corresponding position vectors <m>\vec{a}</m> and <m>\vec{b}</m> at the origin.</caption>
+    <image xml:id="img-position-vectors-shifted">
+        <shortdescription>A coordinate grid showing the position vectors originating from (0,0). Blue vector a ends at (-4,3) and red vector b ends at (4,-3).</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.5]
+                \draw[color=gray!30, step=1cm] (-5,-4) grid (5,6);
+                \draw[->, thick] (-5.5,0) -- (5.5,0) node[right] {\small $x$};
+                \draw[->, thick] (0,-4.5) -- (0,6.5) node[above] {\small $y$};
+                
+                % Vector a (FIXED: Raw angle brackets removed from the comment text)
+                \draw[->, ultra thick, blue] (0,0) -- (-4,3) node[above left] {\small $\vec{a}=\langle -4,3 \rangle$};
+                
+                % Vector b (FIXED: Raw angle brackets removed from the comment text)
+                \draw[->, ultra thick, red] (0,0) -- (4,-3) node[below right] {\small $\vec{b}=\langle 4,-3 \rangle$};
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+                </sidebyside>
+            </li>
+        </ol>
+    </solution>
+</example>
+
+<definition xml:id="def-vector-directions">
+    <statement>
+        <p>
+            Nonzero vectors <m>\vec{a}</m> and <m>\vec{b}</m> in <m>V_2</m> have:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    the <term>same direction</term> if <m>\vec{b}=c\vec{a}</m> for some scalar <m>c \gt 0</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    the <term>opposite direction</term> if <m>\vec{b}=c\vec{a}</m> for some scalar <m>c \lt 0</m>
+                </p>
+            </li>
+        </ol>
+    </statement>
+</definition>
+
+<theorem xml:id="thm-magnitude-scalar-multiple">
+    <title>Magnitude of a Scalar Multiple</title>
+    <statement>
+        <p>
+            If <m>\vec{a}</m> is a vector and <m>c</m> is a scalar, then <m>\|c\vec{a}\| = |c|\|\vec{a}\|</m>.
+        </p>
+    </statement>
+</theorem>
+
+<definition xml:id="def-standard-unit-vectors">
+    <statement>
+        <p>
+            A vector of length 1 is called a <term>unit vector</term>. The <term>standard unit vectors</term> are:
+            <me>\vec{i} = \langle 1,0 \rangle, \quad \vec{j} = \langle 0,1 \rangle</me>
+            If <m>\vec{a} = \langle a_1,a_2 \rangle</m>, then it can be written as a linear combination of the standard unit vectors:
+            <me>\vec{a} = a_1\vec{i} + a_2\vec{j}</me>
+        </p>
+    </statement>
+</definition>
+
+<example xml:id="ex-linear-combination">
+    <statement>
+        <p>
+            If <m>\vec{a} = -5\vec{i} + 2\vec{j}</m> and <m>\vec{b} = \vec{i} - 3\vec{j}</m>, express <m>2\vec{a} - 3\vec{b}</m> as a linear combination of <m>\vec{i}</m> and <m>\vec{j}</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Substitute the linear combinations for <m>\vec{a}</m> and <m>\vec{b}</m> into the expression, distribute the scalars, and combine like terms:
+            <md>
+                <mrow>2\vec{a} - 3\vec{b} \amp = 2(-5\vec{i} + 2\vec{j}) - 3(\vec{i} - 3\vec{j})</mrow>
+                <mrow>\amp = (-10\vec{i} + 4\vec{j}) - (3\vec{i} - 9\vec{j})</mrow>
+                <mrow>\amp = -10\vec{i} - 3\vec{i} + 4\vec{j} + 9\vec{j}</mrow>
+                <mrow>\amp = -13\vec{i} + 13\vec{j}</mrow>
+            </md>
+        </p>
+    </solution>
+</example>
+
+<theorem xml:id="thm-unit-vector-direction">
+    <title>Unit Vector in the Same Direction</title>
+    <statement>
+        <p>
+            A <term>unit vector</term> is a vector of magnitude 1. The vectors <m>\vec{i}</m> and <m>\vec{j}</m> are unit vectors. If <m>\vec{a} \neq \vec{0}</m>, then the unit vector <m>\vec{u}</m> that has the same direction as <m>\vec{a}</m> is:
+            <me>\vec{u} = \frac{1}{\|\vec{a}\|} \vec{a}</me>
+        </p>
+    </statement>
+</theorem>
+
+<example xml:id="ex-find-unit-vector">
+    <statement>
+        <p>
+            Find the unit vector <m>\vec{u}</m> that has the same direction as <m>\vec{a} = -8\vec{i} + 15\vec{j}</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            First, find the magnitude of vector <m>\vec{a}</m>:
+            <me>\|\vec{a}\| = \sqrt{(-8)^2 + 15^2} = \sqrt{64 + 225} = \sqrt{289} = 17</me>
+        </p>
+        <p>
+            Next, multiply the reciprocal of the magnitude by the original vector <m>\vec{a}</m>:
+            <me>\vec{u} = \frac{1}{17}(-8\vec{i} + 15\vec{j}) = -\frac{8}{17}\vec{i} + \frac{15}{17}\vec{j}</me>
+        </p>
+    </solution>
+</example>
+
+<example xml:id="ex-football-velocity-components">
+    <statement>
+        <p>
+            A quarterback releases the football with a velocity of 50 ft/sec at an angle of <m>35^\circ</m> with the horizontal. Approximate the horizontal and vertical components of the vector.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            A vector <m>\vec{v}</m> given a magnitude <m>\|\vec{v}\|</m> and a direction angle <m>\theta</m> can be written in component form as <m>\vec{v} = \langle \|\vec{v}\|\cos(\theta), \|\vec{v}\|\sin(\theta) \rangle</m>.
+        </p>
+        <p>
+            Given <m>\|\vec{v}\| = 50</m> and <m>\theta = 35^\circ</m>:
+            <ul>
+                <li>
+                    <p>
+                        Horizontal component: <m>50\cos(35^\circ) \approx 40.96\text{ ft/sec}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Vertical component: <m>50\sin(35^\circ) \approx 28.68\text{ ft/sec}</m>
+                    </p>
+                </li>
+            </ul>
+            In component form, the velocity vector is approximately <m>\langle 40.96, 28.68 \rangle</m>.
+        </p>
+    </solution>
+</example>
+
+<example xml:id="ex-airplane-velocity-components">
+    <statement>
+        <p>
+            A jet airplane approaches a runway at an angle of <m>7.5^\circ</m> with the horizontal, traveling at a velocity of 160 mi/hr. Approximate the horizontal and vertical components of the vector.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Given a magnitude of <m>\|\vec{v}\| = 160</m> and an approach angle of <m>\theta = 7.5^\circ</m>:
+            <ul>
+                <li>
+                    <p>
+                        Horizontal component: <m>160\cos(7.5^\circ) \approx 158.63\text{ mi/hr}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Vertical component: <m>160\sin(7.5^\circ) \approx 20.88\text{ mi/hr}</m>
+                    </p>
+                </li>
+            </ul>
+            In component form, the velocity vector is approximately <m>\langle 158.63, 20.88 \rangle</m>. Note that because the plane is descending, the vertical velocity component can be interpreted as acting in the downward direction (<m>-20.88</m>).
+        </p>
+    </solution>
+</example>
+
+        </section>

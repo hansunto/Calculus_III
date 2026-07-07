@@ -6,118 +6,30 @@
   <xi:include href="./docinfo.ptx" />
   <!-- By creating a PreTeXt "book" for the course, we can split components into "chapters" -->
   <book>
-    <title>MA-105 (Survey of Math)</title>
+    <title>MA-310 (Calculus III)</title>
 
     <subtitle>Worcester State University</subtitle>
 
     <!-- Optional: include frontmatter with author info and date -->
     <xi:include href="./frontmatter.ptx" />
 
-    <chapter xml:id="ch-Voting-Apportionment">
-      <title>Voting and Apportionment</title>
+    <chapter xml:id="ch-Vectors-and-the-Geometry-of-Space">
+      <title>Vectors and the Geometry of Space</title>
       <introduction>
-        <p>
-        Beyond just marking a ballot, these concepts shape how our voices are heard 
-        and how resources are distributed. This chapter breaks down the mechanics 
-        behind decision-making, offering clear examples of how mathematical fairness 
-        directly impacts your community and representation.
-        </p>
+      <p>
+      Vector calculus is the branch of mathematics that deals with vector fields and their derivatives. 
+      It is essential for understanding the behavior of physical systems in three-dimensional space.
+      </p>
+      <p>
+      In this chapter, we will explore the fundamental concepts of vector calculus, including gradient, divergence, and curl.
+      </p>
       </introduction>
-      <xi:include href="./notes/voting.ptx" />
-      <xi:include href="./notes/Apportionment.ptx" />
-      <xi:include href="./notes/votingchex.ptx" />
-    </chapter>
+      <xi:include href="./notes/2DVectors.ptx" />
+      <xi:include href="./notes/3DVectors.ptx" />
 
-    <chapter xml:id="ch-Personal-Finance">
-      <title>Personal Finance</title>
-      <introduction>
-        <p>
-          In an era of digital banking and shifting economies, understanding your personal finances is a superpower. 
-          This resource moves beyond the classroom to show how smart financial habits today can create long-term 
-          stability and open doors for the opportunities you care about most.
-        </p>
-      </introduction>
-      <xi:include href="./notes/simpleinterest.ptx" />
-      <xi:include href="./notes/compoundinterest.ptx" />
-      <xi:include href="./notes/Annuities.ptx"/>
-      <xi:include href="./notes/mortgage.ptx"/>
-      <xi:include href="./notes/identifyformula.ptx" />
-      <xi:include href="./notes/finchex.ptx" />
-    </chapter>
-   
-    <chapter xml:id="ch-Probability">
-      <title>Probability </title>
-      <introduction>
-    <p>
-      Probability is the mathematical study of uncertainty. 
-      Whether we are tossing a coin or predicting the weather, we use probability 
-      to quantify the likelihood of different outcomes.
-    </p>
-    <p>
-      In this chapter, we will define the fundamental building blocks of the theory, starting with the concept of a <term>sample space</term>.
-    </p>
-  </introduction>
 
-  <xi:include href="./notes/fundamentalP.ptx" />
-  <xi:include href="./notes/OrNotEvent.ptx" />
-  <xi:include href="./notes/FCP.ptx" />
-  <xi:include href="./notes/Factorials.ptx" />
-  <xi:include href="./notes/Permutations.ptx" />
-  <xi:include href="./notes/Combinations.ptx" />
-  <xi:include href="./notes/Probability.ptx" />
-  <xi:include href="./notes/Probchex.ptx" />
-
+  <!--<xi:include href="./notes/fundamentalP.ptx" />--> 
    </chapter>
-
-   <chapter xml:id="ch-Intro-Statistics">
-      <title>Introduction to Statistics</title>
-      <introduction>
-      <p>
-      Statistics is the branch of mathematics that deals with collecting, analyzing, interpreting, presenting, and organizing data. It provides tools and techniques for making sense of data and drawing meaningful conclusions from it. In this handout, we will explore some fundamental concepts in statistics, including measures of central tendency, measures of variability, and basic probability.
-      </p>
-      <p>
-        In this chapter, we will cover the following topics:
-        <ul>
-          <li>Data Graphs: Visual representations of data to identify patterns and trends.</li>
-          <li>Center and Spread: Measures of central tendency (mean, median, mode) and measures of variability (range, variance, standard deviation).</li>
-          <li>Empirical Rule: A rule that describes the distribution of data in a normal distribution.</li>
-          <li>Z-scores: Standardized scores that indicate how many standard deviations a data point is from the mean.</li>
-          <li>Regression: A statistical method for modeling the relationship between a dependent variable and one or more independent variables.</li>
-        </ul>
-      </p>
-
-      </introduction>  
-
-      <xi:include href="./notes/data_graph.ptx" />
-      <xi:include href="./notes/Center-Spread.ptx" />
-      <xi:include href="./notes/empirical-rule.ptx" />
-      <xi:include href="./notes/zscores.ptx" />
-      <xi:include href="./notes/Regression.ptx" />
-      <xi:include href="./notes/Statchex.ptx" />
-    </chapter>    
-
-
-
-
-   <chapter xml:id="Hands-On-Sessions">
-      <title>Practical Application &amp; Hands-On Sessions</title>
-
-      <introduction>
-        <p>
-          These notes are intended strictly for a quick review of each chapter. 
-          They do not substitute for attending lectures or reading the assigned textbook. 
-                  </p>
-      </introduction>
-      <xi:include href="./handouts/handout-voting.ptx" />
-      <xi:include href="./handouts/handout-apportion.ptx" />
-      <xi:include href="./handouts/handout-finance.ptx"/>
-      <xi:include href="./handouts/handout-statistics.ptx" />
-      <!-- <xi:include href="./notes/finance.ptx"/> -->
-      <!--<xi:include href="./notes/unit01.ptx"/>
-      <xi:include href="./notes/week02.ptx"/>-->
-      <!-- etc. -->
-
-    </chapter>
 
     <chapter xml:id="activities">
       <title>MyOpenMath Interactive Activities</title>
@@ -130,15 +42,7 @@
       </introduction>
 
       <!-- Remove the example and replace with your own activities -->
-      <xi:include href="./activities/1-1-Act-Voting.ptx"/>
-      <xi:include href="./activities/1-2-Act-App.ptx"/>
-      <xi:include href="./activities/2-1-Act-Simple.ptx"/>
-      <xi:include href="./activities/2-2-Act_Compound.ptx"/>
-      <xi:include href="./activities/2-3-Act-Annuity.ptx"/>
-      <xi:include href="./activities/2-4-Act-Loans.ptx"/>
-      <xi:include href="./activities/2-5-Act-Mortgages.ptx"/>
-
-      <!--<xi:include href="./activities/01-intro-activity.ptx"/>-->
+     <!--<xi:include href="./activities/01-intro-activity.ptx"/>-->
 
       <!-- Add more xi:include files here to include them in the main course -->
     </chapter>
