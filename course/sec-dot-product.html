@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1.3 The Dot Product</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.8';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.917dfc3cfe0bb764.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.d40a1acc1751a0b6.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-vectors-3d.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Vectors-and-the-Geometry-of-Space.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-cross-product.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">2</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="handouts.html" class="internal"><span class="codenumber">3</span> <span class="title">Handouts</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">4</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">5</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-dot-product">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">1.3 The Dot Product</span>
+</h2>
+<div class="para" id="sec-dot-product-2">Suppose a constant <dfn class="terminology">force</dfn> is represented by a vector <span class="process-math">\(\vec{F} = \vec{PR}\)</span> pointing in some direction other than the direction of motion. If this force moves an object from point <span class="process-math">\(P\)</span> to point <span class="process-math">\(Q\text{,}\)</span> then the <dfn class="terminology">displacement vector</dfn> is <span class="process-math">\(\vec{D} = \vec{PQ}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-dot-product-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-dot-product-3">
+<div class="para">The <dfn class="terminology">work</dfn> done by <span class="process-math">\(\vec{F}\)</span> is defined as the magnitude of the displacement <span class="process-math">\(\vec{D}\text{,}\)</span> multiplied by the magnitude of the applied force in the direction of the motion. Therefore, the work done by <span class="process-math">\(\vec{F}\)</span> is defined to be:</div>
+<div class="displaymath process-math" id="sec-dot-product-3-5">
+\begin{equation*}
+W = \|\vec{D}\|(\|\vec{F}\|\cos(\theta)) = \|\vec{D}\|\|\vec{F}\|\cos(\theta)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\theta\)</span> is the angle between the force and displacement vectors.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-dot-product-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-work-vector-projection"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="generated/latex-image/img-work-vector-projection.svg" role="img" class="contained" alt="A vector diagram showing displacement vector D pointing horizontally from point P to point Q. Force vector F points up and right from point P to point R. A dashed vertical line drops from point R to a point on vector D, creating a right triangle that marks the component of force in the direction of motion as double norm of F times cosine theta."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.42<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The geometric projection of a force vector <span class="process-math">\(\vec{F}\)</span> along a displacement vector <span class="process-math">\(\vec{D}\text{.}\)</span><div class="autopermalink" data-description="Figure 1.42"><a href="#fig-work-vector-projection" title="Copy heading and permalink for Figure 1.42" aria-label="Copy heading and permalink for Figure 1.42">🔗</a></div></figcaption>
+</figure>
+<article class="definition definition-like" id="def-dot-product-geometric"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.43</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="def-dot-product-geometric-1-1">
+<div class="para">The <dfn class="terminology">dot product</dfn> of two vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> is the number:</div>
+<div class="displaymath process-math" id="def-dot-product-geometric-1-1-4">
+\begin{equation*}
+\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\theta)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\text{,}\)</span> such that <span class="process-math">\(0 \leq \theta \leq \pi\text{.}\)</span> Thus, <span class="process-math">\(\theta\)</span> is the smallest angle between the vectors when they are drawn with the same initial point. If either <span class="process-math">\(\vec{a} = \vec{0}\)</span> or <span class="process-math">\(\vec{b} = \vec{0}\text{,}\)</span> we define <span class="process-math">\(\vec{a} \cdot \vec{b} = 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-dot-product-geometric-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.43"><a href="#def-dot-product-geometric" title="Copy heading and permalink for Definition 1.43" aria-label="Copy heading and permalink for Definition 1.43">🔗</a></div>
+</article>
+<div class="para" id="sec-dot-product-6">The dot product is a real number, that is, a scalar. For this reason, the dot product is sometimes called the <dfn class="terminology">scalar product</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-dot-product-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-dot-product-geometric-calc" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.44</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-dot-product-geometric-calc-1-1">If the vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> have lengths <span class="process-math">\(4\)</span> and <span class="process-math">\(6\text{,}\)</span> and the angle between them is <span class="process-math">\(\pi/3\text{,}\)</span> find <span class="process-math">\(\vec{a} \cdot \vec{b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-geometric-calc-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-dot-product-geometric-calc-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-dot-product-geometric-calc-2-1">
+<div class="para">Substitute the given magnitudes and the angle into the geometric definition of the dot product:</div>
+<div class="displaymath process-math" id="ex-dot-product-geometric-calc-2-1-1">
+\begin{align*}
+\vec{a} \cdot \vec{b} \amp = \|\vec{a}\| \|\vec{b}\| \cos(\theta)\\
+\amp = (4)(6) \cos\left(\frac{\pi}{3}\right)\\
+\amp = 24 \cdot \left(\frac{1}{2}\right)\\
+\amp = 12
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-geometric-calc-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-geometric-dot-product"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="generated/latex-image/img-geometric-dot-product.svg" role="img" class="contained" alt="Two vectors originating from the same point. Vector b lies horizontally to the right with length 6. Vector a points up and right with length 4. The angle between them is marked as pi over 3."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.45<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two vectors separated by an angle of <span class="process-math">\(\pi/3\text{.}\)</span><div class="autopermalink" data-description="Figure 1.45"><a href="#fig-geometric-dot-product" title="Copy heading and permalink for Figure 1.45" aria-label="Copy heading and permalink for Figure 1.45">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 1.44.1"><a href="#ex-dot-product-geometric-calc-2" title="Copy heading and permalink for Solution 1.44.1" aria-label="Copy heading and permalink for Solution 1.44.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.44"><a href="#ex-dot-product-geometric-calc" title="Copy heading and permalink for Example 1.44" aria-label="Copy heading and permalink for Example 1.44">🔗</a></div>
+</article></details>
+<details id="ex-work-done-ramp" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.46</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-work-done-ramp-1-1">A crate is hauled 8 m up a ramp under a constant force of 200 N applied at an angle of <span class="process-math">\(25^\circ\)</span> to the ramp. Find the work done.<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-ramp-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-work-done-ramp-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-work-done-ramp-2-1">The work done by a constant force is given by the formula <span class="process-math">\(W = \|\vec{F}\| \|\vec{D}\| \cos(\theta)\text{,}\)</span> which corresponds exactly to the dot product of the force vector and the displacement vector <span class="process-math">\(\vec{F} \cdot \vec{D}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-ramp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-work-done-ramp-2-2">
+<div class="para">Given <span class="process-math">\(\|\vec{F}\| = 200\text{ N}\text{,}\)</span> <span class="process-math">\(\|\vec{D}\| = 8\text{ m}\text{,}\)</span> and <span class="process-math">\(\theta = 25^\circ\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-work-done-ramp-2-2-4">
+\begin{align*}
+W \amp = (200)(8) \cos(25^\circ)\\
+\amp = 1600 \cos(25^\circ)\\
+\amp \approx 1450.09\text{ J}
+\end{align*}
+</div>
+<div class="para">The work done in hauling the crate is approximately <span class="process-math">\(1450.09\)</span> Joules (or Newton-meters).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-ramp-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-work-on-ramp"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-work-on-ramp.svg" role="img" class="contained" alt="A schematic showing an inclined plane ramp at 15 degrees. A crate sits on the ramp. A displacement vector arrow points up along the ramp surface labeled D equals 8 m. From the center of the crate, a force vector arrow pulls up and right at a steeper angle labeled F equals 200 N, with the intermediate angle marked as 25 degrees."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.47<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Force vector acting at an angle to the displacement along a ramp.<div class="autopermalink" data-description="Figure 1.47"><a href="#fig-work-on-ramp" title="Copy heading and permalink for Figure 1.47" aria-label="Copy heading and permalink for Figure 1.47">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 1.46.1"><a href="#ex-work-done-ramp-2" title="Copy heading and permalink for Solution 1.46.1" aria-label="Copy heading and permalink for Solution 1.46.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.46"><a href="#ex-work-done-ramp" title="Copy heading and permalink for Example 1.46" aria-label="Copy heading and permalink for Example 1.46">🔗</a></div>
+</article></details>
+<article class="corollary theorem-like" id="cor-orthogonal-vectors"><h3 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.48</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="cor-orthogonal-vectors-1-1">
+<div class="para">Two nonzero vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> are called <dfn class="terminology">perpendicular</dfn> or <dfn class="terminology">orthogonal</dfn> if the angle between them is <span class="process-math">\(\theta = \pi/2\text{.}\)</span> In this case:</div>
+<div class="displaymath process-math" id="cor-orthogonal-vectors-1-1-6">
+\begin{equation*}
+\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\pi/2) = 0
+\end{equation*}
+</div>
+<div class="para">Conversely, if <span class="process-math">\(\vec{a} \cdot \vec{b} = 0\)</span> then <span class="process-math">\(\cos(\theta) = 0\text{,}\)</span> which implies <span class="process-math">\(\theta = \pi/2\text{.}\)</span> Therefore, two vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> are orthogonal if and only if <span class="process-math">\(\vec{a} \cdot \vec{b} = 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor-orthogonal-vectors-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 1.48"><a href="#cor-orthogonal-vectors" title="Copy heading and permalink for Corollary 1.48" aria-label="Copy heading and permalink for Corollary 1.48">🔗</a></div>
+</article>
+<details id="cor-orthogonal-vectors-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para" id="cor-orthogonal-vectors-2-1">By definition, the geometric dot product is given by <span class="process-math">\(\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\theta)\text{,}\)</span> where <span class="process-math">\(0 \leq \theta \leq \pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor-orthogonal-vectors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="cor-orthogonal-vectors-2-2">
+<div class="para">For the forward direction, assume <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> are orthogonal. By definition, the angle between them is <span class="process-math">\(\theta = \pi/2\text{.}\)</span> Substituting this value yields:</div>
+<div class="displaymath process-math" id="cor-orthogonal-vectors-2-2-4">
+\begin{equation*}
+\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos\left(\frac{\pi}{2}\right) = \|\vec{a}\| \|\vec{b}\| (0) = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor-orthogonal-vectors-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="cor-orthogonal-vectors-2-3">
+<div class="para">For the reverse direction, assume <span class="process-math">\(\vec{a} \cdot \vec{b} = 0\)</span> for two nonzero vectors. Since the vectors are nonzero, their magnitudes are strictly positive (<span class="process-math">\(\|\vec{a}\| \neq 0\)</span> and <span class="process-math">\(\|\vec{b}\| \neq 0\)</span>). We can divide both sides of the definition by these magnitudes:</div>
+<div class="displaymath process-math" id="cor-orthogonal-vectors-2-3-4">
+\begin{equation*}
+0 = \|\vec{a}\| \|\vec{b}\| \cos(\theta) \implies \cos(\theta) = 0
+\end{equation*}
+</div>
+<div class="para">Within the restricted interval <span class="process-math">\(0 \leq \theta \leq \pi\text{,}\)</span> the equation <span class="process-math">\(\cos(\theta) = 0\)</span> has a unique solution, <span class="process-math">\(\theta = \pi/2\text{.}\)</span> Thus, the vectors are orthogonal.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor-orthogonal-vectors-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.48.1"><a href="#cor-orthogonal-vectors-2" title="Copy heading and permalink for Proof 1.48.1" aria-label="Copy heading and permalink for Proof 1.48.1">🔗</a></div>
+</article></details>
+<article class="corollary theorem-like" id="cor-dot-product-sign-meanings"><h3 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.49</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="cor-dot-product-sign-meanings-1-1">The sign of the dot product <span class="process-math">\(\vec{a} \cdot \vec{b}\)</span> provides geometric information about the relative directions of the vectors:<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="cor-dot-product-sign-meanings-1-2">
+<li id="cor-dot-product-sign-meanings-1-2-1">
+<div class="para" id="cor-dot-product-sign-meanings-1-2-1-1">It is positive if <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> point in the same general direction (<span class="process-math">\(0 \leq \theta \lt \pi/2\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#cor-dot-product-sign-meanings-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="cor-dot-product-sign-meanings-1-2-2">
+<div class="para" id="cor-dot-product-sign-meanings-1-2-2-1">It is <span class="process-math">\(0\)</span> if they are perpendicular (<span class="process-math">\(\theta = \pi/2\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#cor-dot-product-sign-meanings-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="cor-dot-product-sign-meanings-1-2-3">
+<div class="para" id="cor-dot-product-sign-meanings-1-2-3-1">It is negative if <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> point in generally opposite directions (<span class="process-math">\(\pi/2 \lt \theta \leq \pi\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#cor-dot-product-sign-meanings-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="cor-dot-product-sign-meanings-1-2-4">
+<div class="para logical" id="cor-dot-product-sign-meanings-1-2-4-1">
+<div class="para">If <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> point in exactly the same direction, then <span class="process-math">\(\theta = 0\text{,}\)</span> which means <span class="process-math">\(\cos(\theta) = 1\)</span> and:</div>
+<div class="displaymath process-math" id="cor-dot-product-sign-meanings-1-2-4-1-5">
+\begin{equation*}
+\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#cor-dot-product-sign-meanings-1-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="cor-dot-product-sign-meanings-1-2-5">
+<div class="para logical" id="cor-dot-product-sign-meanings-1-2-5-1">
+<div class="para">If <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> point in exactly the opposite direction, then <span class="process-math">\(\theta = \pi\text{,}\)</span> which means <span class="process-math">\(\cos(\theta) = -1\)</span> and:</div>
+<div class="displaymath process-math" id="cor-dot-product-sign-meanings-1-2-5-1-5">
+\begin{equation*}
+\vec{a} \cdot \vec{b} = -\|\vec{a}\| \|\vec{b}\|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-1-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#cor-dot-product-sign-meanings-1-2-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Corollary 1.49"><a href="#cor-dot-product-sign-meanings" title="Copy heading and permalink for Corollary 1.49" aria-label="Copy heading and permalink for Corollary 1.49">🔗</a></div>
+</article>
+<details id="cor-dot-product-sign-meanings-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para" id="cor-dot-product-sign-meanings-2-1">Because the magnitudes <span class="process-math">\(\|\vec{a}\|\)</span> and <span class="process-math">\(\|\vec{b}\|\)</span> of two nonzero vectors are always strictly positive, the sign of the product <span class="process-math">\(\|\vec{a}\| \|\vec{b}\| \cos(\theta)\)</span> is completely determined by the sign of the trigonometric term <span class="process-math">\(\cos(\theta)\)</span> on the interval <span class="process-math">\([0, \pi]\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal ol-marker-1" id="cor-dot-product-sign-meanings-2-2">
+<li id="cor-dot-product-sign-meanings-2-2-1">
+<div class="para" id="cor-dot-product-sign-meanings-2-2-1-1">When <span class="process-math">\(0 \leq \theta \lt \pi/2\)</span> (an acute angle), <span class="process-math">\(\cos(\theta) \gt 0\text{,}\)</span> rendering the dot product positive.<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#cor-dot-product-sign-meanings-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="cor-dot-product-sign-meanings-2-2-2">
+<div class="para" id="cor-dot-product-sign-meanings-2-2-2-1">When <span class="process-math">\(\theta = \pi/2\)</span> (a right angle), <span class="process-math">\(\cos(\theta) = 0\text{,}\)</span> rendering the dot product zero.<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#cor-dot-product-sign-meanings-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="cor-dot-product-sign-meanings-2-2-3">
+<div class="para" id="cor-dot-product-sign-meanings-2-2-3-1">When <span class="process-math">\(\pi/2 \lt \theta \leq \pi\)</span> (an obtuse angle), <span class="process-math">\(\cos(\theta) \lt 0\text{,}\)</span> rendering the dot product negative.<div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#cor-dot-product-sign-meanings-2-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="cor-dot-product-sign-meanings-2-2-4">
+<div class="para" id="cor-dot-product-sign-meanings-2-2-4-1">If they point in the exact same direction, <span class="process-math">\(\theta = 0\text{.}\)</span> Since <span class="process-math">\(\cos(0) = 1\text{,}\)</span> the expression simplifies directly to <span class="process-math">\(\|\vec{a}\| \|\vec{b}\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#cor-dot-product-sign-meanings-2-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="cor-dot-product-sign-meanings-2-2-5">
+<div class="para" id="cor-dot-product-sign-meanings-2-2-5-1">If they point in the exact opposite direction, <span class="process-math">\(\theta = \pi\text{.}\)</span> Since <span class="process-math">\(\cos(\pi) = -1\text{,}\)</span> the expression simplifies directly to <span class="process-math">\(-\|\vec{a}\| \|\vec{b}\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor-dot-product-sign-meanings-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#cor-dot-product-sign-meanings-2-2-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Proof 1.49.1"><a href="#cor-dot-product-sign-meanings-2" title="Copy heading and permalink for Proof 1.49.1" aria-label="Copy heading and permalink for Proof 1.49.1">🔗</a></div>
+</article></details>
+<section class="subsection" id="subsec-dot-product-component-form">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Dot Product in Component Form</span>
+</h3>
+<div class="para logical" id="subsec-dot-product-component-form-2">
+<div class="para">Suppose <span class="process-math">\(\vec{a} = \langle a_1,a_2,a_3 \rangle\)</span> and <span class="process-math">\(\vec{b} = \langle b_1,b_2,b_3 \rangle\)</span> are given in component forms. If we apply the Law of Cosines to the triangle formed by these vectors, we obtain:</div>
+<div class="displaymath process-math" id="subsec-dot-product-component-form-2-3">
+\begin{equation*}
+\|\vec{a}-\vec{b}\|^2 = \|\vec{a}\|^2 + \|\vec{b}\|^2 - 2\|\vec{a}\|\|\vec{b}\|\cos(\theta) = \|\vec{a}\|^2 + \|\vec{b}\|^2 - 2\vec{a}\cdot\vec{b}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dot-product-component-form-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="fact theorem-like" id="fact-dot-product-component-definition"><h4 class="heading">
+<span class="type">Fact</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.50</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebraic Dot Product Formula.</span>
+</h4>
+<div class="para logical" id="fact-dot-product-component-definition-2-1">
+<div class="para">The dot product of <span class="process-math">\(\vec{a} = \langle a_1,a_2,a_3 \rangle\)</span> and <span class="process-math">\(\vec{b} = \langle b_1,b_2,b_3 \rangle\)</span> is:</div>
+<div class="displaymath process-math" id="fact-dot-product-component-definition-2-1-3">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = a_1b_1 + a_2b_2 + a_3b_3
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#fact-dot-product-component-definition-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Fact 1.50: Algebraic Dot Product Formula"><a href="#fact-dot-product-component-definition" title="Copy heading and permalink for Fact 1.50: Algebraic Dot Product Formula" aria-label="Copy heading and permalink for Fact 1.50: Algebraic Dot Product Formula">🔗</a></div>
+</article>
+<details id="ex-dot-product-computations" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.51</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-dot-product-computations-1-1">Find the dot product <span class="process-math">\(\vec{a}\cdot\vec{b}\)</span> for each of the following cases:<div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-computations-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="ex-dot-product-computations-1-2">
+<li id="ex-dot-product-computations-1-2-1">
+<div class="para" id="ex-dot-product-computations-1-2-1-1">
+<span class="process-math">\(\vec{a} = \langle 2,-3,4 \rangle\text{,}\)</span> <span class="process-math">\(\vec{b} = \langle 6,2,-\frac{1}{2} \rangle\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-computations-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-dot-product-computations-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-dot-product-computations-1-2-2">
+<div class="para" id="ex-dot-product-computations-1-2-2-1">
+<span class="process-math">\(\vec{a} = 4\vec{j}-3\vec{k}\text{,}\)</span> <span class="process-math">\(\vec{b} = 2\vec{i}+4\vec{j}+6\vec{k}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-computations-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-dot-product-computations-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-dot-product-computations-1-2-3">
+<div class="para" id="ex-dot-product-computations-1-2-3-1">
+<span class="process-math">\(\|\vec{a}\| = 6\text{,}\)</span> <span class="process-math">\(\|\vec{b}\| = 5\text{,}\)</span> and the angle between <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> is <span class="process-math">\(2\pi/3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-computations-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-dot-product-computations-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-dot-product-computations-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal ol-marker-1" id="ex-dot-product-computations-2-1">
+<li id="ex-dot-product-computations-2-1-1">
+<div class="para logical" id="ex-dot-product-computations-2-1-1-1">
+<div class="para">Multiply corresponding components and add them together:</div>
+<div class="displaymath process-math" id="ex-dot-product-computations-2-1-1-1-1">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = (2)(6) + (-3)(2) + (4)\left(-\frac{1}{2}\right) = 12 - 6 - 2 = 4
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-computations-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-dot-product-computations-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-dot-product-computations-2-1-2">
+<div class="para logical" id="ex-dot-product-computations-2-1-2-1">
+<div class="para">First write <span class="process-math">\(\vec{a}\)</span> in full component form as <span class="process-math">\(\langle 0,4,-3 \rangle\)</span> and <span class="process-math">\(\vec{b}\)</span> as <span class="process-math">\(\langle 2,4,6 \rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-dot-product-computations-2-1-2-1-5">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = (0)(2) + (4)(4) + (-3)(6) = 0 + 16 - 18 = -2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-computations-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-dot-product-computations-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-dot-product-computations-2-1-3">
+<div class="para logical" id="ex-dot-product-computations-2-1-3-1">
+<div class="para">Since components are unknown but the angle is provided, use the geometric definition:</div>
+<div class="displaymath process-math" id="ex-dot-product-computations-2-1-3-1-1">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = \|\vec{a}\|\|\vec{b}\|\cos(\theta) = (6)(5)\cos\left(\frac{2\pi}{3}\right) = 30\left(-\frac{1}{2}\right) = -15
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-dot-product-computations-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-dot-product-computations-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 1.51.1"><a href="#ex-dot-product-computations-2" title="Copy heading and permalink for Solution 1.51.1" aria-label="Copy heading and permalink for Solution 1.51.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.51"><a href="#ex-dot-product-computations" title="Copy heading and permalink for Example 1.51" aria-label="Copy heading and permalink for Example 1.51">🔗</a></div>
+</article></details>
+<details id="ex-verify-perpendicular" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.52</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-verify-perpendicular-1-1">Show that <span class="process-math">\(2\vec{i}+2\vec{j}-\vec{k}\)</span> is perpendicular to <span class="process-math">\(5\vec{i}-4\vec{j}+2\vec{k}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-verify-perpendicular-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-verify-perpendicular-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-verify-perpendicular-2-1">
+<div class="para">Two vectors are perpendicular (orthogonal) if and only if their dot product equals zero. Let <span class="process-math">\(\vec{a} = \langle 2,2,-1 \rangle\)</span> and <span class="process-math">\(\vec{b} = \langle 5,-4,2 \rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-verify-perpendicular-2-1-3">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = (2)(5) + (2)(-4) + (-1)(2) = 10 - 8 - 2 = 0
+\end{equation*}
+</div>
+<div class="para">Because the dot product is exactly <span class="process-math">\(0\text{,}\)</span> the vectors are perpendicular.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-verify-perpendicular-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.52.1"><a href="#ex-verify-perpendicular-2" title="Copy heading and permalink for Solution 1.52.1" aria-label="Copy heading and permalink for Solution 1.52.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.52"><a href="#ex-verify-perpendicular" title="Copy heading and permalink for Example 1.52" aria-label="Copy heading and permalink for Example 1.52">🔗</a></div>
+</article></details>
+<details id="ex-angle-between-vectors" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.53</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-angle-between-vectors-1-1">Find the angle between the vectors <span class="process-math">\(\vec{a} = \langle 2,2,-1 \rangle\)</span> and <span class="process-math">\(\vec{b} = \langle 5,-3,2 \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-angle-between-vectors-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-angle-between-vectors-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-angle-between-vectors-2-1">We use the alternate formula for the angle between vectors: <span class="process-math">\(\cos(\theta) = \frac{\vec{a}\cdot\vec{b}}{\|\vec{a}\|\|\vec{b}\|}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-angle-between-vectors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-angle-between-vectors-2-2">
+<div class="para">First compute the dot product and individual vector magnitudes:</div>
+<div class="displaymath process-math" id="ex-angle-between-vectors-2-2-1">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = (2)(5) + (2)(-3) + (-1)(2) = 10 - 6 - 2 = 2
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-angle-between-vectors-2-2-2">
+\begin{equation*}
+\|\vec{a}\| = \sqrt{2^2 + 2^2 + (-1)^2} = \sqrt{4 + 4 + 1} = \sqrt{9} = 3
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-angle-between-vectors-2-2-3">
+\begin{equation*}
+\|\vec{b}\| = \sqrt{5^2 + (-3)^2 + 2^2} = \sqrt{25 + 9 + 4} = \sqrt{38}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-angle-between-vectors-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-angle-between-vectors-2-3">
+<div class="para">Substitute these calculations back into the cosine expression:</div>
+<div class="displaymath process-math" id="ex-angle-between-vectors-2-3-1">
+\begin{equation*}
+\cos(\theta) = \frac{2}{3\sqrt{38}} \implies \theta = \arccos\left(\frac{2}{3\sqrt{38}}\right) \approx 1.46\text{ radians (or } 83.8^\circ\text{)}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-angle-between-vectors-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.53.1"><a href="#ex-angle-between-vectors-2" title="Copy heading and permalink for Solution 1.53.1" aria-label="Copy heading and permalink for Solution 1.53.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.53"><a href="#ex-angle-between-vectors" title="Copy heading and permalink for Example 1.53" aria-label="Copy heading and permalink for Example 1.53">🔗</a></div>
+</article></details>
+<article class="proposition theorem-like" id="prop-dot-product-properties"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.54</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of the Dot Product.</span>
+</h4>
+<div class="para" id="prop-dot-product-properties-2-1">If <span class="process-math">\(\vec{a}\text{,}\)</span> <span class="process-math">\(\vec{b}\text{,}\)</span> and <span class="process-math">\(\vec{c}\)</span> are vectors in <span class="process-math">\(\mathbb{R}^3\)</span> and <span class="process-math">\(c\)</span> is a scalar, then:<div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="prop-dot-product-properties-2-2">
+<li id="prop-dot-product-properties-2-2-1">
+<div class="para" id="prop-dot-product-properties-2-2-1-1">
+<span class="process-math">\(\displaystyle \vec{a}\cdot\vec{a} = \|\vec{a}\|^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#prop-dot-product-properties-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="prop-dot-product-properties-2-2-2">
+<div class="para" id="prop-dot-product-properties-2-2-2-1">
+<span class="process-math">\(\displaystyle \vec{a}\cdot\vec{b} = \vec{b}\cdot\vec{a}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#prop-dot-product-properties-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="prop-dot-product-properties-2-2-3">
+<div class="para" id="prop-dot-product-properties-2-2-3-1">
+<span class="process-math">\(\displaystyle \vec{a}\cdot(\vec{b}+\vec{c}) = \vec{a}\cdot\vec{b} + \vec{a}\cdot\vec{c}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#prop-dot-product-properties-2-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="prop-dot-product-properties-2-2-4">
+<div class="para" id="prop-dot-product-properties-2-2-4-1">
+<span class="process-math">\(\displaystyle (c\vec{a})\cdot\vec{b} = c(\vec{a}\cdot\vec{b}) = \vec{a}\cdot(c\vec{b})\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#prop-dot-product-properties-2-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="prop-dot-product-properties-2-2-5">
+<div class="para" id="prop-dot-product-properties-2-2-5-1">
+<span class="process-math">\(\displaystyle \vec{0}\cdot\vec{a} = \vec{a}\cdot\vec{0} = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#prop-dot-product-properties-2-2-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Proposition 1.54: Properties of the Dot Product"><a href="#prop-dot-product-properties" title="Copy heading and permalink for Proposition 1.54: Properties of the Dot Product" aria-label="Copy heading and permalink for Proposition 1.54: Properties of the Dot Product">🔗</a></div>
+</article>
+<details id="prop-dot-product-properties-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
+<article class="hiddenproof knowl__content">
+<div class="para" id="prop-dot-product-properties-3-1">Let <span class="process-math">\(\vec{a} = \langle a_1, a_2, a_3 \rangle\text{,}\)</span> <span class="process-math">\(\vec{b} = \langle b_1, b_2, b_3 \rangle\text{,}\)</span> and <span class="process-math">\(\vec{c} = \langle c_1, c_2, c_3 \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal ol-marker-1" id="prop-dot-product-properties-3-2">
+<li id="prop-dot-product-properties-3-2-1">
+<div class="para logical" id="prop-dot-product-properties-3-2-1-1">
+<div class="para">By the component formula for the dot product:</div>
+<div class="displaymath process-math" id="prop-dot-product-properties-3-2-1-1-1">
+\begin{equation*}
+\vec{a}\cdot\vec{a} = a_1a_1 + a_2a_2 + a_3a_3 = a_1^2 + a_2^2 + a_3^2 = (\|\vec{a}\|)^2 = \|\vec{a}\|^2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#prop-dot-product-properties-3-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="prop-dot-product-properties-3-2-2">
+<div class="para logical" id="prop-dot-product-properties-3-2-2-1">
+<div class="para">Since multiplication of real numbers is commutative (<span class="process-math">\(a_ib_i = b_ia_i\)</span>):</div>
+<div class="displaymath process-math" id="prop-dot-product-properties-3-2-2-1-2">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = a_1b_1 + a_2b_2 + a_3b_3 = b_1a_1 + b_2a_2 + b_3a_3 = \vec{b}\cdot\vec{a}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#prop-dot-product-properties-3-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="prop-dot-product-properties-3-2-3">
+<div class="para logical" id="prop-dot-product-properties-3-2-3-1">
+<div class="para">Using the distributive property of real numbers:</div>
+<div class="displaymath process-math" id="prop-dot-product-properties-3-2-3-1-1">
+\begin{align*}
+\vec{a}\cdot(\vec{b}+\vec{c}) \amp = \vec{a}\cdot \langle b_1+c_1, b_2+c_2, b_3+c_3 \rangle\\
+\amp = a_1(b_1+c_1) + a_2(b_2+c_2) + a_3(b_3+c_3)\\
+\amp = (a_1b_1 + a_1c_1) + (a_2b_2 + a_2c_2) + (a_3b_3 + a_3c_3)\\
+\amp = (a_1b_1 + a_2b_2 + a_3b_3) + (a_1c_1 + a_2c_2 + a_3c_3) = \vec{a}\cdot\vec{b} + \vec{a}\cdot\vec{c}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#prop-dot-product-properties-3-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="prop-dot-product-properties-3-2-4">
+<div class="para logical" id="prop-dot-product-properties-3-2-4-1">
+<div class="para">By factoring the real scalar <span class="process-math">\(c\)</span> from the algebraic terms:</div>
+<div class="displaymath process-math" id="prop-dot-product-properties-3-2-4-1-2">
+\begin{equation*}
+(c\vec{a})\cdot\vec{b} = (ca_1)b_1 + (ca_2)b_2 + (ca_3)b_3 = c(a_1b_1 + a_2b_2 + a_3b_3) = c(\vec{a}\cdot\vec{b})
+\end{equation*}
+</div>
+<div class="para">A symmetric argument shows this is also equal to <span class="process-math">\(\vec{a}\cdot(c\vec{b})\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#prop-dot-product-properties-3-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="prop-dot-product-properties-3-2-5">
+<div class="para logical" id="prop-dot-product-properties-3-2-5-1">
+<div class="para">Since multiplying any real number by zero equals zero:</div>
+<div class="displaymath process-math" id="prop-dot-product-properties-3-2-5-1-1">
+\begin{equation*}
+\vec{0}\cdot\vec{a} = (0)(a_1) + (0)(a_2) + (0)(a_3) = 0 + 0 + 0 = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop-dot-product-properties-3-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#prop-dot-product-properties-3-2-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Proof 1.54.1"><a href="#prop-dot-product-properties-3" title="Copy heading and permalink for Proof 1.54.1" aria-label="Copy heading and permalink for Proof 1.54.1">🔗</a></div>
+</article></details>
+<article class="theorem theorem-like" id="thm-cauchy-schwarz"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.55</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cauchy-Schwarz Inequality.</span>
+</h4>
+<div class="para logical" id="thm-cauchy-schwarz-2-1">
+<div class="para">For any two vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="thm-cauchy-schwarz-2-1-3">
+\begin{equation*}
+|\vec{a}\cdot\vec{b}| \leq \|\vec{a}\| \|\vec{b}\|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-cauchy-schwarz-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.55: Cauchy-Schwarz Inequality"><a href="#thm-cauchy-schwarz" title="Copy heading and permalink for Theorem 1.55: Cauchy-Schwarz Inequality" aria-label="Copy heading and permalink for Theorem 1.55: Cauchy-Schwarz Inequality">🔗</a></div>
+</article>
+<details id="thm-cauchy-schwarz-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
+<article class="hiddenproof knowl__content">
+<div class="para" id="thm-cauchy-schwarz-3-1">If either <span class="process-math">\(\vec{a} = \vec{0}\)</span> or <span class="process-math">\(\vec{b} = \vec{0}\text{,}\)</span> then both sides of the inequality are exactly <span class="process-math">\(0\text{,}\)</span> making the statement trivially true.<div class="autopermalink" data-description="Paragraph"><a href="#thm-cauchy-schwarz-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="thm-cauchy-schwarz-3-2">
+<div class="para">Assume both vectors are nonzero. We can express the dot product using its geometric definition:</div>
+<div class="displaymath process-math" id="thm-cauchy-schwarz-3-2-1">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\theta)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-cauchy-schwarz-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="thm-cauchy-schwarz-3-3">
+<div class="para">Taking the absolute value of both sides yields:</div>
+<div class="displaymath process-math" id="thm-cauchy-schwarz-3-3-1">
+\begin{equation*}
+|\vec{a}\cdot\vec{b}| = |\|\vec{a}\| \|\vec{b}\| \cos(\theta)| = \|\vec{a}\| \|\vec{b}\| |\cos(\theta)|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-cauchy-schwarz-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="thm-cauchy-schwarz-3-4">
+<div class="para">Since the cosine function is naturally bounded by the range of real values <span class="process-math">\(-1 \leq \cos(\theta) \leq 1\text{,}\)</span> its absolute value parameter satisfies <span class="process-math">\(|\cos(\theta)| \leq 1\text{.}\)</span> Substituting this boundary restriction into our equation produces the target proof expression:</div>
+<div class="displaymath process-math" id="thm-cauchy-schwarz-3-4-3">
+\begin{equation*}
+|\vec{a}\cdot\vec{b}| \leq \|\vec{a}\| \|\vec{b}\| (1) \implies |\vec{a}\cdot\vec{b}| \leq \|\vec{a}\| \|\vec{b}\|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-cauchy-schwarz-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.55.1"><a href="#thm-cauchy-schwarz-3" title="Copy heading and permalink for Proof 1.55.1" aria-label="Copy heading and permalink for Proof 1.55.1">🔗</a></div>
+</article></details>
+<article class="theorem theorem-like" id="thm-triangle-inequality-vectors"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.56</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Triangle Inequality.</span>
+</h4>
+<div class="para logical" id="thm-triangle-inequality-vectors-2-1">
+<div class="para">For any two vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="thm-triangle-inequality-vectors-2-1-3">
+\begin{equation*}
+\|\vec{a} + \vec{b}\| \leq \|\vec{a}\| + \|\vec{b}\|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-triangle-inequality-vectors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.56: Triangle Inequality"><a href="#thm-triangle-inequality-vectors" title="Copy heading and permalink for Theorem 1.56: Triangle Inequality" aria-label="Copy heading and permalink for Theorem 1.56: Triangle Inequality">🔗</a></div>
+</article>
+<details id="thm-triangle-inequality-vectors-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
+<article class="hiddenproof knowl__content">
+<div class="para logical" id="thm-triangle-inequality-vectors-3-1">
+<div class="para">Because both sides of the target inequality are non-negative real lengths, we can square the left-hand side and evaluate it using dot product properties:</div>
+<div class="displaymath process-math" id="thm-triangle-inequality-vectors-3-1-1">
+\begin{align*}
+\|\vec{a} + \vec{b}\|^2 \amp = (\vec{a} + \vec{b}) \cdot (\vec{a} + \vec{b})\\
+\amp = \vec{a}\cdot\vec{a} + \vec{a}\cdot\vec{b} + \vec{b}\cdot\vec{a} + \vec{b}\cdot\vec{b}\\
+\amp = \|\vec{a}\|^2 + 2(\vec{a}\cdot\vec{b}) + \|\vec{b}\|^2
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-triangle-inequality-vectors-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="thm-triangle-inequality-vectors-3-2">
+<div class="para">Since a real number is always less than or equal to its absolute value (<span class="process-math">\(x \leq |x|\)</span>), we can state that <span class="process-math">\(\vec{a}\cdot\vec{b} \leq |\vec{a}\cdot\vec{b}|\text{.}\)</span> Applying the Cauchy-Schwarz Inequality (<span class="process-math">\(|\vec{a}\cdot\vec{b}| \leq \|\vec{a}\|\|\vec{b}\|\)</span>) gives:</div>
+<div class="displaymath process-math" id="thm-triangle-inequality-vectors-3-2-4">
+\begin{align*}
+\|\vec{a} + \vec{b}\|^2 \amp \leq \|\vec{a}\|^2 + 2|\vec{a}\cdot\vec{b}| + \|\vec{b}\|^2\\
+\amp \leq \|\vec{a}\|^2 + 2\|\vec{a}\|\|\vec{b}\| + \|\vec{b}\|^2
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-triangle-inequality-vectors-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="thm-triangle-inequality-vectors-3-3">
+<div class="para">The right side is a perfect square trinomial, which factors into scalar lengths:</div>
+<div class="displaymath process-math" id="thm-triangle-inequality-vectors-3-3-1">
+\begin{equation*}
+\|\vec{a} + \vec{b}\|^2 \leq (\|\vec{a}\| + \|\vec{b}\|)^2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-triangle-inequality-vectors-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="thm-triangle-inequality-vectors-3-4">
+<div class="para">Taking the positive square root of both sides completes the proof:</div>
+<div class="displaymath process-math" id="thm-triangle-inequality-vectors-3-4-1">
+\begin{equation*}
+\|\vec{a} + \vec{b}\| \leq \|\vec{a}\| + \|\vec{b}\|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-triangle-inequality-vectors-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.56.1"><a href="#thm-triangle-inequality-vectors-3" title="Copy heading and permalink for Proof 1.56.1" aria-label="Copy heading and permalink for Proof 1.56.1">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subsection: The Dot Product in Component Form"><a href="#subsec-dot-product-component-form" title="Copy heading and permalink for Subsection: The Dot Product in Component Form" aria-label="Copy heading and permalink for Subsection: The Dot Product in Component Form">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-vector-projections">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Projections</span>
+</h3>
+<div class="para" id="subsec-vector-projections-2">Let <span class="process-math">\(\vec{PQ}\)</span> and <span class="process-math">\(\vec{PR}\)</span> be representations of two vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> sharing the same initial point <span class="process-math">\(P\text{.}\)</span> If <span class="process-math">\(S\)</span> is the foot of the perpendicular dropped from <span class="process-math">\(R\)</span> to the line containing <span class="process-math">\(\vec{PQ}\text{,}\)</span> then the vector represented by <span class="process-math">\(\vec{PS}\)</span> is called the <dfn class="terminology">vector projection</dfn> of <span class="process-math">\(\vec{b}\)</span> onto <span class="process-math">\(\vec{a}\)</span> and is denoted by <span class="process-math">\(\operatorname{proj}_{\vec{a}}\vec{b}\)</span> (think of this as the shadow cast by <span class="process-math">\(\vec{b}\)</span> onto <span class="process-math">\(\vec{a}\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-vector-projections-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-vector-projections-3">
+<div class="para">The <dfn class="terminology">scalar projection</dfn> of <span class="process-math">\(\vec{b}\)</span> onto <span class="process-math">\(\vec{a}\)</span> (also called the <dfn class="terminology">component of b along a</dfn>) is the real number <span class="process-math">\(\|\vec{b}\|\cos(\theta)\text{,}\)</span> where <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\text{.}\)</span> This value is denoted by <span class="process-math">\(\operatorname{comp}_{\vec{a}}\vec{b}\text{.}\)</span> The equation:</div>
+<div class="displaymath process-math" id="subsec-vector-projections-3-10">
+\begin{equation*}
+\vec{a}\cdot \vec{b} = \|\vec{a}\|\|\vec{b}\|\cos(\theta) = \|\vec{a}\|(\|\vec{b}\|\cos(\theta))
+\end{equation*}
+</div>
+<div class="para">shows that the dot product of <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> can be interpreted as the length of <span class="process-math">\(\vec{a}\)</span> multiplied by the scalar projection of <span class="process-math">\(\vec{b}\)</span> onto <span class="process-math">\(\vec{a}\text{.}\)</span> Since:</div>
+<div class="displaymath process-math" id="subsec-vector-projections-3-16">
+\begin{equation*}
+\|\vec{b}\|\cos(\theta) = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|} = \frac{\vec{a}}{\|\vec{a}\|} \cdot \vec{b}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-vector-projections-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="fact theorem-like" id="fact-projection-formulas"><h4 class="heading">
+<span class="type">Fact</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.57</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Projection Formulas.</span>
+</h4>
+<div class="para logical" id="fact-projection-formulas-2-1">
+<div class="para">Let <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> be vectors with <span class="process-math">\(\vec{a} \neq \vec{0}\text{.}\)</span>
+</div>
+<ul class="disc" id="fact-projection-formulas-2-1-4">
+<li id="fact-projection-formulas-2-1-4-1">
+<div class="para logical" id="fact-projection-formulas-2-1-4-1-1">
+<div class="para">
+<dfn class="terminology">Scalar projection of <span class="process-math">\(\vec{b}\)</span> onto <span class="process-math">\(\vec{a}\)</span></dfn>:</div>
+<div class="displaymath process-math" id="fact-projection-formulas-2-1-4-1-1-2">
+\begin{equation*}
+\operatorname{comp}_{\vec{a}}\vec{b} = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#fact-projection-formulas-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#fact-projection-formulas-2-1-4-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="fact-projection-formulas-2-1-4-2">
+<div class="para logical" id="fact-projection-formulas-2-1-4-2-1">
+<div class="para">
+<dfn class="terminology">Vector projection of <span class="process-math">\(\vec{b}\)</span> onto <span class="process-math">\(\vec{a}\)</span></dfn>:</div>
+<div class="displaymath process-math" id="fact-projection-formulas-2-1-4-2-1-2">
+\begin{equation*}
+\operatorname{proj}_{\vec{a}}\vec{b} = \left(\frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|}\right) \frac{\vec{a}}{\|\vec{a}\|} = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|^2} \vec{a}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#fact-projection-formulas-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#fact-projection-formulas-2-1-4-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#fact-projection-formulas-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="figure figure-like" id="fig-vector-scalar-projections"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="generated/latex-image/img-vector-scalar-projections.svg" role="img" class="contained" alt="A vector diagram showing base vector a pointing horizontally to the right. Vector b points up and right from the same starting point. A dashed line drops perpendicularly from the tip of vector b down to vector a. The resulting vector along the baseline is colored purple and labeled proj a b. Below it, a text label indicates that its signed length is comp a b."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.58<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The geometric relationship between vector projection and scalar projection.<div class="autopermalink" data-description="Figure 1.58"><a href="#fig-vector-scalar-projections" title="Copy heading and permalink for Figure 1.58" aria-label="Copy heading and permalink for Figure 1.58">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Fact 1.57: Projection Formulas"><a href="#fact-projection-formulas" title="Copy heading and permalink for Fact 1.57: Projection Formulas" aria-label="Copy heading and permalink for Fact 1.57: Projection Formulas">🔗</a></div>
+</article>
+<details id="ex-compute-projections" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.59</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-compute-projections-1-1">Find the scalar projection and vector projection of <span class="process-math">\(\vec{b} = \langle 1,1,2 \rangle\)</span> onto <span class="process-math">\(\vec{a} = \langle -2,3,1 \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-compute-projections-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-compute-projections-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-compute-projections-2-1">
+<div class="para">First, compute the core values required by the projection formulas (<span class="process-math">\(\vec{a}\cdot\vec{b}\)</span> and <span class="process-math">\(\|\vec{a}\|^2\)</span>):</div>
+<div class="displaymath process-math" id="ex-compute-projections-2-1-3">
+\begin{equation*}
+\vec{a}\cdot\vec{b} = (-2)(1) + (3)(1) + (1)(2) = -2 + 3 + 2 = 3
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-compute-projections-2-1-4">
+\begin{equation*}
+\|\vec{a}\|^2 = (-2)^2 + 3^2 + 1^2 = 4 + 9 + 1 = 14 \implies \|\vec{a}\| = \sqrt{14}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-compute-projections-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-compute-projections-2-2">
+<div class="para">Now apply these numbers to the scalar projection formula:</div>
+<div class="displaymath process-math" id="ex-compute-projections-2-2-1">
+\begin{equation*}
+\operatorname{comp}_{\vec{a}}\vec{b} = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|} = \frac{3}{\sqrt{14}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-compute-projections-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-compute-projections-2-3">
+<div class="para">Next, apply the values to the vector projection formula to scale the base direction vector <span class="process-math">\(\vec{a}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-compute-projections-2-3-2">
+\begin{equation*}
+\operatorname{proj}_{\vec{a}}\vec{b} = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|^2} \vec{a} = \frac{3}{14} \langle -2,3,1 \rangle = \left\langle -\frac{3}{7}, \frac{9}{14}, \frac{3}{14} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-compute-projections-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.59.1"><a href="#ex-compute-projections-2" title="Copy heading and permalink for Solution 1.59.1" aria-label="Copy heading and permalink for Solution 1.59.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.59"><a href="#ex-compute-projections" title="Copy heading and permalink for Example 1.59" aria-label="Copy heading and permalink for Example 1.59">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subsection: Projections"><a href="#subsec-vector-projections" title="Copy heading and permalink for Subsection: Projections" aria-label="Copy heading and permalink for Subsection: Projections">🔗</a></div>
+</section>
+<details id="exercise-direction-angle-xaxis" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.60</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-direction-angle-xaxis-1-1">Find the direction angle between the vector <span class="process-math">\(\vec{a} = \langle 1,2,3 \rangle\)</span> and the <span class="process-math">\(x\)</span>-axis.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-direction-angle-xaxis-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-direction-angle-xaxis-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-direction-angle-xaxis-2-1">
+<div class="para">The direction angle relative to the positive <span class="process-math">\(x\)</span>-axis matches the angle between vector <span class="process-math">\(\vec{a}\)</span> and the standard basis unit vector <span class="process-math">\(\vec{i} = \langle 1,0,0 \rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-direction-angle-xaxis-2-1-4">
+\begin{equation*}
+\vec{a}\cdot\vec{i} = (1)(1) + (2)(0) + (3)(0) = 1
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="exercise-direction-angle-xaxis-2-1-5">
+\begin{equation*}
+\|\vec{a}\| = \sqrt{1^2 + 2^2 + 3^2} = \sqrt{1 + 4 + 9} = \sqrt{14}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="exercise-direction-angle-xaxis-2-1-6">
+\begin{equation*}
+\|\vec{i}\| = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-direction-angle-xaxis-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-direction-angle-xaxis-2-2">
+<div class="para">Now compute the angle tracking parameter <span class="process-math">\(\alpha\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-direction-angle-xaxis-2-2-2">
+\begin{equation*}
+\cos(\alpha) = \frac{\vec{a}\cdot\vec{i}}{\|\vec{a}\|\|\vec{i}\|} = \frac{1}{\sqrt{14}} \implies \alpha = \arccos\left(\frac{1}{\sqrt{14}}\right) \approx 74.5^\circ
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-direction-angle-xaxis-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.60.1"><a href="#exercise-direction-angle-xaxis-2" title="Copy heading and permalink for Solution 1.60.1" aria-label="Copy heading and permalink for Solution 1.60.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 1.60"><a href="#exercise-direction-angle-xaxis" title="Copy heading and permalink for Checkpoint 1.60" aria-label="Copy heading and permalink for Checkpoint 1.60">🔗</a></div>
+</article></details>
+<details id="ex-work-3d-points" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.61</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="ex-work-3d-points-1-1">A force is given by a vector <span class="process-math">\(\vec{F} = 3\vec{i}+4\vec{j}+5\vec{k}\)</span> and moves a particle from the point <span class="process-math">\(P(2,1,0)\)</span> to the point <span class="process-math">\(Q(4,6,2)\text{.}\)</span> Find the work done.<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-3d-points-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-work-3d-points-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-work-3d-points-2-1">
+<div class="para">First, determine the displacement vector <span class="process-math">\(\vec{D}\)</span> from <span class="process-math">\(P\)</span> to <span class="process-math">\(Q\)</span> using terminal minus initial coordinates:</div>
+<div class="displaymath process-math" id="ex-work-3d-points-2-1-4">
+\begin{equation*}
+\vec{D} = \vec{PQ} = \langle 4-2, 6-1, 2-0 \rangle = \langle 2,5,2 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-3d-points-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-work-3d-points-2-2">
+<div class="para">Work is computed as the dot product of the force vector <span class="process-math">\(\vec{F} = \langle 3,4,5 \rangle\)</span> and this displacement vector <span class="process-math">\(\vec{D}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-work-3d-points-2-2-3">
+\begin{equation*}
+W = \vec{F}\cdot\vec{D} = (3)(2) + (4)(5) + (5)(2) = 6 + 20 + 10 = 36
+\end{equation*}
+</div>
+<div class="para">The total work done is <span class="process-math">\(36\)</span> units.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-3d-points-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.61.1"><a href="#ex-work-3d-points-2" title="Copy heading and permalink for Solution 1.61.1" aria-label="Copy heading and permalink for Solution 1.61.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 1.61"><a href="#ex-work-3d-points" title="Copy heading and permalink for Checkpoint 1.61" aria-label="Copy heading and permalink for Checkpoint 1.61">🔗</a></div>
+</article></details>
+<details id="exercise-work-cart-gravity" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.62</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-work-cart-gravity-1-1">A cart weighing 100 lb is pushed up an incline that makes an angle of <span class="process-math">\(30^\circ\)</span> with the horizontal. Find the work done against gravity in pushing the cart a distance of 80 feet.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-work-cart-gravity-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-work-cart-gravity-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="exercise-work-cart-gravity-2-1">The work done against gravity depends entirely on the vertical displacement of the cart. Alternatively, using our standard projection model, the gravity force vector points straight down with magnitude 100 lb: <span class="process-math">\(\vec{F}_g = -100\vec{j}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-work-cart-gravity-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-work-cart-gravity-2-2">
+<div class="para">If we align our coordinate frame with the horizontal ground, a displacement of 80 feet along a <span class="process-math">\(30^\circ\)</span> incline yields:</div>
+<div class="displaymath process-math" id="exercise-work-cart-gravity-2-2-2">
+\begin{equation*}
+\vec{D} = 80\cos(30^\circ)\vec{i} + 80\sin(30^\circ)\vec{j} = 80\left(\frac{\sqrt{3}}{2}\right)\vec{i} + 80\left(\frac{1}{2}\right)\vec{j} = 40\sqrt{3}\vec{i} + 40\vec{j}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-work-cart-gravity-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-work-cart-gravity-2-3">
+<div class="para">The work done by gravity is <span class="process-math">\(\vec{F}_g \cdot \vec{D} = (0)(40\sqrt{3}) + (-100)(40) = -4000\text{ ft-lb}\text{.}\)</span> The work done <dfn class="terminology">against</dfn> gravity is the positive opposite of this value:</div>
+<div class="displaymath process-math" id="exercise-work-cart-gravity-2-3-3">
+\begin{equation*}
+W = 4000\text{ ft-lb}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-work-cart-gravity-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.62.1"><a href="#exercise-work-cart-gravity-2" title="Copy heading and permalink for Solution 1.62.1" aria-label="Copy heading and permalink for Solution 1.62.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 1.62"><a href="#exercise-work-cart-gravity" title="Copy heading and permalink for Checkpoint 1.62" aria-label="Copy heading and permalink for Checkpoint 1.62">🔗</a></div>
+</article></details>
+<details id="exercise-wagon-work-projection" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.63</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-wagon-work-projection-1-1">A wagon is pulled a distance of 100 m along a horizontal path by a constant force of 70 N. The handle of the wagon is held at an angle of <span class="process-math">\(35^\circ\)</span> above the horizontal. Find the work done by the force.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-wagon-work-projection-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-wagon-work-projection-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-wagon-work-projection-2-1">
+<div class="para">Work is defined as the magnitude of the displacement vector multiplied by the scalar projection of the force vector along the direction of motion:</div>
+<div class="displaymath process-math" id="exercise-wagon-work-projection-2-1-1">
+\begin{equation*}
+W = \|\vec{D}\| \left(\operatorname{comp}_{\vec{D}}\vec{F}\right) = \|\vec{D}\| \left(\|\vec{F}\|\cos(\theta)\right)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-wagon-work-projection-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-wagon-work-projection-2-2">
+<div class="para">Substitute the given values (<span class="process-math">\(\|\vec{D}\| = 100\text{ m}\text{,}\)</span> <span class="process-math">\(\|\vec{F}\| = 70\text{ N}\text{,}\)</span> and <span class="process-math">\(\theta = 35^\circ\)</span>) into the work expression:</div>
+<div class="displaymath process-math" id="exercise-wagon-work-projection-2-2-4">
+\begin{align*}
+W \amp = (100)(70)\cos(35^\circ)\\
+\amp = 7000\cos(35^\circ)\\
+\amp \approx 5734.06\text{ J}
+\end{align*}
+</div>
+<div class="para">The total work done by the force pulling the wagon is approximately <span class="process-math">\(5734.06\)</span> Joules.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-wagon-work-projection-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.63.1"><a href="#exercise-wagon-work-projection-2" title="Copy heading and permalink for Solution 1.63.1" aria-label="Copy heading and permalink for Solution 1.63.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 1.63"><a href="#exercise-wagon-work-projection" title="Copy heading and permalink for Checkpoint 1.63" aria-label="Copy heading and permalink for Checkpoint 1.63">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section: 1.3 The Dot Product"><a href="#sec-dot-product" title="Copy heading and permalink for Section: 1.3 The Dot Product" aria-label="Copy heading and permalink for Section: 1.3 The Dot Product">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-vectors-3d.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-cross-product.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
