@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-surfaces">
+  <title>1.6 Surfaces</title>
+  <introduction>
+    <p>
+      In this section, we will explore the geometry of surfaces in three-dimensional space. 
+      We will learn how to represent surfaces using vector equations, parametric equations, 
+      and scalar equations. Additionally, we will discuss the relationships between surfaces and 
+      other geometric objects.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-function-two-variables">
+    <statement>
+        <p>
+            A <term>function <m>f</m> of two variables</term> is a rule that assigns to each ordered pair of real numbers <m>(x,y)</m> in a set <m>D</m> a unique real number denoted by <m>f(x,y)</m>. The set <m>D</m> is the <term>domain</term> of <m>f</m> and its <term>range</term> is the set of values that <m>f</m> takes on, that is:
+            <me>\{f(x,y) \mid (x,y) \in D\}</me>
+        </p>
+    </statement>
+</definition>
+
+<p>
+    We often write <m>z = f(x,y)</m> to make explicit the value taken on by <m>f</m> at the general point <m>(x,y)</m>. The domain is a subset of <m>\mathbb{R}^2</m>, the <m>xy</m>-plane.
+</p>
+
+<example xml:id="ex-domain-range-paraboloid">
+    <statement>
+        <p>
+            If <m>f(x,y) = 4x^2 + y^2</m>, determine its domain and range.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            The expression <m>4x^2+y^2</m> is defined for all possible ordered pairs of real numbers <m>(x,y)</m>. Therefore, the domain is <m>\mathbb{R}^2</m>, which represents the entire <m>xy</m>-plane.
+        </p>
+        <p>
+            Since the terms <m>x^2</m> and <m>y^2</m> are always non-negative for any real numbers <m>x</m> and <m>y</m>, their linear combination <m>4x^2+y^2</m> must also be greater than or equal to zero. The function achieves its absolute minimum value of <m>0</m> exactly at the origin <m>(0,0)</m>. Thus, the range of <m>f</m> is the interval <m>[0,\infty)</m> of all non-negative real numbers.
+        </p>
+
+        <figure xml:id="fig-paraboloid-and-domain">
+    <caption>The 3D surface graph of <m>f(x,y) = 4x^2 + y^2</m> and its corresponding domain and level curves in the <m>xy</m>-plane.</caption>
+    <sidebyside widths="45% 45%">
+        <figure xml:id="fig-paraboloid-surface">
+            <caption>The 3D surface (elliptic paraboloid).</caption>
+            <image xml:id="img-paraboloid-surface">
+                <shortdescription>A 3D mesh graph showing an elliptic paraboloid surface opening upwards from its minimum vertex point at the origin (0,0,0).</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[>=stealth, scale=0.8]
+                        % Draw 3D Axes
+                        \draw[->, thick] (0,0) -- (-2.2,-2.2) node[left] {$x$};
+                        \draw[->, thick] (0,0) -- (4.2,0) node[right] {$y$};
+                        \draw[->, thick] (0,0) -- (0,4.2) node[above] {$z$};
+                        
+                        % Draw Paraboloid wireframe contours
+                        \draw[blue!40, dashed] (0,0) ellipse (0.7cm and 0.25cm);
+                        \draw[blue!60, dashed] (0,0) ellipse (1.4cm and 0.5cm);
+                        
+                        % Shaded Surface Profile
+                        \filldraw[fill=blue!10, draw=blue, opacity=0.6] 
+                            (-2.1,3) arc (180:360:2.1cm and 0.75cm) -- (2.1,3) 
+                            .. controls (1.5,1) and (0.5,0) .. (0,0)
+                            .. controls (-0.5,0) and (-1.5,1) .. (-2.1,3);
+                            
+                        % Upper rim of the paraboloid
+                        \draw[blue, thick] (0,3) ellipse (2.1cm and 0.75cm);
+                        
+                        % Vertex marker
+                        \filldraw (0,0) circle (2pt) node[below left] {$(0,0,0)$};
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+
+        <figure xml:id="fig-paraboloid-domain">
+            <caption>The domain and level curves in the <m>xy</m>-plane.</caption>
+            <image xml:id="img-paraboloid-domain">
+                <shortdescription>A 2D coordinate plane showing concentric concentric ellipses centered at the origin, representing the level curves of the function covering the entire domain.</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[>=stealth, scale=0.8]
+                        % Draw 2D Cartesian Grid and Axes
+                        \draw[color=gray!20, step=1cm] (-3,-3) grid (3,3);
+                        \draw[->, thick] (-3.2,0) -- (3.2,0) node[right] {$y$};
+                        \draw[->, thick] (0,-3.2) -- (0,3.2) node[above] {$x$};
+                        
+                        % Concentric Ellipses (Level Curves)
+                        \draw[purple, thick] (0,0) ellipse (0.8cm and 0.4cm);
+                        \draw[purple!80, thick] (0,0) ellipse (1.6cm and 0.8cm);
+                        \draw[purple!60, thick] (0,0) ellipse (2.4cm and 1.2cm);
+                        
+                        % Labels
+                        \node[purple, right] at (1.6,0.8) {\footnotesize $z=c$};
+                        \filldraw (0,0) circle (2pt) node[below left] {$0$};
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+    </sidebyside>
+</figure>
+
+    </solution>
+</example>
+
+<definition xml:id="def-graph-function-two-variables">
+    <statement>
+        <p>
+            If <m>f</m> is a function of two variables with domain <m>D</m>, then the <term>graph</term> of <m>f</m> is the set of all points <m>(x,y,z)</m> in <m>\mathbb{R}^3</m> such that <m>z = f(x,y)</m> and <m>(x,y)</m> is in <m>D</m>.
+        </p>
+    </statement>
+</definition>
+<example xml:id="ex-sketch-graphs-3d">
+    <statement>
+        <p>
+            Sketch the graph of each of the following functions or equations in <m>\mathbb{R}^3</m>:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    <m>f(x,y) = 6-3x-2y</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    An <term>elliptic cylinder</term>: <m>\frac{x^2}{4}+\frac{y^2}{9}=1</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    A <term>parabolic cylinder</term>: <m>f(x,y)=x^2</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    An <term>ellipsoid</term>: <m>x^2+\frac{y^2}{9}+\frac{z^2}{4}=1</m>
+                </p>
+            </li>
+        </ol>
+    </statement>
+    <solution>
+        <ol marker="1">
+            <li>
+                <p>
+                    Setting <m>z = f(x,y)</m> gives the linear equation <m>z = 6-3x-2y \implies 3x + 2y + z = 6</m>. This represents a flat plane in space. We can find its coordinate axis intercepts to help sketch it:
+                    <ul>
+                        <li>
+                            <p>
+                                <m>x</m>-intercept: Set <m>y=0, z=0 \implies 3x=6 \implies x=2</m>. Point: <m>(2,0,0)</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>y</m>-intercept: Set <m>x=0, z=0 \implies 2y=6 \implies y=3</m>. Point: <m>(0,3,0)</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>z</m>-intercept: Set <m>x=0, y=0 \implies z=6</m>. Point: <m>(0,0,6)</m>.
+                            </p>
+                        </li>
+                    </ul>
+                    Plotting these three points and connecting them with a triangular frame yields the trace of the plane in the first octant.
+                </p>
+            </li>
+            <li>
+                <p>
+                    The equation <m>\frac{x^2}{4}+\frac{y^2}{9}=1</m> restricts the relationship between <m>x</m> and <m>y</m> to an ellipse centered at the origin in the <m>xy</m>-plane, with major axis radius <m>3</m> along the <m>y</m>-axis and minor axis radius <m>2</m> along the <m>x</m>-axis. Because the variable <m>z</m> is completely missing from the equation, it is unconstrained and can take any real value. This projects the ellipse vertically to form an infinitely tall <term>elliptic cylinder</term> parallel to the <m>z</m>-axis.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Setting <m>z = f(x,y) = x^2</m> provides a parabolic trace in the vertical <m>xz</m>-plane opening upwards from the origin. Since the variable <m>y</m> is absent, any vertical plane intersection cross-section matching <m>y=k</m> produces an identical copy of this parabola shifted along the horizontal axis. Connecting these parallel parabolic traces generates a sheet-like <term>parabolic cylinder</term> extending along the direction of the <m>y</m>-axis.
+                </p>
+            </li>
+            <li>
+                <p>
+                    The equation <m>x^2+\frac{y^2}{9}+\frac{z^2}{4}=1</m> matches the standard form of an ellipsoid centered at the origin: <m>\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1</m> with radii <m>a=1</m>, <m>b=3</m>, and <m>c=2</m>. Its traces in all three coordinate planes are ellipses:
+                    <ul>
+                        <li>
+                            <p>
+                                <m>xy</m>-plane trace (<m>z=0</m>): <m>x^2 + \frac{y^2}{9} = 1</m> (an ellipse of radii 1 and 3).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>xz</m>-plane trace (<m>y=0</m>): <m>x^2 + \frac{z^2}{4} = 1</m> (an ellipse of radii 1 and 2).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>yz</m>-plane trace (<m>x=0</m>): <m>\frac{y^2}{9} + \frac{z^2}{4} = 1</m> (an ellipse of radii 3 and 2).
+                            </p>
+                        </li>
+                    </ul>
+                    Sketching these three cross-sectional traces outlines a 3D egg-like oval surface shell.
+                </p>
+            </li>
+        </ol>
+
+        <!-- Structured Side-by-Side Surface Plot Grid -->
+  <sidebyside widths="47% 47%" margins="auto">
+    <figure xml:id="fig-tikz-plane">
+        <caption>The plane <m>3x+2y+z=6</m> in the first octant.</caption>
+        <image xml:id="img-tikz-plane">
+            <shortdescription>A first-octant 3D plot showing a flat triangular plane section anchored at x=2, y=3, and z=6.</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[>=stealth, scale=0.6]
+                    % Draw Axes
+                    \draw[->, thick] (0,0) -- (-2.5,-2.5) node[left] {$x$};
+                    \draw[->, thick] (0,0) -- (5.5,0) node[right] {$y$};
+                    \draw[->, thick] (0,0) -- (0,5.5) node[above] {$z$};
+                    
+                    % Shaded Triangular Intercept Section
+                    \filldraw[fill=blue!10, draw=blue, opacity=0.7, thick] (-1.2,-1.2) -- (4,0) -- (0,4.5) -- cycle;
+                    
+                    % Axis Intercept Labels
+                    \filldraw (-1.2,-1.2) circle (2pt) node[below left] {$(2,0,0)$};
+                    \filldraw (4,0) circle (2pt) node[below] {$(0,3,0)$};
+                    \filldraw (0,4.5) circle (2pt) node[right] {$(0,0,6)$};
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+
+    <figure xml:id="fig-tikz-elliptic-cylinder">
+        <caption>The elliptic cylinder <m>\frac{x^2}{4}+\frac{y^2}{9}=1</m>.</caption>
+        <image xml:id="img-tikz-elliptic-cylinder">
+            <shortdescription>A 3D projection of a vertical oval cylinder pipe running parallel along the vertical z-axis direction.</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[>=stealth, scale=0.6]
+                    % Draw Axes
+                    \draw[->, thick] (0,0) -- (-2,-2) node[left] {$x$};
+                    \draw[->, thick] (0,0) -- (5,0) node[right] {$y$};
+                    \draw[->, thick] (0,-2) -- (0,5.5) node[above] {$z$};
+                    
+                    % Lower back edge (dashed)
+                    \draw[red!40, dashed] (0,-1.5) ellipse (2.2cm and 0.6cm);
+                    
+                    % Cylinder body profile shading
+                    \fill[red!10, opacity=0.5] (-2.2,-1.5) rectangle (2.2,4);
+                    \fill[red!5, opacity=0.3] (0,-1.5) ellipse (2.2cm and 0.6cm);
+                    
+                    % Structural boundary lines
+                    \draw[thick, red] (-2.2,-1.5) -- (-2.2,4);
+                    \draw[thick, red] (2.2,-1.5) -- (2.2,4);
+                    
+                    % Lower front visible rim base
+                    \draw[thick, red] (-2.2,-1.5) arc (180:360:2.2cm and 0.6cm);
+                    
+                    % Top structural rim edge
+                    \filldraw[fill=red!15, draw=red, thick] (0,4) ellipse (2.2cm and 0.6cm);
+                    
+                    % Axis labeling metadata
+                    \node[red, right] at (2.2,2) {\footnotesize $y=3$};
+                    \node[red, left] at (-1.1,-1.1) {\footnotesize $x=2$};
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+</sidebyside>
+
+<sidebyside widths="47% 47%" margins="auto">
+    <figure xml:id="fig-tikz-parabolic-cylinder">
+        <caption>The parabolic cylinder <m>z=x^2</m>.</caption>
+        <image xml:id="img-tikz-parabolic-cylinder">
+            <shortdescription>A three-dimensional sheet surface shaped like a long, smooth valley. 
+                The lowest points of the curved surface sit directly on the y-axis line. A back parabola at 
+                the origin sweeps smoothly down to a minimum line along the y-axis, matched perfectly by a 
+                parallel front parabola, creating a true curved sheet surface.</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[>=stealth, scale=0.7]
+                    % Draw Axes
+                    \draw[->, thick] (0,0) -- (-2.5,-2.5) node[left] {$x$};
+                    \draw[->, thick] (0,0) -- (5.5,0) node[right] {$y$};
+                    \draw[->, thick] (0,0) -- (0,4.5) node[above] {$z$};
+                    
+                    % Back Face Parabola (centered at 0,0)
+                    \draw[thick, orange!50, dashed] (-1.5,2.25) parabola bend (0,0) (1.5,2.25);
+                    
+                    % Shaded surface mesh sheet profile (FIXED: Coordinates manually computed to remove calc library requirement)
+                    \fill[orange!10, opacity=0.5] 
+                        (-1.5,2.25) parabola bend (0,0) (1.5,2.25) -- 
+                        (5.0,3.25) parabola bend (3.5,1.0) (2.0,3.25) -- cycle;
+                    
+                    % Front Face Parabola (centered at 3.5, 1.0)
+                    \draw[thick, orange] (2.0,3.25) parabola bend (3.5,1.0) (5.0,3.25);
+                    
+                    % Top and bottom bounding edges linking the two parabolas
+                    \draw[thick, orange] (-1.5,2.25) -- (2.0,3.25);
+                    \draw[thick, orange] (1.5,2.25) -- (5.0,3.25);
+                    \draw[thick, orange, ultra thick] (0,0) -- (3.5,1.0) node[midway, below right] {\footnotesize y-axis vertex line};
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+
+    <figure xml:id="fig-tikz-ellipsoid">
+        <caption>The ellipsoid <m>x^2+\frac{y^2}{9}+\frac{z^2}{4}=1</m>.</caption>
+        <image xml:id="img-tikz-ellipsoid">
+            <shortdescription>A geometrically precise 3D wireframe plot of an ellipsoid centered at the origin. It correctly shows proportional nested ellipses representing the boundary cross sections in the xy, xz, and yz planes based on the target radii values.</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[>=stealth, scale=0.7]
+                    % Draw Axes
+                    \draw[->, thick] (0,0) -- (-2,-2) node[left] {$x$};
+                    \draw[->, thick] (0,0) -- (4.5,0) node[right] {$y$};
+                    \draw[->, thick] (0,-3) -- (0,3.5) node[above] {$z$};
+                    
+                    % 1. YZ-Plane Trace (Outer boundary profile silhouette)
+                    \fill[violet!5, opacity=0.3] (0,0) ellipse (3.0cm and 2.0cm);
+                    \draw[thick, violet] (0,0) ellipse (3.0cm and 2.0cm);
+                    
+                    % 2. XY-Plane Trace (Equatorial Ring)
+                    \draw[thick, violet!40, dashed] (3.0,0) arc (0:180:3.0cm and 0.65cm);
+                    \draw[thick, violet] (-3.0,0) arc (180:360:3.0cm and 0.65cm);
+                    
+                    % 3. XZ-Plane Trace (Vertical Cross-Section)
+                    \draw[thick, violet!40, dashed] (0,2.0) arc (90:270:0.65cm and 2.0cm);
+                    \draw[thick, violet] (0,-2.0) arc (-90:90:0.65cm and 2.0cm);
+                    
+                    % Exact structural outer labeling coordinate ticks
+                    \draw (3.0,0) -- (3.0,0.15) node[above right] {\footnotesize $y=3$};
+                    \draw (0,2.0) -- (0.15,2.0) node[right] {\footnotesize $z=2$};
+                    \filldraw (-0.7,-0.7) circle (1.5pt) node[below left] {\footnotesize $x=1$};
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+</sidebyside>
+    </solution>
+</example>
+
+<p>
+    If we keep <m>x</m> fixed by putting <m>x=k</m> and letting <m>y</m> vary, the resulting function is a function of one variable, <m>z=f(k,y)</m>, whose graph is the curve that results when we intersect the surface <m>z=f(x,y)</m> with the vertical plane <m>x=k</m>. This type of curve is called a <term>trace</term> of the surface. Standard quadric surfaces classified by their traces include:
+</p>
+
+<ul>
+    <li>
+        <p>
+            A <term>linear function</term>: <m>f(x,y)=ax+by+c</m>
+        </p>
+        <figure xml:id="fig-tikz-quadric-plane">
+    <caption>A flat plane representing a linear function.</caption>
+    <image xml:id="img-tikz-quadric-plane" width="45%">
+        <shortdescription>A 3D first-octant surface plot of a flat triangular plane section intersecting the coordinate axes.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.6]
+                % Draw Axes (FIXED: Isolated arrow parameter syntax to protect compiler parsing)
+                \draw[thick, arrows={-&gt;}] (0,0) -- (-2,-2) node[left] {$x$};
+                \draw[thick, arrows={-&gt;}] (0,0) -- (5,0) node[right] {$y$};
+                \draw[thick, arrows={-&gt;}] (0,0) -- (0,5) node[above] {$z$};
+                
+                % Shaded Triangular Plane Trace
+                \filldraw[fill=blue!10, draw=blue, opacity=0.7, thick] (-1,-1) -- (3.5,0) -- (0,4) -- cycle;
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+    </li>
+    <li>
+        <p>
+            An <term>elliptic paraboloid</term>: <m>\frac{z}{c}=\frac{x^2}{a^2}+\frac{y^2}{b^2}</m>
+        </p>
+        <figure xml:id="fig-tikz-quadric-paraboloid">
+    <caption>An elliptic paraboloid opening upward.</caption>
+    <image xml:id="img-tikz-quadric-paraboloid" width="45%">
+        <shortdescription>A 3D surface plot of an elliptic paraboloid shaped like a bowl opening upwards from the origin.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.6]
+                % Draw Axes (FIXED: Isolated arrow parameter syntax to protect compiler parsing)
+                \draw[thick, arrows={-&gt;}] (0,0) -- (-2,-2) node[left] {$x$};
+                \draw[thick, arrows={-&gt;}] (0,0) -- (5,0) node[right] {$y$};
+                \draw[thick, arrows={-&gt;}] (0,-1) -- (0,5) node[above] {$z$};
+                
+                % Lower optional tracking reference path at origin
+                \draw[blue!40, dashed] (0,0) ellipse (0.8cm and 0.25cm);
+                
+                % Shaded bowl surface profile (FIXED: Traces top arc first, then wraps smoothly down to vertex)
+                \filldraw[fill=blue!10, draw=blue, opacity=0.6, thick] 
+                    (-2,3.5) arc (180:360:2cm and 0.6cm) -- (2,3.5) 
+                    .. controls (1.2,0.8) and (0.4,0) .. (0,0)
+                    .. controls (-0.4,0) and (-1.2,0.8) .. cycle;
+                    
+                % Upper distinct rim cap of the paraboloid
+                \draw[blue, thick] (0,3.5) ellipse (2cm and 0.6cm);
+                
+                % Vertex reference point
+                \filldraw (0,0) circle (1.5pt);
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+    </li>
+    <li>
+        <p>
+            A <term>hyperbolic paraboloid</term>: <m>\frac{z}{c}=\frac{x^2}{a^2}-\frac{y^2}{b^2}</m>
+        </p>
+        
+        <figure xml:id="fig-tikz-quadric-saddle">
+    <caption>A hyperbolic paraboloid displaying a saddle point at the origin.</caption>
+    <image xml:id="img-tikz-quadric-saddle" width="45%">
+        <shortdescription>A geometrically precise 3D surface plot of a hyperbolic paraboloid surface forming a continuous saddle shape centered at the origin, with parabolic cross sections curving up along one axis and down along the other.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.6]
+                % Draw Axes (FIXED: Isolated arrow parameter syntax to protect compiler parsing)
+                \draw[thick, arrows={-&gt;}] (0,0) -- (-2.5,-2.5) node[left] {$x$};
+                \draw[thick, arrows={-&gt;}] (0,0) -- (5.5,0) node[right] {$y$};
+                \draw[thick, arrows={-&gt;}] (0,-3.5) -- (0,3.5) node[above] {$z$};
+                
+                % Lower Shaded Sheet Flap (Curving Down along the y-axis perspective)
+                \fill[orange!15, opacity=0.6] 
+                    (-2,1.5) .. controls (-1,-0.5) and (1,-0.5) .. (2,1.5) --
+                    (3.5,0.2) .. controls (1.5,-2.2) and (-0.5,-2.2) .. (-1.5,0.2) -- cycle;
+                
+                % Upper Shaded Sheet Flap (Curving Up along the x-axis perspective)
+                \fill[orange!25, opacity=0.4] 
+                    (-2,1.5) .. controls (-1,3.5) and (1,3.5) .. (2,1.5) --
+                    (3.5,0.2) .. controls (2.5,1.2) and (-0.5,1.2) .. (-1.5,0.2) -- cycle;
+
+                % Geometric Saddle Trace Outlines
+                % Main center structural parabola cutting through the origin
+                \draw[orange, ultra thick] (-2,1.5) .. controls (-1,-0.5) and (1,-0.5) .. (2,1.5);
+                \draw[orange, thick] (-1.5,0.2) .. controls (-0.5,-2.2) and (1.5,-2.2) .. (3.5,0.2);
+                
+                % Transverse crossing profile links defining the saddle shape
+                \draw[orange, thick] (-2,1.5) -- (-1.5,0.2);
+                \draw[orange, thick] (2,1.5) -- (3.5,0.2);
+                
+                % Origin indicator dot
+                \filldraw (0,0) circle (1.5pt) node[below right] {\footnotesize $0$};
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+    </li>
+    <li>
+        <p>
+            An <term>ellipsoid</term>: <m>\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1</m>
+        </p>
+        <figure xml:id="fig-tikz-quadric-ellipsoid-main">
+    <caption>A symmetrical ellipsoid centered at the origin.</caption>
+    <image xml:id="img-tikz-quadric-ellipsoid-main" width="45%">
+        <shortdescription>A 3D symmetrical wireframe oval egg shell centered smoothly at the origin.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.6]
+                % Draw Axes (FIXED: Isolated arrow parameter syntax to protect compiler parsing)
+                \draw[thick, arrows={-&gt;}] (0,0) -- (-2,-2) node[left] {$x$};
+                \draw[thick, arrows={-&gt;}] (0,0) -- (5,0) node[right] {$y$};
+                \draw[thick, arrows={-&gt;}] (0,-3) -- (0,3.5) node[above] {$z$};
+                
+                % 1. YZ-Plane Trace (Outer boundary profile silhouette)
+                \fill[violet!5, opacity=0.4] (0,0) ellipse (3cm and 2cm);
+                \draw[thick, violet] (0,0) ellipse (3cm and 2cm);
+                
+                % 2. XY-Plane Trace (Equatorial Ring)
+                \draw[thick, violet!40, dashed] (3,0) arc (0:180:3cm and 0.65cm);
+                \draw[thick, violet] (-3,0) arc (180:360:3cm and 0.65cm);
+                
+                % 3. XZ-Plane Trace (Vertical Cross-Section)
+                \draw[thick, violet!40, dashed] (0,2) arc (90:270:0.65cm and 2cm);
+                \draw[thick, violet] (0,-2) arc (-90:90:0.65cm and 2cm);
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+    </li>
+    <li>
+        <p>
+            A <term>hyperboloid of one sheet</term>: <m>\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1</m>
+        </p>
+        
+        <figure xml:id="fig-tikz-quadric-hyperboloid-1">
+    <caption>A hyperboloid of one sheet.</caption>
+    <image xml:id="img-tikz-quadric-hyperboloid-1" width="45%">
+        <shortdescription>A 3D surface plot of a continuous hourglass-like tubular shell centered around the vertical z-axis.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.6]
+                % Draw Axes (FIXED: Isolated arrow parameter syntax to protect compiler parsing)
+                \draw[thick, arrows={-&gt;}] (0,0) -- (-2,-2) node[left] {$x$};
+                \draw[thick, arrows={-&gt;}] (0,0) -- (5,0) node[right] {$y$};
+                \draw[thick, arrows={-&gt;}] (0,-3) -- (0,3.5) node[above] {$z$};
+                
+                % Lower base back rim (dashed for depth cueing)
+                \draw[teal!40, dashed] (0,-2.5) ellipse (1.6cm and 0.4cm);
+                
+                % Shaded hourglass surface mesh (FIXED: Symmetrical bezier controls tracking to waist)
+                \filldraw[fill=teal!10, draw=teal, opacity=0.5, thick] 
+                    (-2,2.5) arc (180:360:2cm and 0.5cm) -- (2,2.5)
+                    .. controls (1.0,0.5) and (0.8,-0.5) .. (1.6,-2.5)
+                    arc (360:180:1.6cm and 0.4cm)
+                    .. controls (-0.8,-0.5) and (-1.0,0.5) .. cycle;
+                
+                % Distinct visual trace rings (Top rim, waist ellipse, and bottom rim)
+                \draw[teal, thick] (0,2.5) ellipse (2cm and 0.5cm);
+                \draw[teal!70, thick] (0,0) ellipse (1cm and 0.25cm);
+                \draw[teal, thick] (-1.6,-2.5) arc (180:360:1.6cm and 0.4cm);
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+    </li>
+    <li>
+        <p>
+            A <term>hyperboloid of two sheets</term>: <m>-\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1</m>
+        </p>
+<figure xml:id="fig-tikz-quadric-hyperboloid-2">
+    <caption>A hyperboloid of two sheets.</caption>
+    <image xml:id="img-tikz-quadric-hyperboloid-2" width="45%">
+        <shortdescription>A 3D surface plot showing two separate, symmetric cup-shaped surface segments opening away from each other along the z-axis.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.6]
+                % Draw Axes (Isolated arrow parameter syntax to protect compiler parsing)
+                \draw[thick, arrows={-&gt;}] (0,0) -- (-2,-2) node[left] {$x$};
+                \draw[thick, arrows={-&gt;}] (0,0) -- (5,0) node[right] {$y$};
+                \draw[thick, arrows={-&gt;}] (0,-3.5) -- (0,4) node[above] {$z$};
+                
+                % Upper Sheet (Opening Upwards from z=1 to z=3 - FIXED: Swapped magenta for a safe red!60!blue mix)
+                \filldraw[fill=red!10!blue!10, draw=red!60!blue, opacity=0.6, thick] 
+                    (0,1) .. controls (-0.5,1.2) and (-1.5,2.0) .. (-2,3) 
+                    arc (180:360:2cm and 0.5cm) 
+                    .. controls (1.5,2.0) and (0.5,1.2) .. cycle;
+                \draw[red!60!blue, thick] (0,3) ellipse (2cm and 0.5cm);
+                
+                % Lower Sheet Background Rim (dashed for depth cueing)
+                \draw[red!30!blue!40, dashed] (0,-3) ellipse (2cm and 0.5cm);
+                
+                % Lower Sheet (Opening Downwards from z=-1 to z=-3)
+                \filldraw[fill=red!10!blue!10, draw=red!60!blue, opacity=0.6, thick] 
+                    (0,-1) .. controls (-0.5,-1.2) and (-1.5,-2.0) .. (-2,-3) 
+                    arc (180:360:2cm and 0.5cm) 
+                    .. controls (1.5,-2.0) and (0.5,-1.2) .. cycle;
+                \draw[red!60!blue, thick] (-2,-3) arc (180:360:2cm and 0.5cm);
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+    </li>
+    <li>
+        <p>
+            An <term>elliptic cone</term>: <m>\frac{z^2}{c^2}=\frac{x^2}{a^2}+\frac{y^2}{b^2}</m>
+        </p>
+
+<figure xml:id="fig-tikz-quadric-cone">
+    <caption>An elliptic cone.</caption>
+    <image xml:id="img-tikz-quadric-cone" width="45%">
+        <shortdescription>A 3D surface plot displaying a double-conical shape consisting of an upper cone and an inverted lower cone meeting at the origin.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.6]
+                % Draw Axes
+                \draw[thick, arrows={-&gt;}] (0,0) -- (-2,-2) node[left] {$x$};
+                \draw[thick, arrows={-&gt;}] (0,0) -- (5,0) node[right] {$y$};
+                \draw[thick, arrows={-&gt;}] (0,-3.5) -- (0,4) node[above] {$z$};
+                
+                % Upper cone nappe shading and profile
+                \fill[black!10, opacity=0.6] (0,0) -- (-1.8,2.8) -- (1.8,2.8) -- cycle;
+                % FIXED: Swapped 'ellipse (a and b)' for explicit, schema-safe bracket properties
+                \filldraw[fill=black!10, draw=black!60, thick] (0,2.8) ellipse [x radius=1.8cm, y radius=0.45cm];
+                \draw[black!60, thick] (0,0) -- (-1.8,2.8);
+                \draw[black!60, thick] (0,0) -- (1.8,2.8);
+                
+                % Lower cone nappe background rim (dashed for depth cueing - FIXED syntax)
+                \draw[black!30, dashed] (0,-2.8) ellipse [x radius=1.8cm, y radius=0.45cm];
+                
+                % Lower cone nappe shading and profile
+                \fill[black!10, opacity=0.6] (0,0) -- (-1.8,-2.8) -- (1.8,-2.8) -- cycle;
+                \draw[black!60, thick] (-1.8,-2.8) arc [start angle=180, end angle=360, x radius=1.8cm, y radius=0.45cm];
+                \draw[black!60, thick] (0,0) -- (-1.8,-2.8);
+                \draw[black!60, thick] (0,0) -- (1.8,-2.8);
+                
+                % Central vertex point
+                \filldraw (0,0) circle (2pt);
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+
+    </li>
+</ul>
+
+
+<example xml:id="ex-classify-quadric-surface">
+    <statement>
+        <p>
+            Classify the surface <m>x^2+2z^2-6x-y+10=0</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            To classify the surface, we isolate the linear variable <m>y</m> and complete the square for the <m>x</m> terms:
+            <md>
+                <mrow>y \amp = x^2 - 6x + 2z^2 + 10</mrow>
+                <mrow>y \amp = (x^2 - 6x + 9) + 2z^2 + 10 - 9</mrow>
+                <mrow>y - 1 \amp = (x - 3)^2 + 2z^2</mrow>
+            </md>
+        </p>
+        <p>
+            We can rewrite this in standard form as:
+            <me>y - 1 = \frac{(x - 3)^2}{1} + \frac{z^2}{1/2}</me>
+            Comparing this to our standard models, this equation represents an <term>elliptic paraboloid</term>. Its vertex is shifted to the coordinates <m>(3, 1, 0)</m>, and it opens along the positive direction of the <m>y</m>-axis.
+        </p>
+        
+        <figure xml:id="fig-tikz-shifted-paraboloid">
+    <caption>The shifted elliptic paraboloid <m>y - 1 = (x - 3)^2 + 2z^2</m>.</caption>
+    <image xml:id="img-tikz-shifted-paraboloid" width="60%">
+        <shortdescription>A 3D surface plot showing an elliptic paraboloid opening along the horizontal y-axis. The vertex is anchored away from the origin at coordinates x=3, y=1, z=0.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=0.8]
+                % Draw Axes
+                \draw[->, thick] (0,0) -- (-2.2,-2.2) node[left] {$x$};
+                \draw[->, thick] (0,0) -- (6.2,0) node[right] {$y$};
+                \draw[->, thick] (0,0) -- (0,4.2) node[above] {$z$};
+                
+                % Reference Vertex Shift Translation Point V(3, 1, 0)
+                % dx = -1.2 (for x=3 projection), dy = 1.0 (for y=1)
+                \coordinate (V) at (-0.2,-1.2);
+                
+                % Draw back hidden wireframe trace rings (FIXED: Explicit standalone coordinates)
+                \draw[blue!40, dashed] (-0.2,-1.2) ellipse (0.4cm and 0.8cm);
+                \draw[blue!60, dashed] (1.3,-1.2) ellipse (0.6cm and 1.2cm);
+                
+                % Shaded Surface Profile opening along y-axis (FIXED: Explicit standalone coordinates)
+                \filldraw[fill=blue!10, draw=blue, opacity=0.6] 
+                    (3.3,0.4) arc (90:270:0.8cm and 1.6cm) -- (-0.2,-1.2) -- cycle;
+                    
+                % Outer visible rim of the paraboloid capping off the shape
+                \draw[blue, thick] (3.3,-1.2) ellipse (0.8cm and 1.6cm);
+                
+                % Axis alignment dash visual reference lines
+                \draw[gray, dashed] (0,0) -- (-1.2,-1.2) node[below left] {\footnotesize $x=3$};
+                \draw[gray, dashed] (-1.2,-1.2) -- (-0.2,-1.2);
+                \draw[gray, dashed] (0,0) -- (1,0) node[above] {\footnotesize $y=1$};
+                \draw[gray, dashed] (1,0) -- (-0.2,-1.2);
+                
+                % Vertex marker dot
+                \filldraw (-0.2,-1.2) circle (2pt) node[below right] {\footnotesize $V(3,1,0)$};
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+    </solution>
+</example>
+
+
+
+  </section>

@@ -757,6 +757,402 @@ var ptx_lunr_docs = [
   "body": "  Given the vectors , , and , evaluate the vector triple product using the expansion identity.    First, express the vectors cleanly in their numerical component forms:   Next, calculate the two scalar dot products required by the identity ( and ):   Substitute these scalar values back into the vector triple product identity formula: In standard basis notation, the final vector is .   "
 },
 {
+  "id": "sec-lines-planes",
+  "level": "1",
+  "url": "sec-lines-planes.html",
+  "type": "Section",
+  "number": "",
+  "title": "1.5 Lines and Planes",
+  "body": " 1.5 Lines and Planes  In this section, we will discuss the equations of lines and planes in three-dimensional space. We will explore how to represent lines and planes using vector equations, parametric equations, and Cartesian equations. Additionally, we will examine the relationships between lines and planes, including conditions for parallelism and intersection.  If a vector gives the direction of a line and is written in component form as , then any scalar multiple of that direction vector can be expressed as for any scalar parameter .  Letting represent the position vector of an arbitrary point on the line, and represent the position vector of a specific known point on the line, we can state the vector equation of a line :     Two vectors are equal if and only if their corresponding components are equal. Equating the components of the vector equation of a line yields: where . These equations are called the parametric equations of the line passing through the point and parallel to the vector . Each value of the scalar parameter represents a unique point on .      Find a vector equation and parametric equations for the line that passes through the point and is parallel to the vector . Then, find two other points on this line.    We are given a point on the line corresponding to the initial position vector and a parallel direction vector .  The vector equation is given by:   By separating this expression into independent components, we find the parametric equations :   To find two other points on the line, we substitute any two non-zero values for the parameter :   Letting yields: , , and . This gives the point .    Letting yields: , , and . This gives the point .         If a vector is used to describe the direction of a line , then the numbers , , and are called the direction numbers of . Since any vector parallel to can also be used, any three numbers proportional to , , and can serve as a valid set of direction numbers for .  If we solve each of the parametric equations for the parameter and equate the results (assuming none of the direction numbers , , or are zero), we eliminate to obtain: These expressions are called the symmetric equations of .    For instance, if a direction number is zero, say , we eliminate the parameter for the remaining components and write the equations of as: This means geometrically that the line lies entirely within the vertical plane .    Find parametric equations and symmetric equations for the line that passes through the points and . At what point does this line intersect the -plane?    First, find a direction vector for the line by subtracting the coordinates of the first point from the second point:   Using the first point as our base position vector , we find the parametric equations :   By solving each equation for the parameter , we obtain the matching symmetric equations :   The line intersects the -plane when its height component is zero ( ). Substitute into the symmetric equations to solve for the coordinate positions:  Therefore, the point of intersection with the -plane is .      A line segment starting from position vector and ending at position vector has a direction vector defined by . Substituting this into the standard vector equation of a line yields the vector equation of a line segment :       Show that the lines and with the following parametric equations are skew lines (meaning they do not intersect and are not parallel):     First, check if the lines are parallel by comparing their direction vectors: Since the components are not proportional ( ), the direction vectors are not scalar multiples of each other. Therefore, the lines are not parallel.  Next, test if the lines intersect by equating their corresponding coordinate expressions to see if a common parameter set exists:   From Equation 1, we get . Substitute this expression into Equation 2 to solve for :  Using , we find the value for : .  Now, substitute both parameters and into Equation 3 to see if they satisfy the vertical height component:  Since , the system of linear equations has no solution. This means the lines do not intersect. Because they are neither parallel nor intersecting, and are skew lines.   The skew lines and passing through different planes in space.   A 3D transparent box demonstrating skew lines. Line 1 is blue and passes diagonally through the top face of the box. Line 2 is red and passes diagonally across the bottom face in a different direction. They do not intersect and are not parallel.        Planes  A plane in space is uniquely determined by a fixed point lying in the plane and a vector that stands orthogonal to the plane surface. This perpendicular vector is called a normal vector . Letting be any arbitrary point in the plane, and denoting and as the standard position vectors of and respectively, the displacement vector is represented by the geometric line segment .  Since the normal vector is orthogonal to every vector contained within the plane, it must be orthogonal to . This orthogonality condition gives us the fundamental vector equation of the plane :    Scalar and Linear Equations of a Plane   An equation of the plane passing through with normal vector is derived by evaluating the dot product component-wise: By distributing the scalar coefficients and gathering the constants into a single value , the equation of the plane simplifies to the linear equation in three variables : where the coefficients , , and are not all zero.      Find an equation of the plane through with normal vector . Find its intercepts and describe how to sketch the plane.    Substitute the given coordinates and normal components directly into the scalar equation formula: Combining constant terms yields the final linear plane equation:   To calculate the coordinate intercepts, set the other two variables to zero systematically:    -intercept : Set . The point is .     -intercept : Set . The point is .     -intercept : Set . The point is .   To sketch this plane within the first octant, plot these three intercept markers on the coordinate axes and connect them to construct a triangular boundary plane section.      Find an equation of the plane determined by the points , , and .    First, construct two displacement vectors sharing vertex that lie entirely within the plane:    A normal vector for the plane must stand perpendicular to both vector directions. We find it by computing their cross product:   Using point and our new normal coordinates, assemble the scalar equation layout: Simplifying constants yields the clean linear plane model:       Find the point at which the line with parametric equations , , intersects the plane .    Substitute the parametric component equations of the line directly into the independent variable slots of the linear plane: Distribute coefficients and combine terms to isolate the scalar parameter :   Substitute back into the original parametric expressions to recover the intersection point coordinates: Thus, the line intersects the plane at the specific point coordinate .      Two distinct planes containing normal vectors and are:    parallel if their corresponding normal vectors are parallel ( for some scalar ).     orthogonal if their corresponding normal vectors are orthogonal ( ).         Find an equation of the plane through that is parallel to the plane .    Parallel planes share identical directional orientations, meaning we can adopt the normal vector of the reference plane directly. Reading the coefficients from reveals .  Combine this normal direction with the coordinates of point : Simplifying the constants provides the equation of the parallel plane:       Find the angle between the planes and . Then, find symmetric equations for the line of intersection of these two planes.    The angle between two planes matches the angle separating their normal vectors, and :     To track the line of intersection , we first find its direction vector , which must be orthogonal to both normal paths:    Next, we find a specific point on by solving the system of plane equations simultaneously. We can set to simplify: Solving this system yields and . Thus, the point lies on the line of intersection.  Finally, we can write the parametric equations for the line : And the symmetric equations are:      Symmetric Forms and Intersecting Planes   An arbitrary spatial point lies on a line if and only if its coordinates satisfy the standard symmetric equations : We can interpret this line structural model as the geometric intersection path generated by two distinct, non-parallel structural planes:       Find a symmetric form for the line passing through and .    Calculate the baseline direction numbers by computing the displacement vector components from to :   Using coordinates from vertex , populate the symmetric structural denominators:       Find a formula for the minimum straight-line distance mapping from an isolated spatial point down to a linear plane surface defined by .    Let be any arbitrary known point lying inside the given plane equation, which means it satisfies . Construct a direction vector corresponding to the directed line segment :   The minimum distance from point to the plane surface equals the absolute scalar projection length of this displacement vector projected onto the plane's normal vector direction : Substituting the constant expression into the numerator yields the standard point-plane distance formula:       Find the distance between the parallel planes and .    To find the distance between parallel planes, pick an arbitrary test point on one plane and compute its distance to the other plane.  Let us find a point on the second plane by setting and , which gives . This identifies our test point as .  Now, write the first plane in standard linear form: . Apply the coordinates of to the distance formula: The exact distance separating the two planes is .      We showed that the lines and with the following parametric equations are skew lines: Find the distance between them.    The minimum distance between two skew lines equals the distance between two parallel planes that enclose the lines. The normal vector for these planes must stand perpendicular to both line direction vectors: and .   Find a point on line by setting , giving . Find a point on line by setting , giving .  Construct a plane passing through using our calculated normal vector components:   Finally, calculate the distance from point on line to this new plane container: The minimum distance separating the two skew lines is exactly .      Find the distance from the point to the plane .    First, rewrite the plane equation in standard linear form: . This provides coefficients of and .  Substitute these parameters along with the target point coordinates into the point-plane distance formula: The minimum straight-line distance from the point to the plane is exactly .     "
+},
+{
+  "id": "sec-lines-planes-4",
+  "level": "2",
+  "url": "sec-lines-planes.html#sec-lines-planes-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector equation of a line "
+},
+{
+  "id": "def-parametric-equations-line",
+  "level": "2",
+  "url": "sec-lines-planes.html#def-parametric-equations-line",
+  "type": "Definition",
+  "number": "1.81",
+  "title": "",
+  "body": "  Two vectors are equal if and only if their corresponding components are equal. Equating the components of the vector equation of a line yields: where . These equations are called the parametric equations of the line passing through the point and parallel to the vector . Each value of the scalar parameter represents a unique point on .   "
+},
+{
+  "id": "ex-find-line-equations",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-find-line-equations",
+  "type": "Example",
+  "number": "1.82",
+  "title": "",
+  "body": "  Find a vector equation and parametric equations for the line that passes through the point and is parallel to the vector . Then, find two other points on this line.    We are given a point on the line corresponding to the initial position vector and a parallel direction vector .  The vector equation is given by:   By separating this expression into independent components, we find the parametric equations :   To find two other points on the line, we substitute any two non-zero values for the parameter :   Letting yields: , , and . This gives the point .    Letting yields: , , and . This gives the point .      "
+},
+{
+  "id": "def-direction-numbers-symmetric",
+  "level": "2",
+  "url": "sec-lines-planes.html#def-direction-numbers-symmetric",
+  "type": "Definition",
+  "number": "1.83",
+  "title": "",
+  "body": "  If a vector is used to describe the direction of a line , then the numbers , , and are called the direction numbers of . Since any vector parallel to can also be used, any three numbers proportional to , , and can serve as a valid set of direction numbers for .  If we solve each of the parametric equations for the parameter and equate the results (assuming none of the direction numbers , , or are zero), we eliminate to obtain: These expressions are called the symmetric equations of .   "
+},
+{
+  "id": "ex-line-from-two-points",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-line-from-two-points",
+  "type": "Example",
+  "number": "1.84",
+  "title": "",
+  "body": "  Find parametric equations and symmetric equations for the line that passes through the points and . At what point does this line intersect the -plane?    First, find a direction vector for the line by subtracting the coordinates of the first point from the second point:   Using the first point as our base position vector , we find the parametric equations :   By solving each equation for the parameter , we obtain the matching symmetric equations :   The line intersects the -plane when its height component is zero ( ). Substitute into the symmetric equations to solve for the coordinate positions:  Therefore, the point of intersection with the -plane is .   "
+},
+{
+  "id": "cor-line-segment-vector-equation",
+  "level": "2",
+  "url": "sec-lines-planes.html#cor-line-segment-vector-equation",
+  "type": "Corollary",
+  "number": "1.85",
+  "title": "",
+  "body": "  A line segment starting from position vector and ending at position vector has a direction vector defined by . Substituting this into the standard vector equation of a line yields the vector equation of a line segment :    "
+},
+{
+  "id": "ex-skew-lines-verify",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-skew-lines-verify",
+  "type": "Example",
+  "number": "1.86",
+  "title": "",
+  "body": "  Show that the lines and with the following parametric equations are skew lines (meaning they do not intersect and are not parallel):     First, check if the lines are parallel by comparing their direction vectors: Since the components are not proportional ( ), the direction vectors are not scalar multiples of each other. Therefore, the lines are not parallel.  Next, test if the lines intersect by equating their corresponding coordinate expressions to see if a common parameter set exists:   From Equation 1, we get . Substitute this expression into Equation 2 to solve for :  Using , we find the value for : .  Now, substitute both parameters and into Equation 3 to see if they satisfy the vertical height component:  Since , the system of linear equations has no solution. This means the lines do not intersect. Because they are neither parallel nor intersecting, and are skew lines.   The skew lines and passing through different planes in space.   A 3D transparent box demonstrating skew lines. Line 1 is blue and passes diagonally through the top face of the box. Line 2 is red and passes diagonally across the bottom face in a different direction. They do not intersect and are not parallel.      "
+},
+{
+  "id": "subsec-planes-in-space-2",
+  "level": "2",
+  "url": "sec-lines-planes.html#subsec-planes-in-space-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "normal vector "
+},
+{
+  "id": "subsec-planes-in-space-3",
+  "level": "2",
+  "url": "sec-lines-planes.html#subsec-planes-in-space-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector equation of the plane "
+},
+{
+  "id": "thm-linear-equation-plane",
+  "level": "2",
+  "url": "sec-lines-planes.html#thm-linear-equation-plane",
+  "type": "Theorem",
+  "number": "1.88",
+  "title": "Scalar and Linear Equations of a Plane.",
+  "body": " Scalar and Linear Equations of a Plane   An equation of the plane passing through with normal vector is derived by evaluating the dot product component-wise: By distributing the scalar coefficients and gathering the constants into a single value , the equation of the plane simplifies to the linear equation in three variables : where the coefficients , , and are not all zero.   "
+},
+{
+  "id": "ex-plane-intercepts-sketch",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-plane-intercepts-sketch",
+  "type": "Example",
+  "number": "1.89",
+  "title": "",
+  "body": "  Find an equation of the plane through with normal vector . Find its intercepts and describe how to sketch the plane.    Substitute the given coordinates and normal components directly into the scalar equation formula: Combining constant terms yields the final linear plane equation:   To calculate the coordinate intercepts, set the other two variables to zero systematically:    -intercept : Set . The point is .     -intercept : Set . The point is .     -intercept : Set . The point is .   To sketch this plane within the first octant, plot these three intercept markers on the coordinate axes and connect them to construct a triangular boundary plane section.   "
+},
+{
+  "id": "ex-plane-from-three-points",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-plane-from-three-points",
+  "type": "Example",
+  "number": "1.90",
+  "title": "",
+  "body": "  Find an equation of the plane determined by the points , , and .    First, construct two displacement vectors sharing vertex that lie entirely within the plane:    A normal vector for the plane must stand perpendicular to both vector directions. We find it by computing their cross product:   Using point and our new normal coordinates, assemble the scalar equation layout: Simplifying constants yields the clean linear plane model:    "
+},
+{
+  "id": "ex-line-plane-intersection",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-line-plane-intersection",
+  "type": "Example",
+  "number": "1.91",
+  "title": "",
+  "body": "  Find the point at which the line with parametric equations , , intersects the plane .    Substitute the parametric component equations of the line directly into the independent variable slots of the linear plane: Distribute coefficients and combine terms to isolate the scalar parameter :   Substitute back into the original parametric expressions to recover the intersection point coordinates: Thus, the line intersects the plane at the specific point coordinate .   "
+},
+{
+  "id": "def-plane-relationships",
+  "level": "2",
+  "url": "sec-lines-planes.html#def-plane-relationships",
+  "type": "Definition",
+  "number": "1.92",
+  "title": "",
+  "body": "  Two distinct planes containing normal vectors and are:    parallel if their corresponding normal vectors are parallel ( for some scalar ).     orthogonal if their corresponding normal vectors are orthogonal ( ).      "
+},
+{
+  "id": "ex-parallel-plane-find",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-parallel-plane-find",
+  "type": "Example",
+  "number": "1.93",
+  "title": "",
+  "body": "  Find an equation of the plane through that is parallel to the plane .    Parallel planes share identical directional orientations, meaning we can adopt the normal vector of the reference plane directly. Reading the coefficients from reveals .  Combine this normal direction with the coordinates of point : Simplifying the constants provides the equation of the parallel plane:    "
+},
+{
+  "id": "ex-angle-and-intersection-planes",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-angle-and-intersection-planes",
+  "type": "Example",
+  "number": "1.94",
+  "title": "",
+  "body": "  Find the angle between the planes and . Then, find symmetric equations for the line of intersection of these two planes.    The angle between two planes matches the angle separating their normal vectors, and :     To track the line of intersection , we first find its direction vector , which must be orthogonal to both normal paths:    Next, we find a specific point on by solving the system of plane equations simultaneously. We can set to simplify: Solving this system yields and . Thus, the point lies on the line of intersection.  Finally, we can write the parametric equations for the line : And the symmetric equations are:    "
+},
+{
+  "id": "fact-symmetric-form-planes",
+  "level": "2",
+  "url": "sec-lines-planes.html#fact-symmetric-form-planes",
+  "type": "Fact",
+  "number": "1.95",
+  "title": "Symmetric Forms and Intersecting Planes.",
+  "body": " Symmetric Forms and Intersecting Planes   An arbitrary spatial point lies on a line if and only if its coordinates satisfy the standard symmetric equations : We can interpret this line structural model as the geometric intersection path generated by two distinct, non-parallel structural planes:    "
+},
+{
+  "id": "ex-symmetric-two-points-standalone",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-symmetric-two-points-standalone",
+  "type": "Example",
+  "number": "1.96",
+  "title": "",
+  "body": "  Find a symmetric form for the line passing through and .    Calculate the baseline direction numbers by computing the displacement vector components from to :   Using coordinates from vertex , populate the symmetric structural denominators:    "
+},
+{
+  "id": "ex-distance-point-to-plane-derivation",
+  "level": "2",
+  "url": "sec-lines-planes.html#ex-distance-point-to-plane-derivation",
+  "type": "Example",
+  "number": "1.97",
+  "title": "",
+  "body": "  Find a formula for the minimum straight-line distance mapping from an isolated spatial point down to a linear plane surface defined by .    Let be any arbitrary known point lying inside the given plane equation, which means it satisfies . Construct a direction vector corresponding to the directed line segment :   The minimum distance from point to the plane surface equals the absolute scalar projection length of this displacement vector projected onto the plane's normal vector direction : Substituting the constant expression into the numerator yields the standard point-plane distance formula:    "
+},
+{
+  "id": "exercise-distance-parallel-planes-standalone",
+  "level": "2",
+  "url": "sec-lines-planes.html#exercise-distance-parallel-planes-standalone",
+  "type": "Checkpoint",
+  "number": "1.98",
+  "title": "",
+  "body": "  Find the distance between the parallel planes and .    To find the distance between parallel planes, pick an arbitrary test point on one plane and compute its distance to the other plane.  Let us find a point on the second plane by setting and , which gives . This identifies our test point as .  Now, write the first plane in standard linear form: . Apply the coordinates of to the distance formula: The exact distance separating the two planes is .   "
+},
+{
+  "id": "exercise-distance-skew-lines-standalone",
+  "level": "2",
+  "url": "sec-lines-planes.html#exercise-distance-skew-lines-standalone",
+  "type": "Checkpoint",
+  "number": "1.99",
+  "title": "",
+  "body": "  We showed that the lines and with the following parametric equations are skew lines: Find the distance between them.    The minimum distance between two skew lines equals the distance between two parallel planes that enclose the lines. The normal vector for these planes must stand perpendicular to both line direction vectors: and .   Find a point on line by setting , giving . Find a point on line by setting , giving .  Construct a plane passing through using our calculated normal vector components:   Finally, calculate the distance from point on line to this new plane container: The minimum distance separating the two skew lines is exactly .   "
+},
+{
+  "id": "exercise-distance-point-plane-calc-standalone",
+  "level": "2",
+  "url": "sec-lines-planes.html#exercise-distance-point-plane-calc-standalone",
+  "type": "Checkpoint",
+  "number": "1.100",
+  "title": "",
+  "body": "  Find the distance from the point to the plane .    First, rewrite the plane equation in standard linear form: . This provides coefficients of and .  Substitute these parameters along with the target point coordinates into the point-plane distance formula: The minimum straight-line distance from the point to the plane is exactly .   "
+},
+{
+  "id": "sec-surfaces",
+  "level": "1",
+  "url": "sec-surfaces.html",
+  "type": "Section",
+  "number": "",
+  "title": "1.6 Surfaces",
+  "body": " 1.6 Surfaces   In this section, we will explore the geometry of surfaces in three-dimensional space. We will learn how to represent surfaces using vector equations, parametric equations, and scalar equations. Additionally, we will discuss the relationships between surfaces and other geometric objects.     A function of two variables is a rule that assigns to each ordered pair of real numbers in a set a unique real number denoted by . The set is the domain of and its range is the set of values that takes on, that is:     We often write to make explicit the value taken on by at the general point . The domain is a subset of , the -plane.    If , determine its domain and range.    The expression is defined for all possible ordered pairs of real numbers . Therefore, the domain is , which represents the entire -plane.  Since the terms and are always non-negative for any real numbers and , their linear combination must also be greater than or equal to zero. The function achieves its absolute minimum value of exactly at the origin . Thus, the range of is the interval of all non-negative real numbers.   The 3D surface graph of and its corresponding domain and level curves in the -plane.    The 3D surface (elliptic paraboloid).   A 3D mesh graph showing an elliptic paraboloid surface opening upwards from its minimum vertex point at the origin (0,0,0).      The domain and level curves in the -plane.   A 2D coordinate plane showing concentric concentric ellipses centered at the origin, representing the level curves of the function covering the entire domain.           If is a function of two variables with domain , then the graph of is the set of all points in such that and is in .      Sketch the graph of each of the following functions or equations in :         An elliptic cylinder :     A parabolic cylinder :     An ellipsoid :         Setting gives the linear equation . This represents a flat plane in space. We can find its coordinate axis intercepts to help sketch it:    -intercept: Set . Point: .     -intercept: Set . Point: .     -intercept: Set . Point: .   Plotting these three points and connecting them with a triangular frame yields the trace of the plane in the first octant.    The equation restricts the relationship between and to an ellipse centered at the origin in the -plane, with major axis radius along the -axis and minor axis radius along the -axis. Because the variable is completely missing from the equation, it is unconstrained and can take any real value. This projects the ellipse vertically to form an infinitely tall elliptic cylinder parallel to the -axis.    Setting provides a parabolic trace in the vertical -plane opening upwards from the origin. Since the variable is absent, any vertical plane intersection cross-section matching produces an identical copy of this parabola shifted along the horizontal axis. Connecting these parallel parabolic traces generates a sheet-like parabolic cylinder extending along the direction of the -axis.    The equation matches the standard form of an ellipsoid centered at the origin: with radii , , and . Its traces in all three coordinate planes are ellipses:    -plane trace ( ): (an ellipse of radii 1 and 3).     -plane trace ( ): (an ellipse of radii 1 and 2).     -plane trace ( ): (an ellipse of radii 3 and 2).   Sketching these three cross-sectional traces outlines a 3D egg-like oval surface shell.       The plane in the first octant.   A first-octant 3D plot showing a flat triangular plane section anchored at x=2, y=3, and z=6.      The elliptic cylinder .   A 3D projection of a vertical oval cylinder pipe running parallel along the vertical z-axis direction.        The parabolic cylinder .   A three-dimensional sheet surface shaped like a long, smooth valley. The lowest points of the curved surface sit directly on the y-axis line. A back parabola at the origin sweeps smoothly down to a minimum line along the y-axis, matched perfectly by a parallel front parabola, creating a true curved sheet surface.      The ellipsoid .   A geometrically precise 3D wireframe plot of an ellipsoid centered at the origin. It correctly shows proportional nested ellipses representing the boundary cross sections in the xy, xz, and yz planes based on the target radii values.        If we keep fixed by putting and letting vary, the resulting function is a function of one variable, , whose graph is the curve that results when we intersect the surface with the vertical plane . This type of curve is called a trace of the surface. Standard quadric surfaces classified by their traces include:    A linear function :    A flat plane representing a linear function.   A 3D first-octant surface plot of a flat triangular plane section intersecting the coordinate axes.       An elliptic paraboloid :    An elliptic paraboloid opening upward.   A 3D surface plot of an elliptic paraboloid shaped like a bowl opening upwards from the origin.       A hyperbolic paraboloid :    A hyperbolic paraboloid displaying a saddle point at the origin.   A geometrically precise 3D surface plot of a hyperbolic paraboloid surface forming a continuous saddle shape centered at the origin, with parabolic cross sections curving up along one axis and down along the other.       An ellipsoid :    A symmetrical ellipsoid centered at the origin.   A 3D symmetrical wireframe oval egg shell centered smoothly at the origin.       A hyperboloid of one sheet :    A hyperboloid of one sheet.   A 3D surface plot of a continuous hourglass-like tubular shell centered around the vertical z-axis.       A hyperboloid of two sheets :    A hyperboloid of two sheets.   A 3D surface plot showing two separate, symmetric cup-shaped surface segments opening away from each other along the z-axis.       An elliptic cone :    An elliptic cone.   A 3D surface plot displaying a double-conical shape consisting of an upper cone and an inverted lower cone meeting at the origin.         Classify the surface .    To classify the surface, we isolate the linear variable and complete the square for the terms:   We can rewrite this in standard form as: Comparing this to our standard models, this equation represents an elliptic paraboloid . Its vertex is shifted to the coordinates , and it opens along the positive direction of the -axis.   The shifted elliptic paraboloid .   A 3D surface plot showing an elliptic paraboloid opening along the horizontal y-axis. The vertex is anchored away from the origin at coordinates x=3, y=1, z=0.       "
+},
+{
+  "id": "def-function-two-variables",
+  "level": "2",
+  "url": "sec-surfaces.html#def-function-two-variables",
+  "type": "Definition",
+  "number": "1.101",
+  "title": "",
+  "body": "  A function of two variables is a rule that assigns to each ordered pair of real numbers in a set a unique real number denoted by . The set is the domain of and its range is the set of values that takes on, that is:    "
+},
+{
+  "id": "ex-domain-range-paraboloid",
+  "level": "2",
+  "url": "sec-surfaces.html#ex-domain-range-paraboloid",
+  "type": "Example",
+  "number": "1.102",
+  "title": "",
+  "body": "  If , determine its domain and range.    The expression is defined for all possible ordered pairs of real numbers . Therefore, the domain is , which represents the entire -plane.  Since the terms and are always non-negative for any real numbers and , their linear combination must also be greater than or equal to zero. The function achieves its absolute minimum value of exactly at the origin . Thus, the range of is the interval of all non-negative real numbers.   The 3D surface graph of and its corresponding domain and level curves in the -plane.    The 3D surface (elliptic paraboloid).   A 3D mesh graph showing an elliptic paraboloid surface opening upwards from its minimum vertex point at the origin (0,0,0).      The domain and level curves in the -plane.   A 2D coordinate plane showing concentric concentric ellipses centered at the origin, representing the level curves of the function covering the entire domain.        "
+},
+{
+  "id": "def-graph-function-two-variables",
+  "level": "2",
+  "url": "sec-surfaces.html#def-graph-function-two-variables",
+  "type": "Definition",
+  "number": "1.104",
+  "title": "",
+  "body": "  If is a function of two variables with domain , then the graph of is the set of all points in such that and is in .   "
+},
+{
+  "id": "ex-sketch-graphs-3d",
+  "level": "2",
+  "url": "sec-surfaces.html#ex-sketch-graphs-3d",
+  "type": "Example",
+  "number": "1.105",
+  "title": "",
+  "body": "  Sketch the graph of each of the following functions or equations in :         An elliptic cylinder :     A parabolic cylinder :     An ellipsoid :         Setting gives the linear equation . This represents a flat plane in space. We can find its coordinate axis intercepts to help sketch it:    -intercept: Set . Point: .     -intercept: Set . Point: .     -intercept: Set . Point: .   Plotting these three points and connecting them with a triangular frame yields the trace of the plane in the first octant.    The equation restricts the relationship between and to an ellipse centered at the origin in the -plane, with major axis radius along the -axis and minor axis radius along the -axis. Because the variable is completely missing from the equation, it is unconstrained and can take any real value. This projects the ellipse vertically to form an infinitely tall elliptic cylinder parallel to the -axis.    Setting provides a parabolic trace in the vertical -plane opening upwards from the origin. Since the variable is absent, any vertical plane intersection cross-section matching produces an identical copy of this parabola shifted along the horizontal axis. Connecting these parallel parabolic traces generates a sheet-like parabolic cylinder extending along the direction of the -axis.    The equation matches the standard form of an ellipsoid centered at the origin: with radii , , and . Its traces in all three coordinate planes are ellipses:    -plane trace ( ): (an ellipse of radii 1 and 3).     -plane trace ( ): (an ellipse of radii 1 and 2).     -plane trace ( ): (an ellipse of radii 3 and 2).   Sketching these three cross-sectional traces outlines a 3D egg-like oval surface shell.       The plane in the first octant.   A first-octant 3D plot showing a flat triangular plane section anchored at x=2, y=3, and z=6.      The elliptic cylinder .   A 3D projection of a vertical oval cylinder pipe running parallel along the vertical z-axis direction.        The parabolic cylinder .   A three-dimensional sheet surface shaped like a long, smooth valley. The lowest points of the curved surface sit directly on the y-axis line. A back parabola at the origin sweeps smoothly down to a minimum line along the y-axis, matched perfectly by a parallel front parabola, creating a true curved sheet surface.      The ellipsoid .   A geometrically precise 3D wireframe plot of an ellipsoid centered at the origin. It correctly shows proportional nested ellipses representing the boundary cross sections in the xy, xz, and yz planes based on the target radii values.       "
+},
+{
+  "id": "sec-surfaces-8",
+  "level": "2",
+  "url": "sec-surfaces.html#sec-surfaces-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "trace "
+},
+{
+  "id": "sec-surfaces-9-1-1",
+  "level": "2",
+  "url": "sec-surfaces.html#sec-surfaces-9-1-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linear function "
+},
+{
+  "id": "fig-tikz-quadric-plane",
+  "level": "2",
+  "url": "sec-surfaces.html#fig-tikz-quadric-plane",
+  "type": "Figure",
+  "number": "1.110",
+  "title": "",
+  "body": " A flat plane representing a linear function.   A 3D first-octant surface plot of a flat triangular plane section intersecting the coordinate axes.    "
+},
+{
+  "id": "sec-surfaces-9-2-1",
+  "level": "2",
+  "url": "sec-surfaces.html#sec-surfaces-9-2-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "elliptic paraboloid "
+},
+{
+  "id": "fig-tikz-quadric-paraboloid",
+  "level": "2",
+  "url": "sec-surfaces.html#fig-tikz-quadric-paraboloid",
+  "type": "Figure",
+  "number": "1.111",
+  "title": "",
+  "body": " An elliptic paraboloid opening upward.   A 3D surface plot of an elliptic paraboloid shaped like a bowl opening upwards from the origin.    "
+},
+{
+  "id": "sec-surfaces-9-3-1",
+  "level": "2",
+  "url": "sec-surfaces.html#sec-surfaces-9-3-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperbolic paraboloid "
+},
+{
+  "id": "fig-tikz-quadric-saddle",
+  "level": "2",
+  "url": "sec-surfaces.html#fig-tikz-quadric-saddle",
+  "type": "Figure",
+  "number": "1.112",
+  "title": "",
+  "body": " A hyperbolic paraboloid displaying a saddle point at the origin.   A geometrically precise 3D surface plot of a hyperbolic paraboloid surface forming a continuous saddle shape centered at the origin, with parabolic cross sections curving up along one axis and down along the other.    "
+},
+{
+  "id": "sec-surfaces-9-4-1",
+  "level": "2",
+  "url": "sec-surfaces.html#sec-surfaces-9-4-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "ellipsoid "
+},
+{
+  "id": "fig-tikz-quadric-ellipsoid-main",
+  "level": "2",
+  "url": "sec-surfaces.html#fig-tikz-quadric-ellipsoid-main",
+  "type": "Figure",
+  "number": "1.113",
+  "title": "",
+  "body": " A symmetrical ellipsoid centered at the origin.   A 3D symmetrical wireframe oval egg shell centered smoothly at the origin.    "
+},
+{
+  "id": "sec-surfaces-9-5-1",
+  "level": "2",
+  "url": "sec-surfaces.html#sec-surfaces-9-5-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperboloid of one sheet "
+},
+{
+  "id": "fig-tikz-quadric-hyperboloid-1",
+  "level": "2",
+  "url": "sec-surfaces.html#fig-tikz-quadric-hyperboloid-1",
+  "type": "Figure",
+  "number": "1.114",
+  "title": "",
+  "body": " A hyperboloid of one sheet.   A 3D surface plot of a continuous hourglass-like tubular shell centered around the vertical z-axis.    "
+},
+{
+  "id": "sec-surfaces-9-6-1",
+  "level": "2",
+  "url": "sec-surfaces.html#sec-surfaces-9-6-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperboloid of two sheets "
+},
+{
+  "id": "fig-tikz-quadric-hyperboloid-2",
+  "level": "2",
+  "url": "sec-surfaces.html#fig-tikz-quadric-hyperboloid-2",
+  "type": "Figure",
+  "number": "1.115",
+  "title": "",
+  "body": " A hyperboloid of two sheets.   A 3D surface plot showing two separate, symmetric cup-shaped surface segments opening away from each other along the z-axis.    "
+},
+{
+  "id": "sec-surfaces-9-7-1",
+  "level": "2",
+  "url": "sec-surfaces.html#sec-surfaces-9-7-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "elliptic cone "
+},
+{
+  "id": "fig-tikz-quadric-cone",
+  "level": "2",
+  "url": "sec-surfaces.html#fig-tikz-quadric-cone",
+  "type": "Figure",
+  "number": "1.116",
+  "title": "",
+  "body": " An elliptic cone.   A 3D surface plot displaying a double-conical shape consisting of an upper cone and an inverted lower cone meeting at the origin.    "
+},
+{
+  "id": "ex-classify-quadric-surface",
+  "level": "2",
+  "url": "sec-surfaces.html#ex-classify-quadric-surface",
+  "type": "Example",
+  "number": "1.117",
+  "title": "",
+  "body": "  Classify the surface .    To classify the surface, we isolate the linear variable and complete the square for the terms:   We can rewrite this in standard form as: Comparing this to our standard models, this equation represents an elliptic paraboloid . Its vertex is shifted to the coordinates , and it opens along the positive direction of the -axis.   The shifted elliptic paraboloid .   A 3D surface plot showing an elliptic paraboloid opening along the horizontal y-axis. The vertex is anchored away from the origin at coordinates x=3, y=1, z=0.      "
+},
+{
   "id": "activities",
   "level": "1",
   "url": "activities.html",
