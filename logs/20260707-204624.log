@@ -1,0 +1,60 @@
+INFO    : Building target course
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : Generating any needed assets.
+WARNING : Now generating latex images
+INFO    : converting latex-image pictures from /workspaces/Calculus_III/source/main.ptx to svg graphics for placement in /workspaces/Calculus_III/generated-assets/latex-image
+INFO    : extracting latex-image pictures from /workspaces/Calculus_III/source/main.ptx
+INFO    : string parameters passed to extraction stylesheet: {'cli.version': '2.38', 'publisher': '/workspaces/Calculus_III/publication/publication.ptx'}
+INFO    : discovering source file's directory name: /workspaces/Calculus_III/source
+INFO    : verifying and expanding input directory: /workspaces/Calculus_III/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/Calculus_III/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/Calculus_III/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/Calculus_III/assets
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/extract-latex-image.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/extract-latex-image.xsl
+INFO    : converting img-work-on-ramp.tex to img-work-on-ramp.pdf
+ERROR   : LaTeX compilation of img-work-on-ramp.tex failed.
+Re-run, requesting "source" as the format, to analyze the image.
+Likely creating the entire document as PDF will fail similarly.
+The transcript of the LaTeX run follows.
+WARNING : LaTeX compilation of img-work-on-ramp.tex failed
+INFO    : converting img-geometric-dot-product.tex to img-geometric-dot-product.pdf
+INFO    : cropping img-geometric-dot-product.pdf to cropped-img-geometric-dot-product.pdf
+INFO    : renaming cropped-img-geometric-dot-product.pdf to img-geometric-dot-product.pdf
+INFO    : converting img-geometric-dot-product.pdf to img-geometric-dot-product.svg
+ERROR   : Unable to generate some latex-image assets:
+ LaTeX compilation failed for 1 "latex-image"(s).
+Review the log for error messages, and LaTeX transcripts.
+Images are:
+  img-work-on-ramp.tex
+INFO    : Removing temporary directory /tmp/ptx-1qh04vqn
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /workspaces/Calculus_III/output/course.
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 8.1.8
+INFO    : Downloading Runestone Services, version 8.1.8
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-denver
+INFO    : converting /workspaces/Calculus_III/source/main.ptx to HTML in /tmp/ptx-xx1deusu
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/pretext-html.xsl
+INFO    : messages from the log for XSL processing:
+INFO    : * PTX:INFO:   checking all deprecated elements.
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/pretext-html.xsl
+INFO    : Removing temporary directory /tmp/ptx-xx1deusu
+INFO    : Removing temporary directory /tmp/ptx-nudy535o
+INFO    : 
+Finished build for target course. Run `pretext view course` to see the results.
+
+CRITICAL: There were errors during the build.  See above.
+INFO    : ------------------------
+CRITICAL: Failed to build without errors.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

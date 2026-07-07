@@ -26,6 +26,8 @@
       </introduction>
       <xi:include href="./notes/2DVectors.ptx" />
       <xi:include href="./notes/3DVectors.ptx" />
+      <xi:include href="./notes/Dot.ptx" />
+      <xi:include href="./notes/Cross.ptx" />
 
 
   <!--<xi:include href="./notes/fundamentalP.ptx" />--> 

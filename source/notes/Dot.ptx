@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dot-product">
+ <title>1.3 The Dot Product</title>
+<p>
+    Suppose a constant <term>force</term> is represented by a vector <m>\vec{F} = \vec{PR}</m> pointing in some direction other than the direction of motion. If this force moves an object from point <m>P</m> to point <m>Q</m>, then the <term>displacement vector</term> is <m>\vec{D} = \vec{PQ}</m>.
+</p>
+
+<p>
+    The <term>work</term> done by <m>\vec{F}</m> is defined as the magnitude of the displacement <m>\vec{D}</m>, multiplied by the magnitude of the applied force in the direction of the motion. Therefore, the work done by <m>\vec{F}</m> is defined to be:
+    <me>W = \|\vec{D}\|(\|\vec{F}\|\cos(\theta)) = \|\vec{D}\|\|\vec{F}\|\cos(\theta)</me>
+    where <m>\theta</m> is the angle between the force and displacement vectors.
+</p>
+
+<figure xml:id="fig-work-vector-projection">
+    <caption>The geometric projection of a force vector <m>\vec{F}</m> along a displacement vector <m>\vec{D}</m>.</caption>
+    <image xml:id="img-work-vector-projection" width="65%">
+        <shortdescription>A vector diagram showing displacement vector D pointing horizontally from point P to point Q. Force vector F points up and right from point P to point R. A dashed vertical line drops from point R to a point on vector D, creating a right triangle that marks the component of force in the direction of motion as double norm of F times cosine theta.</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}[>=stealth, scale=1.2]
+                % Coordinate vertices
+                \coordinate (P) at (0,0);
+                \coordinate (Q) at (5,0);
+                \coordinate (R) at (3.5,2);
+                \coordinate (Proj) at (3.5,0); % Projection point on the baseline
+                
+                % Draw displacement vector D (P to Q)
+                \draw[->, ultra thick, blue] (P) -- (Q) node[midway, below=18pt] {$\vec{D} = \vec{PQ}$};
+                
+                % Draw force vector F (P to R)
+                \draw[->, ultra thick, red] (P) -- (R) node[midway, above left] {$\vec{F} = \vec{PR}$};
+                
+                % Structural projection line and right angle marker
+                \draw[dashed, thick, gray] (R) -- (Proj);
+                \draw[thick, gray] (3.5,0.2) -- (3.3,0.2) -- (3.3,0);
+                
+                % Highlighted component line segment along the displacement vector
+                \draw[very thick, purple] (P) -- (Proj);
+                
+                % Points labeling
+                \filldraw (P) circle (2pt) node[below left] {$P$};
+                \filldraw (Q) circle (2pt) node[below right] {$Q$};
+                \filldraw (R) circle (2pt) node[above right] {$R$};
+                
+                % Angle theta marker
+                \draw[thick, black] (0.7,0) arc (0:29.74:0.7); % 29.74 is approx atan(2/3.5)
+                \node at (15:1.0) {$\theta$};
+                
+                % Brace and component label below the projection path - FIXED: Set to below=2pt for clear spacing hierarchy
+                \node[purple, below=2pt] at (1.75,0) {\footnotesize $\|\vec{F}\|\cos(\theta)$};
+            \end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+
+<definition xml:id="def-dot-product-geometric">
+    <statement>
+        <p>
+            The <term>dot product</term> of two vectors <m>\vec{a}</m> and <m>\vec{b}</m> is the number:
+            <me>\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\theta)</me>
+            where <m>\theta</m> is the angle between <m>\vec{a}</m> and <m>\vec{b}</m>, such that <m>0 \leq \theta \leq \pi</m>. Thus, <m>\theta</m> is the smallest angle between the vectors when they are drawn with the same initial point. If either <m>\vec{a} = \vec{0}</m> or <m>\vec{b} = \vec{0}</m>, we define <m>\vec{a} \cdot \vec{b} = 0</m>.
+        </p>
+    </statement>
+</definition>
+
+<p>
+    The dot product is a real number, that is, a scalar. For this reason, the dot product is sometimes called the <term>scalar product</term>.
+</p>
+
+<example xml:id="ex-dot-product-geometric-calc">
+    <statement>
+        <p>
+            If the vectors <m>\vec{a}</m> and <m>\vec{b}</m> have lengths <m>4</m> and <m>6</m>, and the angle between them is <m>\pi/3</m>, find <m>\vec{a} \cdot \vec{b}</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Substitute the given magnitudes and the angle into the geometric definition of the dot product:
+            <md>
+                <mrow>\vec{a} \cdot \vec{b} \amp = \|\vec{a}\| \|\vec{b}\| \cos(\theta)</mrow>
+                <mrow>\amp = (4)(6) \cos\left(\frac{\pi}{3}\right)</mrow>
+                <mrow>\amp = 24 \cdot \left(\frac{1}{2}\right)</mrow>
+                <mrow>\amp = 12</mrow>
+            </md>
+        </p>
+        <figure xml:id="fig-geometric-dot-product">
+            <caption>Two vectors separated by an angle of <m>\pi/3</m>.</caption>
+            <image xml:id="img-geometric-dot-product" width="45%">
+                <shortdescription>Two vectors originating from the same point. Vector b lies horizontally to the right with length 6. Vector a points up and right with length 4. The angle between them is marked as pi over 3.</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[>=stealth, scale=0.8]
+                        % Origin anchor
+                        \filldraw (0,0) circle (2pt);
+                        
+                        % Vector b (length 6 horizontally)
+                        \draw[->, ultra thick, red] (0,0) -- (6,0) node[midway, below] {$\vec{b}$};
+                        \node[red, right] at (6,0) {\footnotesize $\|\vec{b}\|=6$};
+                        
+                        % Vector a (length 4 at 60 degrees)
+                        \draw[->, ultra thick, blue] (0,0) -- (60:4) node[midway, above left] {$\vec{a}$};
+                        \node[blue, above right] at (60:4) {\footnotesize $\|\vec{a}\|=4$};
+                        
+                        % Angle arc
+                        \draw[thick, black] (0.8,0) arc (0:60:0.8);
+                        \node at (30:1.2) {\small $\frac{\pi}{3}$};
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+    </solution>
+</example>
+
+<example xml:id="ex-work-done-ramp">
+    <statement>
+        <p>
+            A crate is hauled 8 m up a ramp under a constant force of 200 N applied at an angle of <m>25^\circ</m> to the ramp. Find the work done.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            The work done by a constant force is given by the formula <m>W = \|\vec{F}\| \|\vec{D}\| \cos(\theta)</m>, which corresponds exactly to the dot product of the force vector and the displacement vector <m>\vec{F} \cdot \vec{D}</m>.
+        </p>
+        <p>
+            Given <m>\|\vec{F}\| = 200\text{ N}</m>, <m>\|\vec{D}\| = 8\text{ m}</m>, and <m>\theta = 25^\circ</m>:
+            <md>
+                <mrow>W \amp = (200)(8) \cos(25^\circ)</mrow>
+                <mrow>\amp = 1600 \cos(25^\circ)</mrow>
+                <mrow>\amp \approx 1450.09\text{ J}</mrow>
+            </md>
+            The work done in hauling the crate is approximately <m>1450.09</m> Joules (or Newton-meters).
+        </p>
+        <figure xml:id="fig-work-on-ramp">
+            <caption>Force vector acting at an angle to the displacement along a ramp.</caption>
+            <image xml:id="img-work-on-ramp" width="60%">
+                <shortdescription>A schematic showing an inclined plane ramp at 15 degrees. A crate sits on the ramp. A displacement vector arrow points up along the ramp surface labeled D equals 8 m. From the center of the crate, a force vector arrow pulls up and right at a steeper angle labeled F equals 200 N, with the intermediate angle marked as 25 degrees.</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[>=stealth, scale=0.7]
+                        % Draw Ground and Ramp
+                        \draw[thick, gray] (-1,-0.5) -- (9,-0.5);
+                        \draw[thick, black, fill=gray!10] (0,-0.5) -- (8,2) -- (8,-0.5) -- cycle;
+                        \node[below] at (4,-0.5) {\footnotesize Horizontal Ground};
+                        
+                        % Crate placement (rotated to match ramp slope of ~17.35 degrees)
+                        % let's place center at roughly (4, 1.25)
+                        \begin{scope}[shift={(3.5,1.1)}, rotate=17.35]
+                            % Draw crate rectangle
+                            \draw[thick, fill=brown!40] (-0.8,-0.5) rectangle (0.8,0.5);
+                            \node at (0,0) {\small Crate};
+                            
+                            % Displacement vector along the ramp surface (parallel to x-axis in scope)
+                            \draw[->, ultra thick, blue] (0,0) -- (4,0) node[midway, below] {$\vec{D}$};
+                            \node[blue, right] at (4,0) {\footnotesize $\|\vec{D}\|=8\text{ m}$};
+                            
+                            % Force vector angled at 25 degrees above the ramp
+                            \draw[->, ultra thick, red] (0,0) -- (25:3.5) node[midway, above left] {$\vec{F}$};
+                            \node[red, above right] at (25:3.5) {\footnotesize $\|\vec{F}\|=200\text{ N}$};
+                            
+                            % Angle arc inside the rotated scope
+                            \draw[thick, black] (1,0) arc (0:25:1);
+                            \node at (12:1.4) {\footnotesize $25^\circ$};
+                        \end{scope}
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+    </solution>
+</example>
+
+<corollary xml:id="cor-orthogonal-vectors">
+    <statement>
+        <p>
+            Two nonzero vectors <m>\vec{a}</m> and <m>\vec{b}</m> are called <term>perpendicular</term> or <term>orthogonal</term> if the angle between them is <m>\theta = \pi/2</m>. In this case:
+            <me>\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\pi/2) = 0</me>
+            Conversely, if <m>\vec{a} \cdot \vec{b} = 0</m> then <m>\cos(\theta) = 0</m>, which implies <m>\theta = \pi/2</m>. Therefore, two vectors <m>\vec{a}</m> and <m>\vec{b}</m> are orthogonal if and only if <m>\vec{a} \cdot \vec{b} = 0</m>.
+        </p>
+    </statement>
+    <proof>
+        <p>
+            By definition, the geometric dot product is given by <m>\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\theta)</m>, where <m>0 \leq \theta \leq \pi</m>. 
+        </p>
+        <p>
+            For the forward direction, assume <m>\vec{a}</m> and <m>\vec{b}</m> are orthogonal. By definition, the angle between them is <m>\theta = \pi/2</m>. Substituting this value yields:
+            <me>\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos\left(\frac{\pi}{2}\right) = \|\vec{a}\| \|\vec{b}\| (0) = 0</me>
+        </p>
+        <p>
+            For the reverse direction, assume <m>\vec{a} \cdot \vec{b} = 0</m> for two nonzero vectors. Since the vectors are nonzero, their magnitudes are strictly positive (<m>\|\vec{a}\| \neq 0</m> and <m>\|\vec{b}\| \neq 0</m>). We can divide both sides of the definition by these magnitudes:
+            <me>0 = \|\vec{a}\| \|\vec{b}\| \cos(\theta) \implies \cos(\theta) = 0</me>
+            Within the restricted interval <m>0 \leq \theta \leq \pi</m>, the equation <m>\cos(\theta) = 0</m> has a unique solution, <m>\theta = \pi/2</m>. Thus, the vectors are orthogonal.
+        </p>
+    </proof>
+</corollary>
+
+<corollary xml:id="cor-dot-product-sign-meanings">
+    <statement>
+        <p>
+            The sign of the dot product <m>\vec{a} \cdot \vec{b}</m> provides geometric information about the relative directions of the vectors:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    It is positive if <m>\vec{a}</m> and <m>\vec{b}</m> point in the same general direction (<m>0 \leq \theta \lt \pi/2</m>).
+                </p>
+            </li>
+            <li>
+                <p>
+                    It is <m>0</m> if they are perpendicular (<m>\theta = \pi/2</m>).
+                </p>
+            </li>
+            <li>
+                <p>
+                    It is negative if <m>\vec{a}</m> and <m>\vec{b}</m> point in generally opposite directions (<m>\pi/2 \lt \theta \leq \pi</m>).
+                </p>
+            </li>
+            <li>
+                <p>
+                    If <m>\vec{a}</m> and <m>\vec{b}</m> point in exactly the same direction, then <m>\theta = 0</m>, which means <m>\cos(\theta) = 1</m> and:
+                    <me>\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\|</me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    If <m>\vec{a}</m> and <m>\vec{b}</m> point in exactly the opposite direction, then <m>\theta = \pi</m>, which means <m>\cos(\theta) = -1</m> and:
+                    <me>\vec{a} \cdot \vec{b} = -\|\vec{a}\| \|\vec{b}\|</me>
+                </p>
+            </li>
+        </ol>
+    </statement>
+    <proof>
+        <p>
+            Because the magnitudes <m>\|\vec{a}\|</m> and <m>\|\vec{b}\|</m> of two nonzero vectors are always strictly positive, the sign of the product <m>\|\vec{a}\| \|\vec{b}\| \cos(\theta)</m> is completely determined by the sign of the trigonometric term <m>\cos(\theta)</m> on the interval <m>[0, \pi]</m>:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    When <m>0 \leq \theta \lt \pi/2</m> (an acute angle), <m>\cos(\theta) \gt 0</m>, rendering the dot product positive.
+                </p>
+            </li>
+            <li>
+                <p>
+                    When <m>\theta = \pi/2</m> (a right angle), <m>\cos(\theta) = 0</m>, rendering the dot product zero.
+                </p>
+            </li>
+            <li>
+                <p>
+                    When <m>\pi/2 \lt \theta \leq \pi</m> (an obtuse angle), <m>\cos(\theta) \lt 0</m>, rendering the dot product negative.
+                </p>
+            </li>
+            <li>
+                <p>
+                    If they point in the exact same direction, <m>\theta = 0</m>. Since <m>\cos(0) = 1</m>, the expression simplifies directly to <m>\|\vec{a}\| \|\vec{b}\|</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    If they point in the exact opposite direction, <m>\theta = \pi</m>. Since <m>\cos(\pi) = -1</m>, the expression simplifies directly to <m>-\|\vec{a}\| \|\vec{b}\|</m>.
+                </p>
+            </li>
+        </ol>
+    </proof>
+</corollary>
+
+<subsection xml:id="subsec-dot-product-component-form">
+    <title>The Dot Product in Component Form</title>
+    
+    <p>
+        Suppose <m>\vec{a} = \langle a_1,a_2,a_3 \rangle</m> and <m>\vec{b} = \langle b_1,b_2,b_3 \rangle</m> are given in component forms. If we apply the Law of Cosines to the triangle formed by these vectors, we obtain:
+        <me>\|\vec{a}-\vec{b}\|^2 = \|\vec{a}\|^2 + \|\vec{b}\|^2 - 2\|\vec{a}\|\|\vec{b}\|\cos(\theta) = \|\vec{a}\|^2 + \|\vec{b}\|^2 - 2\vec{a}\cdot\vec{b}</me>
+    </p>
+
+    <fact xml:id="fact-dot-product-component-definition">
+        <title>Algebraic Dot Product Formula</title>
+        <statement>
+            <p>
+                The dot product of <m>\vec{a} = \langle a_1,a_2,a_3 \rangle</m> and <m>\vec{b} = \langle b_1,b_2,b_3 \rangle</m> is:
+                <me>\vec{a}\cdot\vec{b} = a_1b_1 + a_2b_2 + a_3b_3</me>
+            </p>
+        </statement>
+    </fact>
+
+    <example xml:id="ex-dot-product-computations">
+        <statement>
+            <p>
+                Find the dot product <m>\vec{a}\cdot\vec{b}</m> for each of the following cases:
+            </p>
+            <ol marker="1">
+                <li>
+                    <p>
+                        <m>\vec{a} = \langle 2,-3,4 \rangle</m>, <m>\vec{b} = \langle 6,2,-\frac{1}{2} \rangle</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\vec{a} = 4\vec{j}-3\vec{k}</m>, <m>\vec{b} = 2\vec{i}+4\vec{j}+6\vec{k}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\|\vec{a}\| = 6</m>, <m>\|\vec{b}\| = 5</m>, and the angle between <m>\vec{a}</m> and <m>\vec{b}</m> is <m>2\pi/3</m>.
+                    </p>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol marker="1">
+                <li>
+                    <p>
+                        Multiply corresponding components and add them together:
+                        <me>\vec{a}\cdot\vec{b} = (2)(6) + (-3)(2) + (4)\left(-\frac{1}{2}\right) = 12 - 6 - 2 = 4</me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        First write <m>\vec{a}</m> in full component form as <m>\langle 0,4,-3 \rangle</m> and <m>\vec{b}</m> as <m>\langle 2,4,6 \rangle</m>:
+                        <me>\vec{a}\cdot\vec{b} = (0)(2) + (4)(4) + (-3)(6) = 0 + 16 - 18 = -2</me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Since components are unknown but the angle is provided, use the geometric definition:
+                        <me>\vec{a}\cdot\vec{b} = \|\vec{a}\|\|\vec{b}\|\cos(\theta) = (6)(5)\cos\left(\frac{2\pi}{3}\right) = 30\left(-\frac{1}{2}\right) = -15</me>
+                    </p>
+                </li>
+            </ol>
+        </solution>
+    </example>
+
+    <example xml:id="ex-verify-perpendicular">
+        <statement>
+            <p>
+                Show that <m>2\vec{i}+2\vec{j}-\vec{k}</m> is perpendicular to <m>5\vec{i}-4\vec{j}+2\vec{k}</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Two vectors are perpendicular (orthogonal) if and only if their dot product equals zero. Let <m>\vec{a} = \langle 2,2,-1 \rangle</m> and <m>\vec{b} = \langle 5,-4,2 \rangle</m>:
+                <me>\vec{a}\cdot\vec{b} = (2)(5) + (2)(-4) + (-1)(2) = 10 - 8 - 2 = 0</me>
+                Because the dot product is exactly <m>0</m>, the vectors are perpendicular.
+            </p>
+        </solution>
+    </example>
+
+    <example xml:id="ex-angle-between-vectors">
+        <statement>
+            <p>
+                Find the angle between the vectors <m>\vec{a} = \langle 2,2,-1 \rangle</m> and <m>\vec{b} = \langle 5,-3,2 \rangle</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                We use the alternate formula for the angle between vectors: <m>\cos(\theta) = \frac{\vec{a}\cdot\vec{b}}{\|\vec{a}\|\|\vec{b}\|}</m>.
+            </p>
+            <p>
+                First compute the dot product and individual vector magnitudes:
+                <me>\vec{a}\cdot\vec{b} = (2)(5) + (2)(-3) + (-1)(2) = 10 - 6 - 2 = 2</me>
+                <me>\|\vec{a}\| = \sqrt{2^2 + 2^2 + (-1)^2} = \sqrt{4 + 4 + 1} = \sqrt{9} = 3</me>
+                <me>\|\vec{b}\| = \sqrt{5^2 + (-3)^2 + 2^2} = \sqrt{25 + 9 + 4} = \sqrt{38}</me>
+            </p>
+            <p>
+                Substitute these calculations back into the cosine expression:
+                <me>\cos(\theta) = \frac{2}{3\sqrt{38}} \implies \theta = \arccos\left(\frac{2}{3\sqrt{38}}\right) \approx 1.46\text{ radians (or } 83.8^\circ\text{)}</me>
+            </p>
+        </solution>
+    </example>
+
+    <proposition xml:id="prop-dot-product-properties">
+        <title>Properties of the Dot Product</title>
+        <statement>
+            <p>
+                If <m>\vec{a}</m>, <m>\vec{b}</m>, and <m>\vec{c}</m> are vectors in <m>\mathbb{R}^3</m> and <m>c</m> is a scalar, then:
+            </p>
+            <ol marker="1">
+                <li>
+                    <p>
+                        <m>\vec{a}\cdot\vec{a} = \|\vec{a}\|^2</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\vec{a}\cdot\vec{b} = \vec{b}\cdot\vec{a}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\vec{a}\cdot(\vec{b}+\vec{c}) = \vec{a}\cdot\vec{b} + \vec{a}\cdot\vec{c}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(c\vec{a})\cdot\vec{b} = c(\vec{a}\cdot\vec{b}) = \vec{a}\cdot(c\vec{b})</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\vec{0}\cdot\vec{a} = \vec{a}\cdot\vec{0} = 0</m>
+                    </p>
+                </li>
+            </ol>
+        </statement>
+        <proof>
+            <p>
+                Let <m>\vec{a} = \langle a_1, a_2, a_3 \rangle</m>, <m>\vec{b} = \langle b_1, b_2, b_3 \rangle</m>, and <m>\vec{c} = \langle c_1, c_2, c_3 \rangle</m>.
+            </p>
+            <ol marker="1">
+                <li>
+                    <p>
+                        By the component formula for the dot product:
+                        <me>\vec{a}\cdot\vec{a} = a_1a_1 + a_2a_2 + a_3a_3 = a_1^2 + a_2^2 + a_3^2 = (\|\vec{a}\|)^2 = \|\vec{a}\|^2</me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Since multiplication of real numbers is commutative (<m>a_ib_i = b_ia_i</m>):
+                        <me>\vec{a}\cdot\vec{b} = a_1b_1 + a_2b_2 + a_3b_3 = b_1a_1 + b_2a_2 + b_3a_3 = \vec{b}\cdot\vec{a}</me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Using the distributive property of real numbers:
+                        <md>
+                            <mrow>\vec{a}\cdot(\vec{b}+\vec{c}) \amp = \vec{a}\cdot \langle b_1+c_1, b_2+c_2, b_3+c_3 \rangle</mrow>
+                            <mrow>\amp = a_1(b_1+c_1) + a_2(b_2+c_2) + a_3(b_3+c_3)</mrow>
+                            <mrow>\amp = (a_1b_1 + a_1c_1) + (a_2b_2 + a_2c_2) + (a_3b_3 + a_3c_3)</mrow>
+                            <mrow>\amp = (a_1b_1 + a_2b_2 + a_3b_3) + (a_1c_1 + a_2c_2 + a_3c_3) = \vec{a}\cdot\vec{b} + \vec{a}\cdot\vec{c}</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        By factoring the real scalar <m>c</m> from the algebraic terms:
+                        <me>(c\vec{a})\cdot\vec{b} = (ca_1)b_1 + (ca_2)b_2 + (ca_3)b_3 = c(a_1b_1 + a_2b_2 + a_3b_3) = c(\vec{a}\cdot\vec{b})</me>
+                        A symmetric argument shows this is also equal to <m>\vec{a}\cdot(c\vec{b})</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Since multiplying any real number by zero equals zero:
+                        <me>\vec{0}\cdot\vec{a} = (0)(a_1) + (0)(a_2) + (0)(a_3) = 0 + 0 + 0 = 0</me>
+                    </p>
+                </li>
+            </ol>
+        </proof>
+    </proposition>
+
+    <theorem xml:id="thm-cauchy-schwarz">
+        <title>Cauchy-Schwarz Inequality</title>
+        <statement>
+            <p>
+                For any two vectors <m>\vec{a}</m> and <m>\vec{b}</m>:
+                <me>|\vec{a}\cdot\vec{b}| \leq \|\vec{a}\| \|\vec{b}\|</me>
+            </p>
+        </statement>
+        <proof>
+            <p>
+                If either <m>\vec{a} = \vec{0}</m> or <m>\vec{b} = \vec{0}</m>, then both sides of the inequality are exactly <m>0</m>, making the statement trivially true.
+            </p>
+            <p>
+                Assume both vectors are nonzero. We can express the dot product using its geometric definition:
+                <me>\vec{a}\cdot\vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\theta)</me>
+            </p>
+            <p>
+                Taking the absolute value of both sides yields:
+                <me>|\vec{a}\cdot\vec{b}| = |\|\vec{a}\| \|\vec{b}\| \cos(\theta)| = \|\vec{a}\| \|\vec{b}\| |\cos(\theta)|</me>
+            </p>
+            <p>
+                Since the cosine function is naturally bounded by the range of real values <m>-1 \leq \cos(\theta) \leq 1</m>, its absolute value parameter satisfies <m>|\cos(\theta)| \leq 1</m>. Substituting this boundary restriction into our equation produces the target proof expression:
+                <me>|\vec{a}\cdot\vec{b}| \leq \|\vec{a}\| \|\vec{b}\| (1) \implies |\vec{a}\cdot\vec{b}| \leq \|\vec{a}\| \|\vec{b}\|</me>
+            </p>
+        </proof>
+    </theorem>
+
+    <theorem xml:id="thm-triangle-inequality-vectors">
+        <title>Triangle Inequality</title>
+        <statement>
+            <p>
+                For any two vectors <m>\vec{a}</m> and <m>\vec{b}</m>:
+                <me>\|\vec{a} + \vec{b}\| \leq \|\vec{a}\| + \|\vec{b}\|</me>
+            </p>
+        </statement>
+        <proof>
+            <p>
+                Because both sides of the target inequality are non-negative real lengths, we can square the left-hand side and evaluate it using dot product properties:
+                <md>
+                    <mrow>\|\vec{a} + \vec{b}\|^2 \amp = (\vec{a} + \vec{b}) \cdot (\vec{a} + \vec{b})</mrow>
+                    <mrow>\amp = \vec{a}\cdot\vec{a} + \vec{a}\cdot\vec{b} + \vec{b}\cdot\vec{a} + \vec{b}\cdot\vec{b}</mrow>
+                    <mrow>\amp = \|\vec{a}\|^2 + 2(\vec{a}\cdot\vec{b}) + \|\vec{b}\|^2</mrow>
+                </md>
+            </p>
+            <p>
+                Since a real number is always less than or equal to its absolute value (<m>x \leq |x|</m>), we can state that <m>\vec{a}\cdot\vec{b} \leq |\vec{a}\cdot\vec{b}|</m>. Applying the Cauchy-Schwarz Inequality (<m>|\vec{a}\cdot\vec{b}| \leq \|\vec{a}\|\|\vec{b}\|</m>) gives:
+                <md>
+                    <mrow>\|\vec{a} + \vec{b}\|^2 \amp \leq \|\vec{a}\|^2 + 2|\vec{a}\cdot\vec{b}| + \|\vec{b}\|^2</mrow>
+                    <mrow>\amp \leq \|\vec{a}\|^2 + 2\|\vec{a}\|\|\vec{b}\| + \|\vec{b}\|^2</mrow>
+                </md>
+            </p>
+            <p>
+                The right side is a perfect square trinomial, which factors into scalar lengths:
+                <me>\|\vec{a} + \vec{b}\|^2 \leq (\|\vec{a}\| + \|\vec{b}\|)^2</me>
+            </p>
+            <p>
+                Taking the positive square root of both sides completes the proof:
+                <me>\|\vec{a} + \vec{b}\| \leq \|\vec{a}\| + \|\vec{b}\|</me>
+            </p>
+        </proof>
+    </theorem>
+
+</subsection>
+
+<subsection xml:id="subsec-vector-projections">
+    <title>Projections</title>
+    
+    <p>
+        Let <m>\vec{PQ}</m> and <m>\vec{PR}</m> be representations of two vectors <m>\vec{a}</m> and <m>\vec{b}</m> sharing the same initial point <m>P</m>. If <m>S</m> is the foot of the perpendicular dropped from <m>R</m> to the line containing <m>\vec{PQ}</m>, then the vector represented by <m>\vec{PS}</m> is called the <term>vector projection</term> of <m>\vec{b}</m> onto <m>\vec{a}</m> and is denoted by <m>\operatorname{proj}_{\vec{a}}\vec{b}</m> (think of this as the shadow cast by <m>\vec{b}</m> onto <m>\vec{a}</m>).
+    </p>
+
+    <p>
+        The <term>scalar projection</term> of <m>\vec{b}</m> onto <m>\vec{a}</m> (also called the <term>component of b along a</term>) is the real number <m>\|\vec{b}\|\cos(\theta)</m>, where <m>\theta</m> is the angle between <m>\vec{a}</m> and <m>\vec{b}</m>. This value is denoted by <m>\operatorname{comp}_{\vec{a}}\vec{b}</m>. The equation:
+        <me>\vec{a}\cdot \vec{b} = \|\vec{a}\|\|\vec{b}\|\cos(\theta) = \|\vec{a}\|(\|\vec{b}\|\cos(\theta))</me>
+        shows that the dot product of <m>\vec{a}</m> and <m>\vec{b}</m> can be interpreted as the length of <m>\vec{a}</m> multiplied by the scalar projection of <m>\vec{b}</m> onto <m>\vec{a}</m>. Since:
+        <me>\|\vec{b}\|\cos(\theta) = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|} = \frac{\vec{a}}{\|\vec{a}\|} \cdot \vec{b}</me>
+    </p>
+
+       <fact xml:id="fact-projection-formulas">
+        <title>Projection Formulas</title>
+        <statement>
+            <p>
+                Let <m>\vec{a}</m> and <m>\vec{b}</m> be vectors with <m>\vec{a} \neq \vec{0}</m>.
+                <ul>
+                    <li>
+                        <p>
+                            <term>Scalar projection of <m>\vec{b}</m> onto <m>\vec{a}</m></term>:
+                            <me>\operatorname{comp}_{\vec{a}}\vec{b} = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|}</me>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <term>Vector projection of <m>\vec{b}</m> onto <m>\vec{a}</m></term>:
+                            <me>\operatorname{proj}_{\vec{a}}\vec{b} = \left(\frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|}\right) \frac{\vec{a}}{\|\vec{a}\|} = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|^2} \vec{a}</me>
+                        </p>
+                    </li>
+                </ul>
+            </p>
+            <figure xml:id="fig-vector-scalar-projections">
+                <caption>The geometric relationship between vector projection and scalar projection.</caption>
+                <image xml:id="img-vector-scalar-projections" width="65%">
+                    <shortdescription>A vector diagram showing base vector a pointing horizontally to the right. Vector b points up and right from the same starting point. A dashed line drops perpendicularly from the tip of vector b down to vector a. The resulting vector along the baseline is colored purple and labeled proj a b. Below it, a text label indicates that its signed length is comp a b.</shortdescription>
+                    <latex-image>
+                        \begin{tikzpicture}[>=stealth, scale=1.2]
+                            % Coordinate vertices
+                            \coordinate (P) at (0,0);
+                            \coordinate (Q) at (5,0);     % Tip of vector a
+                            \coordinate (R) at (3,2);     % Tip of vector b
+                            \coordinate (S) at (3,0);     % Foot of perpendicular (projection point)
+                            
+                            % Draw base vector a (extends past the projection point)
+                            \draw[->, ultra thick, blue] (P) -- (Q) node[right] {$\vec{a}$};
+                            
+                            % Draw target vector b
+                            \draw[->, ultra thick, red] (P) -- (R) node[above right] {$\vec{b}$};
+                            
+                            % Perpendicular line from R to S and its right-angle marker
+                            \draw[dashed, thick, gray] (R) -- (S);
+                            \draw[thick, gray] (3,0.2) -- (2.8,0.2) -- (2.8,0);
+                            
+                            % Highlighted vector projection segment along the baseline
+                            \draw[->, ultra thick, purple] (P) -- (S);
+                            
+                            % Angle theta marker
+                            \draw[thick, black] (0.6,0) arc (0:33.69:0.6); % approx atan(2/3)
+                            \node at (17:0.9) {$\theta$};
+                            
+                            % Labeling the vector projection (above the axis)
+                            \node[purple, above=2pt] at (1.5,0) {$\operatorname{proj}_{\vec{a}}\vec{b}$};
+                            
+                            % Labeling the scalar projection component (placed lower to clear space)
+                            \node[purple, below=12pt] at (1.5,0) {$\text{Length} = \operatorname{comp}_{\vec{a}}\vec{b} = \|\vec{b}\|\cos(\theta)$};
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+        </statement>
+    </fact>
+
+    <example xml:id="ex-compute-projections">
+        <statement>
+            <p>
+                Find the scalar projection and vector projection of <m>\vec{b} = \langle 1,1,2 \rangle</m> onto <m>\vec{a} = \langle -2,3,1 \rangle</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                First, compute the core values required by the projection formulas (<m>\vec{a}\cdot\vec{b}</m> and <m>\|\vec{a}\|^2</m>):
+                <me>\vec{a}\cdot\vec{b} = (-2)(1) + (3)(1) + (1)(2) = -2 + 3 + 2 = 3</me>
+                <me>\|\vec{a}\|^2 = (-2)^2 + 3^2 + 1^2 = 4 + 9 + 1 = 14 \implies \|\vec{a}\| = \sqrt{14}</me>
+            </p>
+            <p>
+                Now apply these numbers to the scalar projection formula:
+                <me>\operatorname{comp}_{\vec{a}}\vec{b} = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|} = \frac{3}{\sqrt{14}}</me>
+            </p>
+            <p>
+                Next, apply the values to the vector projection formula to scale the base direction vector <m>\vec{a}</m>:
+                <me>\operatorname{proj}_{\vec{a}}\vec{b} = \frac{\vec{a}\cdot \vec{b}}{\|\vec{a}\|^2} \vec{a} = \frac{3}{14} \langle -2,3,1 \rangle = \left\langle -\frac{3}{7}, \frac{9}{14}, \frac{3}{14} \right\rangle</me>
+            </p>
+        </solution>
+    </example>
+
+</subsection>
+
+    <exercise xml:id="exercise-direction-angle-xaxis">
+        <statement>
+            <p>
+                Find the direction angle between the vector <m>\vec{a} = \langle 1,2,3 \rangle</m> and the <m>x</m>-axis.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                The direction angle relative to the positive <m>x</m>-axis matches the angle between vector <m>\vec{a}</m> and the standard basis unit vector <m>\vec{i} = \langle 1,0,0 \rangle</m>:
+                <me>\vec{a}\cdot\vec{i} = (1)(1) + (2)(0) + (3)(0) = 1</me>
+                <me>\|\vec{a}\| = \sqrt{1^2 + 2^2 + 3^2} = \sqrt{1 + 4 + 9} = \sqrt{14}</me>
+                <me>\|\vec{i}\| = 1</me>
+            </p>
+            <p>
+                Now compute the angle tracking parameter <m>\alpha</m>:
+                <me>\cos(\alpha) = \frac{\vec{a}\cdot\vec{i}}{\|\vec{a}\|\|\vec{i}\|} = \frac{1}{\sqrt{14}} \implies \alpha = \arccos\left(\frac{1}{\sqrt{14}}\right) \approx 74.5^\circ</me>
+            </p>
+        </solution>
+    </exercise>
+
+    <exercise xml:id="ex-work-3d-points">
+        <statement>
+            <p>
+                A force is given by a vector <m>\vec{F} = 3\vec{i}+4\vec{j}+5\vec{k}</m> and moves a particle from the point <m>P(2,1,0)</m> to the point <m>Q(4,6,2)</m>. Find the work done.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                First, determine the displacement vector <m>\vec{D}</m> from <m>P</m> to <m>Q</m> using terminal minus initial coordinates:
+                <me>\vec{D} = \vec{PQ} = \langle 4-2, 6-1, 2-0 \rangle = \langle 2,5,2 \rangle</me>
+            </p>
+            <p>
+                Work is computed as the dot product of the force vector <m>\vec{F} = \langle 3,4,5 \rangle</m> and this displacement vector <m>\vec{D}</m>:
+                <me>W = \vec{F}\cdot\vec{D} = (3)(2) + (4)(5) + (5)(2) = 6 + 20 + 10 = 36</me>
+                The total work done is <m>36</m> units.
+            </p>
+        </solution>
+    </exercise>
+
+    <exercise xml:id="exercise-work-cart-gravity">
+        <statement>
+            <p>
+                A cart weighing 100 lb is pushed up an incline that makes an angle of <m>30^\circ</m> with the horizontal. Find the work done against gravity in pushing the cart a distance of 80 feet.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                The work done against gravity depends entirely on the vertical displacement of the cart. Alternatively, using our standard projection model, the gravity force vector points straight down with magnitude 100 lb: <m>\vec{F}_g = -100\vec{j}</m>. 
+            </p>
+            <p>
+                If we align our coordinate frame with the horizontal ground, a displacement of 80 feet along a <m>30^\circ</m> incline yields:
+                <me>\vec{D} = 80\cos(30^\circ)\vec{i} + 80\sin(30^\circ)\vec{j} = 80\left(\frac{\sqrt{3}}{2}\right)\vec{i} + 80\left(\frac{1}{2}\right)\vec{j} = 40\sqrt{3}\vec{i} + 40\vec{j}</me>
+            </p>
+            <p>
+                The work done by gravity is <m>\vec{F}_g \cdot \vec{D} = (0)(40\sqrt{3}) + (-100)(40) = -4000\text{ ft-lb}</m>. 
+                The work done <term>against</term> gravity is the positive opposite of this value:
+                <me>W = 4000\text{ ft-lb}</me>
+            </p>
+        </solution>
+    </exercise>
+
+    <exercise xml:id="exercise-wagon-work-projection">
+        <statement>
+            <p>
+                A wagon is pulled a distance of 100 m along a horizontal path by a constant force of 70 N. The handle of the wagon is held at an angle of <m>35^\circ</m> above the horizontal. Find the work done by the force.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Work is defined as the magnitude of the displacement vector multiplied by the scalar projection of the force vector along the direction of motion:
+                <me>W = \|\vec{D}\| \left(\operatorname{comp}_{\vec{D}}\vec{F}\right) = \|\vec{D}\| \left(\|\vec{F}\|\cos(\theta)\right)</me>
+            </p>
+            <p>
+                Substitute the given values (<m>\|\vec{D}\| = 100\text{ m}</m>, <m>\|\vec{F}\| = 70\text{ N}</m>, and <m>\theta = 35^\circ</m>) into the work expression:
+                <md>
+                    <mrow>W \amp = (100)(70)\cos(35^\circ)</mrow>
+                    <mrow>\amp = 7000\cos(35^\circ)</mrow>
+                    <mrow>\amp \approx 5734.06\text{ J}</mrow>
+                </md>
+                The total work done by the force pulling the wagon is approximately <m>5734.06</m> Joules.
+            </p>
+        </solution>
+    </exercise>
+
+
+
+ </section>

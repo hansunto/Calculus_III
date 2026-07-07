@@ -379,6 +379,240 @@ var ptx_lunr_docs = [
   "body": "  A 100-lb weight hangs from two wires making angles of and with the horizontal. Find the tensions (forces) and in both wires and their magnitudes.    We express the tension vectors in terms of their horizontal and vertical components. Let pull up and to the left, and pull up and to the right:   The downward force due to the weight is . For the system to achieve static equilibrium, the resultant sum of the tensions must exactly counterbalance the weight:    Force vector diagram for the hanging weight system.   A free body vector diagram showing a central point from which three arrows emerge: one pointing down labeled w equals 100 lb, one pulling up and left at 50 degrees labeled T1, and one pulling up and right at 32 degrees labeled T2.     Equating the horizontal ( ) and vertical ( ) components gives a system of linear equations:   From the first equation, we find . Substituting this relationship into the second equation yields:    Solving for the magnitudes yields:              Substituting these scalar magnitudes back into our component formulas provides the final tension vector models:     "
 },
 {
+  "id": "sec-dot-product",
+  "level": "1",
+  "url": "sec-dot-product.html",
+  "type": "Section",
+  "number": "",
+  "title": "1.3 The Dot Product",
+  "body": " 1.3 The Dot Product  Suppose a constant force is represented by a vector pointing in some direction other than the direction of motion. If this force moves an object from point to point , then the displacement vector is .  The work done by is defined as the magnitude of the displacement , multiplied by the magnitude of the applied force in the direction of the motion. Therefore, the work done by is defined to be: where is the angle between the force and displacement vectors.   The geometric projection of a force vector along a displacement vector .   A vector diagram showing displacement vector D pointing horizontally from point P to point Q. Force vector F points up and right from point P to point R. A dashed vertical line drops from point R to a point on vector D, creating a right triangle that marks the component of force in the direction of motion as double norm of F times cosine theta.       The dot product of two vectors and is the number: where is the angle between and , such that . Thus, is the smallest angle between the vectors when they are drawn with the same initial point. If either or , we define .    The dot product is a real number, that is, a scalar. For this reason, the dot product is sometimes called the scalar product .    If the vectors and have lengths and , and the angle between them is , find .    Substitute the given magnitudes and the angle into the geometric definition of the dot product:    Two vectors separated by an angle of .   Two vectors originating from the same point. Vector b lies horizontally to the right with length 6. Vector a points up and right with length 4. The angle between them is marked as pi over 3.         A crate is hauled 8 m up a ramp under a constant force of 200 N applied at an angle of to the ramp. Find the work done.    The work done by a constant force is given by the formula , which corresponds exactly to the dot product of the force vector and the displacement vector .  Given , , and : The work done in hauling the crate is approximately Joules (or Newton-meters).   Force vector acting at an angle to the displacement along a ramp.   A schematic showing an inclined plane ramp at 15 degrees. A crate sits on the ramp. A displacement vector arrow points up along the ramp surface labeled D equals 8 m. From the center of the crate, a force vector arrow pulls up and right at a steeper angle labeled F equals 200 N, with the intermediate angle marked as 25 degrees.         Two nonzero vectors and are called perpendicular or orthogonal if the angle between them is . In this case: Conversely, if then , which implies . Therefore, two vectors and are orthogonal if and only if .    By definition, the geometric dot product is given by , where .  For the forward direction, assume and are orthogonal. By definition, the angle between them is . Substituting this value yields:   For the reverse direction, assume for two nonzero vectors. Since the vectors are nonzero, their magnitudes are strictly positive ( and ). We can divide both sides of the definition by these magnitudes: Within the restricted interval , the equation has a unique solution, . Thus, the vectors are orthogonal.      The sign of the dot product provides geometric information about the relative directions of the vectors:    It is positive if and point in the same general direction ( ).    It is if they are perpendicular ( ).    It is negative if and point in generally opposite directions ( ).    If and point in exactly the same direction, then , which means and:     If and point in exactly the opposite direction, then , which means and:       Because the magnitudes and of two nonzero vectors are always strictly positive, the sign of the product is completely determined by the sign of the trigonometric term on the interval :    When (an acute angle), , rendering the dot product positive.    When (a right angle), , rendering the dot product zero.    When (an obtuse angle), , rendering the dot product negative.    If they point in the exact same direction, . Since , the expression simplifies directly to .    If they point in the exact opposite direction, . Since , the expression simplifies directly to .       The Dot Product in Component Form  Suppose and are given in component forms. If we apply the Law of Cosines to the triangle formed by these vectors, we obtain:    Algebraic Dot Product Formula   The dot product of and is:       Find the dot product for each of the following cases:     ,      ,      , , and the angle between and is .        Multiply corresponding components and add them together:     First write in full component form as and as :     Since components are unknown but the angle is provided, use the geometric definition:         Show that is perpendicular to .    Two vectors are perpendicular (orthogonal) if and only if their dot product equals zero. Let and : Because the dot product is exactly , the vectors are perpendicular.      Find the angle between the vectors and .    We use the alternate formula for the angle between vectors: .  First compute the dot product and individual vector magnitudes:     Substitute these calculations back into the cosine expression:      Properties of the Dot Product   If , , and are vectors in and is a scalar, then:                               Let , , and .    By the component formula for the dot product:     Since multiplication of real numbers is commutative ( ):     Using the distributive property of real numbers:     By factoring the real scalar from the algebraic terms: A symmetric argument shows this is also equal to .    Since multiplying any real number by zero equals zero:        Cauchy-Schwarz Inequality   For any two vectors and :     If either or , then both sides of the inequality are exactly , making the statement trivially true.  Assume both vectors are nonzero. We can express the dot product using its geometric definition:   Taking the absolute value of both sides yields:   Since the cosine function is naturally bounded by the range of real values , its absolute value parameter satisfies . Substituting this boundary restriction into our equation produces the target proof expression:      Triangle Inequality   For any two vectors and :     Because both sides of the target inequality are non-negative real lengths, we can square the left-hand side and evaluate it using dot product properties:   Since a real number is always less than or equal to its absolute value ( ), we can state that . Applying the Cauchy-Schwarz Inequality ( ) gives:   The right side is a perfect square trinomial, which factors into scalar lengths:   Taking the positive square root of both sides completes the proof:       Projections  Let and be representations of two vectors and sharing the same initial point . If is the foot of the perpendicular dropped from to the line containing , then the vector represented by is called the vector projection of onto and is denoted by (think of this as the shadow cast by onto ).  The scalar projection of onto (also called the component of b along a ) is the real number , where is the angle between and . This value is denoted by . The equation: shows that the dot product of and can be interpreted as the length of multiplied by the scalar projection of onto . Since:    Projection Formulas   Let and be vectors with .    Scalar projection of onto :      Vector projection of onto :       The geometric relationship between vector projection and scalar projection.   A vector diagram showing base vector a pointing horizontally to the right. Vector b points up and right from the same starting point. A dashed line drops perpendicularly from the tip of vector b down to vector a. The resulting vector along the baseline is colored purple and labeled proj a b. Below it, a text label indicates that its signed length is comp a b.         Find the scalar projection and vector projection of onto .    First, compute the core values required by the projection formulas ( and ):    Now apply these numbers to the scalar projection formula:   Next, apply the values to the vector projection formula to scale the base direction vector :        Find the direction angle between the vector and the -axis.    The direction angle relative to the positive -axis matches the angle between vector and the standard basis unit vector :     Now compute the angle tracking parameter :       A force is given by a vector and moves a particle from the point to the point . Find the work done.    First, determine the displacement vector from to using terminal minus initial coordinates:   Work is computed as the dot product of the force vector and this displacement vector : The total work done is units.      A cart weighing 100 lb is pushed up an incline that makes an angle of with the horizontal. Find the work done against gravity in pushing the cart a distance of 80 feet.    The work done against gravity depends entirely on the vertical displacement of the cart. Alternatively, using our standard projection model, the gravity force vector points straight down with magnitude 100 lb: .  If we align our coordinate frame with the horizontal ground, a displacement of 80 feet along a incline yields:   The work done by gravity is . The work done against gravity is the positive opposite of this value:       A wagon is pulled a distance of 100 m along a horizontal path by a constant force of 70 N. The handle of the wagon is held at an angle of above the horizontal. Find the work done by the force.    Work is defined as the magnitude of the displacement vector multiplied by the scalar projection of the force vector along the direction of motion:   Substitute the given values ( , , and ) into the work expression: The total work done by the force pulling the wagon is approximately Joules.    "
+},
+{
+  "id": "sec-dot-product-2",
+  "level": "2",
+  "url": "sec-dot-product.html#sec-dot-product-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "force displacement vector "
+},
+{
+  "id": "sec-dot-product-3",
+  "level": "2",
+  "url": "sec-dot-product.html#sec-dot-product-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "work "
+},
+{
+  "id": "fig-work-vector-projection",
+  "level": "2",
+  "url": "sec-dot-product.html#fig-work-vector-projection",
+  "type": "Figure",
+  "number": "1.42",
+  "title": "",
+  "body": " The geometric projection of a force vector along a displacement vector .   A vector diagram showing displacement vector D pointing horizontally from point P to point Q. Force vector F points up and right from point P to point R. A dashed vertical line drops from point R to a point on vector D, creating a right triangle that marks the component of force in the direction of motion as double norm of F times cosine theta.    "
+},
+{
+  "id": "def-dot-product-geometric",
+  "level": "2",
+  "url": "sec-dot-product.html#def-dot-product-geometric",
+  "type": "Definition",
+  "number": "1.43",
+  "title": "",
+  "body": "  The dot product of two vectors and is the number: where is the angle between and , such that . Thus, is the smallest angle between the vectors when they are drawn with the same initial point. If either or , we define .   "
+},
+{
+  "id": "sec-dot-product-6",
+  "level": "2",
+  "url": "sec-dot-product.html#sec-dot-product-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "scalar product "
+},
+{
+  "id": "ex-dot-product-geometric-calc",
+  "level": "2",
+  "url": "sec-dot-product.html#ex-dot-product-geometric-calc",
+  "type": "Example",
+  "number": "1.44",
+  "title": "",
+  "body": "  If the vectors and have lengths and , and the angle between them is , find .    Substitute the given magnitudes and the angle into the geometric definition of the dot product:    Two vectors separated by an angle of .   Two vectors originating from the same point. Vector b lies horizontally to the right with length 6. Vector a points up and right with length 4. The angle between them is marked as pi over 3.      "
+},
+{
+  "id": "ex-work-done-ramp",
+  "level": "2",
+  "url": "sec-dot-product.html#ex-work-done-ramp",
+  "type": "Example",
+  "number": "1.46",
+  "title": "",
+  "body": "  A crate is hauled 8 m up a ramp under a constant force of 200 N applied at an angle of to the ramp. Find the work done.    The work done by a constant force is given by the formula , which corresponds exactly to the dot product of the force vector and the displacement vector .  Given , , and : The work done in hauling the crate is approximately Joules (or Newton-meters).   Force vector acting at an angle to the displacement along a ramp.   A schematic showing an inclined plane ramp at 15 degrees. A crate sits on the ramp. A displacement vector arrow points up along the ramp surface labeled D equals 8 m. From the center of the crate, a force vector arrow pulls up and right at a steeper angle labeled F equals 200 N, with the intermediate angle marked as 25 degrees.      "
+},
+{
+  "id": "cor-orthogonal-vectors",
+  "level": "2",
+  "url": "sec-dot-product.html#cor-orthogonal-vectors",
+  "type": "Corollary",
+  "number": "1.48",
+  "title": "",
+  "body": "  Two nonzero vectors and are called perpendicular or orthogonal if the angle between them is . In this case: Conversely, if then , which implies . Therefore, two vectors and are orthogonal if and only if .    By definition, the geometric dot product is given by , where .  For the forward direction, assume and are orthogonal. By definition, the angle between them is . Substituting this value yields:   For the reverse direction, assume for two nonzero vectors. Since the vectors are nonzero, their magnitudes are strictly positive ( and ). We can divide both sides of the definition by these magnitudes: Within the restricted interval , the equation has a unique solution, . Thus, the vectors are orthogonal.   "
+},
+{
+  "id": "cor-dot-product-sign-meanings",
+  "level": "2",
+  "url": "sec-dot-product.html#cor-dot-product-sign-meanings",
+  "type": "Corollary",
+  "number": "1.49",
+  "title": "",
+  "body": "  The sign of the dot product provides geometric information about the relative directions of the vectors:    It is positive if and point in the same general direction ( ).    It is if they are perpendicular ( ).    It is negative if and point in generally opposite directions ( ).    If and point in exactly the same direction, then , which means and:     If and point in exactly the opposite direction, then , which means and:       Because the magnitudes and of two nonzero vectors are always strictly positive, the sign of the product is completely determined by the sign of the trigonometric term on the interval :    When (an acute angle), , rendering the dot product positive.    When (a right angle), , rendering the dot product zero.    When (an obtuse angle), , rendering the dot product negative.    If they point in the exact same direction, . Since , the expression simplifies directly to .    If they point in the exact opposite direction, . Since , the expression simplifies directly to .     "
+},
+{
+  "id": "fact-dot-product-component-definition",
+  "level": "2",
+  "url": "sec-dot-product.html#fact-dot-product-component-definition",
+  "type": "Fact",
+  "number": "1.50",
+  "title": "Algebraic Dot Product Formula.",
+  "body": " Algebraic Dot Product Formula   The dot product of and is:    "
+},
+{
+  "id": "ex-dot-product-computations",
+  "level": "2",
+  "url": "sec-dot-product.html#ex-dot-product-computations",
+  "type": "Example",
+  "number": "1.51",
+  "title": "",
+  "body": "  Find the dot product for each of the following cases:     ,      ,      , , and the angle between and is .        Multiply corresponding components and add them together:     First write in full component form as and as :     Since components are unknown but the angle is provided, use the geometric definition:      "
+},
+{
+  "id": "ex-verify-perpendicular",
+  "level": "2",
+  "url": "sec-dot-product.html#ex-verify-perpendicular",
+  "type": "Example",
+  "number": "1.52",
+  "title": "",
+  "body": "  Show that is perpendicular to .    Two vectors are perpendicular (orthogonal) if and only if their dot product equals zero. Let and : Because the dot product is exactly , the vectors are perpendicular.   "
+},
+{
+  "id": "ex-angle-between-vectors",
+  "level": "2",
+  "url": "sec-dot-product.html#ex-angle-between-vectors",
+  "type": "Example",
+  "number": "1.53",
+  "title": "",
+  "body": "  Find the angle between the vectors and .    We use the alternate formula for the angle between vectors: .  First compute the dot product and individual vector magnitudes:     Substitute these calculations back into the cosine expression:    "
+},
+{
+  "id": "prop-dot-product-properties",
+  "level": "2",
+  "url": "sec-dot-product.html#prop-dot-product-properties",
+  "type": "Proposition",
+  "number": "1.54",
+  "title": "Properties of the Dot Product.",
+  "body": " Properties of the Dot Product   If , , and are vectors in and is a scalar, then:                               Let , , and .    By the component formula for the dot product:     Since multiplication of real numbers is commutative ( ):     Using the distributive property of real numbers:     By factoring the real scalar from the algebraic terms: A symmetric argument shows this is also equal to .    Since multiplying any real number by zero equals zero:      "
+},
+{
+  "id": "thm-cauchy-schwarz",
+  "level": "2",
+  "url": "sec-dot-product.html#thm-cauchy-schwarz",
+  "type": "Theorem",
+  "number": "1.55",
+  "title": "Cauchy-Schwarz Inequality.",
+  "body": " Cauchy-Schwarz Inequality   For any two vectors and :     If either or , then both sides of the inequality are exactly , making the statement trivially true.  Assume both vectors are nonzero. We can express the dot product using its geometric definition:   Taking the absolute value of both sides yields:   Since the cosine function is naturally bounded by the range of real values , its absolute value parameter satisfies . Substituting this boundary restriction into our equation produces the target proof expression:    "
+},
+{
+  "id": "thm-triangle-inequality-vectors",
+  "level": "2",
+  "url": "sec-dot-product.html#thm-triangle-inequality-vectors",
+  "type": "Theorem",
+  "number": "1.56",
+  "title": "Triangle Inequality.",
+  "body": " Triangle Inequality   For any two vectors and :     Because both sides of the target inequality are non-negative real lengths, we can square the left-hand side and evaluate it using dot product properties:   Since a real number is always less than or equal to its absolute value ( ), we can state that . Applying the Cauchy-Schwarz Inequality ( ) gives:   The right side is a perfect square trinomial, which factors into scalar lengths:   Taking the positive square root of both sides completes the proof:    "
+},
+{
+  "id": "subsec-vector-projections-2",
+  "level": "2",
+  "url": "sec-dot-product.html#subsec-vector-projections-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector projection "
+},
+{
+  "id": "subsec-vector-projections-3",
+  "level": "2",
+  "url": "sec-dot-product.html#subsec-vector-projections-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "scalar projection component of b along a "
+},
+{
+  "id": "fact-projection-formulas",
+  "level": "2",
+  "url": "sec-dot-product.html#fact-projection-formulas",
+  "type": "Fact",
+  "number": "1.57",
+  "title": "Projection Formulas.",
+  "body": " Projection Formulas   Let and be vectors with .    Scalar projection of onto :      Vector projection of onto :       The geometric relationship between vector projection and scalar projection.   A vector diagram showing base vector a pointing horizontally to the right. Vector b points up and right from the same starting point. A dashed line drops perpendicularly from the tip of vector b down to vector a. The resulting vector along the baseline is colored purple and labeled proj a b. Below it, a text label indicates that its signed length is comp a b.      "
+},
+{
+  "id": "ex-compute-projections",
+  "level": "2",
+  "url": "sec-dot-product.html#ex-compute-projections",
+  "type": "Example",
+  "number": "1.59",
+  "title": "",
+  "body": "  Find the scalar projection and vector projection of onto .    First, compute the core values required by the projection formulas ( and ):    Now apply these numbers to the scalar projection formula:   Next, apply the values to the vector projection formula to scale the base direction vector :    "
+},
+{
+  "id": "exercise-direction-angle-xaxis",
+  "level": "2",
+  "url": "sec-dot-product.html#exercise-direction-angle-xaxis",
+  "type": "Checkpoint",
+  "number": "1.60",
+  "title": "",
+  "body": "  Find the direction angle between the vector and the -axis.    The direction angle relative to the positive -axis matches the angle between vector and the standard basis unit vector :     Now compute the angle tracking parameter :    "
+},
+{
+  "id": "ex-work-3d-points",
+  "level": "2",
+  "url": "sec-dot-product.html#ex-work-3d-points",
+  "type": "Checkpoint",
+  "number": "1.61",
+  "title": "",
+  "body": "  A force is given by a vector and moves a particle from the point to the point . Find the work done.    First, determine the displacement vector from to using terminal minus initial coordinates:   Work is computed as the dot product of the force vector and this displacement vector : The total work done is units.   "
+},
+{
+  "id": "exercise-work-cart-gravity",
+  "level": "2",
+  "url": "sec-dot-product.html#exercise-work-cart-gravity",
+  "type": "Checkpoint",
+  "number": "1.62",
+  "title": "",
+  "body": "  A cart weighing 100 lb is pushed up an incline that makes an angle of with the horizontal. Find the work done against gravity in pushing the cart a distance of 80 feet.    The work done against gravity depends entirely on the vertical displacement of the cart. Alternatively, using our standard projection model, the gravity force vector points straight down with magnitude 100 lb: .  If we align our coordinate frame with the horizontal ground, a displacement of 80 feet along a incline yields:   The work done by gravity is . The work done against gravity is the positive opposite of this value:    "
+},
+{
+  "id": "exercise-wagon-work-projection",
+  "level": "2",
+  "url": "sec-dot-product.html#exercise-wagon-work-projection",
+  "type": "Checkpoint",
+  "number": "1.63",
+  "title": "",
+  "body": "  A wagon is pulled a distance of 100 m along a horizontal path by a constant force of 70 N. The handle of the wagon is held at an angle of above the horizontal. Find the work done by the force.    Work is defined as the magnitude of the displacement vector multiplied by the scalar projection of the force vector along the direction of motion:   Substitute the given values ( , , and ) into the work expression: The total work done by the force pulling the wagon is approximately Joules.   "
+},
+{
+  "id": "sec-cross-product",
+  "level": "1",
+  "url": "sec-cross-product.html",
+  "type": "Section",
+  "number": "",
+  "title": "1.4 The Cross Product",
+  "body": " 1.4 The Cross Product  "
+},
+{
   "id": "activities",
   "level": "1",
   "url": "activities.html",
