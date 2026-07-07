@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1.1 Vectors in Two Dimensions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.8';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.917dfc3cfe0bb764.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.d40a1acc1751a0b6.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-Vectors-and-the-Geometry-of-Space.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Vectors-and-the-Geometry-of-Space.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-vectors-3d.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">2</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="handouts.html" class="internal"><span class="codenumber">3</span> <span class="title">Handouts</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">4</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">5</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-vectors-2d">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">1.1 Vectors in Two Dimensions</span>
+</h2>
+<div class="para" id="sec-vectors-2d-2">A vector is a quantity that has both magnitude and direction. In two dimensions, vectors can be represented as arrows in a plane, where the length of the arrow corresponds to the magnitude of the vector, and the direction of the arrow indicates the direction of the vector.<div class="autopermalink" data-description="Paragraph"><a href="#sec-vectors-2d-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-vector-basics"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="def-vector-basics-1-1">A velocity or force has both magnitude and direction and is often represented by a <dfn class="terminology">directed line segment</dfn> or a <dfn class="terminology">vector</dfn>. We denote the vector with <dfn class="terminology">initial point</dfn> <span class="process-math">\(P\)</span> and <dfn class="terminology">terminal point</dfn> <span class="process-math">\(Q\)</span> as <span class="process-math">\(\vec{PQ}\text{.}\)</span> The direction of the vector indicates arrowhead at <span class="process-math">\(Q\text{.}\)</span> The <dfn class="terminology">magnitude</dfn> of <span class="process-math">\(\vec{PQ}\)</span> is the length of the segment <span class="process-math">\(PQ\)</span> and is denoted by <span class="process-math">\(\|\vec{PQ}\|\text{.}\)</span> Vectors that have the same magnitude and direction are called <dfn class="terminology">equivalent</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#def-vector-basics-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.1"><a href="#def-vector-basics" title="Copy heading and permalink for Definition 1.1" aria-label="Copy heading and permalink for Definition 1.1">🔗</a></div>
+</article>
+<div class="para" id="sec-vectors-2d-4">A vector may be translated from one location to another, provided neither the magnitude nor the direction is changed. If <span class="process-math">\(\vec{PS} = \vec{PQ} + \vec{PR}\)</span> and <span class="process-math">\(\vec{PQ}\)</span> and <span class="process-math">\(\vec{PR}\)</span> are two forces acting at <span class="process-math">\(P\text{,}\)</span> then <span class="process-math">\(\vec{PS}\)</span> is the <dfn class="terminology">resultant force</dfn> (sum).<div class="autopermalink" data-description="Paragraph"><a href="#sec-vectors-2d-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-vectors-2d-5">If <span class="process-math">\(c\)</span> is a scalar and <span class="process-math">\(\vec{v}\)</span> is a vector, then <span class="process-math">\(c\vec{v}\)</span> (a <dfn class="terminology">scalar multiple</dfn>) is defined as a vector whose magnitude is <span class="process-math">\(|c|\)</span> times the magnitude <span class="process-math">\(\|\vec{v}\|\)</span> of <span class="process-math">\(\vec{v}\)</span> with the same direction (<span class="process-math">\(c \gt 0\)</span>) or the opposite direction (<span class="process-math">\(c \lt 0\)</span>) of <span class="process-math">\(\vec{v}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-vectors-2d-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-vectors-2d-6">A vector with the initial point at the origin is called the <dfn class="terminology">position vector</dfn>. We use the symbol <span class="process-math">\(\langle a_1, a_2 \rangle\)</span> for an ordered pair that represents the vector and denote it by a lowercase letter <span class="process-math">\(\vec{v} = \langle a_1, a_2 \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-vectors-2d-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-vectors-2d-7">Two vectors <span class="process-math">\(\langle a_1, a_2 \rangle\)</span> and <span class="process-math">\(\langle b_1, b_2 \rangle\)</span> are <dfn class="terminology">equal</dfn> <span class="process-math">\(\iff a_1 = b_1\)</span> and <span class="process-math">\(a_2 = b_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-vectors-2d-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-sketch-position-vectors" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-sketch-position-vectors-1-1">Sketch the position vectors for:<div class="autopermalink" data-description="Paragraph"><a href="#ex-sketch-position-vectors-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="ex-sketch-position-vectors-1-2">
+<li id="ex-sketch-position-vectors-1-2-1">
+<div class="para" id="ex-sketch-position-vectors-1-2-1-1">
+<span class="process-math">\(\displaystyle \vec{a} = \langle -3,2 \rangle\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-sketch-position-vectors-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-sketch-position-vectors-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-sketch-position-vectors-1-2-2">
+<div class="para" id="ex-sketch-position-vectors-1-2-2-1">
+<span class="process-math">\(\displaystyle \vec{b} = \langle 0,-2 \rangle\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-sketch-position-vectors-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-sketch-position-vectors-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-sketch-position-vectors-1-2-3">
+<div class="para" id="ex-sketch-position-vectors-1-2-3-1">
+<span class="process-math">\(\displaystyle \vec{c} = \left\langle \frac{4}{5}, \frac{3}{5} \right\rangle\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-sketch-position-vectors-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-sketch-position-vectors-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol> 
+<figure class="figure figure-like" id="fig-position-vectors-sketch"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-position-vectors.svg" role="img" class="contained" alt="A Cartesian grid showing three position vectors originating at the origin (0,0). Vector a is blue and ends at (-3,2). Vector b is red and points straight down to (0,-2). Vector c is violet and ends a short distance out at (0.8, 0.6)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The position vectors <span class="process-math">\(\vec{a}\text{,}\)</span> <span class="process-math">\(\vec{b}\text{,}\)</span> and <span class="process-math">\(\vec{c}\)</span> drawn in the Cartesian plane.<div class="autopermalink" data-description="Figure 1.3"><a href="#fig-position-vectors-sketch" title="Copy heading and permalink for Figure 1.3" aria-label="Copy heading and permalink for Figure 1.3">🔗</a></div></figcaption>
+</figure><div class="solutions">
+<details id="ex-sketch-position-vectors-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-sketch-position-vectors-2-1">To sketch a position vector, always place its initial point at the origin <span class="process-math">\((0,0)\text{.}\)</span> The terminal point will match the components of the vector:<div class="autopermalink" data-description="Paragraph"><a href="#ex-sketch-position-vectors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal ol-marker-1" id="ex-sketch-position-vectors-2-2">
+<li id="ex-sketch-position-vectors-2-2-1">
+<div class="para" id="ex-sketch-position-vectors-2-2-1-1">For <span class="process-math">\(\vec{a} = \langle -3,2 \rangle\text{,}\)</span> draw an arrow starting at <span class="process-math">\((0,0)\)</span> and ending at the point <span class="process-math">\((-3,2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-sketch-position-vectors-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-sketch-position-vectors-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-sketch-position-vectors-2-2-2">
+<div class="para" id="ex-sketch-position-vectors-2-2-2-1">For <span class="process-math">\(\vec{b} = \langle 0,-2 \rangle\text{,}\)</span> draw an arrow starting at <span class="process-math">\((0,0)\)</span> and pointing straight down to end at the point <span class="process-math">\((0,-2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-sketch-position-vectors-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-sketch-position-vectors-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-sketch-position-vectors-2-2-3">
+<div class="para" id="ex-sketch-position-vectors-2-2-3-1">For <span class="process-math">\(\vec{c} = \left\langle \frac{4}{5}, \frac{3}{5} \right\rangle\text{,}\)</span> draw an arrow starting at <span class="process-math">\((0,0)\)</span> and ending at the point <span class="process-math">\((0.8, 0.6)\)</span> in the first quadrant.<div class="autopermalink" data-description="Paragraph"><a href="#ex-sketch-position-vectors-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-sketch-position-vectors-2-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 1.2.1"><a href="#ex-sketch-position-vectors-2" title="Copy heading and permalink for Solution 1.2.1" aria-label="Copy heading and permalink for Solution 1.2.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.2"><a href="#ex-sketch-position-vectors" title="Copy heading and permalink for Example 1.2" aria-label="Copy heading and permalink for Example 1.2">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-vector-magnitude"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="def-vector-magnitude-1-1">
+<div class="para">The <dfn class="terminology">magnitude</dfn> (or length) <span class="process-math">\(\|\vec{a}\|\)</span> of the vector <span class="process-math">\(\vec{a} = \langle a_1,a_2 \rangle\)</span> is</div>
+<div class="displaymath process-math" id="def-vector-magnitude-1-1-4">
+\begin{equation*}
+\|\vec{a}\| = \|\langle a_1,a_2 \rangle\| = \sqrt{a_1^2+a_2^2}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-vector-magnitude-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.4"><a href="#def-vector-magnitude" title="Copy heading and permalink for Definition 1.4" aria-label="Copy heading and permalink for Definition 1.4">🔗</a></div>
+</article>
+<details id="ex-find-vector-magnitude" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-find-vector-magnitude-1-1">Find the magnitude of each vector:<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="ex-find-vector-magnitude-1-2">
+<li id="ex-find-vector-magnitude-1-2-1">
+<div class="para" id="ex-find-vector-magnitude-1-2-1-1">
+<span class="process-math">\(\displaystyle \vec{a} = \langle -3,2 \rangle\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-find-vector-magnitude-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-find-vector-magnitude-1-2-2">
+<div class="para" id="ex-find-vector-magnitude-1-2-2-1">
+<span class="process-math">\(\displaystyle \vec{b} = \langle 0,-2 \rangle\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-find-vector-magnitude-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-find-vector-magnitude-1-2-3">
+<div class="para" id="ex-find-vector-magnitude-1-2-3-1">
+<span class="process-math">\(\displaystyle \vec{c} = \left\langle \frac{4}{5},\frac{3}{5} \right\rangle\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-find-vector-magnitude-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-find-vector-magnitude-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-find-vector-magnitude-2-1">We apply the magnitude formula <span class="process-math">\(\|\vec{v}\| = \sqrt{v_1^2 + v_2^2}\)</span> to each vector:<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal ol-marker-1" id="ex-find-vector-magnitude-2-2">
+<li id="ex-find-vector-magnitude-2-2-1">
+<div class="para logical" id="ex-find-vector-magnitude-2-2-1-1">
+<div class="para">For <span class="process-math">\(\vec{a} = \langle -3,2 \rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-find-vector-magnitude-2-2-1-1-2">
+\begin{equation*}
+\|\vec{a}\| = \sqrt{(-3)^2 + 2^2} = \sqrt{9 + 4} = \sqrt{13}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-find-vector-magnitude-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-find-vector-magnitude-2-2-2">
+<div class="para logical" id="ex-find-vector-magnitude-2-2-2-1">
+<div class="para">For <span class="process-math">\(\vec{b} = \langle 0,-2 \rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-find-vector-magnitude-2-2-2-1-2">
+\begin{equation*}
+\|\vec{b}\| = \sqrt{0^2 + (-2)^2} = \sqrt{0 + 4} = \sqrt{4} = 2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-find-vector-magnitude-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-find-vector-magnitude-2-2-3">
+<div class="para logical" id="ex-find-vector-magnitude-2-2-3-1">
+<div class="para">For <span class="process-math">\(\vec{c} = \left\langle \frac{4}{5},\frac{3}{5} \right\rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-find-vector-magnitude-2-2-3-1-2">
+\begin{equation*}
+\|\vec{c}\| = \sqrt{\left(\frac{4}{5}\right)^2 + \left(\frac{3}{5}\right)^2} = \sqrt{\frac{16}{25} + \frac{9}{25}} = \sqrt{\frac{25}{25}} = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-find-vector-magnitude-2-2-3-2">Because its magnitude is <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(\vec{c}\)</span> is a unit vector.<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-vector-magnitude-2-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-find-vector-magnitude-2-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 1.5.1"><a href="#ex-find-vector-magnitude-2" title="Copy heading and permalink for Solution 1.5.1" aria-label="Copy heading and permalink for Solution 1.5.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.5"><a href="#ex-find-vector-magnitude" title="Copy heading and permalink for Example 1.5" aria-label="Copy heading and permalink for Example 1.5">🔗</a></div>
+</article></details>
+<article class="fact theorem-like" id="fact-vector-operations"><h3 class="heading">
+<span class="type">Fact</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector Operations.</span>
+</h3>
+<div class="para logical" id="fact-vector-operations-2-1">
+<div class="para"><dfn class="terminology">Addition of vectors</dfn></div>
+<div class="displaymath process-math" id="fact-vector-operations-2-1-2">
+\begin{equation*}
+\langle a_1,a_2 \rangle + \langle b_1,b_2 \rangle = \langle a_1+b_1, a_2+b_2 \rangle
+\end{equation*}
+</div>
+<div class="para"><dfn class="terminology">Scalar multiple of a vector</dfn></div>
+<div class="displaymath process-math" id="fact-vector-operations-2-1-4">
+\begin{equation*}
+c \langle a_1,a_2 \rangle = \langle ca_1, ca_2 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#fact-vector-operations-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Fact 1.6: Vector Operations"><a href="#fact-vector-operations" title="Copy heading and permalink for Fact 1.6: Vector Operations" aria-label="Copy heading and permalink for Fact 1.6: Vector Operations">🔗</a></div>
+</article>
+<details id="ex-vector-arithmetic-sketch" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-vector-arithmetic-sketch-1-1">Let <span class="process-math">\(\vec{a} = \langle -1,3 \rangle\)</span> and <span class="process-math">\(\vec{b} = \langle 4,3 \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-arithmetic-sketch-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="ex-vector-arithmetic-sketch-1-2">
+<li id="ex-vector-arithmetic-sketch-1-2-1">
+<div class="para" id="ex-vector-arithmetic-sketch-1-2-1-1">Find <span class="process-math">\(\vec{a}+\vec{b}\)</span> and <span class="process-math">\(-3\vec{a}+2\vec{b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-arithmetic-sketch-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-vector-arithmetic-sketch-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-vector-arithmetic-sketch-1-2-2">
+<div class="para" id="ex-vector-arithmetic-sketch-1-2-2-1">Sketch vectors <span class="process-math">\(\vec{a}+\vec{b}\)</span> and <span class="process-math">\(-\frac{3}{2}\vec{b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-arithmetic-sketch-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-vector-arithmetic-sketch-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-vector-arithmetic-sketch-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal ol-marker-1" id="ex-vector-arithmetic-sketch-2-1">
+<li id="ex-vector-arithmetic-sketch-2-1-1">
+<div class="para logical" id="ex-vector-arithmetic-sketch-2-1-1-1">
+<div class="para">To find <span class="process-math">\(\vec{a}+\vec{b}\text{,}\)</span> add the corresponding components:</div>
+<div class="displaymath process-math" id="ex-vector-arithmetic-sketch-2-1-1-1-2">
+\begin{equation*}
+\vec{a}+\vec{b} = \langle -1+4, 3+3 \rangle = \langle 3,6 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-arithmetic-sketch-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-vector-arithmetic-sketch-2-1-1-2">
+<div class="para">To find <span class="process-math">\(-3\vec{a}+2\vec{b}\text{,}\)</span> apply scalar multiplication first, then add:</div>
+<div class="displaymath process-math" id="ex-vector-arithmetic-sketch-2-1-1-2-2">
+\begin{equation*}
+-3\vec{a} = -3\langle -1,3 \rangle = \langle 3,-9 \rangle
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-vector-arithmetic-sketch-2-1-1-2-3">
+\begin{equation*}
+2\vec{b} = 2\langle 4,3 \rangle = \langle 8,6 \rangle
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-vector-arithmetic-sketch-2-1-1-2-4">
+\begin{equation*}
+-3\vec{a}+2\vec{b} = \langle 3+8, -9+6 \rangle = \langle 11,-3 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-arithmetic-sketch-2-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-vector-arithmetic-sketch-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-vector-arithmetic-sketch-2-1-2">
+<div class="para" id="ex-vector-arithmetic-sketch-2-1-2-1">First, calculate the scalar multiple: <span class="process-math">\(-\frac{3}{2}\vec{b} = -\frac{3}{2}\langle 4,3 \rangle = \left\langle -6, -\frac{9}{2} \right\rangle = \langle -6, -4.5 \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-arithmetic-sketch-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-vector-arithmetic-sketch-2-1-2-2">Below is the sketch of the two position vectors on the coordinate plane:<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-arithmetic-sketch-2-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-vector-ops-sketch"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-vector-ops.svg" role="img" class="contained" alt="A Cartesian grid showing two position vectors. The blue arrow is vector a plus b, pointing to (3,6). The red arrow is negative 3 halves vector b, pointing down and left to (-6, -4.5)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The vectors <span class="process-math">\(\vec{a}+\vec{b}\)</span> and <span class="process-math">\(-\frac{3}{2}\vec{b}\text{.}\)</span><div class="autopermalink" data-description="Figure 1.8"><a href="#fig-vector-ops-sketch" title="Copy heading and permalink for Figure 1.8" aria-label="Copy heading and permalink for Figure 1.8">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Item 2"><a href="#ex-vector-arithmetic-sketch-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 1.7.1"><a href="#ex-vector-arithmetic-sketch-2" title="Copy heading and permalink for Solution 1.7.1" aria-label="Copy heading and permalink for Solution 1.7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7"><a href="#ex-vector-arithmetic-sketch" title="Copy heading and permalink for Example 1.7" aria-label="Copy heading and permalink for Example 1.7">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-zero-negative-vector"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="def-zero-negative-vector-1-1">
+<div class="para">The <dfn class="terminology">zero vector 0</dfn> is defined as <span class="process-math">\(\vec{0} = \langle 0,0 \rangle\text{,}\)</span> and the <dfn class="terminology">negative -a</dfn> of a vector <span class="process-math">\(\vec{a} = \langle a_1,a_2 \rangle\)</span> is defined as:</div>
+<div class="displaymath process-math" id="def-zero-negative-vector-1-1-5">
+\begin{equation*}
+-\vec{a} = -\langle a_1,a_2 \rangle = \langle -a_1,-a_2 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-zero-negative-vector-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.9"><a href="#def-zero-negative-vector" title="Copy heading and permalink for Definition 1.9" aria-label="Copy heading and permalink for Definition 1.9">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-properties-of-vectors"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of Vectors.</span>
+</h3>
+<div class="para" id="thm-properties-of-vectors-2-1">Let <span class="process-math">\(\vec{a}\text{,}\)</span> <span class="process-math">\(\vec{b}\text{,}\)</span> and <span class="process-math">\(\vec{c}\)</span> be vectors, and let <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> be scalars. Then:<div class="autopermalink" data-description="Paragraph"><a href="#thm-properties-of-vectors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="thm-properties-of-vectors-2-2">
+<li id="thm-properties-of-vectors-2-2-1">
+<div class="para" id="thm-properties-of-vectors-2-2-1-1">
+<span class="process-math">\(\vec{a}+\vec{b}=\vec{b}+\vec{a}\text{,}\)</span> and <span class="process-math">\(c(\vec{a}+\vec{b})=c\vec{a}+c\vec{b}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-properties-of-vectors-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#thm-properties-of-vectors-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="thm-properties-of-vectors-2-2-2">
+<div class="para" id="thm-properties-of-vectors-2-2-2-1">
+<span class="process-math">\(\displaystyle \vec{a}+(\vec{b}+\vec{c})=(\vec{a}+\vec{b})+\vec{c}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-properties-of-vectors-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#thm-properties-of-vectors-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="thm-properties-of-vectors-2-2-3">
+<div class="para" id="thm-properties-of-vectors-2-2-3-1">
+<span class="process-math">\(\vec{a}+\vec{0}=\vec{a}\text{,}\)</span> and <span class="process-math">\(\vec{a}+(-\vec{a})=\vec{0}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-properties-of-vectors-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#thm-properties-of-vectors-2-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="thm-properties-of-vectors-2-2-4">
+<div class="para" id="thm-properties-of-vectors-2-2-4-1">
+<span class="process-math">\((c+d)\vec{a}=c\vec{a}+d\vec{a}\text{,}\)</span> and <span class="process-math">\((cd)\vec{a}=c(d\vec{a})=d(c\vec{a})\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-properties-of-vectors-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#thm-properties-of-vectors-2-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="thm-properties-of-vectors-2-2-5">
+<div class="para" id="thm-properties-of-vectors-2-2-5-1">
+<span class="process-math">\(1\vec{a}=\vec{a}\text{,}\)</span> and <span class="process-math">\(0\vec{a}=\vec{0}=c\vec{0}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-properties-of-vectors-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#thm-properties-of-vectors-2-2-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Theorem 1.10: Properties of Vectors"><a href="#thm-properties-of-vectors" title="Copy heading and permalink for Theorem 1.10: Properties of Vectors" aria-label="Copy heading and permalink for Theorem 1.10: Properties of Vectors">🔗</a></div>
+</article>
+<article class="definition definition-like" id="def-vector-difference"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="def-vector-difference-1-1">
+<div class="para">Let <span class="process-math">\(\vec{a}=\langle a_1,a_2 \rangle\)</span> and <span class="process-math">\(\vec{b}=\langle b_1,b_2 \rangle\text{.}\)</span> The <dfn class="terminology">difference a-b</dfn> is:</div>
+<div class="displaymath process-math" id="def-vector-difference-1-1-4">
+\begin{equation*}
+\vec{a}-\vec{b}=\vec{a}+(-\vec{b}) = \langle a_1-b_1, a_2-b_2 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-vector-difference-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.11"><a href="#def-vector-difference" title="Copy heading and permalink for Definition 1.11" aria-label="Copy heading and permalink for Definition 1.11">🔗</a></div>
+</article>
+<details id="ex-vector-subtraction" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-vector-subtraction-1-1">If <span class="process-math">\(\vec{a}=\langle 5,-3 \rangle\)</span> and <span class="process-math">\(\vec{b}=\langle -2,3 \rangle\text{,}\)</span> find:<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-subtraction-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="ex-vector-subtraction-1-2">
+<li id="ex-vector-subtraction-1-2-1">
+<div class="para" id="ex-vector-subtraction-1-2-1-1">
+<span class="process-math">\(\displaystyle \vec{a}-\vec{b}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-subtraction-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-vector-subtraction-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-vector-subtraction-1-2-2">
+<div class="para" id="ex-vector-subtraction-1-2-2-1">
+<span class="process-math">\(\displaystyle 3\vec{a}-2\vec{b}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-subtraction-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-vector-subtraction-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-vector-subtraction-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal ol-marker-1" id="ex-vector-subtraction-2-1">
+<li id="ex-vector-subtraction-2-1-1">
+<div class="para logical" id="ex-vector-subtraction-2-1-1-1">
+<div class="para">To find <span class="process-math">\(\vec{a}-\vec{b}\text{,}\)</span> subtract the components of <span class="process-math">\(\vec{b}\)</span> from the components of <span class="process-math">\(\vec{a}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-vector-subtraction-2-1-1-1-4">
+\begin{equation*}
+\vec{a}-\vec{b} = \langle 5 - (-2), -3 - 3 \rangle = \langle 5 + 2, -6 \rangle = \langle 7,-6 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-subtraction-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-vector-subtraction-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-vector-subtraction-2-1-2">
+<div class="para logical" id="ex-vector-subtraction-2-1-2-1">
+<div class="para">To find <span class="process-math">\(3\vec{a}-2\vec{b}\text{,}\)</span> perform the scalar multiplications first, then subtract:</div>
+<div class="displaymath process-math" id="ex-vector-subtraction-2-1-2-1-2">
+\begin{equation*}
+3\vec{a} = 3\langle 5,-3 \rangle = \langle 15,-9 \rangle
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-vector-subtraction-2-1-2-1-3">
+\begin{equation*}
+2\vec{b} = 2\langle -2,3 \rangle = \langle -4,6 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-subtraction-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-vector-subtraction-2-1-2-2">
+<div class="para">Now subtract the resulting components:</div>
+<div class="displaymath process-math" id="ex-vector-subtraction-2-1-2-2-1">
+\begin{equation*}
+3\vec{a}-2\vec{b} = \langle 15 - (-4), -9 - 6 \rangle = \langle 15 + 4, -15 \rangle = \langle 19,-15 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-subtraction-2-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-vector-subtraction-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 1.12.1"><a href="#ex-vector-subtraction-2" title="Copy heading and permalink for Solution 1.12.1" aria-label="Copy heading and permalink for Solution 1.12.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.12"><a href="#ex-vector-subtraction" title="Copy heading and permalink for Example 1.12" aria-label="Copy heading and permalink for Example 1.12">🔗</a></div>
+</article></details>
+<article class="theorem theorem-like" id="thm-vector-between-points"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector from Two Points.</span>
+</h3>
+<div class="para logical" id="thm-vector-between-points-2-1">
+<div class="para">If <span class="process-math">\(P_1(x_1,y_1)\)</span> and <span class="process-math">\(P_2(x_2,y_2)\)</span> are any two points, the vector <span class="process-math">\(\vec{a}\)</span> in <span class="process-math">\(V_2\)</span> that corresponds to the directed line segment <span class="process-math">\(\vec{P_1P_2}\)</span> is:</div>
+<div class="displaymath process-math" id="thm-vector-between-points-2-1-6">
+\begin{equation*}
+\vec{a} = \langle x_2-x_1, y_2-y_1 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-vector-between-points-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.13: Vector from Two Points"><a href="#thm-vector-between-points" title="Copy heading and permalink for Theorem 1.13: Vector from Two Points" aria-label="Copy heading and permalink for Theorem 1.13: Vector from Two Points">🔗</a></div>
+</article>
+<details id="ex-vector-from-points" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-vector-from-points-1-1">Given points <span class="process-math">\(P(3,2)\)</span> and <span class="process-math">\(Q(-1,5)\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="ex-vector-from-points-1-2">
+<li id="ex-vector-from-points-1-2-1">
+<div class="para" id="ex-vector-from-points-1-2-1-1">Sketch <span class="process-math">\(\vec{PQ}\)</span> and <span class="process-math">\(\vec{QP}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-vector-from-points-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-vector-from-points-1-2-2">
+<div class="para" id="ex-vector-from-points-1-2-2-1">Find vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> in <span class="process-math">\(V_2\)</span> that correspond to <span class="process-math">\(\vec{PQ}\)</span> and <span class="process-math">\(\vec{QP}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-vector-from-points-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-vector-from-points-1-2-3">
+<div class="para" id="ex-vector-from-points-1-2-3-1">Sketch the position vectors for <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-vector-from-points-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-vector-from-points-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal ol-marker-1" id="ex-vector-from-points-2-1">
+<li id="ex-vector-from-points-2-1-1">
+<div class="para" id="ex-vector-from-points-2-1-1-1">To sketch the directed line segments, draw an arrow starting at point <span class="process-math">\(P(3,2)\)</span> and ending at point <span class="process-math">\(Q(-1,5)\)</span> for <span class="process-math">\(\vec{PQ}\text{.}\)</span> For <span class="process-math">\(\vec{QP}\text{,}\)</span> reverse the direction so it starts at <span class="process-math">\(Q(-1,5)\)</span> and ends at <span class="process-math">\(P(3,2)\text{.}\)</span> (See the left graph below).<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-vector-from-points-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-vector-from-points-2-1-2">
+<div class="para" id="ex-vector-from-points-2-1-2-1">To find the vector components, subtract the initial coordinates from the terminal coordinates ("terminal minus initial"):<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-vector-from-points-2-1-2-2">
+<div class="para">For <span class="process-math">\(\vec{a}\)</span> corresponding to <span class="process-math">\(\vec{PQ}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-vector-from-points-2-1-2-2-3">
+\begin{equation*}
+\vec{a} = \langle -1 - 3, 5 - 2 \rangle = \langle -4,3 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-2-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-vector-from-points-2-1-2-3">
+<div class="para">For <span class="process-math">\(\vec{b}\)</span> corresponding to <span class="process-math">\(\vec{QP}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-vector-from-points-2-1-2-3-3">
+\begin{equation*}
+\vec{b} = \langle 3 - (-1), 2 - 5 \rangle = \langle 4,-3 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-2-1-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-vector-from-points-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-vector-from-points-2-1-3">
+<div class="para" id="ex-vector-from-points-2-1-3-1">To sketch the position vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\text{,}\)</span> shift them so their initial points sit exactly at the origin <span class="process-math">\((0,0)\text{.}\)</span> The terminal points will be <span class="process-math">\((-4,3)\)</span> and <span class="process-math">\((4,-3)\text{,}\)</span> respectively. Notice that they are perfectly parallel to and have the same lengths as the original segments (See the right graph below).<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-from-points-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside">
+<div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style="">
+<figure class="figure figure-like" id="fig-directed-segments"><div class="image-box"><img src="generated/latex-image/img-directed-segments.svg" role="img" class="contained" alt="A coordinate grid showing a blue arrow starting at P(3,2) and ending at Q(-1,5), and a dashed red arrow pointing in the opposite direction from Q to P."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The directed line segments <span class="process-math">\(\vec{PQ}\)</span> and <span class="process-math">\(\vec{QP}\)</span> in space.<div class="autopermalink" data-description="Figure 1.15"><a href="#fig-directed-segments" title="Copy heading and permalink for Figure 1.15" aria-label="Copy heading and permalink for Figure 1.15">🔗</a></div></figcaption>
+</figure>
+</div>
+<div class="sbspanel sbspanel--top top" style="">
+<figure class="figure figure-like" id="fig-position-vectors-shifted"><div class="image-box"><img src="generated/latex-image/img-position-vectors-shifted.svg" role="img" class="contained" alt="A coordinate grid showing the position vectors originating from (0,0). Blue vector a ends at (-4,3) and red vector b ends at (4,-3)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The corresponding position vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> at the origin.<div class="autopermalink" data-description="Figure 1.16"><a href="#fig-position-vectors-shifted" title="Copy heading and permalink for Figure 1.16" aria-label="Copy heading and permalink for Figure 1.16">🔗</a></div></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-vector-from-points-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 1.14.1"><a href="#ex-vector-from-points-2" title="Copy heading and permalink for Solution 1.14.1" aria-label="Copy heading and permalink for Solution 1.14.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.14"><a href="#ex-vector-from-points" title="Copy heading and permalink for Example 1.14" aria-label="Copy heading and permalink for Example 1.14">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-vector-directions"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="def-vector-directions-1-1">Nonzero vectors <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> in <span class="process-math">\(V_2\)</span> have:<div class="autopermalink" data-description="Paragraph"><a href="#def-vector-directions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="def-vector-directions-1-2">
+<li id="def-vector-directions-1-2-1">
+<div class="para" id="def-vector-directions-1-2-1-1">the <dfn class="terminology">same direction</dfn> if <span class="process-math">\(\vec{b}=c\vec{a}\)</span> for some scalar <span class="process-math">\(c \gt 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-vector-directions-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-vector-directions-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-vector-directions-1-2-2">
+<div class="para" id="def-vector-directions-1-2-2-1">the <dfn class="terminology">opposite direction</dfn> if <span class="process-math">\(\vec{b}=c\vec{a}\)</span> for some scalar <span class="process-math">\(c \lt 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-vector-directions-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#def-vector-directions-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Definition 1.17"><a href="#def-vector-directions" title="Copy heading and permalink for Definition 1.17" aria-label="Copy heading and permalink for Definition 1.17">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-magnitude-scalar-multiple"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Magnitude of a Scalar Multiple.</span>
+</h3>
+<div class="para" id="thm-magnitude-scalar-multiple-2-1">If <span class="process-math">\(\vec{a}\)</span> is a vector and <span class="process-math">\(c\)</span> is a scalar, then <span class="process-math">\(\|c\vec{a}\| = |c|\|\vec{a}\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-magnitude-scalar-multiple-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.18: Magnitude of a Scalar Multiple"><a href="#thm-magnitude-scalar-multiple" title="Copy heading and permalink for Theorem 1.18: Magnitude of a Scalar Multiple" aria-label="Copy heading and permalink for Theorem 1.18: Magnitude of a Scalar Multiple">🔗</a></div>
+</article>
+<article class="definition definition-like" id="def-standard-unit-vectors"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="def-standard-unit-vectors-1-1">
+<div class="para">A vector of length 1 is called a <dfn class="terminology">unit vector</dfn>. The <dfn class="terminology">standard unit vectors</dfn> are:</div>
+<div class="displaymath process-math" id="def-standard-unit-vectors-1-1-3">
+\begin{equation*}
+\vec{i} = \langle 1,0 \rangle, \quad \vec{j} = \langle 0,1 \rangle
+\end{equation*}
+</div>
+<div class="para">If <span class="process-math">\(\vec{a} = \langle a_1,a_2 \rangle\text{,}\)</span> then it can be written as a linear combination of the standard unit vectors:</div>
+<div class="displaymath process-math" id="def-standard-unit-vectors-1-1-5">
+\begin{equation*}
+\vec{a} = a_1\vec{i} + a_2\vec{j}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-standard-unit-vectors-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.19"><a href="#def-standard-unit-vectors" title="Copy heading and permalink for Definition 1.19" aria-label="Copy heading and permalink for Definition 1.19">🔗</a></div>
+</article>
+<details id="ex-linear-combination" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-linear-combination-1-1">If <span class="process-math">\(\vec{a} = -5\vec{i} + 2\vec{j}\)</span> and <span class="process-math">\(\vec{b} = \vec{i} - 3\vec{j}\text{,}\)</span> express <span class="process-math">\(2\vec{a} - 3\vec{b}\)</span> as a linear combination of <span class="process-math">\(\vec{i}\)</span> and <span class="process-math">\(\vec{j}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-linear-combination-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-linear-combination-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-linear-combination-2-1">
+<div class="para">Substitute the linear combinations for <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> into the expression, distribute the scalars, and combine like terms:</div>
+<div class="displaymath process-math" id="ex-linear-combination-2-1-3">
+\begin{align*}
+2\vec{a} - 3\vec{b} \amp = 2(-5\vec{i} + 2\vec{j}) - 3(\vec{i} - 3\vec{j})\\
+\amp = (-10\vec{i} + 4\vec{j}) - (3\vec{i} - 9\vec{j})\\
+\amp = -10\vec{i} - 3\vec{i} + 4\vec{j} + 9\vec{j}\\
+\amp = -13\vec{i} + 13\vec{j}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-linear-combination-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.20.1"><a href="#ex-linear-combination-2" title="Copy heading and permalink for Solution 1.20.1" aria-label="Copy heading and permalink for Solution 1.20.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.20"><a href="#ex-linear-combination" title="Copy heading and permalink for Example 1.20" aria-label="Copy heading and permalink for Example 1.20">🔗</a></div>
+</article></details>
+<article class="theorem theorem-like" id="thm-unit-vector-direction"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit Vector in the Same Direction.</span>
+</h3>
+<div class="para logical" id="thm-unit-vector-direction-2-1">
+<div class="para">A <dfn class="terminology">unit vector</dfn> is a vector of magnitude 1. The vectors <span class="process-math">\(\vec{i}\)</span> and <span class="process-math">\(\vec{j}\)</span> are unit vectors. If <span class="process-math">\(\vec{a} \neq \vec{0}\text{,}\)</span> then the unit vector <span class="process-math">\(\vec{u}\)</span> that has the same direction as <span class="process-math">\(\vec{a}\)</span> is:</div>
+<div class="displaymath process-math" id="thm-unit-vector-direction-2-1-7">
+\begin{equation*}
+\vec{u} = \frac{1}{\|\vec{a}\|} \vec{a}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-unit-vector-direction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.21: Unit Vector in the Same Direction"><a href="#thm-unit-vector-direction" title="Copy heading and permalink for Theorem 1.21: Unit Vector in the Same Direction" aria-label="Copy heading and permalink for Theorem 1.21: Unit Vector in the Same Direction">🔗</a></div>
+</article>
+<details id="ex-find-unit-vector" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-find-unit-vector-1-1">Find the unit vector <span class="process-math">\(\vec{u}\)</span> that has the same direction as <span class="process-math">\(\vec{a} = -8\vec{i} + 15\vec{j}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-unit-vector-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-find-unit-vector-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-find-unit-vector-2-1">
+<div class="para">First, find the magnitude of vector <span class="process-math">\(\vec{a}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-find-unit-vector-2-1-2">
+\begin{equation*}
+\|\vec{a}\| = \sqrt{(-8)^2 + 15^2} = \sqrt{64 + 225} = \sqrt{289} = 17
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-unit-vector-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-find-unit-vector-2-2">
+<div class="para">Next, multiply the reciprocal of the magnitude by the original vector <span class="process-math">\(\vec{a}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-find-unit-vector-2-2-2">
+\begin{equation*}
+\vec{u} = \frac{1}{17}(-8\vec{i} + 15\vec{j}) = -\frac{8}{17}\vec{i} + \frac{15}{17}\vec{j}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-unit-vector-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.22.1"><a href="#ex-find-unit-vector-2" title="Copy heading and permalink for Solution 1.22.1" aria-label="Copy heading and permalink for Solution 1.22.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.22"><a href="#ex-find-unit-vector" title="Copy heading and permalink for Example 1.22" aria-label="Copy heading and permalink for Example 1.22">🔗</a></div>
+</article></details>
+<details id="ex-football-velocity-components" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-football-velocity-components-1-1">A quarterback releases the football with a velocity of 50 ft/sec at an angle of <span class="process-math">\(35^\circ\)</span> with the horizontal. Approximate the horizontal and vertical components of the vector.<div class="autopermalink" data-description="Paragraph"><a href="#ex-football-velocity-components-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-football-velocity-components-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-football-velocity-components-2-1">A vector <span class="process-math">\(\vec{v}\)</span> given a magnitude <span class="process-math">\(\|\vec{v}\|\)</span> and a direction angle <span class="process-math">\(\theta\)</span> can be written in component form as <span class="process-math">\(\vec{v} = \langle \|\vec{v}\|\cos(\theta), \|\vec{v}\|\sin(\theta) \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-football-velocity-components-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-football-velocity-components-2-2">
+<div class="para">Given <span class="process-math">\(\|\vec{v}\| = 50\)</span> and <span class="process-math">\(\theta = 35^\circ\text{:}\)</span>
+</div>
+<ul class="disc" id="ex-football-velocity-components-2-2-3">
+<li id="ex-football-velocity-components-2-2-3-1">
+<div class="para" id="ex-football-velocity-components-2-2-3-1-1">Horizontal component: <span class="process-math">\(50\cos(35^\circ) \approx 40.96\text{ ft/sec}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-football-velocity-components-2-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-football-velocity-components-2-2-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-football-velocity-components-2-2-3-2">
+<div class="para" id="ex-football-velocity-components-2-2-3-2-1">Vertical component: <span class="process-math">\(50\sin(35^\circ) \approx 28.68\text{ ft/sec}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-football-velocity-components-2-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-football-velocity-components-2-2-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">In component form, the velocity vector is approximately <span class="process-math">\(\langle 40.96, 28.68 \rangle\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-football-velocity-components-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.23.1"><a href="#ex-football-velocity-components-2" title="Copy heading and permalink for Solution 1.23.1" aria-label="Copy heading and permalink for Solution 1.23.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.23"><a href="#ex-football-velocity-components" title="Copy heading and permalink for Example 1.23" aria-label="Copy heading and permalink for Example 1.23">🔗</a></div>
+</article></details>
+<details id="ex-airplane-velocity-components" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-airplane-velocity-components-1-1">A jet airplane approaches a runway at an angle of <span class="process-math">\(7.5^\circ\)</span> with the horizontal, traveling at a velocity of 160 mi/hr. Approximate the horizontal and vertical components of the vector.<div class="autopermalink" data-description="Paragraph"><a href="#ex-airplane-velocity-components-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-airplane-velocity-components-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-airplane-velocity-components-2-1">
+<div class="para">Given a magnitude of <span class="process-math">\(\|\vec{v}\| = 160\)</span> and an approach angle of <span class="process-math">\(\theta = 7.5^\circ\text{:}\)</span>
+</div>
+<ul class="disc" id="ex-airplane-velocity-components-2-1-3">
+<li id="ex-airplane-velocity-components-2-1-3-1">
+<div class="para" id="ex-airplane-velocity-components-2-1-3-1-1">Horizontal component: <span class="process-math">\(160\cos(7.5^\circ) \approx 158.63\text{ mi/hr}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-airplane-velocity-components-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-airplane-velocity-components-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-airplane-velocity-components-2-1-3-2">
+<div class="para" id="ex-airplane-velocity-components-2-1-3-2-1">Vertical component: <span class="process-math">\(160\sin(7.5^\circ) \approx 20.88\text{ mi/hr}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-airplane-velocity-components-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-airplane-velocity-components-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">In component form, the velocity vector is approximately <span class="process-math">\(\langle 158.63, 20.88 \rangle\text{.}\)</span> Note that because the plane is descending, the vertical velocity component can be interpreted as acting in the downward direction (<span class="process-math">\(-20.88\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-airplane-velocity-components-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.24.1"><a href="#ex-airplane-velocity-components-2" title="Copy heading and permalink for Solution 1.24.1" aria-label="Copy heading and permalink for Solution 1.24.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.24"><a href="#ex-airplane-velocity-components" title="Copy heading and permalink for Example 1.24" aria-label="Copy heading and permalink for Example 1.24">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section: 1.1 Vectors in Two Dimensions"><a href="#sec-vectors-2d" title="Copy heading and permalink for Section: 1.1 Vectors in Two Dimensions" aria-label="Copy heading and permalink for Section: 1.1 Vectors in Two Dimensions">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-Vectors-and-the-Geometry-of-Space.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-vectors-3d.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
