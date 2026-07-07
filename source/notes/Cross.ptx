@@ -1,7 +1,419 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="sec-cross-product">
- <title>1.4 The Cross Product</title>
+ <title>1.4 The Cross Product (The vector product)</title>
+<p>
+    The cross product of two vectors in three-dimensional space is a vector that is perpendicular to both of the original vectors. It is defined as:
+    <me>\vec{a} \times \vec{b} = \|\vec{a}\| \|\vec{b}\| \sin(\theta) \vec{n}</me>
+    where <m>\theta</m> is the angle between the vectors and <m>\vec{n}</m> is the unit vector perpendicular to both <m>\vec{a}</m> and <m>\vec{b}</m>. 
+</p>
+
+<definition xml:id="def-cross-product-geometric">
+    <statement>
+        <p>
+            If <m>\vec{a}</m> and <m>\vec{b}</m> are nonzero three-dimensional vectors, the <term>cross product</term> of <m>\vec{a}</m> and <m>\vec{b}</m> is the vector:
+            <me>\vec{a} \times \vec{b} = (\|\vec{a}\| \|\vec{b}\| \sin(\theta))\vec{n}</me>
+            where <m>\theta</m> is the angle between <m>\vec{a}</m> and <m>\vec{b}</m> such that <m>0 \leq \theta \leq \pi</m>, and <m>\vec{n}</m> is a unit vector perpendicular to both <m>\vec{a}</m> and <m>\vec{b}</m>. The direction of <m>\vec{n}</m> is determined by the <term>right-hand rule</term>: if the fingers of your right hand curl through the angle <m>\theta</m> from <m>\vec{a}</m> to <m>\vec{b}</m>, then your thumb points in the direction of <m>\vec{n}</m>.
+        </p>
+        <figure xml:id="fig-cross-product-mechanics-map">
+            <caption>The right-hand rule and mutual vector orthogonality.</caption>
+            <!-- FIXED: Employs a production-stable static image file to avoid local compiler syntax issues -->
+            <image xml:id="righthand" source="righthand.png" width="70%">
+                <shortdescription>An educational vector diagram. A vector a and vector b form an angle theta, 
+                    with a purple arrow labeled C equals a cross b pointing straight up. On the right, a matching 
+                    sketch of a right hand shows the index finger along a, middle finger along b, and the thumb 
+                    pointing upward along the cross product axis.</shortdescription>
+            </image>
+        </figure>
+    </statement>
+</definition>
+
+<corollary xml:id="cor-cross-product-orthogonality">
+    <statement>
+        <p>
+            The vector <m>\vec{a} \times \vec{b}</m> points in the same direction as <m>\vec{n}</m> because it is a scalar multiple of <m>\vec{n}</m> with a non-negative scalar coefficient. Consequently, <m>\vec{a} \times \vec{b}</m> is orthogonal to both <m>\vec{a}</m> and <m>\vec{b}</m>. This is equivalent to stating:
+            <me>(\vec{a} \times \vec{b}) \cdot \vec{a} = 0 \quad \text{and} \quad (\vec{a} \times \vec{b}) \cdot \vec{b} = 0</me>
+        </p>
+    </statement>
+    <proof>
+        <p>
+            By definition, the cross product is a scalar multiple of the vector <m>\vec{n}</m>, meaning <m>\vec{a} \times \vec{b} = c\vec{n}</m> where <m>c = \|\vec{a}\| \|\vec{b}\| \sin(\theta)</m>. Because <m>\vec{n}</m> is explicitly defined as a unit vector perpendicular to both <m>\vec{a}</m> and <m>\vec{b}</m>, its dot products with them must evaluate to zero:
+            <me>\vec{n} \cdot \vec{a} = 0 \quad \text{and} \quad \vec{n} \cdot \vec{b} = 0</me>
+        </p>
+        <p>
+            Using the scalar distribution properties of the dot product, we can substitute <m>c\vec{n}</m> back into the orthogonality checks:
+            <me>(\vec{a} \times \vec{b}) \cdot \vec{a} = (c\vec{n}) \cdot \vec{a} = c(\vec{n} \cdot \vec{a}) = c(0) = 0</me>
+            <me>(\vec{a} \times \vec{b}) \cdot \vec{b} = (c\vec{n}) \cdot \vec{b} = c(\vec{n} \cdot \vec{b}) = c(0) = 0</me>
+            This confirms that the resulting vector product remains perfectly perpendicular to both original structural components.
+        </p>
+    </proof>
+</corollary>
+
+<corollary xml:id="cor-parallel-vectors-cross-product">
+    <statement>
+        <p>
+            Two nonzero vectors <m>\vec{a}</m> and <m>\vec{b}</m> are parallel if and only if the angle between them is either <m>0</m> or <m>\pi</m>. Therefore, two nonzero vectors <m>\vec{a}</m> and <m>\vec{b}</m> are parallel if and only if:
+            <me>\vec{a} \times \vec{b} = \vec{0}</me>
+        </p>
+    </statement>
+    <proof>
+        <p>
+            The magnitude of the cross product vector is given by <m>\|\vec{a} \times \vec{b}\| = \|\vec{a}\| \|\vec{b}\| \sin(\theta)</m>. For any vector, its overall value equals the zero vector (<m>\vec{0}</m>) if and only if its absolute magnitude length scales to exactly <m>0</m>. 
+        </p>
+        <p>
+            Because we are evaluating two strictly nonzero vectors, their isolated scalar magnitudes are positive (<m>\|\vec{a}\| \neq 0</m> and <m>\|\vec{b}\| \neq 0</m>). Therefore, the product evaluates to zero if and only if the trigonometric term vanishes:
+            <me>\|\vec{a} \times \vec{b}\| = 0 \iff \sin(\theta) = 0</me>
+        </p>
+        <p>
+            On the restricted tracking interval <m>0 \leq \theta \leq \pi</m>, the condition <m>\sin(\theta) = 0</m> is satisfied if and only if <m>\theta = 0</m> or <m>\theta = \pi</m>. Geometrically, an angle of <m>0</m> means the vectors point in the exact same direction, and an angle of <m>\pi</m> means they point in exactly opposite directions. In either case, the vectors are parallel.
+        </p>
+    </proof>
+</corollary>
+
+<example xml:id="ex-cross-product-basis-vectors">
+    <statement>
+        <p>
+            Find <m>\vec{i} \times \vec{j}</m> and <m>\vec{j} \times \vec{i}</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            We use the geometric definition of the cross product, <m>\vec{a} \times \vec{b} = (\|\vec{a}\| \|\vec{b}\| \sin(\theta))\vec{n}</m>:
+        </p>
+        <ul>
+            <li>
+                <p>
+                    For <m>\vec{i} \times \vec{j}</m>, both vectors are unit vectors, so <m>\|\vec{i}\| = 1</m> and <m>\|\vec{j}\| = 1</m>. The standard basis vectors are mutually perpendicular, meaning the angle between them is <m>\theta = \pi/2</m>. By the right-hand rule, curling your fingers from the positive <m>x</m>-axis (<m>\vec{i}</m>) to the positive <m>y</m>-axis (<m>\vec{j}</m>) forces your thumb to point along the positive <m>z</m>-axis (<m>\vec{k}</m>):
+                    <me>\vec{i} \times \vec{j} = (1 \cdot 1 \cdot \sin(\pi/2))\vec{k} = (1 \cdot 1 \cdot 1)\vec{k} = \vec{k}</me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    For <m>\vec{j} \times \vec{i}</m>, reversing the order of operations reverses the orientation of your hand gesture. The thumb now points down along the negative <m>z</m>-axis (<m>-\vec{k}</m>):
+                    <me>\vec{j} \times \vec{i} = (1 \cdot 1 \cdot \sin(\pi/2))(-\vec{k}) = -\vec{k}</me>
+                </p>
+            </li>
+        </ul>
+    </solution>
+</example>
+
+<remark xml:id="rem-cross-product-self">
+    <p>
+        The cross product of any vector with itself is always the zero vector, because the angle between identical direction paths is <m>\theta = 0</m>, and <m>\sin(0) = 0</m>:
+        <me>\vec{i} \times \vec{i} = \vec{0}, \quad \vec{j} \times \vec{j} = \vec{0}, \quad \vec{k} \times \vec{k} = \vec{0}</me>
+    </p>
+</remark>
+
+<subsection xml:id="subsec-cross-product-component-form">
+    <title>The Cross Product in Component Form</title>
+
+    <fact xml:id="fact-cross-product-components">
+        <title>Algebraic Cross Product Formula</title>
+        <statement>
+            <p>
+                The cross product of <m>\vec{a} = \langle a_1,a_2,a_3 \rangle</m> and <m>\vec{b} = \langle b_1,b_2,b_3 \rangle</m> is:
+                <me>\vec{a} \times \vec{b} = \langle a_2b_3-a_3b_2, \, a_3b_1-a_1b_3, \, a_1b_2-a_2b_1 \rangle</me>
+            </p>
+        </statement>
+    </fact>
+
+    <p>
+        The expression for <m>\vec{a} \times \vec{b}</m> is easier to remember in determinant form. The cross product of <m>\vec{a} = a_1\vec{i} + a_2\vec{j} + a_3\vec{k}</m> and <m>\vec{b} = b_1\vec{i} + b_2\vec{j} + b_3\vec{k}</m> can be expanded along its top row as:
+        <me>\vec{a} \times \vec{b} = \begin{vmatrix} a_2 \amp a_3 \\ b_2 \amp b_3 \end{vmatrix}\vec{i} - \begin{vmatrix} a_1 \amp a_3 \\ b_1 \amp b_3 \end{vmatrix}\vec{j} + \begin{vmatrix} a_1 \amp a_2 \\ b_1 \amp b_2 \end{vmatrix}\vec{k}</me>
+        We compact this row-expansion memory tool by writing it as a formal <m>3 \times 3</m> matrix determinant:
+        <me>\vec{a} \times \vec{b} = \begin{vmatrix} \vec{i} \amp \vec{j} \amp \vec{k} \\ a_1 \amp a_2 \amp a_3 \\ b_1 \amp b_2 \amp b_3 \end{vmatrix}</me>
+    </p>
+
+<proposition xml:id="prop-cross-product-properties">
+    <title>Properties of the Cross Product</title>
+    <statement>
+        <p>
+            If <m>\vec{a}</m>, <m>\vec{b}</m>, and <m>\vec{c}</m> are vectors in <m>\mathbb{R}^3</m> and <m>c</m> is a scalar, then:
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    <m>\vec{a} \times \vec{b} = -(\vec{b} \times \vec{a})</m> (Anti-commutativity)
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>(c\vec{a}) \times \vec{b} = c(\vec{a} \times \vec{b}) = \vec{a} \times (c\vec{b})</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>\vec{a} \times (\vec{b} + \vec{c}) = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}</m> (Left distributivity)
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>(\vec{a} + \vec{b}) \times \vec{c} = \vec{a} \times \vec{c} + \vec{b} \times \vec{c}</m> (Right distributivity)
+                </p>
+            </li>
+        </ol>
+    </statement>
+    <proof>
+        <p>
+            Let <m>\vec{a} = \langle a_1, a_2, a_3 \rangle</m>, <m>\vec{b} = \langle b_1, b_2, b_3 \rangle</m>, and <m>\vec{c} = \langle c_1, c_2, c_3 \rangle</m>. By algebraic definition, the cross product component vector expansion is:
+            <me>\vec{a} \times \vec{b} = \langle a_2b_3 - a_3b_2, \, a_3b_1 - a_1b_3, \, a_1b_2 - a_2b_1 \rangle</me>
+        </p>
+        <ol marker="1">
+            <li>
+                <p>
+                    Expanding the reverse cross product <m>\vec{b} \times \vec{a}</m> yields:
+                    <me>\vec{b} \times \vec{a} = \langle b_2a_3 - b_3a_2, \, b_3a_1 - b_1a_3, \, b_1a_2 - b_2a_1 \rangle</me>
+                    Factoring out a negative <m>-1</m> from each scalar entry directly flips the interior subtraction ordering:
+                    <md>
+                        <mrow>\vec{b} \times \vec{a} \amp = \langle -(a_2b_3 - a_3b_2), \, -(a_3b_1 - a_1b_3), \, -(a_1b_2 - a_2b_1) \rangle</mrow>
+                        <mrow>\amp = - \langle a_2b_3 - a_3b_2, \, a_3b_1 - a_1b_3, \, a_1b_2 - a_2b_1 \rangle = -(\vec{a} \times \vec{b})</mrow>
+                    </md>
+                    Multiplying both sides by <m>-1</m> satisfies the anti-commutative condition <m>\vec{a} \times \vec{b} = -(\vec{b} \times \vec{a})</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Multiplying vector <m>\vec{a}</m> by a scalar <m>c</m> updates our definition to <m>c\vec{a} = \langle ca_1, ca_2, ca_3 \rangle</m>. Substituting this scalar into the expansion gives:
+                    <md>
+                        <mrow>(c\vec{a}) \times \vec{b} \amp = \langle (ca_2)b_3 - (ca_3)b_2, \, (ca_3)b_1 - (ca_1)b_3, \, (ca_1)b_2 - (ca_2)b_1 \rangle</mrow>
+                        <mrow>\amp = \langle c(a_2b_3 - a_3b_2), \, c(a_3b_1 - a_1b_3), \, c(a_1b_2 - a_2b_1) \rangle</mrow>
+                        <mrow>\amp = c \langle a_2b_3 - a_3b_2, \, a_3b_1 - a_1b_3, \, a_1b_2 - a_2b_1 \rangle = c(\vec{a} \times \vec{b})</mrow>
+                    </md>
+                    A symmetric factoring loop shows this expression is identically equal to <m>\vec{a} \times (c\vec{b})</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    First, compile the vector addition term: <m>\vec{b} + \vec{c} = \langle b_1+c_1, b_2+c_2, b_3+c_3 \rangle</m>. Crossing <m>\vec{a}</m> with this combined vector yields:
+                    <md>
+                        <mrow>\vec{a} \times (\vec{b} + \vec{c}) \amp = \langle a_2(b_3+c_3) - a_3(b_2+c_2), \, a_3(b_1+c_1) - a_1(b_3+c_3), \, a_1(b_2+c_2) - a_2(b_1+c_1) \rangle</mrow>
+                        <mrow>\amp = \langle a_2b_3 + a_2c_3 - a_3b_2 - a_3c_2, \, a_3b_1 + a_3c_1 - a_1b_3 - a_1c_3, \, a_1b_2 + a_1c_2 - a_2b_1 - a_2c_1 \rangle</mrow>
+                    </md>
+                    Regrouping the entries splits the single vector back into a clean linear addition step:
+                    <md>
+                        <mrow>\amp = \langle (a_2b_3 - a_3b_2) + (a_2c_3 - a_3c_2), \, (a_3b_1 - a_1b_3) + (a_3c_1 - a_1c_3), \, (a_1b_2 - a_2b_1) + (a_1c_2 - a_2c_1) \rangle</mrow>
+                        <mrow>\amp = \langle a_2b_3 - a_3b_2, \, a_3b_1 - a_1b_3, \, a_1b_2 - a_2b_1 \rangle + \langle a_2c_3 - a_3c_2, \, a_3c_1 - a_1c_3, \, a_1c_2 - a_2c_1 \rangle</mrow>
+                        <mrow>\amp = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}</mrow>
+                    </md>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Property 4 can be proven directly by using the anti-commutative law established in step 1, combined with the left distributive property from step 3:
+                    <md>
+                        <mrow>(\vec{a} + \vec{b}) \times \vec{c} \amp = -(\vec{c} \times (\vec{a} + \vec{b}))</mrow>
+                        <mrow>\amp = -(\vec{c} \times \vec{a} + \vec{c} \times \vec{b})</mrow>
+                        <mrow>\amp = -(\vec{c} \times \vec{a}) - (\vec{c} \times \vec{b})</mrow>
+                        <mrow>\amp = (\vec{a} \times \vec{b}) + (\vec{b} \times \vec{c})</mrow>
+                    </md>
+                    This completes the verification of all four arithmetic identities.
+                </p>
+            </li>
+        </ol>
+    </proof>
+</proposition>
+<p>
+    If <m>\vec{a}</m> and <m>\vec{b}</m> are represented by directed line segments with the same initial point, they determine a parallelogram. This parallelogram has a base of length <m>\|\vec{a}\|</m> and an altitude height of <m>\|\vec{b}\|\sin(\theta)</m>. Therefore, the total area <m>A</m> is:
+    <me>A = \|\vec{a}\|\|\vec{b}\|\sin(\theta) = \|\vec{a} \times \vec{b}\|</me>
+</p>
+
+<remark xml:id="rem-cross-product-area">
+    <p>
+        The length of the cross product vector <m>\|\vec{a} \times \vec{b}\|</m> is equal to the area of the parallelogram determined by the vectors <m>\vec{a}</m> and <m>\vec{b}</m>.
+    </p>
+</remark>
+</subsection>
+
+    <example xml:id="ex-cross-product-calculations">
+        <statement>
+            <p>
+                Find the cross product <m>\vec{a} \times \vec{b}</m> for each of the following cases:
+            </p>
+            <ol marker="1">
+                <li>
+                    <p>
+                        <m>\vec{a} = \langle 2,-3,4 \rangle</m>, <m>\vec{b} = \langle 6,2,-\frac{1}{2} \rangle</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\vec{a} = 4\vec{j}-3\vec{k}</m>, <m>\vec{b} = 2\vec{i}+4\vec{j}+6\vec{k}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\|\vec{a}\| = 6</m>, <m>\|\vec{b}\| = 5</m>, and the angle between <m>\vec{a}</m> and <m>\vec{b}</m> is <m>2\pi/3</m>.
+                    </p>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol marker="1">
+                <li>
+                    <p>
+                        Set up and evaluate the <m>3 \times 3</m> determinant:
+                        <md>
+                            <mrow>\vec{a} \times \vec{b} \amp = \begin{vmatrix} \vec{i} \amp \vec{j} \amp \vec{k} \\ 2 \amp -3 \amp 4 \\ 6 \amp 2 \amp -\frac{1}{2} \end{vmatrix}</mrow>
+                            <mrow>\amp = \begin{vmatrix} -3 \amp 4 \\ 2 \amp -\frac{1}{2} \end{vmatrix}\vec{i} - \begin{vmatrix} 2 \amp 4 \\ 6 \amp -\frac{1}{2} \end{vmatrix}\vec{j} + \begin{vmatrix} 2 \amp -3 \\ 6 \amp 2 \end{vmatrix}\vec{k}</mrow>
+                            <mrow>\amp = \left( \frac{3}{2} - 8 \right)\vec{i} - (-1 - 24)\vec{j} + (4 - (-18))\vec{k}</mrow>
+                            <mrow>\amp = -\frac{13}{2}\vec{i} + 25\vec{j} + 22\vec{k} = \left\langle -\frac{13}{2}, 25, 22 \right\rangle</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Write <m>\vec{a}</m> in full component form as <m>\langle 0,4,-3 \rangle</m>:
+                        <md>
+                            <mrow>\vec{a} \times \vec{b} \amp = \begin{vmatrix} \vec{i} \amp \vec{j} \amp \vec{k} \\ 0 \amp 4 \amp -3 \\ 2 \amp 4 \amp 6 \end{vmatrix}</mrow>
+                            <mrow>\amp = (24 - (-12))\vec{i} - (0 - (-6))\vec{j} + (0 - 8)\vec{k}</mrow>
+                            <mrow>\amp = 36\vec{i} - 6\vec{j} - 8\vec{k} = \langle 36, -6, -8 \rangle</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Because individual components are missing but the angle is given, we find the magnitude using the geometric formula and label the unit normal directional vector <m>\vec{n}</m>:
+                        <me>\|\vec{a} \times \vec{b}\| = \|\vec{a}\| \|\vec{b}\| \sin(\theta) = (6)(5)\sin\left(\frac{2\pi}{3}\right) = 30\left(\frac{\sqrt{3}}{2}\right) = 15\sqrt{3}</me>
+                        Thus, the cross product vector is <m>15\sqrt{3}\vec{n}</m>.
+                    </p>
+                </li>
+            </ol>
+        </solution>
+    </example>
+
+    <example xml:id="ex-vector-orthogonal-to-plane">
+        <statement>
+            <p>
+                Find a vector perpendicular to the plane that passes through the points <m>P(1,4,6)</m>, <m>Q(-2,5,-1)</m>, and <m>R(1,-1,1)</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                First, construct two independent vectors lying inside the plane using the given vertices:
+                <me>\vec{PQ} = \langle -2 - 1, 5 - 4, -1 - 6 \rangle = \langle -3, 1, -7 \rangle</me>
+                <me>\vec{PR} = \langle 1 - 1, -1 - 4, 1 - 6 \rangle = \langle 0, -5, -5 \rangle</me>
+            </p>
+            <p>
+                A vector perpendicular to the plane must be orthogonal to both paths. Compute their cross product:
+                <md>
+                    <mrow>\vec{PQ} \times \vec{PR} \amp = \begin{vmatrix} \vec{i} \amp \vec{j} \amp \vec{k} \\ -3 \amp 1 \amp -7 \\ 0 \amp -5 \amp -5 \end{vmatrix}</mrow>
+                    <mrow>\amp = (-5 - 35)\vec{i} - (15 - 0)\vec{j} + (15 - 0)\vec{k}</mrow>
+                    <mrow>\amp = -40\vec{i} - 15\vec{j} + 15\vec{k} = \langle -40, -15, 15 \rangle</mrow>
+                </md>
+                Any non-zero scalar multiple of this vector (such as <m>\langle 8, 3, -3 \rangle</m> obtained by dividing by <m>-5</m>) is also perpendicular to the plane.
+            </p>
+        </solution>
+    </example>
+
+    <example xml:id="ex-area-of-triangle">
+        <statement>
+            <p>
+                Find the area of the triangle with vertices <m>P(1,4,6)</m>, <m>Q(-2,5,-1)</m>, and <m>R(1,-1,1)</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                The area of a triangle is exactly half the area of the parallelogram spanned by vectors sharing vertex <m>P</m>. From the previous example, we know <m>\vec{PQ} \times \vec{PR} = \langle -40, -15, 15 \rangle</m>.
+            </p>
+            <p>
+                Compute the magnitude length of this cross product vector:
+                <md>
+                    <mrow>\|\vec{PQ} \times \vec{PR}\| \amp = \sqrt{(-40)^2 + (-15)^2 + 15^2}</mrow>
+                    <mrow>\amp = \sqrt{1600 + 225 + 225} = \sqrt{2050} = 5\sqrt{82}</mrow>
+                </md>
+            </p>
+            <p>
+                Therefore, the area of the triangle is:
+                <me>\text{Area} = \frac{1}{2}\|\vec{PQ} \times \vec{PR}\| = \frac{5\sqrt{82}}{2} \approx 22.64</me>
+            </p>
+        </solution>
+    </example>
+
+    <definition xml:id="def-scalar-triple-product">
+        <statement>
+            <p>
+                The product <m>\vec{a} \cdot (\vec{b} \times \vec{c})</m> is called the <term>scalar triple product</term> of the vectors <m>\vec{a}</m>, <m>\vec{b}</m>, and <m>\vec{c}</m>.
+            </p>
+        </statement>
+    </definition>
+
+    <p>
+        The area of the base parallelogram is <m>A = \|\vec{b} \times \vec{c}\|</m>. If <m>\theta</m> is the angle between vector <m>\vec{a}</m> and the cross product vector <m>\vec{b} \times \vec{c}</m>, then the slanted vertical height <m>h</m> of the surrounding three-dimensional parallelepiped is <m>h = \|\vec{a}\| |\cos(\theta)|</m>.
+    </p>
+
+    <fact xml:id="fact-volume-parallelepiped">
+        <title>Volume of a Parallelepiped</title>
+        <statement>
+            <p>
+                The volume of the parallelepiped determined by the vectors <m>\vec{a}</m>, <m>\vec{b}</m>, and <m>\vec{c}</m> is the absolute magnitude of their scalar triple product:
+                <me>V = |\vec{a} \cdot (\vec{b} \times \vec{c})| = |(\vec{a} \times \vec{b}) \cdot \vec{c}|</me>
+                We can compute this product directly using a single matrix determinant:
+                <me>\vec{a} \cdot (\vec{b} \times \vec{c}) = \begin{vmatrix} a_1 \amp a_2 \amp a_3 \\ b_1 \amp b_2 \amp b_3 \\ c_1 \amp c_2 \amp c_3 \end{vmatrix}</me>
+            </p>
+        </statement>
+    </fact>
+
+    <example xml:id="ex-coplanar-vectors">
+        <statement>
+            <p>
+                Use the scalar triple product to show that the vectors <m>\vec{a} = \langle 1,4,-7 \rangle</m>, <m>\vec{b} = \langle 2,-1,4 \rangle</m>, and <m>\vec{c} = \langle 0,-9,18 \rangle</m> are coplanar, meaning they lie in the same plane.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Three vectors are coplanar if and only if the volume of the parallelepiped they span is exactly zero (<m>V = 0</m>). We check this condition by computing their scalar triple product determinant:
+                <md>
+                    <mrow>\vec{a} \cdot (\vec{b} \times \vec{c}) \amp = \begin{vmatrix} 1 \amp 4 \amp -7 \\ 2 \amp -1 \amp 4 \\ 0 \amp -9 \amp 18 \end{vmatrix}</mrow>
+                    <mrow>\amp = 1 \begin{vmatrix} -1 \amp 4 \\ -9 \amp 18 \end{vmatrix} - 4 \begin{vmatrix} 2 \amp 4 \\ 0 \amp 18 \end{vmatrix} + (-7) \begin{vmatrix} 2 \amp -1 \\ 0 \amp -9 \end{vmatrix}</mrow>
+                    <mrow>\amp = 1(-18 - (-36)) - 4(36 - 0) - 7(-18 - 0)</mrow>
+                    <mrow>\amp = 1(18) - 4(36) - 7(-18)</mrow>
+                    <mrow>\amp = 18 - 144 + 126 = 0</mrow>
+                </md>
+                Because the scalar triple product is exactly <m>0</m>, the bounded volume vanishes. This proves that the three vectors are coplanar.
+            </p>
+        </solution>
+    </example>
+
+    <definition xml:id="def-vector-triple-product">
+    <statement>
+        <p>
+            The product <m>\vec{a} \times (\vec{b} \times \vec{c})</m> is called the <term>vector triple product</term> of the vectors <m>\vec{a}</m>, <m>\vec{b}</m>, and <m>\vec{c}</m>. It can be expanded and computed using dot products via the BAC-CAB identity:
+            <me>\vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a} \cdot \vec{c})\vec{b} - (\vec{a} \cdot \vec{b})\vec{c}</me>
+        </p>
+    </statement>
+</definition>
+
+<example xml:id="ex-vector-triple-product-calc">
+    <statement>
+        <p>
+            Given the vectors <m>\vec{a} = \vec{i} - \vec{j} + 2\vec{k}</m>, <m>\vec{b} = 2\vec{i} + \vec{k}</m>, and <m>\vec{c} = \vec{j} - 3\vec{k}</m>, evaluate the vector triple product <m>\vec{a} \times (\vec{b} \times \vec{c})</m> using the expansion identity.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            First, express the vectors cleanly in their numerical component forms:
+            <me>\vec{a} = \langle 1, -1, 2 \rangle, \quad \vec{b} = \langle 2, 0, 1 \rangle, \quad \vec{c} = \langle 0, 1, -3 \rangle</me>
+        </p>
+        <p>
+            Next, calculate the two scalar dot products required by the identity (<m>\vec{a} \cdot \vec{c}</m> and <m>\vec{a} \cdot \vec{b}</m>):
+            <md>
+                <mrow>\vec{a} \cdot \vec{c} \amp = (1)(0) + (-1)(1) + (2)(-3) = 0 - 1 - 6 = -7</mrow>
+                <mrow>\vec{a} \cdot \vec{b} \amp = (1)(2) + (-1)(0) + (2)(1) = 2 + 0 + 2 = 4</mrow>
+            </md>
+        </p>
+        <p>
+            Substitute these scalar values back into the vector triple product identity formula:
+            <md>
+                <mrow>\vec{a} \times (\vec{b} \times \vec{c}) \amp = (\vec{a} \cdot \vec{c})\vec{b} - (\vec{a} \cdot \vec{b})\vec{c} </mrow>
+                <mrow>\amp = -7\langle 2, 0, 1 \rangle - 4\langle 0, 1, -3 \rangle</mrow>
+                <mrow>\amp = \langle -14, 0, -7 \rangle - \langle 0, 4, -12 \rangle</mrow>
+                <mrow>\amp = \langle -14 - 0, \, 0 - 4, \, -7 - (-12) \rangle = \langle -14, -4, 5 \rangle</mrow>
+            </md>
+            In standard basis notation, the final vector is <m>-14\vec{i} - 4\vec{j} + 5\vec{k}</m>.
+        </p>
+    </solution>
+</example>
+
 
 
 </section>
