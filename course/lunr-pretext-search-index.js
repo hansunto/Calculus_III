@@ -609,8 +609,152 @@ var ptx_lunr_docs = [
   "url": "sec-cross-product.html",
   "type": "Section",
   "number": "",
-  "title": "1.4 The Cross Product",
-  "body": " 1.4 The Cross Product  "
+  "title": "1.4 The Cross Product (The vector product)",
+  "body": " 1.4 The Cross Product (The vector product)  The cross product of two vectors in three-dimensional space is a vector that is perpendicular to both of the original vectors. It is defined as: where is the angle between the vectors and is the unit vector perpendicular to both and .    If and are nonzero three-dimensional vectors, the cross product of and is the vector: where is the angle between and such that , and is a unit vector perpendicular to both and . The direction of is determined by the right-hand rule : if the fingers of your right hand curl through the angle from to , then your thumb points in the direction of .   The right-hand rule and mutual vector orthogonality.    An educational vector diagram. A vector a and vector b form an angle theta, with a purple arrow labeled C equals a cross b pointing straight up. On the right, a matching sketch of a right hand shows the index finger along a, middle finger along b, and the thumb pointing upward along the cross product axis.        The vector points in the same direction as because it is a scalar multiple of with a non-negative scalar coefficient. Consequently, is orthogonal to both and . This is equivalent to stating:     By definition, the cross product is a scalar multiple of the vector , meaning where . Because is explicitly defined as a unit vector perpendicular to both and , its dot products with them must evaluate to zero:   Using the scalar distribution properties of the dot product, we can substitute back into the orthogonality checks:  This confirms that the resulting vector product remains perfectly perpendicular to both original structural components.      Two nonzero vectors and are parallel if and only if the angle between them is either or . Therefore, two nonzero vectors and are parallel if and only if:     The magnitude of the cross product vector is given by . For any vector, its overall value equals the zero vector ( ) if and only if its absolute magnitude length scales to exactly .  Because we are evaluating two strictly nonzero vectors, their isolated scalar magnitudes are positive ( and ). Therefore, the product evaluates to zero if and only if the trigonometric term vanishes:   On the restricted tracking interval , the condition is satisfied if and only if or . Geometrically, an angle of means the vectors point in the exact same direction, and an angle of means they point in exactly opposite directions. In either case, the vectors are parallel.      Find and .    We use the geometric definition of the cross product, :    For , both vectors are unit vectors, so and . The standard basis vectors are mutually perpendicular, meaning the angle between them is . By the right-hand rule, curling your fingers from the positive -axis ( ) to the positive -axis ( ) forces your thumb to point along the positive -axis ( ):     For , reversing the order of operations reverses the orientation of your hand gesture. The thumb now points down along the negative -axis ( ):        The cross product of any vector with itself is always the zero vector, because the angle between identical direction paths is , and :     The Cross Product in Component Form   Algebraic Cross Product Formula   The cross product of and is:     The expression for is easier to remember in determinant form. The cross product of and can be expanded along its top row as: We compact this row-expansion memory tool by writing it as a formal matrix determinant:    Properties of the Cross Product   If , , and are vectors in and is a scalar, then:     (Anti-commutativity)          (Left distributivity)     (Right distributivity)      Let , , and . By algebraic definition, the cross product component vector expansion is:     Expanding the reverse cross product yields: Factoring out a negative from each scalar entry directly flips the interior subtraction ordering: Multiplying both sides by satisfies the anti-commutative condition .    Multiplying vector by a scalar updates our definition to . Substituting this scalar into the expansion gives: A symmetric factoring loop shows this expression is identically equal to .    First, compile the vector addition term: . Crossing with this combined vector yields: Regrouping the entries splits the single vector back into a clean linear addition step:     Property 4 can be proven directly by using the anti-commutative law established in step 1, combined with the left distributive property from step 3: This completes the verification of all four arithmetic identities.      If and are represented by directed line segments with the same initial point, they determine a parallelogram. This parallelogram has a base of length and an altitude height of . Therefore, the total area is:    The length of the cross product vector is equal to the area of the parallelogram determined by the vectors and .      Find the cross product for each of the following cases:     ,      ,      , , and the angle between and is .        Set up and evaluate the determinant:     Write in full component form as :     Because individual components are missing but the angle is given, we find the magnitude using the geometric formula and label the unit normal directional vector : Thus, the cross product vector is .        Find a vector perpendicular to the plane that passes through the points , , and .    First, construct two independent vectors lying inside the plane using the given vertices:    A vector perpendicular to the plane must be orthogonal to both paths. Compute their cross product: Any non-zero scalar multiple of this vector (such as obtained by dividing by ) is also perpendicular to the plane.      Find the area of the triangle with vertices , , and .    The area of a triangle is exactly half the area of the parallelogram spanned by vectors sharing vertex . From the previous example, we know .  Compute the magnitude length of this cross product vector:   Therefore, the area of the triangle is:       The product is called the scalar triple product of the vectors , , and .    The area of the base parallelogram is . If is the angle between vector and the cross product vector , then the slanted vertical height of the surrounding three-dimensional parallelepiped is .   Volume of a Parallelepiped   The volume of the parallelepiped determined by the vectors , , and is the absolute magnitude of their scalar triple product: We can compute this product directly using a single matrix determinant:       Use the scalar triple product to show that the vectors , , and are coplanar, meaning they lie in the same plane.    Three vectors are coplanar if and only if the volume of the parallelepiped they span is exactly zero ( ). We check this condition by computing their scalar triple product determinant: Because the scalar triple product is exactly , the bounded volume vanishes. This proves that the three vectors are coplanar.      The product is called the vector triple product of the vectors , , and . It can be expanded and computed using dot products via the BAC-CAB identity:       Given the vectors , , and , evaluate the vector triple product using the expansion identity.    First, express the vectors cleanly in their numerical component forms:   Next, calculate the two scalar dot products required by the identity ( and ):   Substitute these scalar values back into the vector triple product identity formula: In standard basis notation, the final vector is .    "
+},
+{
+  "id": "def-cross-product-geometric",
+  "level": "2",
+  "url": "sec-cross-product.html#def-cross-product-geometric",
+  "type": "Definition",
+  "number": "1.64",
+  "title": "",
+  "body": "  If and are nonzero three-dimensional vectors, the cross product of and is the vector: where is the angle between and such that , and is a unit vector perpendicular to both and . The direction of is determined by the right-hand rule : if the fingers of your right hand curl through the angle from to , then your thumb points in the direction of .   The right-hand rule and mutual vector orthogonality.    An educational vector diagram. A vector a and vector b form an angle theta, with a purple arrow labeled C equals a cross b pointing straight up. On the right, a matching sketch of a right hand shows the index finger along a, middle finger along b, and the thumb pointing upward along the cross product axis.     "
+},
+{
+  "id": "cor-cross-product-orthogonality",
+  "level": "2",
+  "url": "sec-cross-product.html#cor-cross-product-orthogonality",
+  "type": "Corollary",
+  "number": "1.66",
+  "title": "",
+  "body": "  The vector points in the same direction as because it is a scalar multiple of with a non-negative scalar coefficient. Consequently, is orthogonal to both and . This is equivalent to stating:     By definition, the cross product is a scalar multiple of the vector , meaning where . Because is explicitly defined as a unit vector perpendicular to both and , its dot products with them must evaluate to zero:   Using the scalar distribution properties of the dot product, we can substitute back into the orthogonality checks:  This confirms that the resulting vector product remains perfectly perpendicular to both original structural components.   "
+},
+{
+  "id": "cor-parallel-vectors-cross-product",
+  "level": "2",
+  "url": "sec-cross-product.html#cor-parallel-vectors-cross-product",
+  "type": "Corollary",
+  "number": "1.67",
+  "title": "",
+  "body": "  Two nonzero vectors and are parallel if and only if the angle between them is either or . Therefore, two nonzero vectors and are parallel if and only if:     The magnitude of the cross product vector is given by . For any vector, its overall value equals the zero vector ( ) if and only if its absolute magnitude length scales to exactly .  Because we are evaluating two strictly nonzero vectors, their isolated scalar magnitudes are positive ( and ). Therefore, the product evaluates to zero if and only if the trigonometric term vanishes:   On the restricted tracking interval , the condition is satisfied if and only if or . Geometrically, an angle of means the vectors point in the exact same direction, and an angle of means they point in exactly opposite directions. In either case, the vectors are parallel.   "
+},
+{
+  "id": "ex-cross-product-basis-vectors",
+  "level": "2",
+  "url": "sec-cross-product.html#ex-cross-product-basis-vectors",
+  "type": "Example",
+  "number": "1.68",
+  "title": "",
+  "body": "  Find and .    We use the geometric definition of the cross product, :    For , both vectors are unit vectors, so and . The standard basis vectors are mutually perpendicular, meaning the angle between them is . By the right-hand rule, curling your fingers from the positive -axis ( ) to the positive -axis ( ) forces your thumb to point along the positive -axis ( ):     For , reversing the order of operations reverses the orientation of your hand gesture. The thumb now points down along the negative -axis ( ):      "
+},
+{
+  "id": "rem-cross-product-self",
+  "level": "2",
+  "url": "sec-cross-product.html#rem-cross-product-self",
+  "type": "Remark",
+  "number": "1.69",
+  "title": "",
+  "body": " The cross product of any vector with itself is always the zero vector, because the angle between identical direction paths is , and :   "
+},
+{
+  "id": "fact-cross-product-components",
+  "level": "2",
+  "url": "sec-cross-product.html#fact-cross-product-components",
+  "type": "Fact",
+  "number": "1.70",
+  "title": "Algebraic Cross Product Formula.",
+  "body": " Algebraic Cross Product Formula   The cross product of and is:    "
+},
+{
+  "id": "prop-cross-product-properties",
+  "level": "2",
+  "url": "sec-cross-product.html#prop-cross-product-properties",
+  "type": "Proposition",
+  "number": "1.71",
+  "title": "Properties of the Cross Product.",
+  "body": " Properties of the Cross Product   If , , and are vectors in and is a scalar, then:     (Anti-commutativity)          (Left distributivity)     (Right distributivity)      Let , , and . By algebraic definition, the cross product component vector expansion is:     Expanding the reverse cross product yields: Factoring out a negative from each scalar entry directly flips the interior subtraction ordering: Multiplying both sides by satisfies the anti-commutative condition .    Multiplying vector by a scalar updates our definition to . Substituting this scalar into the expansion gives: A symmetric factoring loop shows this expression is identically equal to .    First, compile the vector addition term: . Crossing with this combined vector yields: Regrouping the entries splits the single vector back into a clean linear addition step:     Property 4 can be proven directly by using the anti-commutative law established in step 1, combined with the left distributive property from step 3: This completes the verification of all four arithmetic identities.     "
+},
+{
+  "id": "rem-cross-product-area",
+  "level": "2",
+  "url": "sec-cross-product.html#rem-cross-product-area",
+  "type": "Remark",
+  "number": "1.72",
+  "title": "",
+  "body": " The length of the cross product vector is equal to the area of the parallelogram determined by the vectors and .  "
+},
+{
+  "id": "ex-cross-product-calculations",
+  "level": "2",
+  "url": "sec-cross-product.html#ex-cross-product-calculations",
+  "type": "Example",
+  "number": "1.73",
+  "title": "",
+  "body": "  Find the cross product for each of the following cases:     ,      ,      , , and the angle between and is .        Set up and evaluate the determinant:     Write in full component form as :     Because individual components are missing but the angle is given, we find the magnitude using the geometric formula and label the unit normal directional vector : Thus, the cross product vector is .     "
+},
+{
+  "id": "ex-vector-orthogonal-to-plane",
+  "level": "2",
+  "url": "sec-cross-product.html#ex-vector-orthogonal-to-plane",
+  "type": "Example",
+  "number": "1.74",
+  "title": "",
+  "body": "  Find a vector perpendicular to the plane that passes through the points , , and .    First, construct two independent vectors lying inside the plane using the given vertices:    A vector perpendicular to the plane must be orthogonal to both paths. Compute their cross product: Any non-zero scalar multiple of this vector (such as obtained by dividing by ) is also perpendicular to the plane.   "
+},
+{
+  "id": "ex-area-of-triangle",
+  "level": "2",
+  "url": "sec-cross-product.html#ex-area-of-triangle",
+  "type": "Example",
+  "number": "1.75",
+  "title": "",
+  "body": "  Find the area of the triangle with vertices , , and .    The area of a triangle is exactly half the area of the parallelogram spanned by vectors sharing vertex . From the previous example, we know .  Compute the magnitude length of this cross product vector:   Therefore, the area of the triangle is:    "
+},
+{
+  "id": "def-scalar-triple-product",
+  "level": "2",
+  "url": "sec-cross-product.html#def-scalar-triple-product",
+  "type": "Definition",
+  "number": "1.76",
+  "title": "",
+  "body": "  The product is called the scalar triple product of the vectors , , and .   "
+},
+{
+  "id": "fact-volume-parallelepiped",
+  "level": "2",
+  "url": "sec-cross-product.html#fact-volume-parallelepiped",
+  "type": "Fact",
+  "number": "1.77",
+  "title": "Volume of a Parallelepiped.",
+  "body": " Volume of a Parallelepiped   The volume of the parallelepiped determined by the vectors , , and is the absolute magnitude of their scalar triple product: We can compute this product directly using a single matrix determinant:    "
+},
+{
+  "id": "ex-coplanar-vectors",
+  "level": "2",
+  "url": "sec-cross-product.html#ex-coplanar-vectors",
+  "type": "Example",
+  "number": "1.78",
+  "title": "",
+  "body": "  Use the scalar triple product to show that the vectors , , and are coplanar, meaning they lie in the same plane.    Three vectors are coplanar if and only if the volume of the parallelepiped they span is exactly zero ( ). We check this condition by computing their scalar triple product determinant: Because the scalar triple product is exactly , the bounded volume vanishes. This proves that the three vectors are coplanar.   "
+},
+{
+  "id": "def-vector-triple-product",
+  "level": "2",
+  "url": "sec-cross-product.html#def-vector-triple-product",
+  "type": "Definition",
+  "number": "1.79",
+  "title": "",
+  "body": "  The product is called the vector triple product of the vectors , , and . It can be expanded and computed using dot products via the BAC-CAB identity:    "
+},
+{
+  "id": "ex-vector-triple-product-calc",
+  "level": "2",
+  "url": "sec-cross-product.html#ex-vector-triple-product-calc",
+  "type": "Example",
+  "number": "1.80",
+  "title": "",
+  "body": "  Given the vectors , , and , evaluate the vector triple product using the expansion identity.    First, express the vectors cleanly in their numerical component forms:   Next, calculate the two scalar dot products required by the identity ( and ):   Substitute these scalar values back into the vector triple product identity formula: In standard basis notation, the final vector is .   "
 },
 {
   "id": "activities",
