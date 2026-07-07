@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>4.2 Measures of Center and Spread</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-105 (Survey of Math)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.7';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.917dfc3cfe0bb764.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.39f982db166f319d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-105 (Survey of Math)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="notes-Visualizing-Data-Through-Graphs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Intro-Statistics.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="notes-empirical-rule.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Voting-Apportionment.html" class="internal"><span class="codenumber">1</span> <span class="title">Voting and Apportionment</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="notes-Voting.html" class="internal"><span class="title">1.1 Voting methods</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-apportionment.html" class="internal"><span class="title">1.2 Apportionment</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-voting-ch-ex.html" class="internal"><span class="title">1.3 Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-voting-ch-ex.html#sec-voting-ch-ex-2" class="internal"><span class="title">Voting and Apportionment Practice Problems</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Personal-Finance.html" class="internal"><span class="codenumber">2</span> <span class="title">Personal Finance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="notes-simple-interest.html" class="internal"><span class="title">2.1 Understanding Interest: Simple Interest</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="notes-simple-interest.html#practice-simple-interest" class="internal"><span class="title">Exercises for Practice</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="notes-compound-interest.html" class="internal"><span class="title">2.2 Saving Money: Compound Interest</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="notes-compound-interest.html#practice-compound-interest" class="internal"><span class="title">Exercises for Practice</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="notes-Annuities.html" class="internal"><span class="title">2.3 Saving Money: Annuities</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="notes-Annuities.html#practice-annuity" class="internal"><span class="title">Exercises for Practice</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="notes-Mortgages.html" class="internal"><span class="title">2.4 Borrowing Money: Mortgage</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Identify-Formulas.html" class="internal"><span class="title">2.5 Identify Formulas to use: Simple, Compound, Annuity, Loans</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Identify-Formulas.html#exercises-finance-answers" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-fin-ch-ex.html" class="internal"><span class="title">2.6 Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-fin-ch-ex.html#sec-fin-ch-ex-2" class="internal"><span class="title">Personal Finance Practice Problem</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Probability.html" class="internal"><span class="codenumber">3</span> <span class="title">Probability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Probability-3.html" class="internal"><span class="title">3.1 Fundamentals of Probability</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-events-not-or.html" class="internal"><span class="title">3.2 Events Involving NOT and OR</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="notes-fcp.html" class="internal"><span class="title">3.3 The Fundamental Counting Principle</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="notes-fcp.html#exercises-FCP" class="internal"><span class="title">Exercises for Practice</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="notes-factorials.html" class="internal"><span class="title">3.4 Factorials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-permutations.html" class="internal"><span class="title">3.5 Permutations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-combinations.html" class="internal"><span class="title">3.6 Combinations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-probability-fcp-npr-ncr.html" class="internal"><span class="title">3.7 Probability with the FCP, nPr and nCr</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probability-fcp-npr-ncr.html#subsec-nPr-Probability" class="internal"><span class="title">Probability with Fundamental Counting Principle and permutations, nPr</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probability-fcp-npr-ncr.html#subsec-nCr-Probability" class="internal"><span class="title">Probability with Combinations, nCr</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-prob-ch-ex.html" class="internal"><span class="title">3.8 Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-prob-ch-ex.html#sec-prob-ch-ex-2" class="internal"><span class="title">Probability Practice Problem</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Intro-Statistics.html" class="internal"><span class="codenumber">4</span> <span class="title">Introduction to Statistics</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="notes-Visualizing-Data-Through-Graphs.html" class="internal"><span class="title">4.1 Visualizing Data Through Graphs</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-measures-of-center-spread.html" class="internal"><span class="title">4.2 Measures of Center and Spread</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-measures-of-center-spread.html#subsec-effect-of-outliers" class="internal"><span class="title">Effect of Outliers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-measures-of-center-spread.html#sec-measures-of-center-spread-34" class="internal"><span class="title">Practice Questions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-measures-of-center-spread.html#subsec-faq" class="internal"><span class="title">Frequently Asked Questions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="notes-empirical-rule.html" class="internal"><span class="title">4.3 The Empirical Rule</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-z-scores.html" class="internal"><span class="title">4.4 Z-Scores</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-z-scores.html#exercises-z-scores" class="internal"><span class="title">Practice Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Regression.html" class="internal"><span class="title">4.5 Scatter Plots and Regression Lines</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stat-ch-ex.html" class="internal"><span class="title">4.6 Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stat-ch-ex.html#sec-stat-ch-ex-2" class="internal"><span class="title">Statistics Practice Problem</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Hands-On-Sessions.html" class="internal"><span class="codenumber">5</span> <span class="title">Practical Application &amp; Hands-On Sessions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="handout-voting-methods.html" class="internal"><span class="title">Voting Methods Handout</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="handout-apportionment.html" class="internal"><span class="title">Apportionment Handout</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="handout-finance.html" class="internal"><span class="title">Personal Finance Handout</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="handout-Statistics.html" class="internal"><span class="title">Statistics Handout</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">6</span> <span class="title">MyOpenMath Interactive Activities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-01-intro-activity.html" class="internal"><span class="title">01. Activity Voting Methods</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-02-intro-activity.html" class="internal"><span class="title">02. Activity Apportionment Methods</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-03-intro-activity.html" class="internal"><span class="title">03. Activity Simple Interest</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-04-intro-activity.html" class="internal"><span class="title">04. Activity Compound Interest</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-05-intro-activity.html" class="internal"><span class="title">05. Activity Annuities</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-06-intro-activity.html" class="internal"><span class="title">06. Activity Loans</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-07-intro-activity.html" class="internal"><span class="title">07. Activity Mortgages</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="handouts.html" class="internal"><span class="codenumber">7</span> <span class="title">Handouts</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">8</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">9</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-measures-of-center-spread">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">4.2 Measures of Center and Spread</span>
+</h2>
+<div class="para" id="sec-measures-of-center-spread-2">Understanding distributions and their measures of center and spread is crucial for solving many statistics problems on the math practice. These concepts help summarize data sets concisely and allow for easier comparison and interpretation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-measures-of-center-spread-3">The center of a distribution describes a typical value of the data set and can be represented by the mean, median, or mode. The spread of a distribution indicates how much the data varies and can be measured using the range and standard deviation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-mean"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.44</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mean.</span>
+</h3>
+<div class="para" id="def-mean-2">The mean, or average, is calculated by summing all values in a data set and dividing by the number of values. It represents a central point in the data. The mean is a measure of center that is sensitive to every value in the data set, making it particularly useful when the values are relatively close to each other.<div class="autopermalink" data-description="Paragraph"><a href="#def-mean-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="def-mean-3">The Greek letter sigma, <span class="process-math">\(\sum \text{,}\)</span> called a symbol of summation, is used to indicate the sum of data items. The notation <span class="process-math">\(\sum x\text{,}\)</span> read ``the sum of x,’’ means to add all the data items in a given data set. We can use this symbol to give a formula for calculating the mean.<div class="autopermalink" data-description="Paragraph"><a href="#def-mean-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="def-mean-4">
+<div class="para">The <dfn class="terminology">mean</dfn> of a set of data is the sum of the data values divided by the number of values;</div>
+<div class="displaymath process-math" id="def-mean-4-2">
+\begin{equation*}
+\text{mean}= \bar{x}= \dfrac{\sum x}{n} 
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-mean-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.44: Mean"><a href="#def-mean" title="Copy heading and permalink for Definition 4.44: Mean" aria-label="Copy heading and permalink for Definition 4.44: Mean">🔗</a></div>
+</article>
+<details id="example-mean" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.45</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-mean-1-1">Find the mean of the data set <span class="process-math">\(\{2, 4, 6, 8, 10\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-mean-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-mean-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="example-mean-2-1">Sum the values (<span class="process-math">\(\sum x = 2 + 4 + 6 + 8 + 10 = 30\)</span>) and divide by the number of values (<span class="process-math">\(n = 5\)</span>). The mean is <span class="process-math">\(\bar{x} = \dfrac{30}{5} = 6\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-mean-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.45.1"><a href="#example-mean-2" title="Copy heading and permalink for Solution 4.45.1" aria-label="Copy heading and permalink for Solution 4.45.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.45"><a href="#example-mean" title="Copy heading and permalink for Example 4.45" aria-label="Copy heading and permalink for Example 4.45">🔗</a></div>
+</article></details>
+<details id="example-rounding-mean" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.46</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-rounding-mean-1-1">Marci’s exam scores for her last math class were: <span class="process-math">\(79, 86, 82, 94\text{.}\)</span> Find the mean of these exam scores and round it appropriately.<div class="autopermalink" data-description="Paragraph"><a href="#example-rounding-mean-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-rounding-mean-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="example-rounding-mean-2-1">
+<div class="para">To find the mean, sum the scores and divide by the total number of exams:</div>
+<div class="displaymath process-math" id="example-rounding-mean-2-1-1">
+\begin{equation*}
+\bar{x}= \dfrac{\sum x}{n} = \dfrac{79 + 86 + 82 + 94}{4} = 85.25
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-rounding-mean-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="example-rounding-mean-2-2">Typically, we round means to one more decimal place than the original data had. Since the original scores are whole numbers, we round our final answer to one decimal place. Therefore, we round <span class="process-math">\(85.25\)</span> to <span class="process-math">\(85.3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-rounding-mean-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.46.1"><a href="#example-rounding-mean-2" title="Copy heading and permalink for Solution 4.46.1" aria-label="Copy heading and permalink for Solution 4.46.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.46"><a href="#example-rounding-mean" title="Copy heading and permalink for Example 4.46" aria-label="Copy heading and permalink for Example 4.46">🔗</a></div>
+</article></details>
+<details id="ex-nfl-touchdowns-mean" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.47</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="ex-nfl-touchdowns-mean-1-1">The number of touchdown (TD) passes thrown by each of the 31 teams in the National Football League in the 2000 season are shown below:<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-mean-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="table table-like" id="table-nfl-tds"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.48<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NFL Touchdown Passes (2000 Season)<div class="autopermalink" data-description="Table 4.48: NFL Touchdown Passes (2000 Season)"><a href="#table-nfl-tds" title="Copy heading and permalink for Table 4.48: NFL Touchdown Passes (2000 Season)" aria-label="Copy heading and permalink for Table 4.48: NFL Touchdown Passes (2000 Season)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r1 l1 t1 lines">37</td>
+<td class="c m b1 r1 l0 t1 lines">33</td>
+<td class="c m b1 r1 l0 t1 lines">33</td>
+<td class="c m b1 r1 l0 t1 lines">32</td>
+<td class="c m b1 r1 l0 t1 lines">29</td>
+<td class="c m b1 r1 l0 t1 lines">28</td>
+<td class="c m b1 r1 l0 t1 lines">28</td>
+<td class="c m b1 r1 l0 t1 lines">23</td>
+<td class="c m b1 r1 l0 t1 lines">22</td>
+<td class="c m b1 r1 l0 t1 lines">22</td>
+<td class="c m b1 r1 l0 t1 lines">22</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">21</td>
+<td class="c m b1 r1 l0 t0 lines">21</td>
+<td class="c m b1 r1 l0 t0 lines">21</td>
+<td class="c m b1 r1 l0 t0 lines">20</td>
+<td class="c m b1 r1 l0 t0 lines">20</td>
+<td class="c m b1 r1 l0 t0 lines">19</td>
+<td class="c m b1 r1 l0 t0 lines">19</td>
+<td class="c m b1 r1 l0 t0 lines">18</td>
+<td class="c m b1 r1 l0 t0 lines">18</td>
+<td class="c m b1 r1 l0 t0 lines">18</td>
+<td class="c m b1 r1 l0 t0 lines">18</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">16</td>
+<td class="c m b1 r1 l0 t0 lines">15</td>
+<td class="c m b1 r1 l0 t0 lines">14</td>
+<td class="c m b1 r1 l0 t0 lines">14</td>
+<td class="c m b1 r1 l0 t0 lines">14</td>
+<td class="c m b1 r1 l0 t0 lines">12</td>
+<td class="c m b1 r1 l0 t0 lines">12</td>
+<td class="c m b1 r1 l0 t0 lines">9</td>
+<td class="c m b1 r1 l0 t0 lines">6</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+</table></div>
+</figure> 
+<div class="para" id="ex-nfl-touchdowns-mean-1-3">Find the mean number of touchdown passes thrown during this season.<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-mean-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-nfl-touchdowns-mean-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-nfl-touchdowns-mean-2-1">
+<div class="para">First, find the sum of all the values in the data set:</div>
+<div class="displaymath process-math" id="ex-nfl-touchdowns-mean-2-1-1">
+\begin{equation*}
+37 + 33 + 33 + 32 + 29 + 28 + 28 + 23 + 22 + 22 + 22 + 21 + 21 + 
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-nfl-touchdowns-mean-2-1-2">
+\begin{equation*}
+21 + 20 + 20 + 19 + 19 + 18 + 18 + 18 + 18 + 16 + 15 + 14 + 14 + 
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-nfl-touchdowns-mean-2-1-3">
+\begin{equation*}
+14 + 12 + 12 + 9 + 6 = 634 \text{ total TDs}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-mean-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-nfl-touchdowns-mean-2-2">
+<div class="para">Next, divide by <span class="process-math">\(31\text{,}\)</span> which is the total number of data values:</div>
+<div class="displaymath process-math" id="ex-nfl-touchdowns-mean-2-2-2">
+\begin{equation*}
+\bar{x} = \dfrac{634}{31} \approx 20.4516
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-mean-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-nfl-touchdowns-mean-2-3">Following the standard rounding convention, we round the mean to one more decimal place than the original data. Since the raw touchdown counts are whole numbers, we round our final answer to one decimal place, giving <span class="process-math">\(20.5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-mean-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-nfl-touchdowns-mean-2-4">It is most correct to report that “The mean number of touchdown passes thrown in the NFL in the 2000 season was 20.5 passes,” though it is common to see the more casual term “average” used in place of “mean.”<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-mean-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.47.1"><a href="#ex-nfl-touchdowns-mean-2" title="Copy heading and permalink for Solution 4.47.1" aria-label="Copy heading and permalink for Solution 4.47.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.47"><a href="#ex-nfl-touchdowns-mean" title="Copy heading and permalink for Checkpoint 4.47" aria-label="Copy heading and permalink for Checkpoint 4.47">🔗</a></div>
+</article></details>
+<details id="exercise-peanut-butter-mean" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.49</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-peanut-butter-mean-1-1">The price of a jar of peanut butter at 5 stores was: <span class="process-math">\(\$3.29\text{,}\)</span> <span class="process-math">\(\$3.59\text{,}\)</span> <span class="process-math">\(\$3.79\text{,}\)</span> <span class="process-math">\(\$3.75\text{,}\)</span> and <span class="process-math">\(\$3.99\text{.}\)</span> Find the mean price.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-peanut-butter-mean-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-peanut-butter-mean-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-peanut-butter-mean-2-1">
+<div class="para">First, find the sum of the prices across all 5 stores:</div>
+<div class="displaymath process-math" id="exercise-peanut-butter-mean-2-1-1">
+\begin{equation*}
+3.29 + 3.59 + 3.79 + 3.75 + 3.99 = 18.41
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-peanut-butter-mean-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-peanut-butter-mean-2-2">
+<div class="para">Next, divide the total sum by the number of stores (<span class="process-math">\(5\)</span>):</div>
+<div class="displaymath process-math" id="exercise-peanut-butter-mean-2-2-2">
+\begin{equation*}
+\text{Mean} =\bar{x} = \dfrac{18.41}{5} = 3.682
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-peanut-butter-mean-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exercise-peanut-butter-mean-2-3">Following the standard rounding rule for the mean (rounding to one more decimal place than the original data), we round from two decimal places to three decimal places. The exact mean price is <span class="process-math">\(\$3.682\)</span> (or approximately <span class="process-math">\(\$3.68\)</span> when rounded to the nearest standard cent).<div class="autopermalink" data-description="Paragraph"><a href="#exercise-peanut-butter-mean-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.49.1"><a href="#exercise-peanut-butter-mean-2" title="Copy heading and permalink for Solution 4.49.1" aria-label="Copy heading and permalink for Solution 4.49.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.49"><a href="#exercise-peanut-butter-mean" title="Copy heading and permalink for Checkpoint 4.49" aria-label="Copy heading and permalink for Checkpoint 4.49">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-median"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.50</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Median.</span>
+</h3>
+<div class="para" id="def-median-2">The <dfn class="terminology">median</dfn> is the middle value of a data set when the values are arranged in ascending order.<div class="autopermalink" data-description="Paragraph"><a href="#def-median-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="def-median-3">To find the median of a dataset:<div class="autopermalink" data-description="Paragraph"><a href="#def-median-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="def-median-4">
+<ol class="decimal" id="def-median-4-1">
+<li id="def-median-4-1-1">
+<div class="para" id="p-derived-def-median-4-1-1">Arrange the data in order from smallest to largest.</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-median-4-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-median-4-1-2">
+<div class="para" id="p-derived-def-median-4-1-2">If the number of items in the dataset is <em class="alert">odd</em>, the median is the exact middle number in the ordered dataset.</div>
+<div class="autopermalink" data-description="Item 2"><a href="#def-median-4-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="def-median-4-1-3">
+<div class="para" id="p-derived-def-median-4-1-3">If the number of items in the dataset is <em class="alert">even</em>, the median is the mean of the two middle numbers in the ordered dataset.</div>
+<div class="autopermalink" data-description="Item 3"><a href="#def-median-4-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-median-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.50: Median"><a href="#def-median" title="Copy heading and permalink for Definition 4.50: Median" aria-label="Copy heading and permalink for Definition 4.50: Median">🔗</a></div>
+</article>
+<div class="para" id="sec-measures-of-center-spread-10">The median is a useful measure of center because it is not affected by extremely high or low values (outliers). This makes it a better representative of the data set when there are outliers present.<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-median-odd" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.51</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Odd Number of Values.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-median-odd-2-1">Find the median of <span class="process-math">\(\{3,5,7,9,11\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-median-odd-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-median-odd-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="example-median-odd-3-1">The data set is already in order. The median is <span class="process-math">\(7\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-median-odd-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.51.1"><a href="#example-median-odd-3" title="Copy heading and permalink for Solution 4.51.1" aria-label="Copy heading and permalink for Solution 4.51.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.51: Odd Number of Values"><a href="#example-median-odd" title="Copy heading and permalink for Example 4.51: Odd Number of Values" aria-label="Copy heading and permalink for Example 4.51: Odd Number of Values">🔗</a></div>
+</article></details>
+<details id="example-median-even" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.52</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Even Number of Values.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-median-even-2-1">Find the median of <span class="process-math">\(\{5, 3, 1, 7, 11, 9\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-median-even-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-median-even-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="example-median-even-3-1">The middle values are <span class="process-math">\(5\)</span> and <span class="process-math">\(7\text{.}\)</span> The median is <span class="process-math">\((5 + 7)/2 = 6\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-median-even-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.52.1"><a href="#example-median-even-3" title="Copy heading and permalink for Solution 4.52.1" aria-label="Copy heading and permalink for Solution 4.52.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.52: Even Number of Values"><a href="#example-median-even" title="Copy heading and permalink for Example 4.52: Even Number of Values" aria-label="Copy heading and permalink for Example 4.52: Even Number of Values">🔗</a></div>
+</article></details>
+<details id="ex-nfl-touchdowns-median" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.53</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="ex-nfl-touchdowns-median-1-1">Returning to the football touchdown data from <a href="sec-measures-of-center-spread.html#ex-nfl-touchdowns-mean" class="xref" data-knowl="./knowl/xref/ex-nfl-touchdowns-mean.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 4.47">Checkpoint 4.47</a>, find the median number of touchdown passes thrown in the NFL during the 2000 season.<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-median-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-nfl-touchdowns-median-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-nfl-touchdowns-median-2-1">To find the median, we start by listing the data in order. As seen in <a href="sec-measures-of-center-spread.html#table-nfl-tds" class="xref" data-knowl="./knowl/xref/table-nfl-tds.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 4.48: NFL Touchdown Passes (2000 Season)">Table 4.48</a>, the data is already in decreasing order, so we can work with it without needing to reorder it first.<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-median-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-nfl-touchdowns-median-2-2">Since there are <span class="process-math">\(31\)</span> data values (an odd number), the median will be the middle number, which is the 16th data value. We can compute its position by evaluating <span class="process-math">\(31/2 = 15.5\)</span> and rounding up to <span class="process-math">\(16\text{,}\)</span> which leaves exactly <span class="process-math">\(15\)</span> values below it and <span class="process-math">\(15\)</span> values above it.<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-median-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-nfl-touchdowns-median-2-3">Counting to the 16th data value in the ordered list yields <span class="process-math">\(20\text{.}\)</span> Therefore, the median number of touchdown passes in the 2000 season was <span class="process-math">\(20\)</span> passes. Notice that for this data, the median is fairly close to the mean of <span class="process-math">\(20.5\)</span> that we calculated earlier in <a href="sec-measures-of-center-spread.html#ex-nfl-touchdowns-mean" class="xref" data-knowl="./knowl/xref/ex-nfl-touchdowns-mean.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 4.47">Checkpoint 4.47</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex-nfl-touchdowns-median-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.53.1"><a href="#ex-nfl-touchdowns-median-2" title="Copy heading and permalink for Solution 4.53.1" aria-label="Copy heading and permalink for Solution 4.53.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.53"><a href="#ex-nfl-touchdowns-median" title="Copy heading and permalink for Checkpoint 4.53" aria-label="Copy heading and permalink for Checkpoint 4.53">🔗</a></div>
+</article></details>
+<details id="exercise-quiz-scores-median" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.54</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para logical" id="exercise-quiz-scores-median-1-1">
+<div class="para">Find the median of these quiz scores:</div>
+<div class="displaymath process-math" id="exercise-quiz-scores-median-1-1-1">
+\begin{equation*}
+5, 10, 8, 6, 4, 8, 2, 5, 7, 7
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-quiz-scores-median-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-quiz-scores-median-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-quiz-scores-median-2-1">
+<div class="para">We start by listing the data in ascending order:</div>
+<div class="displaymath process-math" id="exercise-quiz-scores-median-2-1-1">
+\begin{equation*}
+2, 4, 5, 5, 6, 7, 7, 8, 8, 10
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-quiz-scores-median-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exercise-quiz-scores-median-2-2">Since there are <span class="process-math">\(10\)</span> data values (an even number), there is no single middle number. Instead, we find the mean of the two middle numbers, which are the 5th and 6th values: <span class="process-math">\(6\)</span> and <span class="process-math">\(7\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-quiz-scores-median-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-quiz-scores-median-2-3">
+<div class="para">Calculating their average gives:</div>
+<div class="displaymath process-math" id="exercise-quiz-scores-median-2-3-1">
+\begin{equation*}
+\frac{6 + 7}{2} = 6.5
+\end{equation*}
+</div>
+<div class="para">Therefore, the median quiz score was <span class="process-math">\(6.5\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-quiz-scores-median-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.54.1"><a href="#exercise-quiz-scores-median-2" title="Copy heading and permalink for Solution 4.54.1" aria-label="Copy heading and permalink for Solution 4.54.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.54"><a href="#exercise-quiz-scores-median" title="Copy heading and permalink for Checkpoint 4.54" aria-label="Copy heading and permalink for Checkpoint 4.54">🔗</a></div>
+</article></details>
+<details id="exercise-peanut-butter-median" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.55</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-peanut-butter-median-1-1">The price of a jar of peanut butter at 5 stores was: <span class="process-math">\(\$3.29\text{,}\)</span> <span class="process-math">\(\$3.59\text{,}\)</span> <span class="process-math">\(\$3.79\text{,}\)</span> <span class="process-math">\(\$3.75\text{,}\)</span> and <span class="process-math">\(\$3.99\text{.}\)</span> Find the median price.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-peanut-butter-median-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-peanut-butter-median-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-peanut-butter-median-2-1">
+<div class="para">First, arrange the prices in ascending order:</div>
+<div class="displaymath process-math" id="exercise-peanut-butter-median-2-1-1">
+\begin{equation*}
+3.29, \ 3.59, \ 3.75, \ 3.79, \ 3.99
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-peanut-butter-median-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exercise-peanut-butter-median-2-2">Since there is an odd number of data values (<span class="process-math">\(n = 5\)</span>), the median is the exact middle number, which is the 3rd value in our ordered list.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-peanut-butter-median-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exercise-peanut-butter-median-2-3">The middle value is <span class="process-math">\(3.75\text{.}\)</span> Therefore, the median price for a jar of peanut butter is <span class="process-math">\(\$3.75\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-peanut-butter-median-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.55.1"><a href="#exercise-peanut-butter-median-2" title="Copy heading and permalink for Solution 4.55.1" aria-label="Copy heading and permalink for Solution 4.55.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.55"><a href="#exercise-peanut-butter-median" title="Copy heading and permalink for Checkpoint 4.55" aria-label="Copy heading and permalink for Checkpoint 4.55">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-mode"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.56</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mode.</span>
+</h3>
+<div class="para" id="def-mode-2">The <dfn class="terminology">mode</dfn>  is the value that appears most frequently (often) in a data set.<div class="autopermalink" data-description="Paragraph"><a href="#def-mode-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="def-mode-3">A data set can have no mode, one mode, or multiple modes.<div class="autopermalink" data-description="Paragraph"><a href="#def-mode-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="def-mode-4">The mode is useful for understanding which values are most common in the data set. The mode is particularly useful for categorical data, where we are interested in knowing the most frequent category.<div class="autopermalink" data-description="Paragraph"><a href="#def-mode-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.56: Mode"><a href="#def-mode" title="Copy heading and permalink for Definition 4.56: Mode" aria-label="Copy heading and permalink for Definition 4.56: Mode">🔗</a></div>
+</article>
+<details id="example-mode" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.57</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-mode-1-1">Find the mode of the data set <span class="process-math">\(\{4, 4, 6, 8, 8, 8, 9\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-mode-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-mode-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="example-mode-2-1">The mode is <span class="process-math">\(8\)</span> because it appears most frequently.<div class="autopermalink" data-description="Paragraph"><a href="#example-mode-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.57.1"><a href="#example-mode-2" title="Copy heading and permalink for Solution 4.57.1" aria-label="Copy heading and permalink for Solution 4.57.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.57"><a href="#example-mode" title="Copy heading and permalink for Example 4.57" aria-label="Copy heading and permalink for Example 4.57">🔗</a></div>
+</article></details>
+<details id="example-vehicle-color-mode" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.58</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-vehicle-color-mode-1-1">In a vehicle color survey, the following frequency data was collected:<div class="autopermalink" data-description="Paragraph"><a href="#example-vehicle-color-mode-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="table table-like" id="table-vehicle-colors"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.59<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vehicle Color Survey Frequencies<div class="autopermalink" data-description="Table 4.59: Vehicle Color Survey Frequencies"><a href="#table-vehicle-colors" title="Copy heading and permalink for Table 4.59: Vehicle Color Survey Frequencies" aria-label="Copy heading and permalink for Table 4.59: Vehicle Color Survey Frequencies">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l1 t1 lines">Color</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Frequency</th>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">Blue</td>
+<td class="c m b1 r1 l0 t0 lines">3</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">Green</td>
+<td class="c m b1 r1 l0 t0 lines">5</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">Red</td>
+<td class="c m b1 r1 l0 t0 lines">4</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">White</td>
+<td class="c m b1 r1 l0 t0 lines">3</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">Black</td>
+<td class="c m b1 r1 l0 t0 lines">2</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">Grey</td>
+<td class="c m b1 r1 l0 t0 lines">3</td>
+</tr>
+</table></div>
+</figure> 
+<div class="para" id="example-vehicle-color-mode-1-3">Find the mode of this data set.<div class="autopermalink" data-description="Paragraph"><a href="#example-vehicle-color-mode-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-vehicle-color-mode-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="example-vehicle-color-mode-2-1">For this data, “Green” is the mode, since it is the data value that occurred most frequently with a count of <span class="process-math">\(5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-vehicle-color-mode-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="example-vehicle-color-mode-2-2">It is possible for a data set to have more than one mode if several categories share the same highest frequency, or no modes if every single category occurs only once.<div class="autopermalink" data-description="Paragraph"><a href="#example-vehicle-color-mode-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.58.1"><a href="#example-vehicle-color-mode-2" title="Copy heading and permalink for Solution 4.58.1" aria-label="Copy heading and permalink for Solution 4.58.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.58"><a href="#example-vehicle-color-mode" title="Copy heading and permalink for Example 4.58" aria-label="Copy heading and permalink for Example 4.58">🔗</a></div>
+</article></details>
+<details id="exercise-product-ratings" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.60</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-product-ratings-1-1">Reviewers were asked to rate a product on a scale of 1 to 5. The results are shown in the frequency table below:<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="table table-like" id="table-product-ratings"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.61<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Product Rating Frequencies<div class="autopermalink" data-description="Table 4.61: Product Rating Frequencies"><a href="#table-product-ratings" title="Copy heading and permalink for Table 4.61: Product Rating Frequencies" aria-label="Copy heading and permalink for Table 4.61: Product Rating Frequencies">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l1 t1 lines">Rating</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Frequency</th>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">1</td>
+<td class="c m b1 r1 l0 t0 lines">4</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">2</td>
+<td class="c m b1 r1 l0 t0 lines">8</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">3</td>
+<td class="c m b1 r1 l0 t0 lines">7</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">4</td>
+<td class="c m b1 r1 l0 t0 lines">3</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">5</td>
+<td class="c m b1 r1 l0 t0 lines">1</td>
+</tr>
+</table></div>
+</figure> 
+<div class="para logical" id="exercise-product-ratings-1-3">
+<div class="para">Find:</div>
+<ol class="lower-alpha ol-marker-3" id="exercise-product-ratings-1-3-1">
+<li id="exercise-product-ratings-1-3-1-1">
+<div class="para" id="exercise-product-ratings-1-3-1-1-1">The mean rating<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-1-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.60.a"><a href="#exercise-product-ratings-1-3-1-1" title="Copy heading and permalink for Item 4.60.a" aria-label="Copy heading and permalink for Item 4.60.a">🔗</a></div>
+</li>
+<li id="exercise-product-ratings-1-3-1-2">
+<div class="para" id="exercise-product-ratings-1-3-1-2-1">The median rating<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-1-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.60.b"><a href="#exercise-product-ratings-1-3-1-2" title="Copy heading and permalink for Item 4.60.b" aria-label="Copy heading and permalink for Item 4.60.b">🔗</a></div>
+</li>
+<li id="exercise-product-ratings-1-3-1-3">
+<div class="para" id="exercise-product-ratings-1-3-1-3-1">The mode rating<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-1-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.60.c"><a href="#exercise-product-ratings-1-3-1-3" title="Copy heading and permalink for Item 4.60.c" aria-label="Copy heading and permalink for Item 4.60.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-product-ratings-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-product-ratings-2-1">
+<div class="para">First, determine the total number of reviewers (<span class="process-math">\(n\)</span>) by summing the frequencies:</div>
+<div class="displaymath process-math" id="exercise-product-ratings-2-1-2">
+\begin{equation*}
+n = 4 + 8 + 7 + 3 + 1 = 23
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-product-ratings-2-2">
+<ol class="lower-alpha ol-marker-3" id="exercise-product-ratings-2-2-1">
+<li id="exercise-product-ratings-2-2-1-1">
+<div class="para logical" id="exercise-product-ratings-2-2-1-1-1">
+<div class="para">To find the mean rating, calculate the weighted sum of the ratings and divide by the total number of reviewers:</div>
+<div class="displaymath process-math" id="exercise-product-ratings-2-2-1-1-1-1">
+\begin{equation*}
+\text{Sum} = (1 \times 4) + (2 \times 8) + (3 \times 7) + (4 \times 3) + (5 \times 1)
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="exercise-product-ratings-2-2-1-1-1-2">
+\begin{equation*}
+\text{Sum} = 4 + 16 + 21 + 12 + 5 = 58
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="exercise-product-ratings-2-2-1-1-1-3">
+\begin{equation*}
+\text{Mean} = \frac{58}{23} \approx 2.5217
+\end{equation*}
+</div>
+<div class="para">Rounding to one more decimal place than the original data gives a mean rating of <span class="process-math">\(2.5\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.60.a"><a href="#exercise-product-ratings-2-2-1-1" title="Copy heading and permalink for Item 4.60.a" aria-label="Copy heading and permalink for Item 4.60.a">🔗</a></div>
+</li>
+<li id="exercise-product-ratings-2-2-1-2">
+<div class="para logical" id="exercise-product-ratings-2-2-1-2-1">
+<div class="para">Since there are <span class="process-math">\(23\)</span> data values (an odd number), the median is the middle value, located at position <span class="process-math">\((23 + 1) / 2 = 12\text{.}\)</span> Accumulating frequencies from the lowest rating up to the 12th value:</div>
+<ul class="disc" id="exercise-product-ratings-2-2-1-2-1-3">
+<li id="exercise-product-ratings-2-2-1-2-1-3-1">
+<div class="para" id="exercise-product-ratings-2-2-1-2-1-3-1-1">Ratings of 1 account for the first <span class="process-math">\(4\)</span> values (positions 1–4).<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-2-2-1-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#exercise-product-ratings-2-2-1-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="exercise-product-ratings-2-2-1-2-1-3-2">
+<div class="para" id="exercise-product-ratings-2-2-1-2-1-3-2-1">Ratings of 2 account for the next <span class="process-math">\(8\)</span> values (positions 5–12).<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-2-2-1-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#exercise-product-ratings-2-2-1-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">The 12th value falls exactly at the end of the 2-rating group, so the median rating is <span class="process-math">\(2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.60.b"><a href="#exercise-product-ratings-2-2-1-2" title="Copy heading and permalink for Item 4.60.b" aria-label="Copy heading and permalink for Item 4.60.b">🔗</a></div>
+</li>
+<li id="exercise-product-ratings-2-2-1-3">
+<div class="para" id="exercise-product-ratings-2-2-1-3-1">The mode is the value with the highest frequency. A rating of <span class="process-math">\(2\)</span> has the highest frequency with <span class="process-math">\(8\)</span> reviews, so the mode rating is <span class="process-math">\(2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.60.c"><a href="#exercise-product-ratings-2-2-1-3" title="Copy heading and permalink for Item 4.60.c" aria-label="Copy heading and permalink for Item 4.60.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-product-ratings-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.60.1"><a href="#exercise-product-ratings-2" title="Copy heading and permalink for Solution 4.60.1" aria-label="Copy heading and permalink for Solution 4.60.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.60"><a href="#exercise-product-ratings" title="Copy heading and permalink for Checkpoint 4.60" aria-label="Copy heading and permalink for Checkpoint 4.60">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-measures-of-spread"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.62</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Measures of Spread.</span>
+</h3>
+<div class="para" id="def-measures-of-spread-2-1">Measures of spread describe how much the data varies. Two common measures are <em class="alert">range</em> and <em class="alert">standard deviation</em>. These measures help to understand the variability within the data set.<div class="autopermalink" data-description="Paragraph"><a href="#def-measures-of-spread-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.62: Measures of Spread"><a href="#def-measures-of-spread" title="Copy heading and permalink for Definition 4.62: Measures of Spread" aria-label="Copy heading and permalink for Definition 4.62: Measures of Spread">🔗</a></div>
+</article>
+<div class="para" id="sec-measures-of-center-spread-21">Consider these three sets of quiz scores:<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-measures-of-center-spread-22">
+<ul class="disc" id="sec-measures-of-center-spread-22-1">
+<li id="sec-measures-of-center-spread-22-1-1">
+<div class="para" id="sec-measures-of-center-spread-22-1-1-1">Section A: <span class="process-math">\(5, 5, 5, 5, 5, 5, 5, 5, 5, 5\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-22-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-measures-of-center-spread-22-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-measures-of-center-spread-22-1-2">
+<div class="para" id="sec-measures-of-center-spread-22-1-2-1">Section B: <span class="process-math">\(0, 0, 0, 0, 0, 10, 10, 10, 10, 10\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-22-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-measures-of-center-spread-22-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-measures-of-center-spread-22-1-3">
+<div class="para" id="sec-measures-of-center-spread-22-1-3-1">Section C: <span class="process-math">\(4, 4, 4, 5, 5, 5, 5, 6, 6, 6\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-22-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-measures-of-center-spread-22-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-measures-of-center-spread-23">All three of these sets of data have a mean of <span class="process-math">\(5\)</span> and a median of <span class="process-math">\(5\text{,}\)</span> yet the sets of scores are clearly quite different. In Section A, everyone had the same score. In Section B, half the class got no points and the other half got a perfect score, assuming this was a 10-point quiz. Section C was not as consistent as Section A, but not as widely varied as Section B.<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-measures-of-center-spread-24">In addition to the mean and median, which are measures of the “typical” or “middle” value, we also need a measure of how “spread out” or varied each data set is. There are several ways to measure this “spread” of the data. The first is the simplest and is called the <dfn class="terminology">range</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="note remark-like" id="sec-measures-of-center-spread-25"><h3 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.63</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Range.</span>
+</h3>
+<div class="para" id="sec-measures-of-center-spread-25-2">The range is the difference between the maximum and minimum values in a data set. It gives a quick sense of the spread of the data. A larger range indicates greater variability, while a smaller range indicates less variability.<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-25-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 4.63: Range"><a href="#sec-measures-of-center-spread-25" title="Copy heading and permalink for Note 4.63: Range" aria-label="Copy heading and permalink for Note 4.63: Range">🔗</a></div>
+</article>
+<details id="example-range" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.64</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-range-1-1">Find the range of the data set <span class="process-math">\(\{1, 3, 5, 7, 9\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-range-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-range-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="example-range-2-1">The range is <span class="process-math">\(9 - 1 = 8\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-range-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.64.1"><a href="#example-range-2" title="Copy heading and permalink for Solution 4.64.1" aria-label="Copy heading and permalink for Solution 4.64.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.64"><a href="#example-range" title="Copy heading and permalink for Example 4.64" aria-label="Copy heading and permalink for Example 4.64">🔗</a></div>
+</article></details>
+<details id="example-quiz-scores-range" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.65</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-quiz-scores-range-1-1">Using the quiz scores from above, find the range for Section A, Section B, and Section C.<div class="autopermalink" data-description="Paragraph"><a href="#example-quiz-scores-range-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-quiz-scores-range-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="example-quiz-scores-range-2-1">The range is calculated by subtracting the minimum score from the maximum score in each data set:<div class="autopermalink" data-description="Paragraph"><a href="#example-quiz-scores-range-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="example-quiz-scores-range-2-2">
+<ul class="disc" id="example-quiz-scores-range-2-2-1">
+<li id="example-quiz-scores-range-2-2-1-1">
+<div class="para" id="example-quiz-scores-range-2-2-1-1-1">For Section A, the maximum value is <span class="process-math">\(5\)</span> and the minimum value is <span class="process-math">\(5\text{.}\)</span> The range is <span class="process-math">\(5 - 5 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-quiz-scores-range-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#example-quiz-scores-range-2-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="example-quiz-scores-range-2-2-1-2">
+<div class="para" id="example-quiz-scores-range-2-2-1-2-1">For Section B, the maximum value is <span class="process-math">\(10\)</span> and the minimum value is <span class="process-math">\(0\text{.}\)</span> The range is <span class="process-math">\(10 - 0 = 10\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-quiz-scores-range-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#example-quiz-scores-range-2-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="example-quiz-scores-range-2-2-1-3">
+<div class="para" id="example-quiz-scores-range-2-2-1-3-1">For Section C, the maximum value is <span class="process-math">\(6\)</span> and the minimum value is <span class="process-math">\(4\text{.}\)</span> The range is <span class="process-math">\(6 - 4 = 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-quiz-scores-range-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#example-quiz-scores-range-2-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-quiz-scores-range-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.65.1"><a href="#example-quiz-scores-range-2" title="Copy heading and permalink for Solution 4.65.1" aria-label="Copy heading and permalink for Solution 4.65.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.65"><a href="#example-quiz-scores-range" title="Copy heading and permalink for Example 4.65" aria-label="Copy heading and permalink for Example 4.65">🔗</a></div>
+</article></details>
+<div class="para" id="sec-measures-of-center-spread-28">A second measure of spread, and one that is dependent on all of the data items, is called the <em class="alert">standard deviation</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="note remark-like" id="sec-measures-of-center-spread-29"><h3 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.66</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Standard Deviation.</span>
+</h3>
+<div class="para" id="sec-measures-of-center-spread-29-2">The <dfn class="terminology">standard deviation</dfn>  is a number that summarizes how far each data item differs from the mean. In comparing datasets, a dataset with a smaller standard deviation shows that the data are less spread out around the mean. A dataset with a larger standard deviation shows that the data are more spread out around the mean.<div class="autopermalink" data-description="Paragraph"><a href="#sec-measures-of-center-spread-29-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 4.66: Standard Deviation"><a href="#sec-measures-of-center-spread-29" title="Copy heading and permalink for Note 4.66: Standard Deviation" aria-label="Copy heading and permalink for Note 4.66: Standard Deviation">🔗</a></div>
+</article>
+<details id="example-quiz-scores-sd" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.67</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="example-quiz-scores-sd-1-1">Using the quiz scores from <a href="sec-measures-of-center-spread.html#example-quiz-scores-range" class="xref" data-knowl="./knowl/xref/example-quiz-scores-range.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.65">Example 4.65</a>, Section A, Section B, and Section C all have the same mean of 5. However, they have very different spreads. Which sample do you think has the largest standard deviation? What does this measure tell us when comparing the spread of the three samples?<div class="autopermalink" data-description="Paragraph"><a href="#example-quiz-scores-sd-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="example-quiz-scores-sd-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="example-quiz-scores-sd-2-1">Section B has the largest standard deviation because its scores are the most spread out from the mean. The standard deviation is a more precise measure of spread than the range because it accounts for how every individual data point differs from the mean, rather than just looking at the extremes.<div class="autopermalink" data-description="Paragraph"><a href="#example-quiz-scores-sd-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.67.1"><a href="#example-quiz-scores-sd-2" title="Copy heading and permalink for Solution 4.67.1" aria-label="Copy heading and permalink for Solution 4.67.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.67"><a href="#example-quiz-scores-sd" title="Copy heading and permalink for Example 4.67" aria-label="Copy heading and permalink for Example 4.67">🔗</a></div>
+</article></details>
+<article class="assemblage assemblage-like" id="assemblage-approx-sd-rule"><h3 class="heading"><span class="title">Approximating Standard Deviation Without Computation.</span></h3>
+<div class="para" id="assemblage-approx-sd-rule-2">To estimate the standard deviation of a small dataset, follow these steps:<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-approx-sd-rule-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="assemblage-approx-sd-rule-3">
+<ol class="decimal" id="assemblage-approx-sd-rule-3-1">
+<li id="assemblage-approx-sd-rule-3-1-1">
+<div class="para" id="assemblage-approx-sd-rule-3-1-1-1">Find the Mean: Calculate the average of your data points to establish the central point.<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-approx-sd-rule-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#assemblage-approx-sd-rule-3-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="assemblage-approx-sd-rule-3-1-2">
+<div class="para" id="assemblage-approx-sd-rule-3-1-2-1">Find individual distances: Determine how far each data point sits from that mean value. Disregard negative signs.<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-approx-sd-rule-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#assemblage-approx-sd-rule-3-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="assemblage-approx-sd-rule-3-1-3">
+<div class="para" id="assemblage-approx-sd-rule-3-1-3-1">Average the distances: Sum the distances and divide by the number of values to get a baseline average deviation.<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-approx-sd-rule-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#assemblage-approx-sd-rule-3-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="assemblage-approx-sd-rule-3-1-4">
+<div class="para" id="assemblage-approx-sd-rule-3-1-4-1">Adjust upward: Select an estimate slightly higher than your average distance, as squaring the deviations shifts the geometric mean upward.<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-approx-sd-rule-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#assemblage-approx-sd-rule-3-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-approx-sd-rule-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Approximating Standard Deviation Without Computation"><a href="#assemblage-approx-sd-rule" title="Copy heading and permalink for Assemblage: Approximating Standard Deviation Without Computation" aria-label="Copy heading and permalink for Assemblage: Approximating Standard Deviation Without Computation">🔗</a></div>
+</article>
+<details id="exercise-approx-sd" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.68</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content"><div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="exercise-approx-sd-1-1">Use the data 1, 2, 3, 5, 6, 7. Without actually computing the standard deviation, which of the following best approximates the standard deviation?<div class="autopermalink" data-description="Paragraph"><a href="#exercise-approx-sd-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-exercise-approx-sd" data-multipleanswers="false">
+<li data-component="answer" id="rs-exercise-approx-sd_opt_a" data-correct="">
+<div class="para" id="exercise-approx-sd-2-1-1-1">2</div>
+</li>
+<li data-component="feedback" id="rs-exercise-approx-sd_opt_a">
+<div class="para" id="exercise-approx-sd-2-1-2-1">Correct. The mean is 4 and the range is 6. The standard deviation represents the typical distance from the mean, so 2 is the best estimate.</div>
+</li>
+<li data-component="answer" id="rs-exercise-approx-sd_opt_b">
+<div class="para" id="exercise-approx-sd-2-2-1-1">6</div>
+</li>
+<li data-component="feedback" id="rs-exercise-approx-sd_opt_b">
+<div class="para" id="exercise-approx-sd-2-2-2-1">Incorrect. A standard deviation of 6 would imply the data points span much further from the mean than they actually do.</div>
+</li>
+<li data-component="answer" id="rs-exercise-approx-sd_opt_c">
+<div class="para" id="exercise-approx-sd-2-3-1-1">10</div>
+</li>
+<li data-component="feedback" id="rs-exercise-approx-sd_opt_c">
+<div class="para" id="exercise-approx-sd-2-3-2-1">Incorrect. The standard deviation cannot be larger than the total range of the dataset.</div>
+</li>
+<li data-component="answer" id="rs-exercise-approx-sd_opt_d">
+<div class="para" id="exercise-approx-sd-2-4-1-1">20</div>
+</li>
+<li data-component="feedback" id="rs-exercise-approx-sd_opt_d">
+<div class="para" id="exercise-approx-sd-2-4-2-1">Incorrect. This value is much too large for a small dataset spanning from 1 to 7.</div>
+</li>
+</ul>
+</div></div>
+<div class="solutions">
+<details id="exercise-approx-sd-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-approx-sd-3-1">
+<div class="para">Step 1: Find the Mean. Find the central balance point of the data:</div>
+<div class="displaymath process-math" id="exercise-approx-sd-3-1-2">
+\begin{equation*}
+\text{Mean} = \frac{1 + 2 + 3 + 5 + 6 + 7}{6} = 4
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-approx-sd-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-approx-sd-3-2">
+<div class="para">Step 2: Find the Absolute Distances. Calculate how far each value is from the mean of <span class="process-math">\(4\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-approx-sd-3-2-3">
+\begin{equation*}
+|1-4|=3, \quad |2-4|=2, \quad |3-4|=1, \quad |5-4|=1, \quad |6-4|=2, \quad |7-4|=3
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-approx-sd-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-approx-sd-3-3">
+<div class="para">Step 3: Average the Distances. Find the average of these absolute deviations:</div>
+<div class="displaymath process-math" id="exercise-approx-sd-3-3-2">
+\begin{equation*}
+\text{Average Distance} = \frac{3 + 2 + 1 + 1 + 2 + 3}{6} = \frac{12}{6} = 2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-approx-sd-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exercise-approx-sd-3-4">Step 4: Approximate. The true standard deviation is always slightly higher than the simple average distance. Therefore, we approximate the standard deviation to be a value <dfn class="terminology">just above 2</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-approx-sd-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.68.1"><a href="#exercise-approx-sd-3" title="Copy heading and permalink for Solution 4.68.1" aria-label="Copy heading and permalink for Solution 4.68.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.68"><a href="#exercise-approx-sd" title="Copy heading and permalink for Checkpoint 4.68" aria-label="Copy heading and permalink for Checkpoint 4.68">🔗</a></div>
+</article></details>
+<section class="subsection" id="subsec-effect-of-outliers">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Effect of Outliers</span>
+</h3>
+<div class="para" id="subsec-effect-of-outliers-2">Outliers are values significantly different from other values in a data set. They can greatly affect summary statistics like the mean, median, mode, range, and standard deviation.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-effect-of-outliers-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-effect-of-outliers-3">Consider the baseline data set <span class="process-math">\(\{1, 2, 2, 3, 100\}\)</span> where the outlier is <span class="process-math">\(100\text{.}\)</span> The sections below highlight how this outlier impacts each statistic:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-effect-of-outliers-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<dl class="description-list">
+<dt id="subsec-effect-of-outliers-4-1">Effect on Mean<div class="autopermalink" data-description="Item: Effect on Mean"><a href="#subsec-effect-of-outliers-4-1" title="Copy heading and permalink for Item: Effect on Mean" aria-label="Copy heading and permalink for Item: Effect on Mean">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-effect-of-outliers-4-1-2">Outliers can significantly skew the mean of a data set. Including it, the mean is skewed higher. Removing it, the mean is more representative of the majority of the data.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-effect-of-outliers-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
+<dt id="subsec-effect-of-outliers-4-2">Effect on Median<div class="autopermalink" data-description="Item: Effect on Median"><a href="#subsec-effect-of-outliers-4-2" title="Copy heading and permalink for Item: Effect on Median" aria-label="Copy heading and permalink for Item: Effect on Median">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-effect-of-outliers-4-2-2">The median is less affected by outliers because it is based on the middle values of the data set. In the data set <span class="process-math">\(\{1, 2, 2, 3, 100\}\text{,}\)</span> the median remains <span class="process-math">\(2\)</span> regardless of the outlier.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-effect-of-outliers-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
+<dt id="subsec-effect-of-outliers-4-3">Effect on Mode<div class="autopermalink" data-description="Item: Effect on Mode"><a href="#subsec-effect-of-outliers-4-3" title="Copy heading and permalink for Item: Effect on Mode" aria-label="Copy heading and permalink for Item: Effect on Mode">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-effect-of-outliers-4-3-2">Outliers have little to no effect on the mode since the mode is determined by the most frequently occurring values. In the data set <span class="process-math">\(\{1, 2, 2, 3, 100\}\text{,}\)</span> the mode is still <span class="process-math">\(2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-effect-of-outliers-4-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
+<dt id="subsec-effect-of-outliers-4-4">Effect on Range<div class="autopermalink" data-description="Item: Effect on Range"><a href="#subsec-effect-of-outliers-4-4" title="Copy heading and permalink for Item: Effect on Range" aria-label="Copy heading and permalink for Item: Effect on Range">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-effect-of-outliers-4-4-2">Outliers can drastically increase the range of a data set since the range is the difference between the maximum and minimum values. In the data set <span class="process-math">\(\{1, 2, 2, 3, 100\}\text{,}\)</span> the range is <span class="process-math">\(100 - 1 = 99\text{,}\)</span> which is significantly affected by the outlier.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-effect-of-outliers-4-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
+<dt id="subsec-effect-of-outliers-4-5">Effect on Standard Deviation<div class="autopermalink" data-description="Item: Effect on Standard Deviation"><a href="#subsec-effect-of-outliers-4-5" title="Copy heading and permalink for Item: Effect on Standard Deviation" aria-label="Copy heading and permalink for Item: Effect on Standard Deviation">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-effect-of-outliers-4-5-2">Outliers increase the standard deviation because they increase the average distance from the mean. The standard deviation is much larger when the outlier is included compared to when it is excluded.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-effect-of-outliers-4-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
+</dl>
+<div class="autopermalink" data-description="Subsection: Effect of Outliers"><a href="#subsec-effect-of-outliers" title="Copy heading and permalink for Subsection: Effect of Outliers" aria-label="Copy heading and permalink for Subsection: Effect of Outliers">🔗</a></div>
+</section>
+<section class="exercises" id="sec-measures-of-center-spread-34">
+<h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice Questions</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-practice-1"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise-practice-1-1-1">Find the mean of the data set <span class="process-math">\(\{4, 6, 8, 10, 12\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-practice-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-practice-1-2-1">
+<div class="para">First, sum all the values in the data set:</div>
+<div class="displaymath process-math" id="exercise-practice-1-2-1-1">
+\begin{equation*}
+4 + 6 + 8 + 10 + 12 = 40
+\end{equation*}
+</div>
+<div class="para">Next, divide the sum by the total number of values (<span class="process-math">\(n = 5\)</span>):</div>
+<div class="displaymath process-math" id="exercise-practice-1-2-1-3">
+\begin{equation*}
+\text{Mean} = \frac{40}{5} = 8
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.1"><a href="#exercise-practice-1-2" title="Copy heading and permalink for Solution 1.1" aria-label="Copy heading and permalink for Solution 1.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#exercise-practice-1" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise-practice-2"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise-practice-2-1-1">Find the median of the data set <span class="process-math">\(\{7, 3, 9, 1, 5\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-practice-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="exercise-practice-2-2-1">First, arrange the data set in ascending order: <span class="process-math">\(\{1, 3, 5, 7, 9\}\text{.}\)</span> Since there is an odd number of values (<span class="process-math">\(n = 5\)</span>), the median is the exact middle value. The middle value is <span class="process-math">\(5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.1"><a href="#exercise-practice-2-2" title="Copy heading and permalink for Solution 2.1" aria-label="Copy heading and permalink for Solution 2.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#exercise-practice-2" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise-practice-3"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise-practice-3-1-1">Find the mode of the data set <span class="process-math">\(\{2, 4, 4, 6, 6, 6, 8\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-practice-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-practice-3-2-1">
+<div class="para">Count the frequency of each value in the set:</div>
+<ul class="disc" id="exercise-practice-3-2-1-1">
+<li id="exercise-practice-3-2-1-1-1">
+<div class="para" id="exercise-practice-3-2-1-1-1-1">
+<span class="process-math">\(2\)</span> appears <span class="process-math">\(1\)</span> time<div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-3-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#exercise-practice-3-2-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="exercise-practice-3-2-1-1-2">
+<div class="para" id="exercise-practice-3-2-1-1-2-1">
+<span class="process-math">\(4\)</span> appears <span class="process-math">\(2\)</span> times<div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-3-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#exercise-practice-3-2-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="exercise-practice-3-2-1-1-3">
+<div class="para" id="exercise-practice-3-2-1-1-3-1">
+<span class="process-math">\(6\)</span> appears <span class="process-math">\(3\)</span> times<div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-3-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#exercise-practice-3-2-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="exercise-practice-3-2-1-1-4">
+<div class="para" id="exercise-practice-3-2-1-1-4-1">
+<span class="process-math">\(8\)</span> appears <span class="process-math">\(1\)</span> time<div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-3-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#exercise-practice-3-2-1-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">The value <span class="process-math">\(6\)</span> appears most frequently, so the mode is <span class="process-math">\(6\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.1"><a href="#exercise-practice-3-2" title="Copy heading and permalink for Solution 3.1" aria-label="Copy heading and permalink for Solution 3.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#exercise-practice-3" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise-practice-4"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise-practice-4-1-1">Find the range of the data set <span class="process-math">\(\{14, 18, 21, 24, 29\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-practice-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-practice-4-2-1">
+<div class="para">Identify the maximum and minimum values in the data set:</div>
+<div class="displaymath process-math" id="exercise-practice-4-2-1-1">
+\begin{equation*}
+\text{Maximum} = 29, \quad \text{Minimum} = 14
+\end{equation*}
+</div>
+<div class="para">Subtract the minimum value from the maximum value:</div>
+<div class="displaymath process-math" id="exercise-practice-4-2-1-2">
+\begin{equation*}
+\text{Range} = 29 - 14 = 15
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1"><a href="#exercise-practice-4-2" title="Copy heading and permalink for Solution 4.1" aria-label="Copy heading and permalink for Solution 4.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 4"><a href="#exercise-practice-4" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise-practice-5"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise-practice-5-1-1">If the mean of <span class="process-math">\(\{2, 3, 5, 7, x\}\)</span> is <span class="process-math">\(5\text{,}\)</span> what is <span class="process-math">\(x\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-practice-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-practice-5-2-1">
+<div class="para">The formula for the mean of <span class="process-math">\(5\)</span> values is:</div>
+<div class="displaymath process-math" id="exercise-practice-5-2-1-2">
+\begin{equation*}
+\frac{2 + 3 + 5 + 7 + x}{5} = 5
+\end{equation*}
+</div>
+<div class="para">Simplify the numerator by adding the known constants:</div>
+<div class="displaymath process-math" id="exercise-practice-5-2-1-3">
+\begin{equation*}
+\frac{17 + x}{5} = 5
+\end{equation*}
+</div>
+<div class="para">Multiply both sides by <span class="process-math">\(5\)</span> to isolate the numerator:</div>
+<div class="displaymath process-math" id="exercise-practice-5-2-1-5">
+\begin{equation*}
+17 + x = 25
+\end{equation*}
+</div>
+<div class="para">Subtract <span class="process-math">\(17\)</span> from both sides to find <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-practice-5-2-1-8">
+\begin{equation*}
+x = 25 - 17 = 8
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-practice-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.1"><a href="#exercise-practice-5-2" title="Copy heading and permalink for Solution 5.1" aria-label="Copy heading and permalink for Solution 5.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 5"><a href="#exercise-practice-5" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise-compare-sd-spread"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="exercise-compare-sd-spread-1-1">
+<div class="para">Compute the mean for each of the following data sets:</div>
+<ul class="disc" id="exercise-compare-sd-spread-1-1-1">
+<li id="exercise-compare-sd-spread-1-1-1-1">
+<div class="para" id="exercise-compare-sd-spread-1-1-1-1-1">Set A: <span class="process-math">\(80, 80, 80, 80\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-compare-sd-spread-1-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#exercise-compare-sd-spread-1-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="exercise-compare-sd-spread-1-1-1-2">
+<div class="para" id="exercise-compare-sd-spread-1-1-1-2-1">Set B: <span class="process-math">\(70, 70, 90, 90\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-compare-sd-spread-1-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#exercise-compare-sd-spread-1-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Using these means and without actually computing the standard deviation, can you tell which dataset has a lower standard deviation? Does a lower standard deviation imply that the dataset is less spread out or more spread out than the other dataset?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-compare-sd-spread-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-compare-sd-spread-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-compare-sd-spread-2-1">
+<div class="para">Both datasets have a mean of <span class="process-math">\(80\text{.}\)</span> We calculate this by summing the values and dividing by <span class="process-math">\(4\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-compare-sd-spread-2-1-3">
+\begin{equation*}
+\text{Mean}_A = \frac{80+80+80+80}{4} = 80
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="exercise-compare-sd-spread-2-1-4">
+\begin{equation*}
+\text{Mean}_B = \frac{70+70+90+90}{4} = 80
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-compare-sd-spread-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exercise-compare-sd-spread-2-2">Without calculating the exact standard deviation, we can determine that Set A has the lower standard deviation. Every data point in Set A is identical to the mean, resulting in a standard deviation of exactly <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-compare-sd-spread-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exercise-compare-sd-spread-2-3">A lower standard deviation implies that the dataset is <dfn class="terminology">less spread out</dfn> than the other dataset. It indicates that the individual data entries cluster tightly around the center point rather than deviating far from it.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-compare-sd-spread-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.1"><a href="#exercise-compare-sd-spread-2" title="Copy heading and permalink for Solution 6.1" aria-label="Copy heading and permalink for Solution 6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 6"><a href="#exercise-compare-sd-spread" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises: Practice Questions"><a href="#sec-measures-of-center-spread-34" title="Copy heading and permalink for Exercises: Practice Questions" aria-label="Copy heading and permalink for Exercises: Practice Questions">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-faq">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Frequently Asked Questions</span>
+</h3>
+<dl class="description-list">
+<dt id="subsec-faq-2-1">What is the difference between mean, median, and mode?<div class="autopermalink" data-description="Item: What is the difference between mean, median, and mode?"><a href="#subsec-faq-2-1" title="Copy heading and permalink for Item: What is the difference between mean, median, and mode?" aria-label="Copy heading and permalink for Item: What is the difference between mean, median, and mode?">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-faq-2-1-2">The mean is the average (sum of values divided by count), the median is the middle value when data is ordered, and the mode is the most frequently occurring value. The median is less affected by outliers than the mean.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-faq-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
+<dt id="subsec-faq-2-2">What is standard deviation?<div class="autopermalink" data-description="Item: What is standard deviation?"><a href="#subsec-faq-2-2" title="Copy heading and permalink for Item: What is standard deviation?" aria-label="Copy heading and permalink for Item: What is standard deviation?">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-faq-2-2-2">Standard deviation measures the typical spread from the mean—it is the average distance between each data point and the mean. A larger standard deviation indicates greater variability in the data set.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-faq-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
+<dt id="subsec-faq-2-3">How do I find the median of an even number of values?<div class="autopermalink" data-description="Item: How do I find the median of an even number of values?"><a href="#subsec-faq-2-3" title="Copy heading and permalink for Item: How do I find the median of an even number of values?" aria-label="Copy heading and permalink for Item: How do I find the median of an even number of values?">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-faq-2-3-2">When there is an even number of values, the median is the average of the two middle values. First arrange the data in order, then identify the two middle values and calculate their average.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-faq-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
+</dl>
+<div class="autopermalink" data-description="Subsection: Frequently Asked Questions"><a href="#subsec-faq" title="Copy heading and permalink for Subsection: Frequently Asked Questions" aria-label="Copy heading and permalink for Subsection: Frequently Asked Questions">🔗</a></div>
+</section><div class="autopermalink" data-description="Section: 4.2 Measures of Center and Spread"><a href="#sec-measures-of-center-spread" title="Copy heading and permalink for Section: 4.2 Measures of Center and Spread" aria-label="Copy heading and permalink for Section: 4.2 Measures of Center and Spread">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="notes-Visualizing-Data-Through-Graphs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="notes-empirical-rule.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

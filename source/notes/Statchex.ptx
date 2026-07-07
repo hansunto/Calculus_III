@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-stat-ch-ex">
+  <title>4.6 Chapter Exercises</title>
+
+<exercises>
+  <title>Statistics Practice Problem</title>
+  <!-- Exercise Mean, Median, Mode -->
+<exercise xml:id="ex-mean-median-mode">
+    <statement>
+      <p>
+        Find the mean, median, and mode for the following dataset:
+        <me>\{29, 24, 31, 40, 30, 35, 25, 28\}</me>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+        To simplify the statistical calculations, we first arrange the dataset of <m>n = 8</m> values in ascending order:
+        <me>\{24, 25, 28, 29, 30, 31, 35, 40\}</me>
+      </p>
+
+      <p>
+        <term>1. Mean Calculation:</term>
+        The mean is calculated by summing all the values and dividing by the total number of data points (<m>n = 8</m>):
+        <md>
+          <mrow>\text{Mean} \amp = \frac{24 + 25 + 28 + 29 + 30 + 31 + 35 + 40}{8}</mrow>
+          <mrow>\text{Mean} \amp = \frac{242}{8} = 30.25</mrow>
+        </md>
+        Thus, the mean of the dataset is <term>30.25</term>.
+      </p>
+
+      <p>
+        <term>2. Median Calculation:</term>
+        Since there is an even number of data points (<m>8</m>), the median is found by taking the average of the two middle values (the 4th and 5th numbers in our ordered list, which are <m>29</m> and <m>30</m>):
+        <me>\text{Median} = \frac{29 + 30}{2} = 29.5</me>
+        Thus, the median of the dataset is <term>29.5</term>.
+      </p>
+
+      <p>
+        <term>3. Mode Calculation:</term>
+        The mode is the value that appears most frequently in a dataset. Because every unique number in this list occurs exactly once, there is <term>no mode</term>.
+      </p>
+      </solution>
+</exercise>
+
+<!-- Exercise standard deviation -->
+ <exercise xml:id="exercise-approx-sd-twenties" label="exercise-approx-sd-twenties">
+    <statement>
+        <p>
+            Use the data 20, 24, 34, 38. Without actually computing the standard deviation, which of the following best approximates the standard deviation?
+        </p>
+    </statement>
+    <choices>
+        <choice>
+            <statement>
+                <p>2</p>
+            </statement>
+            <feedback>
+                <p>
+                    Incorrect. The data points span a total range of 18 units (from 20 to 38), so they sit much further than 2 units away from the center.
+                </p>
+            </feedback>
+        </choice>
+        <choice>
+            <statement>
+                <p>4</p>
+            </statement>
+            <feedback>
+                <p>
+                    Incorrect. While 4 is a factor, the data points are spread out further from the mean of 29 than this value suggests.
+                </p>
+            </feedback>
+        </choice>
+        <choice correct="yes">
+            <statement>
+                <p>8</p>
+            </statement>
+            <feedback>
+                <p>
+                    Correct. The mean is 29. The data points sit 5 and 9 units away from this mean. An average distance of roughly 7-8 units is the most accurate estimate.
+                </p>
+            </feedback>
+        </choice>
+        <choice>
+            <statement>
+                <p>10</p>
+            </statement>
+            <feedback>
+                <p>
+                    Incorrect. This value overestimates the standard deviation, as most points are closer to the mean than 10 units.
+                </p>
+            </feedback>
+        </choice>
+    </choices>
+</exercise>
+
+<exercise xml:id="exercise-rainfall-approx-sd">
+    <statement>
+        <p>
+            The rainfall in a small town is recorded daily for two weeks, in inches:
+            <me>\{1.2, 2.3, 0.8, 2.3, 1.0, 3.1, 4.2, 1.4, 2.1, 0.4, 1.3, 2.0, 1.8, 3.2\}</me>
+            What are the mean and the approximate sample standard deviation for this data set?
+        </p>
+    </statement>
+    <solution>
+        <p>
+            <bold>Step 1: Calculate the Mean.</bold>
+            Sum all 14 data entries and divide by the count:
+            <me>Mean = \frac{27.1}{14} \approx 1.94\text{ inches}</me>
+        </p>
+        <p>
+            <bold>Step 2: Find individual distances.</bold>
+            Find the absolute difference between each entry and the mean of <m>1.94</m>. Summing these 14 positive distances gives <m>11.3</m>.
+        </p>
+        <p>
+            <bold>Step 3: Average the distances.</bold>
+            Divide the sum of distances by the number of values:
+            <me>\text{Average Distance} = \frac{11.3}{14} \approx 0.81</me>
+        </p>
+        <p>
+            <bold>Step 4: Approximate Standard Deviation.</bold>
+            Because the geometric process of squaring numbers shifts standard deviation upwards, the true standard deviation value will sit slightly higher than our baseline average distance. We can approximate the sample standard deviation to be <term>just above 0.81</term> (approximately <m>0.9</m> to <m>1.0</m>).
+        </p>
+    </solution>
+</exercise>
+
+  <!--Exercise Empirical rule-->
+  <exercise xml:id="ex-empirical-rule-heights">
+    <statement>
+      <p>
+        The heights of adult men in a certain city are normally distributed with a mean 
+       of 70 inches and a standard deviation (<m>\text{SD}</m>) of 3 inches. 
+       Use the Empirical Rule to answer the following questions:
+        <ol marker="a)">
+          <li><p>What percentage of men are between 67 and 73 inches tall?</p></li>
+          <li><p>What percentage of men are between 61 and 79 inches tall?</p></li>
+          <li><p>What percentage of men are taller than 76 inches?</p></li>
+        </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+        The <term>Empirical Rule</term> (also known as the 68-95-99.7 rule) states that for a perfectly normal distribution:
+        <ul>
+          <li><p>Approximately <m>68\%</m> of the data falls within <m>1</m> 
+            standard deviation of the mean (<m>\pm 1\text{SD}</m>).</p></li>
+          <li><p>Approximately <m>95\%</m> of the data falls within <m>2</m> 
+            standard deviations of the mean (<m>\pm 2\text{SD}</m>).</p></li>
+          <li><p>Approximately <m>99.7\%</m> of the data falls within <m>3</m> 
+            standard deviations of the mean (<m>\pm 3\text{SD}</m>).</p></li>
+        </ul>
+      </p>
+
+      <p>
+        Given parameters: <m>Mean = 70</m> inches and Standard Deviation <m>\text{SD} = 3</m> inches. Let us map out the standard deviation markers:
+        <ul>
+          <li><p>mean<m>\pm 1\text{SD} = 70 \pm 3 = [67, 73]</m></p></li>
+          <li><p>mean<m>\pm 2\text{SD} = 70 \pm 6 = [64, 76]</m></p></li>
+          <li><p>mean<m>\pm 3\text{SD} = 70 \pm 9 = [61, 79]</m></p></li>
+        </ul>
+      </p>
+
+      <p>
+        <term>Part a) Interval [67, 73]:</term>
+        These values correspond exactly to mean<m> - 1\text{SD}</m> and mean<m> + 1\text{SD}</m>. 
+        According to the rule, approximately <term>68%</term> of the men fall within this height range.
+      </p>
+
+      <p>
+        <term>Part b) Interval [61, 79]:</term>
+        These values correspond exactly to mean <m> - 3\text{SD}</m> and mean <m> + 3\text{SD}</m>. 
+        According to the rule, approximately <term>99.7%</term> of the men fall within this height range.
+      </p>
+
+      <p>
+        <term>Part c) Heights above 76 inches:</term>
+        A height of 76 inches corresponds exactly to mean<m> + 2\text{SD}</m>. 
+        Since a normal curve is perfectly symmetrical, <m>50\%</m> of the data falls above the mean of 70. 
+        The region between the mean (70) and 2 standard deviations above the mean (76) contains exactly half of the <m>95\%</m> range, which is <m>47.5\%</m>.
+        To find the tail value remaining above 76:
+        <me>50\% - 47.5\% = 2.5\%</me>
+        Thus, approximately <term>2.5%</term> of men in the city are taller than 76 inches.
+      </p>
+
+      <!-- Accessible Normal Curve Visualization Block -->
+      <figure xml:id="fig-empirical-bell-curve">
+        <caption>Normal Distribution of Heights with Empirical Rule Breakdowns</caption>
+        <image width="75%">
+          <description>
+            A symmetrical normal distribution bell curve plotted along a horizontal axis showing heights from 58 to 82 inches. The peak is centered perfectly at 70 inches. Dashed vertical lines demarcate standard deviation breaks at 61, 64, 67, 70, 73, 76, and 79. Shaded segments visually label the central region between 67 and 73 as sixty-eight percent, the regional sprawl between 64 and 76 as ninety-five percent, and the outer edges from 61 to 79 as ninety-nine point seven percent.
+          </description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}
+              [declare function={normalpdf(\x,\mu,\sigma)=1/(\sigma*sqrt(2*pi))*exp(-(\x-\mu)^2/(2*\sigma^2));}]
+              \begin{axis}[
+                xlabel={Height in Inches},
+                ylabel={},
+                xmin=58, xmax=82,
+                ymin=0, ymax=0.15,
+                axis y line=none,
+                axis x line=bottom,
+                xtick={61,64,67,70,73,76,79},
+                height=5cm, width=11cm,
+                enlargelimits=false
+              ]
+                \addplot [fill=blue!10, draw=none, domain=58:82] {normalpdf(x,70,3)} \closedcycle;
+                \addplot [fill=blue!30, draw=none, domain=67:73] {normalpdf(x,70,3)} \closedcycle;
+                \addplot [thick, blue, domain=58:82, samples=100] {normalpdf(x,70,3)};
+                
+                % Standard Deviation Reference Bounds
+                \draw [dashed, gray] (axis cs:70,0) -- (axis cs:70,0.133);
+                \draw [dashed, gray!80] (axis cs:67,0) -- (axis cs:67,0.08);
+                \draw [dashed, gray!80] (axis cs:73,0) -- (axis cs:73,0.08);
+                \draw [dashed, gray!60] (axis cs:64,0) -- (axis cs:64,0.015);
+                \draw [dashed, gray!60] (axis cs:76,0) -- (axis cs:76,0.015);
+                
+                % Percentage Coverage Labels
+                \node at (axis cs:70,0.04) {68\%};
+                \draw [<->, thick, red] (axis cs:64,0.11) -- (axis cs:76,0.11) node[midway, fill=white] {95\%};
+                \draw [<->, thick, black] (axis cs:61,0.13) -- (axis cs:79,0.13) node[midway, fill=white] {99.7\%};
+              \end{axis}
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+
+      <!-- Exercise 1 -->
+      <exercise xml:id="ex-ski-price">
+        <statement>
+          <p>
+            What is the z-score of the price of a pair of skis that cost $247, 
+            if the mean ski price is $279, with a standard deviation of $16?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Identify the given parameters: value <m>x = 247</m>, mean <m>= 279</m>, 
+            and standard deviation <m>sd = 16</m>.
+          </p>
+          <p>
+            Substitute these values into the z-score formula:
+            <me>z = \frac{247 - 279}{16} = \frac{-32}{16} = -2.0</me>
+          </p>
+          <p>
+            The price of the skis is exactly <term>2.0 standard deviations below</term> 
+            the mean.
+          </p>
+
+          <figure xml:id="fig-tikz-ski-zscore">
+            <caption>Normal distribution curve highlighting a z-score of -2.0.</caption>
+            <image width="60%">
+              <description>
+                A standard normal distribution bell curve centered at a z-score of zero.
+                A vertical dashed line highlights a position at a z-score of negative two point zero, 
+                located significantly to the left of the center, showing the lower relative positioning 
+                of the ski price.
+              </description>
+              <latex-image>
+                \begin{tikzpicture}[
+                  declare function={normalpdf(\x,\mu,\sigma)=1/(\sigma*sqrt(2*pi))*exp(-(\x-\mu)^2/(2*\sigma^2));}
+                ]
+                  \begin{axis}[
+                    axis lines=left,
+                    xlabel={$z$},
+                    ylabel={},
+                    xmin=-4, xmax=4,
+                    ymin=0, ymax=0.45,
+                    ticks=none,
+                    enlargelimits=false,
+                    axis x line=bottom,
+                    axis y line=none,
+                    height=5cm, width=8cm
+                  ]
+                    \addplot [fill=blue!10, draw=none, domain=-4:4] {normalpdf(x,0,1)} \closedcycle;
+                    \addplot [thick, blue, domain=-4:4, samples=100] {normalpdf(x,0,1)};
+                    \draw [dashed, red, thick] (axis cs:-2, 0) -- (axis cs:-2, {normalpdf(-2,0,1)});
+                    \node[red, above] at (axis cs:-2, {normalpdf(-2,0,1)}) {$z = -2.0$};
+                    \draw [dashed, gray] (axis cs:0, 0) -- (axis cs:0, {normalpdf(0,0,1)});
+                    \node[gray, below] at (axis cs:0, 0) {$0$};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </solution>
+      </exercise>
+
+      <!-- Exercise 2 -->
+      <exercise xml:id="ex-ice-cream-scoops">
+        <statement>
+          <p>
+          What is the z-score of a 5-scoop ice cream cone if the mean number of scoops is 3, with a standard deviation of 1 scoop?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Identify the given parameters: value <m>x = 5</m>, mean <m> = 3</m>, and standard deviation <m>sd = 1</m>.
+          </p>
+          <p>
+            Substitute these values into the z-score formula:
+            <me>z = \frac{5 - 3}{1} = \frac{2}{1} = 2.0</me>
+          </p>
+          <p>
+            The 5-scoop cone is exactly <term>2.0 standard deviations above</term> the mean.
+          </p>
+
+          <figure xml:id="fig-tikz-icecream-zscore">
+            <caption>Normal distribution curve highlighting a z-score of 2.0.</caption>
+            <image width="60%">
+              <description>
+                A standard normal distribution bell curve centered at a z-score of zero. A vertical dashed line highlights a position at a z-score of positive two point zero, located significantly to the right of the center, showing the higher relative positioning of the 5-scoop ice cream.
+              </description>
+              <latex-image>
+                \begin{tikzpicture}[
+                  declare function={normalpdf(\x,\mu,\sigma)=1/(\sigma*sqrt(2*pi))*exp(-(\x-\mu)^2/(2*\sigma^2));}
+                ]
+                  \begin{axis}[
+                    axis lines=left,
+                    xlabel={$z$},
+                    ylabel={},
+                    xmin=-4, xmax=4,
+                    ymin=0, ymax=0.45,
+                    ticks=none,
+                    enlargelimits=false,
+                    axis x line=bottom,
+                    axis y line=none,
+                    height=5cm, width=8cm
+                  ]
+                    \addplot [fill=blue!10, draw=none, domain=-4:4] {normalpdf(x,0,1)} \closedcycle;
+                    \addplot [thick, blue, domain=-4:4, samples=100] {normalpdf(x,0,1)};
+                    \draw [dashed, red, thick] (axis cs:2, 0) -- (axis cs:2, {normalpdf(2,0,1)});
+                    \node[red, above] at (axis cs:2, {normalpdf(2,0,1)}) {$z = 2.0$};
+                    \draw [dashed, gray] (axis cs:0, 0) -- (axis cs:0, {normalpdf(0,0,1)});
+                    \node[gray, below] at (axis cs:0, 0) {$0$};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </solution>
+      </exercise>
+
+      <!-- Exercise 3 -->
+      <exercise xml:id="ex-cow-weight">
+        <statement>
+          <p>
+          What is the z-score of the weight of a cow that tips the scales at 825 lbs, if the mean weight for cows of her type is 1150 lbs, with a standard deviation of 77 lbs?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Identify the given parameters: value <m>x = 825</m>, mean <m> = 1150</m>, and standard deviation <m>sd = 77</m>.
+          </p>
+          <p>
+            Substitute these values into the z-score formula and round to two decimal places:
+            <me>z = \frac{825 - 1150}{77} = \frac{-325}{77} \approx -4.22</me>
+          </p>
+          <p>
+            The cow's weight is approximately <term>4.22 standard deviations below</term> the mean.
+          </p>
+
+          <figure xml:id="fig-tikz-cow-zscore">
+            <caption>Normal distribution curve highlighting an extreme z-score of -4.22.</caption>
+            <image width="60%">
+              <description>
+                A standard normal distribution bell curve centered at a z-score of zero. An arrow and a vertical line outline a position out past negative four point zero on the tail region, indicating an extreme outlier below the population mean weight.
+              </description>
+              <latex-image>
+                \begin{tikzpicture}[
+                  declare function={normalpdf(\x,\mu,\sigma)=1/(\sigma*sqrt(2*pi))*exp(-(\x-\mu)^2/(2*\sigma^2));}
+                ]
+                  \begin{axis}[
+                    axis lines=left,
+                    xlabel={$z$},
+                    ylabel={},
+                    xmin=-5, xmax=4,
+                    ymin=0, ymax=0.45,
+                    ticks=none,
+                    enlargelimits=false,
+                    axis x line=bottom,
+                    axis y line=none,
+                    height=5cm, width=8cm
+                  ]
+                    \addplot [fill=blue!10, draw=none, domain=-5:4] {normalpdf(x,0,1)} \closedcycle;
+                    \addplot [thick, blue, domain=-5:4, samples=100] {normalpdf(x,0,1)};
+                    \draw [dashed, red, thick] (axis cs:-4.22, 0) -- (axis cs:-4.22, 0.05);
+                    \node[red, above] at (axis cs:-4.22, 0.05) {$z \approx -4.22$};
+                    \draw [dashed, gray] (axis cs:0, 0) -- (axis cs:0, {normalpdf(0,0,1)});
+                    \node[gray, below] at (axis cs:0, 0) {$0$};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </solution>
+      </exercise>
+
+        <!-- Exercise 4 -->
+    <exercise xml:id="ex-decimal-measurement">
+        <statement>
+          <p>
+          What is the z-score of a measured value of 0.0034, given mean <m> = 0.0041</m> and <m>sd = 0.0008</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Identify the given parameters: value <m>x = 0.0034</m>, mean <m>= 0.0041</m>, 
+            and standard deviation <m>sd = 0.0008</m>.
+          </p>
+          <p>
+            Substitute these values into the standard z-score formula:
+            <me>z = \frac{x - mean}{sd} = \frac{0.0034 - 0.0041}{0.0008} = \frac{-0.0007}{0.0008} = -0.875</me>
+          </p>
+          <p>
+            The measured value is exactly <term>0.875 standard deviations below</term> the population mean.
+          </p>
+
+          <figure xml:id="fig-tikz-decimal-zscore">
+            <caption>Normal distribution curve highlighting a z-score of -0.875.</caption>
+            <image width="60%">
+              <description>
+                A standard normal distribution bell curve centered at a z-score of zero. A vertical dashed red line highlights a position slightly to the left of the center point at negative zero point eight seven five, marking the location of the value.
+              </description>
+              <latex-image>
+                \begin{tikzpicture}[
+                  declare function={normalpdf(\x,\mu,\sigma)=1/(\sigma*sqrt(2*pi))*exp(-(\x-\mu)^2/(2*\sigma^2));}
+                ]
+                  \begin{axis}[
+                    axis lines=left,
+                    xlabel={$z$},
+                    ylabel={},
+                    xmin=-4, xmax=4,
+                    ymin=0, ymax=0.45,
+                    ticks=none,
+                    enlargelimits=false,
+                    axis x line=bottom,
+                    axis y line=none,
+                    height=5cm, width=8cm
+                  ]
+                    \addplot [fill=blue!10, draw=none, domain=-4:4] {normalpdf(x,0,1)} \closedcycle;
+                    \addplot [thick, blue, domain=-4:4, samples=100] {normalpdf(x,0,1)};
+                    \draw [dashed, red, thick] (axis cs:-0.875, 0) -- (axis cs:-0.875, {normalpdf(-0.875,0,1)});
+                    \node[red, above] at (axis cs:-0.875, {normalpdf(-0.875,0,1)}) {$z = -0.875$};
+                    \draw [dashed, gray] (axis cs:0, 0) -- (axis cs:0, {normalpdf(0,0,1)});
+                    \node[gray, below] at (axis cs:0, 0) {$0$};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </solution>
+      </exercise>
+
+      <!-- Exercise 5 -->
+      <exercise xml:id="ex-student-test-score">
+        <statement>
+          <p>
+          What is the z-score of a student's test score of 89, if the class average was 80 with a standard deviation of 4 points?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Identify the given parameters: raw score <m>x = 89</m>, class mean <m> = 80</m>, and standard deviation <m>sd = 4</m>.
+          </p>
+          <p>
+            Substitute these values into the z-score expression:
+            <me>z = \frac{x - mean}{sd} = \frac{89 - 80}{4} = \frac{9}{4} = 2.25</me>
+          </p>
+          <p>
+            The student's test performance translates to a z-score of <term>2.25</term>, meaning it is <term>2.25 standard deviations above</term> the classroom average.
+          </p>
+
+          <figure xml:id="fig-tikz-test-zscore">
+            <caption>Normal distribution curve highlighting a z-score of 2.25.</caption>
+            <image width="60%">
+              <description>
+                A standard normal distribution bell curve centered at a z-score of zero. A vertical dashed red line marks a position to the right of the center point at positive two point two five, showcasing an above-average baseline performance.
+              </description>
+              <latex-image>
+                \begin{tikzpicture}[
+                  declare function={normalpdf(\x,\mu,\sigma)=1/(\sigma*sqrt(2*pi))*exp(-(\x-\mu)^2/(2*\sigma^2));}
+                ]
+                  \begin{axis}[
+                    axis lines=left,
+                    xlabel={$z$},
+                    ylabel={},
+                    xmin=-4, xmax=4,
+                    ymin=0, ymax=0.45,
+                    ticks=none,
+                    enlargelimits=false,
+                    axis x line=bottom,
+                    axis y line=none,
+                    height=5cm, width=8cm
+                  ]
+                    \addplot [fill=blue!10, draw=none, domain=-4:4] {normalpdf(x,0,1)} \closedcycle;
+                    \addplot [thick, blue, domain=-4:4, samples=100] {normalpdf(x,0,1)};
+                    \draw [dashed, red, thick] (axis cs:2.25, 0) -- (axis cs:2.25, {normalpdf(2.25,0,1)});
+                    \node[red, above] at (axis cs:2.25, {normalpdf(2.25,0,1)}) {$z = 2.25$};
+                    \draw [dashed, gray] (axis cs:0, 0) -- (axis cs:0, {normalpdf(0,0,1)});
+                    \node[gray, below] at (axis cs:0, 0) {$0$};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </solution>
+      </exercise>
+
+
+<exercise xml:id="exercise-kori-monthly-budget">
+  <statement>
+    <p>
+      Kori categorized her spending for this month into four categories: food, rent, fun, and other. 
+      The percentage she spent in each category is displayed in the chart below.
+    </p>
+
+    <figure xml:id="fig-kori-budget-pie-chart">
+      <caption>Pie Chart of Kori's Monthly Spending Shares</caption>
+      <image xml:id="img-kori-budget-chart" width="65%">
+        <description>A pie chart dividing Kori's monthly budget proportions into four sectors: Rent accounts for 31 percent, Other accounts for 29 percent, Food accounts for 24 percent, and Fun accounts for 16 percent.</description>
+        <latex-image>
+          \begin{tikzpicture}[scale=1.3]
+            % Rent slice: 0 to 111.6 degrees (31%)
+            \draw[fill=blue!20, draw=black] (0,0) -- (0:2) arc (0:111.6:2) -- cycle;
+            \node at (55.8:1.4) {\small 31\%};
+            \node at (55.8:2.4) {\small Rent};
+
+            % Other slice: 111.6 to 216.0 degrees (111.6 + 104.4 = 29%)
+            \draw[fill=gray!20, draw=black] (0,0) -- (111.6:2) arc (111.6:216.0:2) -- cycle;
+            \node at (163.8:1.4) {\small 29\%};
+            \node at (163.8:2.4) {\small Other};
+
+            % Food slice: 216.0 to 302.4 degrees (216.0 + 86.4 = 24%)
+            \draw[fill=green!20, draw=black] (0,0) -- (216.0:2) arc (216.0:302.4:2) -- cycle;
+            \node at (259.2:1.4) {\small 24\%};
+            \node at (259.2:2.4) {\small Food};
+
+            % Fun slice: 302.4 to 360.0 degrees (302.4 + 57.6 = 16%)
+            \draw[fill=orange!20, draw=black] (0,0) -- (302.4:2) arc (302.4:360.0:2) -- cycle;
+            \node at (331.2:1.4) {\small 16\%};
+            \node at (331.2:2.4) {\small Fun};
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      If she spent a total of <m>\$2600</m> this month, how much money did she allocate to rent?
+    </p>
+  </statement>
+
+  <solution>
+    <p>
+      To find the exact dollar amount spent on rent, we convert the percentage share from the pie chart into a decimal and multiply it by the total monthly expenditures:
+    </p>
+    <p>
+      <me>\text{Rent Share} = 31\% = 0.31</me>
+    </p>
+    <p>
+      <me>\text{Rent Expenditures} = 0.31 \times \$2600 = \$806</me>
+    </p>
+    <p>
+      Therefore, Kori spent exactly <alert><m>\$806</m></alert> on rent this month.
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="exer-women-height-distribution">
+    <statement>
+        <p>
+            Suppose the height of adult women in the United States is normally distributed with a mean of 5' 8" 
+            and a standard deviation of <m>1.5</m>". What is the probability that a randomly chosen woman 
+            in the United States is shorter than 5' 5"?
+        </p>
+        
+        <figure xml:id="fig-women-height-tail">
+            <caption>Normal distribution curve of women's heights with the lower tail below 5' 5" shaded.</caption>
+            <image xml:id="img-women-height-tail" width="80%">
+                <description>A normal distribution curve centered at 5 feet 8 inches. The area under the curve to the left of 5 feet 5 inches is shaded in blue, representing the lower 2.5 percent of the population.</description>
+                <latex-image>
+                    \begin{tikzpicture}[x=1.2cm, y=10cm]
+                    
+                    % Shaded lower tail region (below -2 standard deviations)
+                    \fill[blue!30] plot[domain=-3.5:-2, samples=20] (\x, {1/(sqrt(2*3.14159))*exp(-\x*\x/2)}) -- (-2,0) -- (-3.5,0) -- cycle;
+                    
+                    % Draw the normal distribution curve
+                    \draw[very thick, black] plot[domain=-3.5:3.5, samples=50] (\x, {1/(sqrt(2*3.14159))*exp(-\x*\x/2)});
+                    
+                    % Vertical dashed standard deviation lines
+                    \draw[gray!40, dashed] (-3, 0) -- (-3, 0.0044);
+                    \draw[gray!40, dashed] (-2, 0) -- (-2, 0.054);
+                    \draw[gray!40, dashed] (-1, 0) -- (-1, 0.242);
+                    \draw[gray!40, dashed] (0, 0)  -- (0, 0.398);
+                    \draw[gray!40, dashed] (1, 0)  -- (1, 0.242);
+                    \draw[gray!40, dashed] (2, 0)  -- (2, 0.054);
+                    \draw[gray!40, dashed] (3, 0)  -- (3, 0.0044);
+                    
+                    % Simple flat horizontal base axis line
+                    \draw[thick] (-3.5, 0) -- (3.5, 0);
+                    
+                    % Height Labels on Axis
+                    \node[below=2pt] at (0, 0)  {5'8''};
+                    \node[below=2pt] at (1, 0)  {5'9.5''};
+                    \node[below=2pt] at (-1, 0) {5'6.5''};
+                    \node[below=2pt] at (2, 0)  {5'11''};
+                    \node[below=2pt] at (-2, 0) {5'5''};
+                    \node[below=2pt] at (3, 0)  {6'0.5''};
+                    \node[below=2pt] at (-3, 0) {5'3.5''};
+                    
+                    % Label pointing out the shaded 2.5% area
+                    \node[text=blue!80!black, font=\small] at (-2.6, 0.06) {2.5\%};
+                    \draw[thick, blue!80!black] (-2.5, 0.04) -- (-2.2, 0.01);
+                    
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+    </statement>
+    <solution>
+        <p>
+            First, determine how many standard deviations 5' 5" is from the mean of 5'8". 
+            Since each standard deviation is <m>1.5</m>", a height of 5' 6.5" is <m>1</m> standard deviation 
+            below the mean, and 5' 5" is exactly <m>2</m> standard deviations below the mean.
+        </p>
+        <p>
+            We can find the total percentage of women who are 5' 5" or taller by adding up the known regions 
+            of the normal distribution:
+        </p>
+        <ul>
+            <li>
+                <p>50% of women are taller than the mean of 5' 8".</p>
+            </li>
+            <li>
+                <p>34% of women are between 5' 6.5" and 5' 8" (within <m>1</m> standard deviation below the mean).</p>
+            </li>
+            <li>
+                <p>13.5% of women are between 5' 5" and 5' 6.5" (between <m>1</m> and <m>2</m> standard deviations below the mean).</p>
+            </li>
+        </ul>
+        <p>
+            Adding these regions together gives: <m>50\% + 34\% + 13.5\% = 97.5\%</m>. 
+            Since 97.5% of women are 5' 5" or taller, the remaining portion is 
+            <m>100\% - 97.5\% = 2.5\%</m>.
+        </p>
+        <p>
+            <em>Alternative Method:</em> The empirical rule states that 95% of the data 
+            falls within <m>2</m> standard deviations of the mean. This leaves 5% split equally 
+            between the two extreme outer tails (<m>5\% \div 2 = 2.5\%</m>). Therefore, the probability that a 
+            randomly chosen woman is shorter than 5' 5" is 2.5% (or <m>0.025</m>).
+        </p>
+    </solution>
+</exercise>
+
+<exercise xml:id="exercise-ice-cream-prediction">
+    <title>Positive Correlation: Summer Heatwaves and Ice Cream Sales</title>
+    
+    <statement>
+        <p>
+            A beachside shop owner wants to examine the relationship between the daily afternoon temperature 
+            (<m>X</m>, measured in degrees Fahrenheit) and the number of ice cream cones sold daily 
+            (<m>Y</m>). The data collected over a five-day period is presented below.
+        </p>
+
+        <!-- Data Table Section -->
+        <table xml:id="table-ice-cream-data">
+            <title>Daily Temperature vs. Ice Cream Sales</title>
+            <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+                <row header="yes" bottom="medium">
+                    <cell>Day</cell>
+                    <cell>Temperature (<m>X</m> in <m>^\circ\text{F}</m>)</cell>
+                    <cell>Ice Cream Cones Sold (<m>Y</m>)</cell>
+                </row>
+                <row><cell>1</cell><cell>70</cell><cell>100</cell></row>
+                <row><cell>2</cell><cell>75</cell><cell>150</cell></row>
+                <row><cell>3</cell><cell>80</cell><cell>190</cell></row>
+                <row><cell>4</cell><cell>85</cell><cell>260</cell></row>
+                <row><cell>5</cell><cell>90</cell><cell>300</cell></row>
+            </tabular>
+        </table>
+<p>
+Using the simple linear regression model calculated from the observed data table above, 
+predict the total number of ice cream cones sold if the afternoon temperature reaches
+<m>100^\circ\text{F}</m>.
+</p>
+    </statement>
+
+    <!-- Multiple Choice Structure -->
+    <choices>
+        <choice>
+            <statement><p>340 cones</p></statement>
+            <feedback>
+                <p>Incorrect. This value underestimates the strong upward trend observed as the temperature steps up to 
+                  100 degrees.</p>
+            </feedback>
+        </choice>
+        <choice correct="yes">
+            <statement><p>404 cones</p></statement>
+            <feedback>
+                <p>Correct! Observe the data points and plug directly into the line: <m>404</m>.</p>
+            </feedback>
+        </choice>
+        <choice>
+            <statement><p>450 cones</p></statement>
+            <feedback>
+                <p>Incorrect. While sales are rising fast, this estimate is slightly higher than 
+                  what the mathematical trend line predicts.</p>
+            </feedback>
+        </choice>
+        <choice>
+            <statement><p>512 cones</p></statement>
+            <feedback>
+                <p>Incorrect. This value assumes exponential growth rather than a steady 
+                  simple linear progression rate.</p>
+            </feedback>
+        </choice>
+    </choices>
+    
+    <solution>
+<p>
+To predict the number of ice cream cones sold at 100°F, we first need to graph the data points from the table 
+and calculate the line of best fit using linear regression. 
+</p>
+    <p>      
+        <!-- Visual Scatter Plot Section with Regression Line & Labels -->
+        <figure xml:id="figure-ice-cream-scatter">
+            <caption>Scatter Plot of Temperature vs. Ice Cream Cones Sold</caption>
+            <image xml:id="plot-ice-cream">
+                <description>A scatter plot showing an upward trend of daily sales as temperature rises, 
+                  with a red regression line and labeled data points.</description>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            xlabel={Temperature ($^\circ$F)},
+                            ylabel={Cones Sold},
+                            xmin=65, xmax=105,
+                            ymin=50, ymax=450,
+                            xtick={70,75,80,85,90,95,100},
+                            ytick={100,150,200,250,300,350,400},
+                            grid=both,
+                            grid style={line width=.1pt, color=gray!10},
+                            major grid style={line width=.2pt, color=gray!50},
+                            legend pos=north west
+                        ]
+                        
+                        <!-- 1. The Red Linear Regression Line Plot -->
+                        \addplot[
+                            domain=65:105,
+                            color=red,
+                            thick,
+                            samples=2
+                        ] {-616 + 10.2*x};
+                        \addlegendentry{Regression Line}
+
+                        <!-- 2. Scatter Plot Points with Text Labels (Day 1, Day 2, etc.) -->
+                        \addplot[
+                            only marks,
+                            mark=*,
+                            color=blue,
+                            mark size=3pt,
+                            nodes near coords,
+                            point meta=explicit symbolic,
+                            every node near coord/.style={anchor=south east, font=\footnotesize, color=black}
+                        ] coordinates {
+                            (70,100) [Day 1]
+                            (75,150) [Day 2]
+                            (80,190) [Day 3]
+                            (85,260) [Day 4]
+                            (90,300) [Day 5]
+                        };
+                        \addlegendentry{Observed Data Points}
+
+                        \end{axis}
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+    </p>
+    </solution>
+</exercise>
+
+
+
+  <exercise xml:id="ex-product-popularity">
+    <statement>
+      <p>
+        A store is doing inventory for one week to determine the popularity of a 
+        new product. The table below shows the number of items sold each day. 
+        Find the linear regression equation that models this data with the slope 8.66 and y-intercept 14.57, 
+        rounding coefficients to the nearest integer. Then, predict the number of items sold on the 10th day 
+         if the pattern of growth continues.
+      </p>
+
+      <table xml:id="table-sales-data">
+        <caption>Weekly Product Inventory Tracking</caption>
+        <tabular top="minor" bottom="minor">
+          <col halign="center" />
+          <col halign="center" />
+          <row header="yes" bottom="minor">
+            <cell><term>Day Number (<m>x</m>)</term></cell>
+            <cell><term>Number Sold (<m>y</m>)</term></cell>
+          </row>
+          <row><cell>1</cell><cell>24</cell></row>
+          <row><cell>2</cell><cell>32</cell></row>
+          <row><cell>3</cell><cell>41</cell></row>
+          <row><cell>4</cell><cell>50</cell></row>
+          <row><cell>5</cell><cell>60</cell></row>
+          <row><cell>6</cell><cell>68</cell></row>
+          <row><cell>7</cell><cell>77</cell></row>
+        </tabular>
+      </table>
+    </statement>
+
+    <solution>
+      <p>
+        <term>Step 1: Calculate the Regression Equation</term>
+        The linear regression equation is given by <m>y = mx + b</m>, where <m>m</m> 
+        is the slope and <m>b</m> is the y-intercept.
+        Substituting the provided values, we have:
+        <me>Y = 8.66x + 14.57</me>
+        Rounding the coefficients to the nearest integer gives us the simplified regression equation:
+        <me>Y = 9x + 15</me>
+      </p>
+      <p>
+        <term>Step 2: Predict for Day 10</term>
+        To estimate item performance on the tenth day, we evaluate our regression equation at <m>x = 10</m>:
+        <md>
+          <mrow>Y \amp = 9(10) + 15</mrow>
+          <mrow>Y \amp = 90 + 15 = 105</mrow>
+        </md>
+        Rounding to the nearest whole item integer yields a final estimate of <term>105</term> items sold.
+      </p>
+
+      <figure xml:id="fig-sales-regression">
+        <caption>Linear Regression Mapping Weekly Product Growth</caption>
+        <image width="60%">
+          <description>
+            A scatter plot displaying a week of product sales velocity on a Cartesian plane. The horizontal axis charts the Day Number from 0 to 12, while the vertical axis registers the Number of Items Sold from 0 to 120. Seven blue coordinate markings move cleanly in an upward trajectory from day 1 to day 7. A straight red line begins at a baseline y-intercept of 14 and projects smoothly upward through the points, where a green marker target highlights the exact projection point for Day 10 at coordinate location (10, 103).
+          </description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[
+                xlabel={Day Number ($x$)},
+                ylabel={Number Sold ($y$)},
+                xmin=0, xmax=12,
+                ymin=0, ymax=120,
+                grid=both,
+                grid style={dashed, gray!30}
+              ]
+                \addplot[only marks, blue, mark=*] coordinates {
+                  (1,24) (2,32) (3,41) (4,50) (5,60) (6,68) (7,77)
+                };
+                \addplot[red, thick, domain=0:12] {8.857*x + 14.571};
+                \addplot[only marks, green, mark=x, mark size=4pt, thick] coordinates {(10,103.14)};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+
+</exercises>
+</section>

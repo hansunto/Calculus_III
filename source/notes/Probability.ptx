@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file contains the content for the "Probability with the FCP, nPr and nCr" section of the Probability chapter. 
+ It is included in the main course file (main.ptx) using an XInclude directive. -->
+
+<section xml:id="sec-probability-fcp-npr-ncr">
+  <title>3.7 Probability with the FCP, nPr and nCr</title>
+<subsection xml:id="subsec-nPr-Probability">
+    <title>Probability with Fundamental Counting Principle and permutations, nPr</title>
+    <introduction>
+    <p>
+      We return to our concert series with BTS, Blackstreet Boys, NSYNC and TLC. 
+      Now, <term>New Kids on the Block (NKOTB)</term> agrees to join the tour. 
+      The five groups determine the performance order by drawing names from a hat. 
+      </p>
+      <p>
+      What is the probability of <term>TLC</term> performing fourth and <term>BTS</term> performing last?
+    </p>
+    </introduction>
+    <p>
+        Recall the probability formula (<xref ref="def-theoretical-probability"/>), 
+        the probability is the fraction of the number of event outcomes over the total number of possible outcomes. 
+        
+    </p>
+    <p>
+        To solve this problem, we will use the <term>Fundamental Counting Principle (FCP)</term> 
+        to find the total number of possible arrangements of the five groups, 
+        and then determine how many of those arrangements have TLC performing fourth and BTS performing last.
+    </p>
+    <solution>
+      <p>
+        {}The probability is defined as:
+        <me>P(\text{TLC 4th, BTS last}) = \frac{\text{number of permutations with TLC 4th, BTS last}}{\text{total number of possible permutations}}</me>
+      </p>
+      <p>
+        First, we find the total number of ways to arrange the 5 groups using the <term>Fundamental Counting Principle</term>:
+        <me>5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 120</me>
+      </p>
+      <p>
+        Next, we find the number of successful outcomes where TLC is 4th and BTS is last. 
+        By fixing these two positions, we only need to arrange the remaining 3 groups (Backstreet Boys, NSYNC, and NKOTB) in the first three slots:
+        <ul>
+        <li>1st spot: 3 choices</li>
+        <li>2nd spot: 2 choices</li>
+        <li>3rd spot: 1 choice</li>
+        <li>4th spot: <alert>Fixed (TLC)</alert></li>
+        <li>5th spot: <alert>Fixed (BTS)</alert></li>
+      </ul>
+        <me>3 \cdot 2 \cdot 1 \cdot 1 \cdot 1 = 6</me>
+      </p>
+      <p>
+        Therefore, calculate the probability:
+        <me>P(\text{TLC 4th, BTS last}) = \frac{6}{120} = \frac{1}{20}</me>
+      </p>
+      <p>
+      <alert>TI-30XIIS Keystrokes:</alert> 
+      To find the total permutations (5!), type <kbd>5</kbd> <m>\rightarrow</m> <kbd>PRB</kbd> <m>\rightarrow</m> arrow over to underline <c>!</c> <m>\rightarrow</m> <kbd>ENTER</kbd> <m>\rightarrow</m> <kbd>ENTER</kbd>. 
+      The result is 120.
+    </p>
+    </solution>
+  
+  <exercise>
+    <title>Probability of Performers</title>
+    
+    
+  <statement>
+    <p>
+      Seven performers A, B, C, D, E, F, and G are to appear in a fundraiser. The order of performance is determined by random selection. Find the probability that:
+    </p>
+    <p>
+      <ol label="a">
+        <li><p>D will perform first.</p></li>
+        <li><p>E will perform sixth and B will perform last.</p></li>
+        <li><p>They will perform in the following order: C, D, B, A, G, F, E.</p></li>
+        <li><p>F or G will perform first.</p></li>
+      </ol>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the <term>total number of possible outcomes</term> for the sample space. Since there are 7 positions to fill:
+      <me>\underline{7} \times \underline{6} \times \underline{5} \times \underline{4} \times \underline{3} \times \underline{2} \times \underline{1}</me>
+      <me>7! = 5{,}040</me>
+      <p>
+        <alert>TI-30XIIS:</alert> Type <kbd>7</kbd> <m>\rightarrow</m> Press <kbd>PRB</kbd> <m>\rightarrow</m> Arrow right to underline <c>!</c> <m>\rightarrow</m> Press <kbd>ENTER</kbd> <m>\rightarrow</m> Press <kbd>ENTER</kbd>.
+      </p>
+    </p>
+    <p>
+      <ol label="a">
+        <li>
+          <p>
+            To find the number of ways <alert>D can perform first</alert>, we fix D in the first spot:
+            <me>\underline{1 (D)} \times \underline{6} \times \underline{5} \times \underline{4} \times \underline{3} \times \underline{2} \times \underline{1} = 720</me>
+            <me>P(\text{D first}) = \frac{720}{5,040} = \frac{1}{7}</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            To find the number of ways <alert>E performs 6th and B performs last</alert>, we fix those two positions:
+            <me>\underline{5} \times \underline{4} \times \underline{3} \times \underline{2} \times \underline{1} \times \underline{1 (E)} \times \underline{1 (B)} = 120</me>
+            <me>P(\text{E 6th, B last}) = \frac{120}{5,040} = \frac{1}{42}</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            There is only <alert>one specific sequence</alert> out of the 5,040 possibilities:
+            <me>\underline{1 (C)} \times \underline{1 (D)} \times \underline{1 (B)} \times \underline{1 (A)} \times \underline{1 (G)} \times \underline{1 (F)} \times \underline{1 (E)} = 1</me>
+            <me>P(\text{Specific order C, D, B, A, G, F, E}) = \frac{1}{5,040}</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            For <alert>F or G to perform first</alert>, we have 2 choices for the first spot:
+            <me>\underline{2 (\text{F or G})} \times \underline{6} \times \underline{5} \times \underline{4} \times \underline{3} \times \underline{2} \times \underline{1} = 1{,}440</me>
+            <me>P(\text{F or G first}) = \frac{1,440}{5,040} = \frac{2}{7}</me>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+</exercise>
+</subsection>
+
+<subsection xml:id="subsec-nCr-Probability">
+    <title>Probability with Combinations, nCr</title>
+  <example>
+    <title>Probability of Winning LOTTO</title>
+    <p>
+      Florida's lottery game LOTTO is set up so that each player chooses six different numbers from 1 to 53. 
+      If the six numbers chosen match the six numbers drawn randomly, the player wins the top cash prize. 
+      With one LOTTO ticket, what is the probability of winning this prize?
+    </p>
+    <solution>
+  <p>
+    Because the order of the six numbers does not matter, this is a situation involving combinations. We begin with the formula for probability:
+    <me>P(\text{winning}) = \frac{\text{number of ways of winning}}{\text{total number of possible combinations}}</me>
+  </p>
+  <p>
+    We are selecting <m>r = 6</m> numbers from a collection of <m>n = 53</m> numbers. 
+    Using the combination formula:
+    <me>{}_{53}C_6 = \frac{53!}{(53 - 6)! \times 6!} = \frac{53!}{47! \times 6!} = 22{,}957{,}480</me>
+  </p>
+  <p>
+    <alert>TI-30XIIS Keystrokes:</alert>
+    To calculate <m>{}_{53}C_6</m>: Type <kbd>53</kbd> <m>\rightarrow</m> Press <kbd>PRB</kbd> <m>\rightarrow</m> Underline <c>nCr</c> and press <kbd>ENTER</kbd> <m>\rightarrow</m> Type <kbd>6</kbd> <m>\rightarrow</m> Press <kbd>ENTER</kbd>.
+  </p>
+  <p>
+    There are nearly 23 million number combinations possible in LOTTO. If a person buys one LOTTO ticket, that person has selected only one combination of six numbers. With one LOTTO ticket, there is only one way of winning:
+    <me>P(\text{winning}) = \frac{1}{22{,}957{,}480} \approx 0.0000000436</me>
+  </p>
+  <p>
+    The probability of winning the top prize with one LOTTO ticket is <m>\frac{1}{22{,}957{,}480}</m> or about 1 in 23 million.
+  </p>
+</solution>
+
+  </example>
+
+  <exercise>
+  <statement>
+    <p>
+      A state lottery is designed so that a player chooses five numbers from 1 to 30 on one lottery ticket.
+      What is the probability that a player with one lottery ticket will win?
+      What is the probability of winning if 100 different lottery tickets are purchased?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The total number of possible outcomes is the number of ways to choose 5 numbers from 30:
+      <me>{}_{30}C_{5} = 142,506</me>
+    </p>
+    <p>
+      The probability of winning with one ticket is:
+      <me>P(\text{1 ticket}) = \frac{1}{142,506} \approx 0.000007</me>
+    </p>
+    <p>
+      The probability of winning with 100 tickets is:
+      <me>P(\text{100 tickets}) = \frac{100}{142,506} \approx 0.0007</me>
+    </p>
+  </solution>
+  <hint>
+    <p>
+      To calculate <m>{}_{30}C_{5}</m> on your <term>TI-30XIIS</term>:
+      <ol>
+        <li>Enter <kbd>30</kbd>.</li>
+        <li>Press the <kbd>PRB</kbd> key.</li>
+        <li>Use the <kbd>Right Arrow</kbd> to underline <term>nCr</term>.</li>
+        <li>Press <kbd>ENTER</kbd>.</li>
+        <li>Enter <kbd>5</kbd> and press <kbd>ENTER</kbd> (Result: 142,506).</li>
+        <li>To find the probability, press <kbd>1</kbd> <kbd>÷</kbd> <kbd>2nd</kbd> <kbd>ANS</kbd> <kbd>ENTER</kbd>.</li>
+      </ol>
+    </p>
+  </hint>
+  </exercise>
+
+  <example>
+  <title>Probability of Club Committee Selection</title>
+  <statement>
+    <p>
+      A club consists of five men and seven women. Three members are selected at random to attend a conference. Find the probability that the selected group consists of:
+      <ol label="a">
+        <li><p>three men.</p></li>
+        <li><p>one man and two women.</p></li>
+      </ol>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the total number of ways to choose 3 members from the group of 12 (5 men + 7 women):
+      <me>{}_{12}C_{3} = 220</me>
+    </p>
+    
+    <p>
+      <ol label="a">
+        <li>
+          <p>
+            To find the probability of selecting three men, we first find the number of ways to choose 3 men from the 5 available:
+            <me>{}_{5}C_{3} = 10</me>
+          </p>
+          <p>
+            The probability is:
+            <me>P(\text{3 men}) = \frac{{}_{5}C_{3}}{{}_{12}C_{3}} = \frac{10}{220} = \frac{1}{22} \approx 0.0455</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            To find the probability of selecting one man and two women, we calculate the ways to choose each and multiply them:
+            <ul>
+              <li><p>Ways to choose 1 man from 5: <m>{}_{5}C_{1} = 5</m></p></li>
+              <li><p>Ways to choose 2 women from 7: <m>{}_{7}C_{2} = 21</m></p></li>
+            </ul>
+            <me>P(\text{1 man, 2 women}) = \frac{{}_{5}C_{1} \times {}_{7}C_{2}}{{}_{12}C_{3}} = \frac{5 \times 21}{220} = \frac{105}{220} = \frac{21}{44} \approx 0.4773</me>
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      <term>TI-30XIIS Tip:</term> 
+      To calculate part (b) in one string: 
+      <kbd>5</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>1</kbd> <kbd>×</kbd> <kbd>7</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>2</kbd> <kbd>÷</kbd> <kbd>220</kbd> <kbd>ENTER</kbd>.
+    </p>
+  </solution>
+</example>
+
+  <exercise>
+  <title>Probability of Defective Transistors</title>
+  <statement>
+    <p>
+      A box contains 25 transistors, 6 of which are defective. If 6 are selected at random, find the probability that:
+      <ol label="a">
+        <li><p>all are defective.</p></li>
+        <li><p>none are defective.</p></li>
+      </ol>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we determine the total number of ways to select 6 transistors from 25:
+      <me>{}_{25}C_{6} = 177,100</me>
+    </p>
+    <p>
+      <ol label="a">
+        <li>
+          <p>
+            To find the probability that all 6 are defective, we choose 6 from the 6 defective transistors:
+            <me>{}_{6}C_{6} = 1</me>
+            <me>P(\text{all defective}) = \frac{1}{177,100} \approx 0.0000056</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            To find the probability that none are defective, all 6 must be chosen from the 19 non-defective transistors (25 total - 6 defective):
+            <me>{}_{19}C_{6} = 27,132</me>
+            <me>P(\text{none defective}) = \frac{27,132}{177,100} = \frac{6,783}{44,275} \approx 0.1532</me>
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      <term>TI-30XIIS Calculator Steps:</term>
+      <ul>
+        <li><p>For the denominator: <kbd>25</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>6</kbd> <kbd>ENTER</kbd> (Result: 177,100).</p></li>
+        <li><p>For part (b): <kbd>19</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>6</kbd> <kbd>÷</kbd> <kbd>177,100</kbd> <kbd>ENTER</kbd>.</p></li>
+      </ul>
+    </p>
+  </solution>
+</exercise>
+
+
+  <exercise>
+  <title>Parent-Teacher Committee Selection</title>
+  <statement>
+    <p>
+      A parent-teacher committee consisting of four people is to be selected from fifteen parents and five teachers. Find the probability of selecting two parents and two teachers.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the total number of ways to choose 4 members from the group of 20 (15 parents + 5 teachers):
+      <me>{}_{20}C_{4} = 4,845</me>
+    </p>
+    <p>
+      Next, we find the number of ways to select the specific group:
+      <ul>
+        <li><p>Ways to select 2 parents from 15: <m>{}_{15}C_{2} = 105</m></p></li>
+        <li><p>Ways to select 2 teachers from 5: <m>{}_{5}C_{2} = 10</m></p></li>
+      </ul>
+      Total successful outcomes: <m>105 \times 10 = 1,050</m>.
+    </p>
+    <p>
+      The probability is the number of successful outcomes divided by the total outcomes:
+      <me>P(\text{2 parents, 2 teachers}) = \frac{{}_{15}C_{2} \times {}_{5}C_{2}}{{}_{20}C_{4}} = \frac{1,050}{4,845}</me>
+    </p>
+    <p>
+      Simplifying the fraction and providing the decimal:
+      <me>P = \frac{70}{323} \approx 0.2167</me>
+    </p>
+    <p>
+      <term>TI-30XIIS Calculator Steps:</term>
+      <kbd>15</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>2</kbd> <kbd>×</kbd> <kbd>5</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>2</kbd> <kbd>÷</kbd> <kbd>20</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>4</kbd> <kbd>ENTER</kbd>.
+    </p>
+  </solution>
+</exercise>
+
+ <exercise>
+  <title>Probability of Dealing Four Hearts</title>
+  <statement>
+    <p>
+      If you are dealt 4 cards from a shuffled deck of 52 cards (<xref ref="fig-deck-of-cards"/>), find the probability that all 4 are hearts.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we determine the total number of ways to choose 4 cards from a deck of 52:
+      <me>{}_{52}C_{4} = 270,725</me>
+    </p>
+    <p>
+      Next, we determine the number of ways to choose 4 hearts. Since there are 13 hearts in a deck:
+      <me>{}_{13}C_{4} = 715</me>
+    </p>
+    <p>
+      The probability that all 4 cards are hearts is the number of ways to choose 4 hearts divided by the total number of ways to choose 4 cards:
+      <me>P(\text{4 hearts}) = \frac{{}_{13}C_{4}}{{}_{52}C_{4}} = \frac{715}{270,725}</me>
+    </p>
+    <p>
+      Simplifying the fraction and providing the decimal:
+      <me>P = \frac{11}{4,165} \approx 0.0026</me>
+    </p>
+    <p>
+      <term>TI-30XIIS Calculator Steps:</term>
+      <kbd>13</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>4</kbd> <kbd>÷</kbd> <kbd>52</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>4</kbd> <kbd>ENTER</kbd>.
+    </p>
+  </solution>
+</exercise>
+
+  <exercise>
+  <title>Probability of Full House: Kings and Aces</title>
+  <statement>
+    <p>
+      If you are dealt 5 cards from a shuffled deck of 52 cards (<xref ref="fig-deck-of-cards"/>), find the probability that you get 3 kings and two aces.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the total number of ways to choose 5 cards from a deck of 52:
+      <me>{}_{52}C_{5} = 2,598,960</me>
+    </p>
+    <p>
+      Next, we calculate the number of ways to select the specific cards:
+      <ul>
+        <li><p>Ways to select 3 kings from the 4 available: <m>{}_{4}C_{3} = 4</m></p></li>
+        <li><p>Ways to select 2 aces from the 4 available: <m>{}_{4}C_{2} = 6</m></p></li>
+      </ul>
+      Total successful outcomes: <m>4 \times 6 = 24</m>.
+    </p>
+    <p>
+      The probability is the ratio of successful outcomes to the total possible outcomes:
+      <me>P(\text{3 kings and 2 aces}) = \frac{{}_{4}C_{3} \times {}_{4}C_{2}}{{}_{52}C_{5}} = \frac{24}{2,598,960}</me>
+    </p>
+    <p>
+      Simplifying the fraction and providing the decimal:
+      <me>P = \frac{1}{108,290} \approx 0.00000923</me>
+    </p>
+    <p>
+      <term>TI-30XIIS Calculator Steps:</term>
+      <kbd>4</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>3</kbd> <kbd>×</kbd> <kbd>4</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>2</kbd> <kbd>÷</kbd> <kbd>52</kbd> <kbd>PRB</kbd> (<term>nCr</term>) <kbd>5</kbd> <kbd>ENTER</kbd>.
+    </p>
+  </solution>
+</exercise>
+
+  </subsection>
+</section>
