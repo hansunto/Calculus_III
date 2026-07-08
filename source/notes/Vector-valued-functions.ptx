@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-Vector-valued-functions">
+  <title>2.1 Vector-valued Functions and space curves</title>
+  <p>
+  A vector-valued function is a function that takes one or more variables and returns a vector.
+  It can be represented in the form:
+</p>
+<me>\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle</me>
+<p>
+  where <m>x(t)</m>, <m>y(t)</m>, and <m>z(t)</m> are scalar functions of the variable <m>t</m>.
+</p>
+
+  <definition xml:id="defn-vector-valued-function">
+  <statement>
+    <p>
+      A <term>vector-valued function</term> is a function whose domain is a set of real numbers and whose range is a set of vectors.
+      Let <m>D</m> be a set of real numbers.
+      Then the three components of the vector-valued function <m>\mathbf{r}(t)</m> are uniquely determined:
+      <me>\mathbf{r}(t) = \langle x(t),y(t),z(t) \rangle = x(t)\mathbf{i}+y(t)\mathbf{j}+z(t)\mathbf{k}</me>
+      where <m>x</m>, <m>y</m>, and <m>z</m> are scalar functions with the domain <m>D</m>.
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-component-functions">
+  <statement>
+    <p>
+      If <m>\mathbf{r}(t) = \langle t^3,\ln{(3-t)},\sqrt{t} \rangle</m>, find the component functions.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      By identifying the scalar functions multiplying each unit vector or filling each slot, the component functions are:
+      <me>x(t)=t^3, \quad y(t)=\ln{(3-t)}, \quad z(t)=\sqrt{t}</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-vector-coordinate-planes">
+  <statement>
+    <p>  Let <m>\mathbf{r}(t)=\langle t+1,t^2-4,t^2 \rangle</m> for <m>t\in\mathbb{R}</m>.</p>
+    <ol>
+      <li> <p> Sketch <m>\mathbf{r}(1)</m> and <m>\mathbf{r}(3)</m>. </p> </li>
+      <li> <p> Find the vectors <m>\mathbf{r}(t)</m> that are in a coordinate plane. </p> </li>
+    </ol>
+  </statement>
+  <solution>
+    <ol>
+      <li> <p> The positions vectors are evaluated at the given parameter inputs:
+        <md>
+        <mrow>\mathbf{r}(1) \amp = \langle 1+1, 1^2-4, 1^2 \rangle = \langle 2, -3, 1 \rangle</mrow>
+        <mrow>\mathbf{r}(3) \amp = \langle 3+1, 3^2-4, 3^2 \rangle = \langle 4, 5, 9 \rangle</mrow>          </md>
+        </p>
+<figure xml:id="fig-vector-sketch-120">
+  <caption>A 3D coordinate system showing the evaluation points on the path viewed at a <m>120^\circ</m> horizontal rotation.</caption>
+  <image xml:id="img-tikz-vectors-120" width="80%">
+    <description>A 3D plot rotated to 120 degrees horizontal showing the parametric space curve and clean separation between vectors r(1) and r(3).</description>
+    <latex-image>
+      <![CDATA[
+      \begin{tikzpicture}
+        \begin{axis}[
+          view={120}{30}, % Rotated to 120 degrees to guarantee an error-free compilation
+          axis lines=center,
+          xmin=0, xmax=6, ymin=-5, ymax=6, zmin=0, zmax=10,
+          ticks=none,
+          enlargelimits=false,
+          % Tight absolute axis label tracking configurations adjusted for 120-degree vantage
+          xlabel={$x$},
+          xlabel style={at={(axis cs:5.7,0,0)}, anchor=north east, inner sep=2pt},
+          ylabel={$y$},
+          ylabel style={at={(axis cs:0,5.7,0)}, anchor=north west, inner sep=2pt},
+          zlabel={$z$},
+          zlabel style={at={(axis cs:0,0,9.5)}, anchor=south east, inner sep=2pt}
+        ]
+          % Plot the curve for a range of t values
+          \addplot3[domain=0:3.2, samples=40, samples y=0, smooth, blue, thick] 
+            ({x+1}, {x^2-4}, {x^2});
+          
+          % Vector r(1) = \langle 2, -3, 1 \rangle
+          \draw[->, red, ultra thick] (axis cs:0,0,0) -- (axis cs:2,-3,1);
+          \node[red, below left, xshift=-2pt] at (axis cs:2,-3,1) {$\mathbf{r}(1)$};
+          
+          % Vector r(3) = \langle 4, 5, 9 \rangle
+          \draw[->, darkgray, ultra thick] (axis cs:0,0,0) -- (axis cs:4,5,9);
+          \node[darkgray, above left, yshift=2pt] at (axis cs:4,5,9) {$\mathbf{r}(3)$};
+          
+          % Points at the ends of the vectors
+          \node[circle, fill=red, inner sep=1.5pt] at (axis cs:2,-3,1) {};
+          \node[circle, fill=darkgray, inner sep=1.5pt] at (axis cs:4,5,9) {};
+        \end{axis}
+      \end{tikzpicture}
+      ]]>
+    </latex-image>
+  </image>
+</figure>
+
+      </li>
+      <li> <p> We analyze each coordinate plane by setting the appropriate component to zero: </p>
+        <ol>
+          <li> <p> <m>xy</m>-plane : The <m>\mathbf{k}</m>-component is zero.
+              <md>
+                <mrow>t^2 = 0 \amp \implies t = 0</mrow>
+                <mrow>\amp \implies \mathbf{r}(0) = \langle 1,-4,0 \rangle</mrow>
+              </md>
+            </p> </li>
+          <li> <p> <m>yz</m>-plane : The <m>\mathbf{i}</m>-component is zero.
+              <md>
+                <mrow>t + 1 = 0 \amp \implies t = -1</mrow>
+                <mrow>\amp \implies \mathbf{r}(-1) = \langle 0,-3,1 \rangle</mrow>
+              </md>
+            </p> </li>
+          <li> <p> <m>xz</m>-plane : The <m>\mathbf{j}</m>-component is zero.
+              <md>
+                <mrow>t^2 - 4 = 0 \amp \implies t = 2 \text{ or } t = -2</mrow>
+                <mrow>\amp \implies \mathbf{r}(2) = \langle 3,0,4 \rangle</mrow>
+                <mrow>\amp \text{and } \mathbf{r}(-2) = \langle -1,0,4 \rangle</mrow>
+              </md>
+            </p> </li>
+        </ol>
+      </li>
+    </ol>
+  </solution>
+</example>
+
+  <subsection xml:id="subsec-Limits-and-Continuity">
+    <title>Limits and Continuity</title>
+ <definition xml:id="defn-vector-limit-continuity">
+  <statement>
+    <p>
+      The <term>limit</term> of a vector function <m>\mathbf{r}(t)=\langle x(t),y(t),z(t) \rangle</m> is defined by taking the limits of its component functions:
+      <me>\lim_{t\to a}\mathbf{r}(t)=\langle \lim_{t\to a}x(t), \lim_{t\to a}y(t), \lim_{t\to a}z(t) \rangle</me>
+      provided the limits of the component functions exist.
+    </p>
+    <p>
+      A vector function <m>\mathbf{r}(t)</m> is <term>continuous at <m>a</m></term> if:
+      <me>\lim_{t\to a}\mathbf{r}(t)=\mathbf{r}(a)</me>
+      Equivalently, <m>\mathbf{r}(t)</m> is continuous at <m>a</m> if and only if its component functions <m>x</m>, <m>y</m>, and <m>z</m> are continuous at <m>a</m>.
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-vector-limit-evaluation">
+  <statement>
+    <p>
+      Find <m>\lim_{t\to 0}\mathbf{r}(t)</m>, where:
+      <me>\mathbf{r}(t)=\left\langle 1+t^3, te^{-t}, \frac{\sin t}{t} \right\rangle</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We evaluate the limit by computing the limit of each component function individually as <m>t \to 0</m>:
+      <md>
+        <mrow>\lim_{t\to 0} (1+t^3) \amp = 1 + 0^3 = 1</mrow>
+        <mrow>\lim_{t\to 0} (te^{-t}) \amp = 0 \cdot e^{0} = 0</mrow>
+        <mrow>\lim_{t\to 0} \left(\frac{\sin t}{t}\right) \amp = 1</mrow>
+      </md>
+      Combining these results into a single vector gives:
+      <me>\lim_{t\to 0}\mathbf{r}(t) = \langle 1, 0, 1 \rangle</me>
+    </p>
+  </solution>
+</example>
+
+<p>
+  Suppose that <m>f</m>, <m>g</m>, and <m>h</m> are continuous on an interval <m>I</m>.
+  Then the set <m>C</m> of all points <m>(x,y,z)</m> in space, where:
+  <me>x=f(t),\quad y=g(t),\quad z=h(t)</me>
+  and <m>t</m> varies in <m>I</m>, is called a <term>space curve</term>.
+  The equations are called the <term>parametric equations of C</term> with a <term>parameter</term> <m>t</m>.
+</p>
+
+<example xml:id="ex-vector-line-equation">
+  <statement>
+    <p>
+      Describe the curve defined by the vector function:
+      <me>\mathbf{r}(t)=\langle 1+t,2+5t,-1+6t \rangle</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The corresponding parametric equations are:
+      <me>x=1+t,\quad y=2+5t,\quad z=-1+6t</me>
+      These are the parametric equations of a line passing through the point <m>(1,2,-1)</m> and parallel to the vector <m>\langle 1,5,6 \rangle</m>.
+    </p>
+    <p>
+      Alternatively, we can observe that the function can be written as:
+      <me>\mathbf{r}(t)=\mathbf{r}_0+t\mathbf{v}, \quad \text{where } \mathbf{r}_0=\langle 1,2,-1 \rangle \text{ and } \mathbf{v}=\langle 1,5,6 \rangle</me>
+      which is the vector equation of a line.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-helix-sketch">
+  <statement>
+    <p>
+      Sketch the curve whose vector equation is:
+      <me>\mathbf{r}(t)=\cos t\mathbf{i}+\sin t\mathbf{j}+t\mathbf{k}</me>
+      This curve is called a <term>helix</term>. This occurs in the model of DNA.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      As the parameter <m>t</m> increases, the <m>x</m>- and <m>y</m>-components trace out a circle of radius <m>1</m> in the horizontal plane via <m>x = \cos t</m> and <m>y = \sin t</m>.
+      Concurrently, the <m>z</m>-component increases linearly since <m>z = t</m>.
+      The combination of this circular base rotation and vertical motion generates a spiral path that climbs upward along the surface of a cylinder.
+    </p>
+
+<figure xml:id="fig-circular-helix-optimized" margins="0%">
+  <caption>A 3D coordinate system tracing the path of a circular helix.</caption>
+  <!-- width="60%" forces the image to be exactly 60% wide on your HTML course site -->
+  <image xml:id="img-tikz-helix-optimized" width="60%">
+    <description>A 3D parametric plot scaled for 60% HTML visibility and 100% text width on printed pages.</description>
+    <latex-image>
+      <![CDATA[
+      \begin{tikzpicture}
+        \begin{axis}[
+          view={60}{30},
+          axis lines=center,
+          xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5, zmin=0, zmax=15,
+          ticks=none,
+          enlargelimits=false,
+          % Overrides default small print scaling by explicitly expanding the canvas bounds
+          width=10cm,
+          height=10cm,
+          % Tight absolute axis label tracking configurations
+          xlabel={$x$},
+          xlabel style={at={(axis cs:1.4,0,0)}, anchor=north east, inner sep=2pt},
+          ylabel={$y$},
+          ylabel style={at={(axis cs:0,1.4,0)}, anchor=north west, inner sep=2pt},
+          zlabel={$z$},
+          zlabel style={at={(axis cs:0,0,14.5)}, anchor=south east, inner sep=2pt}
+        ]
+          % Draw supporting dashed grid cylinder for context
+          \addplot3[domain=0:12.5, samples=60, samples y=0, dashed, gray!50] 
+            ({cos(deg(x))}, {sin(deg(x))}, {x});
+            
+          % Highlight the main helix trajectory
+          \addplot3[domain=0:12.5, samples=120, samples y=0, smooth, blue, ultra thick] 
+            ({cos(deg(x))}, {sin(deg(x))}, {x});
+            
+          % Add orientation labels at the start and end of the visual domain
+          \node[circle, fill=blue, inner sep=1.5pt] at (axis cs:1,0,0) {};
+          \node[right, xshift=2pt] at (axis cs:1,0,0) {$t=0$};
+          
+          \node[circle, fill=blue, inner sep=1.5pt] at (axis cs:{cos(deg(12.5))},{sin(deg(12.5))},12.5) {};
+          \node[above right, xshift=2pt] at (axis cs:{cos(deg(12.5))},{sin(deg(12.5))},12.5) {$\mathbf{r}(t)$};
+        \end{axis}
+      \end{tikzpicture}
+      ]]>
+    </latex-image>
+  </image>
+</figure>
+
+  
+  </solution>
+</example>
+
+<p>
+  Recall a vector equation for the line segment that joins the tip of the vector <m>\mathbf{r}_0</m> to the tip of the vector <m>\mathbf{r}_1</m>:
+  <me>\mathbf{r}(t)=(1-t)\mathbf{r}_0 +t\mathbf{r}_1\quad\quad 0\le t\le 1</me>
+</p>
+
+<example xml:id="ex-line-segment-joining">
+  <statement>
+    <p>
+      Find a vector equation and parametric equations for the line segment that joins the point <m>P(1,3,-2)</m> to the point <m>Q(2,-1,3)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Using the points as components for the position vectors <m>\mathbf{r}_0 = \langle 1,3,-2 \rangle</m> and <m>\mathbf{r}_1 = \langle 2,-1,3 \rangle</m>, the vector equation is:
+      <me>\mathbf{r}(t)=\langle 1+t, \ 3-4t, \ -2 +5t \rangle, \quad 0 \le t \le 1</me>
+      The corresponding parametric equations are:
+      <me>x=1+t,\quad y=3-4t, \quad z=-2+5t\quad\quad 0\le t\le 1</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-cylinder-plane-intersection-rotated-80">
+  <statement>
+    <p>
+      Find a vector function that represents the curve of the intersection of the cylinder 
+      <m>x^2+y^2=1</m> and the plane <m>y+z=2</m>. 
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The projection of the intersection curve <m>C</m> onto the <m>xy</m>-plane is the unit circle <m>x^2+y^2=1</m> with <m>z=0</m>. We can parameterize this circular footprint as:
+      <me>x=\cos t, \quad y=\sin t \quad \quad 0 \le t \le 2\pi</me>
+      To find the corresponding <m>z</m>-coordinate along the path, substitute the expression for <m>y</m> into the plane equation <m>y+z=2</m>:
+      <me>z = 2 - y = 2 - \sin t</me>
+      Thus, the parametric equations for <m>C</m> are <m>x=\cos t</m>, <m>y=\sin t</m>, and <m>z=2-\sin t</m>. The corresponding vector function is:
+      <me>\mathbf{r}(t)=\cos t\mathbf{i}+\sin t\mathbf{j}+(2-\sin t)\mathbf{k} \quad \quad 0 \le t \le 2\pi</me>
+    </p>
+    <figure xml:id="fig-cylinder-plane-rotated-80">
+      <caption>The colored intersection region viewed from an <m>80^\circ</m> horizontal rotation to separate tracking nodes.</caption>
+      <image xml:id="img-tikz-intersection-rotated-80" width="75%">
+        <description>A 3D coordinate plot showing an orange elliptical intersection inside a transparent cylinder with clean, separated text labels for the curve points.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}
+            \begin{axis}[
+              view={80}{40},
+              axis lines=center,
+              %xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+              xmin=-1.8, xmax=1.8, ymin=-1.8, ymax=2.2, zmin=0, zmax=3.8,
+              ticks=none,
+              enlargelimits=false
+            ]
+              % Draw the cylinder base footprint in the xy-plane
+              \addplot3[domain=0:2*pi, samples=60, samples y=0, dashed, gray!40] 
+                ({cos(deg(x))}, {sin(deg(x))}, {0});
+
+              % Draw the translucent cylinder walls
+              \addplot3[domain=0:2*pi, domain y=0:3.5, samples=30, samples y=5, surf, opacity=0.05, blue, shader=flat] 
+                ({cos(deg(x))}, {sin(deg(x))}, {y});
+
+              % Shading the inner intersection area (the Ellipse face inside the cylinder)
+              \addplot3[domain=0:2*pi, domain y=0:1, samples=40, samples y=4, surf, opacity=0.4, orange, shader=flat] 
+                ({y*cos(deg(x))}, {y*sin(deg(x))}, {2-y*sin(deg(x))});
+
+              % Highlight the main intersection curve boundary (the ellipse)
+              \addplot3[domain=0:2*pi, samples=60, samples y=0, smooth, red, ultra thick] 
+                ({cos(deg(x))}, {sin(deg(x))}, {2-sin(deg(x))});
+
+              % Key coordinate points specified directly on the curve C
+              % Point at t = 0: (1, 0, 2)
+              \node[circle, fill=black, inner sep=1.5pt] at (axis cs:1,0,2) {};
+              \node[above right, xshift=2pt] at (axis cs:1,0,2) {$(1,0,2)$};
+
+              % Point at t = pi/2: (0, 1, 1)
+              \node[circle, fill=black, inner sep=1.5pt] at (axis cs:0,1,1) {};
+              \node[below right, yshift=-2pt] at (axis cs:0,1,1) {$(0,1,1)$};
+
+              % Point at t = pi: (-1, 0, 2)
+              \node[circle, fill=black, inner sep=1.5pt] at (axis cs:-1,0,2) {};
+              \node[below left, xshift=-2pt] at (axis cs:-1,0,2) {$(-1,0,2)$};
+
+              % Point at t = 3*pi/2: (0, -1, 3)
+              \node[circle, fill=black, inner sep=1.5pt] at (axis cs:0,-1,3) {};
+              \node[above, yshift=3pt] at (axis cs:0,-1,3) {$(0,-1,3)$};
+
+              % Text Annotations for the curve name
+              \node[red, right] at (axis cs:0.3,0.9,1.5) {$C$};
+            \end{axis}
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</example>
+
+<example xml:id="ex-twisted-cubic">
+  <statement>
+    <p>
+      Sketch the curve whose vector equation is:
+      <me>\mathbf{r}(t)=t\mathbf{i}+ t^2\mathbf{j}+t^3\mathbf{k}\quad t \ge 0</me>
+      This curve is called a <term>twisted cubic</term>. You can view this curve as the intersection 
+      of the cylinders <m>y=x^2</m> and <m>z=x^3</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      As <m>t</m> increases from <m>0</m>, the path traces out a curve where the <m>y</m>-coordinate 
+      grows quadratically relative to <m>x</m>, and the <m>z</m>-coordinate grows cubically.
+    </p>
+    <figure xml:id="fig-twisted-cubic">
+      <caption>The parametric path of a twisted cubic curve for <m>t \ge 0</m>.</caption>
+      <image xml:id="img-tikz-twisted-cubic" width="60%">
+        <description>A 3D coordinate plot showing the cubic trajectory starting at the origin and 
+            curving upward into the first octant.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}
+            \begin{axis}[
+              view={60}{30},
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+              xmin=0, xmax=2.2, ymin=0, ymax=4.5, zmin=0, zmax=9,
+              ticks=none,
+              enlargelimits=false,
+              % Manual absolute placement for labels to keep them tight to the axis lines
+              xlabel={$x$},
+              xlabel style={at={(axis cs:2.1,0,0)}, anchor=north east, inner sep=2pt},
+              ylabel={$y$},
+              ylabel style={at={(axis cs:0,4.4,0)}, anchor=north west, inner sep=2pt},
+              zlabel={$z$},
+              zlabel style={at={(axis cs:0,0,8.7)}, anchor=south east, inner sep=2pt}
+            ]
+              % Draw the twisted cubic curve r(t) = <t, t^2, t^3>
+              \addplot3[domain=0:2, samples=60, samples y=0, smooth, blue, ultra thick] 
+                ({x}, {x^2}, {x^3});
+                
+              \node[circle, fill=blue, inner sep=1.5pt] at (axis cs:0,0,0) {};
+              \node[right] at (axis cs:0,0,0) {$(0,0,0)$};
+              \node[circle, fill=blue, inner sep=1.5pt] at (axis cs:2,4,8) {};
+              \node[left] at (axis cs:2,4,8) {$(2,4,8)$};
+            \end{axis}
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</example>
+
+<exercise xml:id="exercise-2d-parabola-orientation">
+  <statement>
+    <p>
+      Let <m>\mathbf{r}(t)=2t\mathbf{i}+ (8-2t^2)\mathbf{j}</m> for <m>-2 \le t \le 2</m>. Sketch the curve <m>C</m> defined by <m>\mathbf{r}(t)</m> and indicate its orientation.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Eliminating the parameter yields <m>t = x/2</m>. Substituting this into the <m>y</m>-component gives the Cartesian equation:
+      <me>y = 8 - 2\left(\frac{x}{2}\right)^2 = 8 - \frac{1}{2}x^2</me>
+      This is a downward-opening parabola. As <m>t</m> goes from <m>-2</m> to <m>2</m>, the curve is traced from left to right starting at <m>(-4,0)</m>, passing through the vertex at <m>(0,8)</m>, and ending at <m>(4,0)</m>.
+    </p>
+    <figure xml:id="fig-parabola-orientation">
+      <caption>Downward parabola showing left-to-right orientation arrows.</caption>
+      <image xml:id="img-tikz-parabola" width="60%">
+        <description>A 2D plot of a downward parabola with arrows showing movement from left to right.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}
+            \begin{axis}[
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y$},
+              xmin=-5, xmax=5, ymin=-1, ymax=9,
+              xtick={-4,4}, ytick={8},
+              enlargelimits=false
+            ]
+              \addplot[domain=-4:4, samples=50, blue, ultra thick] {8 - 0.5*x^2};
+              
+              % Orientation arrows
+              \draw[->, red, ultra thick] (axis cs:-2,6) -- (axis cs:-1.9,6.095);
+              \draw[->, red, ultra thick] (axis cs:2,6) -- (axis cs:2.1,5.895);
+              
+              \node[circle, fill=black, inner sep=1.5pt] at (axis cs:-4,0) {};
+              \node[below left] at (axis cs:-4,0) {$t=-2$};
+              \node[circle, fill=black, inner sep=1.5pt] at (axis cs:4,0) {};
+              \node[below right] at (axis cs:4,0) {$t=2$};
+            \end{axis}
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</exercise>
+
+<exercise xml:id="ck-spiral-orientation">
+  <statement>
+    <p>
+      Let <m>\mathbf{r}(t)=\left(\frac{1}{2}t\cos t\right)\mathbf{i}+ \left(\frac{1}{2}t\sin t\right)\mathbf{j}</m> for <m>0 \le t \le 3\pi</m>. 
+      Sketch the curve <m>C</m> defined by <m>\mathbf{r}(t)</m> and indicate its orientation.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      In polar coordinates, this curve can be viewed as the spiral <m>r = \frac{1}{2}\theta</m>, where the parameter <m>t</m> acts as the angle <m>\theta</m>. 
+      As <m>t</m> increases from <m>0</m> to <m>3\pi</m>, the point winds counterclockwise outward from the origin, completing one and a half full revolutions.
+    </p>
+    <figure xml:id="fig-spiral-check">
+      <caption>An Archimedean spiral winding outward counterclockwise with directional indicators.</caption>
+      <image xml:id="img-tikz-spiral-check" width="60%">
+        <description>A 2D polar plot tracking a counterclockwise spiral starting at the origin and winding outward to a final radius at 3 pi over 2 on the negative y axis.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}
+            % Draw native tight axes lines manually to avoid PGFPlots layout engine clashes
+            \draw[->, thick] (-5,0) -- (5,0) node[anchor=north east, inner sep=2pt] {$x$};
+            \draw[->, thick] (0,-5) -- (0,5) node[anchor=north west, inner sep=2pt] {$y$};
+
+            % Plot the Archimedean spiral using pure TikZ native parametric canvas commands
+            % domain is in radians (0 to 3*pi is roughly 0 to 9.42)
+            \draw[blue, ultra thick, smooth, samples=200, variable=\t, domain=0:9.424]
+              plot ({0.5*\t*cos(\t r)}, {0.5*\t*sin(\t r)});
+
+            % Orientation indicator arrow placed along the second quadrant arc trajectory
+            \draw[->, red, ultra thick] (-0.95, 0.95) -- (-1.1, 1.1);
+
+            % Precise point marking and custom text annotations
+            \filldraw[black] (0,0) circle (1.5pt) node[below right, inner sep=3pt] {$t=0$};
+            \filldraw[black] (-4.712,0) circle (1.5pt) node[above left, inner sep=3pt] {$t=3\pi$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</exercise>
+
+</subsection>
+</section>

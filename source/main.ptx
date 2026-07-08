@@ -31,9 +31,24 @@
       <xi:include href="./notes/Planes.ptx" />
       <xi:include href="./notes/Surfaces.ptx" />
 
-
-  <!--<xi:include href="./notes/fundamentalP.ptx" />--> 
    </chapter>
+
+  <chapter xml:id="ch-Vector-valued-functions">
+      <title>Vector-valued Functions</title>
+      <introduction>
+        <p>
+          Vector-valued functions are functions that take one or more variables and return a vector. 
+          They are used to describe curves and surfaces in three-dimensional space.
+        </p>
+        <p>
+          In this chapter, we will study the properties of vector-valued functions, including limits, continuity, and differentiability.
+        </p>
+      </introduction>
+      <xi:include href="./notes/Vector-valued-functions.ptx" />
+      <xi:include href="./notes/Derivatives-of-vector-functions.ptx" />
+
+    </chapter>
+
 
     <chapter xml:id="activities">
       <title>MyOpenMath Interactive Activities</title>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section id="derivatives-of-vector-functions">
+ <title>2.2 Derivatives of Vector Functions</title>
+  <p>
+    In this section, we will explore the concept of derivatives of vector functions. 
+    A vector function is a function that takes one or more variables and returns a vector. 
+    The derivative of a vector function provides information about how the vector changes with respect to 
+    its input variables.
+  </p>
+  <p>
+    We will cover the following topics:
+  </p>
+  <ul>
+    <li>Definition of the derivative of a vector function</li>
+    <li>Rules for differentiating vector functions</li>
+  </ul>
+    
+  <subsection xml:id="subsec-Differentiability">
+    <title>Differentiability</title>
+    <p>
+  A vector-valued function is differentiable at <m>t = a</m> if the derivative exists, which is defined as:
+</p>
+<me>\mathbf{r}'(a) = \lim_{h \to 0} \frac{\mathbf{r}(a + h) - \mathbf{r}(a)}{h}</me>
+<p>
+  The derivative of a vector-valued function gives the tangent vector to the curve at that point.
+</p>
+<definition xml:id="defn-vector-derivative">
+  <statement>
+    <p>
+      The <term>derivative</term> <m>\mathbf{r}'</m> of a vector function <m>\mathbf{r}</m> is defined in the same manner as for real-valued functions:
+      <me>\frac{d\mathbf{r}}{dt} = \mathbf{r}'(t) = \lim_{h\to 0}\frac{\mathbf{r}(t+h) - \mathbf{r}(t)}{h} = \lim_{\Delta t\to 0}\frac{1}{\Delta t}(\mathbf{r}(t+\Delta t) - \mathbf{r}(t))</me>
+    </p>
+  </statement>
+</definition>
+
+<theorem xml:id="thm-component-derivatives">
+  <statement>
+    <p>
+      If <m>\mathbf{r}(t)=x(t)\mathbf{i}+y(t)\mathbf{j}+z(t)\mathbf{k}=\langle x(t),\ y(t),\ z(t) \rangle</m> 
+      where <m>x</m>, <m>y</m>, and <m>z</m> are differentiable functions, then:
+      <me>\mathbf{r}'(t)=x'(t)\mathbf{i}+y'(t)\mathbf{j}+z'(t)\mathbf{k}=\langle x'(t),\ y'(t),\ z'(t) \rangle</me>
+    </p>
+  </statement>
+  <proof>
+    <p>
+      This rule is easily proven by applying the component-wise limits directly into the fundamental definition of the derivative of vector functions.
+    </p>
+  </proof>
+</theorem>
+
+<p>
+  If the points <m>P</m> and <m>Q</m> have position vectors <m>\mathbf{r}(t)</m> and <m>\mathbf{r}(t+h)</m>, then the displacement vector <m>\vec{PQ}</m> represents the vector <m>\mathbf{r}(t+h) - \mathbf{r}(t)</m>.
+  As <m>h \to 0</m>, the vector <m>\mathbf{r}(t+h) - \mathbf{r}(t)</m> approaches a vector that lies along the target trajectory's path.
+</p>
+
+<p>
+  The vector <m>\mathbf{r}'(t)</m> is called the <term>tangent vector</term> to the curve defined by <m>\mathbf{r}(t)</m> at <m>P</m>, provided that <m>\mathbf{r}'(t)</m> exists and <m>\mathbf{r}'(t) \neq \mathbf{0}</m>.
+  The tangent line to <m>C</m> at <m>P</m> is defined to be the line through <m>P</m> parallel to the tangent vector <m>\mathbf{r}'(t)</m>.
+  (In a 2D plane, the slope of the line through <m>P</m> parallel to <m>\mathbf{r}'(t)</m> evaluates to <m>\frac{y'(t)}{x'(t)}</m>).
+</p>
+
+<assemblage xml:id="asm-unit-tangent">
+  <title>The Unit Tangent Vector</title>
+  <p>
+    We define the <term>unit tangent vector</term> as:
+  <me>\mathbf{T}(t)=\frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}</me>
+  </p>
+</assemblage>
+
+<corollary xml:id="cor-vector-higher-derivatives">
+  <statement>
+    <p>
+      If <m>\mathbf{r}'(t)</m> exists, then we say <m>\mathbf{r}(t)</m> is differentiable and write:
+      <me>\mathbf{r}'(t)=D_t\mathbf{r}(t)=\frac{d}{dt}\mathbf{r}(t)</me>
+      Similarly, the second derivative <m>\mathbf{r}''(t)</m> is defined as:
+      <me>\mathbf{r}''(t)=x''(t)\mathbf{i}+y''(t)\mathbf{j}+z''(t)\mathbf{k}=\langle x''(t),\ y''(t),\ z''(t) \rangle</me>
+    </p>
+  </statement>
+  <proof>
+    <p>
+      Let <m>\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle</m>. By applying the component derivative theorem, the first derivative is computed component-by-component:
+      <me>\frac{d}{dt}\mathbf{r}(t) = \left\langle \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt} \right\rangle = \langle x'(t), y'(t), z'(t) \rangle</me>
+    </p>
+    <p>
+      Since each component function <m>x'(t)</m>, <m>y'(t)</m>, and <m>z'(t)</m> is a standard real-valued scalar function, we can differentiate a second time using standard single-variable calculus rules:
+      <md>
+        <mrow>\mathbf{r}''(t) \amp = \frac{d}{dt}\left[ \mathbf{r}'(t) \right]</mrow>
+        <mrow>\amp = \left\langle \frac{d}{dt}[x'(t)], \frac{d}{dt}[y'(t)], \frac{d}{dt}[z'(t)] \right\rangle</mrow>
+        <mrow>\amp = \langle x''(t), y''(t), z''(t) \rangle</mrow>
+      </md>
+      Expressing this result in terms of the standard unit basis vectors yields <m>x''(t)\mathbf{i}+y''(t)\mathbf{j}+z''(t)\mathbf{k}</m>.
+    </p>
+  </proof>
+</corollary>
+<example xml:id="ex-vector-derivative-log">
+  <statement>
+    <p>
+      Let <m>\mathbf{r}(t)=\ln t\ \mathbf{i}+e^{-3t}\mathbf{j}+t^2\mathbf{k}</m>. Find the derivative <m>\mathbf{r}'(t)</m> where <m>t \gt 0</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We differentiate each scalar component function with respect to <m>t</m>:
+      <md>
+        <mrow>\frac{d}{dt}(\ln t) \amp = \frac{1}{t}</mrow>
+        <mrow>\frac{d}{dt}(e^{-3t}) \amp = -3e^{-3t}</mrow>
+        <mrow>\frac{d}{dt}(t^2) \amp = 2t</mrow>
+      </md>
+      Combining these component results gives the derivative vector function:
+      <me>\mathbf{r}'(t) = \frac{1}{t}\mathbf{i} - 3e^{-3t}\mathbf{j} + 2t\mathbf{k}</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-unit-tangent-evaluation">
+  <statement>
+    <p>
+      Let <m>\mathbf{r}(t)=(1+t^3)\mathbf{i}+te^{-t}\mathbf{j}+\sin 2t\mathbf{k}</m>.
+    </p>
+    <ol>
+      <li> <p> Find <m>\mathbf{r}'(t)</m> and <m>\mathbf{r}''(t)</m>. </p> </li>
+      <li> <p> Find the unit tangent vector at the point where <m>t=0</m>. </p> </li>
+    </ol>
+  </statement>
+  <solution>
+    <ol>
+      <li> <p>
+          Differentiating component-by-component using the power rule, product rule, and chain rule yields the first derivative:
+          <me>\mathbf{r}'(t) = 3t^2\mathbf{i} + (e^{-t} - te^{-t})\mathbf{j} + 2\cos 2t\mathbf{k}</me>
+          Differentiating a second time gives the second derivative:
+          <me>\mathbf{r}''(t) = 6t\mathbf{i} + (-e^{-t} - e^{-t} + te^{-t})\mathbf{j} - 4\sin 2t\mathbf{k} = 6t\mathbf{i} + (te^{-t} - 2e^{-t})\mathbf{j} - 4\sin 2t\mathbf{k}</me>
+        </p> </li>
+      <li> <p>
+          To find the unit tangent vector <m>\mathbf{T}(0)</m>, we first evaluate the velocity derivative vector at <m>t=0</m>:
+          <me>\mathbf{r}'(0) = 3(0)^2\mathbf{i} + (e^0 - 0)\mathbf{j} + 2\cos(0)\mathbf{k} = \mathbf{j} + 2\mathbf{k} = \langle 0, 1, 2 \rangle</me>
+          Next, compute the magnitude of this tangent vector:
+          <me>|\mathbf{r}'(0)| = \sqrt{0^2 + 1^2 + 2^2} = \sqrt{5}</me>
+          Divide the vector by its magnitude to obtain the final unit tangent vector:
+          <me>\mathbf{T}(0) = \frac{\mathbf{r}'(0)}{|\mathbf{r}'(0)|} = \frac{1}{\sqrt{5}}\mathbf{j} + \frac{2}{\sqrt{5}}\mathbf{k} = \left\langle 0, \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}} \right\rangle</me>
+        </p> </li>
+    </ol>
+  </solution>
+</example>
+</subsection>     
+
+<exercise xml:id="ck-vector-tangent-sketch">
+  <statement>
+    <p>
+      For the curve <m>\mathbf{r}(t)=\sqrt{t}\mathbf{i}+(2-t)\mathbf{j}</m>, find <m>\mathbf{r}'(t)</m> and sketch the position vector <m>\mathbf{r}(1)</m> and the tangent vector <m>\mathbf{r}'(1)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Differentiating each component with respect to <m>t</m> yields:
+      <me>\mathbf{r}'(t) = \frac{1}{2\sqrt{t}}\mathbf{i} - \mathbf{j}</me>
+      Evaluating both the original position vector and the derivative tangent vector at <m>t=1</m> gives:
+      <me>\mathbf{r}(1) = \mathbf{i} + \mathbf{j} = \langle 1, 1 \rangle</me>
+      <me>\mathbf{r}'(1) = \frac{1}{2}\mathbf{i} - \mathbf{j} = \left\langle \frac{1}{2}, -1 \right\rangle</me>
+    </p>
+    <figure xml:id="fig-tangent-sketch">
+      <caption>The position vector <m>\mathbf{r}(1)</m> and the tangent vector <m>\mathbf{r}'(1)</m> positioned on the curve.</caption>
+      <image xml:id="img-tikz-tangent-sketch" width="60%">
+        <description>A 2D plot showing the parabolic curve trajectory, a blue position vector from the origin to (1,1), and a red tangent vector pointing down and right from (1,1).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[scale=2]
+            % Draw manual tight coordinate axes lines to completely avoid PGFPlots engine bugs
+            \draw[->, thick] (-0.5,0) -- (2.5,0) node[anchor=north east, inner sep=2pt] {$x$};
+            \draw[->, thick] (0,-0.5) -- (0,2.5) node[anchor=north west, inner sep=2pt] {$y$};
+            
+            % Add essential axis tick indicators
+            \draw (1,0.05) -- (1,-0.05) node[below] {$1$};
+            \draw (2,0.05) -- (2,-0.05) node[below] {$2$};
+            \draw (0.05,1) -- (-0.05,1) node[left] {$1$};
+            \draw (0.05,2) -- (-0.05,2) node[left] {$2$};
+
+            % Plot the underlying path trajectory curve: y = 2 - x^2 (using domain x: 0 to 1.5)
+            \draw[gray, thick, smooth, samples=40, domain=0:1.5] plot (\x, {2 - \x*\x});
+            
+            % Position vector r(1) = <1,1> running out directly from the absolute origin
+            \draw[->, blue, ultra thick] (0,0) -- (1,1);
+            \node[blue, above left] at (0.5,0.5) {$\mathbf{r}(1)$};
+            
+            % Tangent vector r'(1) = <0.5, -1> running directly off the baseline point (1,1)
+            % Terminal destination evaluates to (1 + 0.5, 1 - 1) = (1.5, 0)
+            \draw[->, red, ultra thick] (1,1) -- (1.5,0);
+            \node[red, above right] at (1.25,0.5) {$\mathbf{r}'(1)$};
+                
+            % Highlight the primary tracking point configuration
+            \filldraw[black] (1,1) circle (1pt);
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</exercise>
+
+<exercise xml:id="ck-helix-tangent-line">
+  <statement>
+    <p>
+      Find the parametric equations for the tangent line to the helix with the parametric equations:
+      <me>x=2\cos t, \quad y=\sin t, \quad z=t \quad \text{ at the point } (0,1,\pi/2)</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, find the parameter value <m>t_0</m> that corresponds to the given point <m>(0,1,\pi/2)</m>. 
+      Matching the components yields <m>z = t = \pi/2</m>. Testing this value reveals <m>2\cos(\pi/2) = 0</m> and <m>\sin(\pi/2) = 1</m>, which confirms that <m>t_0 = \pi/2</m>.
+    </p>
+    <p>
+      Next, differentiate the vector function <m>\mathbf{r}(t) = \langle 2\cos t, \sin t, t \rangle</m> to find the directional tangent vector:
+      <me>\mathbf{r}'(t) = \langle -2\sin t, \cos t, 1 \rangle</me>
+      Evaluating the direction vector at our parameter point <m>t_0 = \pi/2</m> gives:
+      <me>\mathbf{r}'(\pi/2) = \langle -2(1), 0, 1 \rangle = \langle -2, 0, 1 \rangle</me>
+    </p>
+    <p>
+      Using the base point coordinates <m>(0,1,\pi/2)</m> and the direction components <m>\langle -2,0,1 \rangle</m>, the parametric equations for the tangent line are:
+      <me>x = -2t, \quad y = 1, \quad z = \frac{\pi}{2} + t</me>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="ck-twisted-cubic-tangent-line">
+  <statement>
+    <p>
+      Find the parametric equations for the tangent line to the twisted curve with the parametric equations:
+      <me>x = t, \quad y = t^2, \quad z = t^3 \quad \text{ at the point } t=2</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Evaluate the base point on the curve at <m>t=2</m>:
+      <me>x_0 = 2, \quad y_0 = 2^2 = 4, \quad z_0 = 2^3 = 8 \implies (2,4,8)</me>
+      Differentiate the component expressions to find the general velocity direction profile:
+      <me>\frac{dx}{dt} = 1, \quad \frac{dy}{dt} = 2t, \quad \frac{dz}{dt} = 3t^2</me>
+      Evaluating these derivatives at <m>t=2</m> gives the parallel directional components for our tangent line:
+      <me>\left.\frac{dx}{dt}\right|_{t=2} = 1, \quad \left.\frac{dy}{dt}\right|_{t=2} = 4, \quad \left.\frac{dz}{dt}\right|_{t=2} = 12</me>
+    </p>
+    <p>
+      Using the point <m>(2,4,8)</m> and the direction components vector <m>\langle 1,4,12 \rangle</m>, the parametric equations for the line are:
+      <me>x = 2 + t, \quad y = 4 + 4t, \quad z = 8 + 12t</me>
+    </p>
+  </solution>
+</exercise>
+
+<definition xml:id="defn-smooth-curve">
+  <statement>
+    <p>
+      A curve given by a vector function <m>\mathbf{r}(t)</m> on an interval <m>I</m> is called 
+      <term>smooth</term> if <m>\mathbf{r}'(t)</m> is continuous and <m>\mathbf{r}'(t) \neq \mathbf{0}</m>, 
+      except possibly at the endpoints of <m>I</m>.
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-smooth-semicubical-parabola">
+  <statement>
+    <p>
+      Determine whether the semicubical parabola <m>\mathbf{r}(t)=\langle 1+t^3,t^2 \rangle</m> is smooth.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we compute the derivative vector function component-by-component:
+      <me>\mathbf{r}'(t) = \langle 3t^2, 2t \rangle</me>
+      Both component functions, <m>3t^2</m> and <m>2t</m>, are polynomials, so <m>\mathbf{r}'(t)</m> is continuous everywhere. Next, we determine if there are any parameter values where the derivative vector equals the zero vector:
+      <me>\mathbf{r}'(t) = \langle 0, 0 \rangle \implies 3t^2 = 0 \text{ and } 2t = 0</me>
+      This system yields the single solution <m>t = 0</m>. Since <m>\mathbf{r}'(0) = \mathbf{0}</m> at an interior point of the domain, the curve is <term>not smooth</term> at the origin (it features a sharp cusp).
+    </p>
+  </solution>
+</example>
+
+<p>
+  A curve like the semicubical parabola that is made up of a finite number of smooth pieces is called <term>piecewise smooth</term>.
+</p>
+
+<example xml:id="ex-smooth-helix">
+  <statement>
+    <p>
+      Determine whether the helix <m>\mathbf{r}(t)=\langle 2\cos t, \sin t, t \rangle</m> is smooth.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We find the derivative vector function:
+      <me>\mathbf{r}'(t) = \langle -2\sin t, \cos t, 1 \rangle</me>
+      The components are standard trigonometric and constant functions, meaning <m>\mathbf{r}'(t)</m> is continuous for all real numbers. 
+    </p>
+    <p>
+      For the vector to be the zero vector, all three components must simultaneously equal zero. However, the <m>\mathbf{k}</m>-component is always <m>1 \neq 0</m>. Therefore, <m>\mathbf{r}'(t) \neq \mathbf{0}</m> for all values of <m>t</m>. We conclude that the helix is a <term>smooth curve</term>.
+    </p>
+  </solution>
+</example>
+
+<theorem xml:id="thm-vector-differentiation-rules">
+  <statement>
+    <p>
+      Suppose <m>\mathbf{u}</m> and <m>\mathbf{v}</m> are differentiable vector functions, <m>c</m> is a scalar, and <m>f</m> is a real-valued function. Then:
+    </p>
+    <ol>
+      <li> <p>
+          <me>\frac{d}{dt}[\mathbf{u}(t)+\mathbf{v}(t)]= \mathbf{u}'(t)+\mathbf{v}'(t)</me>
+        </p> </li>
+      <li> <p>
+          <me>\frac{d}{dt}[c\mathbf{u}(t)]= c\mathbf{u}'(t)</me>
+        </p> </li>
+      <li> <p>
+          <me>\frac{d}{dt}[f(t)\mathbf{u}(t)]= f'(t)\mathbf{u}(t)+f(t)\mathbf{u}'(t)</me>
+        </p> </li>
+      <li> <p>
+          <me>\frac{d}{dt}[\mathbf{u}(t)\cdot\mathbf{v}(t)]= \mathbf{u}'(t)\cdot\mathbf{v}(t)+\mathbf{u}(t)\cdot\mathbf{v}'(t)</me>
+        </p> </li>
+      <li> <p>
+          <me>\frac{d}{dt}[\mathbf{u}(t)\times\mathbf{v}(t)]= \mathbf{u}'(t)\times\mathbf{v}(t)+\mathbf{u}(t)\times\mathbf{v}'(t)</me>
+        </p> </li>
+      <li> <p>
+          <me>\frac{d}{dt}[\mathbf{u}(f(t))]= f'(t)\mathbf{u}'(f(t)) \quad \text{(Chain Rule)}</me>
+        </p> </li>
+    </ol>
+  </statement>
+</theorem>
+
+<theorem xml:id="thm-constant-magnitude-orthogonality">
+  <statement>
+    <p>
+      If <m>\mathbf{r}(t)</m> is differentiable and <m>|\mathbf{r}(t)|=c</m> (a constant), then <m>\mathbf{r}'(t)</m> is orthogonal to <m>\mathbf{r}(t)</m> for all <m>t</m> in the domain of <m>\mathbf{r}'(t)</m>:
+      <me>\mathbf{r}(t) \cdot \frac{d\mathbf{r}}{dt} = 0</me>
+    </p>
+  </statement>
+  <proof>
+    <p>
+      Since <m>|\mathbf{r}(t)| = c</m>, squaring both sides gives <m>|\mathbf{r}(t)|^2 = c^2</m>. 
+      Using the relationship between the magnitude and the dot product, we can rewrite this as:
+      <me>\mathbf{r}(t) \cdot \mathbf{r}(t) = c^2</me>
+      Differentiating both sides with respect to <m>t</m> using the dot product rule yields:
+      <me>\mathbf{r}'(t) \cdot \mathbf{r}(t) + \mathbf{r}(t) \cdot \mathbf{r}'(t) = 0</me>
+      Since the dot product is commutative, we combine the terms:
+      <me>2\left(\mathbf{r}(t) \cdot \mathbf{r}'(t)\right) = 0 \implies \mathbf{r}(t) \cdot \frac{d\mathbf{r}}{dt} = 0</me>
+      Because their dot product is zero, the position vector <m>\mathbf{r}(t)</m> and the derivative vector <m>\mathbf{r}'(t)</m> are orthogonal.
+    </p>
+  </proof>
+</theorem>
+
+</section>

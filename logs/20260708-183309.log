@@ -1,0 +1,62 @@
+INFO    : Building target course
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : Generating any needed assets.
+WARNING : Now generating latex images
+INFO    : converting latex-image pictures from /workspaces/Calculus_III/source/main.ptx to svg graphics for placement in /workspaces/Calculus_III/generated-assets/latex-image
+INFO    : extracting latex-image pictures from /workspaces/Calculus_III/source/main.ptx
+INFO    : string parameters passed to extraction stylesheet: {'cli.version': '2.38', 'publisher': '/workspaces/Calculus_III/publication/publication.ptx'}
+INFO    : discovering source file's directory name: /workspaces/Calculus_III/source
+INFO    : verifying and expanding input directory: /workspaces/Calculus_III/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/Calculus_III/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/Calculus_III/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/Calculus_III/assets
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/extract-latex-image.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/extract-latex-image.xsl
+INFO    : converting img-tikz-vectors.tex to img-tikz-vectors.pdf
+ERROR   : LaTeX compilation of img-tikz-vectors.tex failed.
+Re-run, requesting "source" as the format, to analyze the image.
+Likely creating the entire document as PDF will fail similarly.
+The transcript of the LaTeX run follows.
+WARNING : LaTeX compilation of img-tikz-vectors.tex failed
+ERROR   : Unable to generate some latex-image assets:
+ LaTeX compilation failed for 1 "latex-image"(s).
+Review the log for error messages, and LaTeX transcripts.
+Images are:
+  img-tikz-vectors.tex
+INFO    : Removing temporary directory /tmp/ptx-j3mdub6u
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /workspaces/Calculus_III/output/course.
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 8.1.9
+INFO    : Downloading Runestone Services, version 8.1.9
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-denver
+INFO    : converting /workspaces/Calculus_III/source/main.ptx to HTML in /tmp/ptx-btwgip3g
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/pretext-html.xsl
+INFO    : messages from the log for XSL processing:
+WARNING : * PTX:WARNING: In a section containing subsections, any content that is not inside a subsection needs to be inside an <introduction> and/or  <conclusion>.
+INFO    : *              located within: "sec-dot-product" (xml:id), "1.3 The Dot Product" (title)
+INFO    : *              located within: "sec-cross-product" (xml:id), "1.4 The Cross Product (The vector product)" (title)
+INFO    : *              located within: "sec-lines-planes" (xml:id), "1.5 Lines and Planes" (title)
+INFO    : *              located within: "sec-Vector-valued-functions" (xml:id), "2.1 Vector-valued Functions and space curves" (title)
+INFO    : *              located within: "2.2 Derivatives of Vector Functions" (title)
+INFO    : * PTX:INFO:   checking all deprecated elements.
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/pretext-html.xsl
+INFO    : Removing temporary directory /tmp/ptx-btwgip3g
+INFO    : Removing temporary directory /tmp/ptx-wgaiqpyh
+INFO    : 
+Finished build for target course. Run `pretext view course` to see the results.
+
+CRITICAL: There were errors during the build.  See above.
+INFO    : ------------------------
+CRITICAL: Failed to build without errors.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

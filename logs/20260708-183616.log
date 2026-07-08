@@ -1,0 +1,36 @@
+INFO    : Building target print
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : Generating any needed assets.
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /workspaces/Calculus_III/output/print.
+INFO    : discovering source file's directory name: /workspaces/Calculus_III/source
+INFO    : verifying and expanding input directory: /workspaces/Calculus_III/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/Calculus_III/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/Calculus_III/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/Calculus_III/assets
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : converting /workspaces/Calculus_III/source/main.ptx to LaTeX as /tmp/ptx-ad5n9b9t/main.tex
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/pretext-latex.xsl
+INFO    : messages from the log for XSL processing:
+WARNING : * PTX:WARNING: In a section containing subsections, any content that is not inside a subsection needs to be inside an <introduction> and/or  <conclusion>.
+INFO    : *              located within: "sec-dot-product" (xml:id), "1.3 The Dot Product" (title)
+INFO    : *              located within: "sec-cross-product" (xml:id), "1.4 The Cross Product (The vector product)" (title)
+INFO    : *              located within: "sec-lines-planes" (xml:id), "1.5 Lines and Planes" (title)
+INFO    : *              located within: "sec-Vector-valued-functions" (xml:id), "2.1 Vector-valued Functions and space curves" (title)
+INFO    : *              located within: "2.2 Derivatives of Vector Functions" (title)
+INFO    : * PTX:INFO:   checking all deprecated elements.
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/pretext-latex.xsl
+INFO    : Rerunning LaTeX for main.tex (pass 2)
+INFO    : Removing temporary directory /tmp/ptx-ad5n9b9t
+INFO    : Removing temporary directory /tmp/ptx-4n2sh5pp
+INFO    : Removing temporary directory /tmp/ptx-5w1j71dw
+INFO    : 
+Finished build for target print. The output is in /workspaces/Calculus_III/output/print.
+
+INFO    : 
+Success!  Built requested target(s) without errors.
+
+INFO    : 

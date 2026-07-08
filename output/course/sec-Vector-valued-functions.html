@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>2.1 Vector-valued Functions and space curves</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.9';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.846a0d6fafaa99e0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bbcfc02849ebc023.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-Vector-valued-functions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Vector-valued-functions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-Vector-valued-functions-4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">3</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">4</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet: Vectors and the Geometry of Space</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">5</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">6</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-Vector-valued-functions">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">2.1 Vector-valued Functions and space curves</span>
+</h2>
+<div class="para" id="sec-Vector-valued-functions-2">A vector-valued function is a function that takes one or more variables and returns a vector. It can be represented in the form:<div class="autopermalink" data-description="Paragraph"><a href="#sec-Vector-valued-functions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="sec-Vector-valued-functions-3">
+\begin{equation*}
+\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle
+\end{equation*}
+</div>
+<div class="para" id="sec-Vector-valued-functions-4">where <span class="process-math">\(x(t)\text{,}\)</span> <span class="process-math">\(y(t)\text{,}\)</span> and <span class="process-math">\(z(t)\)</span> are scalar functions of the variable <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-Vector-valued-functions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="defn-vector-valued-function"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="defn-vector-valued-function-1-1">
+<div class="para">A <dfn class="terminology">vector-valued function</dfn> is a function whose domain is a set of real numbers and whose range is a set of vectors. Let <span class="process-math">\(D\)</span> be a set of real numbers. Then the three components of the vector-valued function <span class="process-math">\(\mathbf{r}(t)\)</span> are uniquely determined:</div>
+<div class="displaymath process-math" id="defn-vector-valued-function-1-1-4">
+\begin{equation*}
+\mathbf{r}(t) = \langle x(t),y(t),z(t) \rangle = x(t)\mathbf{i}+y(t)\mathbf{j}+z(t)\mathbf{k}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> are scalar functions with the domain <span class="process-math">\(D\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defn-vector-valued-function-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.1"><a href="#defn-vector-valued-function" title="Copy heading and permalink for Definition 2.1" aria-label="Copy heading and permalink for Definition 2.1">🔗</a></div>
+</article>
+<details id="ex-component-functions" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-component-functions-1-1">If <span class="process-math">\(\mathbf{r}(t) = \langle t^3,\ln{(3-t)},\sqrt{t} \rangle\text{,}\)</span> find the component functions.<div class="autopermalink" data-description="Paragraph"><a href="#ex-component-functions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-component-functions-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-component-functions-2-1">
+<div class="para">By identifying the scalar functions multiplying each unit vector or filling each slot, the component functions are:</div>
+<div class="displaymath process-math" id="ex-component-functions-2-1-1">
+\begin{equation*}
+x(t)=t^3, \quad y(t)=\ln{(3-t)}, \quad z(t)=\sqrt{t}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-component-functions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.2.1"><a href="#ex-component-functions-2" title="Copy heading and permalink for Solution 2.2.1" aria-label="Copy heading and permalink for Solution 2.2.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.2"><a href="#ex-component-functions" title="Copy heading and permalink for Example 2.2" aria-label="Copy heading and permalink for Example 2.2">🔗</a></div>
+</article></details>
+<details id="ex-vector-coordinate-planes" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-vector-coordinate-planes-1-1">Let <span class="process-math">\(\mathbf{r}(t)=\langle t+1,t^2-4,t^2 \rangle\)</span> for <span class="process-math">\(t\in\mathbb{R}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-coordinate-planes-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal" id="ex-vector-coordinate-planes-1-2">
+<li id="ex-vector-coordinate-planes-1-2-1">
+<div class="para" id="ex-vector-coordinate-planes-1-2-1-1">Sketch <span class="process-math">\(\mathbf{r}(1)\)</span> and <span class="process-math">\(\mathbf{r}(3)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-coordinate-planes-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-vector-coordinate-planes-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-vector-coordinate-planes-1-2-2">
+<div class="para" id="ex-vector-coordinate-planes-1-2-2-1">Find the vectors <span class="process-math">\(\mathbf{r}(t)\)</span> that are in a coordinate plane.<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-coordinate-planes-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-vector-coordinate-planes-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-vector-coordinate-planes-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal" id="ex-vector-coordinate-planes-2-1">
+<li id="ex-vector-coordinate-planes-2-1-1">
+<div class="para logical" id="ex-vector-coordinate-planes-2-1-1-1">
+<div class="para">The positions vectors are evaluated at the given parameter inputs:</div>
+<div class="displaymath process-math" id="ex-vector-coordinate-planes-2-1-1-1-1">
+\begin{align*}
+\mathbf{r}(1) \amp = \langle 1+1, 1^2-4, 1^2 \rangle = \langle 2, -3, 1 \rangle\\
+\mathbf{r}(3) \amp = \langle 3+1, 3^2-4, 3^2 \rangle = \langle 4, 5, 9 \rangle
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-coordinate-planes-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-vector-sketch-120"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-tikz-vectors-120.svg" role="img" class="contained" alt="A 3D plot rotated to 120 degrees horizontal showing the parametric space curve and clean separation between vectors r(1) and r(3)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A 3D coordinate system showing the evaluation points on the path viewed at a <span class="process-math">\(120^\circ\)</span> horizontal rotation.<div class="autopermalink" data-description="Figure 2.4"><a href="#fig-vector-sketch-120" title="Copy heading and permalink for Figure 2.4" aria-label="Copy heading and permalink for Figure 2.4">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Item 1"><a href="#ex-vector-coordinate-planes-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-vector-coordinate-planes-2-1-2">
+<div class="para" id="ex-vector-coordinate-planes-2-1-2-1">We analyze each coordinate plane by setting the appropriate component to zero:<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-coordinate-planes-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="ex-vector-coordinate-planes-2-1-2-2">
+<li id="ex-vector-coordinate-planes-2-1-2-2-1">
+<div class="para logical" id="ex-vector-coordinate-planes-2-1-2-2-1-1">
+<div class="para">
+<span class="process-math">\(xy\)</span>-plane : The <span class="process-math">\(\mathbf{k}\)</span>-component is zero.</div>
+<div class="displaymath process-math" id="ex-vector-coordinate-planes-2-1-2-2-1-1-3">
+\begin{align*}
+t^2 = 0 \amp \implies t = 0\\
+\amp \implies \mathbf{r}(0) = \langle 1,-4,0 \rangle
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-coordinate-planes-2-1-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#ex-vector-coordinate-planes-2-1-2-2-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="ex-vector-coordinate-planes-2-1-2-2-2">
+<div class="para logical" id="ex-vector-coordinate-planes-2-1-2-2-2-1">
+<div class="para">
+<span class="process-math">\(yz\)</span>-plane : The <span class="process-math">\(\mathbf{i}\)</span>-component is zero.</div>
+<div class="displaymath process-math" id="ex-vector-coordinate-planes-2-1-2-2-2-1-3">
+\begin{align*}
+t + 1 = 0 \amp \implies t = -1\\
+\amp \implies \mathbf{r}(-1) = \langle 0,-3,1 \rangle
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-coordinate-planes-2-1-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#ex-vector-coordinate-planes-2-1-2-2-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+<li id="ex-vector-coordinate-planes-2-1-2-2-3">
+<div class="para logical" id="ex-vector-coordinate-planes-2-1-2-2-3-1">
+<div class="para">
+<span class="process-math">\(xz\)</span>-plane : The <span class="process-math">\(\mathbf{j}\)</span>-component is zero.</div>
+<div class="displaymath process-math" id="ex-vector-coordinate-planes-2-1-2-2-3-1-3">
+\begin{align*}
+t^2 - 4 = 0 \amp \implies t = 2 \text{ or } t = -2\\
+\amp \implies \mathbf{r}(2) = \langle 3,0,4 \rangle\\
+\amp \text{and } \mathbf{r}(-2) = \langle -1,0,4 \rangle
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-coordinate-planes-2-1-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.c"><a href="#ex-vector-coordinate-planes-2-1-2-2-3" title="Copy heading and permalink for Item 2.c" aria-label="Copy heading and permalink for Item 2.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-vector-coordinate-planes-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 2.3.1"><a href="#ex-vector-coordinate-planes-2" title="Copy heading and permalink for Solution 2.3.1" aria-label="Copy heading and permalink for Solution 2.3.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.3"><a href="#ex-vector-coordinate-planes" title="Copy heading and permalink for Example 2.3" aria-label="Copy heading and permalink for Example 2.3">🔗</a></div>
+</article></details>
+<section class="subsection" id="subsec-Limits-and-Continuity">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits and Continuity</span>
+</h3>
+<article class="definition definition-like" id="defn-vector-limit-continuity"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="defn-vector-limit-continuity-1-1">
+<div class="para">The <dfn class="terminology">limit</dfn> of a vector function <span class="process-math">\(\mathbf{r}(t)=\langle x(t),y(t),z(t) \rangle\)</span> is defined by taking the limits of its component functions:</div>
+<div class="displaymath process-math" id="defn-vector-limit-continuity-1-1-3">
+\begin{equation*}
+\lim_{t\to a}\mathbf{r}(t)=\langle \lim_{t\to a}x(t), \lim_{t\to a}y(t), \lim_{t\to a}z(t) \rangle
+\end{equation*}
+</div>
+<div class="para">provided the limits of the component functions exist.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defn-vector-limit-continuity-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="defn-vector-limit-continuity-1-2">
+<div class="para">A vector function <span class="process-math">\(\mathbf{r}(t)\)</span> is <dfn class="terminology">continuous at <span class="process-math">\(a\)</span></dfn> if:</div>
+<div class="displaymath process-math" id="defn-vector-limit-continuity-1-2-3">
+\begin{equation*}
+\lim_{t\to a}\mathbf{r}(t)=\mathbf{r}(a)
+\end{equation*}
+</div>
+<div class="para">Equivalently, <span class="process-math">\(\mathbf{r}(t)\)</span> is continuous at <span class="process-math">\(a\)</span> if and only if its component functions <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> are continuous at <span class="process-math">\(a\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defn-vector-limit-continuity-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.5"><a href="#defn-vector-limit-continuity" title="Copy heading and permalink for Definition 2.5" aria-label="Copy heading and permalink for Definition 2.5">🔗</a></div>
+</article>
+<details id="ex-vector-limit-evaluation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-vector-limit-evaluation-1-1">
+<div class="para">Find <span class="process-math">\(\lim_{t\to 0}\mathbf{r}(t)\text{,}\)</span> where:</div>
+<div class="displaymath process-math" id="ex-vector-limit-evaluation-1-1-2">
+\begin{equation*}
+\mathbf{r}(t)=\left\langle 1+t^3, te^{-t}, \frac{\sin t}{t} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-limit-evaluation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-vector-limit-evaluation-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-vector-limit-evaluation-2-1">
+<div class="para">We evaluate the limit by computing the limit of each component function individually as <span class="process-math">\(t \to 0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-vector-limit-evaluation-2-1-2">
+\begin{align*}
+\lim_{t\to 0} (1+t^3) \amp = 1 + 0^3 = 1\\
+\lim_{t\to 0} (te^{-t}) \amp = 0 \cdot e^{0} = 0\\
+\lim_{t\to 0} \left(\frac{\sin t}{t}\right) \amp = 1
+\end{align*}
+</div>
+<div class="para">Combining these results into a single vector gives:</div>
+<div class="displaymath process-math" id="ex-vector-limit-evaluation-2-1-3">
+\begin{equation*}
+\lim_{t\to 0}\mathbf{r}(t) = \langle 1, 0, 1 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-limit-evaluation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.6.1"><a href="#ex-vector-limit-evaluation-2" title="Copy heading and permalink for Solution 2.6.1" aria-label="Copy heading and permalink for Solution 2.6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.6"><a href="#ex-vector-limit-evaluation" title="Copy heading and permalink for Example 2.6" aria-label="Copy heading and permalink for Example 2.6">🔗</a></div>
+</article></details>
+<div class="para logical" id="subsec-Limits-and-Continuity-4">
+<div class="para">Suppose that <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(g\text{,}\)</span> and <span class="process-math">\(h\)</span> are continuous on an interval <span class="process-math">\(I\text{.}\)</span> Then the set <span class="process-math">\(C\)</span> of all points <span class="process-math">\((x,y,z)\)</span> in space, where:</div>
+<div class="displaymath process-math" id="subsec-Limits-and-Continuity-4-7">
+\begin{equation*}
+x=f(t),\quad y=g(t),\quad z=h(t)
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(t\)</span> varies in <span class="process-math">\(I\text{,}\)</span> is called a <dfn class="terminology">space curve</dfn>. The equations are called the <dfn class="terminology">parametric equations of C</dfn> with a <dfn class="terminology">parameter</dfn> <span class="process-math">\(t\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limits-and-Continuity-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-vector-line-equation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-vector-line-equation-1-1">
+<div class="para">Describe the curve defined by the vector function:</div>
+<div class="displaymath process-math" id="ex-vector-line-equation-1-1-1">
+\begin{equation*}
+\mathbf{r}(t)=\langle 1+t,2+5t,-1+6t \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-line-equation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-vector-line-equation-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-vector-line-equation-2-1">
+<div class="para">The corresponding parametric equations are:</div>
+<div class="displaymath process-math" id="ex-vector-line-equation-2-1-1">
+\begin{equation*}
+x=1+t,\quad y=2+5t,\quad z=-1+6t
+\end{equation*}
+</div>
+<div class="para">These are the parametric equations of a line passing through the point <span class="process-math">\((1,2,-1)\)</span> and parallel to the vector <span class="process-math">\(\langle 1,5,6 \rangle\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-line-equation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-vector-line-equation-2-2">
+<div class="para">Alternatively, we can observe that the function can be written as:</div>
+<div class="displaymath process-math" id="ex-vector-line-equation-2-2-1">
+\begin{equation*}
+\mathbf{r}(t)=\mathbf{r}_0+t\mathbf{v}, \quad \text{where } \mathbf{r}_0=\langle 1,2,-1 \rangle \text{ and } \mathbf{v}=\langle 1,5,6 \rangle
+\end{equation*}
+</div>
+<div class="para">which is the vector equation of a line.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-vector-line-equation-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.7.1"><a href="#ex-vector-line-equation-2" title="Copy heading and permalink for Solution 2.7.1" aria-label="Copy heading and permalink for Solution 2.7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.7"><a href="#ex-vector-line-equation" title="Copy heading and permalink for Example 2.7" aria-label="Copy heading and permalink for Example 2.7">🔗</a></div>
+</article></details>
+<details id="ex-helix-sketch" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-helix-sketch-1-1">
+<div class="para">Sketch the curve whose vector equation is:</div>
+<div class="displaymath process-math" id="ex-helix-sketch-1-1-1">
+\begin{equation*}
+\mathbf{r}(t)=\cos t\mathbf{i}+\sin t\mathbf{j}+t\mathbf{k}
+\end{equation*}
+</div>
+<div class="para">This curve is called a <dfn class="terminology">helix</dfn>. This occurs in the model of DNA.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-sketch-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-helix-sketch-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-helix-sketch-2-1">As the parameter <span class="process-math">\(t\)</span> increases, the <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-components trace out a circle of radius <span class="process-math">\(1\)</span> in the horizontal plane via <span class="process-math">\(x = \cos t\)</span> and <span class="process-math">\(y = \sin t\text{.}\)</span> Concurrently, the <span class="process-math">\(z\)</span>-component increases linearly since <span class="process-math">\(z = t\text{.}\)</span> The combination of this circular base rotation and vertical motion generates a spiral path that climbs upward along the surface of a cylinder.<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-sketch-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-circular-helix-optimized"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-tikz-helix-optimized.svg" role="img" class="contained" alt="A 3D parametric plot scaled for 60% HTML visibility and 100% text width on printed pages."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A 3D coordinate system tracing the path of a circular helix.<div class="autopermalink" data-description="Figure 2.9"><a href="#fig-circular-helix-optimized" title="Copy heading and permalink for Figure 2.9" aria-label="Copy heading and permalink for Figure 2.9">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 2.8.1"><a href="#ex-helix-sketch-2" title="Copy heading and permalink for Solution 2.8.1" aria-label="Copy heading and permalink for Solution 2.8.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.8"><a href="#ex-helix-sketch" title="Copy heading and permalink for Example 2.8" aria-label="Copy heading and permalink for Example 2.8">🔗</a></div>
+</article></details>
+<div class="para logical" id="subsec-Limits-and-Continuity-7">
+<div class="para">Recall a vector equation for the line segment that joins the tip of the vector <span class="process-math">\(\mathbf{r}_0\)</span> to the tip of the vector <span class="process-math">\(\mathbf{r}_1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Limits-and-Continuity-7-3">
+\begin{equation*}
+\mathbf{r}(t)=(1-t)\mathbf{r}_0 +t\mathbf{r}_1\quad\quad 0\le t\le 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limits-and-Continuity-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-line-segment-joining" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-line-segment-joining-1-1">Find a vector equation and parametric equations for the line segment that joins the point <span class="process-math">\(P(1,3,-2)\)</span> to the point <span class="process-math">\(Q(2,-1,3)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-segment-joining-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-line-segment-joining-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-line-segment-joining-2-1">
+<div class="para">Using the points as components for the position vectors <span class="process-math">\(\mathbf{r}_0 = \langle 1,3,-2 \rangle\)</span> and <span class="process-math">\(\mathbf{r}_1 = \langle 2,-1,3 \rangle\text{,}\)</span> the vector equation is:</div>
+<div class="displaymath process-math" id="ex-line-segment-joining-2-1-3">
+\begin{equation*}
+\mathbf{r}(t)=\langle 1+t, \ 3-4t, \ -2 +5t \rangle, \quad 0 \le t \le 1
+\end{equation*}
+</div>
+<div class="para">The corresponding parametric equations are:</div>
+<div class="displaymath process-math" id="ex-line-segment-joining-2-1-4">
+\begin{equation*}
+x=1+t,\quad y=3-4t, \quad z=-2+5t\quad\quad 0\le t\le 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-segment-joining-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.10.1"><a href="#ex-line-segment-joining-2" title="Copy heading and permalink for Solution 2.10.1" aria-label="Copy heading and permalink for Solution 2.10.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.10"><a href="#ex-line-segment-joining" title="Copy heading and permalink for Example 2.10" aria-label="Copy heading and permalink for Example 2.10">🔗</a></div>
+</article></details>
+<details id="ex-cylinder-plane-intersection-rotated-80" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-cylinder-plane-intersection-rotated-80-1-1">Find a vector function that represents the curve of the intersection of the cylinder <span class="process-math">\(x^2+y^2=1\)</span> and the plane <span class="process-math">\(y+z=2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-cylinder-plane-intersection-rotated-80-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-cylinder-plane-intersection-rotated-80-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-cylinder-plane-intersection-rotated-80-2-1">
+<div class="para">The projection of the intersection curve <span class="process-math">\(C\)</span> onto the <span class="process-math">\(xy\)</span>-plane is the unit circle <span class="process-math">\(x^2+y^2=1\)</span> with <span class="process-math">\(z=0\text{.}\)</span> We can parameterize this circular footprint as:</div>
+<div class="displaymath process-math" id="ex-cylinder-plane-intersection-rotated-80-2-1-5">
+\begin{equation*}
+x=\cos t, \quad y=\sin t \quad \quad 0 \le t \le 2\pi
+\end{equation*}
+</div>
+<div class="para">To find the corresponding <span class="process-math">\(z\)</span>-coordinate along the path, substitute the expression for <span class="process-math">\(y\)</span> into the plane equation <span class="process-math">\(y+z=2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-cylinder-plane-intersection-rotated-80-2-1-9">
+\begin{equation*}
+z = 2 - y = 2 - \sin t
+\end{equation*}
+</div>
+<div class="para">Thus, the parametric equations for <span class="process-math">\(C\)</span> are <span class="process-math">\(x=\cos t\text{,}\)</span> <span class="process-math">\(y=\sin t\text{,}\)</span> and <span class="process-math">\(z=2-\sin t\text{.}\)</span> The corresponding vector function is:</div>
+<div class="displaymath process-math" id="ex-cylinder-plane-intersection-rotated-80-2-1-14">
+\begin{equation*}
+\mathbf{r}(t)=\cos t\mathbf{i}+\sin t\mathbf{j}+(2-\sin t)\mathbf{k} \quad \quad 0 \le t \le 2\pi
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cylinder-plane-intersection-rotated-80-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cylinder-plane-rotated-80"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/img-tikz-intersection-rotated-80.svg" role="img" class="contained" alt="A 3D coordinate plot showing an orange elliptical intersection inside a transparent cylinder with clean, separated text labels for the curve points."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The colored intersection region viewed from an <span class="process-math">\(80^\circ\)</span> horizontal rotation to separate tracking nodes.<div class="autopermalink" data-description="Figure 2.12"><a href="#fig-cylinder-plane-rotated-80" title="Copy heading and permalink for Figure 2.12" aria-label="Copy heading and permalink for Figure 2.12">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 2.11.1"><a href="#ex-cylinder-plane-intersection-rotated-80-2" title="Copy heading and permalink for Solution 2.11.1" aria-label="Copy heading and permalink for Solution 2.11.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.11"><a href="#ex-cylinder-plane-intersection-rotated-80" title="Copy heading and permalink for Example 2.11" aria-label="Copy heading and permalink for Example 2.11">🔗</a></div>
+</article></details>
+<details id="ex-twisted-cubic" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-twisted-cubic-1-1">
+<div class="para">Sketch the curve whose vector equation is:</div>
+<div class="displaymath process-math" id="ex-twisted-cubic-1-1-1">
+\begin{equation*}
+\mathbf{r}(t)=t\mathbf{i}+ t^2\mathbf{j}+t^3\mathbf{k}\quad t \ge 0
+\end{equation*}
+</div>
+<div class="para">This curve is called a <dfn class="terminology">twisted cubic</dfn>. You can view this curve as the intersection of the cylinders <span class="process-math">\(y=x^2\)</span> and <span class="process-math">\(z=x^3\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-twisted-cubic-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-twisted-cubic-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-twisted-cubic-2-1">As <span class="process-math">\(t\)</span> increases from <span class="process-math">\(0\text{,}\)</span> the path traces out a curve where the <span class="process-math">\(y\)</span>-coordinate grows quadratically relative to <span class="process-math">\(x\text{,}\)</span> and the <span class="process-math">\(z\)</span>-coordinate grows cubically.<div class="autopermalink" data-description="Paragraph"><a href="#ex-twisted-cubic-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-twisted-cubic"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-tikz-twisted-cubic.svg" role="img" class="contained" alt="A 3D coordinate plot showing the cubic trajectory starting at the origin and curving upward into the first octant."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The parametric path of a twisted cubic curve for <span class="process-math">\(t \ge 0\text{.}\)</span><div class="autopermalink" data-description="Figure 2.14"><a href="#fig-twisted-cubic" title="Copy heading and permalink for Figure 2.14" aria-label="Copy heading and permalink for Figure 2.14">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 2.13.1"><a href="#ex-twisted-cubic-2" title="Copy heading and permalink for Solution 2.13.1" aria-label="Copy heading and permalink for Solution 2.13.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.13"><a href="#ex-twisted-cubic" title="Copy heading and permalink for Example 2.13" aria-label="Copy heading and permalink for Example 2.13">🔗</a></div>
+</article></details>
+<details id="exercise-2d-parabola-orientation" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-2d-parabola-orientation-1-1">Let <span class="process-math">\(\mathbf{r}(t)=2t\mathbf{i}+ (8-2t^2)\mathbf{j}\)</span> for <span class="process-math">\(-2 \le t \le 2\text{.}\)</span> Sketch the curve <span class="process-math">\(C\)</span> defined by <span class="process-math">\(\mathbf{r}(t)\)</span> and indicate its orientation.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-2d-parabola-orientation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-2d-parabola-orientation-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-2d-parabola-orientation-2-1">
+<div class="para">Eliminating the parameter yields <span class="process-math">\(t = x/2\text{.}\)</span> Substituting this into the <span class="process-math">\(y\)</span>-component gives the Cartesian equation:</div>
+<div class="displaymath process-math" id="exercise-2d-parabola-orientation-2-1-3">
+\begin{equation*}
+y = 8 - 2\left(\frac{x}{2}\right)^2 = 8 - \frac{1}{2}x^2
+\end{equation*}
+</div>
+<div class="para">This is a downward-opening parabola. As <span class="process-math">\(t\)</span> goes from <span class="process-math">\(-2\)</span> to <span class="process-math">\(2\text{,}\)</span> the curve is traced from left to right starting at <span class="process-math">\((-4,0)\text{,}\)</span> passing through the vertex at <span class="process-math">\((0,8)\text{,}\)</span> and ending at <span class="process-math">\((4,0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-2d-parabola-orientation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-parabola-orientation"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-tikz-parabola.svg" role="img" class="contained" alt="A 2D plot of a downward parabola with arrows showing movement from left to right."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Downward parabola showing left-to-right orientation arrows.<div class="autopermalink" data-description="Figure 2.16"><a href="#fig-parabola-orientation" title="Copy heading and permalink for Figure 2.16" aria-label="Copy heading and permalink for Figure 2.16">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 2.15.1"><a href="#exercise-2d-parabola-orientation-2" title="Copy heading and permalink for Solution 2.15.1" aria-label="Copy heading and permalink for Solution 2.15.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.15"><a href="#exercise-2d-parabola-orientation" title="Copy heading and permalink for Checkpoint 2.15" aria-label="Copy heading and permalink for Checkpoint 2.15">🔗</a></div>
+</article></details>
+<details id="ck-spiral-orientation" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="ck-spiral-orientation-1-1">Let <span class="process-math">\(\mathbf{r}(t)=\left(\frac{1}{2}t\cos t\right)\mathbf{i}+ \left(\frac{1}{2}t\sin t\right)\mathbf{j}\)</span> for <span class="process-math">\(0 \le t \le 3\pi\text{.}\)</span> Sketch the curve <span class="process-math">\(C\)</span> defined by <span class="process-math">\(\mathbf{r}(t)\)</span> and indicate its orientation.<div class="autopermalink" data-description="Paragraph"><a href="#ck-spiral-orientation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ck-spiral-orientation-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ck-spiral-orientation-2-1">In polar coordinates, this curve can be viewed as the spiral <span class="process-math">\(r = \frac{1}{2}\theta\text{,}\)</span> where the parameter <span class="process-math">\(t\)</span> acts as the angle <span class="process-math">\(\theta\text{.}\)</span> As <span class="process-math">\(t\)</span> increases from <span class="process-math">\(0\)</span> to <span class="process-math">\(3\pi\text{,}\)</span> the point winds counterclockwise outward from the origin, completing one and a half full revolutions.<div class="autopermalink" data-description="Paragraph"><a href="#ck-spiral-orientation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-spiral-check"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-tikz-spiral-check.svg" role="img" class="contained" alt="A 2D polar plot tracking a counterclockwise spiral starting at the origin and winding outward to a final radius at 3 pi over 2 on the negative y axis."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An Archimedean spiral winding outward counterclockwise with directional indicators.<div class="autopermalink" data-description="Figure 2.18"><a href="#fig-spiral-check" title="Copy heading and permalink for Figure 2.18" aria-label="Copy heading and permalink for Figure 2.18">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 2.17.1"><a href="#ck-spiral-orientation-2" title="Copy heading and permalink for Solution 2.17.1" aria-label="Copy heading and permalink for Solution 2.17.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.17"><a href="#ck-spiral-orientation" title="Copy heading and permalink for Checkpoint 2.17" aria-label="Copy heading and permalink for Checkpoint 2.17">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subsection: Limits and Continuity"><a href="#subsec-Limits-and-Continuity" title="Copy heading and permalink for Subsection: Limits and Continuity" aria-label="Copy heading and permalink for Subsection: Limits and Continuity">🔗</a></div>
+</section><div class="autopermalink" data-description="Section: 2.1 Vector-valued Functions and space curves"><a href="#sec-Vector-valued-functions" title="Copy heading and permalink for Section: 2.1 Vector-valued Functions and space curves" aria-label="Copy heading and permalink for Section: 2.1 Vector-valued Functions and space curves">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-Vector-valued-functions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-Vector-valued-functions-4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
