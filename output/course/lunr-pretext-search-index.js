@@ -1432,6 +1432,429 @@ var ptx_lunr_docs = [
   "body": "  If is differentiable and (a constant), then is orthogonal to for all in the domain of :     Since , squaring both sides gives . Using the relationship between the magnitude and the dot product, we can rewrite this as: Differentiating both sides with respect to using the dot product rule yields: Since the dot product is commutative, we combine the terms: Because their dot product is zero, the position vector and the derivative vector are orthogonal.   "
 },
 {
+  "id": "ch-Vector-valued-functions-5",
+  "level": "1",
+  "url": "ch-Vector-valued-functions-5.html",
+  "type": "Section",
+  "number": "",
+  "title": "2.3 Integrals of Vector Functions",
+  "body": " 2.3 Integrals of Vector Functions  In this section, we will discuss the integrals of vector functions. A vector function is a function that takes one or more variables and returns a vector. The integral of a vector function can be computed component-wise, meaning that we can integrate each component of the vector function separately.   Indefinite Integral   If is an antiderivative of , then:       Let where , , and are integrable on . Then we say is integrable on and: If , then is an antiderivative of .      Evaluate:     We integrate each component function independently over the interval by applying the Fundamental Theorem of Calculus component-wise:       If is an antiderivative of on , then:       If , find .    We find an antiderivative vector function by integrating each scalar component function: Now, apply the Fundamental Theorem of Calculus by evaluating from to :       A particle traveling in a straight line is located at the point and has speed at time . The particle moves toward the point with constant acceleration . Find its position vector at time .    First, we establish our initial conditions at . The initial position vector is given directly by the starting coordinates: To find the initial velocity vector , we know the particle moves from toward . The direction vector is: We normalize this direction vector to get a unit direction vector: Multiplying the initial speed of by this unit direction vector yields our initial velocity vector:   Next, we find the general velocity vector by integrating the constant acceleration vector: Using our initial velocity condition at reveals , so:   Finally, we integrate the velocity vector function to find the position vector function : Using our initial position condition at reveals . Combining these gives the final position vector function:     "
+},
+{
+  "id": "defn-vector-indefinite-integral",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-5.html#defn-vector-indefinite-integral",
+  "type": "Definition",
+  "number": "2.33",
+  "title": "Indefinite Integral.",
+  "body": " Indefinite Integral   If is an antiderivative of , then:    "
+},
+{
+  "id": "defn-vector-definite-integral",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-5.html#defn-vector-definite-integral",
+  "type": "Definition",
+  "number": "2.34",
+  "title": "",
+  "body": "  Let where , , and are integrable on . Then we say is integrable on and: If , then is an antiderivative of .   "
+},
+{
+  "id": "ex-evaluate-vector-integral",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-5.html#ex-evaluate-vector-integral",
+  "type": "Example",
+  "number": "2.35",
+  "title": "",
+  "body": "  Evaluate:     We integrate each component function independently over the interval by applying the Fundamental Theorem of Calculus component-wise:    "
+},
+{
+  "id": "thm-vector-ftc",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-5.html#thm-vector-ftc",
+  "type": "Theorem",
+  "number": "2.36",
+  "title": "",
+  "body": "  If is an antiderivative of on , then:    "
+},
+{
+  "id": "ex-vector-ftc-evaluation",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-5.html#ex-vector-ftc-evaluation",
+  "type": "Example",
+  "number": "2.37",
+  "title": "",
+  "body": "  If , find .    We find an antiderivative vector function by integrating each scalar component function: Now, apply the Fundamental Theorem of Calculus by evaluating from to :    "
+},
+{
+  "id": "ex-vector-particle-kinematics",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-5.html#ex-vector-particle-kinematics",
+  "type": "Example",
+  "number": "2.38",
+  "title": "",
+  "body": "  A particle traveling in a straight line is located at the point and has speed at time . The particle moves toward the point with constant acceleration . Find its position vector at time .    First, we establish our initial conditions at . The initial position vector is given directly by the starting coordinates: To find the initial velocity vector , we know the particle moves from toward . The direction vector is: We normalize this direction vector to get a unit direction vector: Multiplying the initial speed of by this unit direction vector yields our initial velocity vector:   Next, we find the general velocity vector by integrating the constant acceleration vector: Using our initial velocity condition at reveals , so:   Finally, we integrate the velocity vector function to find the position vector function : Using our initial position condition at reveals . Combining these gives the final position vector function:    "
+},
+{
+  "id": "ch-Vector-valued-functions-6",
+  "level": "1",
+  "url": "ch-Vector-valued-functions-6.html",
+  "type": "Section",
+  "number": "",
+  "title": "2.4 Arc Length and Curvature",
+  "body": " 2.4 Arc Length and Curvature  In this section, we will discuss the concept of arc length for curves defined by vector-valued functions. The arc length of a curve is the distance along the curve between two points. We will derive a formula for computing the arc length of a curve defined by a vector function and provide examples to illustrate the process.   Arc Length of a Curve   The length of a smooth curve traced out by a vector function on the interval is defined as:       Find the length of the arc of the circular helix with vector equation: from the point to the point .    First, we determine the parameter limits and corresponding to the given points. Comparing the -component to the points yields: Next, we compute the derivative vector function and its magnitude:    Applying the arc length formula over the interval gives:       A curve can be represented by more than one vector function. For instance, the twisted cubic can be parameterized as: or as: Therefore, the vector functions representing a space curve are not uniquely determined.    To show that and trace out the exact same geometric path in space, we can perform a change of variables (reparameterization).  Let us define a substitution relationship between the two parameters and : If we take the natural logarithm of both sides, this is equivalent to writing .  Now, we verify two things to ensure the representations are identical: the component equations and the domain boundaries.     Component Transformation: Substitute directly into the component equations of : This matches the vector structure of perfectly.     Domain Mapping: We must map the parameter boundaries from to using our transition formula : This confirms that as travels over the continuous interval , the new parameter travels exactly over the continuous interval .    Both vector functions start at the point and terminate at the point , tracking the exact same space path. This illustrates that a single space curve can have infinitely many valid parametric representations.    We say that those equations are parameterizations of the curve .    Suppose that is a piecewise-smooth curve given by a vector function for , and is traversed exactly once as increases from to . The arc length function is defined as: So, represents the accumulated length of the part of between the starting point and the variable position .    By using the Fundamental Theorem of Calculus Part 1 to differentiate the arc length function , we get: This structural relationship allows us to parametrize a curve with respect to arc length . Arc length parameterization arises naturally from the geometry of the curve itself and remains invariant across all chosen external coordinate systems.    Reparametrize the helix with respect to arc length measured from the point in the direction of increasing (a positive orientation ).    The initial baseline point maps directly to the parameter value . Using our previous evaluation, we know that: Now, compute the active arc length function by integration: Isolating the original domain parameter yields the substitution profile . Substituting this back into our primary position function gives the desired arc length parameterization:       Find the arc length parametrization for a circle .    Let represent the fixed initial coordinate point and let match any coordinate along the circle. The standard parametric representation tracking counterclockwise rotation gives: The magnitude of the derivative tracking vector evaluates to: Setting up our accumulated arc length function yields: Mapping the boundaries into the new parametric frame maps and . Substituting the transformation pattern into our vector structure outputs:     If is a vector-valued function and the space curve determined by is smooth, then represents a tangent vector pointing in the direction of the curve's orientation. Provided , the unit tangent vector is defined as: Because remains constant for all values of , if is differentiable, then must be orthogonal to .   The Unit Normal Vector  The unit normal vector to is defined as the unit vector pointing in the same direction as :      Let be a curve determined by the vector function .    Find the unit tangent and unit normal vectors and .    Find and .    Check the orthogonality of and .        First, differentiate the position vector function to locate our general velocity vector profile: Dividing the derivative vector by its magnitude gives the unit tangent vector function: Next, differentiate using the quotient rule or chain rule to find the normal vector direction:  Normalizing this vector tracking profile produces our final unit normal vector function:     Evaluating both unit vector function equations at our specific target parameter point yields:      To check orthogonality, we compute the algebraic dot product of our two unit vector functions:  Because their dot product evaluates to exactly zero for all values of , the unit tangent vector and unit normal vector are verified as orthogonal.        Let be determined by the helix for . Find the unit vector functions and .    Differentiate the helix position components vector to extract our general velocity direction path: Dividing the derivative components by this magnitude gives our unit tangent vector function:   Next, differentiate our unit tangent function with respect to to trace the geometric turn path: Computing the magnitude of this secondary differentiation vector yields: Finally, normalize to calculate our primary unit normal vector function: This shows that for a circular helix, the unit normal vector always points directly inward toward the central vertical axis of the cylinder.     The Curvature  The curvature of a curve at a given point is a measure of how quickly the curve changes direction at that point, or how much the curve bends at each point.   Curvature   The curvature of a curve is defined as: where is the unit tangent vector. Curvature is the magnitude of the rate of change of the unit tangent vector with respect to arc length.     Formulas for Curvature   Let be a smooth curve and let be the angle between the unit tangent vector and the standard basis vector .    By applying the chain rule to the unit tangent vector with respect to time : Since , the curvature as a function of the parameter simplifies to:     If a 2D curve has an arc length parameterization given by and , then the curvature at a point is given geometrically by:     Suppose a 2D curve is defined explicitly by a Cartesian function , where is continuous on an interval. Since is the slope of the tangent line at , we have (or ), and the arc length function is . If exists, applying the chain rule yields: Thus, the curvature at the point is defined as:     Suppose a 2D curve is given parametrically by and , where and exist on an interval . Since the slope of the tangent line is for , differentiating with respect to and dividing by yields:     For a curve in space defined by a 3D vector function , the curvature can be computed directly without finding the unit tangent vector via the cross product:          Show that the curvature of a circle of radius is at every point on the circle using the vector formula from .    Parameterize the circle of radius as . Then, the velocity vector is , and its magnitude is .  The unit tangent vector is: Differentiating with respect to gives , so . Applying the formula, we find:       Show that the curvature of a line is at every point on using the geometric formulation in .    A straight line maintains a constant direction along its entire trajectory. Therefore, the tangent angle is constant relative to the -axis, which implies . Thus, .      Sketch the graph of and find the curvature at general points , and specifically at the points , , and using the explicit function method of .      For , we compute the first and second derivatives with respect to : Substituting these into the explicit Cartesian curvature formula yields the general formula for this parabola:     Evaluating this expression at the specific requested coordinates:   At , .    At , .    At , .           Prove that the curvature of a circle of radius is at every point on the circle using the 2D parametric formula derived in .    Using the standard parametric representation and , we calculate the first and second derivatives: Substitute these components into the parametric numerator and denominator arrays:  Dividing these values yields a constant curvature of:       A curve has the parameterization , for . Find the curvature at the point corresponding to using the 2D parametric formula derived in .    Differentiating the component functions gives: Substitute these into the 2D parametric curvature formula: Evaluating the curvature profile at the requested input parameter :       Find the curvature of the twisted cubic at a general parameter point and specifically at the origin using the cross product formulation of .    First, compute the velocity vector and acceleration vector :  Next, evaluate the vector cross product of these two derivative vectors: Find the magnitude of this cross product vector:   Substituting these components back into our 3D vector curvature equation yields the general expression: To find the specific curvature at the origin , substitute the parameter value :      "
+},
+{
+  "id": "defn-arc-length-vector",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#defn-arc-length-vector",
+  "type": "Definition",
+  "number": "2.39",
+  "title": "Arc Length of a Curve.",
+  "body": " Arc Length of a Curve   The length of a smooth curve traced out by a vector function on the interval is defined as:    "
+},
+{
+  "id": "ex-helix-arc-length",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ex-helix-arc-length",
+  "type": "Example",
+  "number": "2.40",
+  "title": "",
+  "body": "  Find the length of the arc of the circular helix with vector equation: from the point to the point .    First, we determine the parameter limits and corresponding to the given points. Comparing the -component to the points yields: Next, we compute the derivative vector function and its magnitude:    Applying the arc length formula over the interval gives:    "
+},
+{
+  "id": "ck-curve-reparameterization",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ck-curve-reparameterization",
+  "type": "Checkpoint",
+  "number": "2.41",
+  "title": "",
+  "body": "  A curve can be represented by more than one vector function. For instance, the twisted cubic can be parameterized as: or as: Therefore, the vector functions representing a space curve are not uniquely determined.    To show that and trace out the exact same geometric path in space, we can perform a change of variables (reparameterization).  Let us define a substitution relationship between the two parameters and : If we take the natural logarithm of both sides, this is equivalent to writing .  Now, we verify two things to ensure the representations are identical: the component equations and the domain boundaries.     Component Transformation: Substitute directly into the component equations of : This matches the vector structure of perfectly.     Domain Mapping: We must map the parameter boundaries from to using our transition formula : This confirms that as travels over the continuous interval , the new parameter travels exactly over the continuous interval .    Both vector functions start at the point and terminate at the point , tracking the exact same space path. This illustrates that a single space curve can have infinitely many valid parametric representations.   "
+},
+{
+  "id": "ch-Vector-valued-functions-6-6",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ch-Vector-valued-functions-6-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "parameterizations "
+},
+{
+  "id": "defn-arc-length-function",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#defn-arc-length-function",
+  "type": "Definition",
+  "number": "2.42",
+  "title": "",
+  "body": "  Suppose that is a piecewise-smooth curve given by a vector function for , and is traversed exactly once as increases from to . The arc length function is defined as: So, represents the accumulated length of the part of between the starting point and the variable position .   "
+},
+{
+  "id": "ch-Vector-valued-functions-6-8",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ch-Vector-valued-functions-6-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "parametrize a curve with respect to arc length "
+},
+{
+  "id": "ex-reparameterize-helix",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ex-reparameterize-helix",
+  "type": "Example",
+  "number": "2.43",
+  "title": "",
+  "body": "  Reparametrize the helix with respect to arc length measured from the point in the direction of increasing (a positive orientation ).    The initial baseline point maps directly to the parameter value . Using our previous evaluation, we know that: Now, compute the active arc length function by integration: Isolating the original domain parameter yields the substitution profile . Substituting this back into our primary position function gives the desired arc length parameterization:    "
+},
+{
+  "id": "exercise-arc-length-circle",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#exercise-arc-length-circle",
+  "type": "Checkpoint",
+  "number": "2.44",
+  "title": "",
+  "body": "  Find the arc length parametrization for a circle .    Let represent the fixed initial coordinate point and let match any coordinate along the circle. The standard parametric representation tracking counterclockwise rotation gives: The magnitude of the derivative tracking vector evaluates to: Setting up our accumulated arc length function yields: Mapping the boundaries into the new parametric frame maps and . Substituting the transformation pattern into our vector structure outputs:    "
+},
+{
+  "id": "ch-Vector-valued-functions-6-11",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ch-Vector-valued-functions-6-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "unit tangent vector "
+},
+{
+  "id": "asm-unit-normal-vector-2",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#asm-unit-normal-vector-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "unit normal vector "
+},
+{
+  "id": "ex-tangent-normal-parabola",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ex-tangent-normal-parabola",
+  "type": "Example",
+  "number": "2.45",
+  "title": "",
+  "body": "  Let be a curve determined by the vector function .    Find the unit tangent and unit normal vectors and .    Find and .    Check the orthogonality of and .        First, differentiate the position vector function to locate our general velocity vector profile: Dividing the derivative vector by its magnitude gives the unit tangent vector function: Next, differentiate using the quotient rule or chain rule to find the normal vector direction:  Normalizing this vector tracking profile produces our final unit normal vector function:     Evaluating both unit vector function equations at our specific target parameter point yields:      To check orthogonality, we compute the algebraic dot product of our two unit vector functions:  Because their dot product evaluates to exactly zero for all values of , the unit tangent vector and unit normal vector are verified as orthogonal.     "
+},
+{
+  "id": "exercise-tangent-normal-helix",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#exercise-tangent-normal-helix",
+  "type": "Checkpoint",
+  "number": "2.46",
+  "title": "",
+  "body": "  Let be determined by the helix for . Find the unit vector functions and .    Differentiate the helix position components vector to extract our general velocity direction path: Dividing the derivative components by this magnitude gives our unit tangent vector function:   Next, differentiate our unit tangent function with respect to to trace the geometric turn path: Computing the magnitude of this secondary differentiation vector yields: Finally, normalize to calculate our primary unit normal vector function: This shows that for a circular helix, the unit normal vector always points directly inward toward the central vertical axis of the cylinder.   "
+},
+{
+  "id": "defn-curvature",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#defn-curvature",
+  "type": "Definition",
+  "number": "2.47",
+  "title": "Curvature.",
+  "body": " Curvature   The curvature of a curve is defined as: where is the unit tangent vector. Curvature is the magnitude of the rate of change of the unit tangent vector with respect to arc length.   "
+},
+{
+  "id": "thm-curvature-formulas",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#thm-curvature-formulas",
+  "type": "Theorem",
+  "number": "2.48",
+  "title": "Formulas for Curvature.",
+  "body": " Formulas for Curvature   Let be a smooth curve and let be the angle between the unit tangent vector and the standard basis vector .    By applying the chain rule to the unit tangent vector with respect to time : Since , the curvature as a function of the parameter simplifies to:     If a 2D curve has an arc length parameterization given by and , then the curvature at a point is given geometrically by:     Suppose a 2D curve is defined explicitly by a Cartesian function , where is continuous on an interval. Since is the slope of the tangent line at , we have (or ), and the arc length function is . If exists, applying the chain rule yields: Thus, the curvature at the point is defined as:     Suppose a 2D curve is given parametrically by and , where and exist on an interval . Since the slope of the tangent line is for , differentiating with respect to and dividing by yields:     For a curve in space defined by a 3D vector function , the curvature can be computed directly without finding the unit tangent vector via the cross product:      "
+},
+{
+  "id": "ex-kappa-circle-vector",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ex-kappa-circle-vector",
+  "type": "Example",
+  "number": "2.49",
+  "title": "",
+  "body": "  Show that the curvature of a circle of radius is at every point on the circle using the vector formula from .    Parameterize the circle of radius as . Then, the velocity vector is , and its magnitude is .  The unit tangent vector is: Differentiating with respect to gives , so . Applying the formula, we find:    "
+},
+{
+  "id": "ex-kappa-line",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ex-kappa-line",
+  "type": "Example",
+  "number": "2.50",
+  "title": "",
+  "body": "  Show that the curvature of a line is at every point on using the geometric formulation in .    A straight line maintains a constant direction along its entire trajectory. Therefore, the tangent angle is constant relative to the -axis, which implies . Thus, .   "
+},
+{
+  "id": "ex-kappa-parabola-cartesian",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#ex-kappa-parabola-cartesian",
+  "type": "Example",
+  "number": "2.51",
+  "title": "",
+  "body": "  Sketch the graph of and find the curvature at general points , and specifically at the points , , and using the explicit function method of .      For , we compute the first and second derivatives with respect to : Substituting these into the explicit Cartesian curvature formula yields the general formula for this parabola:     Evaluating this expression at the specific requested coordinates:   At , .    At , .    At , .        "
+},
+{
+  "id": "exercise-kappa-parametric-circle-proof",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#exercise-kappa-parametric-circle-proof",
+  "type": "Checkpoint",
+  "number": "2.52",
+  "title": "",
+  "body": "  Prove that the curvature of a circle of radius is at every point on the circle using the 2D parametric formula derived in .    Using the standard parametric representation and , we calculate the first and second derivatives: Substitute these components into the parametric numerator and denominator arrays:  Dividing these values yields a constant curvature of:    "
+},
+{
+  "id": "exercise-kappa-parametric-cusp",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#exercise-kappa-parametric-cusp",
+  "type": "Checkpoint",
+  "number": "2.53",
+  "title": "",
+  "body": "  A curve has the parameterization , for . Find the curvature at the point corresponding to using the 2D parametric formula derived in .    Differentiating the component functions gives: Substitute these into the 2D parametric curvature formula: Evaluating the curvature profile at the requested input parameter :    "
+},
+{
+  "id": "exercise-kappa-twisted-cubic-3d",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-6.html#exercise-kappa-twisted-cubic-3d",
+  "type": "Checkpoint",
+  "number": "2.54",
+  "title": "",
+  "body": "  Find the curvature of the twisted cubic at a general parameter point and specifically at the origin using the cross product formulation of .    First, compute the velocity vector and acceleration vector :  Next, evaluate the vector cross product of these two derivative vectors: Find the magnitude of this cross product vector:   Substituting these components back into our 3D vector curvature equation yields the general expression: To find the specific curvature at the origin , substitute the parameter value :    "
+},
+{
+  "id": "sec-motion-in-space",
+  "level": "1",
+  "url": "sec-motion-in-space.html",
+  "type": "Section",
+  "number": "",
+  "title": "2.5 Motion in Space: Velocity and Acceleration",
+  "body": " 2.5 Motion in Space: Velocity and Acceleration  In this section, we will study the motion of objects in three-dimensional space. We will define the concepts of velocity and acceleration for vector-valued functions, and we will explore how these concepts relate to the motion of objects along curves in space.  We will also discuss the concepts of speed and acceleration, and how they can be used to analyze the motion of objects in space. Finally, we will look at some examples of motion in space, including the motion of projectiles and the motion of objects under the influence of gravity.  Suppose a particle moves through space so that its position vector at time is . For small values of , the vector:    Velocity Vector   The vector gives the average velocity over a time interval of length , and its limit is the velocity vector at time :      Speed   The speed of the particle at time is the magnitude of the velocity vector, , defined as:      Acceleration   In multi-dimensional motion, the acceleration  of the particle is defined as the derivative of the velocity vector:       The position vector of an object moving in a plane is given by for . Find its velocity, speed, and acceleration when .    First, we differentiate the position vector function with respect to to find the velocity vector function : Evaluating the velocity vector at the specific parameter point yields:   Next, the speed of the object is the scalar magnitude of its velocity vector. Evaluating at gives:   Finally, we differentiate the velocity vector function to find the acceleration vector function : Evaluating the acceleration vector at yields:       A moving particle starts at an initial position with initial velocity . Its acceleration is . Find its velocity and position at time .    We find the velocity vector function by integrating the given acceleration vector function: Using our initial velocity vector condition at reveals . Combining these gives the final velocity function:   Next, we find the position vector function by integrating the newly solved velocity vector function: Using our initial position vector condition at reveals . Combining these gives the final position vector function:       An object with mass that moves in a circular path with constant angular speed has position vector . Find the force acting on the object and show that it is directed toward the origin.    To locate the total force acting on the particle, we must first find its acceleration profile vector. Differentiating the position vector function with respect to time using the chain rule yields velocity: Differentiating a second time yields the acceleration vector function: Factoring out the shared constant parameter scalar reveals an explicit relationship to our primary position vector:   By applying Newton's Second Law of Motion ( ), we multiply this acceleration expression by the mass scalar: Because is a strictly positive scalar quantity, the negative sign indicates that the net force vector points in the exact opposite direction of the outward displacement vector . Therefore, the centripetal force is directed directly inward toward the origin.   An object in uniform circular motion showing the orthogonal relationship between velocity and position, and the centripetal nature of the force vector.    A 2D coordinate plot showing a particle moving counterclockwise on a circle. An outward blue vector shows position, a tangential green vector shows velocity, and an inward red vector shows the force pointing directly back to the origin.        Newton's Second Law of Motion  If the force that acts on a particle is known, then its acceleration can be found from Newton's Second Law of Motion . The vector version of this law states that if, at any time , a force acts on an object of mass producing an acceleration , then:      Show that if a particle moves around a circle of radius at a constant speed , then the acceleration vector has a constant magnitude and is directed from toward the center of the circle.    We can parameterize uniform circular motion of radius with constant angular speed as: Differentiating once yields the velocity vector function: The constant speed is the magnitude of this velocity vector: This gives us the relationship .  Next, differentiate the velocity vector function to find the acceleration vector function : Substituting into our acceleration expression yields:   Now we compute the magnitude of the acceleration vector: Because is a strictly positive scalar, the negative sign in dictates that the acceleration points in the exact opposite direction of the outward radial position vector . Therefore, the acceleration vector has a constant magnitude of and points directly inward from toward the center of the circle.      The position vector of a particle is given by for . Find the velocity and acceleration of at time . Sketch the path of .    We compute the velocity vector function by taking the first derivative of the position components with respect to : We compute the acceleration vector function by taking the derivative of our velocity profile:   The trajectory begins at the origin and ends at . As time increases, the path arches upward across the first octant space.   The 3D space trajectory of the particle from to .   A 3D coordinate plot showing a parametric path winding upward through space from (0,0,0) to a terminal point at (4,12,8).         A point is rotating about the -axis on a circle of radius that lies in the plane . The angular speed is a constant . The vector directed along the -axis and having magnitude is the angular velocity of . Show that the velocity of is the cross product of and the position vector for .    Since the path is a circle of radius sitting in the horizontal plane , we can express the position vector of the moving point explicitly as: Differentiating this position profile with respect to yields the standard velocity vector:   Now, let us calculate the vector cross product of the angular velocity vector and our position vector : Comparing this coordinate result directly to our derivative calculation proves that:       A projectile is fired with an initial velocity from a point feet above the ground. If the only force acting on the projectile is caused by gravitational acceleration , determine its position after seconds.    Let the motion take place in the 2D -plane, where the positive -axis points vertically upward from the ground level. The constant downward gravitational acceleration vector is expressed as: where . Integrating this acceleration vector with respect to time yields the velocity vector function: Using the initial velocity condition at gives . Thus:   Next, we integrate the velocity vector function to determine the position vector function : Using our initial position conditions at , the object starts at a height above the origin, meaning . This establishes . Combining all components gives the general position vector function for projectile motion:      Projectile Path Components  A unit vector pointing in the same direction as the launch trajectory vector with an angle of elevation is given by: Letting denote the initial launch speed of the projectile, the initial velocity vector breaks down into its component components as: Provided the projectile launches from ground level ( ), substituting these components into our position equation yields: Therefore, the parametric equations describing the projectile's trajectory path are:      A projectile is fired from ground level with an initial speed of and an angle of elevation of . Find:    The velocity vector at time .    The maximum altitude reached.    The horizontal range of the projectile.    The speed at which the projectile strikes the ground.      Using the parameters provided, we have the initial speed , launch angle , and constant gravitational acceleration . The initial horizontal and vertical velocity components evaluate to:  Thus, the parametric tracking coordinates of the position are and .    Differentiating the position components gives the general velocity vector function at time :     The maximum altitude occurs when the vertical velocity component drops to zero ( ): Substituting this peak time back into our vertical tracking position function yields the maximum altitude:     The horizontal range is the distance traveled when the projectile returns to the ground level ( ): Evaluating our horizontal position tracking function at this total flight time gives the range:     Because the projectile launches and lands at the same horizontal altitude elevation, the vertical landing speed matches the initial vertical launching speed but points downward. Evaluating the components at impact yields . The total scalar speed on impact is:       "
+},
+{
+  "id": "defn-velocity-vector",
+  "level": "2",
+  "url": "sec-motion-in-space.html#defn-velocity-vector",
+  "type": "Definition",
+  "number": "2.55",
+  "title": "Velocity Vector.",
+  "body": " Velocity Vector   The vector gives the average velocity over a time interval of length , and its limit is the velocity vector at time :    "
+},
+{
+  "id": "defn-particle-speed",
+  "level": "2",
+  "url": "sec-motion-in-space.html#defn-particle-speed",
+  "type": "Definition",
+  "number": "2.56",
+  "title": "Speed.",
+  "body": " Speed   The speed of the particle at time is the magnitude of the velocity vector, , defined as:    "
+},
+{
+  "id": "defn-acceleration-vector",
+  "level": "2",
+  "url": "sec-motion-in-space.html#defn-acceleration-vector",
+  "type": "Definition",
+  "number": "2.57",
+  "title": "Acceleration.",
+  "body": " Acceleration   In multi-dimensional motion, the acceleration  of the particle is defined as the derivative of the velocity vector:    "
+},
+{
+  "id": "ex-kinematics-evaluation",
+  "level": "2",
+  "url": "sec-motion-in-space.html#ex-kinematics-evaluation",
+  "type": "Example",
+  "number": "2.58",
+  "title": "",
+  "body": "  The position vector of an object moving in a plane is given by for . Find its velocity, speed, and acceleration when .    First, we differentiate the position vector function with respect to to find the velocity vector function : Evaluating the velocity vector at the specific parameter point yields:   Next, the speed of the object is the scalar magnitude of its velocity vector. Evaluating at gives:   Finally, we differentiate the velocity vector function to find the acceleration vector function : Evaluating the acceleration vector at yields:    "
+},
+{
+  "id": "ex-kinematics-initial-value",
+  "level": "2",
+  "url": "sec-motion-in-space.html#ex-kinematics-initial-value",
+  "type": "Example",
+  "number": "2.59",
+  "title": "",
+  "body": "  A moving particle starts at an initial position with initial velocity . Its acceleration is . Find its velocity and position at time .    We find the velocity vector function by integrating the given acceleration vector function: Using our initial velocity vector condition at reveals . Combining these gives the final velocity function:   Next, we find the position vector function by integrating the newly solved velocity vector function: Using our initial position vector condition at reveals . Combining these gives the final position vector function:    "
+},
+{
+  "id": "ex-centripetal-force",
+  "level": "2",
+  "url": "sec-motion-in-space.html#ex-centripetal-force",
+  "type": "Example",
+  "number": "2.60",
+  "title": "",
+  "body": "  An object with mass that moves in a circular path with constant angular speed has position vector . Find the force acting on the object and show that it is directed toward the origin.    To locate the total force acting on the particle, we must first find its acceleration profile vector. Differentiating the position vector function with respect to time using the chain rule yields velocity: Differentiating a second time yields the acceleration vector function: Factoring out the shared constant parameter scalar reveals an explicit relationship to our primary position vector:   By applying Newton's Second Law of Motion ( ), we multiply this acceleration expression by the mass scalar: Because is a strictly positive scalar quantity, the negative sign indicates that the net force vector points in the exact opposite direction of the outward displacement vector . Therefore, the centripetal force is directed directly inward toward the origin.   An object in uniform circular motion showing the orthogonal relationship between velocity and position, and the centripetal nature of the force vector.    A 2D coordinate plot showing a particle moving counterclockwise on a circle. An outward blue vector shows position, a tangential green vector shows velocity, and an inward red vector shows the force pointing directly back to the origin.      "
+},
+{
+  "id": "rem-newtons-second-law",
+  "level": "2",
+  "url": "sec-motion-in-space.html#rem-newtons-second-law",
+  "type": "Remark",
+  "number": "2.62",
+  "title": "Newton’s Second Law of Motion.",
+  "body": " Newton's Second Law of Motion  If the force that acts on a particle is known, then its acceleration can be found from Newton's Second Law of Motion . The vector version of this law states that if, at any time , a force acts on an object of mass producing an acceleration , then:   "
+},
+{
+  "id": "ex-constant-speed-acceleration",
+  "level": "2",
+  "url": "sec-motion-in-space.html#ex-constant-speed-acceleration",
+  "type": "Example",
+  "number": "2.63",
+  "title": "",
+  "body": "  Show that if a particle moves around a circle of radius at a constant speed , then the acceleration vector has a constant magnitude and is directed from toward the center of the circle.    We can parameterize uniform circular motion of radius with constant angular speed as: Differentiating once yields the velocity vector function: The constant speed is the magnitude of this velocity vector: This gives us the relationship .  Next, differentiate the velocity vector function to find the acceleration vector function : Substituting into our acceleration expression yields:   Now we compute the magnitude of the acceleration vector: Because is a strictly positive scalar, the negative sign in dictates that the acceleration points in the exact opposite direction of the outward radial position vector . Therefore, the acceleration vector has a constant magnitude of and points directly inward from toward the center of the circle.   "
+},
+{
+  "id": "ex-3d-path-kinematics",
+  "level": "2",
+  "url": "sec-motion-in-space.html#ex-3d-path-kinematics",
+  "type": "Example",
+  "number": "2.64",
+  "title": "",
+  "body": "  The position vector of a particle is given by for . Find the velocity and acceleration of at time . Sketch the path of .    We compute the velocity vector function by taking the first derivative of the position components with respect to : We compute the acceleration vector function by taking the derivative of our velocity profile:   The trajectory begins at the origin and ends at . As time increases, the path arches upward across the first octant space.   The 3D space trajectory of the particle from to .   A 3D coordinate plot showing a parametric path winding upward through space from (0,0,0) to a terminal point at (4,12,8).      "
+},
+{
+  "id": "ex-angular-velocity-cross",
+  "level": "2",
+  "url": "sec-motion-in-space.html#ex-angular-velocity-cross",
+  "type": "Example",
+  "number": "2.66",
+  "title": "",
+  "body": "  A point is rotating about the -axis on a circle of radius that lies in the plane . The angular speed is a constant . The vector directed along the -axis and having magnitude is the angular velocity of . Show that the velocity of is the cross product of and the position vector for .    Since the path is a circle of radius sitting in the horizontal plane , we can express the position vector of the moving point explicitly as: Differentiating this position profile with respect to yields the standard velocity vector:   Now, let us calculate the vector cross product of the angular velocity vector and our position vector : Comparing this coordinate result directly to our derivative calculation proves that:    "
+},
+{
+  "id": "ex-projectile-derivation",
+  "level": "2",
+  "url": "sec-motion-in-space.html#ex-projectile-derivation",
+  "type": "Example",
+  "number": "2.67",
+  "title": "",
+  "body": "  A projectile is fired with an initial velocity from a point feet above the ground. If the only force acting on the projectile is caused by gravitational acceleration , determine its position after seconds.    Let the motion take place in the 2D -plane, where the positive -axis points vertically upward from the ground level. The constant downward gravitational acceleration vector is expressed as: where . Integrating this acceleration vector with respect to time yields the velocity vector function: Using the initial velocity condition at gives . Thus:   Next, we integrate the velocity vector function to determine the position vector function : Using our initial position conditions at , the object starts at a height above the origin, meaning . This establishes . Combining all components gives the general position vector function for projectile motion:    "
+},
+{
+  "id": "rem-projectile-components",
+  "level": "2",
+  "url": "sec-motion-in-space.html#rem-projectile-components",
+  "type": "Remark",
+  "number": "2.68",
+  "title": "Projectile Path Components.",
+  "body": " Projectile Path Components  A unit vector pointing in the same direction as the launch trajectory vector with an angle of elevation is given by: Letting denote the initial launch speed of the projectile, the initial velocity vector breaks down into its component components as: Provided the projectile launches from ground level ( ), substituting these components into our position equation yields: Therefore, the parametric equations describing the projectile's trajectory path are:   "
+},
+{
+  "id": "ex-projectile-evaluation",
+  "level": "2",
+  "url": "sec-motion-in-space.html#ex-projectile-evaluation",
+  "type": "Example",
+  "number": "2.69",
+  "title": "",
+  "body": "  A projectile is fired from ground level with an initial speed of and an angle of elevation of . Find:    The velocity vector at time .    The maximum altitude reached.    The horizontal range of the projectile.    The speed at which the projectile strikes the ground.      Using the parameters provided, we have the initial speed , launch angle , and constant gravitational acceleration . The initial horizontal and vertical velocity components evaluate to:  Thus, the parametric tracking coordinates of the position are and .    Differentiating the position components gives the general velocity vector function at time :     The maximum altitude occurs when the vertical velocity component drops to zero ( ): Substituting this peak time back into our vertical tracking position function yields the maximum altitude:     The horizontal range is the distance traveled when the projectile returns to the ground level ( ): Evaluating our horizontal position tracking function at this total flight time gives the range:     Because the projectile launches and lands at the same horizontal altitude elevation, the vertical landing speed matches the initial vertical launching speed but points downward. Evaluating the components at impact yields . The total scalar speed on impact is:      "
+},
+{
+  "id": "sec-tangential-normal-components",
+  "level": "1",
+  "url": "sec-tangential-normal-components.html",
+  "type": "Section",
+  "number": "",
+  "title": "2.6 Tangential and Normal Components of Acceleration",
+  "body": " 2.6 Tangential and Normal Components of Acceleration  In this section, we will explore the tangential and normal components of acceleration for a particle moving along a curved path. These components provide insight into how the particle's velocity changes in both magnitude and direction.  The tangential component of acceleration is responsible for changing the speed of the particle, while the normal component is responsible for changing the direction of motion.  We will derive formulas for these components and apply them to various examples to illustrate their significance in understanding motion in space.  The motion of a particle is often useful to resolve the acceleration into two components: one in the direction of the tangent and the other in the direction of the normal. If represents the speed of the particle, then: which gives . Differentiating both sides of this equation with respect to yields:   Since the curvature is defined as , we can rewrite this in terms of speed: The unit normal vector is defined as , which allows us to isolate the derivative of the unit tangent vector: Substituting this back into our acceleration equation provides the final decomposition: We call and the tangential and normal components of acceleration , defined respectively as:   To find a more computational formula for , we take the dot product of the velocity vector with the acceleration vector : Therefore, provided , the tangential component of acceleration can be calculated directly as:   Similarly, by substituting the cross-product curvature formula into our definition for , we obtain a direct computational formula for the normal component of acceleration:    Tangential and Normal Components of Acceleration  The acceleration vector can be decomposed into a tangential component and a normal component :   Where the geometric definitions and direct computational formulas for these components are given by:  These components satisfy the Pythagorean relationship with the total acceleration magnitude:     A particle moves with the position function . Find the tangential and normal components of acceleration.    First, compute the velocity vector and acceleration vector :    To find the tangential component , calculate the dot product : Dividing by the speed yields:   To find the normal component , compute the cross product : Find the magnitude of this cross product vector: Dividing by the speed yields:       A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the primary velocity and acceleration derivative profiles:    Find the tangential component by evaluation of the vector dot product:    To find for a 2D planar curve, we can evaluate the standard determinant form equivalent to the spatial cross product:        A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the derivative vectors:    Calculate the dot product to find :    Calculate the cross product to find : Find the magnitude of this cross product vector: Dividing by the speed yields a constant normal acceleration:     "
+},
+{
+  "id": "sec-tangential-normal-components-6",
+  "level": "2",
+  "url": "sec-tangential-normal-components.html#sec-tangential-normal-components-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "tangential and normal components of acceleration "
+},
+{
+  "id": "ex-acceleration-components-cubic",
+  "level": "2",
+  "url": "sec-tangential-normal-components.html#ex-acceleration-components-cubic",
+  "type": "Example",
+  "number": "2.70",
+  "title": "",
+  "body": "  A particle moves with the position function . Find the tangential and normal components of acceleration.    First, compute the velocity vector and acceleration vector :    To find the tangential component , calculate the dot product : Dividing by the speed yields:   To find the normal component , compute the cross product : Find the magnitude of this cross product vector: Dividing by the speed yields:    "
+},
+{
+  "id": "ck-acceleration-components-planar",
+  "level": "2",
+  "url": "sec-tangential-normal-components.html#ck-acceleration-components-planar",
+  "type": "Checkpoint",
+  "number": "2.71",
+  "title": "",
+  "body": "  A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the primary velocity and acceleration derivative profiles:    Find the tangential component by evaluation of the vector dot product:    To find for a 2D planar curve, we can evaluate the standard determinant form equivalent to the spatial cross product:     "
+},
+{
+  "id": "ck-acceleration-components-hyperbolic",
+  "level": "2",
+  "url": "sec-tangential-normal-components.html#ck-acceleration-components-hyperbolic",
+  "type": "Checkpoint",
+  "number": "2.72",
+  "title": "",
+  "body": "  A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the derivative vectors:    Calculate the dot product to find :    Calculate the cross product to find : Find the magnitude of this cross product vector: Dividing by the speed yields a constant normal acceleration:    "
+},
+{
   "id": "activities",
   "level": "1",
   "url": "activities.html",
@@ -1446,8 +1869,8 @@ var ptx_lunr_docs = [
   "url": "ws-vectors-chapter-review.html",
   "type": "Worksheet",
   "number": "",
-  "title": "Worksheet: Vectors and the Geometry of Space",
-  "body": " Worksheet: Vectors and the Geometry of Space      Page 1: Core Definitions    When do directional line segments in the plane represent the same vector?    Directional line segments represent the same vector if and only if they are equivalent . Geometrically, this means they must have the exact same magnitude (length) and the exact same direction , regardless of where their initial points are located in the coordinate plane.      How do you find a vector's direction?    The direction of a non-zero vector is found by computing its corresponding unit vector , denoted as . You find this by dividing the vector by its scalar magnitude: Alternatively, in two dimensions, the direction can be specified by the angle it makes with the positive horizontal -axis, calculated using .      What geometric interpretation does the dot product have? Give an example.    Geometrically, the dot product of two vectors measures the product of their lengths multiplied by the cosine of the angle between them: . It can be interpreted as the length of multiplied by the signed scalar projection of onto ( ).   Example: If two non-zero vectors are perpendicular to each other ( ), their dot product is exactly because . This provides a tool to test for orthogonality.         Page 2: 2D Component Transformations    Find the component form of the vector that is obtained by rotating through an angle of radians.    The initial vector points straight up along the positive -axis, meaning its initial direction angle is . Rotating it by updates its direction angle to:   Since the magnitude of is 1, the component form of the rotated unit vector is:       Find the component form of the vector that is 2 units long in the direction of .    Let . First, find the unit vector in the direction of by calculating its magnitude: The direction unit vector is .  Scaling this direction vector to a length of 2 yields:       Express the vector in terms of its length and direction:     First evaluate the vector at the parameter value :   Now decompose the vector into its length and direction components:   Length (magnitude):     Direction vector:    In factored form, the vector is modeled as .         Page 3: Projections and Scalar Products    Find if and .    Write both vectors in component form: and . Next, calculate the dot product and the squared norm :    Substitute these calculations into the vector projection formula:       If , , and the angle between and is , find .    We can square the target norm to evaluate it using the algebraic properties of the dot product:   Substitute the given magnitudes and the angle value into our expression: Taking the square root gives the final length: .      Find the volume of the parallelepiped determined by the vectors:     The volume of a parallelepiped matches the absolute value of the scalar triple product, computed using a single matrix determinant: Evaluate the matrix determinant by expanding along its top row: Taking the absolute value, the volume of the parallelepiped is cubic unit.         Page 4: Line Metrics and Single Planes    Find the distance from the point to the line:     Let the target point be . From the parametric equations, we read a point on the line by setting , giving , and extract the line's direction vector: .  Construct the displacement vector from to :   The formula for the distance from a point to a line is . First, compute the cross product:   Now calculate the magnitudes:  Thus, the distance from the point to the line is .      Find the equation for the plane that passes through the point and is normal to the vector .    Substitute the point coordinates and the normal vector components directly into the standard scalar plane equation: Distribute and collect constant terms: In standard linear form, the plane equation is .         Page 5: Multi-Point Planes    Find the equation to the plane through the points:     First, construct two directional vectors sharing vertex that lie entirely within the plane:    The normal vector is perpendicular to both vector components, found via their cross product:   Using point and our calculated normal vector, set up the plane equation: Simplifying the expression yields the linear equation: , or equivalently, .      Find the distance from the point to the plane passing through , , and .    Construct two spanning vectors from the given points inside the plane: Compute their cross product to find the normal vector direction :   Since the plane passes through the origin , its linear equation simplifies to:   Apply the point-plane distance formula using our target point : The exact distance from the point to the plane is 3 units.         Page 6: Intersecting Planes and Systems    Find the parametric equations for the line in which the planes and intersect.    The direction vector of the intersection line is perpendicular to the normal vectors of both planes: and . Compute their cross product:   To locate an initial point on the line, choose a convenient coordinate value, such as setting . This reduces the equations of the planes to a system of two variables: Subtracting the second equation from the first yields . Substituting back gives . This provides the point coordinates .  Combining our initial position point and the direction numbers yields the parametric equations :       Find a vector of magnitude 2 parallel to the line of intersection of the planes and .    The direction vector of the line of intersection is perpendicular to both normal vectors, and . As calculated in Exercise 13, this cross product is:   To scale this direction to a specific length, first determine its unit vector by computing its magnitude: The corresponding unit vector is .  Multiplying the direction unit vector by our target magnitude of 2 yields the final vector: Either the positive or negative scalar multiple satisfies the geometric condition.     "
+  "title": "Worksheet 01: Vectors and the Geometry of Space",
+  "body": " Worksheet 01: Vectors and the Geometry of Space      Page 1: Core Definitions    When do directional line segments in the plane represent the same vector?    Directional line segments represent the same vector if and only if they are equivalent . Geometrically, this means they must have the exact same magnitude (length) and the exact same direction , regardless of where their initial points are located in the coordinate plane.      How do you find a vector's direction?    The direction of a non-zero vector is found by computing its corresponding unit vector , denoted as . You find this by dividing the vector by its scalar magnitude: Alternatively, in two dimensions, the direction can be specified by the angle it makes with the positive horizontal -axis, calculated using .      What geometric interpretation does the dot product have? Give an example.    Geometrically, the dot product of two vectors measures the product of their lengths multiplied by the cosine of the angle between them: . It can be interpreted as the length of multiplied by the signed scalar projection of onto ( ).   Example: If two non-zero vectors are perpendicular to each other ( ), their dot product is exactly because . This provides a tool to test for orthogonality.         Page 2: 2D Component Transformations    Find the component form of the vector that is obtained by rotating through an angle of radians.    The initial vector points straight up along the positive -axis, meaning its initial direction angle is . Rotating it by updates its direction angle to:   Since the magnitude of is 1, the component form of the rotated unit vector is:       Find the component form of the vector that is 2 units long in the direction of .    Let . First, find the unit vector in the direction of by calculating its magnitude: The direction unit vector is .  Scaling this direction vector to a length of 2 yields:       Express the vector in terms of its length and direction:     First evaluate the vector at the parameter value :   Now decompose the vector into its length and direction components:   Length (magnitude):     Direction vector:    In factored form, the vector is modeled as .         Page 3: Projections and Scalar Products    Find if and .    Write both vectors in component form: and . Next, calculate the dot product and the squared norm :    Substitute these calculations into the vector projection formula:       If , , and the angle between and is , find .    We can square the target norm to evaluate it using the algebraic properties of the dot product:   Substitute the given magnitudes and the angle value into our expression: Taking the square root gives the final length: .      Find the volume of the parallelepiped determined by the vectors:     The volume of a parallelepiped matches the absolute value of the scalar triple product, computed using a single matrix determinant: Evaluate the matrix determinant by expanding along its top row: Taking the absolute value, the volume of the parallelepiped is cubic unit.         Page 4: Line Metrics and Single Planes    Find the distance from the point to the line:     Let the target point be . From the parametric equations, we read a point on the line by setting , giving , and extract the line's direction vector: .  Construct the displacement vector from to :   The formula for the distance from a point to a line is . First, compute the cross product:   Now calculate the magnitudes:  Thus, the distance from the point to the line is .      Find the equation for the plane that passes through the point and is normal to the vector .    Substitute the point coordinates and the normal vector components directly into the standard scalar plane equation: Distribute and collect constant terms: In standard linear form, the plane equation is .         Page 5: Multi-Point Planes    Find the equation to the plane through the points:     First, construct two directional vectors sharing vertex that lie entirely within the plane:    The normal vector is perpendicular to both vector components, found via their cross product:   Using point and our calculated normal vector, set up the plane equation: Simplifying the expression yields the linear equation: , or equivalently, .      Find the distance from the point to the plane passing through , , and .    Construct two spanning vectors from the given points inside the plane: Compute their cross product to find the normal vector direction :   Since the plane passes through the origin , its linear equation simplifies to:   Apply the point-plane distance formula using our target point : The exact distance from the point to the plane is 3 units.         Page 6: Intersecting Planes and Systems    Find the parametric equations for the line in which the planes and intersect.    The direction vector of the intersection line is perpendicular to the normal vectors of both planes: and . Compute their cross product:   To locate an initial point on the line, choose a convenient coordinate value, such as setting . This reduces the equations of the planes to a system of two variables: Subtracting the second equation from the first yields . Substituting back gives . This provides the point coordinates .  Combining our initial position point and the direction numbers yields the parametric equations :       Find a vector of magnitude 2 parallel to the line of intersection of the planes and .    The direction vector of the line of intersection is perpendicular to both normal vectors, and . As calculated in Exercise 13, this cross product is:   To scale this direction to a specific length, first determine its unit vector by computing its magnitude: The corresponding unit vector is .  Multiplying the direction unit vector by our target magnitude of 2 yields the final vector: Either the positive or negative scalar multiple satisfies the geometric condition.     "
 },
 {
   "id": "ws-ex-same-vector",
@@ -1583,6 +2006,96 @@ var ptx_lunr_docs = [
   "number": "15",
   "title": "",
   "body": "  Find a vector of magnitude 2 parallel to the line of intersection of the planes and .    The direction vector of the line of intersection is perpendicular to both normal vectors, and . As calculated in Exercise 13, this cross product is:   To scale this direction to a specific length, first determine its unit vector by computing its magnitude: The corresponding unit vector is .  Multiplying the direction unit vector by our target magnitude of 2 yields the final vector: Either the positive or negative scalar multiple satisfies the geometric condition.   "
+},
+{
+  "id": "ws-vector-functions-chapter-review",
+  "level": "1",
+  "url": "ws-vector-functions-chapter-review.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "Worksheet 02: Vector Functions",
+  "body": " Worksheet 02: Vector Functions      State the rules for differentiating and integrating vector functions. Give examples.    Let and be differentiable vector functions, and let be a differentiable scalar function. The key derivative rules are:   Sum Rule:   Scalar Product Rule:   Dot Product Rule:   Cross Product Rule:    For integration, if , the definite integral is calculated component-wise:    Example: If , then and .      How do you define and calculate the length of a segment of a smooth space curve? Give an example.    The arc length of a smooth space curve traced by from to is defined as the integral of its scalar speed:    Example: Find the length of from to . The derivative is . Its magnitude is . Integrating over the interval yields:       What is a differentiable curve's unit tangent vector? Give an example.    The unit tangent vector represents the direction of motion along a smooth curve, normalized to have a constant length of . It is defined as: provided that .   Example: For at . The tangent vector is . Its magnitude is . Thus, the unit tangent vector is:          Write in the form without finding and , and find the value of at the given value of :     We differentiate the position vector function to find velocity and acceleration :    Compute the scalar speed tracking parameters at : The tangential component of acceleration is found using a projection dot product:   To find the normal acceleration component , use the relationship . First, find : Thus, the acceleration decomposition is:   Finally, calculate the curvature using the normal acceleration relationship :       The position of the particle in the plane at time is: Find the particle's highest speed.    Notice that the coordinates describe a unit circle since . Differentiate each component to evaluate the velocity vector:     Compute the scalar speed function :   To find the maximum speed value, look at the denominator of . The fraction reaches its largest value when its denominator is minimized, which occurs exactly at . Therefore, the particle's highest speed is:          A shot leaves the thrower's hand ft above the ground at a angle at ft\/sec. Where is it sec later?    Using standard ground kinematics parameters for English units, we have an initial position height ft, launch speed ft\/sec, elevation angle , and constant gravitational acceleration value . The horizontal and vertical initial velocity components are:    Set up the general equations for horizontal and vertical position tracking over time :    Evaluate both position tracking equations at the target parameter time seconds:    Two seconds later, the shot is located feet horizontally downrange from the thrower and at a vertical height of approximately feet above the ground.      Find the length of the curve:     First, differentiate the vector function components to track velocity: Next, compute the scalar speed magnitude function using the identity :   Set up the arc length integration array from to : Apply the standard trigonometric integration table substitution form :            Find , , and at the given :     Compute the derivative vector function to track velocity: Evaluating velocity at our target parameter point yields: Compute the speed magnitude value: Thus, the unit tangent vector at matches the velocity vector directly:   To find , look back at the general velocity profile magnitude function: Since speed is identically for all values of , the general unit tangent equation reduces simply to . Differentiating a second time gives : Evaluate this vector layout at :   Normalize this derivative vector to find the unit normal vector: Finally, calculate the curvature using the relationship :       Find the parametric equations for the line that is tangent to the curve:     First, evaluate the initial point vector coordinates on the curve at : This gives us the base point coordinates .  Next, differentiate the vector function components with respect to using the chain rule to locate the direction vector profile: Evaluating the derivative vector at our target parameter point gives the direction coefficients for the tangent line: This gives the parallel direction vector components .  Using the base point and direction components , the parametric equations for the tangent line are:      "
+},
+{
+  "id": "ex-ws-diff-int-rules",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-diff-int-rules",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  State the rules for differentiating and integrating vector functions. Give examples.    Let and be differentiable vector functions, and let be a differentiable scalar function. The key derivative rules are:   Sum Rule:   Scalar Product Rule:   Dot Product Rule:   Cross Product Rule:    For integration, if , the definite integral is calculated component-wise:    Example: If , then and .   "
+},
+{
+  "id": "ex-ws-arc-length-def",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-arc-length-def",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  How do you define and calculate the length of a segment of a smooth space curve? Give an example.    The arc length of a smooth space curve traced by from to is defined as the integral of its scalar speed:    Example: Find the length of from to . The derivative is . Its magnitude is . Integrating over the interval yields:    "
+},
+{
+  "id": "ex-ws-unit-tangent-def",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-unit-tangent-def",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": "  What is a differentiable curve's unit tangent vector? Give an example.    The unit tangent vector represents the direction of motion along a smooth curve, normalized to have a constant length of . It is defined as: provided that .   Example: For at . The tangent vector is . Its magnitude is . Thus, the unit tangent vector is:    "
+},
+{
+  "id": "ex-ws-acceleration-components",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-acceleration-components",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": "  Write in the form without finding and , and find the value of at the given value of :     We differentiate the position vector function to find velocity and acceleration :    Compute the scalar speed tracking parameters at : The tangential component of acceleration is found using a projection dot product:   To find the normal acceleration component , use the relationship . First, find : Thus, the acceleration decomposition is:   Finally, calculate the curvature using the normal acceleration relationship :    "
+},
+{
+  "id": "ex-ws-highest-speed",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-highest-speed",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": "  The position of the particle in the plane at time is: Find the particle's highest speed.    Notice that the coordinates describe a unit circle since . Differentiate each component to evaluate the velocity vector:     Compute the scalar speed function :   To find the maximum speed value, look at the denominator of . The fraction reaches its largest value when its denominator is minimized, which occurs exactly at . Therefore, the particle's highest speed is:    "
+},
+{
+  "id": "ex-ws-shotput-projectile-detail",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-shotput-projectile-detail",
+  "type": "Worksheet Exercise",
+  "number": "6",
+  "title": "",
+  "body": "  A shot leaves the thrower's hand ft above the ground at a angle at ft\/sec. Where is it sec later?    Using standard ground kinematics parameters for English units, we have an initial position height ft, launch speed ft\/sec, elevation angle , and constant gravitational acceleration value . The horizontal and vertical initial velocity components are:    Set up the general equations for horizontal and vertical position tracking over time :    Evaluate both position tracking equations at the target parameter time seconds:    Two seconds later, the shot is located feet horizontally downrange from the thrower and at a vertical height of approximately feet above the ground.   "
+},
+{
+  "id": "ex-ws-arc-length-calc-detail",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-arc-length-calc-detail",
+  "type": "Worksheet Exercise",
+  "number": "7",
+  "title": "",
+  "body": "  Find the length of the curve:     First, differentiate the vector function components to track velocity: Next, compute the scalar speed magnitude function using the identity :   Set up the arc length integration array from to : Apply the standard trigonometric integration table substitution form :      "
+},
+{
+  "id": "ex-ws-tnk-evaluation-detail",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-tnk-evaluation-detail",
+  "type": "Worksheet Exercise",
+  "number": "8",
+  "title": "",
+  "body": "  Find , , and at the given :     Compute the derivative vector function to track velocity: Evaluating velocity at our target parameter point yields: Compute the speed magnitude value: Thus, the unit tangent vector at matches the velocity vector directly:   To find , look back at the general velocity profile magnitude function: Since speed is identically for all values of , the general unit tangent equation reduces simply to . Differentiating a second time gives : Evaluate this vector layout at :   Normalize this derivative vector to find the unit normal vector: Finally, calculate the curvature using the relationship :    "
+},
+{
+  "id": "ex-ws-tangent-line-equations-detail",
+  "level": "2",
+  "url": "ws-vector-functions-chapter-review.html#ex-ws-tangent-line-equations-detail",
+  "type": "Worksheet Exercise",
+  "number": "9",
+  "title": "",
+  "body": "  Find the parametric equations for the line that is tangent to the curve:     First, evaluate the initial point vector coordinates on the curve at : This gives us the base point coordinates .  Next, differentiate the vector function components with respect to using the chain rule to locate the direction vector profile: Evaluating the derivative vector at our target parameter point gives the direction coefficients for the tangent line: This gives the parallel direction vector components .  Using the base point and direction components , the parametric equations for the tangent line are:    "
 },
 {
   "id": "homework",

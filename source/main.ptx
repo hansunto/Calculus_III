@@ -46,6 +46,10 @@
       </introduction>
       <xi:include href="./notes/Vector-valued-functions.ptx" />
       <xi:include href="./notes/Derivatives-of-vector-functions.ptx" />
+      <xi:include href="./notes/Integrals-of-vector-functions.ptx" />
+      <xi:include href="./notes/Arclength.ptx" />
+      <xi:include href="./notes/Motion-in-space.ptx" />
+      <xi:include href="./notes/Tangential-normal-components.ptx" />
 
     </chapter>
 
@@ -75,6 +79,8 @@
         </p>
       </introduction>
       <xi:include href="./ch_exercises/vector-values.ptx" />
+      <xi:include href="./ch_exercises/vector-functions.ptx" />
+
     </chapter>
 
 

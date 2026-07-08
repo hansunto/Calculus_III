@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section id="Arclength">
+  <title>2.4 Arc Length and Curvature </title>
+    <p>
+      In this section, we will discuss the concept of arc length for curves defined by vector-valued functions. 
+      The arc length of a curve is the distance along the curve between two points. 
+      We will derive a formula for computing the arc length of a curve defined by a vector function and provide examples to illustrate the process.
+    </p>
+
+<definition xml:id="defn-arc-length-vector">
+  <title>Arc Length of a Curve</title>
+  <statement>
+    <p>
+      The length <m>L</m> of a smooth curve <m>C</m> traced out by a vector function <m>\mathbf{r}(t)=x(t)\mathbf{i}+y(t)\mathbf{j}+z(t)\mathbf{k}</m> on the interval <m>a \le t \le b</m> is defined as:
+      <me>L = \int^b_a\sqrt{[x'(t)]^2+[y'(t)]^2+[z'(t)]^2}\, dt = \int^b_a\sqrt{\left[\frac{dx}{dt}\right]^2+\left[\frac{dy}{dt}\right]^2+\left[\frac{dz}{dt}\right]^2}\, dt = \int^b_a|\mathbf{r}'(t)|\, dt</me>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-helix-arc-length">
+  <statement>
+    <p>
+      Find the length of the arc of the circular helix with vector equation:
+      <me>\mathbf{r}(t)=\cos t\ \mathbf{i}+\sin t\ \mathbf{j}+t\ \mathbf{k}</me>
+      from the point <m>(1,0,0)</m> to the point <m>(1,0,2\pi)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we determine the parameter limits <m>t = a</m> and <m>t = b</m> corresponding to the given points. 
+      Comparing the <m>\mathbf{k}</m>-component <m>z = t</m> to the points yields:
+      <md>
+        <mrow>\text{At } (1,0,0) \amp \implies t = 0</mrow>
+        <mrow>\text{At } (1,0,2\pi) \amp \implies t = 2\pi</mrow>
+      </md>
+      Next, we compute the derivative vector function <m>\mathbf{r}'(t)</m> and its magnitude:
+      <me>\mathbf{r}'(t) = \langle -\sin t, \cos t, 1 \rangle</me>
+      <me>|\mathbf{r}'(t)| = \sqrt{(-\sin t)^2 + (\cos t)^2 + 1^2} = \sqrt{\sin^2 t + \cos^2 t + 1} = \sqrt{1 + 1} = \sqrt{2}</me>
+    </p>
+    <p>
+      Applying the arc length formula over the interval <m>[0, 2\pi]</m> gives:
+      <me>L = \int_{0}^{2\pi} |\mathbf{r}'(t)|\, dt = \int_{0}^{2\pi} \sqrt{2}\, dt = \left[ \sqrt{2}t \right]_{0}^{2\pi} = 2\pi\sqrt{2}</me>
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="ck-curve-reparameterization">
+  <statement>
+    <p>
+      A curve <m>C</m> can be represented by more than one vector function. 
+      For instance, the twisted cubic can be parameterized as:
+      <me>\mathbf{r}_1(t)=t\,\mathbf{i}+ t^2\,\mathbf{j}+t^3\,\mathbf{k} \quad \text{for } 1 \le t \le 2</me>
+      or as:
+      <me>\mathbf{r}_2(u)=e^u\,\mathbf{i}+e^{2u}\,\mathbf{j}+e^{3u}\,\mathbf{k} \quad \text{for } 0 \le u \le \ln 2</me>
+      Therefore, the vector functions representing a space curve are <alert>not</alert> uniquely determined.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To show that <m>\mathbf{r}_1(t)</m> and <m>\mathbf{r}_2(u)</m> trace out the exact same geometric path in space, we can perform a change of variables (reparameterization).
+    </p>
+    <p>
+      Let us define a substitution relationship between the two parameters <m>t</m> and <m>u</m>:
+      <me>t = e^u</me>
+      If we take the natural logarithm of both sides, this is equivalent to writing <m>u = \ln t</m>.
+    </p>
+    <p>
+      Now, we verify two things to ensure the representations are identical: the component equations and the domain boundaries.
+    </p>
+    <ol>
+      <li>
+        <p>
+          <strong>Component Transformation:</strong> Substitute <m>t = e^u</m> directly into the component equations of <m>\mathbf{r}_1(t)</m>:
+          <md>
+            <mrow>x(t) \amp = t \implies x(u) = e^u</mrow>
+            <mrow>y(t) \amp = t^2 \implies y(u) = (e^u)^2 = e^{2u}</mrow>
+            <mrow>z(t) \amp = t^3 \implies z(u) = (e^u)^3 = e^{3u}</mrow>
+          </md>
+          This matches the vector structure of <m>\mathbf{r}_2(u) = \langle e^u, e^{2u}, e^{3u} \rangle</m> perfectly.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Domain Mapping:</strong> We must map the parameter boundaries from <m>t</m> to <m>u</m> using our transition formula <m>u = \ln t</m>:
+          <md>
+            <mrow>\text{Lower bound: } t = 1 \amp \implies u = \ln(1) = 0</mrow>
+            <mrow>\text{Upper bound: } t = 2 \amp \implies u = \ln(2)</mrow>
+          </md>
+          This confirms that as <m>t</m> travels over the continuous interval <m>[1, 2]</m>, the new parameter <m>u</m> travels exactly over the continuous interval <m>[0, \ln 2]</m>.
+        </p>
+      </li>
+    </ol>
+    <p>
+      Both vector functions start at the point <m>(1,1,1)</m> and terminate at the point <m>(2,4,8)</m>, tracking the exact same space path. This illustrates that a single space curve can have infinitely many valid parametric representations.
+    </p>
+  </solution>
+</exercise>
+
+<p>
+  We say that those equations are <term>parameterizations</term> of the curve <m>C</m>.
+</p>
+
+<definition xml:id="defn-arc-length-function">
+  <statement>
+    <p>
+      Suppose that <m>C</m> is a piecewise-smooth curve given by a vector function <m>\mathbf{r}(t)=f(t)\mathbf{i}+g(t)\mathbf{j}+h(t)\mathbf{k}</m> for <m>a \le t \le b</m>, and <m>C</m> is traversed exactly once as <m>t</m> increases from <m>a</m> to <m>b</m>. 
+      The <term>arc length function <m>s</m></term> is defined as:
+      <me>s(t)=\int^t_a|\mathbf{r}'(u)|\, du = \int^t_a\sqrt{\left[\frac{dx}{du}\right]^2+\left[\frac{dy}{du}\right]^2+\left[\frac{dz}{du}\right]^2}\, du</me>
+      So, <m>s(t)</m> represents the accumulated length of the part of <m>C</m> between the starting point <m>\mathbf{r}(a)</m> and the variable position <m>\mathbf{r}(t)</m>.
+    </p>
+  </statement>
+</definition>
+
+<p>
+  By using the Fundamental Theorem of Calculus Part 1 to differentiate the arc length function <m>s(t)</m>, we get:
+  <me>\frac{ds}{dt}=|\mathbf{r}'(t)|</me>
+  This structural relationship allows us to <term>parametrize a curve with respect to arc length</term>. 
+  Arc length parameterization arises naturally from the geometry of the curve itself and remains invariant across all chosen external coordinate systems.
+</p>
+
+<example xml:id="ex-reparameterize-helix">
+  <statement>
+    <p>
+      Reparametrize the helix <m>\mathbf{r}(t)=\cos t\ \mathbf{i}+\sin t\ \mathbf{j}+t\ \mathbf{k}</m> with respect to arc length measured from the point <m>(1,0,0)</m> in the direction of increasing <m>t</m> (a <term>positive orientation</term>).
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The initial baseline point <m>(1,0,0)</m> maps directly to the parameter value <m>t=0</m>. 
+      Using our previous evaluation, we know that:
+      <me>\frac{ds}{dt}=|\mathbf{r}'(t)|=\sqrt{(-\sin t)^2 + (\cos t)^2 + 1^2} = \sqrt{2}</me>
+      Now, compute the active arc length function <m>s(t)</m> by integration:
+      <me>s = s(t) = \int^t_0|\mathbf{r}'(u)|\, du = \int^t_0\sqrt{2} \, du = \sqrt{2}t</me>
+      Isolating the original domain parameter yields the substitution profile <m>t=\frac{s}{\sqrt{2}}</m>. 
+      Substituting this back into our primary position function gives the desired arc length parameterization:
+      <me>\mathbf{r}(t(s)) = \left\langle \cos\left(\frac{s}{\sqrt{2}}\right), \ \sin\left(\frac{s}{\sqrt{2}}\right), \ \frac{s}{\sqrt{2}} \right\rangle</me>
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="exercise-arc-length-circle">
+  <statement>
+    <p>
+      Find the arc length parametrization for a circle <m>x^2+y^2=2^2</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Let <m>A(2,0)</m> represent the fixed initial coordinate point and let <m>P(x,y)</m> match any coordinate along the circle. 
+      The standard parametric representation tracking counterclockwise rotation gives:
+      <me>x=2\cos \theta, \quad y=2\sin \theta \quad \text{for } 0 \le \theta \le 2\pi</me>
+      The magnitude of the derivative tracking vector evaluates to:
+      <me>|\mathbf{r}'(\theta)| = |\langle -2\sin\theta, 2\cos\theta \rangle| = \sqrt{4\sin^2\theta + 4\cos^2\theta} = 2</me>
+      Setting up our accumulated arc length function <m>s</m> yields:
+      <me>s(\theta) = \int^\theta_0 2\, du = 2\theta \implies \theta = \frac{s}{2}</me>
+      Mapping the boundaries into the new parametric frame maps <m>\theta=0 \implies s=0</m> and <m>\theta=2\pi \implies s=4\pi</m>. 
+      Substituting the transformation pattern into our vector structure outputs:
+      <me>\mathbf{r}(\theta(s)) = \left\langle 2\cos\left(\frac{s}{2}\right), \ 2\sin\left(\frac{s}{2}\right) \right\rangle \quad \text{for } 0 \le s \le 4\pi</me>
+    </p>
+  </solution>
+</exercise>
+
+<p>
+  If <m>\mathbf{r}(t)</m> is a vector-valued function and the space curve <m>C</m> determined by <m>\mathbf{r}(t)</m> is smooth, then <m>\mathbf{r}'(t)</m> represents a tangent vector pointing in the direction of the curve's orientation. 
+  Provided <m>\mathbf{r}'(t) \neq \mathbf{0}</m>, the <term>unit tangent vector <m>\mathbf{T}(t)</m></term> is defined as:
+  <me>\mathbf{T}(t)=\frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}</me>
+  Because <m>|\mathbf{T}(t)|=1</m> remains constant for all values of <m>t</m>, if <m>\mathbf{T}'(t)</m> is differentiable, then <m>\mathbf{T}'(t)</m> must be orthogonal to <m>\mathbf{T}(t)</m>.
+</p>
+
+<assemblage xml:id="asm-unit-normal-vector">
+  <title>The Unit Normal Vector</title>
+  <p>
+    The <term>unit normal vector <m>\mathbf{N}(t)</m></term> to <m>C</m> is defined as the unit vector pointing in the same direction as <m>\mathbf{T}'(t)</m>:
+  <me>\mathbf{N}(t)= \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|}</me>
+  </p>
+</assemblage>
+
+<example xml:id="ex-tangent-normal-parabola">
+  <statement>
+    <p>
+      Let <m>C</m> be a curve determined by the vector function <m>\mathbf{r}(t)=t^2\mathbf{i}+t\mathbf{j}</m>.
+    </p>
+    <ol>
+      <li> <p> Find the unit tangent and unit normal vectors <m>\mathbf{T}(t)</m> and <m>\mathbf{N}(t)</m>. </p> </li>
+      <li> <p> Find <m>\mathbf{T}(1)</m> and <m>\mathbf{N}(1)</m>. </p> </li>
+      <li> <p> Check the orthogonality of <m>\mathbf{T}(t)</m> and <m>\mathbf{N}(t)</m>. </p> </li>
+    </ol>
+  </statement>
+  <solution>
+    <ol>
+      <li> <p>
+          First, differentiate the position vector function to locate our general velocity vector profile:
+          <me>\mathbf{r}'(t) = 2t\mathbf{i} + \mathbf{j} \implies |\mathbf{r}'(t)| = \sqrt{4t^2 + 1}</me>
+          Dividing the derivative vector by its magnitude gives the unit tangent vector function:
+          <me>\mathbf{T}(t) = \frac{2t}{\sqrt{4t^2+1}}\mathbf{i} + \frac{1}{\sqrt{4t^2+1}}\mathbf{j}</me>
+          Next, differentiate <m>\mathbf{T}(t)</m> using the quotient rule or chain rule to find the normal vector direction:
+          <me>\mathbf{T}'(t) = \frac{2(4t^2+1)^{-1/2} - 2t \cdot \frac{1}{2}(4t^2+1)^{-1/2}(8t)}{4t^2+1}\mathbf{i} + \left(-\frac{1}{2}(4t^2+1)^{-3/2}(8t)\right)\mathbf{j}</me>
+          <me>\mathbf{T}'(t) = \frac{2}{(4t^2+1)^{3/2}}\mathbf{i} - \frac{4t}{(4t^2+1)^{3/2}}\mathbf{j} \implies |\mathbf{T}'(t)| = \frac{\sqrt{4 + 16t^2}}{(4t^2+1)^{3/2}} = \frac{2}{\sqrt{4t^2+1}}</me>
+          Normalizing this vector tracking profile produces our final unit normal vector function:
+          <me>\mathbf{N}(t) = \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|} = \frac{1}{\sqrt{4t^2+1}}\mathbf{i} - \frac{2t}{\sqrt{4t^2+1}}\mathbf{j}</me>
+        </p> </li>
+      <li> <p>
+          Evaluating both unit vector function equations at our specific target parameter point <m>t=1</m> yields:
+          <me>\mathbf{T}(1) = \frac{2}{\sqrt{5}}\mathbf{i} + \frac{1}{\sqrt{5}}\mathbf{j} = \left\langle \frac{2}{\sqrt{5}}, \frac{1}{\sqrt{5}} \right\rangle</me>
+          <me>\mathbf{N}(1) = \frac{1}{\sqrt{5}}\mathbf{i} - \frac{2}{\sqrt{5}}\mathbf{j} = \left\langle \frac{1}{\sqrt{5}}, -\frac{2}{\sqrt{5}} \right\rangle</me>
+        </p> </li>
+      <li>
+        <p>
+          To check orthogonality, we compute the algebraic dot product of our two unit vector functions:
+          <me>\mathbf{T}(t) \cdot \mathbf{N}(t) = \left(\frac{2t}{\sqrt{4t^2+1}}\right)\left(\frac{1}{\sqrt{4t^2+1}}\right) + \left(\frac{1}{\sqrt{4t^2+1}}\right)\left(-\frac{2t}{\sqrt{4t^2+1}}\right)</me>
+          <me>\mathbf{T}(t) \cdot \mathbf{N}(t) = \frac{2t}{4t^2+1} - \frac{2t}{4t^2+1} = 0</me>
+          Because their dot product evaluates to exactly zero for all values of <m>t</m>, the unit tangent vector <m>\mathbf{T}(t)</m> and unit normal vector <m>\mathbf{N}(t)</m> are verified as orthogonal.
+        </p>
+      </li>
+    </ol>
+  </solution>
+</example>
+
+<exercise xml:id="exercise-tangent-normal-helix">
+  <statement>
+    <p>
+      Let <m>C</m> be determined by the helix <m>\mathbf{r}(t)=\cos t\ \mathbf{i}+\sin t\ \mathbf{j}+t\ \mathbf{k}</m> for <m>t \ge 0</m>. Find the unit vector functions <m>\mathbf{T}(t)</m> and <m>\mathbf{N}(t)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Differentiate the helix position components vector to extract our general velocity direction path:
+      <me>\mathbf{r}'(t) = \langle -\sin t, \cos t, 1 \rangle \implies |\mathbf{r}'(t)| = \sqrt{\sin^2 t + \cos^2 t + 1} = \sqrt{2}</me>
+      Dividing the derivative components by this magnitude gives our unit tangent vector function:
+      <me>\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} = \left\langle -\frac{1}{\sqrt{2}}\sin t, \frac{1}{\sqrt{2}}\cos t, \frac{1}{\sqrt{2}} \right\rangle</me>
+    </p>
+    <p>
+      Next, differentiate our unit tangent function with respect to <m>t</m> to trace the geometric turn path:
+      <me>\mathbf{T}'(t) = \left\langle -\frac{1}{\sqrt{2}}\cos t, -\frac{1}{\sqrt{2}}\sin t, 0 \right\rangle</me>
+      Computing the magnitude of this secondary differentiation vector yields:
+      <me>|\mathbf{T}'(t)| = \sqrt{\left(-\frac{1}{\sqrt{2}}\cos t\right)^2 + \left(-\frac{1}{\sqrt{2}}\sin t\right)^2 + 0^2} = \sqrt{\frac{1}{2}(\cos^2 t + \sin^2 t)} = \frac{1}{\sqrt{2}}</me>
+      Finally, normalize <m>\mathbf{T}'(t)</m> to calculate our primary unit normal vector function:
+      <me>\mathbf{N}(t) = \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|} = \frac{1}{1/\sqrt{2}}\left\langle -\frac{1}{\sqrt{2}}\cos t, -\frac{1}{\sqrt{2}}\sin t, 0 \right\rangle = \langle -\cos t, -\sin t, 0 \rangle</me>
+      This shows that for a circular helix, the unit normal vector always points directly inward toward the central vertical axis of the cylinder.
+    </p>
+  </solution>
+</exercise>
+
+<subsection xml:id="subsec-curvature">
+  <title>The Curvature</title>
+  
+  <p>
+    The curvature of a curve <m>C</m> at a given point is a measure of how quickly the curve changes direction at that point, or how much the curve bends at each point.
+  </p>
+
+  <definition xml:id="defn-curvature">
+    <title>Curvature</title>
+    <statement>
+      <p>
+        The <term>curvature</term> of a curve is defined as:
+        <me>\kappa=\left|\frac{d\mathbf{T}}{ds}\right|</me>
+        where <m>\mathbf{T}</m> is the unit tangent vector. 
+        Curvature is the magnitude of the rate of change of the unit tangent vector with respect to arc length.
+      </p>
+    </statement>
+  </definition>
+
+<theorem xml:id="thm-curvature-formulas">
+  <title>Formulas for Curvature</title>
+  <statement>
+    <p>
+      Let <m>C</m> be a smooth curve and let <m>\theta</m> be the angle between the unit tangent vector <m>\mathbf{T}</m> and the standard basis vector <m>\mathbf{i}</m>.
+    </p>
+    <ol xml:id="list-curvature-types">
+      <li xml:id="item-kappa-vector-tangent">
+        <p>
+          By applying the chain rule to the unit tangent vector with respect to time <m>t</m>:
+          <me>\frac{d\mathbf{T}}{dt}=\frac{d\mathbf{T}}{ds}\frac{ds}{dt}, \quad \text{and} \quad \kappa=\left|\frac{d\mathbf{T}}{ds}\right|=\left|\frac{d\mathbf{T}/dt}{ds/dt}\right|</me>
+          Since <m>\frac{ds}{dt}=|\mathbf{r}'(t)|</m>, the curvature as a function of the parameter <m>t</m> simplifies to:
+          <me>\kappa(t)=\frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|}</me>
+        </p>
+      </li>
+      <li xml:id="item-kappa-arc-length-2d">
+        <p>
+          If a 2D curve has an arc length parameterization given by <m>x=f(s)</m> and <m>y=g(s)</m>, then the curvature <m>\kappa</m> at a point <m>P(x,y)</m> is given geometrically by:
+          <me>\kappa=\left|\frac{d\theta}{ds}\right|</me>
+        </p>
+      </li>
+      <li xml:id="item-kappa-cartesian">
+        <p>
+          Suppose a 2D curve is defined explicitly by a Cartesian function <m>y=f(x)</m>, where <m>f'(x)</m> is continuous on an interval. 
+          Since <m>y'</m> is the slope of the tangent line at <m>P(x,y)</m>, we have <m>\tan \theta=y'</m> (or <m>\theta=\tan^{-1}y'</m>), and the arc length function is <m>s(x)=\int^x_a\sqrt{1+(y')^2}\, dx</m>. 
+          If <m>y''</m> exists, applying the chain rule yields:
+          <me>\frac{d\theta}{dx} = \frac{d}{dx}(\tan^{-1}y') = \frac{y''}{1+(y')^2} \quad \text{and} \quad \frac{ds}{dx} = \sqrt{1+(y')^2}</me>
+          Thus, the curvature <m>\kappa</m> at the point <m>P(x,y)</m> is defined as:
+          <me>\kappa=\frac{|y''|}{\left(1+(y')^2\right)^{3/2}}</me>
+        </p>
+      </li>
+      <li xml:id="item-kappa-parametric-2d">
+        <p>
+          Suppose a 2D curve is given parametrically by <m>x=f(t)</m> and <m>y=g(t)</m>, where <m>f''</m> and <m>g''</m> exist on an interval <m>I</m>. 
+          Since the slope of the tangent line is <m>\tan \theta = \frac{g'(t)}{f'(t)}</m> for <m>f'(t) \neq 0</m>, differentiating <m>\theta = \tan^{-1}\left(\frac{g'(t)}{f'(t)}\right)</m> with respect to <m>t</m> and dividing by <m>\frac{ds}{dt}</m> yields:
+          <me>\kappa =\frac{|f'(t)g''(t)-g'(t)f''(t)|}{\left[(f'(t))^2+(g'(t))^2\right]^{3/2}}</me>
+        </p>
+      </li>
+      <li xml:id="item-kappa-cross-product">
+        <p>
+          For a curve in space defined by a 3D vector function <m>\mathbf{r}(t)</m>, the curvature can be computed directly without finding the unit tangent vector via the cross product:
+          <me>\kappa = \frac{|\mathbf{r}'(t)\times\mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3}</me>
+        </p>
+      </li>
+    </ol>
+  </statement>
+</theorem>
+
+<!-- Examples mapped directly following the theorem -->
+
+<example xml:id="ex-kappa-circle-vector">
+  <statement>
+    <p>
+      Show that the curvature of a circle of radius <m>a</m> is <m>1/a</m> at every point on the circle using the vector formula from <xref ref="item-kappa-vector-tangent" />.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Parameterize the circle of radius <m>a</m> as <m>\mathbf{r}(t) = \langle a\cos t, a\sin t, 0 \rangle</m>. 
+      Then, the velocity vector is <m>\mathbf{r}'(t) = \langle -a\sin t, a\cos t, 0 \rangle</m>, and its magnitude is <m>|\mathbf{r}'(t)| = \sqrt{a^2\sin^2 t + a^2\cos^2 t} = a</m>.
+    </p>
+    <p>
+      The unit tangent vector is:
+      <me>\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} = \langle -\sin t, \cos t, 0 \rangle</me>
+      Differentiating with respect to <m>t</m> gives <m>\mathbf{T}'(t) = \langle -\cos t, -\sin t, 0 \rangle</m>, so <m>|\mathbf{T}'(t)| = 1</m>. 
+      Applying the formula, we find:
+      <me>\kappa(t) = \frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|} = \frac{1}{a}</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-kappa-line">
+  <statement>
+    <p>
+      Show that the curvature of a line <m>l</m> is <m>0</m> at every point on <m>l</m> using the geometric formulation in <xref ref="item-kappa-arc-length-2d" />.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      A straight line maintains a constant direction along its entire trajectory. 
+      Therefore, the tangent angle <m>\theta</m> is constant relative to the <m>x</m>-axis, which implies <m>\frac{d\theta}{ds} = 0</m>. 
+      Thus, <m>\kappa = |0| = 0</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-kappa-parabola-cartesian">
+  <statement>
+    <p>
+      Sketch the graph of <m>y=1-x^2</m> and find the curvature at general points <m>(x,y)</m>, and specifically at the points <m>(0,1)</m>, <m>(1,0)</m>, and <m>(2,-3)</m> using the explicit function method of <xref ref="item-kappa-cartesian" />.
+    </p>
+  </statement>
+  <solution>
+    <ol>
+      <li>
+        <p>
+          For <m>y = 1 - x^2</m>, we compute the first and second derivatives with respect to <m>x</m>:
+          <me>y' = -2x \quad \text{and} \quad y'' = -2</me>
+          Substituting these into the explicit Cartesian curvature formula yields the general formula for this parabola:
+          <me>\kappa(x) = \frac{|-2|}{\left(1 + (-2x)^2\right)^{3/2}} = \frac{2}{(1 + 4x^2)^{3/2}}</me>
+        </p>
+      </li>
+      <li>
+        <p>
+          Evaluating this expression at the specific requested coordinates:
+          <ol>
+            <li>
+              <p>
+                At <m>(0,1)</m>, <m>x=0 \implies \kappa(0) = \frac{2}{(1+0)^{3/2}} = 2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                At <m>(1,0)</m>, <m>x=1 \implies \kappa(1) = \frac{2}{(1+4)^{3/2}} = \frac{2}{5\sqrt{5}}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                At <m>(2,-3)</m>, <m>x=2 \implies \kappa(2) = \frac{2}{(1+16)^{3/2}} = \frac{2}{17\sqrt{17}}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ol>
+  </solution>
+</example>
+
+<exercise xml:id="exercise-kappa-parametric-circle-proof">
+  <statement>
+    <p>
+      Prove that the curvature of a circle of radius <m>a</m> is <m>1/a</m> at every point on the circle 
+      using the 2D parametric formula derived in <xref ref="item-kappa-parametric-2d" />.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Using the standard parametric representation <m>x = a\cos t</m> and <m>y = a\sin t</m>, we calculate the first and second derivatives:
+      <md>
+        <mrow>f'(t) = -a\sin t, \amp \quad g'(t) = a\cos t</mrow>
+        <mrow>f''(t) = -a\cos t, \amp \quad g''(t) = -a\sin t</mrow>
+      </md>
+      Substitute these components into the parametric numerator and denominator arrays:
+      <me>|f'(t)g''(t) - g'(t)f''(t)| = |(-a\sin t)(-a\sin t) - (a\cos t)(-a\cos t)| = a^2\sin^2 t + a^2\cos^2 t = a^2</me>
+      <me>[(f'(t))^2 + (g'(t))^2]^{3/2} = [(-a\sin t)^2 + (a\cos t)^2]^{3/2} = (a^2)^{3/2} = a^3</me>
+      Dividing these values yields a constant curvature of:
+      <me>\kappa = \frac{a^2}{a^3} = \frac{1}{a}</me>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="exercise-kappa-parametric-cusp">
+  <statement>
+    <p>
+      A curve <m>C</m> has the parameterization <m>x=t^2</m>, <m>y=t^3</m> for <m>t\in \mathbb{R}</m>. 
+      Find the curvature at the point <m>P</m> corresponding to <m>t=1/2</m> 
+      using the 2D parametric formula derived in <xref ref="item-kappa-parametric-2d" />.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Differentiating the component functions gives:
+      <md>
+        <mrow>f'(t) = 2t, \amp \quad g'(t) = 3t^2</mrow>
+        <mrow>f''(t) = 2, \amp \quad g''(t) = 6t</mrow>
+      </md>
+      Substitute these into the 2D parametric curvature formula:
+      <me>\kappa(t) = \frac{|(2t)(6t) - (3t^2)(2)|}{[(2t)^2 + (3t^2)^2]^{3/2}} = \frac{|12t^2 - 6t^2|}{(4t^2 + 9t^4)^{3/2}} = \frac{6t^2}{(4t^2 + 9t^4)^{3/2}}</me>
+      Evaluating the curvature profile at the requested input parameter <m>t = 1/2</m>:
+      <me>\kappa\left(\frac{1}{2}\right) = \frac{6(1/4)}{\left(4(1/4) + 9(1/16)\right)^{3/2}} = \frac{3/2}{\left(1 + 9/16\right)^{3/2}} = \frac{3/2}{(25/16)^{3/2}} = \frac{3/2}{125/64} = \frac{3}{2} \cdot \frac{64}{125} = \frac{96}{125}</me>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="exercise-kappa-twisted-cubic-3d">
+  <statement>
+    <p>
+      Find the curvature of the twisted cubic <m>\mathbf{r}(t)=\langle t,t^2,t^3 \rangle</m> at a general parameter point and specifically at the origin <m>(0,0,0)</m> using the cross product formulation of <xref ref="item-kappa-cross-product" />.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, compute the velocity vector <m>\mathbf{r}'(t)</m> and acceleration vector <m>\mathbf{r}''(t)</m>:
+      <me>\mathbf{r}'(t) = \langle 1, 2t, 3t^2 \rangle \implies |\mathbf{r}'(t)| = \sqrt{1 + 4t^2 + 9t^4}</me>
+      <me>\mathbf{r}''(t) = \langle 0, 2, 6t \rangle</me>
+      Next, evaluate the vector cross product of these two derivative vectors:
+      <me>\mathbf{r}'(t) \times \mathbf{r}''(t) = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 1 \amp 2t \amp 3t^2 \\ 0 \amp 2 \amp 6t \end{vmatrix} = (12t^2 - 6t^2)\mathbf{i} - (6t - 0)\mathbf{j} + (2 - 0)\mathbf{k} = \langle 6t^2, -6t, 2 \rangle</me>
+      Find the magnitude of this cross product vector:
+      <me>|\mathbf{r}'(t) \times \mathbf{r}''(t)| = \sqrt{(6t^2)^2 + (-6t)^2 + 2^2} = \sqrt{36t^4 + 36t^2 + 4} = 2\sqrt{9t^4 + 9t^2 + 1}</me>
+    </p>
+    <p>
+      Substituting these components back into our 3D vector curvature equation yields the general expression:
+      <me>\kappa(t) = \frac{2\sqrt{9t^4 + 9t^2 + 1}}{(1 + 4t^2 + 9t^4)^{3/2}}</me>
+      To find the specific curvature at the origin <m>(0,0,0)</m>, substitute the parameter value <m>t=0</m>:
+      <me>\kappa(0) = \frac{2\sqrt{0 + 0 + 1}}{(1 + 0 + 0)^{3/2}} = \frac{2(1)}{1} = 2</me>
+    </p>
+  </solution>
+</exercise>
+
+</subsection>
+
+ </section>
+ 

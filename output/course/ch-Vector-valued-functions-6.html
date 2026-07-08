@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>2.4 Arc Length and Curvature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.9';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.846a0d6fafaa99e0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bbcfc02849ebc023.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-Vector-valued-functions-5.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Vector-valued-functions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-motion-in-space.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Vector-valued-functions-5.html" class="internal"><span class="title">2.3 Integrals of Vector Functions</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html" class="internal"><span class="title">2.4 Arc Length and Curvature</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html#subsec-curvature" class="internal"><span class="title">The Curvature</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-motion-in-space.html" class="internal"><span class="title">2.5 Motion in Space: Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangential-normal-components.html" class="internal"><span class="title">2.6 Tangential and Normal Components of Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">3</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">4</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">5</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">6</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="ch-Vector-valued-functions-6">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">2.4 Arc Length and Curvature</span>
+</h2>
+<div class="para" id="ch-Vector-valued-functions-6-2">In this section, we will discuss the concept of arc length for curves defined by vector-valued functions. The arc length of a curve is the distance along the curve between two points. We will derive a formula for computing the arc length of a curve defined by a vector function and provide examples to illustrate the process.<div class="autopermalink" data-description="Paragraph"><a href="#ch-Vector-valued-functions-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="defn-arc-length-vector"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.39</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Arc Length of a Curve.</span>
+</h3>
+<div class="para logical" id="defn-arc-length-vector-2-1">
+<div class="para">The length <span class="process-math">\(L\)</span> of a smooth curve <span class="process-math">\(C\)</span> traced out by a vector function <span class="process-math">\(\mathbf{r}(t)=x(t)\mathbf{i}+y(t)\mathbf{j}+z(t)\mathbf{k}\)</span> on the interval <span class="process-math">\(a \le t \le b\)</span> is defined as:</div>
+<div class="displaymath process-math" id="defn-arc-length-vector-2-1-5">
+\begin{equation*}
+L = \int^b_a\sqrt{[x'(t)]^2+[y'(t)]^2+[z'(t)]^2}\, dt = \int^b_a\sqrt{\left[\frac{dx}{dt}\right]^2+\left[\frac{dy}{dt}\right]^2+\left[\frac{dz}{dt}\right]^2}\, dt = \int^b_a|\mathbf{r}'(t)|\, dt
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defn-arc-length-vector-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.39: Arc Length of a Curve"><a href="#defn-arc-length-vector" title="Copy heading and permalink for Definition 2.39: Arc Length of a Curve" aria-label="Copy heading and permalink for Definition 2.39: Arc Length of a Curve">🔗</a></div>
+</article>
+<details id="ex-helix-arc-length" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.40</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-helix-arc-length-1-1">
+<div class="para">Find the length of the arc of the circular helix with vector equation:</div>
+<div class="displaymath process-math" id="ex-helix-arc-length-1-1-1">
+\begin{equation*}
+\mathbf{r}(t)=\cos t\ \mathbf{i}+\sin t\ \mathbf{j}+t\ \mathbf{k}
+\end{equation*}
+</div>
+<div class="para">from the point <span class="process-math">\((1,0,0)\)</span> to the point <span class="process-math">\((1,0,2\pi)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-arc-length-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-helix-arc-length-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-helix-arc-length-2-1">
+<div class="para">First, we determine the parameter limits <span class="process-math">\(t = a\)</span> and <span class="process-math">\(t = b\)</span> corresponding to the given points. Comparing the <span class="process-math">\(\mathbf{k}\)</span>-component <span class="process-math">\(z = t\)</span> to the points yields:</div>
+<div class="displaymath process-math" id="ex-helix-arc-length-2-1-5">
+\begin{align*}
+\text{At } (1,0,0) \amp \implies t = 0\\
+\text{At } (1,0,2\pi) \amp \implies t = 2\pi
+\end{align*}
+</div>
+<div class="para">Next, we compute the derivative vector function <span class="process-math">\(\mathbf{r}'(t)\)</span> and its magnitude:</div>
+<div class="displaymath process-math" id="ex-helix-arc-length-2-1-7">
+\begin{equation*}
+\mathbf{r}'(t) = \langle -\sin t, \cos t, 1 \rangle
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-helix-arc-length-2-1-8">
+\begin{equation*}
+|\mathbf{r}'(t)| = \sqrt{(-\sin t)^2 + (\cos t)^2 + 1^2} = \sqrt{\sin^2 t + \cos^2 t + 1} = \sqrt{1 + 1} = \sqrt{2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-arc-length-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-helix-arc-length-2-2">
+<div class="para">Applying the arc length formula over the interval <span class="process-math">\([0, 2\pi]\)</span> gives:</div>
+<div class="displaymath process-math" id="ex-helix-arc-length-2-2-2">
+\begin{equation*}
+L = \int_{0}^{2\pi} |\mathbf{r}'(t)|\, dt = \int_{0}^{2\pi} \sqrt{2}\, dt = \left[ \sqrt{2}t \right]_{0}^{2\pi} = 2\pi\sqrt{2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-arc-length-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.40.1"><a href="#ex-helix-arc-length-2" title="Copy heading and permalink for Solution 2.40.1" aria-label="Copy heading and permalink for Solution 2.40.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.40"><a href="#ex-helix-arc-length" title="Copy heading and permalink for Example 2.40" aria-label="Copy heading and permalink for Example 2.40">🔗</a></div>
+</article></details>
+<details id="ck-curve-reparameterization" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.41</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para logical" id="ck-curve-reparameterization-1-1">
+<div class="para">A curve <span class="process-math">\(C\)</span> can be represented by more than one vector function. For instance, the twisted cubic can be parameterized as:</div>
+<div class="displaymath process-math" id="ck-curve-reparameterization-1-1-2">
+\begin{equation*}
+\mathbf{r}_1(t)=t\,\mathbf{i}+ t^2\,\mathbf{j}+t^3\,\mathbf{k} \quad \text{for } 1 \le t \le 2
+\end{equation*}
+</div>
+<div class="para">or as:</div>
+<div class="displaymath process-math" id="ck-curve-reparameterization-1-1-3">
+\begin{equation*}
+\mathbf{r}_2(u)=e^u\,\mathbf{i}+e^{2u}\,\mathbf{j}+e^{3u}\,\mathbf{k} \quad \text{for } 0 \le u \le \ln 2
+\end{equation*}
+</div>
+<div class="para">Therefore, the vector functions representing a space curve are <em class="alert">not</em> uniquely determined.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ck-curve-reparameterization-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ck-curve-reparameterization-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ck-curve-reparameterization-2-1">To show that <span class="process-math">\(\mathbf{r}_1(t)\)</span> and <span class="process-math">\(\mathbf{r}_2(u)\)</span> trace out the exact same geometric path in space, we can perform a change of variables (reparameterization).<div class="autopermalink" data-description="Paragraph"><a href="#ck-curve-reparameterization-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ck-curve-reparameterization-2-2">
+<div class="para">Let us define a substitution relationship between the two parameters <span class="process-math">\(t\)</span> and <span class="process-math">\(u\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ck-curve-reparameterization-2-2-3">
+\begin{equation*}
+t = e^u
+\end{equation*}
+</div>
+<div class="para">If we take the natural logarithm of both sides, this is equivalent to writing <span class="process-math">\(u = \ln t\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ck-curve-reparameterization-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ck-curve-reparameterization-2-3">Now, we verify two things to ensure the representations are identical: the component equations and the domain boundaries.<div class="autopermalink" data-description="Paragraph"><a href="#ck-curve-reparameterization-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal" id="ck-curve-reparameterization-2-4">
+<li id="ck-curve-reparameterization-2-4-1">
+<div class="para logical" id="ck-curve-reparameterization-2-4-1-1">
+<div class="para">Component Transformation: Substitute <span class="process-math">\(t = e^u\)</span> directly into the component equations of <span class="process-math">\(\mathbf{r}_1(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ck-curve-reparameterization-2-4-1-1-4">
+\begin{align*}
+x(t) \amp = t \implies x(u) = e^u\\
+y(t) \amp = t^2 \implies y(u) = (e^u)^2 = e^{2u}\\
+z(t) \amp = t^3 \implies z(u) = (e^u)^3 = e^{3u}
+\end{align*}
+</div>
+<div class="para">This matches the vector structure of <span class="process-math">\(\mathbf{r}_2(u) = \langle e^u, e^{2u}, e^{3u} \rangle\)</span> perfectly.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ck-curve-reparameterization-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.41.1"><a href="#ck-curve-reparameterization-2-4-1" title="Copy heading and permalink for Item 2.41.1" aria-label="Copy heading and permalink for Item 2.41.1">🔗</a></div>
+</li>
+<li id="ck-curve-reparameterization-2-4-2">
+<div class="para logical" id="ck-curve-reparameterization-2-4-2-1">
+<div class="para">Domain Mapping: We must map the parameter boundaries from <span class="process-math">\(t\)</span> to <span class="process-math">\(u\)</span> using our transition formula <span class="process-math">\(u = \ln t\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ck-curve-reparameterization-2-4-2-1-5">
+\begin{align*}
+\text{Lower bound: } t = 1 \amp \implies u = \ln(1) = 0\\
+\text{Upper bound: } t = 2 \amp \implies u = \ln(2)
+\end{align*}
+</div>
+<div class="para">This confirms that as <span class="process-math">\(t\)</span> travels over the continuous interval <span class="process-math">\([1, 2]\text{,}\)</span> the new parameter <span class="process-math">\(u\)</span> travels exactly over the continuous interval <span class="process-math">\([0, \ln 2]\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ck-curve-reparameterization-2-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.41.2"><a href="#ck-curve-reparameterization-2-4-2" title="Copy heading and permalink for Item 2.41.2" aria-label="Copy heading and permalink for Item 2.41.2">🔗</a></div>
+</li>
+</ol>
+<div class="para" id="ck-curve-reparameterization-2-5">Both vector functions start at the point <span class="process-math">\((1,1,1)\)</span> and terminate at the point <span class="process-math">\((2,4,8)\text{,}\)</span> tracking the exact same space path. This illustrates that a single space curve can have infinitely many valid parametric representations.<div class="autopermalink" data-description="Paragraph"><a href="#ck-curve-reparameterization-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.41.1"><a href="#ck-curve-reparameterization-2" title="Copy heading and permalink for Solution 2.41.1" aria-label="Copy heading and permalink for Solution 2.41.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.41"><a href="#ck-curve-reparameterization" title="Copy heading and permalink for Checkpoint 2.41" aria-label="Copy heading and permalink for Checkpoint 2.41">🔗</a></div>
+</article></details>
+<div class="para" id="ch-Vector-valued-functions-6-6">We say that those equations are <dfn class="terminology">parameterizations</dfn> of the curve <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch-Vector-valued-functions-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="defn-arc-length-function"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.42</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="defn-arc-length-function-1-1">
+<div class="para">Suppose that <span class="process-math">\(C\)</span> is a piecewise-smooth curve given by a vector function <span class="process-math">\(\mathbf{r}(t)=f(t)\mathbf{i}+g(t)\mathbf{j}+h(t)\mathbf{k}\)</span> for <span class="process-math">\(a \le t \le b\text{,}\)</span> and <span class="process-math">\(C\)</span> is traversed exactly once as <span class="process-math">\(t\)</span> increases from <span class="process-math">\(a\)</span> to <span class="process-math">\(b\text{.}\)</span> The <dfn class="terminology">arc length function <span class="process-math">\(s\)</span></dfn> is defined as:</div>
+<div class="displaymath process-math" id="defn-arc-length-function-1-1-9">
+\begin{equation*}
+s(t)=\int^t_a|\mathbf{r}'(u)|\, du = \int^t_a\sqrt{\left[\frac{dx}{du}\right]^2+\left[\frac{dy}{du}\right]^2+\left[\frac{dz}{du}\right]^2}\, du
+\end{equation*}
+</div>
+<div class="para">So, <span class="process-math">\(s(t)\)</span> represents the accumulated length of the part of <span class="process-math">\(C\)</span> between the starting point <span class="process-math">\(\mathbf{r}(a)\)</span> and the variable position <span class="process-math">\(\mathbf{r}(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defn-arc-length-function-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.42"><a href="#defn-arc-length-function" title="Copy heading and permalink for Definition 2.42" aria-label="Copy heading and permalink for Definition 2.42">🔗</a></div>
+</article>
+<div class="para logical" id="ch-Vector-valued-functions-6-8">
+<div class="para">By using the Fundamental Theorem of Calculus Part 1 to differentiate the arc length function <span class="process-math">\(s(t)\text{,}\)</span> we get:</div>
+<div class="displaymath process-math" id="ch-Vector-valued-functions-6-8-2">
+\begin{equation*}
+\frac{ds}{dt}=|\mathbf{r}'(t)|
+\end{equation*}
+</div>
+<div class="para">This structural relationship allows us to <dfn class="terminology">parametrize a curve with respect to arc length</dfn>. Arc length parameterization arises naturally from the geometry of the curve itself and remains invariant across all chosen external coordinate systems.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-Vector-valued-functions-6-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-reparameterize-helix" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.43</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-reparameterize-helix-1-1">Reparametrize the helix <span class="process-math">\(\mathbf{r}(t)=\cos t\ \mathbf{i}+\sin t\ \mathbf{j}+t\ \mathbf{k}\)</span> with respect to arc length measured from the point <span class="process-math">\((1,0,0)\)</span> in the direction of increasing <span class="process-math">\(t\)</span> (a <dfn class="terminology">positive orientation</dfn>).<div class="autopermalink" data-description="Paragraph"><a href="#ex-reparameterize-helix-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-reparameterize-helix-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-reparameterize-helix-2-1">
+<div class="para">The initial baseline point <span class="process-math">\((1,0,0)\)</span> maps directly to the parameter value <span class="process-math">\(t=0\text{.}\)</span> Using our previous evaluation, we know that:</div>
+<div class="displaymath process-math" id="ex-reparameterize-helix-2-1-3">
+\begin{equation*}
+\frac{ds}{dt}=|\mathbf{r}'(t)|=\sqrt{(-\sin t)^2 + (\cos t)^2 + 1^2} = \sqrt{2}
+\end{equation*}
+</div>
+<div class="para">Now, compute the active arc length function <span class="process-math">\(s(t)\)</span> by integration:</div>
+<div class="displaymath process-math" id="ex-reparameterize-helix-2-1-5">
+\begin{equation*}
+s = s(t) = \int^t_0|\mathbf{r}'(u)|\, du = \int^t_0\sqrt{2} \, du = \sqrt{2}t
+\end{equation*}
+</div>
+<div class="para">Isolating the original domain parameter yields the substitution profile <span class="process-math">\(t=\frac{s}{\sqrt{2}}\text{.}\)</span> Substituting this back into our primary position function gives the desired arc length parameterization:</div>
+<div class="displaymath process-math" id="ex-reparameterize-helix-2-1-7">
+\begin{equation*}
+\mathbf{r}(t(s)) = \left\langle \cos\left(\frac{s}{\sqrt{2}}\right), \ \sin\left(\frac{s}{\sqrt{2}}\right), \ \frac{s}{\sqrt{2}} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-reparameterize-helix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.43.1"><a href="#ex-reparameterize-helix-2" title="Copy heading and permalink for Solution 2.43.1" aria-label="Copy heading and permalink for Solution 2.43.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.43"><a href="#ex-reparameterize-helix" title="Copy heading and permalink for Example 2.43" aria-label="Copy heading and permalink for Example 2.43">🔗</a></div>
+</article></details>
+<details id="exercise-arc-length-circle" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.44</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-arc-length-circle-1-1">Find the arc length parametrization for a circle <span class="process-math">\(x^2+y^2=2^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-arc-length-circle-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-arc-length-circle-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-arc-length-circle-2-1">
+<div class="para">Let <span class="process-math">\(A(2,0)\)</span> represent the fixed initial coordinate point and let <span class="process-math">\(P(x,y)\)</span> match any coordinate along the circle. The standard parametric representation tracking counterclockwise rotation gives:</div>
+<div class="displaymath process-math" id="exercise-arc-length-circle-2-1-3">
+\begin{equation*}
+x=2\cos \theta, \quad y=2\sin \theta \quad \text{for } 0 \le \theta \le 2\pi
+\end{equation*}
+</div>
+<div class="para">The magnitude of the derivative tracking vector evaluates to:</div>
+<div class="displaymath process-math" id="exercise-arc-length-circle-2-1-4">
+\begin{equation*}
+|\mathbf{r}'(\theta)| = |\langle -2\sin\theta, 2\cos\theta \rangle| = \sqrt{4\sin^2\theta + 4\cos^2\theta} = 2
+\end{equation*}
+</div>
+<div class="para">Setting up our accumulated arc length function <span class="process-math">\(s\)</span> yields:</div>
+<div class="displaymath process-math" id="exercise-arc-length-circle-2-1-6">
+\begin{equation*}
+s(\theta) = \int^\theta_0 2\, du = 2\theta \implies \theta = \frac{s}{2}
+\end{equation*}
+</div>
+<div class="para">Mapping the boundaries into the new parametric frame maps <span class="process-math">\(\theta=0 \implies s=0\)</span> and <span class="process-math">\(\theta=2\pi \implies s=4\pi\text{.}\)</span> Substituting the transformation pattern into our vector structure outputs:</div>
+<div class="displaymath process-math" id="exercise-arc-length-circle-2-1-9">
+\begin{equation*}
+\mathbf{r}(\theta(s)) = \left\langle 2\cos\left(\frac{s}{2}\right), \ 2\sin\left(\frac{s}{2}\right) \right\rangle \quad \text{for } 0 \le s \le 4\pi
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-arc-length-circle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.44.1"><a href="#exercise-arc-length-circle-2" title="Copy heading and permalink for Solution 2.44.1" aria-label="Copy heading and permalink for Solution 2.44.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.44"><a href="#exercise-arc-length-circle" title="Copy heading and permalink for Checkpoint 2.44" aria-label="Copy heading and permalink for Checkpoint 2.44">🔗</a></div>
+</article></details>
+<div class="para logical" id="ch-Vector-valued-functions-6-11">
+<div class="para">If <span class="process-math">\(\mathbf{r}(t)\)</span> is a vector-valued function and the space curve <span class="process-math">\(C\)</span> determined by <span class="process-math">\(\mathbf{r}(t)\)</span> is smooth, then <span class="process-math">\(\mathbf{r}'(t)\)</span> represents a tangent vector pointing in the direction of the curve’s orientation. Provided <span class="process-math">\(\mathbf{r}'(t) \neq \mathbf{0}\text{,}\)</span> the <dfn class="terminology">unit tangent vector <span class="process-math">\(\mathbf{T}(t)\)</span></dfn> is defined as:</div>
+<div class="displaymath process-math" id="ch-Vector-valued-functions-6-11-7">
+\begin{equation*}
+\mathbf{T}(t)=\frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}
+\end{equation*}
+</div>
+<div class="para">Because <span class="process-math">\(|\mathbf{T}(t)|=1\)</span> remains constant for all values of <span class="process-math">\(t\text{,}\)</span> if <span class="process-math">\(\mathbf{T}'(t)\)</span> is differentiable, then <span class="process-math">\(\mathbf{T}'(t)\)</span> must be orthogonal to <span class="process-math">\(\mathbf{T}(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-Vector-valued-functions-6-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="asm-unit-normal-vector"><h3 class="heading"><span class="title">The Unit Normal Vector.</span></h3>
+<div class="para logical" id="asm-unit-normal-vector-2">
+<div class="para">The <dfn class="terminology">unit normal vector <span class="process-math">\(\mathbf{N}(t)\)</span></dfn> to <span class="process-math">\(C\)</span> is defined as the unit vector pointing in the same direction as <span class="process-math">\(\mathbf{T}'(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="asm-unit-normal-vector-2-4">
+\begin{equation*}
+\mathbf{N}(t)= \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#asm-unit-normal-vector-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: The Unit Normal Vector"><a href="#asm-unit-normal-vector" title="Copy heading and permalink for Assemblage: The Unit Normal Vector" aria-label="Copy heading and permalink for Assemblage: The Unit Normal Vector">🔗</a></div>
+</article>
+<details id="ex-tangent-normal-parabola" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.45</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-tangent-normal-parabola-1-1">Let <span class="process-math">\(C\)</span> be a curve determined by the vector function <span class="process-math">\(\mathbf{r}(t)=t^2\mathbf{i}+t\mathbf{j}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-tangent-normal-parabola-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal" id="ex-tangent-normal-parabola-1-2">
+<li id="ex-tangent-normal-parabola-1-2-1">
+<div class="para" id="ex-tangent-normal-parabola-1-2-1-1">Find the unit tangent and unit normal vectors <span class="process-math">\(\mathbf{T}(t)\)</span> and <span class="process-math">\(\mathbf{N}(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-tangent-normal-parabola-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-tangent-normal-parabola-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-tangent-normal-parabola-1-2-2">
+<div class="para" id="ex-tangent-normal-parabola-1-2-2-1">Find <span class="process-math">\(\mathbf{T}(1)\)</span> and <span class="process-math">\(\mathbf{N}(1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-tangent-normal-parabola-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-tangent-normal-parabola-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-tangent-normal-parabola-1-2-3">
+<div class="para" id="ex-tangent-normal-parabola-1-2-3-1">Check the orthogonality of <span class="process-math">\(\mathbf{T}(t)\)</span> and <span class="process-math">\(\mathbf{N}(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-tangent-normal-parabola-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-tangent-normal-parabola-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-tangent-normal-parabola-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal" id="ex-tangent-normal-parabola-2-1">
+<li id="ex-tangent-normal-parabola-2-1-1">
+<div class="para logical" id="ex-tangent-normal-parabola-2-1-1-1">
+<div class="para">First, differentiate the position vector function to locate our general velocity vector profile:</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-1-1-1">
+\begin{equation*}
+\mathbf{r}'(t) = 2t\mathbf{i} + \mathbf{j} \implies |\mathbf{r}'(t)| = \sqrt{4t^2 + 1}
+\end{equation*}
+</div>
+<div class="para">Dividing the derivative vector by its magnitude gives the unit tangent vector function:</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-1-1-2">
+\begin{equation*}
+\mathbf{T}(t) = \frac{2t}{\sqrt{4t^2+1}}\mathbf{i} + \frac{1}{\sqrt{4t^2+1}}\mathbf{j}
+\end{equation*}
+</div>
+<div class="para">Next, differentiate <span class="process-math">\(\mathbf{T}(t)\)</span> using the quotient rule or chain rule to find the normal vector direction:</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-1-1-4">
+\begin{equation*}
+\mathbf{T}'(t) = \frac{2(4t^2+1)^{-1/2} - 2t \cdot \frac{1}{2}(4t^2+1)^{-1/2}(8t)}{4t^2+1}\mathbf{i} + \left(-\frac{1}{2}(4t^2+1)^{-3/2}(8t)\right)\mathbf{j}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-1-1-5">
+\begin{equation*}
+\mathbf{T}'(t) = \frac{2}{(4t^2+1)^{3/2}}\mathbf{i} - \frac{4t}{(4t^2+1)^{3/2}}\mathbf{j} \implies |\mathbf{T}'(t)| = \frac{\sqrt{4 + 16t^2}}{(4t^2+1)^{3/2}} = \frac{2}{\sqrt{4t^2+1}}
+\end{equation*}
+</div>
+<div class="para">Normalizing this vector tracking profile produces our final unit normal vector function:</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-1-1-6">
+\begin{equation*}
+\mathbf{N}(t) = \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|} = \frac{1}{\sqrt{4t^2+1}}\mathbf{i} - \frac{2t}{\sqrt{4t^2+1}}\mathbf{j}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-tangent-normal-parabola-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-tangent-normal-parabola-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-tangent-normal-parabola-2-1-2">
+<div class="para logical" id="ex-tangent-normal-parabola-2-1-2-1">
+<div class="para">Evaluating both unit vector function equations at our specific target parameter point <span class="process-math">\(t=1\)</span> yields:</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-2-1-2">
+\begin{equation*}
+\mathbf{T}(1) = \frac{2}{\sqrt{5}}\mathbf{i} + \frac{1}{\sqrt{5}}\mathbf{j} = \left\langle \frac{2}{\sqrt{5}}, \frac{1}{\sqrt{5}} \right\rangle
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-2-1-3">
+\begin{equation*}
+\mathbf{N}(1) = \frac{1}{\sqrt{5}}\mathbf{i} - \frac{2}{\sqrt{5}}\mathbf{j} = \left\langle \frac{1}{\sqrt{5}}, -\frac{2}{\sqrt{5}} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-tangent-normal-parabola-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-tangent-normal-parabola-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-tangent-normal-parabola-2-1-3">
+<div class="para logical" id="ex-tangent-normal-parabola-2-1-3-1">
+<div class="para">To check orthogonality, we compute the algebraic dot product of our two unit vector functions:</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-3-1-1">
+\begin{equation*}
+\mathbf{T}(t) \cdot \mathbf{N}(t) = \left(\frac{2t}{\sqrt{4t^2+1}}\right)\left(\frac{1}{\sqrt{4t^2+1}}\right) + \left(\frac{1}{\sqrt{4t^2+1}}\right)\left(-\frac{2t}{\sqrt{4t^2+1}}\right)
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-tangent-normal-parabola-2-1-3-1-2">
+\begin{equation*}
+\mathbf{T}(t) \cdot \mathbf{N}(t) = \frac{2t}{4t^2+1} - \frac{2t}{4t^2+1} = 0
+\end{equation*}
+</div>
+<div class="para">Because their dot product evaluates to exactly zero for all values of <span class="process-math">\(t\text{,}\)</span> the unit tangent vector <span class="process-math">\(\mathbf{T}(t)\)</span> and unit normal vector <span class="process-math">\(\mathbf{N}(t)\)</span> are verified as orthogonal.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-tangent-normal-parabola-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-tangent-normal-parabola-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 2.45.1"><a href="#ex-tangent-normal-parabola-2" title="Copy heading and permalink for Solution 2.45.1" aria-label="Copy heading and permalink for Solution 2.45.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.45"><a href="#ex-tangent-normal-parabola" title="Copy heading and permalink for Example 2.45" aria-label="Copy heading and permalink for Example 2.45">🔗</a></div>
+</article></details>
+<details id="exercise-tangent-normal-helix" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.46</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-tangent-normal-helix-1-1">Let <span class="process-math">\(C\)</span> be determined by the helix <span class="process-math">\(\mathbf{r}(t)=\cos t\ \mathbf{i}+\sin t\ \mathbf{j}+t\ \mathbf{k}\)</span> for <span class="process-math">\(t \ge 0\text{.}\)</span> Find the unit vector functions <span class="process-math">\(\mathbf{T}(t)\)</span> and <span class="process-math">\(\mathbf{N}(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-tangent-normal-helix-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-tangent-normal-helix-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-tangent-normal-helix-2-1">
+<div class="para">Differentiate the helix position components vector to extract our general velocity direction path:</div>
+<div class="displaymath process-math" id="exercise-tangent-normal-helix-2-1-1">
+\begin{equation*}
+\mathbf{r}'(t) = \langle -\sin t, \cos t, 1 \rangle \implies |\mathbf{r}'(t)| = \sqrt{\sin^2 t + \cos^2 t + 1} = \sqrt{2}
+\end{equation*}
+</div>
+<div class="para">Dividing the derivative components by this magnitude gives our unit tangent vector function:</div>
+<div class="displaymath process-math" id="exercise-tangent-normal-helix-2-1-2">
+\begin{equation*}
+\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} = \left\langle -\frac{1}{\sqrt{2}}\sin t, \frac{1}{\sqrt{2}}\cos t, \frac{1}{\sqrt{2}} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-tangent-normal-helix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-tangent-normal-helix-2-2">
+<div class="para">Next, differentiate our unit tangent function with respect to <span class="process-math">\(t\)</span> to trace the geometric turn path:</div>
+<div class="displaymath process-math" id="exercise-tangent-normal-helix-2-2-2">
+\begin{equation*}
+\mathbf{T}'(t) = \left\langle -\frac{1}{\sqrt{2}}\cos t, -\frac{1}{\sqrt{2}}\sin t, 0 \right\rangle
+\end{equation*}
+</div>
+<div class="para">Computing the magnitude of this secondary differentiation vector yields:</div>
+<div class="displaymath process-math" id="exercise-tangent-normal-helix-2-2-3">
+\begin{equation*}
+|\mathbf{T}'(t)| = \sqrt{\left(-\frac{1}{\sqrt{2}}\cos t\right)^2 + \left(-\frac{1}{\sqrt{2}}\sin t\right)^2 + 0^2} = \sqrt{\frac{1}{2}(\cos^2 t + \sin^2 t)} = \frac{1}{\sqrt{2}}
+\end{equation*}
+</div>
+<div class="para">Finally, normalize <span class="process-math">\(\mathbf{T}'(t)\)</span> to calculate our primary unit normal vector function:</div>
+<div class="displaymath process-math" id="exercise-tangent-normal-helix-2-2-5">
+\begin{equation*}
+\mathbf{N}(t) = \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|} = \frac{1}{1/\sqrt{2}}\left\langle -\frac{1}{\sqrt{2}}\cos t, -\frac{1}{\sqrt{2}}\sin t, 0 \right\rangle = \langle -\cos t, -\sin t, 0 \rangle
+\end{equation*}
+</div>
+<div class="para">This shows that for a circular helix, the unit normal vector always points directly inward toward the central vertical axis of the cylinder.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-tangent-normal-helix-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.46.1"><a href="#exercise-tangent-normal-helix-2" title="Copy heading and permalink for Solution 2.46.1" aria-label="Copy heading and permalink for Solution 2.46.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.46"><a href="#exercise-tangent-normal-helix" title="Copy heading and permalink for Checkpoint 2.46" aria-label="Copy heading and permalink for Checkpoint 2.46">🔗</a></div>
+</article></details>
+<section class="subsection" id="subsec-curvature">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Curvature</span>
+</h3>
+<div class="para" id="subsec-curvature-2">The curvature of a curve <span class="process-math">\(C\)</span> at a given point is a measure of how quickly the curve changes direction at that point, or how much the curve bends at each point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-curvature-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="defn-curvature"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.47</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Curvature.</span>
+</h4>
+<div class="para logical" id="defn-curvature-2-1">
+<div class="para">The <dfn class="terminology">curvature</dfn> of a curve is defined as:</div>
+<div class="displaymath process-math" id="defn-curvature-2-1-2">
+\begin{equation*}
+\kappa=\left|\frac{d\mathbf{T}}{ds}\right|
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mathbf{T}\)</span> is the unit tangent vector. Curvature is the magnitude of the rate of change of the unit tangent vector with respect to arc length.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defn-curvature-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.47: Curvature"><a href="#defn-curvature" title="Copy heading and permalink for Definition 2.47: Curvature" aria-label="Copy heading and permalink for Definition 2.47: Curvature">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-curvature-formulas"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.48</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Formulas for Curvature.</span>
+</h4>
+<div class="para" id="thm-curvature-formulas-2-1">Let <span class="process-math">\(C\)</span> be a smooth curve and let <span class="process-math">\(\theta\)</span> be the angle between the unit tangent vector <span class="process-math">\(\mathbf{T}\)</span> and the standard basis vector <span class="process-math">\(\mathbf{i}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-curvature-formulas-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal" id="list-curvature-types">
+<li id="item-kappa-vector-tangent">
+<div class="para logical" id="item-kappa-vector-tangent-1">
+<div class="para">By applying the chain rule to the unit tangent vector with respect to time <span class="process-math">\(t\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="item-kappa-vector-tangent-1-2">
+\begin{equation*}
+\frac{d\mathbf{T}}{dt}=\frac{d\mathbf{T}}{ds}\frac{ds}{dt}, \quad \text{and} \quad \kappa=\left|\frac{d\mathbf{T}}{ds}\right|=\left|\frac{d\mathbf{T}/dt}{ds/dt}\right|
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(\frac{ds}{dt}=|\mathbf{r}'(t)|\text{,}\)</span> the curvature as a function of the parameter <span class="process-math">\(t\)</span> simplifies to:</div>
+<div class="displaymath process-math" id="item-kappa-vector-tangent-1-5">
+\begin{equation*}
+\kappa(t)=\frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#item-kappa-vector-tangent-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#item-kappa-vector-tangent" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="item-kappa-arc-length-2d">
+<div class="para logical" id="item-kappa-arc-length-2d-1">
+<div class="para">If a 2D curve has an arc length parameterization given by <span class="process-math">\(x=f(s)\)</span> and <span class="process-math">\(y=g(s)\text{,}\)</span> then the curvature <span class="process-math">\(\kappa\)</span> at a point <span class="process-math">\(P(x,y)\)</span> is given geometrically by:</div>
+<div class="displaymath process-math" id="item-kappa-arc-length-2d-1-5">
+\begin{equation*}
+\kappa=\left|\frac{d\theta}{ds}\right|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#item-kappa-arc-length-2d-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#item-kappa-arc-length-2d" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="item-kappa-cartesian">
+<div class="para logical" id="item-kappa-cartesian-1">
+<div class="para">Suppose a 2D curve is defined explicitly by a Cartesian function <span class="process-math">\(y=f(x)\text{,}\)</span> where <span class="process-math">\(f'(x)\)</span> is continuous on an interval. Since <span class="process-math">\(y'\)</span> is the slope of the tangent line at <span class="process-math">\(P(x,y)\text{,}\)</span> we have <span class="process-math">\(\tan \theta=y'\)</span> (or <span class="process-math">\(\theta=\tan^{-1}y'\)</span>), and the arc length function is <span class="process-math">\(s(x)=\int^x_a\sqrt{1+(y')^2}\, dx\text{.}\)</span> If <span class="process-math">\(y''\)</span> exists, applying the chain rule yields:</div>
+<div class="displaymath process-math" id="item-kappa-cartesian-1-9">
+\begin{equation*}
+\frac{d\theta}{dx} = \frac{d}{dx}(\tan^{-1}y') = \frac{y''}{1+(y')^2} \quad \text{and} \quad \frac{ds}{dx} = \sqrt{1+(y')^2}
+\end{equation*}
+</div>
+<div class="para">Thus, the curvature <span class="process-math">\(\kappa\)</span> at the point <span class="process-math">\(P(x,y)\)</span> is defined as:</div>
+<div class="displaymath process-math" id="item-kappa-cartesian-1-12">
+\begin{equation*}
+\kappa=\frac{|y''|}{\left(1+(y')^2\right)^{3/2}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#item-kappa-cartesian-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#item-kappa-cartesian" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="item-kappa-parametric-2d">
+<div class="para logical" id="item-kappa-parametric-2d-1">
+<div class="para">Suppose a 2D curve is given parametrically by <span class="process-math">\(x=f(t)\)</span> and <span class="process-math">\(y=g(t)\text{,}\)</span> where <span class="process-math">\(f''\)</span> and <span class="process-math">\(g''\)</span> exist on an interval <span class="process-math">\(I\text{.}\)</span> Since the slope of the tangent line is <span class="process-math">\(\tan \theta = \frac{g'(t)}{f'(t)}\)</span> for <span class="process-math">\(f'(t) \neq 0\text{,}\)</span> differentiating <span class="process-math">\(\theta = \tan^{-1}\left(\frac{g'(t)}{f'(t)}\right)\)</span> with respect to <span class="process-math">\(t\)</span> and dividing by <span class="process-math">\(\frac{ds}{dt}\)</span> yields:</div>
+<div class="displaymath process-math" id="item-kappa-parametric-2d-1-11">
+\begin{equation*}
+\kappa =\frac{|f'(t)g''(t)-g'(t)f''(t)|}{\left[(f'(t))^2+(g'(t))^2\right]^{3/2}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#item-kappa-parametric-2d-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#item-kappa-parametric-2d" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="item-kappa-cross-product">
+<div class="para logical" id="item-kappa-cross-product-1">
+<div class="para">For a curve in space defined by a 3D vector function <span class="process-math">\(\mathbf{r}(t)\text{,}\)</span> the curvature can be computed directly without finding the unit tangent vector via the cross product:</div>
+<div class="displaymath process-math" id="item-kappa-cross-product-1-2">
+\begin{equation*}
+\kappa = \frac{|\mathbf{r}'(t)\times\mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#item-kappa-cross-product-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#item-kappa-cross-product" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Theorem 2.48: Formulas for Curvature"><a href="#thm-curvature-formulas" title="Copy heading and permalink for Theorem 2.48: Formulas for Curvature" aria-label="Copy heading and permalink for Theorem 2.48: Formulas for Curvature">🔗</a></div>
+</article>
+<details id="ex-kappa-circle-vector" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.49</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-kappa-circle-vector-1-1">Show that the curvature of a circle of radius <span class="process-math">\(a\)</span> is <span class="process-math">\(1/a\)</span> at every point on the circle using the vector formula from <a href="ch-Vector-valued-functions-6.html#item-kappa-vector-tangent" class="xref" data-knowl="./knowl/xref/item-kappa-vector-tangent.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 1">Item 1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-circle-vector-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-kappa-circle-vector-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-kappa-circle-vector-2-1">Parameterize the circle of radius <span class="process-math">\(a\)</span> as <span class="process-math">\(\mathbf{r}(t) = \langle a\cos t, a\sin t, 0 \rangle\text{.}\)</span> Then, the velocity vector is <span class="process-math">\(\mathbf{r}'(t) = \langle -a\sin t, a\cos t, 0 \rangle\text{,}\)</span> and its magnitude is <span class="process-math">\(|\mathbf{r}'(t)| = \sqrt{a^2\sin^2 t + a^2\cos^2 t} = a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-circle-vector-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-kappa-circle-vector-2-2">
+<div class="para">The unit tangent vector is:</div>
+<div class="displaymath process-math" id="ex-kappa-circle-vector-2-2-1">
+\begin{equation*}
+\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} = \langle -\sin t, \cos t, 0 \rangle
+\end{equation*}
+</div>
+<div class="para">Differentiating with respect to <span class="process-math">\(t\)</span> gives <span class="process-math">\(\mathbf{T}'(t) = \langle -\cos t, -\sin t, 0 \rangle\text{,}\)</span> so <span class="process-math">\(|\mathbf{T}'(t)| = 1\text{.}\)</span> Applying the formula, we find:</div>
+<div class="displaymath process-math" id="ex-kappa-circle-vector-2-2-5">
+\begin{equation*}
+\kappa(t) = \frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|} = \frac{1}{a}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-circle-vector-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.49.1"><a href="#ex-kappa-circle-vector-2" title="Copy heading and permalink for Solution 2.49.1" aria-label="Copy heading and permalink for Solution 2.49.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.49"><a href="#ex-kappa-circle-vector" title="Copy heading and permalink for Example 2.49" aria-label="Copy heading and permalink for Example 2.49">🔗</a></div>
+</article></details>
+<details id="ex-kappa-line" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.50</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-kappa-line-1-1">Show that the curvature of a line <span class="process-math">\(l\)</span> is <span class="process-math">\(0\)</span> at every point on <span class="process-math">\(l\)</span> using the geometric formulation in <a href="ch-Vector-valued-functions-6.html#item-kappa-arc-length-2d" class="xref" data-knowl="./knowl/xref/item-kappa-arc-length-2d.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 2">Item 2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-line-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-kappa-line-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-kappa-line-2-1">A straight line maintains a constant direction along its entire trajectory. Therefore, the tangent angle <span class="process-math">\(\theta\)</span> is constant relative to the <span class="process-math">\(x\)</span>-axis, which implies <span class="process-math">\(\frac{d\theta}{ds} = 0\text{.}\)</span> Thus, <span class="process-math">\(\kappa = |0| = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-line-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.50.1"><a href="#ex-kappa-line-2" title="Copy heading and permalink for Solution 2.50.1" aria-label="Copy heading and permalink for Solution 2.50.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.50"><a href="#ex-kappa-line" title="Copy heading and permalink for Example 2.50" aria-label="Copy heading and permalink for Example 2.50">🔗</a></div>
+</article></details>
+<details id="ex-kappa-parabola-cartesian" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.51</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-kappa-parabola-cartesian-1-1">Sketch the graph of <span class="process-math">\(y=1-x^2\)</span> and find the curvature at general points <span class="process-math">\((x,y)\text{,}\)</span> and specifically at the points <span class="process-math">\((0,1)\text{,}\)</span> <span class="process-math">\((1,0)\text{,}\)</span> and <span class="process-math">\((2,-3)\)</span> using the explicit function method of <a href="ch-Vector-valued-functions-6.html#item-kappa-cartesian" class="xref" data-knowl="./knowl/xref/item-kappa-cartesian.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 3">Item 3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-parabola-cartesian-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-kappa-parabola-cartesian-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal" id="ex-kappa-parabola-cartesian-2-1">
+<li id="ex-kappa-parabola-cartesian-2-1-1">
+<div class="para logical" id="ex-kappa-parabola-cartesian-2-1-1-1">
+<div class="para">For <span class="process-math">\(y = 1 - x^2\text{,}\)</span> we compute the first and second derivatives with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-kappa-parabola-cartesian-2-1-1-1-3">
+\begin{equation*}
+y' = -2x \quad \text{and} \quad y'' = -2
+\end{equation*}
+</div>
+<div class="para">Substituting these into the explicit Cartesian curvature formula yields the general formula for this parabola:</div>
+<div class="displaymath process-math" id="ex-kappa-parabola-cartesian-2-1-1-1-4">
+\begin{equation*}
+\kappa(x) = \frac{|-2|}{\left(1 + (-2x)^2\right)^{3/2}} = \frac{2}{(1 + 4x^2)^{3/2}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-parabola-cartesian-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-kappa-parabola-cartesian-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-kappa-parabola-cartesian-2-1-2">
+<div class="para logical" id="ex-kappa-parabola-cartesian-2-1-2-1">
+<div class="para">Evaluating this expression at the specific requested coordinates:</div>
+<ol class="lower-alpha lower-alpha-level-1" id="ex-kappa-parabola-cartesian-2-1-2-1-1">
+<li id="ex-kappa-parabola-cartesian-2-1-2-1-1-1">
+<div class="para" id="ex-kappa-parabola-cartesian-2-1-2-1-1-1-1">At <span class="process-math">\((0,1)\text{,}\)</span> <span class="process-math">\(x=0 \implies \kappa(0) = \frac{2}{(1+0)^{3/2}} = 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-parabola-cartesian-2-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#ex-kappa-parabola-cartesian-2-1-2-1-1-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="ex-kappa-parabola-cartesian-2-1-2-1-1-2">
+<div class="para" id="ex-kappa-parabola-cartesian-2-1-2-1-1-2-1">At <span class="process-math">\((1,0)\text{,}\)</span> <span class="process-math">\(x=1 \implies \kappa(1) = \frac{2}{(1+4)^{3/2}} = \frac{2}{5\sqrt{5}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-parabola-cartesian-2-1-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#ex-kappa-parabola-cartesian-2-1-2-1-1-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+<li id="ex-kappa-parabola-cartesian-2-1-2-1-1-3">
+<div class="para" id="ex-kappa-parabola-cartesian-2-1-2-1-1-3-1">At <span class="process-math">\((2,-3)\text{,}\)</span> <span class="process-math">\(x=2 \implies \kappa(2) = \frac{2}{(1+16)^{3/2}} = \frac{2}{17\sqrt{17}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-parabola-cartesian-2-1-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.c"><a href="#ex-kappa-parabola-cartesian-2-1-2-1-1-3" title="Copy heading and permalink for Item 2.c" aria-label="Copy heading and permalink for Item 2.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-kappa-parabola-cartesian-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-kappa-parabola-cartesian-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 2.51.1"><a href="#ex-kappa-parabola-cartesian-2" title="Copy heading and permalink for Solution 2.51.1" aria-label="Copy heading and permalink for Solution 2.51.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 2.51"><a href="#ex-kappa-parabola-cartesian" title="Copy heading and permalink for Example 2.51" aria-label="Copy heading and permalink for Example 2.51">🔗</a></div>
+</article></details>
+<details id="exercise-kappa-parametric-circle-proof" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.52</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-kappa-parametric-circle-proof-1-1">Prove that the curvature of a circle of radius <span class="process-math">\(a\)</span> is <span class="process-math">\(1/a\)</span> at every point on the circle using the 2D parametric formula derived in <a href="ch-Vector-valued-functions-6.html#item-kappa-parametric-2d" class="xref" data-knowl="./knowl/xref/item-kappa-parametric-2d.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 4">Item 4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-kappa-parametric-circle-proof-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-kappa-parametric-circle-proof-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-kappa-parametric-circle-proof-2-1">
+<div class="para">Using the standard parametric representation <span class="process-math">\(x = a\cos t\)</span> and <span class="process-math">\(y = a\sin t\text{,}\)</span> we calculate the first and second derivatives:</div>
+<div class="displaymath process-math" id="exercise-kappa-parametric-circle-proof-2-1-3">
+\begin{align*}
+f'(t) = -a\sin t, \amp \quad g'(t) = a\cos t\\
+f''(t) = -a\cos t, \amp \quad g''(t) = -a\sin t
+\end{align*}
+</div>
+<div class="para">Substitute these components into the parametric numerator and denominator arrays:</div>
+<div class="displaymath process-math" id="exercise-kappa-parametric-circle-proof-2-1-4">
+\begin{equation*}
+|f'(t)g''(t) - g'(t)f''(t)| = |(-a\sin t)(-a\sin t) - (a\cos t)(-a\cos t)| = a^2\sin^2 t + a^2\cos^2 t = a^2
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="exercise-kappa-parametric-circle-proof-2-1-5">
+\begin{equation*}
+[(f'(t))^2 + (g'(t))^2]^{3/2} = [(-a\sin t)^2 + (a\cos t)^2]^{3/2} = (a^2)^{3/2} = a^3
+\end{equation*}
+</div>
+<div class="para">Dividing these values yields a constant curvature of:</div>
+<div class="displaymath process-math" id="exercise-kappa-parametric-circle-proof-2-1-6">
+\begin{equation*}
+\kappa = \frac{a^2}{a^3} = \frac{1}{a}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-kappa-parametric-circle-proof-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.52.1"><a href="#exercise-kappa-parametric-circle-proof-2" title="Copy heading and permalink for Solution 2.52.1" aria-label="Copy heading and permalink for Solution 2.52.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.52"><a href="#exercise-kappa-parametric-circle-proof" title="Copy heading and permalink for Checkpoint 2.52" aria-label="Copy heading and permalink for Checkpoint 2.52">🔗</a></div>
+</article></details>
+<details id="exercise-kappa-parametric-cusp" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.53</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-kappa-parametric-cusp-1-1">A curve <span class="process-math">\(C\)</span> has the parameterization <span class="process-math">\(x=t^2\text{,}\)</span> <span class="process-math">\(y=t^3\)</span> for <span class="process-math">\(t\in \mathbb{R}\text{.}\)</span> Find the curvature at the point <span class="process-math">\(P\)</span> corresponding to <span class="process-math">\(t=1/2\)</span> using the 2D parametric formula derived in <a href="ch-Vector-valued-functions-6.html#item-kappa-parametric-2d" class="xref" data-knowl="./knowl/xref/item-kappa-parametric-2d.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 4">Item 4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-kappa-parametric-cusp-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-kappa-parametric-cusp-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-kappa-parametric-cusp-2-1">
+<div class="para">Differentiating the component functions gives:</div>
+<div class="displaymath process-math" id="exercise-kappa-parametric-cusp-2-1-1">
+\begin{align*}
+f'(t) = 2t, \amp \quad g'(t) = 3t^2\\
+f''(t) = 2, \amp \quad g''(t) = 6t
+\end{align*}
+</div>
+<div class="para">Substitute these into the 2D parametric curvature formula:</div>
+<div class="displaymath process-math" id="exercise-kappa-parametric-cusp-2-1-2">
+\begin{equation*}
+\kappa(t) = \frac{|(2t)(6t) - (3t^2)(2)|}{[(2t)^2 + (3t^2)^2]^{3/2}} = \frac{|12t^2 - 6t^2|}{(4t^2 + 9t^4)^{3/2}} = \frac{6t^2}{(4t^2 + 9t^4)^{3/2}}
+\end{equation*}
+</div>
+<div class="para">Evaluating the curvature profile at the requested input parameter <span class="process-math">\(t = 1/2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-kappa-parametric-cusp-2-1-4">
+\begin{equation*}
+\kappa\left(\frac{1}{2}\right) = \frac{6(1/4)}{\left(4(1/4) + 9(1/16)\right)^{3/2}} = \frac{3/2}{\left(1 + 9/16\right)^{3/2}} = \frac{3/2}{(25/16)^{3/2}} = \frac{3/2}{125/64} = \frac{3}{2} \cdot \frac{64}{125} = \frac{96}{125}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-kappa-parametric-cusp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.53.1"><a href="#exercise-kappa-parametric-cusp-2" title="Copy heading and permalink for Solution 2.53.1" aria-label="Copy heading and permalink for Solution 2.53.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.53"><a href="#exercise-kappa-parametric-cusp" title="Copy heading and permalink for Checkpoint 2.53" aria-label="Copy heading and permalink for Checkpoint 2.53">🔗</a></div>
+</article></details>
+<details id="exercise-kappa-twisted-cubic-3d" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.54</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-kappa-twisted-cubic-3d-1-1">Find the curvature of the twisted cubic <span class="process-math">\(\mathbf{r}(t)=\langle t,t^2,t^3 \rangle\)</span> at a general parameter point and specifically at the origin <span class="process-math">\((0,0,0)\)</span> using the cross product formulation of <a href="ch-Vector-valued-functions-6.html#item-kappa-cross-product" class="xref" data-knowl="./knowl/xref/item-kappa-cross-product.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 5">Item 5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#exercise-kappa-twisted-cubic-3d-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-kappa-twisted-cubic-3d-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-kappa-twisted-cubic-3d-2-1">
+<div class="para">First, compute the velocity vector <span class="process-math">\(\mathbf{r}'(t)\)</span> and acceleration vector <span class="process-math">\(\mathbf{r}''(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-kappa-twisted-cubic-3d-2-1-3">
+\begin{equation*}
+\mathbf{r}'(t) = \langle 1, 2t, 3t^2 \rangle \implies |\mathbf{r}'(t)| = \sqrt{1 + 4t^2 + 9t^4}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="exercise-kappa-twisted-cubic-3d-2-1-4">
+\begin{equation*}
+\mathbf{r}''(t) = \langle 0, 2, 6t \rangle
+\end{equation*}
+</div>
+<div class="para">Next, evaluate the vector cross product of these two derivative vectors:</div>
+<div class="displaymath process-math" id="exercise-kappa-twisted-cubic-3d-2-1-5">
+\begin{equation*}
+\mathbf{r}'(t) \times \mathbf{r}''(t) = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 1 \amp 2t \amp 3t^2 \\ 0 \amp 2 \amp 6t \end{vmatrix} = (12t^2 - 6t^2)\mathbf{i} - (6t - 0)\mathbf{j} + (2 - 0)\mathbf{k} = \langle 6t^2, -6t, 2 \rangle
+\end{equation*}
+</div>
+<div class="para">Find the magnitude of this cross product vector:</div>
+<div class="displaymath process-math" id="exercise-kappa-twisted-cubic-3d-2-1-6">
+\begin{equation*}
+|\mathbf{r}'(t) \times \mathbf{r}''(t)| = \sqrt{(6t^2)^2 + (-6t)^2 + 2^2} = \sqrt{36t^4 + 36t^2 + 4} = 2\sqrt{9t^4 + 9t^2 + 1}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-kappa-twisted-cubic-3d-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-kappa-twisted-cubic-3d-2-2">
+<div class="para">Substituting these components back into our 3D vector curvature equation yields the general expression:</div>
+<div class="displaymath process-math" id="exercise-kappa-twisted-cubic-3d-2-2-1">
+\begin{equation*}
+\kappa(t) = \frac{2\sqrt{9t^4 + 9t^2 + 1}}{(1 + 4t^2 + 9t^4)^{3/2}}
+\end{equation*}
+</div>
+<div class="para">To find the specific curvature at the origin <span class="process-math">\((0,0,0)\text{,}\)</span> substitute the parameter value <span class="process-math">\(t=0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-kappa-twisted-cubic-3d-2-2-4">
+\begin{equation*}
+\kappa(0) = \frac{2\sqrt{0 + 0 + 1}}{(1 + 0 + 0)^{3/2}} = \frac{2(1)}{1} = 2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-kappa-twisted-cubic-3d-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.54.1"><a href="#exercise-kappa-twisted-cubic-3d-2" title="Copy heading and permalink for Solution 2.54.1" aria-label="Copy heading and permalink for Solution 2.54.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.54"><a href="#exercise-kappa-twisted-cubic-3d" title="Copy heading and permalink for Checkpoint 2.54" aria-label="Copy heading and permalink for Checkpoint 2.54">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subsection: The Curvature"><a href="#subsec-curvature" title="Copy heading and permalink for Subsection: The Curvature" aria-label="Copy heading and permalink for Subsection: The Curvature">🔗</a></div>
+</section><div class="autopermalink" data-description="Section: 2.4 Arc Length and Curvature"><a href="#ch-Vector-valued-functions-6" title="Copy heading and permalink for Section: 2.4 Arc Length and Curvature" aria-label="Copy heading and permalink for Section: 2.4 Arc Length and Curvature">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-Vector-valued-functions-5.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-motion-in-space.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section id="Motion-in-space" xml:id="sec-motion-in-space">
+  <title>2.5 Motion in Space: Velocity and Acceleration </title>
+    <p>
+    In this section, we will study the motion of objects in three-dimensional space. 
+    We will define the concepts of velocity and acceleration for vector-valued functions, 
+    and we will explore how these concepts relate to the motion of objects along curves in space.
+    </p>
+    <p>
+        We will also discuss the concepts of speed and acceleration, and how they can be used to 
+        analyze the motion of objects in space. Finally, we will look at some examples of motion in space, 
+        including the motion of projectiles and the motion of objects under the influence of gravity.
+    </p>
+<p>
+  Suppose a particle moves through space so that its position vector at time <m>t</m> is <m>\mathbf{r}(t)</m>.
+  For small values of <m>h</m>, the vector:
+  <me>\frac{\mathbf{r}(t+h)-\mathbf{r}(t)}{h} \longrightarrow \text{the direction of the particle moving along the curve } \mathbf{r}(t)</me>
+</p>
+
+<definition xml:id="defn-velocity-vector">
+  <title>Velocity Vector</title>
+  <statement>
+    <p>
+      The vector <m>\frac{\mathbf{r}(t+h)-\mathbf{r}(t)}{h}</m> gives the average velocity over a time interval of length <m>h</m>, and its limit is the <term>velocity vector <m>\mathbf{v}(t)</m></term> at time <m>t</m>:
+      <me>\mathbf{v}(t)=\lim_{h \to 0} \frac{\mathbf{r}(t+h)-\mathbf{r}(t)}{h}= \mathbf{r}'(t)</me>
+    </p>
+  </statement>
+</definition>
+
+<definition xml:id="defn-particle-speed">
+  <title>Speed</title>
+  <statement>
+    <p>
+      The <term>speed</term> of the particle at time <m>t</m> is the magnitude of the velocity vector, <m>|\mathbf{v}(t)|</m>, defined as:
+      <me>|\mathbf{v}(t)|=|\mathbf{r}'(t)|=\frac{ds}{dt}= \text{rate of change of distance with respect to time.}</me>
+    </p>
+  </statement>
+</definition>
+
+<definition xml:id="defn-acceleration-vector">
+  <title>Acceleration</title>
+  <statement>
+    <p>
+      In multi-dimensional motion, the <term>acceleration</term> <m>\mathbf{a}(t)</m> of the particle is defined as the derivative of the velocity vector:
+      <me>\mathbf{a}(t)=\mathbf{v}'(t)=\mathbf{r}''(t)</me>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-kinematics-evaluation">
+  <statement>
+    <p>
+      The position vector of an object moving in a plane is given by <m>\mathbf{r}(t)=(t^2+t)\mathbf{i}+t^3\mathbf{j}</m> for <m>0 \le t \le 2</m>. 
+      Find its velocity, speed, and acceleration when <m>t=1</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we differentiate the position vector function <m>\mathbf{r}(t)</m> with respect to <m>t</m> to find the velocity vector function <m>\mathbf{v}(t)</m>:
+      <me>\mathbf{v}(t) = \mathbf{r}'(t) = (2t+1)\mathbf{i} + 3t^2\mathbf{j}</me>
+      Evaluating the velocity vector at the specific parameter point <m>t=1</m> yields:
+      <me>\mathbf{v}(1) = (2(1)+1)\mathbf{i} + 3(1)^2\mathbf{j} = 3\mathbf{i} + 3\mathbf{j} = \langle 3, 3 \rangle</me>
+    </p>
+    <p>
+      Next, the speed of the object is the scalar magnitude of its velocity vector. 
+      Evaluating at <m>t=1</m> gives:
+      <me>|\mathbf{v}(1)| = \sqrt{3^2 + 3^2} = \sqrt{18} = 3\sqrt{2}</me>
+    </p>
+    <p>
+      Finally, we differentiate the velocity vector function to find the acceleration vector function <m>\mathbf{a}(t)</m>:
+      <me>\mathbf{a}(t) = \mathbf{v}'(t) = 2\mathbf{i} + 6t\mathbf{j}</me>
+      Evaluating the acceleration vector at <m>t=1</m> yields:
+      <me>\mathbf{a}(1) = 2\mathbf{i} + 6(1)\mathbf{j} = 2\mathbf{i} + 6\mathbf{j} = \langle 2, 6 \rangle</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-kinematics-initial-value">
+  <statement>
+    <p>
+      A moving particle starts at an initial position <m>\mathbf{r}(0)=\langle 1,0,0 \rangle</m> with initial velocity <m>\mathbf{v}(0)=\mathbf{i}-\mathbf{j}+\mathbf{k}</m>. 
+      Its acceleration is <m>\mathbf{a}(t)=4t\mathbf{i}+6t\mathbf{j}+\mathbf{k}</m>. 
+      Find its velocity and position at time <m>t</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We find the velocity vector function <m>\mathbf{v}(t)</m> by integrating the given acceleration vector function:
+      <me>\mathbf{v}(t) = \int \mathbf{a}(t)\, dt = \left( \int 4t\, dt \right)\mathbf{i} + \left( \int 6t\, dt \right)\mathbf{j} + \left( \int 1\, dt \right)\mathbf{k} = 2t^2\mathbf{i} + 3t^2\mathbf{j} + t\mathbf{k} + \mathbf{C}_1</me>
+      Using our initial velocity vector condition <m>\mathbf{v}(0) = \mathbf{i}-\mathbf{j}+\mathbf{k} = \langle 1, -1, 1 \rangle</m> at <m>t=0</m> reveals <m>\mathbf{C}_1 = \mathbf{i}-\mathbf{j}+\mathbf{k}</m>. 
+      Combining these gives the final velocity function:
+      <me>\mathbf{v}(t) = (2t^2+1)\mathbf{i} + (3t^2-1)\mathbf{j} + (t+1)\mathbf{k} = \langle 2t^2+1, 3t^2-1, t+1 \rangle</me>
+    </p>
+    <p>
+      Next, we find the position vector function <m>\mathbf{r}(t)</m> by integrating the newly solved velocity vector function:
+      <me>\mathbf{r}(t) = \int \mathbf{v}(t)\, dt = \left( \frac{2}{3}t^3 + t \right)\mathbf{i} + \left( t^3 - t \right)\mathbf{j} + \left( \frac{1}{2}t^2 + t \right)\mathbf{k} + \mathbf{C}_2</me>
+      Using our initial position vector condition <m>\mathbf{r}(0) = \langle 1,0,0 \rangle = 1\mathbf{i} + 0\mathbf{j} + 0\mathbf{k}</m> at <m>t=0</m> reveals <m>\mathbf{C}_2 = \mathbf{i}</m>. 
+      Combining these gives the final position vector function:
+      <me>\mathbf{r}(t) = \left( \frac{2}{3}t^3 + t + 1 \right)\mathbf{i} + \left( t^3 - t \right)\mathbf{j} + \left( \frac{1}{2}t^2 + t \right)\mathbf{k} = \left\langle \frac{2}{3}t^3 + t + 1, \, t^3 - t, \, \frac{1}{2}t^2 + t \right\rangle</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-centripetal-force">
+  <statement>
+    <p>
+      An object with mass <m>m</m> that moves in a circular path with constant angular speed <m>\omega</m> has position vector <m>\mathbf{r}(t)=a\cos \omega t\mathbf{i}+a\sin \omega t\mathbf{j}</m>. 
+      Find the force acting on the object and show that it is directed toward the origin.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To locate the total force acting on the particle, we must first find its acceleration profile vector. 
+      Differentiating the position vector function with respect to time using the chain rule yields velocity:
+      <me>\mathbf{v}(t) = \mathbf{r}'(t) = -a\omega\sin\omega t\mathbf{i} + a\omega\cos\omega t\mathbf{j}</me>
+      Differentiating a second time yields the acceleration vector function:
+      <me>\mathbf{a}(t) = \mathbf{v}'(t) = -a\omega^2\cos\omega t\mathbf{i} - a\omega^2\sin\omega t\mathbf{j}</me>
+      Factoring out the shared constant parameter scalar <m>-\omega^2</m> reveals an explicit relationship to our primary position vector:
+      <me>\mathbf{a}(t) = -\omega^2\left( a\cos\omega t\mathbf{i} + a\sin\omega t\mathbf{j} \right) = -\omega^2\mathbf{r}(t)</me>
+    </p>
+    <p>
+      By applying Newton's Second Law of Motion (<m>\mathbf{F} = m\mathbf{a}</m>), we multiply this acceleration expression by the mass scalar:
+      <me>\mathbf{F}(t) = m\mathbf{a}(t) = -m\omega^2\mathbf{r}(t)</me>
+      Because <m>m\omega^2 \gt 0</m> is a strictly positive scalar quantity, the negative sign indicates that the net force vector <m>\mathbf{F}(t)</m> points in the exact opposite direction of the outward displacement vector <m>\mathbf{r}(t)</m>. 
+      Therefore, the centripetal force is directed directly inward toward the origin.
+    </p>
+    <figure xml:id="fig-centripetal-force-vectors" margins="0%">
+      <caption>An object in uniform circular motion showing the orthogonal relationship between velocity and position, and the centripetal nature of the force vector.</caption>
+      <!-- width="80%" optimization scales perfectly on web course sites -->
+      <image xml:id="img-tikz-centripetal" width="80%">
+        <description>A 2D coordinate plot showing a particle moving counterclockwise on a circle. An outward blue vector shows position, a tangential green vector shows velocity, and an inward red vector shows the force pointing directly back to the origin.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[scale=1.5]
+            % Axis lines manual setup for tight absolute tracking
+            \draw[->, gray, thick] (-2.5,0) -- (2.5,0) node[anchor=north east, inner sep=2pt] {$x$};
+            \draw[->, gray, thick] (0,-2.5) -- (0,2.5) node[anchor=north west, inner sep=2pt] {$y$};
+            
+            % Draw the circular path trajectory of radius a (set loosely to a=2)
+            \draw[dashed, gray!60, thick] (0,0) circle (2cm);
+            
+            % Set an arbitrary angle theta = omega * t = 50 degrees for clear vector spacing
+            % Coordinates: P = (2*cos(50), 2*sin(50)) = (1.285, 1.532)
+            
+            % 1. Position Vector r(t) - Outward from origin
+            \draw[->, blue, ultra thick] (0,0) -- (1.285,1.532) 
+              node[midway, above left, inner sep=1pt] {$\mathbf{r}(t)$};
+              
+            % 2. Net Force Vector F(t) - Pointing straight back to the origin from P
+            % Drawn slightly offset or shorter so it doesn't mask the position vector completely
+            \draw[->, red, ultra thick] (1.285,1.532) -- (0.385,0.459);
+            \node[red, below right] at (0.835,0.995) {$\mathbf{F}(t)$};
+            
+            % 3. Velocity Vector v(t) - Tangential to path (direction is <-2*sin(50), 2*cos(50)>)
+            % Endpoint: (1.285 - 1.532*0.7, 1.532 + 1.285*0.7) = (0.213, 2.431)
+            \draw[->, darkgray!40!green, ultra thick] (1.285,1.532) -- (0.213,2.431)
+              node[above right] {$\mathbf{v}(t)$};
+              
+            % Right-angle indicator between velocity and position to visually affirm orthogonality
+            \draw[gray, thick] (1.285,1.532) -- (1.179,1.406) -- (1.053,1.512) -- (1.159,1.638) -- cycle;
+            
+            % Particle position highlight
+            \filldraw[black] (1.285,1.532) circle (1.5pt) node[above right, xshift=2pt] {$P$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</example>
+
+<remark xml:id="rem-newtons-second-law">
+  <title>Newton's Second Law of Motion</title>
+  <p>
+    If the force that acts on a particle is known, then its acceleration can be found from <term>Newton's Second Law of Motion</term>. 
+    The vector version of this law states that if, at any time <m>t</m>, a force <m>\mathbf{F}(t)</m> acts on an object of mass <m>m</m> producing an acceleration <m>\mathbf{a}(t)</m>, then:
+    <me>\mathbf{F}(t)=m\mathbf{a}(t)</me>
+  </p>
+</remark>
+
+<example xml:id="ex-constant-speed-acceleration">
+  <statement>
+    <p>
+      Show that if a particle <m>P</m> moves around a circle of radius <m>a</m> at a constant speed <m>v</m>, then the acceleration vector has a constant magnitude <m>v^2/a</m> and is directed from <m>P</m> toward the center of the circle.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We can parameterize uniform circular motion of radius <m>a</m> with constant angular speed <m>\omega</m> as:
+      <me>\mathbf{r}(t) = \langle a\cos(\omega t), a\sin(\omega t) \rangle</me>
+      Differentiating once yields the velocity vector function:
+      <me>\mathbf{v}(t) = \mathbf{r}'(t) = \langle -a\omega\sin(\omega t), a\omega\cos(\omega t) \rangle</me>
+      The constant speed <m>v</m> is the magnitude of this velocity vector:
+      <me>v = |\mathbf{v}(t)| = \sqrt{(-a\omega\sin(\omega t))^2 + (a\omega\cos(\omega t))^2} = \sqrt{a^2\omega^2(\sin^2(\omega t) + \cos^2(\omega t))} = a\omega</me>
+      This gives us the relationship <m>\omega = \frac{v}{a}</m>.
+    </p>
+    <p>
+      Next, differentiate the velocity vector function to find the acceleration vector function <m>\mathbf{a}(t)</m>:
+      <me>\mathbf{a}(t) = \mathbf{v}'(t) = \langle -a\omega^2\cos(\omega t), -a\omega^2\sin(\omega t) \rangle = -\omega^2\mathbf{r}(t)</me>
+      Substituting <m>\omega = \frac{v}{a}</m> into our acceleration expression yields:
+      <me>\mathbf{a}(t) = -\left(\frac{v}{a}\right)^2\mathbf{r}(t) = -\frac{v^2}{a^2}\mathbf{r}(t)</me>
+    </p>
+    <p>
+      Now we compute the magnitude of the acceleration vector:
+      <me>|\mathbf{a}(t)| = \left|-\frac{v^2}{a^2}\right| |\mathbf{r}(t)| = \frac{v^2}{a^2} \cdot a = \frac{v^2}{a}</me>
+      Because <m>\frac{v^2}{a^2} \gt 0</m> is a strictly positive scalar, the negative sign in <m>\mathbf{a}(t) = -\frac{v^2}{a^2}\mathbf{r}(t)</m> dictates that the acceleration points in the exact opposite direction of the outward radial position vector <m>\mathbf{r}(t)</m>. 
+      Therefore, the acceleration vector has a constant magnitude of <m>v^2/a</m> and points directly inward from <m>P</m> toward the center of the circle.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-3d-path-kinematics">
+  <statement>
+    <p>
+      The position vector of a particle <m>P</m> is given by <m>\mathbf{r}(t)=2t\mathbf{i}+3t^2\mathbf{j}+t^3\mathbf{k}</m> for <m>0 \le t \le 2</m>. 
+      Find the velocity and acceleration of <m>P</m> at time <m>t</m>. Sketch the path of <m>P</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We compute the velocity vector function <m>\mathbf{v}(t)</m> by taking the first derivative of the position components with respect to <m>t</m>:
+      <me>\mathbf{v}(t) = \mathbf{r}'(t) = 2\mathbf{i} + 6t\mathbf{j} + 3t^2\mathbf{k} = \langle 2, 6t, 3t^2 \rangle</me>
+      We compute the acceleration vector function <m>\mathbf{a}(t)</m> by taking the derivative of our velocity profile:
+      <me>\mathbf{a}(t) = \mathbf{v}'(t) = 6\mathbf{j} + 6t\mathbf{k} = \langle 0, 6, 6t \rangle</me>
+    </p>
+    <p>
+      The trajectory begins at the origin <m>\mathbf{r}(0) = \langle 0,0,0 \rangle</m> and ends at <m>\mathbf{r}(2) = \langle 4,12,8 \rangle</m>. 
+      As time increases, the path arches upward across the first octant space.
+    </p>
+
+    <figure xml:id="fig-3d-path-sketch" margins="0%">
+      <caption>The 3D space trajectory of the particle from <m>t=0</m> to <m>t=2</m>.</caption>
+      <image xml:id="img-tikz-3d-path" width="70%">
+        <description>A 3D coordinate plot showing a parametric path winding upward through space from (0,0,0) to a terminal point at (4,12,8).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}
+            \begin{axis}[
+              view={60}{30},
+              axis lines=center,
+              xmin=0, xmax=5, ymin=0, ymax=14, zmin=0, zmax=10,
+              ticks=none,
+              enlargelimits=false,
+              xlabel={$x$},
+              xlabel style={at={(axis cs:4.7,0,0)}, anchor=north east, inner sep=2pt},
+              ylabel={$y$},
+              ylabel style={at={(axis cs:0,13.3,0)}, anchor=north west, inner sep=2pt},
+              zlabel={$z$},
+              zlabel style={at={(axis cs:0,0,9.5)}, anchor=south east, inner sep=2pt}
+            ]
+              % Plot the curve r(t) = <2t, 3t^2, t^3> for t from 0 to 2
+              \addplot3[domain=0:2, samples=60, samples y=0, smooth, blue, ultra thick] 
+                ({2*x}, {3*x^2}, {x^3});
+                
+              % Highlight initial and terminal points
+              \filldraw[black] (axis cs:0,0,0) circle (1.5pt) node[above right] {$t=0$};
+              \filldraw[black] (axis cs:4,12,8) circle (1.5pt) node[above left] {$(4,12,8)$};
+            \end{axis}
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</example>
+
+<example xml:id="ex-angular-velocity-cross">
+  <statement>
+    <p>
+      A point <m>P</m> is rotating about the <m>z</m>-axis on a circle of radius <m>a</m> that lies in the plane <m>z=h</m>. 
+      The angular speed <m>d\theta/dt</m> is a constant <m>\omega</m>. 
+      The vector <m>\boldsymbol{\omega}=\omega\mathbf{k}</m> directed along the <m>z</m>-axis and having magnitude <m>\omega</m> is the <term>angular velocity</term> of <m>P</m>. 
+      Show that the velocity <m>\mathbf{v}(t)</m> of <m>P</m> is the cross product of <m>\boldsymbol{\omega}</m> and the position vector <m>\mathbf{r}(t)</m> for <m>P</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Since the path is a circle of radius <m>a</m> sitting in the horizontal plane <m>z=h</m>, we can express the position vector of the moving point <m>P</m> explicitly as:
+      <me>\mathbf{r}(t) = \langle a\cos(\omega t), a\sin(\omega t), h \rangle</me>
+      Differentiating this position profile with respect to <m>t</m> yields the standard velocity vector:
+      <me>\mathbf{v}(t) = \mathbf{r}'(t) = \langle -a\omega\sin(\omega t), a\omega\cos(\omega t), 0 \rangle</me>
+    </p>
+    <p>
+      Now, let us calculate the vector cross product of the angular velocity vector <m>\boldsymbol{\omega} = \langle 0, 0, \omega \rangle</m> and our position vector <m>\mathbf{r}(t)</m>:
+      <md>
+        <mrow>\boldsymbol{\omega} \times \mathbf{r}(t) \amp = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 0 \amp 0 \amp \omega \\ a\cos(\omega t) \amp a\sin(\omega t) \amp h \end{vmatrix}</mrow>
+        <mrow>\amp = (0 \cdot h - \omega \cdot a\sin(\omega t))\mathbf{i} - (0 \cdot h - \omega \cdot a\cos(\omega t))\mathbf{j} + (0 \cdot a\sin(\omega t) - 0 \cdot a\cos(\omega t))\mathbf{k}</mrow>
+        <mrow>\amp = \langle -a\omega\sin(\omega t), a\omega\cos(\omega t), 0 \rangle</mrow>
+      </md>
+      Comparing this coordinate result directly to our derivative calculation proves that:
+      <me>\mathbf{v}(t) = \boldsymbol{\omega} \times \mathbf{r}(t)</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-projectile-derivation">
+  <statement>
+    <p>
+      A projectile is fired with an initial velocity <m>\mathbf{v}_0</m> from a point <m>h_0</m> feet above the ground. 
+      If the only force acting on the projectile is caused by gravitational acceleration <m>\mathbf{g}</m>, determine its position after <m>t</m> seconds.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Let the motion take place in the 2D <m>xy</m>-plane, where the positive <m>y</m>-axis points vertically upward from the ground level. 
+      The constant downward gravitational acceleration vector is expressed as:
+      <me>\mathbf{a}(t) = -g\mathbf{j}</me>
+      where <m>g \approx 32 \, \text{ft/sec}^2</m>. 
+      Integrating this acceleration vector with respect to time <m>t</m> yields the velocity vector function:
+      <me>\mathbf{v}(t) = \int \mathbf{a}(t)\, dt = \int -g\mathbf{j}\, dt = -gt\mathbf{j} + \mathbf{C}_1</me>
+      Using the initial velocity condition at <m>t=0</m> gives <m>\mathbf{v}(0) = \mathbf{C}_1 = \mathbf{v}_0</m>. Thus:
+      <me>\mathbf{v}(t) = -gt\mathbf{j} + \mathbf{v}_0</me>
+    </p>
+    <p>
+      Next, we integrate the velocity vector function to determine the position vector function <m>\mathbf{r}(t)</m>:
+      <me>\mathbf{r}(t) = \int \mathbf{v}(t)\, dt = \int (-gt\mathbf{j} + \mathbf{v}_0)\, dt = -\frac{1}{2}gt^2\mathbf{j} + \mathbf{v}_0t + \mathbf{C}_2</me>
+      Using our initial position conditions at <m>t=0</m>, the object starts at a height <m>h_0</m> above the origin, meaning <m>\mathbf{r}(0) = h_0\mathbf{j}</m>. 
+      This establishes <m>\mathbf{C}_2 = h_0\mathbf{j}</m>. 
+      Combining all components gives the general position vector function for projectile motion:
+      <me>\mathbf{r}(t) = \mathbf{v}_0t + \left(h_0 - \frac{1}{2}gt^2\right)\mathbf{j}</me>
+    </p>
+  </solution>
+</example>
+
+<remark xml:id="rem-projectile-components">
+  <title>Projectile Path Components</title>
+  <p>
+    A unit vector <m>\mathbf{u}</m> pointing in the same direction as the launch trajectory vector <m>\mathbf{v}_0</m> with an angle of elevation <m>\alpha</m> is given by:
+    <me>\mathbf{u}=\cos \alpha \mathbf{i}+\sin \alpha \mathbf{j}</me>
+    Letting <m>\|\mathbf{v}_0\| = v_0</m> denote the initial launch speed of the projectile, the initial velocity vector breaks down into its component components as:
+    <me>\mathbf{v}_0=v_0\mathbf{u}=(v_0\cos \alpha)\mathbf{i}+(v_0\sin \alpha)\mathbf{j}</me>
+    Provided the projectile launches from ground level (<m>h_0=0</m>), substituting these components into our position equation yields:
+    <me>\mathbf{r}(t)=(v_0\cos \alpha)t\mathbf{i}+\left[(v_0\sin \alpha)t-\frac{1}{2}gt^2\right]\mathbf{j}</me>
+    Therefore, the parametric equations describing the projectile's trajectory path are:
+    <me>x=(v_0\cos \alpha)t, \quad\quad y=(v_0\sin \alpha)t-\frac{1}{2}gt^2</me>
+  </p>
+</remark>
+
+<example xml:id="ex-projectile-evaluation">
+  <statement>
+    <p>
+      A projectile is fired from ground level with an initial speed of <m>1500 \, \text{ft/sec}</m> and an angle of elevation of <m>30^\circ</m>. Find:
+    </p>
+    <ol>
+      <li>
+        <p>
+          The velocity vector at time <m>t</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The maximum altitude reached.
+        </p>
+      </li>
+      <li>
+        <p>
+          The horizontal range of the projectile.
+        </p>
+      </li>
+      <li>
+        <p>
+          The speed at which the projectile strikes the ground.
+        </p>
+      </li>
+    </ol>
+  </statement>
+  <solution>
+    <p>
+      Using the parameters provided, we have the initial speed <m>v_0 = 1500</m>, launch angle <m>\alpha = 30^\circ</m>, and constant gravitational acceleration <m>g = 32 \, \text{ft/sec}^2</m>. 
+      The initial horizontal and vertical velocity components evaluate to:
+      <me>v_{0x} = 1500\cos(30^\circ) = 1500\left(\frac{\sqrt{3}}{2}\right) = 750\sqrt{3} \, \text{ft/sec}</me>
+      <me>v_{0y} = 1500\sin(30^\circ) = 1500\left(\frac{1}{2}\right) = 750 \, \text{ft/sec}</me>
+      Thus, the parametric tracking coordinates of the position are <m>x(t) = 750\sqrt{3}t</m> and <m>y(t) = 750t - 16t^2</m>.
+    </p>
+    <ol>
+      <li>
+        <p>
+          Differentiating the position components gives the general velocity vector function at time <m>t</m>:
+          <me>\mathbf{v}(t) = 750\sqrt{3}\mathbf{i} + (750 - 32t)\mathbf{j} = \langle 750\sqrt{3}, \, 750 - 32t \rangle</me>
+        </p>
+      </li>
+      <li>
+        <p>
+          The maximum altitude occurs when the vertical velocity component drops to zero (<m>v_y(t) = 0</m>):
+          <me>750 - 32t = 0 \implies t = \frac{750}{32} = \frac{375}{16} \approx 23.44 \, \text{seconds}</me>
+          Substituting this peak time back into our vertical tracking position function yields the maximum altitude:
+          <me>y_{\max} = 750\left(\frac{375}{16}\right) - 16\left(\frac{375}{16}\right)^2 = \frac{281250}{16} - \frac{140625}{16} = \frac{140625}{16} \approx 8789.06 \, \text{feet}</me>
+        </p>
+      </li>
+      <li>
+        <p>
+          The horizontal range is the distance traveled when the projectile returns to the ground level (<m>y(t) = 0</m>):
+          <me>750t - 16t^2 = 0 \implies t(750 - 16t) = 0 \implies t_{\text{impact}} = \frac{750}{16} = \frac{375}{8} \approx 46.88 \, \text{seconds}</me>
+          Evaluating our horizontal position tracking function at this total flight time gives the range:
+          <me>x_{\text{range}} = 750\sqrt{3}\left(\frac{375}{8}\right) = \frac{281250\sqrt{3}}{8} \approx 60892.10 \, \text{feet}</me>
+        </p>
+      </li>
+      <li>
+        <p>
+          Because the projectile launches and lands at the same horizontal altitude elevation, the vertical landing speed matches the initial vertical launching speed but points downward. 
+          Evaluating the components at impact yields <m>\mathbf{v}(t_{\text{impact}}) = \langle 750\sqrt{3}, -750 \rangle</m>. 
+          The total scalar speed on impact is:
+          <me>\|\mathbf{v}(t_{\text{impact}})\| = \sqrt{(750\sqrt{3})^2 + (-750)^2} = \sqrt{1687500 + 562500} = \sqrt{2250000} = 1500 \, \text{ft/sec}</me>
+        </p>
+      </li>
+    </ol>
+  </solution>
+</example>
+
+    </section>
+
+    

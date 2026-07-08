@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-tangential-normal-components">
+  <title>2.6 Tangential and Normal Components of Acceleration</title>
+  <p>
+    In this section, we will explore the tangential and normal components of acceleration for a particle moving along a curved path. 
+    These components provide insight into how the particle's velocity changes in both magnitude and direction.
+  </p>
+  <p>
+    The tangential component of acceleration is responsible for changing the speed of the particle, while the normal component is responsible for changing the direction of motion.
+  </p>
+  <p>
+    We will derive formulas for these components and apply them to various examples to illustrate their significance in understanding motion in space.
+  </p >
+ 
+<p>
+  The motion of a particle is often useful to resolve the acceleration into two components: one in the direction of the tangent and the other in the direction of the normal. 
+  If <m>v=|\mathbf{v}|</m> represents the speed of the particle, then:
+  <me>\mathbf{T}(t)=\frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}=\frac{\mathbf{v}(t)}{|\mathbf{v}(t)|}=\frac{\mathbf{v}}{v}</me>
+  which gives <m>\mathbf{v}=v\mathbf{T}</m>. 
+  Differentiating both sides of this equation with respect to <m>t</m> yields:
+  <me>\mathbf{a}=\mathbf{v}'=v'\mathbf{T}+v\mathbf{T}'</me>
+</p>
+
+<p>
+  Since the curvature is defined as <m>\kappa=\frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|}</m>, we can rewrite this in terms of speed:
+  <me>\kappa=\frac{|\mathbf{T}'(t)|}{v} \implies |\mathbf{T}'|=\kappa v</me>
+  The unit normal vector is defined as <m>\mathbf{N}=\frac{\mathbf{T}'}{|\mathbf{T}'|}</m>, which allows us to isolate the derivative of the unit tangent vector:
+  <me>\mathbf{T}'=|\mathbf{T}'|\mathbf{N}=\kappa v \mathbf{N}</me>
+  Substituting this back into our acceleration equation provides the final decomposition:
+  <md>
+    <mrow>\mathbf{a} \amp = v'\,\mathbf{T}+\kappa v^2\,\mathbf{N}</mrow>
+    <mrow>\amp = a_T\,\mathbf{T} +a_N\,\mathbf{N}</mrow>
+  </md>
+  We call <m>a_T</m> and <m>a_N</m> the <term>tangential and normal components of acceleration</term>, defined respectively as:
+  <me>a_T= v' \quad \text{and} \quad a_N=\kappa v^2</me>
+</p>
+
+<p>
+  To find a more computational formula for <m>a_T</m>, we take the dot product of the velocity vector <m>\mathbf{v}=v\mathbf{T}</m> with the acceleration vector <m>\mathbf{a}</m>:
+  <md>
+    <mrow>\mathbf{v}\cdot\mathbf{a} \amp = v\mathbf{T}\cdot(v'\,\mathbf{T}+\kappa v^2\,\mathbf{N})</mrow>
+    <mrow>\amp = vv'(\mathbf{T}\cdot\mathbf{T}) + \kappa v^3(\mathbf{T}\cdot\mathbf{N})</mrow>
+    <mrow>\amp = vv' \quad \text{(since } \mathbf{T}\cdot\mathbf{T}=1 \text{ and } \mathbf{T}\cdot\mathbf{N}=0\text{)}</mrow>
+  </md>
+  Therefore, provided <m>\mathbf{r}'(t)\neq \mathbf{0}</m>, the tangential component of acceleration can be calculated directly as:
+  <me>a_T=v'=\frac{\mathbf{v}\cdot\mathbf{a}}{v}=\frac{\mathbf{r}'(t)\cdot\mathbf{r}''(t)}{|\mathbf{r}'(t)|}</me>
+</p>
+
+<p>
+  Similarly, by substituting the cross-product curvature formula <m>\kappa = \frac{|\mathbf{r}'(t)\times\mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3}</m> into our definition for <m>a_N</m>, we obtain a direct computational formula for the normal component of acceleration:
+  <me>a_N=\kappa v^2 =\frac{|\mathbf{r}'(t)\times\mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3}\,|\mathbf{r}'(t)|^2 = \frac{|\mathbf{r}'(t)\times\mathbf{r}''(t)|}{|\mathbf{r}'(t)|}</me>
+</p>
+<assemblage xml:id="asm-acceleration-components">
+  <title>Tangential and Normal Components of Acceleration</title>
+  <p>
+    The acceleration vector <m>\mathbf{a}(t)</m> can be decomposed into a tangential component <m>a_T</m> and a normal component <m>a_N</m>:
+  </p>
+  <me>\mathbf{a} = a_T\,\mathbf{T} + a_N\,\mathbf{N}</me>
+  <p>
+    Where the geometric definitions and direct computational formulas for these components are given by:
+  <md>
+    <mrow>a_T \amp = \frac{\mathbf{r}'(t)\cdot\mathbf{r}''(t)}{\|\mathbf{r}'(t)\|}</mrow>
+    <mrow>a_N \amp = \frac{\|\mathbf{r}'(t)\times\mathbf{r}''(t)\|}{\|\mathbf{r}'(t)\|}</mrow>
+  </md></p>
+  <p>
+    These components satisfy the Pythagorean relationship with the total acceleration magnitude:
+  <me>\|\mathbf{a}\|^2 = a_T^2 + a_N^2</me></p>
+</assemblage>
+
+<example xml:id="ex-acceleration-components-cubic">
+  <statement>
+    <p>
+      A particle moves with the position function <m>\mathbf{r}(t)=\langle t,t^2,t^3 \rangle</m>. 
+      Find the tangential and normal components of acceleration.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, compute the velocity vector <m>\mathbf{r}'(t)</m> and acceleration vector <m>\mathbf{r}''(t)</m>:
+      <me>\mathbf{r}'(t) = \langle 1, 2t, 3t^2 \rangle \implies \|\mathbf{r}'(t)\| = \sqrt{1 + 4t^2 + 9t^4}</me>
+      <me>\mathbf{r}''(t) = \langle 0, 2, 6t \rangle</me>
+    </p>
+    <p>
+      To find the tangential component <m>a_T</m>, calculate the dot product <m>\mathbf{r}'(t) \cdot \mathbf{r}''(t)</m>:
+      <me>\mathbf{r}'(t) \cdot \mathbf{r}''(t) = 1(0) + 2t(2) + 3t^2(6t) = 4t + 18t^3</me>
+      Dividing by the speed <m>\|\mathbf{r}'(t)\|</m> yields:
+      <me>a_T = \frac{\mathbf{r}'(t) \cdot \mathbf{r}''(t)}{\|\mathbf{r}'(t)\|} = \frac{4t + 18t^3}{\sqrt{1 + 4t^2 + 9t^4}}</me>
+    </p>
+    <p>
+      To find the normal component <m>a_N</m>, compute the cross product <m>\mathbf{r}'(t) \times \mathbf{r}''(t)</m>:
+      <me>\mathbf{r}'(t) \times \mathbf{r}''(t) = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 1 \amp 2t \amp 3t^2 \\ 0 \amp 2 \amp 6t \end{vmatrix} = \langle 12t^2 - 6t^2, \, -6t, \, 2 \rangle = \langle 6t^2, -6t, 2 \rangle</me>
+      Find the magnitude of this cross product vector:
+      <me>\|\mathbf{r}'(t) \times \mathbf{r}''(t)\| = \sqrt{(6t^2)^2 + (-6t)^2 + 2^2} = \sqrt{36t^4 + 36t^2 + 4} = 2\sqrt{9t^4 + 9t^2 + 1}</me>
+      Dividing by the speed yields:
+      <me>a_N = \frac{\|\mathbf{r}'(t) \times \mathbf{r}''(t)\|}{\|\mathbf{r}'(t)\|} = \frac{2\sqrt{9t^4 + 9t^2 + 1}}{\sqrt{1 + 4t^2 + 9t^4}}</me>
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="ck-acceleration-components-planar">
+  <statement>
+    <p>
+      A particle moves with the position function <m>\mathbf{r}(t)=(3t-t^3)\mathbf{i}+3t^2\mathbf{j}</m>. 
+      Find the tangential and normal components of acceleration.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Compute the primary velocity and acceleration derivative profiles:
+      <me>\mathbf{r}'(t) = \langle 3-3t^2, 6t \rangle \implies \|\mathbf{r}'(t)\| = \sqrt{(3-3t^2)^2 + (6t)^2} = \sqrt{9 - 18t^2 + 9t^4 + 36t^2} = \sqrt{9 + 18t^2 + 9t^4} = 3(1+t^2)</me>
+      <me>\mathbf{r}''(t) = \langle -6t, 6 \rangle</me>
+    </p>
+    <p>
+      Find the tangential component <m>a_T</m> by evaluation of the vector dot product:
+      <me>\mathbf{r}'(t) \cdot \mathbf{r}''(t) = (3-3t^2)(-6t) + (6t)(6) = -18t + 18t^3 + 36t = 18t + 18t^3 = 18t(1+t^2)</me>
+      <me>a_T = \frac{\mathbf{r}'(t) \cdot \mathbf{r}''(t)}{\|\mathbf{r}'(t)\|} = \frac{18t(1+t^2)}{3(1+t^2)} = 6t</me>
+    </p>
+    <p>
+      To find <m>a_N</m> for a 2D planar curve, we can evaluate the standard determinant form equivalent to the spatial cross product:
+      <me>\|\mathbf{r}'(t) \times \mathbf{r}''(t)\| = |(3-3t^2)(6) - (6t)(-6t)| = |18 - 18t^2 + 36t^2| = |18 + 18t^2| = 18(1+t^2)</me>
+      <me>a_N = \frac{\|\mathbf{r}'(t) \times \mathbf{r}''(t)\|}{\|\mathbf{r}'(t)\|} = \frac{18(1+t^2)}{3(1+t^2)} = 6</me>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="ck-acceleration-components-hyperbolic">
+  <statement>
+    <p>
+      A particle moves with the position function <m>\mathbf{r}(t)=e^t\mathbf{i}+\sqrt{2}t\mathbf{j}+e^{-t}\mathbf{k}</m>. 
+      Find the tangential and normal components of acceleration.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Compute the derivative vectors:
+      <me>\mathbf{r}'(t) = \langle e^t, \sqrt{2}, -e^{-t} \rangle \implies \|\mathbf{r}'(t)\| = \sqrt{(e^t)^2 + (\sqrt{2})^2 + (-e^{-t})^2} = \sqrt{e^{2t} + 2 + e^{-2t}} = \sqrt{(e^t + e^{-t})^2} = e^t + e^{-t}</me>
+      <me>\mathbf{r}''(t) = \langle e^t, 0, e^{-t} \rangle</me>
+    </p>
+    <p>
+      Calculate the dot product to find <m>a_T</m>:
+      <me>\mathbf{r}'(t) \cdot \mathbf{r}''(t) = (e^t)(e^t) + (\sqrt{2})(0) + (-e^{-t})(e^{-t}) = e^{2t} - e^{-2t}</me>
+      <me>a_T = \frac{\mathbf{r}'(t) \cdot \mathbf{r}''(t)}{\|\mathbf{r}'(t)\|} = \frac{e^{2t} - e^{-2t}}{e^t + e^{-t}} = \frac{(e^t - e^{-t})(e^t + e^{-t})}{e^t + e^{-t}} = e^t - e^{-t}</me>
+    </p>
+    <p>
+      Calculate the cross product to find <m>a_N</m>:
+      <me>\mathbf{r}'(t) \times \mathbf{r}''(t) = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ e^t \amp \sqrt{2} \amp -e^{-t} \\ e^t \amp 0 \amp e^{-t} \end{vmatrix} = \langle \sqrt{2}e^{-t}, \, -(e^t \cdot e^{-t} - (-e^{-t} \cdot e^t)), \, -\sqrt{2}e^t \rangle = \langle \sqrt{2}e^{-t}, -2, -\sqrt{2}e^t \rangle</me>
+      Find the magnitude of this cross product vector:
+      <me>\|\mathbf{r}'(t) \times \mathbf{r}''(t)\| = \sqrt{(\sqrt{2}e^{-t})^2 + (-2)^2 + (-\sqrt{2}e^t)^2} = \sqrt{2e^{-2t} + 4 + 2e^{2t}} = \sqrt{2(e^{-2t} + 2 + e^{2t})} = \sqrt{2(e^t + e^{-t})^2} = \sqrt{2}(e^t + e^{-t})</me>
+      Dividing by the speed yields a constant normal acceleration:
+      <me>a_N = \frac{\|\mathbf{r}'(t) \times \mathbf{r}''(t)\|}{\|\mathbf{r}'(t)\|} = \frac{\sqrt{2}(e^t + e^{-t})}{e^t + e^{-t}} = \sqrt{2}</me>
+    </p>
+  </solution>
+</exercise>
+
+
+
+
+  </section>

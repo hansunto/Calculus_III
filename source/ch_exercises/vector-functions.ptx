@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<worksheet xml:id="ws-vector-functions-chapter-review">
+    <title>Worksheet 02: Vector Functions</title>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <page xml:id="ws-p1">
+    <exercise xml:id="ex-ws-diff-int-rules">
+      <statement>
+        <p>
+          State the rules for differentiating and integrating vector functions. Give examples.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let <m>\mathbf{u}(t)</m> and <m>\mathbf{v}(t)</m> be differentiable vector functions, and let <m>f(t)</m> be a differentiable scalar function. The key derivative rules are:
+        </p>
+        <ol>
+          <li><p><strong>Sum Rule:</strong> <m>\frac{d}{dt}[\mathbf{u}(t) + \mathbf{v}(t)] = \mathbf{u}'(t) + \mathbf{v}'(t)</m></p></li>
+          <li><p><strong>Scalar Product Rule:</strong> <m>\frac{d}{dt}[f(t)\mathbf{u}(t)] = f'(t)\mathbf{u}(t) + f(t)\mathbf{u}'(t)</m></p></li>
+          <li><p><strong>Dot Product Rule:</strong> <m>\frac{d}{dt}[\mathbf{u}(t) \cdot \mathbf{v}(t)] = \mathbf{u}'(t) \cdot \mathbf{v}(t) + \mathbf{u}(t) \cdot \mathbf{v}'(t)</m></p></li>
+          <li><p><strong>Cross Product Rule:</strong> <m>\frac{d}{dt}[\mathbf{u}(t) \times \mathbf{v}(t)] = \mathbf{u}'(t) \times \mathbf{v}(t) + \mathbf{u}(t) \times \mathbf{v}'(t)</m></p></li>
+        </ol>
+        <p>
+          For integration, if <m>\mathbf{r}(t) = \langle f(t), g(t), h(t) \rangle</m>, the definite integral is calculated component-wise:
+          <me>\int_{a}^{b} \mathbf{r}(t)\, dt = \left\langle \int_{a}^{b} f(t)\, dt, \, \int_{a}^{b} g(t)\, dt, \, \int_{a}^{b} h(t)\, dt \right\rangle</me>
+        </p>
+        <p>
+          <em>Example:</em> If <m>\mathbf{r}(t) = \langle t^2, e^t, \sin t \rangle</m>, then <m>\mathbf{r}'(t) = \langle 2t, e^t, \cos t \rangle</m> and <m>\int \mathbf{r}(t)\, dt = \langle \frac{t^3}{3}, e^t, -\cos t \rangle + \mathbf{C}</m>.
+        </p>
+      </solution>
+    </exercise>
+
+    <exercise xml:id="ex-ws-arc-length-def">
+      <statement>
+        <p>
+          How do you define and calculate the length of a segment of a smooth space curve? Give an example.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The arc length <m>L</m> of a smooth space curve traced by <m>\mathbf{r}(t)</m> from <m>t = a</m> to <m>t = b</m> is defined as the integral of its scalar speed:
+          <me>L = \int_{a}^{b} \|\mathbf{r}'(t)\|\, dt = \int_{a}^{b} \sqrt{[x'(t)]^2 + [y'(t)]^2 + [z'(t)]^2}\, dt</me>
+        </p>
+        <p>
+          <em>Example:</em> Find the length of <m>\mathbf{r}(t) = \langle 3t, \sin t, \cos t \rangle</m> from <m>t=0</m> to <m>t=2</m>. 
+          The derivative is <m>\mathbf{r}'(t) = \langle 3, \cos t, -\sin t \rangle</m>. 
+          Its magnitude is <m>\|\mathbf{r}'(t)\| = \sqrt{3^2 + \cos^2 t + (-\sin t)^2} = \sqrt{9 + 1} = \sqrt{10}</m>.
+          Integrating over the interval yields:
+          <me>L = \int_{0}^{2} \sqrt{10}\, dt = 2\sqrt{10}</me>
+        </p>
+      </solution>
+    </exercise>
+
+    <exercise xml:id="ex-ws-unit-tangent-def">
+      <statement>
+        <p>
+          What is a differentiable curve's unit tangent vector? Give an example.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The unit tangent vector <m>\mathbf{T}(t)</m> represents the direction of motion along a smooth curve, normalized to have a constant length of <m>1</m>. It is defined as:
+          <me>\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{\|\mathbf{r}'(t)\|}</me>
+          provided that <m>\mathbf{r}'(t) \neq \mathbf{0}</m>.
+        </p>
+        <p>
+          <em>Example:</em> For <m>\mathbf{r}(t) = \langle t, t^2 \rangle</m> at <m>t=1</m>. 
+          The tangent vector is <m>\mathbf{r}'(t) = \langle 1, 2t \rangle \implies \mathbf{r}'(1) = \langle 1, 2 \rangle</m>. 
+          Its magnitude is <m>\|\mathbf{r}'(1)\| = \sqrt{1^2 + 2^2} = \sqrt{5}</m>. 
+          Thus, the unit tangent vector is:
+          <me>\mathbf{T}(1) = \frac{1}{\sqrt{5}}\langle 1, 2 \rangle = \left\langle \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}} \right\rangle</me>
+        </p>
+      </solution>
+    </exercise>
+  </page>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <page xml:id="ws-p2">
+    <exercise xml:id="ex-ws-acceleration-components">
+      <statement>
+        <p>
+          Write <m>\mathbf{a}</m> in the form <m>\mathbf{a}=a_T\mathbf{T}+a_N\mathbf{N}</m> without finding <m>\mathbf{T}</m> and <m>\mathbf{N}</m>, and find the value of <m>\kappa</m> at the given value of <m>t</m>:
+          <me>\mathbf{r}(t)=(4\cos t)\mathbf{i}+(\sqrt{2}\sin t)\mathbf{j}, \qquad t=\frac{\pi}{4}</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We differentiate the position vector function to find velocity <m>\mathbf{v}(t)</m> and acceleration <m>\mathbf{a}(t)</m>:
+          <me>\mathbf{v}(t) = \langle -4\sin t, \sqrt{2}\cos t \rangle \implies \mathbf{v}\left(\frac{\pi}{4}\right) = \left\langle -4\left(\frac{\sqrt{2}}{2}\right), \sqrt{2}\left(\frac{\sqrt{2}}{2}\right) \right\rangle = \langle -2\sqrt{2}, 1 \rangle</me>
+          <me>\mathbf{a}(t) = \langle -4\cos t, -\sqrt{2}\sin t \rangle \implies \mathbf{a}\left(\frac{\pi}{4}\right) = \left\langle -4\left(\frac{\sqrt{2}}{2}\right), -\sqrt{2}\left(\frac{\sqrt{2}}{2}\right) \right\rangle = \langle -2\sqrt{2}, -1 \rangle</me>
+        </p>
+        <p>
+          Compute the scalar speed tracking parameters at <m>t = \frac{\pi}{4}</m>:
+          <me>v = \|\mathbf{v}\| = \sqrt{(-2\sqrt{2})^2 + 1^2} = \sqrt{8 + 1} = 3</me>
+          The tangential component of acceleration <m>a_T</m> is found using a projection dot product:
+          <me>a_T = \frac{\mathbf{v} \cdot \mathbf{a}}{\|\mathbf{v}\|} = \frac{(-2\sqrt{2})(-2\sqrt{2}) + (1)(-1)}{3} = \frac{8 - 1}{3} = \frac{7}{3}</me>
+        </p>
+        <p>
+          To find the normal acceleration component <m>a_N</m>, use the relationship <m>\|\mathbf{a}\|^2 = a_T^2 + a_N^2</m>. 
+          First, find <m>\|\mathbf{a}\|^2 = (-2\sqrt{2})^2 + (-1)^2 = 8 + 1 = 9</m>:
+          <me>a_N = \sqrt{\|\mathbf{a}\|^2 - a_T^2} = \sqrt{9 - \left(\frac{7}{3}\right)^2} = \sqrt{9 - \frac{49}{9}} = \sqrt{\frac{32}{9}} = \frac{4\sqrt{2}}{3}</me>
+          Thus, the acceleration decomposition is:
+          <me>\mathbf{a} = \frac{7}{3}\mathbf{T} + \frac{4\sqrt{2}}{3}\mathbf{N}</me>
+        </p>
+        <p>
+          Finally, calculate the curvature using the normal acceleration relationship <m>a_N = \kappa v^2</m>:
+          <me>\kappa = \frac{a_N}{v^2} = \frac{(4\sqrt{2})/3}{3^2} = \frac{4\sqrt{2}}{27}</me>
+        </p>
+      </solution>
+    </exercise>
+
+    <exercise xml:id="ex-ws-highest-speed">
+      <statement>
+        <p>
+          The position of the particle in the plane at time <m>t</m> is:
+          <me>\mathbf{r}=\frac{1}{\sqrt{1+t^2}}\mathbf{i}+\frac{t}{\sqrt{1+t^2}}\mathbf{j}</me>
+          Find the particle's highest speed.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Notice that the coordinates describe a unit circle since <m>x^2 + y^2 = \frac{1}{1+t^2} + \frac{t^2}{1+t^2} = 1</m>. 
+          Differentiate each component to evaluate the velocity vector:
+          <me>x'(t) = -\frac{1}{2}(1+t^2)^{-3/2}(2t) = \frac{-t}{(1+t^2)^{3/2}}</me>
+          <me>y'(t) = \frac{1 \cdot \sqrt{1+t^2} - t \cdot \frac{t}{\sqrt{1+t^2}}}{1+t^2} = \frac{(1+t^2) - t^2}{(1+t^2)^{3/2}} = \frac{1}{(1+t^2)^{3/2}}</me>
+          <me>\mathbf{v}(t) = \left\langle \frac{-t}{(1+t^2)^{3/2}}, \, \frac{1}{(1+t^2)^{3/2}} \right\rangle</me>
+        </p>
+        <p>
+          Compute the scalar speed function <m>v(t) = \|\mathbf{v}(t)\|</m>:
+          <me>v(t) = \sqrt{\frac{t^2}{(1+t^2)^3} + \frac{1}{(1+t^2)^3}} = \sqrt{\frac{t^2+1}{(1+t^2)^3}} = \sqrt{\frac{1}{(1+t^2)^2}} = \frac{1}{1+t^2}</me>
+        </p>
+        <p>
+          To find the maximum speed value, look at the denominator of <m>v(t) = \frac{1}{1+t^2}</m>. 
+          The fraction reaches its largest value when its denominator is minimized, which occurs exactly at <m>t=0</m>. 
+          Therefore, the particle's highest speed is:
+          <me>v_{\max} = v(0) = \frac{1}{1+0^2} = 1</me>
+        </p>
+      </solution>
+    </exercise>
+  </page>
+
+  <!-- ==================== PAGE 3 ==================== -->
+  <page xml:id="ws-p3-complete">
+    <exercise xml:id="ex-ws-shotput-projectile-detail">
+      <statement>
+        <p>
+          A shot leaves the thrower's hand <m>6.5</m> ft above the ground at a <m>45^\circ</m> angle at <m>44</m> ft/sec. Where is it <m>2</m> sec later?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using standard ground kinematics parameters for English units, we have an initial position height <m>h_0 = 6.5</m> ft, launch speed <m>v_0 = 44</m> ft/sec, elevation angle <m>\alpha = 45^\circ</m>, and constant gravitational acceleration value <m>g = 32 \, \text{ft/sec}^2</m>.
+          The horizontal and vertical initial velocity components are:
+          <me>v_{0x} = 44\cos(45^\circ) = 44\left(\frac{\sqrt{2}}{2}\right) = 22\sqrt{2} \, \text{ft/sec}</me>
+          <me>v_{0y} = 44\sin(45^\circ) = 44\left(\frac{\sqrt{2}}{2}\right) = 22\sqrt{2} \, \text{ft/sec}</me>
+        </p>
+        <p>
+          Set up the general equations for horizontal and vertical position tracking over time <m>t</m>:
+          <me>x(t) = (v_0\cos\alpha)t = 22\sqrt{2}t</me>
+          <me>y(t) = h_0 + (v_0\sin\alpha)t - \frac{1}{2}gt^2 = 6.5 + 22\sqrt{2}t - 16t^2</me>
+        </p>
+        <p>
+          Evaluate both position tracking equations at the target parameter time <m>t = 2</m> seconds:
+          <me>x(2) = 22\sqrt{2}(2) = 44\sqrt{2} \approx 62.23 \, \text{feet}</me>
+          <me>y(2) = 6.5 + 22\sqrt{2}(2) - 16(2)^2 = 6.5 + 44\sqrt{2} - 64 \approx 6.5 + 62.23 - 64 = 4.73 \, \text{feet}</me>
+        </p>
+        <p>
+          Two seconds later, the shot is located <m>44\sqrt{2}</m> feet horizontally downrange from the thrower and at a vertical height of approximately <m>4.73</m> feet above the ground.
+        </p>
+      </solution>
+    </exercise>
+
+    <exercise xml:id="ex-ws-arc-length-calc-detail">
+      <statement>
+        <p>
+          Find the length of the curve:
+          <me>\mathbf{r}(t)=(2\cos t)\mathbf{i}+(2\sin t)\mathbf{j}+t^2\mathbf{k}, \quad 0 \le t \le \frac{\pi}{4}</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, differentiate the vector function components to track velocity:
+          <me>\mathbf{r}'(t) = \langle -2\sin t, \, 2\cos t, \, 2t \rangle</me>
+          Next, compute the scalar speed magnitude function using the identity <m>\sin^2 t + \cos^2 t = 1</m>:
+          <me>\|\mathbf{r}'(t)\| = \sqrt{(-2\sin t)^2 + (2\cos t)^2 + (2t)^2} = \sqrt{4\sin^2 t + 4\cos^2 t + 4t^2} = \sqrt{4(1) + 4t^2} = 2\sqrt{1+t^2}</me>
+        </p>
+        <p>
+          Set up the arc length integration array from <m>a=0</m> to <m>b=\frac{\pi}{4}</m>:
+          <me>L = \int_{0}^{\frac{\pi}{4}} 2\sqrt{1+t^2}\, dt</me>
+          Apply the standard trigonometric integration table substitution form <m>\int \sqrt{1+t^2}\,dt = \frac{t}{2}\sqrt{1+t^2} + \frac{1}{2}\ln|t + \sqrt{1+t^2}|</m>:
+          <me>L = 2 \left[ \frac{t}{2}\sqrt{1+t^2} + \frac{1}{2}\ln\left(t + \sqrt{1+t^2}\right) \right]_{0}^{\frac{\pi}{4}} = \left[ t\sqrt{1+t^2} + \ln\left(t + \sqrt{1+t^2}\right) \right]_{0}^{\frac{\pi}{4}}</me>
+          <me>L = \frac{\pi}{4}\sqrt{1 + \frac{\pi^2}{16}} + \ln\left(\frac{\pi}{4} + \sqrt{1 + \frac{\pi^2}{16}}\right) - (0 + \ln(1))</me>
+          <me>L = \frac{\pi\sqrt{16+\pi^2}}{16} + \ln\left(\frac{\pi + \sqrt{16+\pi^2}}{4}\right) \approx 0.816 \, \text{units}</me>
+        </p>
+      </solution>
+    </exercise>
+  </page>
+
+  <!-- ==================== PAGE 4 ==================== -->
+  <page xml:id="ws-p4-complete">
+    <exercise xml:id="ex-ws-tnk-evaluation-detail">
+      <statement>
+        <p>
+          Find <m>\mathbf{T}</m>, <m>\mathbf{N}</m>, and <m>\kappa</m> at the given <m>t</m>:
+          <me>\mathbf{r}(t)=\frac{4}{9}(1+t)^{3/2}\mathbf{i}+\frac{4}{9}(1-t)^{3/2}\mathbf{j}+\frac{1}{3}t\mathbf{k}, \qquad t=0</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Compute the derivative vector function to track velocity:
+          <me>\mathbf{r}'(t) = \left\langle \frac{4}{9} \cdot \frac{3}{2}(1+t)^{1/2}, \, \frac{4}{9} \cdot \frac{3}{2}(1-t)^{1/2}(-1), \, \frac{1}{3} \right\rangle = \left\langle \frac{2}{3}\sqrt{1+t}, \, -\frac{2}{3}\sqrt{1-t}, \, \frac{1}{3} \right\rangle</me>
+          Evaluating velocity at our target parameter point <m>t=0</m> yields:
+          <me>\mathbf{r}'(0) = \left\langle \frac{2}{3}(1), \, -\frac{2}{3}(1), \, \frac{1}{3} \right\rangle = \left\langle \frac{2}{3}, \, -\frac{2}{3}, \, \frac{1}{3} \right\rangle</me>
+          Compute the speed magnitude value:
+          <me>\|\mathbf{r}'(0)\| = \sqrt{\left(\frac{2}{3}\right)^2 + \left(-\frac{2}{3}\right)^2 + \left(\frac{1}{3}\right)^2} = \sqrt{\frac{4}{9} + \frac{4}{9} + \frac{1}{9}} = \sqrt{\frac{9}{9}} = 1</me>
+          Thus, the unit tangent vector at <m>t=0</m> matches the velocity vector directly:
+          <me>\mathbf{T}(0) = \left\langle \frac{2}{3}, \, -\frac{2}{3}, \, \frac{1}{3} \right\rangle</me>
+        </p>
+        <p>
+          To find <m>\mathbf{N}(0)</m>, look back at the general velocity profile magnitude function:
+          <me>\|\mathbf{r}'(t)\| = \sqrt{\frac{4}{9}(1+t) + \frac{4}{9}(1-t) + \frac{1}{9}} = \sqrt{\frac{4}{9} + \frac{4}{9}t + \frac{4}{9} - \frac{4}{9}t + \frac{1}{9}} = \sqrt{\frac{9}{9}} = 1</me>
+          Since speed is identically <m>1</m> for all values of <m>t</m>, the general unit tangent equation reduces simply to <m>\mathbf{T}(t) = \mathbf{r}'(t)</m>. 
+          Differentiating a second time gives <m>\mathbf{T}'(t)</m>:
+          <me>\mathbf{T}'(t) = \mathbf{r}''(t) = \left\langle \frac{1}{3\sqrt{1+t}}, \, \frac{1}{3\sqrt{1-t}}, \, 0 \right\rangle</me>
+          Evaluate this vector layout at <m>t=0</m>:
+          <me>\mathbf{T}'(0) = \left\langle \frac{1}{3}, \, \frac{1}{3}, \, 0 \right\rangle \implies \|\mathbf{T}'(0)\| = \sqrt{\frac{1}{9} + \frac{1}{9} + 0} = \frac{\sqrt{2}}{3}</me>
+        </p>
+        <p>
+          Normalize this derivative vector to find the unit normal vector:
+          <me>\mathbf{N}(0) = \frac{\mathbf{T}'(0)}{\|\mathbf{T}'(0)\|} = \frac{3}{\sqrt{2}} \left\langle \frac{1}{3}, \, \frac{1}{3}, \, 0 \right\rangle = \left\langle \frac{1}{\sqrt{2}}, \, \frac{1}{\sqrt{2}}, \, 0 \right\rangle</me>
+          Finally, calculate the curvature using the relationship <m>\kappa(t) = \frac{\|\mathbf{T}'(t)\|}{\|\mathbf{r}'(t)\|}</m>:
+          <me>\kappa(0) = \frac{\sqrt{2}/3}{1} = \frac{\sqrt{2}}{3}</me>
+        </p>
+      </solution>
+    </exercise>
+
+    <exercise xml:id="ex-ws-tangent-line-equations-detail">
+      <statement>
+        <p>
+          Find the parametric equations for the line that is tangent to the curve:
+          <me>\mathbf{r}(t)=e^t\mathbf{i}+(\sin t)\mathbf{j}+\ln(1-t)\mathbf{k}, \quad t=0</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, evaluate the initial point vector coordinates on the curve at <m>t=0</m>:
+          <me>\mathbf{r}(0) = \langle e^0, \, \sin(0), \, \ln(1-0) \rangle = \langle 1, \, 0, \, \ln(1) \rangle = \langle 1, 0, 0 \rangle</me>
+          This gives us the base point coordinates <m>(x_0, y_0, z_0) = (1, 0, 0)</m>.
+        </p>
+        <p>
+          Next, differentiate the vector function components with respect to <m>t</m> using the chain rule to locate the direction vector profile:
+          <me>\mathbf{r}'(t) = \left\langle e^t, \, \cos t, \, \frac{1}{1-t}(-1) \right\rangle = \left\langle e^t, \, \cos t, \, \frac{1}{t-1} \right\rangle</me>
+          Evaluating the derivative vector at our target parameter point <m>t=0</m> gives the direction coefficients for the tangent line:
+          <me>\mathbf{r}'(0) = \left\langle e^0, \, \cos(0), \, \frac{1}{0-1} \right\rangle = \langle 1, \, 1, \, -1 \rangle</me>
+          This gives the parallel direction vector components <m>\langle a, b, c \rangle = \langle 1, 1, -1 \rangle</m>.
+        </p>
+        <p>
+          Using the base point <m>(1,0,0)</m> and direction components <m>\langle 1,1,-1 \rangle</m>, the parametric equations for the tangent line are:
+          <me>x = 1 + t, \qquad y = t, \qquad z = -t</me>
+        </p>
+      </solution>
+    </exercise>
+  </page>
+
+
+</worksheet>    
