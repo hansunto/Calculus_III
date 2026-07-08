@@ -301,22 +301,22 @@
     </p>
     <ol>
       <li> <p>
-          <me>\frac{d}{dt}[\mathbf{u}(t)+\mathbf{v}(t)]= \mathbf{u}'(t)+\mathbf{v}'(t)</me>
+          <m>\frac{d}{dt}[\mathbf{u}(t)+\mathbf{v}(t)]= \mathbf{u}'(t)+\mathbf{v}'(t)</m>
         </p> </li>
       <li> <p>
-          <me>\frac{d}{dt}[c\mathbf{u}(t)]= c\mathbf{u}'(t)</me>
+          <m>\frac{d}{dt}[c\mathbf{u}(t)]= c\mathbf{u}'(t)</m>
         </p> </li>
       <li> <p>
-          <me>\frac{d}{dt}[f(t)\mathbf{u}(t)]= f'(t)\mathbf{u}(t)+f(t)\mathbf{u}'(t)</me>
+          <m>\frac{d}{dt}[f(t)\mathbf{u}(t)]= f'(t)\mathbf{u}(t)+f(t)\mathbf{u}'(t)</m>
         </p> </li>
       <li> <p>
-          <me>\frac{d}{dt}[\mathbf{u}(t)\cdot\mathbf{v}(t)]= \mathbf{u}'(t)\cdot\mathbf{v}(t)+\mathbf{u}(t)\cdot\mathbf{v}'(t)</me>
+          <m>\frac{d}{dt}[\mathbf{u}(t)\cdot\mathbf{v}(t)]= \mathbf{u}'(t)\cdot\mathbf{v}(t)+\mathbf{u}(t)\cdot\mathbf{v}'(t)</m>
         </p> </li>
       <li> <p>
-          <me>\frac{d}{dt}[\mathbf{u}(t)\times\mathbf{v}(t)]= \mathbf{u}'(t)\times\mathbf{v}(t)+\mathbf{u}(t)\times\mathbf{v}'(t)</me>
+          <m>\frac{d}{dt}[\mathbf{u}(t)\times\mathbf{v}(t)]= \mathbf{u}'(t)\times\mathbf{v}(t)+\mathbf{u}(t)\times\mathbf{v}'(t)</m>
         </p> </li>
       <li> <p>
-          <me>\frac{d}{dt}[\mathbf{u}(f(t))]= f'(t)\mathbf{u}'(f(t)) \quad \text{(Chain Rule)}</me>
+          <m>\frac{d}{dt}[\mathbf{u}(f(t))]= f'(t)\mathbf{u}'(f(t)) \quad \text{(Chain Rule)}</m>
         </p> </li>
     </ol>
   </statement>
