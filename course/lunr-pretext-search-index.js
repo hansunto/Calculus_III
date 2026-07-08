@@ -1153,11 +1153,290 @@ var ptx_lunr_docs = [
   "body": "  Classify the surface .    To classify the surface, we isolate the linear variable and complete the square for the terms:   We can rewrite this in standard form as: Comparing this to our standard models, this equation represents an elliptic paraboloid . Its vertex is shifted to the coordinates , and it opens along the positive direction of the -axis.   The shifted elliptic paraboloid .   A 3D surface plot showing an elliptic paraboloid opening along the horizontal y-axis. The vertex is anchored away from the origin at coordinates x=3, y=1, z=0.      "
 },
 {
+  "id": "sec-Vector-valued-functions",
+  "level": "1",
+  "url": "sec-Vector-valued-functions.html",
+  "type": "Section",
+  "number": "",
+  "title": "2.1 Vector-valued Functions and space curves",
+  "body": " 2.1 Vector-valued Functions and space curves  A vector-valued function is a function that takes one or more variables and returns a vector. It can be represented in the form:   where , , and are scalar functions of the variable .    A vector-valued function is a function whose domain is a set of real numbers and whose range is a set of vectors. Let be a set of real numbers. Then the three components of the vector-valued function are uniquely determined: where , , and are scalar functions with the domain .      If , find the component functions.    By identifying the scalar functions multiplying each unit vector or filling each slot, the component functions are:       Let for .    Sketch and .    Find the vectors that are in a coordinate plane.        The positions vectors are evaluated at the given parameter inputs:    A 3D coordinate system showing the evaluation points on the path viewed at a horizontal rotation.   A 3D plot rotated to 120 degrees horizontal showing the parametric space curve and clean separation between vectors r(1) and r(3).       We analyze each coordinate plane by setting the appropriate component to zero:     -plane : The -component is zero.      -plane : The -component is zero.      -plane : The -component is zero.          Limits and Continuity    The limit of a vector function is defined by taking the limits of its component functions: provided the limits of the component functions exist.  A vector function is continuous at if: Equivalently, is continuous at if and only if its component functions , , and are continuous at .      Find , where:     We evaluate the limit by computing the limit of each component function individually as : Combining these results into a single vector gives:     Suppose that , , and are continuous on an interval . Then the set of all points in space, where: and varies in , is called a space curve . The equations are called the parametric equations of C with a parameter  .    Describe the curve defined by the vector function:     The corresponding parametric equations are: These are the parametric equations of a line passing through the point and parallel to the vector .  Alternatively, we can observe that the function can be written as: which is the vector equation of a line.      Sketch the curve whose vector equation is: This curve is called a helix . This occurs in the model of DNA.    As the parameter increases, the - and -components trace out a circle of radius in the horizontal plane via and . Concurrently, the -component increases linearly since . The combination of this circular base rotation and vertical motion generates a spiral path that climbs upward along the surface of a cylinder.   A 3D coordinate system tracing the path of a circular helix.    A 3D parametric plot scaled for 60% HTML visibility and 100% text width on printed pages.       Recall a vector equation for the line segment that joins the tip of the vector to the tip of the vector :     Find a vector equation and parametric equations for the line segment that joins the point to the point .    Using the points as components for the position vectors and , the vector equation is: The corresponding parametric equations are:       Find a vector function that represents the curve of the intersection of the cylinder and the plane .    The projection of the intersection curve onto the -plane is the unit circle with . We can parameterize this circular footprint as: To find the corresponding -coordinate along the path, substitute the expression for into the plane equation : Thus, the parametric equations for are , , and . The corresponding vector function is:    The colored intersection region viewed from an horizontal rotation to separate tracking nodes.   A 3D coordinate plot showing an orange elliptical intersection inside a transparent cylinder with clean, separated text labels for the curve points.         Sketch the curve whose vector equation is: This curve is called a twisted cubic . You can view this curve as the intersection of the cylinders and .    As increases from , the path traces out a curve where the -coordinate grows quadratically relative to , and the -coordinate grows cubically.   The parametric path of a twisted cubic curve for .   A 3D coordinate plot showing the cubic trajectory starting at the origin and curving upward into the first octant.         Let for . Sketch the curve defined by and indicate its orientation.    Eliminating the parameter yields . Substituting this into the -component gives the Cartesian equation: This is a downward-opening parabola. As goes from to , the curve is traced from left to right starting at , passing through the vertex at , and ending at .   Downward parabola showing left-to-right orientation arrows.   A 2D plot of a downward parabola with arrows showing movement from left to right.         Let for . Sketch the curve defined by and indicate its orientation.    In polar coordinates, this curve can be viewed as the spiral , where the parameter acts as the angle . As increases from to , the point winds counterclockwise outward from the origin, completing one and a half full revolutions.   An Archimedean spiral winding outward counterclockwise with directional indicators.   A 2D polar plot tracking a counterclockwise spiral starting at the origin and winding outward to a final radius at 3 pi over 2 on the negative y axis.        "
+},
+{
+  "id": "defn-vector-valued-function",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#defn-vector-valued-function",
+  "type": "Definition",
+  "number": "2.1",
+  "title": "",
+  "body": "  A vector-valued function is a function whose domain is a set of real numbers and whose range is a set of vectors. Let be a set of real numbers. Then the three components of the vector-valued function are uniquely determined: where , , and are scalar functions with the domain .   "
+},
+{
+  "id": "ex-component-functions",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ex-component-functions",
+  "type": "Example",
+  "number": "2.2",
+  "title": "",
+  "body": "  If , find the component functions.    By identifying the scalar functions multiplying each unit vector or filling each slot, the component functions are:    "
+},
+{
+  "id": "ex-vector-coordinate-planes",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ex-vector-coordinate-planes",
+  "type": "Example",
+  "number": "2.3",
+  "title": "",
+  "body": "  Let for .    Sketch and .    Find the vectors that are in a coordinate plane.        The positions vectors are evaluated at the given parameter inputs:    A 3D coordinate system showing the evaluation points on the path viewed at a horizontal rotation.   A 3D plot rotated to 120 degrees horizontal showing the parametric space curve and clean separation between vectors r(1) and r(3).       We analyze each coordinate plane by setting the appropriate component to zero:     -plane : The -component is zero.      -plane : The -component is zero.      -plane : The -component is zero.        "
+},
+{
+  "id": "defn-vector-limit-continuity",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#defn-vector-limit-continuity",
+  "type": "Definition",
+  "number": "2.5",
+  "title": "",
+  "body": "  The limit of a vector function is defined by taking the limits of its component functions: provided the limits of the component functions exist.  A vector function is continuous at if: Equivalently, is continuous at if and only if its component functions , , and are continuous at .   "
+},
+{
+  "id": "ex-vector-limit-evaluation",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ex-vector-limit-evaluation",
+  "type": "Example",
+  "number": "2.6",
+  "title": "",
+  "body": "  Find , where:     We evaluate the limit by computing the limit of each component function individually as : Combining these results into a single vector gives:    "
+},
+{
+  "id": "subsec-Limits-and-Continuity-4",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#subsec-Limits-and-Continuity-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "space curve parametric equations of C parameter "
+},
+{
+  "id": "ex-vector-line-equation",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ex-vector-line-equation",
+  "type": "Example",
+  "number": "2.7",
+  "title": "",
+  "body": "  Describe the curve defined by the vector function:     The corresponding parametric equations are: These are the parametric equations of a line passing through the point and parallel to the vector .  Alternatively, we can observe that the function can be written as: which is the vector equation of a line.   "
+},
+{
+  "id": "ex-helix-sketch",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ex-helix-sketch",
+  "type": "Example",
+  "number": "2.8",
+  "title": "",
+  "body": "  Sketch the curve whose vector equation is: This curve is called a helix . This occurs in the model of DNA.    As the parameter increases, the - and -components trace out a circle of radius in the horizontal plane via and . Concurrently, the -component increases linearly since . The combination of this circular base rotation and vertical motion generates a spiral path that climbs upward along the surface of a cylinder.   A 3D coordinate system tracing the path of a circular helix.    A 3D parametric plot scaled for 60% HTML visibility and 100% text width on printed pages.      "
+},
+{
+  "id": "ex-line-segment-joining",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ex-line-segment-joining",
+  "type": "Example",
+  "number": "2.10",
+  "title": "",
+  "body": "  Find a vector equation and parametric equations for the line segment that joins the point to the point .    Using the points as components for the position vectors and , the vector equation is: The corresponding parametric equations are:    "
+},
+{
+  "id": "ex-cylinder-plane-intersection-rotated-80",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ex-cylinder-plane-intersection-rotated-80",
+  "type": "Example",
+  "number": "2.11",
+  "title": "",
+  "body": "  Find a vector function that represents the curve of the intersection of the cylinder and the plane .    The projection of the intersection curve onto the -plane is the unit circle with . We can parameterize this circular footprint as: To find the corresponding -coordinate along the path, substitute the expression for into the plane equation : Thus, the parametric equations for are , , and . The corresponding vector function is:    The colored intersection region viewed from an horizontal rotation to separate tracking nodes.   A 3D coordinate plot showing an orange elliptical intersection inside a transparent cylinder with clean, separated text labels for the curve points.      "
+},
+{
+  "id": "ex-twisted-cubic",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ex-twisted-cubic",
+  "type": "Example",
+  "number": "2.13",
+  "title": "",
+  "body": "  Sketch the curve whose vector equation is: This curve is called a twisted cubic . You can view this curve as the intersection of the cylinders and .    As increases from , the path traces out a curve where the -coordinate grows quadratically relative to , and the -coordinate grows cubically.   The parametric path of a twisted cubic curve for .   A 3D coordinate plot showing the cubic trajectory starting at the origin and curving upward into the first octant.      "
+},
+{
+  "id": "exercise-2d-parabola-orientation",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#exercise-2d-parabola-orientation",
+  "type": "Checkpoint",
+  "number": "2.15",
+  "title": "",
+  "body": "  Let for . Sketch the curve defined by and indicate its orientation.    Eliminating the parameter yields . Substituting this into the -component gives the Cartesian equation: This is a downward-opening parabola. As goes from to , the curve is traced from left to right starting at , passing through the vertex at , and ending at .   Downward parabola showing left-to-right orientation arrows.   A 2D plot of a downward parabola with arrows showing movement from left to right.      "
+},
+{
+  "id": "ck-spiral-orientation",
+  "level": "2",
+  "url": "sec-Vector-valued-functions.html#ck-spiral-orientation",
+  "type": "Checkpoint",
+  "number": "2.17",
+  "title": "",
+  "body": "  Let for . Sketch the curve defined by and indicate its orientation.    In polar coordinates, this curve can be viewed as the spiral , where the parameter acts as the angle . As increases from to , the point winds counterclockwise outward from the origin, completing one and a half full revolutions.   An Archimedean spiral winding outward counterclockwise with directional indicators.   A 2D polar plot tracking a counterclockwise spiral starting at the origin and winding outward to a final radius at 3 pi over 2 on the negative y axis.      "
+},
+{
+  "id": "ch-Vector-valued-functions-4",
+  "level": "1",
+  "url": "ch-Vector-valued-functions-4.html",
+  "type": "Section",
+  "number": "",
+  "title": "2.2 Derivatives of Vector Functions",
+  "body": " 2.2 Derivatives of Vector Functions  In this section, we will explore the concept of derivatives of vector functions. A vector function is a function that takes one or more variables and returns a vector. The derivative of a vector function provides information about how the vector changes with respect to its input variables.  We will cover the following topics:   Definition of the derivative of a vector function  Rules for differentiating vector functions    Differentiability  A vector-valued function is differentiable at if the derivative exists, which is defined as:   The derivative of a vector-valued function gives the tangent vector to the curve at that point.    The derivative  of a vector function is defined in the same manner as for real-valued functions:       If where , , and are differentiable functions, then:     This rule is easily proven by applying the component-wise limits directly into the fundamental definition of the derivative of vector functions.    If the points and have position vectors and , then the displacement vector represents the vector . As , the vector approaches a vector that lies along the target trajectory's path.  The vector is called the tangent vector to the curve defined by at , provided that exists and . The tangent line to at is defined to be the line through parallel to the tangent vector . (In a 2D plane, the slope of the line through parallel to evaluates to ).   The Unit Tangent Vector  We define the unit tangent vector as:      If exists, then we say is differentiable and write: Similarly, the second derivative is defined as:     Let . By applying the component derivative theorem, the first derivative is computed component-by-component:   Since each component function , , and is a standard real-valued scalar function, we can differentiate a second time using standard single-variable calculus rules: Expressing this result in terms of the standard unit basis vectors yields .      Let . Find the derivative where .    We differentiate each scalar component function with respect to : Combining these component results gives the derivative vector function:       Let .    Find and .    Find the unit tangent vector at the point where .        Differentiating component-by-component using the power rule, product rule, and chain rule yields the first derivative: Differentiating a second time gives the second derivative:     To find the unit tangent vector , we first evaluate the velocity derivative vector at : Next, compute the magnitude of this tangent vector: Divide the vector by its magnitude to obtain the final unit tangent vector:          For the curve , find and sketch the position vector and the tangent vector .    Differentiating each component with respect to yields: Evaluating both the original position vector and the derivative tangent vector at gives:     The position vector and the tangent vector positioned on the curve.   A 2D plot showing the parabolic curve trajectory, a blue position vector from the origin to (1,1), and a red tangent vector pointing down and right from (1,1).         Find the parametric equations for the tangent line to the helix with the parametric equations:     First, find the parameter value that corresponds to the given point . Matching the components yields . Testing this value reveals and , which confirms that .  Next, differentiate the vector function to find the directional tangent vector: Evaluating the direction vector at our parameter point gives:   Using the base point coordinates and the direction components , the parametric equations for the tangent line are:       Find the parametric equations for the tangent line to the twisted curve with the parametric equations:     Evaluate the base point on the curve at : Differentiate the component expressions to find the general velocity direction profile: Evaluating these derivatives at gives the parallel directional components for our tangent line:   Using the point and the direction components vector , the parametric equations for the line are:       A curve given by a vector function on an interval is called smooth if is continuous and , except possibly at the endpoints of .      Determine whether the semicubical parabola is smooth.    First, we compute the derivative vector function component-by-component: Both component functions, and , are polynomials, so is continuous everywhere. Next, we determine if there are any parameter values where the derivative vector equals the zero vector: This system yields the single solution . Since at an interior point of the domain, the curve is not smooth at the origin (it features a sharp cusp).    A curve like the semicubical parabola that is made up of a finite number of smooth pieces is called piecewise smooth .    Determine whether the helix is smooth.    We find the derivative vector function: The components are standard trigonometric and constant functions, meaning is continuous for all real numbers.  For the vector to be the zero vector, all three components must simultaneously equal zero. However, the -component is always . Therefore, for all values of . We conclude that the helix is a smooth curve .      Suppose and are differentiable vector functions, is a scalar, and is a real-valued function. Then:                                      If is differentiable and (a constant), then is orthogonal to for all in the domain of :     Since , squaring both sides gives . Using the relationship between the magnitude and the dot product, we can rewrite this as: Differentiating both sides with respect to using the dot product rule yields: Since the dot product is commutative, we combine the terms: Because their dot product is zero, the position vector and the derivative vector are orthogonal.    "
+},
+{
+  "id": "defn-vector-derivative",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#defn-vector-derivative",
+  "type": "Definition",
+  "number": "2.19",
+  "title": "",
+  "body": "  The derivative  of a vector function is defined in the same manner as for real-valued functions:    "
+},
+{
+  "id": "thm-component-derivatives",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#thm-component-derivatives",
+  "type": "Theorem",
+  "number": "2.20",
+  "title": "",
+  "body": "  If where , , and are differentiable functions, then:     This rule is easily proven by applying the component-wise limits directly into the fundamental definition of the derivative of vector functions.   "
+},
+{
+  "id": "subsec-Differentiability-8",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#subsec-Differentiability-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "tangent vector "
+},
+{
+  "id": "asm-unit-tangent-2",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#asm-unit-tangent-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "unit tangent vector "
+},
+{
+  "id": "cor-vector-higher-derivatives",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#cor-vector-higher-derivatives",
+  "type": "Corollary",
+  "number": "2.21",
+  "title": "",
+  "body": "  If exists, then we say is differentiable and write: Similarly, the second derivative is defined as:     Let . By applying the component derivative theorem, the first derivative is computed component-by-component:   Since each component function , , and is a standard real-valued scalar function, we can differentiate a second time using standard single-variable calculus rules: Expressing this result in terms of the standard unit basis vectors yields .   "
+},
+{
+  "id": "ex-vector-derivative-log",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#ex-vector-derivative-log",
+  "type": "Example",
+  "number": "2.22",
+  "title": "",
+  "body": "  Let . Find the derivative where .    We differentiate each scalar component function with respect to : Combining these component results gives the derivative vector function:    "
+},
+{
+  "id": "ex-unit-tangent-evaluation",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#ex-unit-tangent-evaluation",
+  "type": "Example",
+  "number": "2.23",
+  "title": "",
+  "body": "  Let .    Find and .    Find the unit tangent vector at the point where .        Differentiating component-by-component using the power rule, product rule, and chain rule yields the first derivative: Differentiating a second time gives the second derivative:     To find the unit tangent vector , we first evaluate the velocity derivative vector at : Next, compute the magnitude of this tangent vector: Divide the vector by its magnitude to obtain the final unit tangent vector:      "
+},
+{
+  "id": "ck-vector-tangent-sketch",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#ck-vector-tangent-sketch",
+  "type": "Checkpoint",
+  "number": "2.24",
+  "title": "",
+  "body": "  For the curve , find and sketch the position vector and the tangent vector .    Differentiating each component with respect to yields: Evaluating both the original position vector and the derivative tangent vector at gives:     The position vector and the tangent vector positioned on the curve.   A 2D plot showing the parabolic curve trajectory, a blue position vector from the origin to (1,1), and a red tangent vector pointing down and right from (1,1).      "
+},
+{
+  "id": "ck-helix-tangent-line",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#ck-helix-tangent-line",
+  "type": "Checkpoint",
+  "number": "2.26",
+  "title": "",
+  "body": "  Find the parametric equations for the tangent line to the helix with the parametric equations:     First, find the parameter value that corresponds to the given point . Matching the components yields . Testing this value reveals and , which confirms that .  Next, differentiate the vector function to find the directional tangent vector: Evaluating the direction vector at our parameter point gives:   Using the base point coordinates and the direction components , the parametric equations for the tangent line are:    "
+},
+{
+  "id": "ck-twisted-cubic-tangent-line",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#ck-twisted-cubic-tangent-line",
+  "type": "Checkpoint",
+  "number": "2.27",
+  "title": "",
+  "body": "  Find the parametric equations for the tangent line to the twisted curve with the parametric equations:     Evaluate the base point on the curve at : Differentiate the component expressions to find the general velocity direction profile: Evaluating these derivatives at gives the parallel directional components for our tangent line:   Using the point and the direction components vector , the parametric equations for the line are:    "
+},
+{
+  "id": "defn-smooth-curve",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#defn-smooth-curve",
+  "type": "Definition",
+  "number": "2.28",
+  "title": "",
+  "body": "  A curve given by a vector function on an interval is called smooth if is continuous and , except possibly at the endpoints of .   "
+},
+{
+  "id": "ex-smooth-semicubical-parabola",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#ex-smooth-semicubical-parabola",
+  "type": "Example",
+  "number": "2.29",
+  "title": "",
+  "body": "  Determine whether the semicubical parabola is smooth.    First, we compute the derivative vector function component-by-component: Both component functions, and , are polynomials, so is continuous everywhere. Next, we determine if there are any parameter values where the derivative vector equals the zero vector: This system yields the single solution . Since at an interior point of the domain, the curve is not smooth at the origin (it features a sharp cusp).   "
+},
+{
+  "id": "ch-Vector-valued-functions-4-11",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#ch-Vector-valued-functions-4-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "piecewise smooth "
+},
+{
+  "id": "ex-smooth-helix",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#ex-smooth-helix",
+  "type": "Example",
+  "number": "2.30",
+  "title": "",
+  "body": "  Determine whether the helix is smooth.    We find the derivative vector function: The components are standard trigonometric and constant functions, meaning is continuous for all real numbers.  For the vector to be the zero vector, all three components must simultaneously equal zero. However, the -component is always . Therefore, for all values of . We conclude that the helix is a smooth curve .   "
+},
+{
+  "id": "thm-vector-differentiation-rules",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#thm-vector-differentiation-rules",
+  "type": "Theorem",
+  "number": "2.31",
+  "title": "",
+  "body": "  Suppose and are differentiable vector functions, is a scalar, and is a real-valued function. Then:                                   "
+},
+{
+  "id": "thm-constant-magnitude-orthogonality",
+  "level": "2",
+  "url": "ch-Vector-valued-functions-4.html#thm-constant-magnitude-orthogonality",
+  "type": "Theorem",
+  "number": "2.32",
+  "title": "",
+  "body": "  If is differentiable and (a constant), then is orthogonal to for all in the domain of :     Since , squaring both sides gives . Using the relationship between the magnitude and the dot product, we can rewrite this as: Differentiating both sides with respect to using the dot product rule yields: Since the dot product is commutative, we combine the terms: Because their dot product is zero, the position vector and the derivative vector are orthogonal.   "
+},
+{
   "id": "activities",
   "level": "1",
   "url": "activities.html",
   "type": "Chapter",
-  "number": "2",
+  "number": "3",
   "title": "MyOpenMath Interactive Activities",
   "body": " MyOpenMath Interactive Activities   These files contain copies of the interactive MyOpenMath exercises that guided our learning for each topic. Special thanks to Professor Jason Hardin for sharing his MyOpenMath question bank.      "
 },
@@ -1310,7 +1589,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "homework.html",
   "type": "Chapter",
-  "number": "4",
+  "number": "5",
   "title": "Homework",
   "body": " Homework    "
 },
@@ -1337,7 +1616,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ma-150-syllabus.html#subsec-105-TentativeSchedule-3",
   "type": "Table",
-  "number": "5.1",
+  "number": "6.1",
   "title": "Course Schedule and Exam Dates",
   "body": " Course Schedule and Exam Dates        Unit  Topics  Due Dates    1  Voting methods, apportionment  Fri 5\/22    2  Simple interest, compound interest  Wed 5\/27    3  Annuities, installment loans (Quiz 1)   Wed 5\/27    4  Mortgages, credit cards  Wed 6\/3      In-Person Exam 1 Thu 6\/4 (3:30-5:00pm) (S-136)     5  Set basics, subsets  Wed 6\/10    6  Set operations, surveys (Quiz 2)   Wed 6\/10    7  Intro to probability, events involving “not”, “or”, “and”  Wed 6\/17    8  Counting, permutations, combinations (Quiz 3)  Wed 6\/17      Online Exam 2 (Thu 6\/25)     9  Probability with counting, odds, conditional  Fri 6\/26      In-Person FINAL EXAM Thu 7\/2 (3:30-6:30pm) (S-136)      "
 }
