@@ -1162,13 +1162,148 @@ var ptx_lunr_docs = [
   "body": " MyOpenMath Interactive Activities   These files contain copies of the interactive MyOpenMath exercises that guided our learning for each topic. Special thanks to Professor Jason Hardin for sharing his MyOpenMath question bank.      "
 },
 {
-  "id": "handouts",
+  "id": "ws-vectors-chapter-review",
   "level": "1",
-  "url": "handouts.html",
-  "type": "Chapter",
+  "url": "ws-vectors-chapter-review.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "Worksheet: Vectors and the Geometry of Space",
+  "body": " Worksheet: Vectors and the Geometry of Space      Page 1: Core Definitions    When do directional line segments in the plane represent the same vector?    Directional line segments represent the same vector if and only if they are equivalent . Geometrically, this means they must have the exact same magnitude (length) and the exact same direction , regardless of where their initial points are located in the coordinate plane.      How do you find a vector's direction?    The direction of a non-zero vector is found by computing its corresponding unit vector , denoted as . You find this by dividing the vector by its scalar magnitude: Alternatively, in two dimensions, the direction can be specified by the angle it makes with the positive horizontal -axis, calculated using .      What geometric interpretation does the dot product have? Give an example.    Geometrically, the dot product of two vectors measures the product of their lengths multiplied by the cosine of the angle between them: . It can be interpreted as the length of multiplied by the signed scalar projection of onto ( ).   Example: If two non-zero vectors are perpendicular to each other ( ), their dot product is exactly because . This provides a tool to test for orthogonality.         Page 2: 2D Component Transformations    Find the component form of the vector that is obtained by rotating through an angle of radians.    The initial vector points straight up along the positive -axis, meaning its initial direction angle is . Rotating it by updates its direction angle to:   Since the magnitude of is 1, the component form of the rotated unit vector is:       Find the component form of the vector that is 2 units long in the direction of .    Let . First, find the unit vector in the direction of by calculating its magnitude: The direction unit vector is .  Scaling this direction vector to a length of 2 yields:       Express the vector in terms of its length and direction:     First evaluate the vector at the parameter value :   Now decompose the vector into its length and direction components:   Length (magnitude):     Direction vector:    In factored form, the vector is modeled as .         Page 3: Projections and Scalar Products    Find if and .    Write both vectors in component form: and . Next, calculate the dot product and the squared norm :    Substitute these calculations into the vector projection formula:       If , , and the angle between and is , find .    We can square the target norm to evaluate it using the algebraic properties of the dot product:   Substitute the given magnitudes and the angle value into our expression: Taking the square root gives the final length: .      Find the volume of the parallelepiped determined by the vectors:     The volume of a parallelepiped matches the absolute value of the scalar triple product, computed using a single matrix determinant: Evaluate the matrix determinant by expanding along its top row: Taking the absolute value, the volume of the parallelepiped is cubic unit.         Page 4: Line Metrics and Single Planes    Find the distance from the point to the line:     Let the target point be . From the parametric equations, we read a point on the line by setting , giving , and extract the line's direction vector: .  Construct the displacement vector from to :   The formula for the distance from a point to a line is . First, compute the cross product:   Now calculate the magnitudes:  Thus, the distance from the point to the line is .      Find the equation for the plane that passes through the point and is normal to the vector .    Substitute the point coordinates and the normal vector components directly into the standard scalar plane equation: Distribute and collect constant terms: In standard linear form, the plane equation is .         Page 5: Multi-Point Planes    Find the equation to the plane through the points:     First, construct two directional vectors sharing vertex that lie entirely within the plane:    The normal vector is perpendicular to both vector components, found via their cross product:   Using point and our calculated normal vector, set up the plane equation: Simplifying the expression yields the linear equation: , or equivalently, .      Find the distance from the point to the plane passing through , , and .    Construct two spanning vectors from the given points inside the plane: Compute their cross product to find the normal vector direction :   Since the plane passes through the origin , its linear equation simplifies to:   Apply the point-plane distance formula using our target point : The exact distance from the point to the plane is 3 units.         Page 6: Intersecting Planes and Systems    Find the parametric equations for the line in which the planes and intersect.    The direction vector of the intersection line is perpendicular to the normal vectors of both planes: and . Compute their cross product:   To locate an initial point on the line, choose a convenient coordinate value, such as setting . This reduces the equations of the planes to a system of two variables: Subtracting the second equation from the first yields . Substituting back gives . This provides the point coordinates .  Combining our initial position point and the direction numbers yields the parametric equations :       Find a vector of magnitude 2 parallel to the line of intersection of the planes and .    The direction vector of the line of intersection is perpendicular to both normal vectors, and . As calculated in Exercise 13, this cross product is:   To scale this direction to a specific length, first determine its unit vector by computing its magnitude: The corresponding unit vector is .  Multiplying the direction unit vector by our target magnitude of 2 yields the final vector: Either the positive or negative scalar multiple satisfies the geometric condition.     "
+},
+{
+  "id": "ws-ex-same-vector",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-same-vector",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  When do directional line segments in the plane represent the same vector?    Directional line segments represent the same vector if and only if they are equivalent . Geometrically, this means they must have the exact same magnitude (length) and the exact same direction , regardless of where their initial points are located in the coordinate plane.   "
+},
+{
+  "id": "ws-ex-vector-direction",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-vector-direction",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  How do you find a vector's direction?    The direction of a non-zero vector is found by computing its corresponding unit vector , denoted as . You find this by dividing the vector by its scalar magnitude: Alternatively, in two dimensions, the direction can be specified by the angle it makes with the positive horizontal -axis, calculated using .   "
+},
+{
+  "id": "ws-ex-dot-product-geom",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-dot-product-geom",
+  "type": "Worksheet Exercise",
   "number": "3",
-  "title": "Handouts",
-  "body": " Handouts    "
+  "title": "",
+  "body": "  What geometric interpretation does the dot product have? Give an example.    Geometrically, the dot product of two vectors measures the product of their lengths multiplied by the cosine of the angle between them: . It can be interpreted as the length of multiplied by the signed scalar projection of onto ( ).   Example: If two non-zero vectors are perpendicular to each other ( ), their dot product is exactly because . This provides a tool to test for orthogonality.   "
+},
+{
+  "id": "ws-ex-rotate-vector",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-rotate-vector",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": "  Find the component form of the vector that is obtained by rotating through an angle of radians.    The initial vector points straight up along the positive -axis, meaning its initial direction angle is . Rotating it by updates its direction angle to:   Since the magnitude of is 1, the component form of the rotated unit vector is:    "
+},
+{
+  "id": "ws-ex-scale-direction",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-scale-direction",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": "  Find the component form of the vector that is 2 units long in the direction of .    Let . First, find the unit vector in the direction of by calculating its magnitude: The direction unit vector is .  Scaling this direction vector to a length of 2 yields:    "
+},
+{
+  "id": "ws-ex-express-length-direction",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-express-length-direction",
+  "type": "Worksheet Exercise",
+  "number": "6",
+  "title": "",
+  "body": "  Express the vector in terms of its length and direction:     First evaluate the vector at the parameter value :   Now decompose the vector into its length and direction components:   Length (magnitude):     Direction vector:    In factored form, the vector is modeled as .   "
+},
+{
+  "id": "ws-ex-vector-projection",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-vector-projection",
+  "type": "Worksheet Exercise",
+  "number": "7",
+  "title": "",
+  "body": "  Find if and .    Write both vectors in component form: and . Next, calculate the dot product and the squared norm :    Substitute these calculations into the vector projection formula:    "
+},
+{
+  "id": "ws-ex-vector-algebra-norm",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-vector-algebra-norm",
+  "type": "Worksheet Exercise",
+  "number": "8",
+  "title": "",
+  "body": "  If , , and the angle between and is , find .    We can square the target norm to evaluate it using the algebraic properties of the dot product:   Substitute the given magnitudes and the angle value into our expression: Taking the square root gives the final length: .   "
+},
+{
+  "id": "ws-ex-volume-parallelepiped",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-volume-parallelepiped",
+  "type": "Worksheet Exercise",
+  "number": "9",
+  "title": "",
+  "body": "  Find the volume of the parallelepiped determined by the vectors:     The volume of a parallelepiped matches the absolute value of the scalar triple product, computed using a single matrix determinant: Evaluate the matrix determinant by expanding along its top row: Taking the absolute value, the volume of the parallelepiped is cubic unit.   "
+},
+{
+  "id": "ws-ex-distance-point-line",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-distance-point-line",
+  "type": "Worksheet Exercise",
+  "number": "10",
+  "title": "",
+  "body": "  Find the distance from the point to the line:     Let the target point be . From the parametric equations, we read a point on the line by setting , giving , and extract the line's direction vector: .  Construct the displacement vector from to :   The formula for the distance from a point to a line is . First, compute the cross product:   Now calculate the magnitudes:  Thus, the distance from the point to the line is .   "
+},
+{
+  "id": "ws-ex-plane-point-normal",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-plane-point-normal",
+  "type": "Worksheet Exercise",
+  "number": "11",
+  "title": "",
+  "body": "  Find the equation for the plane that passes through the point and is normal to the vector .    Substitute the point coordinates and the normal vector components directly into the standard scalar plane equation: Distribute and collect constant terms: In standard linear form, the plane equation is .   "
+},
+{
+  "id": "ws-ex-plane-three-points",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-plane-three-points",
+  "type": "Worksheet Exercise",
+  "number": "12",
+  "title": "",
+  "body": "  Find the equation to the plane through the points:     First, construct two directional vectors sharing vertex that lie entirely within the plane:    The normal vector is perpendicular to both vector components, found via their cross product:   Using point and our calculated normal vector, set up the plane equation: Simplifying the expression yields the linear equation: , or equivalently, .   "
+},
+{
+  "id": "ws-ex-distance-point-plane",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-distance-point-plane",
+  "type": "Worksheet Exercise",
+  "number": "13",
+  "title": "",
+  "body": "  Find the distance from the point to the plane passing through , , and .    Construct two spanning vectors from the given points inside the plane: Compute their cross product to find the normal vector direction :   Since the plane passes through the origin , its linear equation simplifies to:   Apply the point-plane distance formula using our target point : The exact distance from the point to the plane is 3 units.   "
+},
+{
+  "id": "ws-ex-plane-intersection-line",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-plane-intersection-line",
+  "type": "Worksheet Exercise",
+  "number": "14",
+  "title": "",
+  "body": "  Find the parametric equations for the line in which the planes and intersect.    The direction vector of the intersection line is perpendicular to the normal vectors of both planes: and . Compute their cross product:   To locate an initial point on the line, choose a convenient coordinate value, such as setting . This reduces the equations of the planes to a system of two variables: Subtracting the second equation from the first yields . Substituting back gives . This provides the point coordinates .  Combining our initial position point and the direction numbers yields the parametric equations :    "
+},
+{
+  "id": "ws-ex-magnitude-intersection-vector",
+  "level": "2",
+  "url": "ws-vectors-chapter-review.html#ws-ex-magnitude-intersection-vector",
+  "type": "Worksheet Exercise",
+  "number": "15",
+  "title": "",
+  "body": "  Find a vector of magnitude 2 parallel to the line of intersection of the planes and .    The direction vector of the line of intersection is perpendicular to both normal vectors, and . As calculated in Exercise 13, this cross product is:   To scale this direction to a specific length, first determine its unit vector by computing its magnitude: The corresponding unit vector is .  Multiplying the direction unit vector by our target magnitude of 2 yields the final vector: Either the positive or negative scalar multiple satisfies the geometric condition.   "
 },
 {
   "id": "homework",

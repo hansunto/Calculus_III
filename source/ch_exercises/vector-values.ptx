@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<worksheet xml:id="ws-vectors-chapter-review">
+    <title>Worksheet: Vectors and the Geometry of Space</title>
+
+    <!-- ================================================================= -->
+    <!-- PAGE 1: CONCEPTUAL FOUNDATIONS -->
+    <!-- ================================================================= -->
+    <page xml:id="ws-page-1">
+        <title>Page 1: Core Definitions</title>
+        
+        <exercise xml:id="ws-ex-same-vector">
+            <statement>
+                <p>
+                When do directional line segments in the plane represent the same vector?
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Directional line segments represent the same vector if and only if they are <term>equivalent</term>. Geometrically, this means they must have the exact same <term>magnitude</term> (length) and the exact same <term>direction</term>, regardless of where their initial points are located in the coordinate plane.
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-vector-direction">
+            <statement>
+                <p>
+                How do you find a vector's direction?
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The direction of a non-zero vector <m>\vec{v}</m> is found by computing its corresponding <term>unit vector</term>, denoted as <m>\vec{u}</m>. You find this by dividing the vector by its scalar magnitude:
+                    <me>\vec{u} = \frac{\vec{v}}{\|\vec{v}\|}</me>
+                    Alternatively, in two dimensions, the direction can be specified by the angle <m>\theta</m> it makes with the positive horizontal <m>x</m>-axis, calculated using <m>\tan(\theta) = \frac{v_2}{v_1}</m>.
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-dot-product-geom">
+            <statement>
+                <p>
+                What geometric interpretation does the dot product have? Give an example.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Geometrically, the dot product of two vectors measures the product of their lengths multiplied by the cosine of the angle between them: <m>\vec{a} \cdot \vec{b} = \|\vec{a}\| \|\vec{b}\| \cos(\theta)</m>. It can be interpreted as the length of <m>\vec{a}</m> multiplied by the signed scalar projection of <m>\vec{b}</m> onto <m>\vec{a}</m> (<m>\operatorname{comp}_{\vec{a}}\vec{b}</m>).
+                </p>
+                <p>
+                    <term>Example:</term> If two non-zero vectors are perpendicular to each other (<m>\theta = \pi/2</m>), their dot product is exactly <m>0</m> because <m>\cos(\pi/2) = 0</m>. This provides a tool to test for orthogonality.
+                </p>
+            </solution>
+        </exercise>
+    </page>
+
+    <!-- ================================================================= -->
+    <!-- PAGE 2: TWO-DIMENSIONAL VECTOR COMPONENT FIELDS -->
+    <!-- ================================================================= -->
+    <page xml:id="ws-page-2">
+        <title>Page 2: 2D Component Transformations</title>
+
+        <exercise xml:id="ws-ex-rotate-vector">
+            <statement>
+                <p>
+                Find the component form of the vector that is obtained by rotating <m>\langle 0,1 \rangle</m> through an angle of <m>2\pi/3</m> radians.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The initial vector <m>\vec{v} = \langle 0,1 \rangle</m> points straight up along the positive <m>y</m>-axis, meaning its initial direction angle is <m>\theta_0 = \pi/2</m>. Rotating it by <m>2\pi/3</m> updates its direction angle to:
+                    <me>\theta = \frac{\pi}{2} + \frac{2\pi}{3} = \frac{3\pi}{6} + \frac{4\pi}{6} = \frac{7\pi}{6}</me>
+                </p>
+                <p>
+                    Since the magnitude of <m>\langle 0,1 \rangle</m> is 1, the component form of the rotated unit vector is:
+                    <me>\vec{v}_{\text{rot}} = \left\langle \cos\left(\frac{7\pi}{6}\right), \sin\left(\frac{7\pi}{6}\right) \right\rangle = \left\langle -\frac{\sqrt{3}}{2}, -\frac{1}{2} \right\rangle</me>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-scale-direction">
+            <statement>
+                <p>
+                Find the component form of the vector that is 2 units long in the direction of <m>4\vec{i} - \vec{j}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Let <m>\vec{w} = \langle 4, -1 \rangle</m>. First, find the unit vector in the direction of <m>\vec{w}</m> by calculating its magnitude:
+                    <me>\|\vec{w}\| = \sqrt{4^2 + (-1)^2} = \sqrt{16 + 1} = \sqrt{17}</me>
+                    The direction unit vector is <m>\vec{u} = \frac{1}{\sqrt{17}}\langle 4, -1 \rangle</m>.
+                </p>
+                <p>
+                    Scaling this direction vector to a length of 2 yields:
+                    <me>\vec{v} = 2\vec{u} = \frac{2}{\sqrt{17}}\langle 4, -1 \rangle = \left\langle \frac{8}{\sqrt{17}}, -\frac{2}{\sqrt{17}} \right\rangle</me>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-express-length-direction">
+            <statement>
+                <p>
+                Express the vector in terms of its length and direction:
+                    <me>\vec{v} = (-2\sin(t))\vec{i} + (2\cos(t))\vec{j} \quad \text{when} \quad t = \pi/2</me>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    First evaluate the vector at the parameter value <m>t = \pi/2</m>:
+                    <me>\vec{v} = \left(-2\sin\left(\frac{\pi}{2}\right)\right)\vec{i} + \left(2\cos\left(\frac{\pi}{2}\right)\right)\vec{j} = -2(1)\vec{i} + 2(0)\vec{j} = -2\vec{i} = \langle -2, 0 \rangle</me>
+                </p>
+                <p>
+                    Now decompose the vector into its length and direction components:
+                    <ul>
+                        <li>
+                            <p>
+                                Length (magnitude): <m>\|\vec{v}\| = \sqrt{(-2)^2 + 0^2} = 2</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Direction vector: <m>\vec{u} = \frac{\vec{v}}{\|\vec{v}\|} = \frac{\langle -2, 0 \rangle}{2} = \langle -1, 0 \rangle = -\vec{i}</m>
+                            </p>
+                        </li>
+                    </ul>
+                    In factored form, the vector is modeled as <m>\vec{v} = 2(-\vec{i})</m>.
+                </p>
+            </solution>
+        </exercise>
+    </page>
+
+       <!-- ================================================================= -->
+    <!-- PAGE 3: VECTOR OPERATIONS AND PRODUCT LAWS -->
+    <!-- ================================================================= -->
+    <page xml:id="ws-page-3">
+        <title>Page 3: Projections and Scalar Products</title>
+
+        <exercise xml:id="ws-ex-vector-projection">
+            <statement>
+                <p>
+                Find <m>\operatorname{proj}_{\vec{v}}\vec{u}</m> if <m>\vec{v} = 2\vec{i} + \vec{j} - \vec{k}</m> and <m>\vec{u} = \vec{i} + \vec{j} - 5\vec{k}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Write both vectors in component form: <m>\vec{v} = \langle 2,1,-1 \rangle</m> and <m>\vec{u} = \langle 1,1,-5 \rangle</m>. Next, calculate the dot product <m>\vec{u}\cdot\vec{v}</m> and the squared norm <m>\|\vec{v}\|^2</m>:
+                    <me>\vec{u}\cdot\vec{v} = (1)(2) + (1)(1) + (-5)(-1) = 2 + 1 + 5 = 8</me>
+                    <me>\|\vec{v}\|^2 = 2^2 + 1^2 + (-1)^2 = 4 + 1 + 1 = 6</me>
+                </p>
+                <p>
+                    Substitute these calculations into the vector projection formula:
+                    <me>\operatorname{proj}_{\vec{v}}\vec{u} = \left(\frac{\vec{u}\cdot\vec{v}}{\|\vec{v}\|^2}\right)\vec{v} = \frac{8}{6}\langle 2,1,-1 \rangle = \frac{4}{3}\langle 2,1,-1 \rangle = \left\langle \frac{8}{3}, \frac{4}{3}, -\frac{4}{3} \right\rangle</me>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-vector-algebra-norm">
+            <statement>
+                <p>
+                If <m>\|\vec{v}\| = 2</m>, <m>\|\vec{w}\| = 3</m>, and the angle between <m>\vec{v}</m> and <m>\vec{w}</m> is <m>\pi/3</m>, find <m>\|\vec{v} - 2\vec{w}\|</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We can square the target norm to evaluate it using the algebraic properties of the dot product:
+                    <md>
+                        <mrow>\|\vec{v} - 2\vec{w}\|^2 \amp = (\vec{v} - 2\vec{w}) \cdot (\vec{v} - 2\vec{w})</mrow>
+                        <mrow>\amp = \vec{v}\cdot\vec{v} - 4(\vec{v}\cdot\vec{w}) + 4(\vec{w}\cdot\vec{w})</mrow>
+                        <mrow>\amp = \|\vec{v}\|^2 - 4(\|\vec{v}\|\|\vec{w}\|\cos(\theta)) + 4\|\vec{w}\|^2</mrow>
+                    </md>
+                </p>
+                <p>
+                    Substitute the given magnitudes and the angle value into our expression:
+                    <md>
+                        <mrow>\|\vec{v} - 2\vec{w}\|^2 \amp = (2)^2 - 4\left(2 \cdot 3 \cdot \cos\left(\frac{\pi}{3}\right)\right) + 4(3)^2</mrow>
+                        <mrow>\amp = 4 - 4\left(6 \cdot \frac{1}{2}\right) + 4(9)</mrow>
+                        <mrow>\amp = 4 - 12 + 36 = 28</mrow>
+                    </md>
+                    Taking the square root gives the final length: <m>\|\vec{v} - 2\vec{w}\| = \sqrt{28} = 2\sqrt{7}</m>.
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-volume-parallelepiped">
+            <statement>
+                <p>
+                Find the volume of the parallelepiped determined by the vectors:
+                    <me>\vec{u} = \vec{i}+\vec{j}-\vec{k}, \quad \vec{v} = 2\vec{i}+\vec{j}+\vec{k}, \quad \vec{w} = -\vec{i}-2\vec{j}+3\vec{k}</me>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The volume of a parallelepiped matches the absolute value of the scalar triple product, computed using a single <m>3 \times 3</m> matrix determinant:
+                    <md>
+                        <mrow>V \amp = \left| \begin{vmatrix} 1 \amp 1 \amp -1 \\ 2 \amp 1 \amp 1 \\ -1 \amp -2 \amp 3 \end{vmatrix} \right|</mrow>
+                    </md>
+                    Evaluate the matrix determinant by expanding along its top row:
+                    <md>
+                        <mrow>\begin{vmatrix} 1 \amp 1 \amp -1 \\ 2 \amp 1 \amp 1 \\ -1 \amp -2 \amp 3 \end{vmatrix} \amp = 1\begin{vmatrix} 1 \amp 1 \\ -2 \amp 3 \end{vmatrix} - 1\begin{vmatrix} 2 \amp 1 \\ -1 \amp 3 \end{vmatrix} + (-1)\begin{vmatrix} 2 \amp 1 \\ -1 \amp -2 \end{vmatrix}</mrow>
+                        <mrow>\amp = 1(3 - (-2)) - 1(6 - (-1)) - 1(-4 - (-1))</mrow>
+                        <mrow>\amp = 1(5) - 1(7) - 1(-3) = 5 - 7 + 3 = 1</mrow>
+                    </md>
+                    Taking the absolute value, the volume of the parallelepiped is <m>V = 1</m> cubic unit.
+                </p>
+            </solution>
+        </exercise>
+    </page>
+
+    <!-- ================================================================= -->
+    <!-- PAGE 4: LINE METRICS AND SINGLE PLANES -->
+    <!-- ================================================================= -->
+    <page xml:id="ws-page-4">
+        <title>Page 4: Line Metrics and Single Planes</title>
+
+        <exercise xml:id="ws-ex-distance-point-line">
+            <statement>
+                <p>
+                Find the distance from the point to the line:
+                    <me>(2,2,0); \quad x=-t, \quad y=t, \quad z=-1+t</me>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Let the target point be <m>S(2,2,0)</m>. From the parametric equations, we read a point on the line by setting <m>t=0</m>, giving <m>P(0,0,-1)</m>, and extract the line's direction vector: <m>\vec{v} = \langle -1,1,1 \rangle</m>.
+                </p>
+                <p>
+                    Construct the displacement vector from <m>P</m> to <m>S</m>:
+                    <me>\vec{PS} = \langle 2-0, 2-0, 0-(-1) \rangle = \langle 2,2,1 \rangle</me>
+                </p>
+                <p>
+                    The formula for the distance from a point to a line is <m>d = \frac{\|\vec{PS} \times \vec{v}\|}{\|\vec{v}\|}</m>. First, compute the cross product:
+                    <me>\vec{PS} \times \vec{v} = \begin{vmatrix} \vec{i} \amp \vec{j} \amp \vec{k} \\ 2 \amp 2 \amp 1 \\ -1 \amp 1 \amp 1 \end{vmatrix} = (2-1)\vec{i} - (2-(-1))\vec{j} + (2-(-2))\vec{k} = \langle 1, -3, 4 \rangle</me>
+                </p>
+                <p>
+                    Now calculate the magnitudes:
+                    <me>\|\vec{PS} \times \vec{v}\| = \sqrt{1^2 + (-3)^2 + 4^2} = \sqrt{1 + 9 + 16} = \sqrt{26}</me>
+                    <me>\|\vec{v}\| = \sqrt{(-1)^2 + 1^2 + 1^2} = \sqrt{3}</me>
+                    Thus, the distance from the point to the line is <m>d = \frac{\sqrt{26}}{\sqrt{3}} = \sqrt{\frac{26}{3}}</m>.
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-plane-point-normal">
+            <statement>
+                <p>
+                Find the equation for the plane that passes through the point <m>(3,-2,1)</m> and is normal to the vector <m>\vec{n} = 2\vec{i} + \vec{j} + \vec{k}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Substitute the point coordinates <m>(3,-2,1)</m> and the normal vector components <m>\langle 2,1,1 \rangle</m> directly into the standard scalar plane equation:
+                    <me>2(x - 3) + 1(y - (-2)) + 1(z - 1) = 0</me>
+                    Distribute and collect constant terms:
+                    <me>2x - 6 + y + 2 + z - 1 = 0 \implies 2x + y + z - 5 = 0</me>
+                    In standard linear form, the plane equation is <m>2x + y + z = 5</m>.
+                </p>
+            </solution>
+        </exercise>
+    </page>
+
+    <!-- ================================================================= -->
+    <!-- PAGE 5: MULTI-POINT PLANES -->
+    <!-- ================================================================= -->
+    <page xml:id="ws-page-5">
+        <title>Page 5: Multi-Point Planes</title>
+
+        <exercise xml:id="ws-ex-plane-three-points">
+            <statement>
+                <p>
+                Find the equation to the plane through the points:
+                    <me>P(1,-1,2), \quad Q(2,1,3), \quad R(-1,2,-1)</me>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    First, construct two directional vectors sharing vertex <m>P</m> that lie entirely within the plane:
+                    <me>\vec{PQ} = \langle 2-1, 1-(-1), 3-2 \rangle = \langle 1, 2, 1 \rangle</me>
+                    <me>\vec{PR} = \langle -1-1, 2-(-1), -1-2 \rangle = \langle -2, 3, -3 \rangle</me>
+                </p>
+                <p>
+                    The normal vector <m>\vec{n}</m> is perpendicular to both vector components, found via their cross product:
+                    <me>\vec{n} = \vec{PQ} \times \vec{PR} = \begin{vmatrix} \vec{i} \amp \vec{j} \amp \vec{k} \\ 1 \amp 2 \amp 1 \\ -2 \amp 3 \amp -3 \end{vmatrix} = (-6-3)\vec{i} - (-3-(-2))\vec{j} + (3-(-4))\vec{k} = \langle -9, 1, 7 \rangle</me>
+                </p>
+                <p>
+                    Using point <m>P(1,-1,2)</m> and our calculated normal vector, set up the plane equation:
+                    <me>-9(x - 1) + 1(y - (-1)) + 7(z - 2) = 0 \implies -9x + 9 + y + 1 + 7z - 14 = 0</me>
+                    Simplifying the expression yields the linear equation: <m>-9x + y + 7z - 4 = 0</m>, or equivalently, <m>9x - y - 7z = -4</m>.
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-distance-point-plane">
+            <statement>
+                <p>
+                Find the distance from the point <m>(1,4,0)</m> to the plane passing through <m>A(0,0,0)</m>, <m>B(2,0,-1)</m>, and <m>C(2,-1,0)</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Construct two spanning vectors from the given points inside the plane:
+                    <me>\vec{AB} = \langle 2,0,-1 \rangle \quad \text{and} \quad \vec{AC} = \langle 2,-1,0 \rangle</me>
+                    Compute their cross product to find the normal vector direction <m>\vec{n}</m>:
+                    <me>\vec{n} = \vec{AB} \times \vec{AC} = \begin{vmatrix} \vec{i} \amp \vec{j} \amp \vec{k} \\ 2 \amp 0 \amp -1 \\ 2 \amp -1 \amp 0 \end{vmatrix} = (0-1)\vec{i} - (0-(-2))\vec{j} + (-2-0)\vec{k} = \langle -1, -2, -2 \rangle</me>
+                </p>
+                <p>
+                    Since the plane passes through the origin <m>A(0,0,0)</m>, its linear equation simplifies to:
+                    <me>-1(x) - 2(y) - 2(z) = 0 \implies x + 2y + 2z = 0</me>
+                </p>
+                <p>
+                    Apply the point-plane distance formula using our target point <m>(1,4,0)</m>:
+                    <me>D = \frac{|1(1) + 2(4) + 2(0) + 0|}{\sqrt{1^2 + 2^2 + 2^2}} = \frac{|1 + 8|}{\sqrt{1 + 4 + 4}} = \frac{9}{\sqrt{9}} = \frac{9}{3} = 3</me>
+                    The exact distance from the point to the plane is 3 units.
+                </p>
+            </solution>
+        </exercise>
+    </page>
+
+    <!-- ================================================================= -->
+    <!-- PAGE 6: INTERSECTING PLANES AND SYSTEMS -->
+    <!-- ================================================================= -->
+    <page xml:id="ws-page-6">
+        <title>Page 6: Intersecting Planes and Systems</title>
+
+        <exercise xml:id="ws-ex-plane-intersection-line">
+            <statement>
+                <p>
+                Find the parametric equations for the line in which the planes <m>x+2y+z=1</m> and <m>x-y+2z=-8</m> intersect.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The direction vector <m>\vec{v}</m> of the intersection line is perpendicular to the normal vectors of both planes: <m>\vec{n}_1 = \langle 1,2,1 \rangle</m> and <m>\vec{n}_2 = \langle 1,-1,2 \rangle</m>. Compute their cross product:
+                    <me>\vec{v} = \vec{n}_1 \times \vec{n}_2 = \begin{vmatrix} \vec{i} \amp \vec{j} \amp \vec{k} \\ 1 \amp 2 \amp 1 \\ 1 \amp -1 \amp 2 \end{vmatrix} = (4 - (-1))\vec{i} - (2 - 1)\vec{j} + (-1 - 2)\vec{k} = \langle 5, -1, -3 \rangle</me>
+                </p>
+                <p>
+                    To locate an initial point on the line, choose a convenient coordinate value, such as setting <m>z = 0</m>. This reduces the equations of the planes to a system of two variables:
+                    <me>x + 2y = 1 \quad \text{and} \quad x - y = -8</me>
+                    Subtracting the second equation from the first yields <m>3y = 9 \implies y = 3</m>. Substituting <m>y = 3</m> back gives <m>x = -5</m>. This provides the point coordinates <m>(-5, 3, 0)</m>.
+                </p>
+                <p>
+                    Combining our initial position point and the direction numbers yields the <term>parametric equations</term>:
+                    <me>x = -5 + 5t, \quad y = 3 - t, \quad z = -3t</me>
+                </p>
+            </solution>
+        </exercise>
+
+        <exercise xml:id="ws-ex-magnitude-intersection-vector">
+            <statement>
+                <p>
+                Find a vector of magnitude 2 parallel to the line of intersection of the planes <m>x+2y+z-1=0</m> and <m>x-y+2z+7=0</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The direction vector <m>\vec{v}</m> of the line of intersection is perpendicular to both normal vectors, <m>\vec{n}_1 = \langle 1,2,1 \rangle</m> and <m>\vec{n}_2 = \langle 1,-1,2 \rangle</m>. As calculated in Exercise 13, this cross product is:
+                    <me>\vec{v} = \vec{n}_1 \times \vec{n}_2 = \langle 5, -1, -3 \rangle</me>
+                </p>
+                <p>
+                    To scale this direction to a specific length, first determine its unit vector by computing its magnitude:
+                    <me>\|\vec{v}\| = \sqrt{5^2 + (-1)^2 + (-3)^2} = \sqrt{25 + 1 + 9} = \sqrt{35}</me>
+                    The corresponding unit vector is <m>\vec{u} = \frac{1}{\sqrt{35}}\langle 5, -1, -3 \rangle</m>.
+                </p>
+                <p>
+                    Multiplying the direction unit vector by our target magnitude of 2 yields the final vector:
+                    <me>\vec{v}_{\text{final}} = \pm 2\vec{u} = \pm \frac{2}{\sqrt{35}}\langle 5, -1, -3 \rangle = \pm \left\langle \frac{10}{\sqrt{35}}, -\frac{2}{\sqrt{35}}, -\frac{6}{\sqrt{35}} \right\rangle</me>
+                    Either the positive or negative scalar multiple satisfies the geometric condition.
+                </p>
+            </solution>
+        </exercise>
+    </page>
+
+
+   
+
+    
+
+
+
+
+
+
+</worksheet>
