@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-limits-continuity">
+  <title>3.2 Limits and Continuity</title>
+  <p>
+  In this section, we will explore the concepts of limits and continuity for functions of several variables. 
+  Mastering these foundational ideas is crucial for analyzing the localized behavior of multivariable functions before extending our study to rates of change.
+</p>
+<p>
+  We will begin by defining the rigorous condition for the limit of a multivariate function. 
+  Next, we will introduce the <term>two-path rule</term> to definitively prove when a limit fails to exist along distinct linear or parabolic geometric pathways. 
+  We will then explore methods for evaluating existing limits, including direct algebraic substitution and the <term>Squeeze Theorem</term>. 
+  Finally, we will establish the mathematical criteria required for a function to be continuous on its domain, examining both piecewise definitions and the continuity profiles of composite functions.
+</p>
+<p>
+  By the end of this section, you will have a solid conceptual framework for evaluating limits and determining the continuity of functions of several variables, providing the essential toolkit required to study multivariable derivatives.
+</p>
+
+<definition xml:id="def-limit-two-variables">
+  <statement>
+    <p>
+      We write 
+      <me>\lim_{(x,y)\to (a,b)}f(x,y)=L</me> 
+      and say that the <term>limit of <m>f(x,y)</m> as <m>(x,y)</m> approaches <m>(a,b)</m> is <m>L</m></term> if we can make the values of <m>f(x,y)</m> as close to <m>L</m> as we please by taking the point <m>(x,y)</m> sufficiently close to the point <m>(a,b)</m> but not equal to <m>(a,b)</m>.
+    </p>
+    <p>
+      This is equivalent to stating that for every <m>\epsilon &gt; 0</m>, there exists a <m>\delta &gt; 0</m> such that if 
+      <me>0 &lt; \sqrt{(x-a)^2+(y-b)^2} &lt; \delta</me> 
+      then 
+      <me>|f(x,y)-L| &lt; \epsilon</me>
+    </p>
+  </statement>
+</definition>
+
+<p>
+  Alternately, this may be denoted as 
+  <me>\lim_{\substack{x \to a \\ y \to b}} f(x,y)=L \quad \text{and} \quad f(x,y) \to L \text{ as } (x,y)\to (a,b)</me>
+</p>
+
+<remark xml:id="rem-two-path-rule">
+  <title>Two-Path Rule</title>
+  <statement>
+    <p>
+      If <m>f(x,y)\to L_1</m> as <m>(x,y)\to (a,b)</m> along a path <m>C_1</m> and <m>f(x,y)\to L_2</m> as <m>(x,y)\to (a,b)</m> along a path <m>C_2</m> where <m>L_1 \neq L_2</m>, then 
+      <me>\lim_{(x,y)\to (a,b)}f(x,y)</me> 
+      does not exist.
+    </p>
+  </statement>
+</remark>
+
+<example xml:id="ex-evaluating-limits">
+  <statement>
+    <p>
+      Find the following limits:
+    </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p> <m>\displaystyle\lim_{(x,y)\to (2,-3)}(x^3-4xy^2+5y-7)</m> </p>
+        </li>
+        <li>
+          <p> <m>\displaystyle\lim_{(x,y)\to (3,4)}\frac{x^2-y^2}{\sqrt{x^2+y^2}}</m> </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            Since the function <m>f(x,y) = x^3-4xy^2+5y-7</m> is a polynomial function of two variables, it is continuous everywhere on its domain <m>\mathbb{R}^2</m>. 
+            Therefore, we can evaluate the limit directly by substituting <m>x = 2</m> and <m>y = -3</m> into the expression:
+            <md>
+              <mrow>\lim_{(x,y)\to (2,-3)}(x^3-4xy^2+5y-7) \amp = (2)^3 - 4(2)(-3)^2 + 5(-3) - 7</mrow>
+              <mrow>\amp = 8 - 4(2)(9) - 15 - 7</mrow>
+              <mrow>\amp = 8 - 72 - 15 - 7</mrow>
+              <mrow>\amp = -86</mrow>
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            The function <m>f(x,y) = \frac{x^2-y^2}{\sqrt{x^2+y^2}}</m> is a rational function involving a radical. 
+            The denominator is non-zero at the limit point since <m>\sqrt{3^2+4^2} = \sqrt{25} = 5 \neq 0</m>. 
+            Because the denominator does not equal zero at <m>(3,4)</m>, the function is continuous at this point, and we can find the limit using direct substitution of <m>x = 3</m> and <m>y = 4</m>:
+            <md>
+              <mrow>\lim_{(x,y)\to (3,4)}\frac{x^2-y^2}{\sqrt{x^2+y^2}} \amp = \frac{3^2 - 4^2}{\sqrt{3^2 + 4^2}}</mrow>
+              <mrow>\amp = \frac{9 - 16}{\sqrt{9 + 16}}</mrow>
+              <mrow>\amp = \frac{-7}{\sqrt{25}}</mrow>
+              <mrow>\amp = -\frac{7}{5}</mrow>
+            </md>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-limit-does-not-exist">
+  <statement>
+    <p>
+      Show that 
+      <me>\lim_{(x,y)\to (0,0)}\frac{x^2-y^2}{x^2+y^2}</me> 
+      does not exist.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Let <m>f(x,y) = \frac{x^2-y^2}{x^2+y^2}</m>. To show that the limit does not exist as <m>(x,y) \to (0,0)</m>, we can analyze the behavior of the function along different paths approaching the origin.
+    </p>
+    <p>
+      First, let's approach <m>(0,0)</m> along the <m>x</m>-axis. On this path, <m>y = 0</m>, which simplifies the function to:
+      <me>f(x,0) = \frac{x^2 - 0^2}{x^2 + 0^2} = \frac{x^2}{x^2} = 1 \quad \text{for all } x \neq 0</me>
+      Therefore, as we approach along the <m>x</m>-axis, the limit is:
+      <me>\lim_{x \to 0} f(x,0) = 1</me>
+    </p>
+    <p>
+      Next, we approach along the <m>y</m>-axis by setting <m>x = 0</m>. This simplifies the function to:
+      <me>f(0,y) = \frac{0^2 - y^2}{0^2 + y^2} = \frac{-y^2}{y^2} = -1 \quad \text{for all } y \neq 0</me>
+      Therefore, as we approach along the <m>y</m>-axis, the limit is:
+      <me>\lim_{y \to 0} f(0,y) = -1</me>
+    </p>
+    <p>
+      Since the function approaches two different limiting values (<m>1</m> and <m>-1</m>) along two distinct directional paths, the two-path rule applies. We conclude that the given limit 
+      <me>\lim_{(x,y)\to (0,0)}\frac{x^2-y^2}{x^2+y^2}</me> 
+      does not exist.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-limit-does-not-exist-xy">
+  <statement>
+    <p>
+      Show that 
+      <me>\lim_{(x,y)\to (0,0)} \frac{xy}{x^2+y^2}</me> 
+      does not exist.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Let <m>f(x,y) = \frac{xy}{x^2+y^2}</m>. To test the existence of the limit as we approach the origin, we check the behavior of the function along multiple distinct paths.
+    </p>
+    <p>
+      First, let's approach <m>(0,0)</m> along the <m>x</m>-axis. Setting <m>y = 0</m> gives:
+      <me>f(x,0) = \frac{x(0)}{x^2+0^2} = 0 \quad \text{for all } x \neq 0</me>
+      Thus, the limit along this path is <m>0</m>.
+    </p>
+    <p>
+      Next, we approach along the <m>y</m>-axis by setting <m>x = 0</m>:
+      <me>f(0,y) = \frac{(0)y}{0^2+y^2} = 0 \quad \text{for all } y \neq 0</me>
+      The limit along this path is also <m>0</m>.
+    </p>
+    <p>
+      Although we have obtained identical limits along both coordinate axes, this is not sufficient to prove that the overall limit is <m>0</m>. We must test other paths, such as the diagonal line <m>y = x</m>. Substituting <m>y = x</m> into our function for <m>x \neq 0</m> yields:
+      <me>f(x,x) = \frac{x(x)}{x^2+x^2} = \frac{x^2}{2x^2} = \frac{1}{2}</me>
+      Therefore, as we approach the origin along the line <m>y = x</m>, the function value remains constantly equal to <m>\frac{1}{2}</m>, giving a path limit of <m>\frac{1}{2}</m>.
+    </p>
+    <p>
+      Since we have obtained different limiting values along two different <term>paths</term> (<m>0</m> along the axes and <m>\frac{1}{2}</m> along the diagonal), the two-path rule applies. We conclude that the given limit does not exist.
+    </p>
+
+    <figure xml:id="fig-contour-xy-rational">
+      <caption>Contour lines for <m>f(x,y) = \frac{xy}{x^2+y^2}</m> showing distinct constant values along linear directional rays radiating from the origin.</caption>
+      <image width="50%">
+        <description>A 2D contour plot displaying straight lines radiating out from the origin, representing different contour values k.</description>
+        <latex-image>
+          \begin{tikzpicture}
+            \begin{axis}[
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y$},
+              xlabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=1pt},
+              ylabel style={at={(ticklabel* cs:1)}, anchor=south east, inner sep=1pt},
+              xmin=-3, xmax=3,
+              ymin=-3, ymax=3,
+              grid=none,
+              ticks=none,
+              axis equal
+            ]
+              % Axis paths: k = 0
+              \addplot[very thick, gray, domain=-2.5:2.5] {0};
+              \addplot[very thick, gray] coordinates {(0,-2.5) (0,2.5)};
+              \node[scale=0.8, fill=white, inner sep=1pt] at (axis cs:2.0,0.3) {$f=0$};
+
+              % Path y = x: k = 0.5
+              \addplot[thick, cyan!80!black, domain=-2.2:2.2] {x};
+              \node[scale=0.8, fill=white, inner sep=1pt] at (axis cs:1.6,1.9) {$f=0.5$};
+
+              % Path y = -x: k = -0.5
+              \addplot[thick, blue!80!black, domain=-2.2:2.2] {-x};
+              \node[scale=0.8, fill=white, inner sep=1pt] at (axis cs:-1.6,1.9) {$f=-0.5$};
+              
+              % Origin Point hole
+              \addplot[only marks, mark=o, red, mark size=2.5pt, thick] coordinates {(0,0)};
+            \end{axis}
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</example>
+
+<exercise xml:id="chk-limit-parabolic-path">
+  <statement>
+    <p>
+      If <m>f(x,y) = \frac{x^2y}{x^4+y^2}</m>, does 
+      <me>\lim_{(x,y)\to (0,0)}\frac{x^2y}{x^4+y^2}</me> 
+      exist?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To test if the limit exists, let's analyze the behavior of the function along different families of paths approaching the origin.
+    </p>
+    <p>
+      First, let's approach <m>(0,0)</m> along an arbitrary straight line path <m>y=mx</m> (where <m>m \neq 0</m> is the slope). Substituting <m>y=mx</m> into the function yields:
+      <md>
+        <mrow>f(x,mx) \amp = \frac{x^2(mx)}{x^4+(mx)^2}</mrow>
+        <mrow>\amp = \frac{mx^3}{x^4+m^2x^2}</mrow>
+        <mrow>\amp = \frac{mx^3}{x^2(x^2+m^2)}</mrow>
+        <mrow>\amp = \frac{mx}{x^2+m^2} \quad \text{for } x \neq 0</mrow>
+      </md>
+      Taking the limit as <m>x \to 0</m>, we find:
+      <me>\lim_{x \to 0} f(x,mx) = \frac{0}{0+m^2} = 0</me>
+      If we approach along the coordinate axes (<m>x=0</m> or <m>y=0</m>), the function is identically <m>0</m>, so the limit is also <m>0</m>. Thus, <m>f(x,y)</m> has the same limiting value of <m>0</m> along every single straight-line path passing through the origin.
+    </p>
+    <p>
+      However, this still does not guarantee that the overall limit is <m>0</m>. Let's approach <m>(0,0)</m> along a parabolic path by setting <m>y=x^2</m> for <m>x \neq 0</m>. Substituting this curve into our expression yields:
+      <me>f(x,x^2) = \frac{x^2(x^2)}{x^4+(x^2)^2} = \frac{x^4}{x^4+x^4} = \frac{x^4}{2x^4} = \frac{1}{2}</me>
+      Therefore, as we approach the origin along the parabola <m>y=x^2</m>, the limit value is consistently <m>\frac{1}{2}</m>.
+    </p>
+    <p>
+      Since we have obtained different limiting values along two different <term>paths</term> (<m>0</m> along all linear paths and <m>\frac{1}{2}</m> along the parabolic path), the two-path rule applies. We conclude that the given limit does not exist.
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-limit-squeeze-theorem">
+  <statement>
+    <p>
+      Find 
+      <me>\lim_{(x,y)\to (0,0)} \frac{3x^2y}{x^2+y^2}</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We can determine this limit by analyzing the absolute distance from <m>f(x,y)</m> to <m>0</m>:
+      <me>\left|\frac{3x^2y}{x^2+y^2}-0\right| = \left|\frac{3x^2y}{x^2+y^2}\right| = \frac{3x^2|y|}{x^2+y^2}</me>
+    </p>
+    <p>
+      We notice an inequality involving the components of the denominator: since <m>y^2 \geq 0</m>, it must be true that <m>x^2 \leq x^2+y^2</m> for all real numbers. Dividing both sides by <m>x^2+y^2</m> (where <m>(x,y) \neq (0,0)</m>) establishes that:
+      <me>\frac{x^2}{x^2+y^2} \leq 1</me>
+    </p>
+    <p>
+      Multiplying this bounded inequality by <m>3|y|</m> sets up our boundary sandwich:
+      <me>0 \leq \frac{3x^2|y|}{x^2+y^2} \leq 3|y|(1) = 3|y|</me>
+    </p>
+    <p>
+      We evaluate the limits of our bounding bounds as <m>(x,y) \to (0,0)</m>. Since <m>\lim_{(x,y)\to(0,0)} 0 = 0</m> and <m>\lim_{(x,y)\to(0,0)} 3|y| = 0</m>, the <term>Squeeze Theorem</term> applies. Therefore, we conclude that:
+      <me>\lim_{(x,y)\to (0,0)} \frac{3x^2y}{x^2+y^2}=0</me>
+    </p>
+  </solution>
+</exercise>
+
+<definition xml:id="def-multivariate-continuity">
+  <statement>
+    <p>
+      A function <m>f</m> of two variables is <term>continuous</term> at <m>(a,b)</m> if 
+      <me>\lim_{(x,y)\to (a,b)}f(x,y)=f(a,b)</me> 
+      We say <m>f</m> is <term>continuous on</term> <m>D</m> if <m>f</m> is continuous at every point <m>(a,b)</m> in <m>D</m>.
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-limit-polynomial-substitution">
+  <statement>
+    <p>
+      Find 
+      <me>\lim_{(x,y)\to (1,2)} (x^2y^3-x^3y^2+3x+2y)</me>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Since <m>f(x,y)=x^2y^3-x^3y^2+3x+2y</m> is a <term>polynomial function</term>, it is continuous everywhere on <m>\mathbb{R}^2</m>. Therefore, we can find the limit via direct substitution:
+      <md>
+        <mrow>\lim_{(x,y)\to (1,2)} (x^2y^3-x^3y^2+3x+2y) \amp = (1)^2(2)^3 - (1)^3(2)^2 + 3(1) + 2(2)</mrow>
+        <mrow>\amp = 1(8) - 1(4) + 3 + 4</mrow>
+        <mrow>\amp = 8 - 4 + 3 + 4</mrow>
+        <mrow>\amp = 11</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-continuity-domain-rational">
+  <statement>
+    <p>
+      Where is the function <m>f(x,y)= \frac{x^2-y^2}{x^2+y^2}</m> continuous?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Since <m>f</m> is a <term>rational function</term>, it is continuous at every point on its domain where the denominator is non-zero. The denominator <m>x^2+y^2</m> equals zero only at the origin. Thus, the function is continuous on its domain:
+      <me>D = \{(x,y) \mid (x,y) \neq (0,0)\}</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-piecewise-limit-nonexistence">
+  <statement>
+    <p>
+      Find the limit of <m>g(x,y)</m> as <m>(x,y)\to (0,0)</m> if 
+      <me>
+        g(x,y) = \begin{cases}
+        \frac{x^2-y^2}{x^2+y^2} \amp \text{if } (x,y) \neq (0,0) \\
+        0 \amp \text{if } (x,y) = (0,0)
+        \end{cases}
+      </me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To find the limit as <m>(x,y) \to (0,0)</m>, we examine the behavior of the function for points near, but not equal to, the origin. Therefore, we evaluate using the first piece of our function definition:
+      <me>\lim_{(x,y)\to (0,0)} g(x,y) = \lim_{(x,y)\to (0,0)} \frac{x^2-y^2}{x^2+y^2}</me>
+    </p>
+    <p>
+      As shown previously, approaching the origin along the <m>x</m>-axis yields a path limit of <m>1</m>, while approaching along the <m>y</m>-axis yields a path limit of <m>-1</m>. Because the limits along these two paths are different, the overall limit does not exist. 
+    </p>
+    <p>
+      Consequently, while the function value is defined at the origin (<m>g(0,0) = 0</m>), the function <m>g</m> is discontinuous at <m>(0,0)</m> because the limit fails to exist.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-piecewise-continuity-squeeze">
+  <statement>
+    <p>
+      Is the function
+      <me>
+        f(x,y) = \begin{cases}
+        \frac{3x^2y}{x^2+y^2} \amp \text{if } (x,y) \neq (0,0) \\
+        0 \amp \text{if } (x,y) = (0,0)
+        \end{cases}
+      </me>
+      continuous?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To determine if <m>f(x,y)</m> is continuous, we check the three criteria for continuity at the point of interest, <m>(0,0)</m>:
+    </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            The function is defined at the origin: <m>f(0,0) = 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Using the Squeeze Theorem (as shown in the earlier checkpoint), the limit of the non-zero piece as we approach the origin is:
+            <me>\lim_{(x,y)\to (0,0)} \frac{3x^2y}{x^2+y^2} = 0</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Since the limiting value equals the defined function value (<m>0 = 0</m>), we have:
+            <me>\lim_{(x,y)\to (0,0)} f(x,y) = f(0,0)</me>
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Because it is continuous at <m>(0,0)</m> and consists of a continuous rational expression at all other points, <m>f</m> is continuous on all of <m>\mathbb{R}^2</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-limit-three-variables-nonexistence">
+  <statement>
+    <p>
+      Show that 
+      <me>\lim_{(x,y,z)\to (1,2,-1)} \frac{(x+y+3z)^3}{(x-1)(y-2)(z+1)}</me> 
+      does not exist.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Let <m>P(x,y,z)</m> approach the point <m>(1,2,-1)</m> along an arbitrary line <m>L</m> passing through <m>(1,2,-1)</m> with direction vector <m>\langle a,b,c \rangle</m> where <m>a, b, c \neq 0</m>. The parametric equations of this line are given by:
+      <me>x = 1+at, \quad y = 2+bt, \quad z = -1+ct \quad \text{for } t \in \mathbb{R}</me>
+    </p>
+    <p>
+      Substituting these parametric expressions into the function as <m>t \to 0</m> yields:
+      <md>
+        <mrow>\frac{(x+y+3z)^3}{(x-1)(y-2)(z+1)} \amp = \frac{\left((1+at) + (2+bt) + 3(-1+ct)\right)^3}{(1+at-1)(2+bt-2)(-1+ct+1)}</mrow>
+        <mrow>\amp = \frac{(1 + 2 - 3 + at + bt + 3ct)^3}{(at)(bt)(ct)}</mrow>
+        <mrow>\amp = \frac{(at + bt + 3ct)^3}{abc \cdot t^3}</mrow>
+        <mrow>\amp = \frac{t^3(a+b+3c)^3}{abc \cdot t^3}</mrow>
+        <mrow>\amp = \frac{(a+b+3c)^3}{abc} \quad \text{for } t \neq 0</mrow>
+      </md>
+    </p>
+    <p>
+      Since the value of this expression depends directly on the chosen direction components <m>a</m>, <m>b</m>, and <m>c</m>, approaching along different lines will produce different limiting values. By the two-path rule extended to three dimensions, the given limit does not exist.
+    </p>
+  </solution>
+</example>
+
+<theorem xml:id="thm-composite-continuity">
+  <statement>
+    <p>
+      If a function <m>f</m> of two variables is continuous at <m>(a,b)</m> and a function <m>g</m> of one variable is continuous at <m>f(a,b)</m>, then the composite function <m>h(x,y)=g(f(x,y))</m> is continuous at <m>(a,b)</m>.
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-composite-continuity-evaluation">
+  <statement>
+    <p>
+      Find <m>h(x,y)=g(f(x,y))</m> and the set on which <m>h</m> is continuous for each of the following:
+    </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            <m>g(t)=3t^2+t+1 \quad \text{and} \quad f(x,y)=xe^y</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>g(t)=\sin\sqrt{t} \quad \text{and} \quad f(x,y)=y-4x^2</m>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            Substituting <m>f(x,y)</m> into <m>g(t)</m> gives:
+            <me>h(x,y) = g(f(x,y)) = 3(xe^y)^2 + (xe^y) + 1 = 3x^2e^{2y} + xe^y + 1</me>
+            Since polynomials and exponential functions are continuous everywhere on their domains, this composite function is continuous at every point on <m>\mathbb{R}^2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Substituting <m>f(x,y)</m> into <m>g(t)</m> gives:
+            <me>h(x,y) = g(f(x,y)) = \sin\sqrt{y-4x^2}</me>
+            The outer sine function is continuous everywhere, but the square root function is only defined and continuous for non-negative inputs (<m>t \geq 0</m>). Therefore, the expression inside the radical must be greater than or equal to zero. The composite function <m>h</m> is continuous on the set:
+            <me>D = \{(x,y) \mid y \geq 4x^2 \}</me>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+</example>
+
+
+
+
+  </section>

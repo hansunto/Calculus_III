@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-functions-several-variables">
+  <title>Functions of Several Variables</title>
+  
+  <p>
+    In this section, we will introduce the concept of functions of several variables. 
+    These functions take multiple independent inputs and produce a single real-number output, allowing us to model complex structural relationships in higher dimensions.
+  </p>
+  <p>
+    We will explore how to analytically determine the domain and range of these functions, as well as how to interpret their geometric behavior through three-dimensional graphical representations.
+  </p>
+  <p>
+    Additionally, we will discuss the concept of <term>level curves</term> and <term>level surfaces</term>, which slice through multivariate outputs to provide valuable structural insights into their contours and topologies.
+  </p>  
+  <definition xml:id="def-function-two-vars">
+  <statement>
+    <p>
+      Let <m>D</m> be a set of ordered pairs of real variables. 
+      A function <m>f</m> of two variables is a correspondence that assigns to each pair <m>(x,y)</m> in <m>D</m> exactly one real number denoted <m>f(x,y)</m>. 
+      The set <m>D</m> is called the <term>domain of <m>f</m></term>. 
+      The <term>range of <m>f</m></term> consists of all real numbers <m>f(x,y)</m> where <m>(x,y)</m> is in <m>D</m>.
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-domain-range-root">
+  <statement>
+    <p>
+      Find the domain and range of <m>g(x,y)=\sqrt{9-x^2-y^2}</m>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The domain of <m>g</m> is
+      <me>D=\{(x,y) \mid 9-x^2-y^2\geq 0\}=\{(x,y) \mid x^2+y^2\leq 9\}</me>
+      which is the disk with center <m>(0,0)</m> and radius 3. 
+      The range of <m>g</m> is
+      <me>\{z \mid z=\sqrt{9-x^2-y^2}, \quad (x,y)\in D \}</me>
+      Since <m>z\geq 0</m>, and also <m>9-x^2-y^2\leq 9 \implies \sqrt{9-x^2-y^2}\leq 3</m> the range of <m>g</m> is
+      <me>\{z \mid 0\leq z\leq 3\} \quad = \quad [0,3]</me>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-sketch-graph-root">
+  <statement>
+    <p>
+      Sketch the graph of <m>g(x,y)=\sqrt{9-x^2-y^2}</m>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We squared both sides of the equation to obtain <m>x^2+y^2+z^2=9</m> for <m>z\geq 0</m>.
+      The graph of <m>g</m> is the upper hemisphere of a sphere centered at the origin with a radius of 3.
+    </p>
+
+    <figure xml:id="fig-hemisphere-and-contours">
+      <caption>The 3D surface graph and corresponding 2D contour map for <m>g(x,y) = \sqrt{9-x^2-y^2}</m>.</caption>
+      <sidebyside widths="48% 48%">
+        <image>
+          <description>A 3D surface plot of the upper hemisphere showing labeled intercepts at 3 on the x, y, and z axes.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[
+                view={60}{30},
+                axis lines=center,
+                xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                xlabel style={at={(ticklabel* cs:1)}, anchor=north east, inner sep=2pt},
+                ylabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=2pt},
+                zlabel style={at={(ticklabel* cs:1)}, anchor=south, inner sep=2pt},
+                xmin=-4, xmax=4,
+                ymin=-4, ymax=4,
+                zmin=0, zmax=4,
+                xtick={-3,3}, ytick={-3,3}, ztick={3},
+                enlargelimits=false
+              ]
+                \addplot3[
+                  surf,
+                  opacity=0.7,
+                  cyan!60!black,
+                  domain=0:3,
+                  domain y=0:360,
+                  samples=20,
+                  samples y=30,
+                  z buffer=sort
+                ] (
+                  {x*cos(y)},
+                  {x*sin(y)},
+                  {sqrt(9 - x^2)}
+                );
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+
+        <image>
+          <description>A 2D contour map plot displaying concentric circles representing heights z=0, z=1, z=2, and z=3 in the x-y plane.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[
+                axis lines=center,
+                xlabel={$x$}, ylabel={$y$},
+                xlabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=2pt},
+                ylabel style={at={(ticklabel* cs:1)}, anchor=south east, inner sep=2pt},
+                xmin=-4, xmax=4,
+                ymin=-4, ymax=4,
+                xtick={-3,3}, ytick={-3,3},
+                grid=none,
+                axis equal
+              ]
+                % Contour z=0 (Radius 3)
+                \addplot[thick, cyan!40!black, domain=0:360, samples=60] ({3*cos(x)}, {3*sin(x)});
+                \node[anchor=south west, scale=0.8] at (axis cs:1.8,1.8) {$z=0$};
+
+                % Contour z=1 (Radius sqrt(8) approx 2.83)
+                \addplot[thick, cyan!60!black, domain=0:360, samples=60] ({2.83*cos(x)}, {2.83*sin(x)});
+                \node[anchor=south west, scale=0.8] at (axis cs:1.4,1.4) {$z=1$};
+
+                % Contour z=2 (Radius sqrt(5) approx 2.24)
+                \addplot[thick, cyan!80!black, domain=0:360, samples=60] ({2.24*cos(x)}, {2.24*sin(x)});
+                \node[anchor=south west, scale=0.8] at (axis cs:1.0,1.0) {$z=2$};
+
+                % Contour z=3 (Radius 0, point at origin)
+                \addplot[only marks, mark=*, red, mark size=2pt] coordinates {(0,0)};
+                \node[anchor=south west, scale=0.8] at (axis cs:0.1,0.1) {$z=3$};              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </sidebyside>
+    </figure>
+  </solution>
+</example>
+
+<definition xml:id="def-level-curve">
+  <statement>
+    <p>
+      The <term>level curve</term> of a function <m>f</m> of two variables are the curves with equations <m>f(x,y)=k</m> where <m>k</m> is a constant (in the range of <m>f</m>).
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-level-curves-saddle">
+  <statement>
+    <p>
+      Sketch some level curves of <m>f(x,y)=y^2-x^2</m>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We know <m>z=y^2-x^2</m> is a hyperbolic paraboloid and the level curves are <m>k=y^2-x^2</m> with <m>k\in \mathbb{Z}</m>. 
+      We get hyperbolas with vertices <m>(0, \pm \sqrt{k})</m> when <m>k &gt; 0</m>, vertices <m>(\pm\sqrt{-k},0)</m> when <m>k &lt; 0</m>, and the intersecting lines <m>y=\pm x</m> if <m>k=0</m>.
+    </p>
+
+    <figure xml:id="fig-saddle-and-contours">
+      <caption>The 3D surface graph and corresponding 2D contour map for <m>f(x,y) = y^2-x^2</m>.</caption>
+      <sidebyside widths="48% 48%">
+        <image>
+          <description>A 3D surface plot of a hyperbolic paraboloid saddle shape.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[
+                view={60}{30},
+                axis lines=center,
+                xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                xlabel style={at={(ticklabel* cs:1)}, anchor=north east, inner sep=2pt},
+                ylabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=2pt},
+                zlabel style={at={(ticklabel* cs:1)}, anchor=south, inner sep=2pt},
+                xmin=-3, xmax=3,
+                ymin=-3, ymax=3,
+                zmin=-4, zmax=4,
+                ticks=none,
+                enlargelimits=false
+              ]
+                \addplot3[
+                  surf,
+                  opacity=0.7,
+                  cyan!60!black,
+                  domain=-2:2,
+                  domain y=-2:2,
+                  samples=25,
+                  z buffer=sort
+                ] {y^2 - x^2};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+
+        <image>
+          <description>A 2D contour plot displaying families of hyperbolas opening along the y-axis for positive z, along the x-axis for negative z, and crossing linear asymptotes for z=0.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[
+                axis lines=center,
+                xlabel={$x$}, ylabel={$y$},
+                xlabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=2pt},
+                ylabel style={at={(ticklabel* cs:1)}, anchor=south east, inner sep=2pt},
+                xmin=-3, xmax=3,
+                ymin=-3, ymax=3,
+                grid=none,
+                ticks=none,
+                axis equal
+              ]
+                % k = 0 Asymptotes
+                \addplot[thick, gray, dashed, domain=-2.5:2.5] {x};
+                \addplot[thick, gray, dashed, domain=-2.5:2.5] {-x};
+                \node[scale=0.8, fill=white, inner sep=1pt] at (axis cs:1.8,2.0) {$k=0$};
+
+                % k = 1 and k = 2 (Hyperbolas opening along y-axis)
+                \addplot[thick, cyan!80!black, domain=-2:2, samples=50] ({x}, {sqrt(1 + x^2)});
+                \addplot[thick, cyan!80!black, domain=-2:2, samples=50] ({x}, {-sqrt(1 + x^2)});
+                \node[scale=0.8, anchor=west] at (axis cs:0,1.2) {$k=1$};
+
+                \addplot[thick, cyan!95!black, domain=-1.5:1.5, samples=50] ({x}, {sqrt(2 + x^2)});
+                \addplot[thick, cyan!95!black, domain=-1.5:1.5, samples=50] ({x}, {-sqrt(2 + x^2)});
+                \node[scale=0.8, anchor=west] at (axis cs:0,1.6) {$k=2$};
+
+                % k = -1 and k = -2 (Hyperbolas opening along x-axis)
+                \addplot[thick, blue!70!black, domain=-2:2, samples=50] ({sqrt(1 + x^2)}, {x});
+                \addplot[thick, blue!70!black, domain=-2:2, samples=50] ({-sqrt(1 + x^2)}, {x});
+                \node[scale=0.8, anchor=south] at (axis cs:1.2,0) {$k=-1$};
+
+                \addplot[thick, blue!90!black, domain=-1.5:1.5, samples=50] ({sqrt(2 + x^2)}, {x});
+                \addplot[thick, blue!90!black, domain=-1.5:1.5, samples=50] ({-sqrt(2 + x^2)}, {x});
+                \node[scale=0.8, anchor=south] at (axis cs:1.6,0) {$k=-2$};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </sidebyside>
+    </figure>
+  </solution>
+</example>
+
+<p>
+  A <term>function of three variables</term> <m>f</m> assigns to each ordered triple <m>(x,y,z)</m> in a domain <m>D \subset \mathbb{R}^3</m> exactly one real number denoted <m>f(x,y,z)</m>.
+</p>
+
+<example xml:id="ex-domain-three-variables">
+  <statement>
+    <p>
+      Find the domain of <m>f</m> if 
+      <me>f(x,y,z)=\ln(z-y)+xy\sin z</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The domain of <m>f</m> is
+      <me>D = \{(x,y,z)\in \mathbb{R}^3 \mid z-y&gt;0 \} = \{(x,y,z)\in \mathbb{R}^3 \mid z&gt;y \}</me>
+      This is a <term>half-space</term> consisting of all points that lie above the plane <m>z=y</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-level-surfaces">
+  <statement>
+    <p>
+      Find the level surfaces of the function 
+      <me>f(x,y, z)=x^2-y^2+z^2</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The level surfaces are <m>x^2-y^2+z^2=k</m>, which form the following families:
+    </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            where <m>k&gt; 0</m>. These form a family of hyperboloids of one sheet with axes along the <m>y</m>-axis.
+          </p>
+        </li>
+        <li>
+          <p>
+            where <m>k= 0</m>. This forms a cone with its axis along the <m>y</m>-axis.
+          </p>
+        </li>
+        <li>
+          <p>
+            where <m>k&lt; 0</m>. These form a family of hyperboloids of two sheets with axes along the <m>y</m>-axis.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <figure xml:id="fig-level-surfaces-3d">
+      <caption>The three families of level surfaces for <m>f(x,y,z) = x^2-y^2+z^2 = k</m>.</caption>
+      <sidebyside widths="32% 32% 32%">
+        <!-- Case 1: k > 0 (Hyperboloid of 1 Sheet) -->
+        <image>
+          <description>A 3D plot of a hyperboloid of one sheet opening along the y-axis.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[
+                view={60}{20},
+                axis lines=center,
+                xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                xlabel style={at={(ticklabel* cs:1)}, anchor=north east, inner sep=1pt},
+                ylabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=1pt},
+                zlabel style={at={(ticklabel* cs:1)}, anchor=south, inner sep=1pt},
+                xmin=-2.5, xmax=2.5,
+                ymin=-2.5, ymax=2.5,
+                zmin=-2.5, zmax=2.5,
+                ticks=none,
+                title={$k &gt; 0$},
+                enlargelimits=false
+              ]
+                \addplot3[
+                  surf, opacity=0.7, cyan!60!black,
+                  domain=-1.5:1.5, domain y=0:360, samples=15, samples y=24, z buffer=sort
+                ] ({sqrt(1 + x^2)*cos(y)}, {x}, {sqrt(1 + x^2)*sin(y)});
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+
+        <!-- Case 2: k = 0 (Cone) -->
+        <image>
+          <description>A 3D plot of a double cone meeting at the origin, opening along the y-axis.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[
+                view={60}{20},
+                axis lines=center,
+                xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                xlabel style={at={(ticklabel* cs:1)}, anchor=north east, inner sep=1pt},
+                ylabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=1pt},
+                zlabel style={at={(ticklabel* cs:1)}, anchor=south, inner sep=1pt},
+                xmin=-2.5, xmax=2.5,
+                ymin=-2.5, ymax=2.5,
+                zmin=-2.5, zmax=2.5,
+                ticks=none,
+                title={$k = 0$},
+                enlargelimits=false
+              ]
+                \addplot3[
+                  surf, opacity=0.7, gray!80!black,
+                  domain=-1.5:1.5, domain y=0:360, samples=15, samples y=24, z buffer=sort
+                ] ({abs(x)*cos(y)}, {x}, {abs(x)*sin(y)});
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+
+        <!-- Case 3: k < 0 (Hyperboloid of 2 Sheets) -->
+        <image>
+          <description>A 3D plot of a hyperboloid of two sheets opening along the y-axis.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[
+                view={60}{20},
+                axis lines=center,
+                xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                xlabel style={at={(ticklabel* cs:1)}, anchor=north east, inner sep=1pt},
+                ylabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=1pt},
+                zlabel style={at={(ticklabel* cs:1)}, anchor=south, inner sep=1pt},
+                xmin=-2.5, xmax=2.5,
+                ymin=-2.5, ymax=2.5,
+                zmin=-2.5, zmax=2.5,
+                ticks=none,
+                title={$k &lt; 0$},
+                enlargelimits=false
+              ]
+                % Positive branch (y \ge 1)
+                \addplot3[
+                  surf, opacity=0.7, blue!70!black,
+                  domain=1:2, domain y=0:360, samples=10, samples y=24, z buffer=sort
+                ] ({sqrt(x^2 - 1)*cos(deg(y))}, {x}, {sqrt(x^2 - 1)*sin(deg(y))});
+                
+                % Negative branch (y \le -1) - Escaped for XML validation safety
+                \addplot3[
+                  surf, opacity=0.7, blue!70!black,
+                  domain=1:2, domain y=0:360, samples=10, samples y=24, z buffer=sort
+                ] ({sqrt(x^2 - 1)*cos(deg(y))}, {0 - x}, {sqrt(x^2 - 1)*sin(deg(y))});
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+
+      </sidebyside>
+    </figure>
+
+  </solution>
+</example>
+
+
+
+
+
+</section>

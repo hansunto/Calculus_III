@@ -53,6 +53,31 @@
 
     </chapter>
 
+    <chapter xml:id="ch-Partial-Derivatives">
+      <title>Partial Derivatives</title>
+      <introduction>
+        <p>
+          Partial derivatives are derivatives of functions with multiple variables, taken with respect to one variable while keeping the others constant. 
+          They are fundamental in understanding how functions change in multi-dimensional spaces.
+        </p>
+        <p>
+          In this chapter, we will explore the concepts of partial derivatives, including their computation, interpretation, and applications.
+        </p>
+      </introduction>
+      <xi:include href="./notes/Functions-several-variables.ptx" />
+      <xi:include href="./notes/Limits-Continuity.ptx" />
+      <xi:include href="./notes/Partial-Derivatives.ptx" />
+      <xi:include href="./notes/Increment.ptx" />
+      <xi:include href="./notes/Chain-rules.ptx" />
+      <xi:include href="./notes/Directional-Derivatives.ptx" />
+
+
+
+      
+    </chapter>
+
+
+
 
     <chapter xml:id="activities">
       <title>MyOpenMath Interactive Activities</title>

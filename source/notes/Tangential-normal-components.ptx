@@ -54,15 +54,15 @@
 <assemblage xml:id="asm-acceleration-components">
   <title>Tangential and Normal Components of Acceleration</title>
   <p>
-    The acceleration vector <m>\mathbf{a}(t)</m> can be decomposed into a tangential component <m>a_T</m> and a normal component <m>a_N</m>:
-  </p>
-  <me>\mathbf{a} = a_T\,\mathbf{T} + a_N\,\mathbf{N}</me>
+    The acceleration vector <m>\mathbf{a}(t)</m> can be decomposed into a tangential component <m>a_T</m> and a normal component <m>a_N</m>: 
+  <me>\mathbf{a} = a_T\,\mathbf{T} + a_N\,\mathbf{N}</me> </p>
   <p>
     Where the geometric definitions and direct computational formulas for these components are given by:
-  <md>
-    <mrow>a_T \amp = \frac{\mathbf{r}'(t)\cdot\mathbf{r}''(t)}{\|\mathbf{r}'(t)\|}</mrow>
-    <mrow>a_N \amp = \frac{\|\mathbf{r}'(t)\times\mathbf{r}''(t)\|}{\|\mathbf{r}'(t)\|}</mrow>
-  </md></p>
+  <me>
+    a_T = \frac{\mathbf{r}'(t)\cdot\mathbf{r}''(t)}{\|\mathbf{r}'(t)\|} \quad \text{and} \quad
+    a_N = \frac{\|\mathbf{r}'(t)\times\mathbf{r}''(t)\|}{\|\mathbf{r}'(t)\|}
+  </me>
+ </p>
   <p>
     These components satisfy the Pythagorean relationship with the total acceleration magnitude:
   <me>\|\mathbf{a}\|^2 = a_T^2 + a_N^2</me></p>

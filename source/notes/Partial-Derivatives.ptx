@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-partial-derivatives">
+  <title>3.3 Partial Derivatives</title>
+<p>
+  In this section, we will explore the concept of partial derivatives, which are essential for understanding 
+  how functions of multiple variables change with respect to each independent variable.
+</p>
+<p>
+  We will begin by defining first-order partial derivatives for functions of two or more variables and establishing 
+  their geometric interpretations as slopes of tangent lines along cross-sectional planes. Next, we will extend these 
+  concepts to higher-order modifications, uncovering how mixed partial variants operate under <term>Clairaut's Theorem</term>. 
+  Finally, we will apply these techniques to verify solutions to classic multivariate physics and engineering frameworks, 
+  including <term>Laplace's Equation</term> and the <term>Cauchy-Riemann Equations</term>.
+</p>
+<p>
+  By the end of this section, you will have a solid conceptual understanding of multivariate rate of change 
+  behaviors and a strong structural foundation for navigating complex partial differential layouts in multivariable 
+  calculus.
+</p>
+
+<definition xml:id="def-partial-derivatives">
+  <statement>
+    <p>
+      Let <m>f</m> be a function of two variables. The <term>first partial derivatives of <m>f</m> with respect to <m>x</m> and <m>y</m></term> are the functions <m>f_x</m> and <m>f_y</m> defined by the limits:
+      <md>
+        <mrow>f_x(x,y) \amp = \lim_{h\to 0} \frac{f(x+h,y)-f(x,y)}{h}</mrow>
+        <mrow>f_y(x,y) \amp = \lim_{h\to 0} \frac{f(x,y+h)-f(x,y)}{h}</mrow>
+      </md>
+    </p>
+  </statement>
+</definition>
+
+<remark xml:id="rem-partial-derivatives-notation">
+  <title>Notation for Partial Derivatives</title>
+  <statement>
+    <p>
+      If <m>z=f(x,y)</m>, then the alternative notations for the partial derivatives include:
+      <me>f_x = \frac{\partial f}{\partial x}, \quad f_y = \frac{\partial f}{\partial y}</me>
+      <me>f_x(x,y) = D_x f = f_x = \frac{\partial}{\partial x} f(x,y) = \frac{\partial z}{\partial x} = z_x</me>
+      <me>f_y(x,y) = D_y f = f_y = \frac{\partial}{\partial y} f(x,y) = \frac{\partial z}{\partial y} = z_y</me>
+    </p>
+  </statement>
+</remark>
+
+<example xml:id="ex-compute-partial-derivatives">
+  <statement>
+    <p>
+      If <m>f(x,y)=x^3y^2-2x^2y+3x</m>, find <m>f_x(2,-1)</m> and <m>f_y(2,-1)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To find <m>f_x(2,-1)</m>, we first find the general partial derivative with respect to <m>x</m>, <m>f_x(x,y)</m>, by treating <m>y</m> as a constant:
+      <md>
+        <mrow>f_x(x,y) \amp = \frac{\partial}{\partial x}(x^3y^2 - 2x^2y + 3x)</mrow>
+        <mrow>\amp = 3x^2y^2 - 4xy + 3</mrow>
+      </md>
+      Now, we substitute <m>x = 2</m> and <m>y = -1</m> into our result:
+      <md>
+        <mrow>f_x(2,-1) \amp = 3(2)^2(-1)^2 - 4(2)(-1) + 3</mrow>
+        <mrow>\amp = 3(4)(1) - (-8) + 3</mrow>
+        <mrow>\amp = 12 + 8 + 3</mrow>
+        <mrow>\amp = 23</mrow>
+      </md>
+    </p>
+    <p>
+      To find <m>f_y(2,-1)</m>, we find the general partial derivative with respect to <m>y</m>, <m>f_y(x,y)</m>, by treating <m>x</m> as a constant:
+      <md>
+        <mrow>f_y(x,y) \amp = \frac{\partial}{\partial y}(x^3y^2 - 2x^2y + 3x)</mrow>
+        <mrow>\amp = 2x^3y - 2x^2 + 0</mrow>
+        <mrow>\amp = 2x^3y - 2x^2</mrow>
+      </md>
+      Now, we substitute <m>x = 2</m> and <m>y = -1</m> into this expression:
+      <md>
+        <mrow>f_y(2,-1) \amp = 2(2)^3(-1) - 2(2)^2</mrow>
+        <mrow>\amp = 2(8)(-1) - 2(4)</mrow>
+        <mrow>\amp = -16 - 8</mrow>
+        <mrow>\amp = -24</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-partial-derivatives-paraboloid-slope">
+  <statement>
+    <p>
+      If <m>f(x,y)=4-x^2-2y^2</m>, find <m>f_x(1,1)</m> and <m>f_y(1,1)</m>, and interpret these numbers as slopes.
+    </p>
+  </statement>
+  <solution>
+    <p>
+<figure xml:id="fig-partial-derivatives-geometric-slope">
+      <caption>Geometric interpretation of <m>f_x(1,1)</m> and <m>f_y(1,1)</m> as tangent slopes on a paraboloid surface.</caption>
+      <image width="60%">
+        <description>A 3D elliptic paraboloid centered at the origin, showing intersections with vertical planes x=1 and y=1, and corresponding tangent lines at the point (1,1,1).</description>
+        <latex-image>
+          \begin{tikzpicture}
+            \begin{axis}[
+              view={125}{25},
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+              xlabel style={at={(ticklabel* cs:1)}, anchor=north east, inner sep=1pt},
+              ylabel style={at={(ticklabel* cs:1)}, anchor=north west, inner sep=1pt},
+              zlabel style={at={(ticklabel* cs:1)}, anchor=south, inner sep=1pt},
+              xmin=-2.5, xmax=2.5,
+              ymin=-2.5, ymax=2.5,
+              zmin=-4, zmax=5,
+              ticks=none,
+              enlargelimits=false
+            ]
+              % 1. Render the main underlying elliptic paraboloid surface
+              \addplot3[
+                surf,
+                opacity=0.4,
+                cyan!50!black,
+                domain=-2:2,
+                domain y=-2:2,
+                samples=25,
+                z buffer=sort
+              ] {4 - x^2 - 2*y^2};
+
+              % 2. Plane y=1 trace curve: z = 2 - t^2
+              \addplot3[very thick, red, domain=-1.5:1.5, samples=30] ({x}, {1}, {2 - x^2});
+
+              % 3. Plane x=1 trace curve: z = 3 - 2t^2 (Fixed compilation variable name)
+              \addplot3[very thick, blue, domain=-1.5:1.5, samples=30] ({1}, {x}, {3 - 2*x^2});
+
+              % 4. The explicit point of evaluation (1, 1, 1)
+              \addplot3[only marks, mark=*, black, mark size=2.5pt] coordinates {(1, 1, 1)};
+              \node[anchor=south west, scale=0.8] at (axis cs:1, 1, 1) {$(1,1,1)$};
+
+              % 5. Tangent line in x-direction (Plane y=1): slope = -2, passing through (1,1,1)
+              \addplot3[thick, red!70!black, dashed, domain=-0.8:0.8] ({1 + x}, {1}, {1 - 2*x});
+              % Label for f_x at the positive end of its domain (x = 0.8)
+              \node[red!80!black, scale=0.8, anchor=south west] at (axis cs:1.8, 1, -0.6) {$f_x(1,1)=-2$};
+
+              % 6. Tangent line in y-direction (Plane x=1): slope = -4
+              \addplot3[thick, blue!70!black, dashed, domain=-0.5:0.5] ({1}, {1 + x}, {1 - 4*x});
+              % Label for f_y at the negative end of its domain (x = -0.5)
+              \node[blue!80!black, scale=0.8, anchor=north east] at (axis cs:1, 0.5, 3.0) {$f_y(1,1)=-4$};
+            \end{axis}
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+
+      First, we compute the general partial derivatives by treating the opposite variable as a constant:
+      <me>f_x(x,y) = -2x \quad \text{and} \quad f_y(x,y) = -4y</me>
+      Evaluating these at the point <m>(1,1)</m> yields:
+      <me>f_x(1,1) = -2 \quad \text{and} \quad f_y(1,1) = -4</me>
+    </p>
+    <p>
+      To interpret these numbers geometrically, note that the graph of <m>f</m> is a paraboloid, and the function value at this point is <m>f(1,1) = 4 - 1^2 - 2(1)^2 = 1</m>, giving the point <m>(1,1,1)</m> on the surface.
+    </p>
+    <p>
+      The vertical plane <m>y=1</m> intersects the paraboloid in the curve (a parabola) described by <m>z = 4 - x^2 - 2(1)^2 = 2 - x^2</m> in the plane <m>y=1</m>. The slope of the tangent line to this parabola at the point <m>(1,1,1)</m> is given by <m>f_x(1,1) = -2</m>.
+    </p>
+    <p>
+      Similarly, the vertical plane <m>x=1</m> intersects the paraboloid in the curve described by <m>z = 4 - (1)^2 - 2y^2 = 3 - 2y^2</m> in the plane <m>x=1</m>. The slope of the tangent line to this parabola at the point <m>(1,1,1)</m> is given by <m>f_y(1,1) = -4</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-partial-derivatives-chain-rule">
+  <statement>
+    <p>
+      If <m>f(x,y)=\sin\left(\frac{x}{x+y}\right)</m>, find <m>\frac{\partial f}{\partial x}</m> and <m>\frac{\partial f}{\partial y}</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Using the <term>Chain Rule for functions of one variable</term>, we differentiate the outer sine function while keeping the inner fraction intact, and then multiply by the partial derivative of the inner expression.
+    </p>
+    <p>
+      For the partial derivative with respect to <m>x</m>, we use the quotient rule on the inner function while treating <m>y</m> as a constant:
+      <md>
+        <mrow>\frac{\partial f}{\partial x} \amp = \cos\left(\frac{x}{x+y}\right) \cdot \frac{\partial }{\partial x}\left(\frac{x}{x+y}\right)</mrow>
+        <mrow>\amp = \cos\left(\frac{x}{x+y}\right) \cdot \frac{(x+y)(1) - x(1)}{(x+y)^2}</mrow>
+        <mrow>\amp = \cos\left(\frac{x}{x+y}\right) \cdot \frac{y}{(x+y)^2}</mrow>
+      </md>
+    </p>
+    <p>
+      For the partial derivative with respect to <m>y</m>, we treat <m>x</m> as a constant and apply the chain rule/power rule to the inner function:
+      <md>
+        <mrow>\frac{\partial f}{\partial y} \amp = \cos\left(\frac{x}{x+y}\right) \cdot \frac{\partial }{\partial y}\left(\frac{x}{x+y}\right)</mrow>
+        <mrow>\amp = \cos\left(\frac{x}{x+y}\right) \cdot \frac{\partial }{\partial y}\left(x(x+y)^{-1}\right)</mrow>
+        <mrow>\amp = \cos\left(\frac{x}{x+y}\right) \cdot \left(-x(x+y)^{-2}\right)</mrow>
+        <mrow>\amp = -\cos\left(\frac{x}{x+y}\right) \cdot \frac{x}{(x+y)^2}</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<definition xml:id="def-partial-derivatives-n-variables">
+  <title>Functions of More Than Two Variables</title>
+  <statement>
+    <p>
+      Let <m>f</m> be a function of three variables. The <term>first partial derivatives of <m>f</m> with respect to <m>x</m>, <m>y</m>, and <m>z</m></term> are the functions <m>f_x</m>, <m>f_y</m>, and <m>f_z</m> defined by:
+      <me>f_x(x,y,z) = \lim_{h\to 0} \frac{f(x+h,y,z)-f(x,y,z)}{h}</me>
+    </p>
+    <p>
+      In general, if <m>f</m> is a function of <m>n</m> variables, <m>f=f(x_1,x_2,x_3,\dots,x_n)</m>, its partial derivative with respect to the <m>i</m>th variable <m>x_i</m> is:
+      <me>\frac{\partial f}{\partial x_i}= f_{x_i} = \lim_{h\to 0} \frac{f(x_1,\dots, x_{i-1},x_i+h,x_{i+1},\dots,x_n)-f(x_1,\dots, x_{i-1},x_i,x_{i+1},\dots,x_n)}{h}</me>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-partial-derivatives-three-variables">
+  <statement>
+    <p>
+      If <m>f(x,y,z)=x^2y^3\sin z+e^{xy}\ln z</m>, find <m>f_x</m>, <m>f_y</m>, and <m>f_z</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To find each partial derivative, we differentiate with respect to the chosen variable while holding all other variables constant:
+    </p>
+    <p>
+      <md>
+        <mrow>f_{x} = \frac{\partial f}{\partial x} \amp = \frac{\partial}{\partial x}(x^2) \cdot y^3\sin z + \frac{\partial}{\partial x}(e^{xy}) \cdot \ln z</mrow>
+        <mrow>\amp = 2xy^3\sin z + ye^{xy}\ln z</mrow>
+      </md>
+    </p>
+    <p>
+      <md>
+        <mrow>f_{y} = \frac{\partial f}{\partial y} \amp = x^2 \cdot \frac{\partial}{\partial y}(y^3) \cdot \sin z + \frac{\partial}{\partial y}(e^{xy}) \cdot \ln z</mrow>
+        <mrow>\amp = 3x^2y^2\sin z + xe^{xy}\ln z</mrow>
+      </md>
+    </p>
+    <p>
+      <md>
+        <mrow>f_{z} = \frac{\partial f}{\partial z} \amp = x^2y^3 \cdot \frac{\partial}{\partial z}(\sin z) + e^{xy} \cdot \frac{\partial}{\partial z}(\ln z)</mrow>
+        <mrow>\amp = x^2y^3\cos z + \frac{e^{xy}}{z}</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<definition xml:id="def-second-partial-derivatives">
+  <statement>
+    <p>
+      If <m>f</m> is a function of two variables, then its partial derivatives <m>f_x</m> and <m>f_y</m> are also functions of two variables. 
+      Consequently, we can consider their partial derivatives <m>(f_x)_x</m>, <m>(f_x)_y</m>, <m>(f_y)_x</m>, and <m>(f_y)_y</m>, which are called the <term>second partial derivatives</term> of <m>f</m>. 
+      If <m>z=f(x,y)</m>, we denote them as follows:
+    </p>
+    <me>(f_x)_x = f_{xx} = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial^2 f}{\partial x^2} = \frac{\partial^2 z}{\partial x^2}</me>
+    <me>(f_x)_y = f_{xy} = \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial^2 f}{\partial y\,\partial x} = \frac{\partial^2 z}{\partial y\,\partial x}</me>
+    <me>(f_y)_x = f_{yx} = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right) = \frac{\partial^2 f}{\partial x\,\partial y} = \frac{\partial^2 z}{\partial x\,\partial y}</me>
+    <me>(f_y)_y = f_{yy} = \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial y}\right) = \frac{\partial^2 f}{\partial y^2} = \frac{\partial^2 z}{\partial y^2}</me>
+  </statement>
+</definition>
+
+<example xml:id="ex-compute-second-derivatives">
+  <statement>
+    <p>
+      Find the second partial derivatives of 
+      <me>f(x,y)=x^3+x^2y^3-2y^2</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We begin by calculating the first-order partial derivatives of <m>f</m> with respect to <m>x</m> and <m>y</m>:
+      <me>f_x(x,y) = \frac{\partial}{\partial x}(x^3+x^2y^3-2y^2) = 3x^2 + 2xy^3</me>
+      <me>f_y(x,y) = \frac{\partial}{\partial y}(x^3+x^2y^3-2y^2) = 3x^2y^2 - 4y</me>
+    </p>
+    <p>
+      Next, we differentiate <m>f_x</m> and <m>f_y</m> to find the four second-order partial derivatives:
+    </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            Differentiating <m>f_x</m> with respect to <m>x</m>:
+            <me>f_{xx} = \frac{\partial}{\partial x}(3x^2 + 2xy^3) = 6x + 2y^3</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Differentiating <m>f_x</m> with respect to <m>y</m> (mixed partial):
+            <me>f_{xy} = \frac{\partial}{\partial y}(3x^2 + 2xy^3) = 6xy^2</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Differentiating <m>f_y</m> with respect to <m>x</m> (mixed partial):
+            <me>f_{yx} = \frac{\partial}{\partial x}(3x^2y^2 - 4y) = 6xy^2</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Differentiating <m>f_y</m> with respect to <m>y</m>:
+            <me>f_{yy} = \frac{\partial}{\partial y}(3x^2y^2 - 4y) = 6x^2y - 4</me>
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Notice that the mixed partial derivatives are equal (<m>f_{xy} = f_{yx} = 6xy^2</m>).
+    </p>
+  </solution>
+</example>
+
+<theorem xml:id="thm-clairauts-theorem">
+  <title>Clairaut's Theorem (Mixed Derivatives)</title>
+  <statement>
+    <p>
+      Suppose <m>f</m> is defined on a disk <m>D</m> that contains the point <m>(a,b)</m>. 
+      If the functions <m>f_{xy}</m> and <m>f_{yx}</m> are both continuous on <m>D</m>, then:
+      <me>f_{xy}(a,b)=f_{yx}(a,b)</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-high-order-mixed-partial">
+    <title>Mixed Derivatives</title>
+  <statement>
+    <p>
+      Compute <m>f_{xxyz}</m> if <m>f(x,y,z)=\sin(3x+yz)</m>.
+    </p>
+  </statement>
+  <!-- Standard Method: Differentiating in the exact order written (x, then x, then y, then z) -->
+  <solution>
+    <title>Direct Method (Order: <m>x, x, y, z</m>)</title>
+    <p>
+      We compute the fourth-order partial derivative step by step, applying the single-variable chain and product rules successively in the order written:
+      <md>
+        <mrow>f_x \amp = \frac{\partial}{\partial x}[\sin(3x+yz)] = 3\cos(3x+yz)</mrow>
+        <mrow>f_{xx} \amp = \frac{\partial}{\partial x}[3\cos(3x+yz)] = -9\sin(3x+yz)</mrow>
+        <mrow>f_{xxy} \amp = \frac{\partial}{\partial y}[-9\sin(3x+yz)] = -9z\cos(3x+yz)</mrow>
+      </md>
+      Now, using the single-variable product rule to differentiate <m>f_{xxy}</m> with respect to <m>z</m>:
+      <md>
+        <mrow>f_{xxyz} \amp = \frac{\partial}{\partial z}[-9z\cos(3x+yz)]</mrow>
+        <mrow>\amp = -9\cos(3x+yz) + (-9z)\cdot\left(-\sin(3x+yz)\cdot y\right)</mrow>
+        <mrow>\amp = -9\cos(3x+yz) + 9yz\sin(3x+yz)</mrow>
+      </md>
+    </p>
+  </solution>
+  <!-- Alternative Method: Using Clairaut's Theorem to change the order of operations -->
+  <solution>
+    <title>Alternative Method via Clairaut's Theorem (Order: <m>x, x, z, y</m>)</title>
+    <p>
+      Since the function <m>f(x,y,z)</m> and all of its partial derivatives are continuous everywhere, we can apply <term>Clairaut's Theorem</term> to change the order of differentiation to make the algebra simpler. Let's differentiate with respect to <m>z</m> before differentiating with respect to <m>y</m>, so we evaluate <m>f_{xxzy}</m> instead of <m>f_{xxyz}</m>:
+      <me>f_{xxyz} = f_{xxzy} = \frac{\partial}{\partial y}\left[ \frac{\partial}{\partial z} (f_{xx}) \right]</me>
+    </p>
+    <p>
+      Using our previous result for the second derivative, <m>f_{xx} = -9\sin(3x+yz)</m>, we differentiate with respect to <m>z</m> first:
+      <md>
+        <mrow>f_{xxz} \amp = \frac{\partial}{\partial z}[-9\sin(3x+yz)]</mrow>
+        <mrow>\amp = -9\cos(3x+yz) \cdot \frac{\partial}{\partial z}(3x+yz)</mrow>
+        <mrow>\amp = -9y\cos(3x+yz)</mrow>
+      </md>
+    </p>
+    <p>
+      Finally, we differentiate <m>f_{xxz}</m> with respect to <m>y</m>. Because <m>y</m> appears both outside and inside the cosine term, we apply the single-variable product rule:
+      <md>
+        <mrow>f_{xxzy} \amp = \frac{\partial}{\partial y}[-9y\cos(3x+yz)]</mrow>
+        <mrow>\amp = \frac{\partial}{\partial y}[-9y] \cdot \cos(3x+yz) + (-9y) \cdot \frac{\partial}{\partial y}[\cos(3x+yz)]</mrow>
+        <mrow>\amp = -9\cos(3x+yz) + (-9y) \cdot \left( -\sin(3x+yz) \cdot z \right)</mrow>
+        <mrow>\amp = -9\cos(3x+yz) + 9yz\sin(3x+yz)</mrow>
+      </md>
+    </p>
+    <p>
+      Both mixed partial orders yield the exact same final expression, validating Clairaut's Theorem.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-laplaces-equation"><title>Harmonic Function</title>
+  <statement>
+    <p>
+      If <m>u</m> is a function of two variables and satisfies the partial differential equation
+      <me>\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0</me>
+      this equation is called <term>Laplace's equation</term>. 
+      Solutions to this equation are called <term>harmonic functions</term> and are frequently used in problems involving heat conduction and fluid flow.
+    </p>
+    <p>
+      Show that the function <m>u(x,y)=e^x \cos(y)</m> is harmonic.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To show that <m>u(x,y)</m> is a harmonic function, we must verify that it satisfies Laplace's equation by calculating its second-order pure partial derivatives.
+    </p>
+    <p>
+      First, we find the first and second partial derivatives with respect to <m>x</m>, treating <m>y</m> as a constant:
+      <me>\frac{\partial u}{\partial x} = \frac{\partial}{\partial x}[e^x \cos(y)] = e^x \cos(y)</me>
+      <me>\frac{\partial^2 u}{\partial x^2} = \frac{\partial}{\partial x}[e^x \cos(y)] = e^x \cos(y)</me>
+    </p>
+    <p>
+      Next, we find the first and second partial derivatives with respect to <m>y</m>, treating <m>x</m> as a constant:
+      <me>\frac{\partial u}{\partial y} = \frac{\partial}{\partial y}[e^x \cos(y)] = -e^x \sin(y)</me>
+      <me>\frac{\partial^2 u}{\partial y^2} = \frac{\partial}{\partial y}[-e^x \sin(y)] = -e^x \cos(y)</me>
+    </p>
+    <p>
+      Now, we substitute both second-order pure partial derivatives into the left-hand side of Laplace's equation:
+      <md>
+        <mrow>\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \amp = e^x \cos(y) + \left(-e^x \cos(y)\right)</mrow>
+        <mrow>\amp = 0</mrow>
+      </md>
+    </p>
+    <p>
+      Since the sum of the second partial derivatives is identically <m>0</m> everywhere, the function satisfies Laplace's equation. Therefore, <m>u(x,y) = e^x \cos(y)</m> is a <term>harmonic function</term>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-cauchy-riemann-equations">
+    <title>Cauchy-Riemann Equation</title>
+  <statement>
+    <p>
+      If <m>u</m> and <m>v</m> are functions of two variables and satisfy 
+      <me>u_x=v_y \quad \text{and} \quad u_y=-v_x</me> 
+      these partial differential equations are called the <term>Cauchy-Riemann equations</term>.
+    </p>
+    <p>
+      Show that the functions <m>u(x,y)=\frac{y}{x^2+y^2}</m> and <m>v(x,y)=\frac{x}{x^2+y^2}</m> satisfy the Cauchy–Riemann equations.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To verify that <m>u</m> and <m>v</m> satisfy the Cauchy–Riemann equations, we must compute all four first-order partial derivatives using the single-variable quotient rule.
+    </p>
+    <p>
+      First, we compute the partial derivatives of <m>u(x,y)</m> with respect to <m>x</m> and <m>y</m>:
+      <md>
+        <mrow>u_x \amp = \frac{\partial}{\partial x}\left[\frac{y}{x^2+y^2}\right] = \frac{(x^2+y^2)(0) - y(2x)}{(x^2+y^2)^2} = \frac{-2xy}{(x^2+y^2)^2}</mrow>
+        <mrow>u_y \amp = \frac{\partial}{\partial y}\left[\frac{y}{x^2+y^2}\right] = \frac{(x^2+y^2)(1) - y(2y)}{(x^2+y^2)^2} = \frac{x^2-y^2}{(x^2+y^2)^2}</mrow>
+      </md>
+    </p>
+    <p>
+      Next, we compute the partial derivatives of <m>v(x,y)</m> with respect to <m>x</m> and <m>y</m>:
+      <md>
+        <mrow>v_x \amp = \frac{\partial}{\partial x}\left[\frac{x}{x^2+y^2}\right] = \frac{(x^2+y^2)(1) - x(2x)}{(x^2+y^2)^2} = \frac{y^2-x^2}{(x^2+y^2)^2}</mrow>
+        <mrow>v_y \amp = \frac{\partial}{\partial y}\left[\frac{x}{x^2+y^2}\right] = \frac{(x^2+y^2)(0) - x(2y)}{(x^2+y^2)^2} = \frac{-2xy}{(x^2+y^2)^2}</mrow>
+      </md>
+    </p>
+    <p>
+      Now we check both conditions of the Cauchy–Riemann system:
+    </p>
+    <p>
+      <ol marker="1">
+        <li> <p> Comparing <m>u_x</m> and <m>v_y</m>, we see they match perfectly: 
+            <me>u_x = \frac{-2xy}{(x^2+y^2)^2} = v_y</me>
+          </p> </li>
+        <li> <p> Comparing <m>u_y</m> and <m>v_x</m>, we observe they are exact negatives of each other:
+            <me>-v_x = -\left(\frac{y^2-x^2}{(x^2+y^2)^2}\right) = \frac{x^2-y^2}{(x^2+y^2)^2} = u_y</me>
+          </p> </li>
+      </ol>
+    </p>
+    <p>
+      Since both partial differential equations hold true on their mutual domain 
+      <m>\{(x,y) \mid (x,y) \neq (0,0)\}</m>, the functions <m>u</m> and <m>v</m> 
+      satisfy the Cauchy-Riemann equations.
+    </p>
+  </solution>
+</example>
+
+
+  </section>

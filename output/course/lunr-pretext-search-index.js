@@ -1816,7 +1816,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "",
   "title": "2.6 Tangential and Normal Components of Acceleration",
-  "body": " 2.6 Tangential and Normal Components of Acceleration  In this section, we will explore the tangential and normal components of acceleration for a particle moving along a curved path. These components provide insight into how the particle's velocity changes in both magnitude and direction.  The tangential component of acceleration is responsible for changing the speed of the particle, while the normal component is responsible for changing the direction of motion.  We will derive formulas for these components and apply them to various examples to illustrate their significance in understanding motion in space.  The motion of a particle is often useful to resolve the acceleration into two components: one in the direction of the tangent and the other in the direction of the normal. If represents the speed of the particle, then: which gives . Differentiating both sides of this equation with respect to yields:   Since the curvature is defined as , we can rewrite this in terms of speed: The unit normal vector is defined as , which allows us to isolate the derivative of the unit tangent vector: Substituting this back into our acceleration equation provides the final decomposition: We call and the tangential and normal components of acceleration , defined respectively as:   To find a more computational formula for , we take the dot product of the velocity vector with the acceleration vector : Therefore, provided , the tangential component of acceleration can be calculated directly as:   Similarly, by substituting the cross-product curvature formula into our definition for , we obtain a direct computational formula for the normal component of acceleration:    Tangential and Normal Components of Acceleration  The acceleration vector can be decomposed into a tangential component and a normal component :   Where the geometric definitions and direct computational formulas for these components are given by:  These components satisfy the Pythagorean relationship with the total acceleration magnitude:     A particle moves with the position function . Find the tangential and normal components of acceleration.    First, compute the velocity vector and acceleration vector :    To find the tangential component , calculate the dot product : Dividing by the speed yields:   To find the normal component , compute the cross product : Find the magnitude of this cross product vector: Dividing by the speed yields:       A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the primary velocity and acceleration derivative profiles:    Find the tangential component by evaluation of the vector dot product:    To find for a 2D planar curve, we can evaluate the standard determinant form equivalent to the spatial cross product:        A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the derivative vectors:    Calculate the dot product to find :    Calculate the cross product to find : Find the magnitude of this cross product vector: Dividing by the speed yields a constant normal acceleration:     "
+  "body": " 2.6 Tangential and Normal Components of Acceleration  In this section, we will explore the tangential and normal components of acceleration for a particle moving along a curved path. These components provide insight into how the particle's velocity changes in both magnitude and direction.  The tangential component of acceleration is responsible for changing the speed of the particle, while the normal component is responsible for changing the direction of motion.  We will derive formulas for these components and apply them to various examples to illustrate their significance in understanding motion in space.  The motion of a particle is often useful to resolve the acceleration into two components: one in the direction of the tangent and the other in the direction of the normal. If represents the speed of the particle, then: which gives . Differentiating both sides of this equation with respect to yields:   Since the curvature is defined as , we can rewrite this in terms of speed: The unit normal vector is defined as , which allows us to isolate the derivative of the unit tangent vector: Substituting this back into our acceleration equation provides the final decomposition: We call and the tangential and normal components of acceleration , defined respectively as:   To find a more computational formula for , we take the dot product of the velocity vector with the acceleration vector : Therefore, provided , the tangential component of acceleration can be calculated directly as:   Similarly, by substituting the cross-product curvature formula into our definition for , we obtain a direct computational formula for the normal component of acceleration:    Tangential and Normal Components of Acceleration  The acceleration vector can be decomposed into a tangential component and a normal component :   Where the geometric definitions and direct computational formulas for these components are given by:   These components satisfy the Pythagorean relationship with the total acceleration magnitude:     A particle moves with the position function . Find the tangential and normal components of acceleration.    First, compute the velocity vector and acceleration vector :    To find the tangential component , calculate the dot product : Dividing by the speed yields:   To find the normal component , compute the cross product : Find the magnitude of this cross product vector: Dividing by the speed yields:       A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the primary velocity and acceleration derivative profiles:    Find the tangential component by evaluation of the vector dot product:    To find for a 2D planar curve, we can evaluate the standard determinant form equivalent to the spatial cross product:        A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the derivative vectors:    Calculate the dot product to find :    Calculate the cross product to find : Find the magnitude of this cross product vector: Dividing by the speed yields a constant normal acceleration:     "
 },
 {
   "id": "sec-tangential-normal-components-6",
@@ -1855,11 +1855,785 @@ var ptx_lunr_docs = [
   "body": "  A particle moves with the position function . Find the tangential and normal components of acceleration.    Compute the derivative vectors:    Calculate the dot product to find :    Calculate the cross product to find : Find the magnitude of this cross product vector: Dividing by the speed yields a constant normal acceleration:    "
 },
 {
+  "id": "sec-functions-several-variables",
+  "level": "1",
+  "url": "sec-functions-several-variables.html",
+  "type": "Section",
+  "number": "",
+  "title": "Functions of Several Variables",
+  "body": " Functions of Several Variables  In this section, we will introduce the concept of functions of several variables. These functions take multiple independent inputs and produce a single real-number output, allowing us to model complex structural relationships in higher dimensions.  We will explore how to analytically determine the domain and range of these functions, as well as how to interpret their geometric behavior through three-dimensional graphical representations.  Additionally, we will discuss the concept of level curves and level surfaces , which slice through multivariate outputs to provide valuable structural insights into their contours and topologies.    Let be a set of ordered pairs of real variables. A function of two variables is a correspondence that assigns to each pair in exactly one real number denoted . The set is called the domain of . The range of consists of all real numbers where is in .      Find the domain and range of     The domain of is which is the disk with center and radius 3. The range of is Since , and also the range of is       Sketch the graph of     We squared both sides of the equation to obtain for . The graph of is the upper hemisphere of a sphere centered at the origin with a radius of 3.   The 3D surface graph and corresponding 2D contour map for .    A 3D surface plot of the upper hemisphere showing labeled intercepts at 3 on the x, y, and z axes.     A 2D contour map plot displaying concentric circles representing heights z=0, z=1, z=2, and z=3 in the x-y plane.          The level curve of a function of two variables are the curves with equations where is a constant (in the range of ).      Sketch some level curves of     We know is a hyperbolic paraboloid and the level curves are with . We get hyperbolas with vertices when , vertices when , and the intersecting lines if .   The 3D surface graph and corresponding 2D contour map for .    A 3D surface plot of a hyperbolic paraboloid saddle shape.     A 2D contour plot displaying families of hyperbolas opening along the y-axis for positive z, along the x-axis for negative z, and crossing linear asymptotes for z=0.        A function of three variables  assigns to each ordered triple in a domain exactly one real number denoted .    Find the domain of if     The domain of is This is a half-space consisting of all points that lie above the plane .      Find the level surfaces of the function     The level surfaces are , which form the following families:     where . These form a family of hyperboloids of one sheet with axes along the -axis.    where . This forms a cone with its axis along the -axis.    where . These form a family of hyperboloids of two sheets with axes along the -axis.      The three families of level surfaces for .     A 3D plot of a hyperboloid of one sheet opening along the y-axis.      A 3D plot of a double cone meeting at the origin, opening along the y-axis.      A 3D plot of a hyperboloid of two sheets opening along the y-axis.        "
+},
+{
+  "id": "sec-functions-several-variables-4",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#sec-functions-several-variables-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "level curves level surfaces "
+},
+{
+  "id": "def-function-two-vars",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#def-function-two-vars",
+  "type": "Definition",
+  "number": "3.1",
+  "title": "",
+  "body": "  Let be a set of ordered pairs of real variables. A function of two variables is a correspondence that assigns to each pair in exactly one real number denoted . The set is called the domain of . The range of consists of all real numbers where is in .   "
+},
+{
+  "id": "ex-domain-range-root",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#ex-domain-range-root",
+  "type": "Example",
+  "number": "3.2",
+  "title": "",
+  "body": "  Find the domain and range of     The domain of is which is the disk with center and radius 3. The range of is Since , and also the range of is    "
+},
+{
+  "id": "ex-sketch-graph-root",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#ex-sketch-graph-root",
+  "type": "Example",
+  "number": "3.3",
+  "title": "",
+  "body": "  Sketch the graph of     We squared both sides of the equation to obtain for . The graph of is the upper hemisphere of a sphere centered at the origin with a radius of 3.   The 3D surface graph and corresponding 2D contour map for .    A 3D surface plot of the upper hemisphere showing labeled intercepts at 3 on the x, y, and z axes.     A 2D contour map plot displaying concentric circles representing heights z=0, z=1, z=2, and z=3 in the x-y plane.       "
+},
+{
+  "id": "def-level-curve",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#def-level-curve",
+  "type": "Definition",
+  "number": "3.5",
+  "title": "",
+  "body": "  The level curve of a function of two variables are the curves with equations where is a constant (in the range of ).   "
+},
+{
+  "id": "ex-level-curves-saddle",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#ex-level-curves-saddle",
+  "type": "Example",
+  "number": "3.6",
+  "title": "",
+  "body": "  Sketch some level curves of     We know is a hyperbolic paraboloid and the level curves are with . We get hyperbolas with vertices when , vertices when , and the intersecting lines if .   The 3D surface graph and corresponding 2D contour map for .    A 3D surface plot of a hyperbolic paraboloid saddle shape.     A 2D contour plot displaying families of hyperbolas opening along the y-axis for positive z, along the x-axis for negative z, and crossing linear asymptotes for z=0.       "
+},
+{
+  "id": "sec-functions-several-variables-10",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#sec-functions-several-variables-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "function of three variables "
+},
+{
+  "id": "ex-domain-three-variables",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#ex-domain-three-variables",
+  "type": "Example",
+  "number": "3.8",
+  "title": "",
+  "body": "  Find the domain of if     The domain of is This is a half-space consisting of all points that lie above the plane .   "
+},
+{
+  "id": "ex-level-surfaces",
+  "level": "2",
+  "url": "sec-functions-several-variables.html#ex-level-surfaces",
+  "type": "Example",
+  "number": "3.9",
+  "title": "",
+  "body": "  Find the level surfaces of the function     The level surfaces are , which form the following families:     where . These form a family of hyperboloids of one sheet with axes along the -axis.    where . This forms a cone with its axis along the -axis.    where . These form a family of hyperboloids of two sheets with axes along the -axis.      The three families of level surfaces for .     A 3D plot of a hyperboloid of one sheet opening along the y-axis.      A 3D plot of a double cone meeting at the origin, opening along the y-axis.      A 3D plot of a hyperboloid of two sheets opening along the y-axis.       "
+},
+{
+  "id": "sec-limits-continuity",
+  "level": "1",
+  "url": "sec-limits-continuity.html",
+  "type": "Section",
+  "number": "",
+  "title": "3.2 Limits and Continuity",
+  "body": " 3.2 Limits and Continuity  In this section, we will explore the concepts of limits and continuity for functions of several variables. Mastering these foundational ideas is crucial for analyzing the localized behavior of multivariable functions before extending our study to rates of change.  We will begin by defining the rigorous condition for the limit of a multivariate function. Next, we will introduce the two-path rule to definitively prove when a limit fails to exist along distinct linear or parabolic geometric pathways. We will then explore methods for evaluating existing limits, including direct algebraic substitution and the Squeeze Theorem . Finally, we will establish the mathematical criteria required for a function to be continuous on its domain, examining both piecewise definitions and the continuity profiles of composite functions.  By the end of this section, you will have a solid conceptual framework for evaluating limits and determining the continuity of functions of several variables, providing the essential toolkit required to study multivariable derivatives.    We write and say that the limit of as approaches is if we can make the values of as close to as we please by taking the point sufficiently close to the point but not equal to .  This is equivalent to stating that for every , there exists a such that if then     Alternately, this may be denoted as    Two-Path Rule   If as along a path and as along a path where , then does not exist.      Find the following limits:                     Since the function is a polynomial function of two variables, it is continuous everywhere on its domain . Therefore, we can evaluate the limit directly by substituting and into the expression:     The function is a rational function involving a radical. The denominator is non-zero at the limit point since . Because the denominator does not equal zero at , the function is continuous at this point, and we can find the limit using direct substitution of and :          Show that does not exist.    Let . To show that the limit does not exist as , we can analyze the behavior of the function along different paths approaching the origin.  First, let's approach along the -axis. On this path, , which simplifies the function to: Therefore, as we approach along the -axis, the limit is:   Next, we approach along the -axis by setting . This simplifies the function to: Therefore, as we approach along the -axis, the limit is:   Since the function approaches two different limiting values ( and ) along two distinct directional paths, the two-path rule applies. We conclude that the given limit does not exist.      Show that does not exist.    Let . To test the existence of the limit as we approach the origin, we check the behavior of the function along multiple distinct paths.  First, let's approach along the -axis. Setting gives: Thus, the limit along this path is .  Next, we approach along the -axis by setting : The limit along this path is also .  Although we have obtained identical limits along both coordinate axes, this is not sufficient to prove that the overall limit is . We must test other paths, such as the diagonal line . Substituting into our function for yields: Therefore, as we approach the origin along the line , the function value remains constantly equal to , giving a path limit of .  Since we have obtained different limiting values along two different paths ( along the axes and along the diagonal), the two-path rule applies. We conclude that the given limit does not exist.   Contour lines for showing distinct constant values along linear directional rays radiating from the origin.   A 2D contour plot displaying straight lines radiating out from the origin, representing different contour values k.         If , does exist?    To test if the limit exists, let's analyze the behavior of the function along different families of paths approaching the origin.  First, let's approach along an arbitrary straight line path (where is the slope). Substituting into the function yields: Taking the limit as , we find: If we approach along the coordinate axes ( or ), the function is identically , so the limit is also . Thus, has the same limiting value of along every single straight-line path passing through the origin.  However, this still does not guarantee that the overall limit is . Let's approach along a parabolic path by setting for . Substituting this curve into our expression yields: Therefore, as we approach the origin along the parabola , the limit value is consistently .  Since we have obtained different limiting values along two different paths ( along all linear paths and along the parabolic path), the two-path rule applies. We conclude that the given limit does not exist.      Find     We can determine this limit by analyzing the absolute distance from to :   We notice an inequality involving the components of the denominator: since , it must be true that for all real numbers. Dividing both sides by (where ) establishes that:   Multiplying this bounded inequality by sets up our boundary sandwich:   We evaluate the limits of our bounding bounds as . Since and , the Squeeze Theorem applies. Therefore, we conclude that:       A function of two variables is continuous at if We say is continuous on  if is continuous at every point in .      Find .    Since is a polynomial function , it is continuous everywhere on . Therefore, we can find the limit via direct substitution:       Where is the function continuous?    Since is a rational function , it is continuous at every point on its domain where the denominator is non-zero. The denominator equals zero only at the origin. Thus, the function is continuous on its domain:       Find the limit of as if     To find the limit as , we examine the behavior of the function for points near, but not equal to, the origin. Therefore, we evaluate using the first piece of our function definition:   As shown previously, approaching the origin along the -axis yields a path limit of , while approaching along the -axis yields a path limit of . Because the limits along these two paths are different, the overall limit does not exist.  Consequently, while the function value is defined at the origin ( ), the function is discontinuous at because the limit fails to exist.      Is the function continuous?    To determine if is continuous, we check the three criteria for continuity at the point of interest, :     The function is defined at the origin: .    Using the Squeeze Theorem (as shown in the earlier checkpoint), the limit of the non-zero piece as we approach the origin is:     Since the limiting value equals the defined function value ( ), we have:      Because it is continuous at and consists of a continuous rational expression at all other points, is continuous on all of .      Show that does not exist.    Let approach the point along an arbitrary line passing through with direction vector where . The parametric equations of this line are given by:   Substituting these parametric expressions into the function as yields:   Since the value of this expression depends directly on the chosen direction components , , and , approaching along different lines will produce different limiting values. By the two-path rule extended to three dimensions, the given limit does not exist.      If a function of two variables is continuous at and a function of one variable is continuous at , then the composite function is continuous at .      Find and the set on which is continuous for each of the following:                     Substituting into gives: Since polynomials and exponential functions are continuous everywhere on their domains, this composite function is continuous at every point on .    Substituting into gives: The outer sine function is continuous everywhere, but the square root function is only defined and continuous for non-negative inputs ( ). Therefore, the expression inside the radical must be greater than or equal to zero. The composite function is continuous on the set:        "
+},
+{
+  "id": "sec-limits-continuity-3",
+  "level": "2",
+  "url": "sec-limits-continuity.html#sec-limits-continuity-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "two-path rule Squeeze Theorem "
+},
+{
+  "id": "def-limit-two-variables",
+  "level": "2",
+  "url": "sec-limits-continuity.html#def-limit-two-variables",
+  "type": "Definition",
+  "number": "3.11",
+  "title": "",
+  "body": "  We write and say that the limit of as approaches is if we can make the values of as close to as we please by taking the point sufficiently close to the point but not equal to .  This is equivalent to stating that for every , there exists a such that if then    "
+},
+{
+  "id": "rem-two-path-rule",
+  "level": "2",
+  "url": "sec-limits-continuity.html#rem-two-path-rule",
+  "type": "Remark",
+  "number": "3.12",
+  "title": "Two-Path Rule.",
+  "body": " Two-Path Rule   If as along a path and as along a path where , then does not exist.   "
+},
+{
+  "id": "ex-evaluating-limits",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-evaluating-limits",
+  "type": "Example",
+  "number": "3.13",
+  "title": "",
+  "body": "  Find the following limits:                     Since the function is a polynomial function of two variables, it is continuous everywhere on its domain . Therefore, we can evaluate the limit directly by substituting and into the expression:     The function is a rational function involving a radical. The denominator is non-zero at the limit point since . Because the denominator does not equal zero at , the function is continuous at this point, and we can find the limit using direct substitution of and :       "
+},
+{
+  "id": "ex-limit-does-not-exist",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-limit-does-not-exist",
+  "type": "Example",
+  "number": "3.14",
+  "title": "",
+  "body": "  Show that does not exist.    Let . To show that the limit does not exist as , we can analyze the behavior of the function along different paths approaching the origin.  First, let's approach along the -axis. On this path, , which simplifies the function to: Therefore, as we approach along the -axis, the limit is:   Next, we approach along the -axis by setting . This simplifies the function to: Therefore, as we approach along the -axis, the limit is:   Since the function approaches two different limiting values ( and ) along two distinct directional paths, the two-path rule applies. We conclude that the given limit does not exist.   "
+},
+{
+  "id": "ex-limit-does-not-exist-xy",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-limit-does-not-exist-xy",
+  "type": "Example",
+  "number": "3.15",
+  "title": "",
+  "body": "  Show that does not exist.    Let . To test the existence of the limit as we approach the origin, we check the behavior of the function along multiple distinct paths.  First, let's approach along the -axis. Setting gives: Thus, the limit along this path is .  Next, we approach along the -axis by setting : The limit along this path is also .  Although we have obtained identical limits along both coordinate axes, this is not sufficient to prove that the overall limit is . We must test other paths, such as the diagonal line . Substituting into our function for yields: Therefore, as we approach the origin along the line , the function value remains constantly equal to , giving a path limit of .  Since we have obtained different limiting values along two different paths ( along the axes and along the diagonal), the two-path rule applies. We conclude that the given limit does not exist.   Contour lines for showing distinct constant values along linear directional rays radiating from the origin.   A 2D contour plot displaying straight lines radiating out from the origin, representing different contour values k.      "
+},
+{
+  "id": "chk-limit-parabolic-path",
+  "level": "2",
+  "url": "sec-limits-continuity.html#chk-limit-parabolic-path",
+  "type": "Checkpoint",
+  "number": "3.17",
+  "title": "",
+  "body": "  If , does exist?    To test if the limit exists, let's analyze the behavior of the function along different families of paths approaching the origin.  First, let's approach along an arbitrary straight line path (where is the slope). Substituting into the function yields: Taking the limit as , we find: If we approach along the coordinate axes ( or ), the function is identically , so the limit is also . Thus, has the same limiting value of along every single straight-line path passing through the origin.  However, this still does not guarantee that the overall limit is . Let's approach along a parabolic path by setting for . Substituting this curve into our expression yields: Therefore, as we approach the origin along the parabola , the limit value is consistently .  Since we have obtained different limiting values along two different paths ( along all linear paths and along the parabolic path), the two-path rule applies. We conclude that the given limit does not exist.   "
+},
+{
+  "id": "chk-limit-squeeze-theorem",
+  "level": "2",
+  "url": "sec-limits-continuity.html#chk-limit-squeeze-theorem",
+  "type": "Checkpoint",
+  "number": "3.18",
+  "title": "",
+  "body": "  Find     We can determine this limit by analyzing the absolute distance from to :   We notice an inequality involving the components of the denominator: since , it must be true that for all real numbers. Dividing both sides by (where ) establishes that:   Multiplying this bounded inequality by sets up our boundary sandwich:   We evaluate the limits of our bounding bounds as . Since and , the Squeeze Theorem applies. Therefore, we conclude that:    "
+},
+{
+  "id": "def-multivariate-continuity",
+  "level": "2",
+  "url": "sec-limits-continuity.html#def-multivariate-continuity",
+  "type": "Definition",
+  "number": "3.19",
+  "title": "",
+  "body": "  A function of two variables is continuous at if We say is continuous on  if is continuous at every point in .   "
+},
+{
+  "id": "ex-limit-polynomial-substitution",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-limit-polynomial-substitution",
+  "type": "Example",
+  "number": "3.20",
+  "title": "",
+  "body": "  Find .    Since is a polynomial function , it is continuous everywhere on . Therefore, we can find the limit via direct substitution:    "
+},
+{
+  "id": "ex-continuity-domain-rational",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-continuity-domain-rational",
+  "type": "Example",
+  "number": "3.21",
+  "title": "",
+  "body": "  Where is the function continuous?    Since is a rational function , it is continuous at every point on its domain where the denominator is non-zero. The denominator equals zero only at the origin. Thus, the function is continuous on its domain:    "
+},
+{
+  "id": "ex-piecewise-limit-nonexistence",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-piecewise-limit-nonexistence",
+  "type": "Example",
+  "number": "3.22",
+  "title": "",
+  "body": "  Find the limit of as if     To find the limit as , we examine the behavior of the function for points near, but not equal to, the origin. Therefore, we evaluate using the first piece of our function definition:   As shown previously, approaching the origin along the -axis yields a path limit of , while approaching along the -axis yields a path limit of . Because the limits along these two paths are different, the overall limit does not exist.  Consequently, while the function value is defined at the origin ( ), the function is discontinuous at because the limit fails to exist.   "
+},
+{
+  "id": "ex-piecewise-continuity-squeeze",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-piecewise-continuity-squeeze",
+  "type": "Example",
+  "number": "3.23",
+  "title": "",
+  "body": "  Is the function continuous?    To determine if is continuous, we check the three criteria for continuity at the point of interest, :     The function is defined at the origin: .    Using the Squeeze Theorem (as shown in the earlier checkpoint), the limit of the non-zero piece as we approach the origin is:     Since the limiting value equals the defined function value ( ), we have:      Because it is continuous at and consists of a continuous rational expression at all other points, is continuous on all of .   "
+},
+{
+  "id": "ex-limit-three-variables-nonexistence",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-limit-three-variables-nonexistence",
+  "type": "Example",
+  "number": "3.24",
+  "title": "",
+  "body": "  Show that does not exist.    Let approach the point along an arbitrary line passing through with direction vector where . The parametric equations of this line are given by:   Substituting these parametric expressions into the function as yields:   Since the value of this expression depends directly on the chosen direction components , , and , approaching along different lines will produce different limiting values. By the two-path rule extended to three dimensions, the given limit does not exist.   "
+},
+{
+  "id": "thm-composite-continuity",
+  "level": "2",
+  "url": "sec-limits-continuity.html#thm-composite-continuity",
+  "type": "Theorem",
+  "number": "3.25",
+  "title": "",
+  "body": "  If a function of two variables is continuous at and a function of one variable is continuous at , then the composite function is continuous at .   "
+},
+{
+  "id": "ex-composite-continuity-evaluation",
+  "level": "2",
+  "url": "sec-limits-continuity.html#ex-composite-continuity-evaluation",
+  "type": "Example",
+  "number": "3.26",
+  "title": "",
+  "body": "  Find and the set on which is continuous for each of the following:                     Substituting into gives: Since polynomials and exponential functions are continuous everywhere on their domains, this composite function is continuous at every point on .    Substituting into gives: The outer sine function is continuous everywhere, but the square root function is only defined and continuous for non-negative inputs ( ). Therefore, the expression inside the radical must be greater than or equal to zero. The composite function is continuous on the set:       "
+},
+{
+  "id": "sec-partial-derivatives",
+  "level": "1",
+  "url": "sec-partial-derivatives.html",
+  "type": "Section",
+  "number": "",
+  "title": "3.3 Partial Derivatives",
+  "body": " 3.3 Partial Derivatives  In this section, we will explore the concept of partial derivatives, which are essential for understanding how functions of multiple variables change with respect to each independent variable.  We will begin by defining first-order partial derivatives for functions of two or more variables and establishing their geometric interpretations as slopes of tangent lines along cross-sectional planes. Next, we will extend these concepts to higher-order modifications, uncovering how mixed partial variants operate under Clairaut's Theorem . Finally, we will apply these techniques to verify solutions to classic multivariate physics and engineering frameworks, including Laplace's Equation and the Cauchy-Riemann Equations .  By the end of this section, you will have a solid conceptual understanding of multivariate rate of change behaviors and a strong structural foundation for navigating complex partial differential layouts in multivariable calculus.    Let be a function of two variables. The first partial derivatives of with respect to and are the functions and defined by the limits:      Notation for Partial Derivatives   If , then the alternative notations for the partial derivatives include:         If , find and .    To find , we first find the general partial derivative with respect to , , by treating as a constant: Now, we substitute and into our result:   To find , we find the general partial derivative with respect to , , by treating as a constant: Now, we substitute and into this expression:       If , find and , and interpret these numbers as slopes.      Geometric interpretation of and as tangent slopes on a paraboloid surface.   A 3D elliptic paraboloid centered at the origin, showing intersections with vertical planes x=1 and y=1, and corresponding tangent lines at the point (1,1,1).    First, we compute the general partial derivatives by treating the opposite variable as a constant: Evaluating these at the point yields:   To interpret these numbers geometrically, note that the graph of is a paraboloid, and the function value at this point is , giving the point on the surface.  The vertical plane intersects the paraboloid in the curve (a parabola) described by in the plane . The slope of the tangent line to this parabola at the point is given by .  Similarly, the vertical plane intersects the paraboloid in the curve described by in the plane . The slope of the tangent line to this parabola at the point is given by .      If , find and .    Using the Chain Rule for functions of one variable , we differentiate the outer sine function while keeping the inner fraction intact, and then multiply by the partial derivative of the inner expression.  For the partial derivative with respect to , we use the quotient rule on the inner function while treating as a constant:   For the partial derivative with respect to , we treat as a constant and apply the chain rule\/power rule to the inner function:      Functions of More Than Two Variables   Let be a function of three variables. The first partial derivatives of with respect to , , and are the functions , , and defined by:   In general, if is a function of variables, , its partial derivative with respect to the th variable is:       If , find , , and .    To find each partial derivative, we differentiate with respect to the chosen variable while holding all other variables constant:               If is a function of two variables, then its partial derivatives and are also functions of two variables. Consequently, we can consider their partial derivatives , , , and , which are called the second partial derivatives of . If , we denote them as follows:          Find the second partial derivatives of     We begin by calculating the first-order partial derivatives of with respect to and :    Next, we differentiate and to find the four second-order partial derivatives:     Differentiating with respect to :     Differentiating with respect to (mixed partial):     Differentiating with respect to (mixed partial):     Differentiating with respect to :      Notice that the mixed partial derivatives are equal ( ).     Clairaut's Theorem (Mixed Derivatives)   Suppose is defined on a disk that contains the point . If the functions and are both continuous on , then:      Mixed Derivatives   Compute if .     Direct Method (Order: )  We compute the fourth-order partial derivative step by step, applying the single-variable chain and product rules successively in the order written: Now, using the single-variable product rule to differentiate with respect to :      Alternative Method via Clairaut's Theorem (Order: )  Since the function and all of its partial derivatives are continuous everywhere, we can apply Clairaut's Theorem to change the order of differentiation to make the algebra simpler. Let's differentiate with respect to before differentiating with respect to , so we evaluate instead of :   Using our previous result for the second derivative, , we differentiate with respect to first:   Finally, we differentiate with respect to . Because appears both outside and inside the cosine term, we apply the single-variable product rule:   Both mixed partial orders yield the exact same final expression, validating Clairaut's Theorem.    Harmonic Function   If is a function of two variables and satisfies the partial differential equation this equation is called Laplace's equation . Solutions to this equation are called harmonic functions and are frequently used in problems involving heat conduction and fluid flow.  Show that the function is harmonic.    To show that is a harmonic function, we must verify that it satisfies Laplace's equation by calculating its second-order pure partial derivatives.  First, we find the first and second partial derivatives with respect to , treating as a constant:    Next, we find the first and second partial derivatives with respect to , treating as a constant:    Now, we substitute both second-order pure partial derivatives into the left-hand side of Laplace's equation:   Since the sum of the second partial derivatives is identically everywhere, the function satisfies Laplace's equation. Therefore, is a harmonic function .     Cauchy-Riemann Equation   If and are functions of two variables and satisfy these partial differential equations are called the Cauchy-Riemann equations .  Show that the functions and satisfy the Cauchy–Riemann equations.    To verify that and satisfy the Cauchy–Riemann equations, we must compute all four first-order partial derivatives using the single-variable quotient rule.  First, we compute the partial derivatives of with respect to and :   Next, we compute the partial derivatives of with respect to and :   Now we check both conditions of the Cauchy–Riemann system:     Comparing and , we see they match perfectly:     Comparing and , we observe they are exact negatives of each other:      Since both partial differential equations hold true on their mutual domain , the functions and satisfy the Cauchy-Riemann equations.    "
+},
+{
+  "id": "sec-partial-derivatives-3",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#sec-partial-derivatives-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Clairaut's Theorem Laplace's Equation Cauchy-Riemann Equations "
+},
+{
+  "id": "def-partial-derivatives",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#def-partial-derivatives",
+  "type": "Definition",
+  "number": "3.27",
+  "title": "",
+  "body": "  Let be a function of two variables. The first partial derivatives of with respect to and are the functions and defined by the limits:    "
+},
+{
+  "id": "rem-partial-derivatives-notation",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#rem-partial-derivatives-notation",
+  "type": "Remark",
+  "number": "3.28",
+  "title": "Notation for Partial Derivatives.",
+  "body": " Notation for Partial Derivatives   If , then the alternative notations for the partial derivatives include:      "
+},
+{
+  "id": "ex-compute-partial-derivatives",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#ex-compute-partial-derivatives",
+  "type": "Example",
+  "number": "3.29",
+  "title": "",
+  "body": "  If , find and .    To find , we first find the general partial derivative with respect to , , by treating as a constant: Now, we substitute and into our result:   To find , we find the general partial derivative with respect to , , by treating as a constant: Now, we substitute and into this expression:    "
+},
+{
+  "id": "ex-partial-derivatives-paraboloid-slope",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#ex-partial-derivatives-paraboloid-slope",
+  "type": "Example",
+  "number": "3.30",
+  "title": "",
+  "body": "  If , find and , and interpret these numbers as slopes.      Geometric interpretation of and as tangent slopes on a paraboloid surface.   A 3D elliptic paraboloid centered at the origin, showing intersections with vertical planes x=1 and y=1, and corresponding tangent lines at the point (1,1,1).    First, we compute the general partial derivatives by treating the opposite variable as a constant: Evaluating these at the point yields:   To interpret these numbers geometrically, note that the graph of is a paraboloid, and the function value at this point is , giving the point on the surface.  The vertical plane intersects the paraboloid in the curve (a parabola) described by in the plane . The slope of the tangent line to this parabola at the point is given by .  Similarly, the vertical plane intersects the paraboloid in the curve described by in the plane . The slope of the tangent line to this parabola at the point is given by .   "
+},
+{
+  "id": "ex-partial-derivatives-chain-rule",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#ex-partial-derivatives-chain-rule",
+  "type": "Example",
+  "number": "3.32",
+  "title": "",
+  "body": "  If , find and .    Using the Chain Rule for functions of one variable , we differentiate the outer sine function while keeping the inner fraction intact, and then multiply by the partial derivative of the inner expression.  For the partial derivative with respect to , we use the quotient rule on the inner function while treating as a constant:   For the partial derivative with respect to , we treat as a constant and apply the chain rule\/power rule to the inner function:    "
+},
+{
+  "id": "def-partial-derivatives-n-variables",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#def-partial-derivatives-n-variables",
+  "type": "Definition",
+  "number": "3.33",
+  "title": "Functions of More Than Two Variables.",
+  "body": " Functions of More Than Two Variables   Let be a function of three variables. The first partial derivatives of with respect to , , and are the functions , , and defined by:   In general, if is a function of variables, , its partial derivative with respect to the th variable is:    "
+},
+{
+  "id": "ex-partial-derivatives-three-variables",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#ex-partial-derivatives-three-variables",
+  "type": "Example",
+  "number": "3.34",
+  "title": "",
+  "body": "  If , find , , and .    To find each partial derivative, we differentiate with respect to the chosen variable while holding all other variables constant:            "
+},
+{
+  "id": "def-second-partial-derivatives",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#def-second-partial-derivatives",
+  "type": "Definition",
+  "number": "3.35",
+  "title": "",
+  "body": "  If is a function of two variables, then its partial derivatives and are also functions of two variables. Consequently, we can consider their partial derivatives , , , and , which are called the second partial derivatives of . If , we denote them as follows:       "
+},
+{
+  "id": "ex-compute-second-derivatives",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#ex-compute-second-derivatives",
+  "type": "Example",
+  "number": "3.36",
+  "title": "",
+  "body": "  Find the second partial derivatives of     We begin by calculating the first-order partial derivatives of with respect to and :    Next, we differentiate and to find the four second-order partial derivatives:     Differentiating with respect to :     Differentiating with respect to (mixed partial):     Differentiating with respect to (mixed partial):     Differentiating with respect to :      Notice that the mixed partial derivatives are equal ( ).   "
+},
+{
+  "id": "thm-clairauts-theorem",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#thm-clairauts-theorem",
+  "type": "Theorem",
+  "number": "3.37",
+  "title": "Clairaut’s Theorem (Mixed Derivatives).",
+  "body": " Clairaut's Theorem (Mixed Derivatives)   Suppose is defined on a disk that contains the point . If the functions and are both continuous on , then:    "
+},
+{
+  "id": "ex-high-order-mixed-partial",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#ex-high-order-mixed-partial",
+  "type": "Example",
+  "number": "3.38",
+  "title": "Mixed Derivatives.",
+  "body": " Mixed Derivatives   Compute if .     Direct Method (Order: )  We compute the fourth-order partial derivative step by step, applying the single-variable chain and product rules successively in the order written: Now, using the single-variable product rule to differentiate with respect to :      Alternative Method via Clairaut's Theorem (Order: )  Since the function and all of its partial derivatives are continuous everywhere, we can apply Clairaut's Theorem to change the order of differentiation to make the algebra simpler. Let's differentiate with respect to before differentiating with respect to , so we evaluate instead of :   Using our previous result for the second derivative, , we differentiate with respect to first:   Finally, we differentiate with respect to . Because appears both outside and inside the cosine term, we apply the single-variable product rule:   Both mixed partial orders yield the exact same final expression, validating Clairaut's Theorem.   "
+},
+{
+  "id": "ex-laplaces-equation",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#ex-laplaces-equation",
+  "type": "Example",
+  "number": "3.39",
+  "title": "Harmonic Function.",
+  "body": "Harmonic Function   If is a function of two variables and satisfies the partial differential equation this equation is called Laplace's equation . Solutions to this equation are called harmonic functions and are frequently used in problems involving heat conduction and fluid flow.  Show that the function is harmonic.    To show that is a harmonic function, we must verify that it satisfies Laplace's equation by calculating its second-order pure partial derivatives.  First, we find the first and second partial derivatives with respect to , treating as a constant:    Next, we find the first and second partial derivatives with respect to , treating as a constant:    Now, we substitute both second-order pure partial derivatives into the left-hand side of Laplace's equation:   Since the sum of the second partial derivatives is identically everywhere, the function satisfies Laplace's equation. Therefore, is a harmonic function .   "
+},
+{
+  "id": "ex-cauchy-riemann-equations",
+  "level": "2",
+  "url": "sec-partial-derivatives.html#ex-cauchy-riemann-equations",
+  "type": "Example",
+  "number": "3.40",
+  "title": "Cauchy-Riemann Equation.",
+  "body": " Cauchy-Riemann Equation   If and are functions of two variables and satisfy these partial differential equations are called the Cauchy-Riemann equations .  Show that the functions and satisfy the Cauchy–Riemann equations.    To verify that and satisfy the Cauchy–Riemann equations, we must compute all four first-order partial derivatives using the single-variable quotient rule.  First, we compute the partial derivatives of with respect to and :   Next, we compute the partial derivatives of with respect to and :   Now we check both conditions of the Cauchy–Riemann system:     Comparing and , we see they match perfectly:     Comparing and , we observe they are exact negatives of each other:      Since both partial differential equations hold true on their mutual domain , the functions and satisfy the Cauchy-Riemann equations.   "
+},
+{
+  "id": "sec-increment",
+  "level": "1",
+  "url": "sec-increment.html",
+  "type": "Section",
+  "number": "",
+  "title": "3.4 Increments and Differentials",
+  "body": " 3.4 Increments and Differentials  In this section, we will explore the concepts of increments and differentials, which are fundamental for analyzing how multi-variable functions respond to small changes in their independent inputs. We will begin by defining the exact increment of a function and establishing the rigorous criteria for differentiability using non-unique error functions.  If is a function of two variables and , then and denote the increments of and . Suppose changes from to and changes from to . Then the corresponding increment of is: The increment of , denoted , represents the change in the values of when changes from to .    Let .     Find an algebraic expression for in terms of , , , and .    Calculate the exact numerical value of if changes from to .          Using the definition of a multivariate function increment, we set up and expand the expression for : Canceling the matching and terms, we obtain the simplified general increment:     The independent variables change from the base point to the final point . We compute the respective component increments:  Substituting , , , and directly into our algebraic result from Part 1 yields:         Differentiability for Functions of Two Variables   If , then is differentiable at if can be expressed in the form: where and as .     Sufficient Condition for Differentiability   If the partial derivatives and exist near and are continuous at , then is differentiable at .      If , find an expression for to identify the functions and using the base point .    First, we find the first-order partial derivatives of to establish our baseline linear terms:   From our previous algebraic expansion of the increment for this exact function, we know that: We rearrange and group these terms to isolate the linear differential components and :   To match the definition's template form of , we factor a out of the first remaining term and a out of the second remaining term:   Comparing this directly to the definition form, we can identify: As , it is clear that both and . This confirms explicitly that the polynomial function is differentiable everywhere.   Note: Because the leftover terms can be grouped in alternative arrangements (for example, factoring out of the entire remaining expression), the error functions and are not unique.     Differentials for Functions of Two Variables   If is a differentiable function, the differentials and are independent variables defined as and . The total differential of (or the dependent differential ) is defined by:   Using this framework, the exact function increment can be written as: On the other hand, the discrepancy between the exact increment and the total differential approximation is given by: where and as . Therefore, for small changes in and , we can approximate the true change using the differential:       If , find the total differential . Then, use it to approximate the change in if changes from to .    First, we find the first-order partial derivatives of the function : Substituting these expressions into the definition of the total differential yields:   Next, we use the given points to determine the baseline values and independent changes:     Substituting these specific numerical parameters directly into our total differential expression approximates the change: Thus, the approximate change in computed via differentials is .  To find the error involved in using this approximation, we compare it against the exact change ( ) calculated in our previous exercise: This demonstrates that for small structural changes near the point , the total differential provides a highly accurate approximation.      The radius and altitude of a right circular cylinder are measured as and respectively, with a maximum possible error in each measurement of . Use differentials to approximate the maximum error in the calculated volume of the cylinder.    The volume of a right circular cylinder is a function of two variables—its radius and its height or altitude :   The total differential represents the approximate propagated error in the volume and is found by calculating the first-order partial derivatives with respect to and :   From the problem statements, we isolate our baseline parameters and maximum independent measurement fluctuations: To approximate the maximum potential error , we look at the worst-case scenario where the errors accumulate constructively, taking the maximum absolute value bounds for the differentials ( and ):   Thus, using differentials, the estimated maximum error in the calculated volume is approximately (or roughly ).    "
+},
+{
+  "id": "sec-increment-3",
+  "level": "2",
+  "url": "sec-increment.html#sec-increment-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "increments of and "
+},
+{
+  "id": "ex-function-increments",
+  "level": "2",
+  "url": "sec-increment.html#ex-function-increments",
+  "type": "Example",
+  "number": "3.41",
+  "title": "",
+  "body": "  Let .     Find an algebraic expression for in terms of , , , and .    Calculate the exact numerical value of if changes from to .          Using the definition of a multivariate function increment, we set up and expand the expression for : Canceling the matching and terms, we obtain the simplified general increment:     The independent variables change from the base point to the final point . We compute the respective component increments:  Substituting , , , and directly into our algebraic result from Part 1 yields:       "
+},
+{
+  "id": "def-differentiability-two-variables",
+  "level": "2",
+  "url": "sec-increment.html#def-differentiability-two-variables",
+  "type": "Definition",
+  "number": "3.42",
+  "title": "Differentiability for Functions of Two Variables.",
+  "body": " Differentiability for Functions of Two Variables   If , then is differentiable at if can be expressed in the form: where and as .   "
+},
+{
+  "id": "thm-sufficient-differentiability",
+  "level": "2",
+  "url": "sec-increment.html#thm-sufficient-differentiability",
+  "type": "Theorem",
+  "number": "3.43",
+  "title": "Sufficient Condition for Differentiability.",
+  "body": " Sufficient Condition for Differentiability   If the partial derivatives and exist near and are continuous at , then is differentiable at .   "
+},
+{
+  "id": "ex-differentiability-epsilon-verification",
+  "level": "2",
+  "url": "sec-increment.html#ex-differentiability-epsilon-verification",
+  "type": "Example",
+  "number": "3.44",
+  "title": "",
+  "body": "  If , find an expression for to identify the functions and using the base point .    First, we find the first-order partial derivatives of to establish our baseline linear terms:   From our previous algebraic expansion of the increment for this exact function, we know that: We rearrange and group these terms to isolate the linear differential components and :   To match the definition's template form of , we factor a out of the first remaining term and a out of the second remaining term:   Comparing this directly to the definition form, we can identify: As , it is clear that both and . This confirms explicitly that the polynomial function is differentiable everywhere.   Note: Because the leftover terms can be grouped in alternative arrangements (for example, factoring out of the entire remaining expression), the error functions and are not unique.   "
+},
+{
+  "id": "def-total-differentials",
+  "level": "2",
+  "url": "sec-increment.html#def-total-differentials",
+  "type": "Definition",
+  "number": "3.45",
+  "title": "Differentials for Functions of Two Variables.",
+  "body": " Differentials for Functions of Two Variables   If is a differentiable function, the differentials and are independent variables defined as and . The total differential of (or the dependent differential ) is defined by:   Using this framework, the exact function increment can be written as: On the other hand, the discrepancy between the exact increment and the total differential approximation is given by: where and as . Therefore, for small changes in and , we can approximate the true change using the differential:    "
+},
+{
+  "id": "ex-total-differential-approximation",
+  "level": "2",
+  "url": "sec-increment.html#ex-total-differential-approximation",
+  "type": "Example",
+  "number": "3.46",
+  "title": "",
+  "body": "  If , find the total differential . Then, use it to approximate the change in if changes from to .    First, we find the first-order partial derivatives of the function : Substituting these expressions into the definition of the total differential yields:   Next, we use the given points to determine the baseline values and independent changes:     Substituting these specific numerical parameters directly into our total differential expression approximates the change: Thus, the approximate change in computed via differentials is .  To find the error involved in using this approximation, we compare it against the exact change ( ) calculated in our previous exercise: This demonstrates that for small structural changes near the point , the total differential provides a highly accurate approximation.   "
+},
+{
+  "id": "ex-differential-error-cylinder",
+  "level": "2",
+  "url": "sec-increment.html#ex-differential-error-cylinder",
+  "type": "Example",
+  "number": "3.47",
+  "title": "",
+  "body": "  The radius and altitude of a right circular cylinder are measured as and respectively, with a maximum possible error in each measurement of . Use differentials to approximate the maximum error in the calculated volume of the cylinder.    The volume of a right circular cylinder is a function of two variables—its radius and its height or altitude :   The total differential represents the approximate propagated error in the volume and is found by calculating the first-order partial derivatives with respect to and :   From the problem statements, we isolate our baseline parameters and maximum independent measurement fluctuations: To approximate the maximum potential error , we look at the worst-case scenario where the errors accumulate constructively, taking the maximum absolute value bounds for the differentials ( and ):   Thus, using differentials, the estimated maximum error in the calculated volume is approximately (or roughly ).   "
+},
+{
+  "id": "sec-chain-rules",
+  "level": "1",
+  "url": "sec-chain-rules.html",
+  "type": "Section",
+  "number": "",
+  "title": "3.5 Chain Rules",
+  "body": " 3.5 Chain Rules  The chain rule is a fundamental tool in calculus that allows us to compute the derivative of a composite function. In this section, we will derive the chain rule for functions of several variables and apply it to various cases.  Recall that if and , where and are differentiable functions, then is indirectly a differentiable function of , and the single-variable chain rule applies:    The Chain Rule: Case I   Suppose that is a differentiable function of and , where and are both differentiable functions of . Then is a differentiable function of and satisfies the formula:    Dependency tree diagram for Case I of the Multivariate Chain Rule.   A tree diagram branching from z down to independent paths through x and y, both terminating at the parameter t.         If , where and , find when .      Variable dependency tree diagram tailored to the specific functions of this example.   A tree diagram branching from the function z down to variables x and y, both terminating at the common variable parameter t with custom functional mappings labeled alongside the nodes.    We first compute all the necessary components for the Case I Chain Rule formula. The first-order partial derivatives of with respect to and are:   The single-variable derivatives of and with respect to the parameter are:   Now, we substitute these components into the chain rule formula:   To find the value of at the specific parameter point , we first evaluate the corresponding coordinate locations for and :   Finally, substituting , , and into our derivative expression yields:      The Chain Rule: Case II   Suppose that is a differentiable function of and , where and are both differentiable functions of and . Then is a differentiable function of and , satisfying the partial derivative formulas:    Dependency tree diagram for Case II of the Multivariate Chain Rule.   A tree diagram branching from z down to x and y, which each branch out further down to independent parameters s and t.         If , where and , find and .      Tailored dependency tree diagram tracking partial rate changes down to parameters and .   A 3-level tree diagram mapping the function z down to intermediate variables x and y, which further subdivide down to the independent parameters s and t with explicit formulas labeled on each branch.    We first calculate the required first-order partial derivatives of the dependent surface function :   Next, we calculate the partial derivatives for the intermediate variable functions and with respect to both independent parameters and :    Applying the Case II Chain Rule formula for the parameter , we substitute our partial derivatives:   Applying the Case II Chain Rule formula for the parameter , we substitute our partial derivatives:       Use the chain rule to find , if    Dependency tree diagram illustrating the intermediate variables linking to the independent variable .   A tree diagram branching from w down to intermediate variables r, s, v, and t. From those, paths branch down further to variables x, y, and z where applicable, highlighting that only r, s, and t branch down to z.       The dependent variable is directly a function of four intermediate variables: , , , and . By checking our dependency tree, we see that , , and depend on the independent variable , whereas does not contain (meaning ). Therefore, the chain rule extension for this system is:   We find each required component derivative independently:     Substituting these components back into our general chain rule formula yields:       If and is differentiable, show that satisfies the partial differential equation:     Let us define the intermediate variables for the inner functions as and , so that . By applying the Case II Chain Rule, we compute the general first-order partial derivatives of with respect to the parameters and :  For the parameter :   For the parameter :   Now, we substitute these expressions directly into the left-hand side of the target verification equation:   Since the expression simplifies identically to , we have successfully shown that the function satisfies the given equation.      If has continuous second-order partial derivatives, , and , find and .    To find the first partial derivative , we apply the Case II Multivariate Chain Rule:   To find the second partial derivative , we differentiate with respect to . This requires applying both the single-variable product rule and a nested multivariate chain rule since the internal terms and still implicitly depend on and (which depend on ):   We expand the nested partial derivatives and using the chain rule:   Substituting these expansions back into our main differential expression yields: Since the second-order partial derivatives are continuous, Clairaut's Theorem guarantees that the mixed partials are equal ( ). Combining the like terms gives the final result:     Suppose an equation of the form defines implicitly as a differentiable function of , such that , where for all in the domain of . If is differentiable, we can apply the multivariate chain rule to differentiate both sides of the equation with respect to , treating as both an independent parameter and a base variable path: If , we can isolate and solve for the single-variable derivative .   Implicit Differentiation: Case I   If an equation defines implicitly as a differentiable function of , then:       Find if .    First, we move all terms to one side of the equation to define our multi-variable identity function :   Next, we calculate the first-order partial derivatives and :    Applying the Theorem for Implicit Differentiation, we substitute these partials into the formula:      Implicit Differentiation: Case II   If an equation defines implicitly as a differentiable function of two variables and , such that for every in the domain of , then:       Find and if is defined implicitly as a function of and by the equation:     First, we move all terms to one side of the equation to define our three-variable identity function :   Next, we find the three required first-order partial derivatives of :     To find , we substitute the partial derivatives and into the implicit differentiation formula and simplify by factoring out a common factor of 3:   Similarly, to find , we substitute the partial derivatives and into the corresponding formula and simplify:       Use the chain rule to find and if:     The dependent variable is a function of intermediate variables and , which both depend on the independent parameters and . We apply the Case II Multivariate Chain Rule.  First, we find the baseline partial derivatives of :   Next, we calculate the partial derivatives of and with respect to the parameter : Substituting these into the chain rule formula for yields:   Now, we calculate the partial derivatives of and with respect to the parameter : Substituting these into the chain rule formula for yields:       Use the chain rule to find if:     As defined by the given equations, the function explicitly depends only on the variable . Since is a function of the single parameter , this simplifies directly to the standard single-variable chain rule:   We compute the component derivatives independently:   Multiplying these expressions together yields the rate of change with respect to :       Find if is determined implicitly by the equation:     We define our multi-variable identity function as:   Next, we evaluate the first-order partial derivatives and :    Applying the Implicit Differentiation Theorem Case I, we find:       Find and if is defined implicitly by the equation:     We define our three-variable identity function as:   We calculate the three first-order partial derivatives of :     Applying the Implicit Differentiation Theorem Case II for the partial derivative with respect to :   Similarly, applying the formula for the partial derivative with respect to :     "
+},
+{
+  "id": "thm-chain-rule-case1",
+  "level": "2",
+  "url": "sec-chain-rules.html#thm-chain-rule-case1",
+  "type": "Theorem",
+  "number": "3.48",
+  "title": "The Chain Rule: Case I.",
+  "body": " The Chain Rule: Case I   Suppose that is a differentiable function of and , where and are both differentiable functions of . Then is a differentiable function of and satisfies the formula:    Dependency tree diagram for Case I of the Multivariate Chain Rule.   A tree diagram branching from z down to independent paths through x and y, both terminating at the parameter t.      "
+},
+{
+  "id": "ex-chain-rule-case1-evaluation",
+  "level": "2",
+  "url": "sec-chain-rules.html#ex-chain-rule-case1-evaluation",
+  "type": "Example",
+  "number": "3.50",
+  "title": "",
+  "body": "  If , where and , find when .      Variable dependency tree diagram tailored to the specific functions of this example.   A tree diagram branching from the function z down to variables x and y, both terminating at the common variable parameter t with custom functional mappings labeled alongside the nodes.    We first compute all the necessary components for the Case I Chain Rule formula. The first-order partial derivatives of with respect to and are:   The single-variable derivatives of and with respect to the parameter are:   Now, we substitute these components into the chain rule formula:   To find the value of at the specific parameter point , we first evaluate the corresponding coordinate locations for and :   Finally, substituting , , and into our derivative expression yields:    "
+},
+{
+  "id": "thm-chain-rule-case2",
+  "level": "2",
+  "url": "sec-chain-rules.html#thm-chain-rule-case2",
+  "type": "Theorem",
+  "number": "3.52",
+  "title": "The Chain Rule: Case II.",
+  "body": " The Chain Rule: Case II   Suppose that is a differentiable function of and , where and are both differentiable functions of and . Then is a differentiable function of and , satisfying the partial derivative formulas:    Dependency tree diagram for Case II of the Multivariate Chain Rule.   A tree diagram branching from z down to x and y, which each branch out further down to independent parameters s and t.      "
+},
+{
+  "id": "ex-chain-rule-case2-evaluation",
+  "level": "2",
+  "url": "sec-chain-rules.html#ex-chain-rule-case2-evaluation",
+  "type": "Example",
+  "number": "3.54",
+  "title": "",
+  "body": "  If , where and , find and .      Tailored dependency tree diagram tracking partial rate changes down to parameters and .   A 3-level tree diagram mapping the function z down to intermediate variables x and y, which further subdivide down to the independent parameters s and t with explicit formulas labeled on each branch.    We first calculate the required first-order partial derivatives of the dependent surface function :   Next, we calculate the partial derivatives for the intermediate variable functions and with respect to both independent parameters and :    Applying the Case II Chain Rule formula for the parameter , we substitute our partial derivatives:   Applying the Case II Chain Rule formula for the parameter , we substitute our partial derivatives:    "
+},
+{
+  "id": "ex-chain-rule-five-variables",
+  "level": "2",
+  "url": "sec-chain-rules.html#ex-chain-rule-five-variables",
+  "type": "Example",
+  "number": "3.56",
+  "title": "",
+  "body": "  Use the chain rule to find , if    Dependency tree diagram illustrating the intermediate variables linking to the independent variable .   A tree diagram branching from w down to intermediate variables r, s, v, and t. From those, paths branch down further to variables x, y, and z where applicable, highlighting that only r, s, and t branch down to z.       The dependent variable is directly a function of four intermediate variables: , , , and . By checking our dependency tree, we see that , , and depend on the independent variable , whereas does not contain (meaning ). Therefore, the chain rule extension for this system is:   We find each required component derivative independently:     Substituting these components back into our general chain rule formula yields:    "
+},
+{
+  "id": "ex-chain-rule-differentiable-proof",
+  "level": "2",
+  "url": "sec-chain-rules.html#ex-chain-rule-differentiable-proof",
+  "type": "Example",
+  "number": "3.58",
+  "title": "",
+  "body": "  If and is differentiable, show that satisfies the partial differential equation:     Let us define the intermediate variables for the inner functions as and , so that . By applying the Case II Chain Rule, we compute the general first-order partial derivatives of with respect to the parameters and :  For the parameter :   For the parameter :   Now, we substitute these expressions directly into the left-hand side of the target verification equation:   Since the expression simplifies identically to , we have successfully shown that the function satisfies the given equation.   "
+},
+{
+  "id": "ex-chain-rule-second-order",
+  "level": "2",
+  "url": "sec-chain-rules.html#ex-chain-rule-second-order",
+  "type": "Example",
+  "number": "3.59",
+  "title": "",
+  "body": "  If has continuous second-order partial derivatives, , and , find and .    To find the first partial derivative , we apply the Case II Multivariate Chain Rule:   To find the second partial derivative , we differentiate with respect to . This requires applying both the single-variable product rule and a nested multivariate chain rule since the internal terms and still implicitly depend on and (which depend on ):   We expand the nested partial derivatives and using the chain rule:   Substituting these expansions back into our main differential expression yields: Since the second-order partial derivatives are continuous, Clairaut's Theorem guarantees that the mixed partials are equal ( ). Combining the like terms gives the final result:    "
+},
+{
+  "id": "thm-implicit-differentiation-1",
+  "level": "2",
+  "url": "sec-chain-rules.html#thm-implicit-differentiation-1",
+  "type": "Theorem",
+  "number": "3.60",
+  "title": "Implicit Differentiation: Case I.",
+  "body": " Implicit Differentiation: Case I   If an equation defines implicitly as a differentiable function of , then:    "
+},
+{
+  "id": "ex-implicit-differentiation-evaluation",
+  "level": "2",
+  "url": "sec-chain-rules.html#ex-implicit-differentiation-evaluation",
+  "type": "Example",
+  "number": "3.61",
+  "title": "",
+  "body": "  Find if .    First, we move all terms to one side of the equation to define our multi-variable identity function :   Next, we calculate the first-order partial derivatives and :    Applying the Theorem for Implicit Differentiation, we substitute these partials into the formula:    "
+},
+{
+  "id": "thm-implicit-differentiation-2",
+  "level": "2",
+  "url": "sec-chain-rules.html#thm-implicit-differentiation-2",
+  "type": "Theorem",
+  "number": "3.62",
+  "title": "Implicit Differentiation: Case II.",
+  "body": " Implicit Differentiation: Case II   If an equation defines implicitly as a differentiable function of two variables and , such that for every in the domain of , then:    "
+},
+{
+  "id": "ex-implicit-differentiation-three-variables",
+  "level": "2",
+  "url": "sec-chain-rules.html#ex-implicit-differentiation-three-variables",
+  "type": "Example",
+  "number": "3.63",
+  "title": "",
+  "body": "  Find and if is defined implicitly as a function of and by the equation:     First, we move all terms to one side of the equation to define our three-variable identity function :   Next, we find the three required first-order partial derivatives of :     To find , we substitute the partial derivatives and into the implicit differentiation formula and simplify by factoring out a common factor of 3:   Similarly, to find , we substitute the partial derivatives and into the corresponding formula and simplify:    "
+},
+{
+  "id": "chk-chain-rule-bivariate-parameters",
+  "level": "2",
+  "url": "sec-chain-rules.html#chk-chain-rule-bivariate-parameters",
+  "type": "Checkpoint",
+  "number": "3.64",
+  "title": "",
+  "body": "  Use the chain rule to find and if:     The dependent variable is a function of intermediate variables and , which both depend on the independent parameters and . We apply the Case II Multivariate Chain Rule.  First, we find the baseline partial derivatives of :   Next, we calculate the partial derivatives of and with respect to the parameter : Substituting these into the chain rule formula for yields:   Now, we calculate the partial derivatives of and with respect to the parameter : Substituting these into the chain rule formula for yields:    "
+},
+{
+  "id": "chk-chain-rule-single-parameter",
+  "level": "2",
+  "url": "sec-chain-rules.html#chk-chain-rule-single-parameter",
+  "type": "Checkpoint",
+  "number": "3.65",
+  "title": "",
+  "body": "  Use the chain rule to find if:     As defined by the given equations, the function explicitly depends only on the variable . Since is a function of the single parameter , this simplifies directly to the standard single-variable chain rule:   We compute the component derivatives independently:   Multiplying these expressions together yields the rate of change with respect to :    "
+},
+{
+  "id": "chk-implicit-differentiation-bivariate",
+  "level": "2",
+  "url": "sec-chain-rules.html#chk-implicit-differentiation-bivariate",
+  "type": "Checkpoint",
+  "number": "3.66",
+  "title": "",
+  "body": "  Find if is determined implicitly by the equation:     We define our multi-variable identity function as:   Next, we evaluate the first-order partial derivatives and :    Applying the Implicit Differentiation Theorem Case I, we find:    "
+},
+{
+  "id": "chk-implicit-differentiation-trivariate",
+  "level": "2",
+  "url": "sec-chain-rules.html#chk-implicit-differentiation-trivariate",
+  "type": "Checkpoint",
+  "number": "3.67",
+  "title": "",
+  "body": "  Find and if is defined implicitly by the equation:     We define our three-variable identity function as:   We calculate the three first-order partial derivatives of :     Applying the Implicit Differentiation Theorem Case II for the partial derivative with respect to :   Similarly, applying the formula for the partial derivative with respect to :    "
+},
+{
+  "id": "sec-directional-derivatives",
+  "level": "1",
+  "url": "sec-directional-derivatives.html",
+  "type": "Section",
+  "number": "",
+  "title": "3.6 Directional Derivatives",
+  "body": " 3.6 Directional Derivatives  In this section, we will explore the concept of directional derivatives, which generalize the idea of partial derivatives to arbitrary directions in space. Directional derivatives provide a way to measure how a function changes as we move in a specific direction from a given point.    Let be a unit vector. The directional derivative of at in the direction of , denoted by , is defined by the limit:      Directional Derivative Computation Formula   If is a differentiable function of two variables and is a unit vector, then the directional derivative can be computed as:       Find the directional derivative if and is the unit vector given by the angle . What is the value of ?    First, we find the horizontal and vertical components of our directional unit vector using the given angle : This gives the unit direction vector .  Next, we calculate the general first-order partial derivatives of the function :    Applying the Theorem for Directional Derivatives, we substitute these components to find the general formula for :   To find , we evaluate our partial derivatives at the specific point :  Substituting these numerical values back into our formula yields:     By applying the properties of vector geometry, the directional derivative formula can be elegantly rewritten as the dot product of two distinct vector paths:    The Gradient Vector   Let be a function of two variables. The gradient of is the vector function denoted by and defined by:     With this notation for the gradient vector, we can rewrite the expression for the directional derivative as a clean vector dot product:     If , find the gradient vector .    To find the gradient vector, we first compute the first-order partial derivatives of with respect to and :  For the -derivative, we treat as a constant and apply the single-variable chain rule to the exponential term:   For the -derivative, we treat as a constant:   Now, we assemble these component functions into the final gradient vector expression using both component-bracket and standard basis vector notations:       Find the directional derivative of the function at the point in the direction of the vector .    To compute the directional derivative, the direction vector must be a unit vector. We first find the magnitude of the given vector : Normalizing gives the required direction unit vector :   Next, we calculate the general first-order partial derivatives of :    Evaluating these partial derivatives at the given point yields the components of the gradient vector :     Finally, we compute the directional derivative by taking the dot product of the gradient vector and our direction unit vector:       Let . Use the gradient to find the directional derivative of at in the direction from to .    First, we find the displacement vector pointing from the initial point to the destination point by subtracting their respective coordinates:   We find the magnitude of and normalize it to obtain our unit direction vector :    Next, we calculate the general gradient vector by computing the first-order partial derivatives of :    Evaluating the gradient vector specifically at the point yields:   Finally, we compute the directional derivative by evaluating the dot product :      Gradient Theorem   Let be a function of two variables that is differentiable at the point .   The maximum value of the directional derivative at is .    The maximum rate of increase of at occurs in the exact direction of the gradient vector .        Minimization via the Gradient Vector   Let be a function of two variables that is differentiable at the point .   The minimum value of the directional derivative at is .    The maximum rate of decrease of at occurs in the opposite direction of the gradient vector, .         Let . Find the direction in which increases most rapidly at the point , and find the maximum rate of increase of at .    According to the Gradient Theorem, a differentiable function increases most rapidly in the direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that gradient.  First, we find the general first-order partial derivatives of :  This gives our general gradient vector: .  Next, we evaluate the gradient vector specifically at the point : Therefore, the direction in which increases most rapidly at is given by the vector (or normalized as the unit direction vector ).  Finally, we calculate the maximum rate of increase by taking the norm of this gradient vector:   Thus, the maximum rate of increase of the function at is exactly .      If , find the rate of change of at the point in the direction from to .    The rate of change in a specific direction is given by the directional derivative. First, we find the displacement vector pointing from to by subtracting their coordinates:   To compute a directional derivative, we must normalize into a unit vector . We find its magnitude: Dividing by its magnitude gives the direction unit vector :   Next, we calculate the general first-order partial derivatives of using the single-variable product and chain rules:    Evaluating these partial derivatives at the baseline point yields the components of the gradient vector :     Finally, we compute the directional derivative by evaluating the dot product of the gradient vector and our direction unit vector:       For the function at the point , in what direction does have the maximum rate of change? What is this maximum rate of change?    According to the Gradient Theorem, a differentiable function increases most rapidly in the exact direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that vector.  From our calculations in the previous exercise, the gradient vector evaluated at the point is:   Therefore, has its maximum rate of change in the direction of the vector . Expressed as a normalized unit vector, this direction is:   The maximum rate of change is the magnitude of this gradient vector:      Directional Derivative with Three Variables   Let be a 3D unit vector. The directional derivative of at in the direction of , denoted by , is defined by the limit:      Directional Derivative Formula for Three Variables   If is a differentiable function of three variables and is a unit vector, then the directional derivative can be computed as:     The gradient of a function of three variables is the vector function denoted by and defined by: With this vector framework, the directional derivative can be written compactly as the dot product .    If , find the gradient vector . Then, find the directional derivative of at the point in the direction of the vector .    First, we compute the three first-order partial derivatives of by treating the remaining variables as constants and applying single-variable chain rules:     Assembling these components gives the general gradient vector formula:   Next, we evaluate the gradient vector specifically at the given point :   This yields the evaluated vector: .  The direction vector is not a unit vector. We must normalize it before computing the directional derivative. We calculate its magnitude: Dividing by its magnitude gives the direction unit vector :   Finally, we calculate the directional derivative by taking the dot product of the evaluated gradient vector and our direction unit vector:       Suppose that the temperature at a point in space is given by: where is measured in degrees Celsius and are measured in meters. In which direction does the temperature increase fastest at the point ? What is the maximum rate of increase?    According to the Gradient Theorem, a differentiable function increases most rapidly in the exact direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that gradient vector.  We rewrite the temperature function using a negative exponent to simplify differentiation: . Next, we calculate the three first-order partial derivatives of using the single-variable chain rule:     Before evaluating the partials at the point , we find the value of the shared denominator expression: Substituting , , and into our partial derivatives yields:     This gives our evaluated gradient vector: Therefore, the temperature increases fastest in the direction of the vector (or its corresponding normalized direction unit vector ).  The maximum rate of increase is the magnitude of this gradient vector: Thus, the maximum rate of temperature increase at the point is exactly .      A simple electrical circuit consists of a resistor and an electromotive force . At a certain instant, is and is increasing at a rate of , while is and is decreasing at a rate of . Use Ohm's law, , to find the rate at which the current is changing.    Ohm's law defines current as a function of two variables—voltage and resistance : . Since both and change over time, they implicitly depend on a common time parameter . By applying the Case I Multivariate Chain Rule, the rate of change of the current with respect to time is:   First, we compute the first-order partial derivatives of with respect to and :   From the statement of the problem, we isolate our baseline parameters and independent rate shifts at this specific instant (noting that a decreasing rate requires a negative value):   Substituting these numerical values into our expanded chain rule expression yields:   Thus, at this instant, the current is increasing at a rate of exactly .    "
+},
+{
+  "id": "def-directional-derivative",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#def-directional-derivative",
+  "type": "Definition",
+  "number": "3.68",
+  "title": "",
+  "body": "  Let be a unit vector. The directional derivative of at in the direction of , denoted by , is defined by the limit:    "
+},
+{
+  "id": "thm-directional-derivative-formula",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#thm-directional-derivative-formula",
+  "type": "Theorem",
+  "number": "3.69",
+  "title": "Directional Derivative Computation Formula.",
+  "body": " Directional Derivative Computation Formula   If is a differentiable function of two variables and is a unit vector, then the directional derivative can be computed as:    "
+},
+{
+  "id": "ex-directional-derivative-evaluation",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#ex-directional-derivative-evaluation",
+  "type": "Example",
+  "number": "3.70",
+  "title": "",
+  "body": "  Find the directional derivative if and is the unit vector given by the angle . What is the value of ?    First, we find the horizontal and vertical components of our directional unit vector using the given angle : This gives the unit direction vector .  Next, we calculate the general first-order partial derivatives of the function :    Applying the Theorem for Directional Derivatives, we substitute these components to find the general formula for :   To find , we evaluate our partial derivatives at the specific point :  Substituting these numerical values back into our formula yields:    "
+},
+{
+  "id": "def-gradient-vector",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#def-gradient-vector",
+  "type": "Definition",
+  "number": "3.71",
+  "title": "The Gradient Vector.",
+  "body": " The Gradient Vector   Let be a function of two variables. The gradient of is the vector function denoted by and defined by:    "
+},
+{
+  "id": "ex-find-gradient-vector",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#ex-find-gradient-vector",
+  "type": "Example",
+  "number": "3.72",
+  "title": "",
+  "body": "  If , find the gradient vector .    To find the gradient vector, we first compute the first-order partial derivatives of with respect to and :  For the -derivative, we treat as a constant and apply the single-variable chain rule to the exponential term:   For the -derivative, we treat as a constant:   Now, we assemble these component functions into the final gradient vector expression using both component-bracket and standard basis vector notations:    "
+},
+{
+  "id": "chk-directional-derivative-nonunit",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#chk-directional-derivative-nonunit",
+  "type": "Checkpoint",
+  "number": "3.73",
+  "title": "",
+  "body": "  Find the directional derivative of the function at the point in the direction of the vector .    To compute the directional derivative, the direction vector must be a unit vector. We first find the magnitude of the given vector : Normalizing gives the required direction unit vector :   Next, we calculate the general first-order partial derivatives of :    Evaluating these partial derivatives at the given point yields the components of the gradient vector :     Finally, we compute the directional derivative by taking the dot product of the gradient vector and our direction unit vector:    "
+},
+{
+  "id": "chk-directional-derivative-two-points",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#chk-directional-derivative-two-points",
+  "type": "Checkpoint",
+  "number": "3.74",
+  "title": "",
+  "body": "  Let . Use the gradient to find the directional derivative of at in the direction from to .    First, we find the displacement vector pointing from the initial point to the destination point by subtracting their respective coordinates:   We find the magnitude of and normalize it to obtain our unit direction vector :    Next, we calculate the general gradient vector by computing the first-order partial derivatives of :    Evaluating the gradient vector specifically at the point yields:   Finally, we compute the directional derivative by evaluating the dot product :    "
+},
+{
+  "id": "thm-gradient-maximization",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#thm-gradient-maximization",
+  "type": "Theorem",
+  "number": "3.75",
+  "title": "Gradient Theorem.",
+  "body": " Gradient Theorem   Let be a function of two variables that is differentiable at the point .   The maximum value of the directional derivative at is .    The maximum rate of increase of at occurs in the exact direction of the gradient vector .      "
+},
+{
+  "id": "cor-gradient-minimization",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#cor-gradient-minimization",
+  "type": "Corollary",
+  "number": "3.76",
+  "title": "Minimization via the Gradient Vector.",
+  "body": " Minimization via the Gradient Vector   Let be a function of two variables that is differentiable at the point .   The minimum value of the directional derivative at is .    The maximum rate of decrease of at occurs in the opposite direction of the gradient vector, .      "
+},
+{
+  "id": "ex-maximum-rate-of-change-evaluation",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#ex-maximum-rate-of-change-evaluation",
+  "type": "Example",
+  "number": "3.77",
+  "title": "",
+  "body": "  Let . Find the direction in which increases most rapidly at the point , and find the maximum rate of increase of at .    According to the Gradient Theorem, a differentiable function increases most rapidly in the direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that gradient.  First, we find the general first-order partial derivatives of :  This gives our general gradient vector: .  Next, we evaluate the gradient vector specifically at the point : Therefore, the direction in which increases most rapidly at is given by the vector (or normalized as the unit direction vector ).  Finally, we calculate the maximum rate of increase by taking the norm of this gradient vector:   Thus, the maximum rate of increase of the function at is exactly .   "
+},
+{
+  "id": "chk-rate-of-change-two-points",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#chk-rate-of-change-two-points",
+  "type": "Checkpoint",
+  "number": "3.78",
+  "title": "",
+  "body": "  If , find the rate of change of at the point in the direction from to .    The rate of change in a specific direction is given by the directional derivative. First, we find the displacement vector pointing from to by subtracting their coordinates:   To compute a directional derivative, we must normalize into a unit vector . We find its magnitude: Dividing by its magnitude gives the direction unit vector :   Next, we calculate the general first-order partial derivatives of using the single-variable product and chain rules:    Evaluating these partial derivatives at the baseline point yields the components of the gradient vector :     Finally, we compute the directional derivative by evaluating the dot product of the gradient vector and our direction unit vector:    "
+},
+{
+  "id": "chk-maximum-rate-of-change",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#chk-maximum-rate-of-change",
+  "type": "Checkpoint",
+  "number": "3.79",
+  "title": "",
+  "body": "  For the function at the point , in what direction does have the maximum rate of change? What is this maximum rate of change?    According to the Gradient Theorem, a differentiable function increases most rapidly in the exact direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that vector.  From our calculations in the previous exercise, the gradient vector evaluated at the point is:   Therefore, has its maximum rate of change in the direction of the vector . Expressed as a normalized unit vector, this direction is:   The maximum rate of change is the magnitude of this gradient vector:    "
+},
+{
+  "id": "def-directional-derivative-three-variables",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#def-directional-derivative-three-variables",
+  "type": "Definition",
+  "number": "3.80",
+  "title": "Directional Derivative with Three Variables.",
+  "body": " Directional Derivative with Three Variables   Let be a 3D unit vector. The directional derivative of at in the direction of , denoted by , is defined by the limit:    "
+},
+{
+  "id": "thm-directional-derivative-formula-three-variables",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#thm-directional-derivative-formula-three-variables",
+  "type": "Theorem",
+  "number": "3.81",
+  "title": "Directional Derivative Formula for Three Variables.",
+  "body": " Directional Derivative Formula for Three Variables   If is a differentiable function of three variables and is a unit vector, then the directional derivative can be computed as:    "
+},
+{
+  "id": "sec-directional-derivatives-19",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#sec-directional-derivatives-19",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "gradient "
+},
+{
+  "id": "ex-directional-derivative-three-variables-evaluation",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#ex-directional-derivative-three-variables-evaluation",
+  "type": "Example",
+  "number": "3.82",
+  "title": "",
+  "body": "  If , find the gradient vector . Then, find the directional derivative of at the point in the direction of the vector .    First, we compute the three first-order partial derivatives of by treating the remaining variables as constants and applying single-variable chain rules:     Assembling these components gives the general gradient vector formula:   Next, we evaluate the gradient vector specifically at the given point :   This yields the evaluated vector: .  The direction vector is not a unit vector. We must normalize it before computing the directional derivative. We calculate its magnitude: Dividing by its magnitude gives the direction unit vector :   Finally, we calculate the directional derivative by taking the dot product of the evaluated gradient vector and our direction unit vector:    "
+},
+{
+  "id": "chk-temperature-gradient-maximization",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#chk-temperature-gradient-maximization",
+  "type": "Checkpoint",
+  "number": "3.83",
+  "title": "",
+  "body": "  Suppose that the temperature at a point in space is given by: where is measured in degrees Celsius and are measured in meters. In which direction does the temperature increase fastest at the point ? What is the maximum rate of increase?    According to the Gradient Theorem, a differentiable function increases most rapidly in the exact direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that gradient vector.  We rewrite the temperature function using a negative exponent to simplify differentiation: . Next, we calculate the three first-order partial derivatives of using the single-variable chain rule:     Before evaluating the partials at the point , we find the value of the shared denominator expression: Substituting , , and into our partial derivatives yields:     This gives our evaluated gradient vector: Therefore, the temperature increases fastest in the direction of the vector (or its corresponding normalized direction unit vector ).  The maximum rate of increase is the magnitude of this gradient vector: Thus, the maximum rate of temperature increase at the point is exactly .   "
+},
+{
+  "id": "chk-ohm-law-related-rates",
+  "level": "2",
+  "url": "sec-directional-derivatives.html#chk-ohm-law-related-rates",
+  "type": "Checkpoint",
+  "number": "3.84",
+  "title": "",
+  "body": "  A simple electrical circuit consists of a resistor and an electromotive force . At a certain instant, is and is increasing at a rate of , while is and is decreasing at a rate of . Use Ohm's law, , to find the rate at which the current is changing.    Ohm's law defines current as a function of two variables—voltage and resistance : . Since both and change over time, they implicitly depend on a common time parameter . By applying the Case I Multivariate Chain Rule, the rate of change of the current with respect to time is:   First, we compute the first-order partial derivatives of with respect to and :   From the statement of the problem, we isolate our baseline parameters and independent rate shifts at this specific instant (noting that a decreasing rate requires a negative value):   Substituting these numerical values into our expanded chain rule expression yields:   Thus, at this instant, the current is increasing at a rate of exactly .   "
+},
+{
   "id": "activities",
   "level": "1",
   "url": "activities.html",
   "type": "Chapter",
-  "number": "3",
+  "number": "4",
   "title": "MyOpenMath Interactive Activities",
   "body": " MyOpenMath Interactive Activities   These files contain copies of the interactive MyOpenMath exercises that guided our learning for each topic. Special thanks to Professor Jason Hardin for sharing his MyOpenMath question bank.      "
 },
@@ -2102,7 +2876,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "homework.html",
   "type": "Chapter",
-  "number": "5",
+  "number": "6",
   "title": "Homework",
   "body": " Homework    "
 },
@@ -2129,7 +2903,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ma-150-syllabus.html#subsec-105-TentativeSchedule-3",
   "type": "Table",
-  "number": "6.1",
+  "number": "7.1",
   "title": "Course Schedule and Exam Dates",
   "body": " Course Schedule and Exam Dates        Unit  Topics  Due Dates    1  Voting methods, apportionment  Fri 5\/22    2  Simple interest, compound interest  Wed 5\/27    3  Annuities, installment loans (Quiz 1)   Wed 5\/27    4  Mortgages, credit cards  Wed 6\/3      In-Person Exam 1 Thu 6\/4 (3:30-5:00pm) (S-136)     5  Set basics, subsets  Wed 6\/10    6  Set operations, surveys (Quiz 2)   Wed 6\/10    7  Intro to probability, events involving “not”, “or”, “and”  Wed 6\/17    8  Counting, permutations, combinations (Quiz 3)  Wed 6\/17      Online Exam 2 (Thu 6\/25)     9  Probability with counting, odds, conditional  Fri 6\/26      In-Person FINAL EXAM Thu 7\/2 (3:30-6:30pm) (S-136)      "
 }

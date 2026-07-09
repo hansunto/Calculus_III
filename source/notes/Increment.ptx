@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-increment">
+  <title>3.4 Increments and Differentials</title>
+  <p>
+  In this section, we will explore the concepts of increments and differentials, which are fundamental for 
+  analyzing how multi-variable functions respond to small changes in their independent inputs. 
+  We will begin by defining the exact increment of a function and establishing the rigorous criteria for 
+  differentiability using non-unique error functions.
+</p>
+
+  <p>
+  If <m>f</m> is a function of two variables <m>x</m> and <m>y</m>, then <m>\Delta x</m> and <m>\Delta y</m> 
+  denote the <term>increments of <m>x</m> and <m>y</m></term>. 
+  Suppose <m>x</m> changes from <m>a</m> to <m>a+\Delta x</m> and <m>y</m> changes from <m>b</m> to <m>b+\Delta y</m>. 
+  Then the corresponding increment of <m>z=f(x,y)</m> is:
+  <me>\Delta z=f(a+\Delta x, b+\Delta y)-f(a,b)</me>
+  The increment of <m>z</m>, denoted <m>\Delta z</m>, represents the change in the values of <m>f</m> 
+  when <m>(x,y)</m> changes from <m>(a,b)</m> to <m>(a+\Delta x, b +\Delta y)</m>.
+</p>
+
+<example xml:id="ex-function-increments">
+  <statement>
+    <p> Let <m>z=f(x,y)=3x^2-xy</m>. </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p> Find an algebraic expression for <m>\Delta z</m> in terms of <m>x</m>, <m>y</m>, <m>\Delta x</m>, 
+            and <m>\Delta y</m>. </p>
+        </li>
+        <li>
+          <p> Calculate the exact numerical value of <m>\Delta z</m> if <m>(x,y)</m> changes from <m>(1,2)</m> to 
+            <m>(1.01, 1.98)</m>. </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            Using the definition of a multivariate function increment, we set up and expand the expression 
+            for <m>\Delta z</m>:
+            <md>
+              <mrow>\Delta z \amp = f(x+\Delta x, y+\Delta y) - f(x,y)</mrow>
+              <mrow>\amp = \left[3(x+\Delta x)^2 - (x+\Delta x)(y+\Delta y)\right] - (3x^2 - xy)</mrow>
+              <mrow>\amp = \left[3(x^2 + 2x\Delta x + (\Delta x)^2) - (xy + x\Delta y + y\Delta x + \Delta x\Delta y)\right] - 3x^2 + xy</mrow>
+              <mrow>\amp = 3x^2 + 6x\Delta x + 3(\Delta x)^2 - xy - x\Delta y - y\Delta x - \Delta x\Delta y - 3x^2 + xy</mrow>
+            </md>
+            Canceling the matching <m>3x^2</m> and <m>xy</m> terms, we obtain the simplified general increment:
+            <me>\Delta z = 6x\Delta x + 3(\Delta x)^2 - y\Delta x - x\Delta y - \Delta x\Delta y</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            The independent variables change from the base point <m>(x,y) = (1,2)</m> to the final point 
+            <m>(1.01, 1.98)</m>. We compute the respective component increments:
+            <me>\Delta x = 1.01 - 1 = 0.01</me>
+            <me>\Delta y = 1.98 - 2 = -0.02</me>
+            Substituting <m>x=1</m>, <m>y=2</m>, <m>\Delta x = 0.01</m>, and <m>\Delta y = -0.02</m> 
+            directly into our algebraic result from Part 1 yields:
+            <md>
+              <mrow>\Delta z \amp = 6(1)(0.01) + 3(0.01)^2 - 2(0.01) - 1(-0.02) - (0.01)(-0.02)</mrow>
+              <mrow>\amp = 0.06 + 3(0.0001) - 0.02 + 0.02 - (-0.0002)</mrow>
+              <mrow>\amp = 0.06 + 0.0003 + 0.0002</mrow>
+              <mrow>\amp = 0.0605</mrow>
+            </md>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+</example>
+
+<definition xml:id="def-differentiability-two-variables">
+  <title>Differentiability for Functions of Two Variables</title>
+  <statement>
+    <p>
+      If <m>z=f(x,y)</m>, then <m>f</m> is <term>differentiable</term> at <m>(a,b)</m> if <m>\Delta z</m> 
+      can be expressed in the form:
+      <me>\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y + \epsilon_1\Delta x + \epsilon_2\Delta y</me>
+      where <m>\epsilon_1 \to 0</m> and <m>\epsilon_2 \to 0</m> as <m>(\Delta x,\Delta y) \to (0,0)</m>.
+    </p>
+  </statement>
+</definition>
+
+<theorem xml:id="thm-sufficient-differentiability">
+  <title>Sufficient Condition for Differentiability</title>
+  <statement>
+    <p>
+      If the partial derivatives <m>f_x</m> and <m>f_y</m> exist near <m>(a,b)</m> and are continuous at 
+      <m>(a,b)</m>, then <m>f</m> is differentiable at <m>(a,b)</m>.
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-differentiability-epsilon-verification">
+  <statement>
+    <p>
+      If <m>z=f(x,y)=3x^2-xy</m>, find an expression for <m>\Delta z</m> to identify the functions <m>\epsilon_1</m> and <m>\epsilon_2</m> using the base point <m>(a,b)=(x,y)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the first-order partial derivatives of <m>f(x,y) = 3x^2-xy</m> to establish our baseline 
+      linear terms:
+      <me>f_x(x,y) = 6x - y \quad \text{and} \quad f_y(x,y) = -x</me>
+    </p>
+    <p>
+      From our previous algebraic expansion of the increment for this exact function, we know that:
+      <me>\Delta z = 6x\Delta x + 3(\Delta x)^2 - y\Delta x - x\Delta y - \Delta x\Delta y</me>
+      We rearrange and group these terms to isolate the linear differential components <m>f_x(x,y)\Delta x</m> 
+      and <m>f_y(x,y)\Delta y</m>:
+      <md>
+        <mrow>\Delta z \amp = (6x\Delta x - y\Delta x) + (-x\Delta y) + 3(\Delta x)^2 - \Delta x\Delta y</mrow>
+        <mrow>\amp = (6x - y)\Delta x + (-x)\Delta y + 3(\Delta x)^2 - \Delta x\Delta y</mrow>
+      </md>
+    </p>
+    <p>
+      To match the definition's template form of <m>\epsilon_1\Delta x + \epsilon_2\Delta y</m>, 
+      we factor a <m>\Delta x</m> out of the first remaining term and a <m>\Delta y</m> out of the second 
+      remaining term:
+      <me>\Delta z = (6x - y)\Delta x + (-x)\Delta y + (3\Delta x)\Delta x + (-\Delta x)\Delta y</me>
+    </p>
+    <p>
+      Comparing this directly to the definition form, we can identify:
+      <me>\epsilon_1 = 3\Delta x \quad \text{and} \quad \epsilon_2 = -\Delta x</me>
+      As <m>(\Delta x, \Delta y) \to (0,0)</m>, it is clear that both <m>\epsilon_1 \to 0</m> and 
+      <m>\epsilon_2 \to 0</m>. This confirms explicitly that the polynomial function <m>f(x,y) = 3x^2-xy</m> 
+      is differentiable everywhere. 
+    </p>
+    <p>
+      <alert>Note:</alert> Because the leftover terms can be grouped in alternative arrangements 
+      (for example, factoring <m>\Delta x</m> out of the entire remaining expression), the error functions 
+      <m>\epsilon_1</m> and <m>\epsilon_2</m> are not unique.
+    </p>
+  </solution>
+</example>
+
+<definition xml:id="def-total-differentials">
+  <title>Differentials for Functions of Two Variables</title>
+  <statement>
+    <p>
+      If <m>z=f(x,y)</m> is a differentiable function, the <term>differentials <m>dx</m> and <m>dy</m></term> are independent variables defined as <m>dx=\Delta x</m> and <m>dy=\Delta y</m>. 
+      The <term>total differential of <m>z</m></term> (or the dependent differential <m>dz</m>) is defined by:
+      <me>dz = f_x(x,y)\,dx + f_y(x,y)\,dy = \frac{\partial z}{\partial x}\,dx + \frac{\partial z}{\partial y}\,dy</me>
+    </p>
+    <p>
+      Using this framework, the exact function increment can be written as:
+      <me>\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y + \epsilon_1\Delta x + \epsilon_2\Delta y = dz + \epsilon_1\Delta x + \epsilon_2\Delta y</me>
+      On the other hand, the discrepancy between the exact increment and the total differential approximation is given by:
+      <me>\Delta z - dz = \epsilon_1\Delta x + \epsilon_2\Delta y</me>
+      where <m>\epsilon_1 \to 0</m> and <m>\epsilon_2 \to 0</m> as <m>(\Delta x,\Delta y) \to (0,0)</m>. 
+      Therefore, for small changes in <m>x</m> and <m>y</m>, we can approximate the true change using the differential:
+      <me>\Delta z \approx dz</me>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-total-differential-approximation">
+  <statement>
+    <p>
+      If <m>z=f(x,y)=3x^2-xy</m>, find the total differential <m>dz</m>. 
+      Then, use it to approximate the change in <m>z</m> if <m>(x,y)</m> changes from <m>(1,2)</m> to <m>(1.01, 1.98)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the first-order partial derivatives of the function <m>f(x,y) = 3x^2-xy</m>:
+      <me>f_x(x,y) = 6x - y \quad \text{and} \quad f_y(x,y) = -x</me>
+      Substituting these expressions into the definition of the total differential yields:
+      <me>dz = (6x - y)\,dx + (-x)\,dy</me>
+    </p>
+    <p>
+      Next, we use the given points to determine the baseline values and independent changes:
+      <me>x = 1, \quad y = 2</me>
+      <me>dx = \Delta x = 1.01 - 1 = 0.01</me>
+      <me>dy = \Delta y = 1.98 - 2 = -0.02</me>
+    </p>
+    <p>
+      Substituting these specific numerical parameters directly into our total differential expression approximates the change:
+      <md>
+        <mrow>dz \amp = (6(1) - 2)(0.01) + (-1)(-0.02)</mrow>
+        <mrow>\amp = (4)(0.01) + 0.02</mrow>
+        <mrow>\amp = 0.04 + 0.02</mrow>
+        <mrow>\amp = 0.06</mrow>
+      </md>
+      Thus, the approximate change in <m>z</m> computed via differentials is <m>dz = 0.06</m>.
+    </p>
+    <p>
+      To find the error involved in using this approximation, we compare it against the exact change (<m>\Delta z = 0.0605</m>) calculated in our previous exercise:
+      <me>\text{Error} = |\Delta z - dz| = |0.0605 - 0.06| = 0.0005</me>
+      This demonstrates that for small structural changes near the point <m>(1,2)</m>, the total differential provides a highly accurate approximation.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-differential-error-cylinder">
+  <statement>
+    <p>
+      The radius and altitude of a right circular cylinder are measured as <m>3\text{ in}</m> and <m>8\text{ in}</m> respectively, with a maximum possible error in each measurement of <m>\pm 0.05\text{ inch}</m>. 
+      Use differentials to approximate the maximum error in the calculated volume of the cylinder.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The volume <m>V</m> of a right circular cylinder is a function of two variables—its radius <m>r</m> and its height or altitude <m>h</m>:
+      <me>V(r,h) = \pi r^2 h</me>
+    </p>
+    <p>
+      The total differential <m>dV</m> represents the approximate propagated error in the volume and is found by calculating the first-order partial derivatives with respect to <m>r</m> and <m>h</m>:
+      <md>
+        <mrow>dV \amp = \frac{\partial V}{\partial r}\,dr + \frac{\partial V}{\partial h}\,dh</mrow>
+        <mrow>\amp = (2\pi r h)\,dr + (\pi r^2)\,dh</mrow>
+      </md>
+    </p>
+    <p>
+      From the problem statements, we isolate our baseline parameters and maximum independent measurement fluctuations:
+      <me>r = 3, \quad h = 8, \quad |dr| \leq 0.05, \quad |dh| \leq 0.05</me>
+      To approximate the <term>maximum potential error</term>, we look at the worst-case scenario where the errors accumulate constructively, taking the maximum absolute value bounds for the differentials (<m>dr = 0.05</m> and <m>dh = 0.05</m>):
+      <md>
+        <mrow>dV \amp = 2\pi(3)(8)(0.05) + \pi(3)^2(0.05)</mrow>
+        <mrow>\amp = 48\pi(0.05) + 9\pi(0.05)</mrow>
+        <mrow>\amp = 2.4\pi + 0.45\pi</mrow>
+        <mrow>\amp = 2.85\pi \approx 8.9535\text{ in}^3</mrow>
+      </md>
+    </p>
+    <p>
+      Thus, using differentials, the estimated maximum error in the calculated volume is approximately <m>\pm 2.85\pi\text{ cubic inches}</m> (or roughly <m>\pm 8.95\text{ in}^3</m>).
+    </p>
+  </solution>
+</example>
+
+
+
+
+</section>

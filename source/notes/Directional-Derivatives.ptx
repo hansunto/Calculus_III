@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-directional-derivatives">
+  <title>3.6 Directional Derivatives</title>
+  <p>
+    In this section, we will explore the concept of directional derivatives, which generalize the idea of 
+    partial derivatives to arbitrary directions in space. Directional derivatives provide a way to measure 
+    how a function changes as we move in a specific direction from a given point.      
+  </p>
+
+<definition xml:id="def-directional-derivative">
+  <statement>
+    <p>
+      Let <m>\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j}</m> be a unit vector. 
+      The <term>directional derivative of <m>f</m> at <m>P(x,y)</m> in the direction of <m>\mathbf{u}</m></term>, denoted by <m>D_{\mathbf{u}} f(x,y)</m>, is defined by the limit:
+      <me>D_{\mathbf{u}} f(x,y) = \lim_{s \to 0}\frac{f(x+su_1,y+su_2)-f(x,y)}{s}</me>
+    </p>
+  </statement>
+</definition>
+
+<theorem xml:id="thm-directional-derivative-formula">
+  <title>Directional Derivative Computation Formula</title>
+  <statement>
+    <p>
+      If <m>f</m> is a differentiable function of two variables and <m>\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j}</m> is a unit vector, then the directional derivative can be computed as:
+      <me>D_{\mathbf{u}} f(x,y) = f_x(x,y)u_1 + f_y(x,y)u_2</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-directional-derivative-evaluation">
+  <statement>
+    <p>
+      Find the directional derivative <m>D_{\mathbf{u}} f(x,y)</m> if 
+      <me>f(x,y)=x^3-3xy+4y^2</me> 
+      and <m>\mathbf{u}</m> is the unit vector given by the angle <m>\theta=\pi/6</m>. 
+      What is the value of <m>D_{\mathbf{u}} f(1,2)</m>?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the horizontal and vertical components of our directional unit vector <m>\mathbf{u}</m> using the given angle <m>\theta = \pi/6</m>:
+      <me>u_1 = \cos\left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2} \quad \text{and} \quad u_2 = \sin\left(\frac{\pi}{6}\right) = \frac{1}{2}</me>
+      This gives the unit direction vector <m>\mathbf{u} = \frac{\sqrt{3}}{2}\mathbf{i} + \frac{1}{2}\mathbf{j}</m>.
+    </p>
+    <p>
+      Next, we calculate the general first-order partial derivatives of the function <m>f(x,y)</m>:
+      <me>f_x(x,y) = \frac{\partial}{\partial x}(x^3-3xy+4y^2) = 3x^2 - 3y</me>
+      <me>f_y(x,y) = \frac{\partial}{\partial y}(x^3-3xy+4y^2) = -3x + 8y</me>
+    </p>
+    <p>
+      Applying the Theorem for Directional Derivatives, we substitute these components to find the general formula for <m>D_{\mathbf{u}} f(x,y)</m>:
+      <md>
+        <mrow>D_{\mathbf{u}} f(x,y) \amp = f_x(x,y)u_1 + f_y(x,y)u_2</mrow>
+        <mrow>\amp = (3x^2 - 3y)\left(\frac{\sqrt{3}}{2}\right) + (-3x + 8y)\left(\frac{1}{2}\right)</mrow>
+        <mrow>\amp = \frac{\sqrt{3}}{2}(3x^2 - 3y) - \frac{3}{2}x + 4y</mrow>
+      </md>
+    </p>
+    <p>
+      To find <m>D_{\mathbf{u}} f(1,2)</m>, we evaluate our partial derivatives at the specific point <m>(x,y) = (1,2)</m>:
+      <me>f_x(1,2) = 3(1)^2 - 3(2) = 3 - 6 = -3</me>
+      <me>f_y(1,2) = -3(1) + 8(2) = -3 + 16 = 13</me>
+      Substituting these numerical values back into our formula yields:
+      <md>
+        <mrow>D_{\mathbf{u}} f(1,2) \amp = (-3)\left(\frac{\sqrt{3}}{2}\right) + (13)\left(\frac{1}{2}\right)</mrow>
+        <mrow>\amp = \frac{13 - 3\sqrt{3}}{2} \approx 3.9019</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<p>
+  By applying the properties of vector geometry, the directional derivative formula can be elegantly rewritten as the dot product of two distinct vector paths:
+  <md>
+    <mrow>D_{\mathbf{u}} f(x,y) \amp = f_x(x,y)u_1 + f_y(x,y)u_2</mrow>
+    <mrow>\amp = \langle f_x(x,y), f_y(x,y) \rangle \cdot \langle u_1, u_2 \rangle</mrow>
+    <mrow>\amp = \langle f_x(x,y), f_y(x,y) \rangle \cdot \mathbf{u}</mrow>
+  </md>
+</p>
+<definition xml:id="def-gradient-vector">
+  <title>The Gradient Vector</title>
+  <statement>
+    <p>
+      Let <m>f</m> be a function of two variables. The <term>gradient</term> of <m>f</m> is the vector function denoted by <m>\nabla f</m> and defined by:
+      <me>\nabla f(x,y) = \langle f_x(x,y), f_y(x,y) \rangle = f_x(x,y)\mathbf{i} + f_y(x,y)\mathbf{j}</me>
+    </p>
+  </statement>
+</definition>
+
+<p>
+  With this notation for the gradient vector, we can rewrite the expression for the directional derivative as a clean vector dot product:
+  <me>D_{\mathbf{u}} f(x,y) = \nabla f(x,y) \cdot \mathbf{u}</me>
+</p>
+
+<example xml:id="ex-find-gradient-vector">
+  <statement>
+    <p>
+      If <m>f(x,y)=\sin(x)+e^{xy}</m>, find the gradient vector <m>\nabla f(x,y)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To find the gradient vector, we first compute the first-order partial derivatives of <m>f(x,y)</m> with respect to <m>x</m> and <m>y</m>:
+    </p>
+    <p>
+      For the <m>x</m>-derivative, we treat <m>y</m> as a constant and apply the single-variable chain rule to the exponential term:
+      <me>f_x(x,y) = \frac{\partial}{\partial x}\left[\sin(x) + e^{xy}\right] = \cos(x) + y e^{xy}</me>
+    </p>
+    <p>
+      For the <m>y</m>-derivative, we treat <m>x</m> as a constant:
+      <me>f_y(x,y) = \frac{\partial}{\partial y}\left[\sin(x) + e^{xy}\right] = 0 + x e^{xy} = x e^{xy}</me>
+    </p>
+    <p>
+      Now, we assemble these component functions into the final gradient vector expression using both component-bracket and standard basis vector notations:
+      <me>\nabla f(x,y) = \langle \cos(x) + y e^{xy}, \, x e^{xy} \rangle = \left(\cos(x) + y e^{xy}\right)\mathbf{i} + \left(x e^{xy}\right)\mathbf{j}</me>
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="chk-directional-derivative-nonunit">
+  <statement>
+    <p>
+      Find the directional derivative of the function <m>f(x,y)=x^2y^3-4y</m> at the point <m>(2,-1)</m> in the direction of the vector <m>\mathbf{v}=2\mathbf{i}+5\mathbf{j}</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To compute the directional derivative, the direction vector must be a unit vector. We first find the magnitude of the given vector <m>\mathbf{v} = \langle 2, 5 \rangle</m>:
+      <me>\|\mathbf{v}\| = \sqrt{2^2 + 5^2} = \sqrt{4 + 25} = \sqrt{29}</me>
+      Normalizing <m>\mathbf{v}</m> gives the required direction unit vector <m>\mathbf{u}</m>:
+      <me>\mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \left\langle \frac{2}{\sqrt{29}}, \, \frac{5}{\sqrt{29}} \right\rangle</me>
+    </p>
+    <p>
+      Next, we calculate the general first-order partial derivatives of <m>f(x,y)</m>:
+      <me>f_x(x,y) = \frac{\partial}{\partial x}(x^2y^3-4y) = 2xy^3</me>
+      <me>f_y(x,y) = \frac{\partial}{\partial y}(x^2y^3-4y) = 3x^2y^2 - 4</me>
+    </p>
+    <p>
+      Evaluating these partial derivatives at the given point <m>(2,-1)</m> yields the components of the gradient vector <m>\nabla f(2,-1)</m>:
+      <me>f_x(2,-1) = 2(2)(-1)^3 = -4</me>
+      <me>f_y(2,-1) = 3(2)^2(-1)^2 - 4 = 12(1) - 4 = 8</me>
+      <me>\nabla f(2,-1) = \langle -4, 8 \rangle</me>
+    </p>
+    <p>
+      Finally, we compute the directional derivative by taking the dot product of the gradient vector and our direction unit vector:
+      <md>
+        <mrow>D_{\mathbf{u}} f(2,-1) \amp = \nabla f(2,-1) \cdot \mathbf{u}</mrow>
+        <mrow>\amp = \langle -4, 8 \rangle \cdot \left\langle \frac{2}{\sqrt{29}}, \, \frac{5}{\sqrt{29}} \right\rangle</mrow>
+        <mrow>\amp = \frac{-4(2)}{\sqrt{29}} + \frac{8(5)}{\sqrt{29}}</mrow>
+        <mrow>\amp = \frac{-8 + 40}{\sqrt{29}} = \frac{32}{\sqrt{29}} \approx 5.9423</mrow>
+      </md>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-directional-derivative-two-points">
+  <statement>
+    <p>
+      Let <m>f(x,y)=x^2-4xy</m>. Use the gradient to find the directional derivative of <m>f</m> at <m>P(1,2)</m> in the direction from <m>P(1,2)</m> to <m>Q(2,5)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the displacement vector <m>\mathbf{v}</m> pointing from the initial point <m>P</m> to the destination point <m>Q</m> by subtracting their respective coordinates:
+      <me>\mathbf{v} = \overrightarrow{PQ} = \langle 2-1, \, 5-2 \rangle = \langle 1, 3 \rangle</me>
+    </p>
+    <p>
+      We find the magnitude of <m>\mathbf{v}</m> and normalize it to obtain our unit direction vector <m>\mathbf{u}</m>:
+      <me>\|\mathbf{v}\| = \sqrt{1^2 + 3^2} = \sqrt{1 + 9} = \sqrt{10}</me>
+      <me>\mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \left\langle \frac{1}{\sqrt{10}}, \, \frac{3}{\sqrt{10}} \right\rangle</me>
+    </p>
+    <p>
+      Next, we calculate the general gradient vector <m>\nabla f(x,y)</m> by computing the first-order partial derivatives of <m>f(x,y) = x^2-4xy</m>:
+      <me>f_x(x,y) = 2x - 4y \quad \text{and} \quad f_y(x,y) = -4x</me>
+      <me>\nabla f(x,y) = \langle 2x - 4y, \, -4x \rangle</me>
+    </p>
+    <p>
+      Evaluating the gradient vector specifically at the point <m>P(1,2)</m> yields:
+      <me>\nabla f(1,2) = \langle 2(1) - 4(2), \, -4(1) \rangle = \langle 2 - 8, \, -4 \rangle = \langle -6, -4 \rangle</me>
+    </p>
+    <p>
+      Finally, we compute the directional derivative by evaluating the dot product <m>\nabla f(1,2) \cdot \mathbf{u}</m>:
+      <md>
+        <mrow>D_{\mathbf{u}} f(1,2) \amp = \langle -6, -4 \rangle \cdot \left\langle \frac{1}{\sqrt{10}}, \, \frac{3}{\sqrt{10}} \right\rangle</mrow>
+        <mrow>\amp = \frac{-6(1)}{\sqrt{10}} + \frac{-4(3)}{\sqrt{10}}</mrow>
+        <mrow>\amp = \frac{-6 - 12}{\sqrt{10}} = \frac{-18}{\sqrt{10}} = -\frac{9\sqrt{10}}{5} \approx -5.6921</mrow>
+      </md>
+    </p>
+  </solution>
+</exercise>
+
+<theorem xml:id="thm-gradient-maximization">
+  <title>Gradient Theorem</title>
+  <statement>
+    <p>
+      Let <m>f</m> be a function of two variables that is differentiable at the point <m>P(x,y)</m>.
+      <ol marker="1">
+        <li>
+          <p>
+            The maximum value of the directional derivative <m>D_{\mathbf{u}} f(x,y)</m> at <m>P(x,y)</m> is <m>\|\nabla f(x,y)\|</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The maximum rate of increase of <m>f(x,y)</m> at <m>P(x,y)</m> occurs in the exact direction of the gradient vector <m>\nabla f(x,y)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</theorem>
+
+<corollary xml:id="cor-gradient-minimization">
+  <title>Minimization via the Gradient Vector</title>
+  <statement>
+    <p>
+      Let <m>f</m> be a function of two variables that is differentiable at the point <m>P(x,y)</m>.
+      <ol marker="1">
+        <li>
+          <p>
+            The minimum value of the directional derivative <m>D_{\mathbf{u}} f(x,y)</m> at <m>P(x,y)</m> is <m>-\|\nabla f(x,y)\|</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The maximum rate of decrease of <m>f(x,y)</m> at <m>P(x,y)</m> occurs in the opposite direction of the gradient vector, <m>-\nabla f(x,y)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</corollary>
+
+<example xml:id="ex-maximum-rate-of-change-evaluation">
+  <statement>
+    <p>
+      Let <m>f(x,y)=2+x^2+\frac{1}{4}y^2</m>. 
+      Find the direction in which <m>f(x,y)</m> increases most rapidly at the point <m>P(1,2)</m>, and find the maximum rate of increase of <m>f</m> at <m>P</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      According to the Gradient Theorem, a differentiable function increases most rapidly in the direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that gradient.
+    </p>
+    <p>
+      First, we find the general first-order partial derivatives of <m>f(x,y) = 2+x^2+\frac{1}{4}y^2</m>:
+      <me>f_x(x,y) = \frac{\partial}{\partial x}\left(2+x^2+\frac{1}{4}y^2\right) = 2x</me>
+      <me>f_y(x,y) = \frac{\partial}{\partial y}\left(2+x^2+\frac{1}{4}y^2\right) = \frac{1}{2}y</me>
+      This gives our general gradient vector: <m>\nabla f(x,y) = \langle 2x, \, \frac{1}{2}y \rangle</m>.
+    </p>
+    <p>
+      Next, we evaluate the gradient vector specifically at the point <m>P(1,2)</m>:
+      <me>\nabla f(1,2) = \left\langle 2(1), \, \frac{1}{2}(2) \right\rangle = \langle 2, 1 \rangle</me>
+      Therefore, the direction in which <m>f</m> increases most rapidly at <m>P(1,2)</m> is given by the vector <m>\langle 2, 1 \rangle</m> (or normalized as the unit direction vector <m>\mathbf{u} = \langle \frac{2}{\sqrt{5}}, \frac{1}{\sqrt{5}} \rangle</m>).
+    </p>
+    <p>
+      Finally, we calculate the maximum rate of increase by taking the norm of this gradient vector:
+      <me>\|\nabla f(1,2)\| = \sqrt{2^2 + 1^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2.2361</me>
+    </p>
+    <p>
+      Thus, the maximum rate of increase of the function at <m>P(1,2)</m> is exactly <m>\sqrt{5}</m>.
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="chk-rate-of-change-two-points">
+  <statement>
+    <p>
+      If <m>f(x,y)=xe^{xy}</m>, find the rate of change of <m>f</m> at the point <m>P(2,0)</m> in the direction from <m>P(2,0)</m> to <m>Q(1/2,2)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The rate of change in a specific direction is given by the directional derivative. First, we find the displacement vector <m>\mathbf{v}</m> pointing from <m>P</m> to <m>Q</m> by subtracting their coordinates:
+      <me>\mathbf{v} = \overrightarrow{PQ} = \left\langle \frac{1}{2}-2, \, 2-0 \right\rangle = \left\langle -\frac{3}{2}, \, 2 \right\rangle</me>
+    </p>
+    <p>
+      To compute a directional derivative, we must normalize <m>\mathbf{v}</m> into a unit vector <m>\mathbf{u}</m>. We find its magnitude:
+      <me>\|\mathbf{v}\| = \sqrt{\left(-\frac{3}{2}\right)^2 + 2^2} = \sqrt{\frac{9}{4} + 4} = \sqrt{\frac{25}{4}} = \frac{5}{2}</me>
+      Dividing <m>\mathbf{v}</m> by its magnitude gives the direction unit vector <m>\mathbf{u}</m>:
+      <me>\mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \frac{2}{5} \left\langle -\frac{3}{2}, \, 2 \right\rangle = \left\langle -\frac{3}{5}, \, \frac{4}{5} \right\rangle</me>
+    </p>
+    <p>
+      Next, we calculate the general first-order partial derivatives of <m>f(x,y) = xe^{xy}</m> using the single-variable product and chain rules:
+      <me>f_x(x,y) = 1 \cdot e^{xy} + x \cdot (ye^{xy}) = e^{xy}(1 + xy)</me>
+      <me>f_y(x,y) = x \cdot (xe^{xy}) = x^2e^{xy}</me>
+    </p>
+    <p>
+      Evaluating these partial derivatives at the baseline point <m>P(2,0)</m> yields the components of the gradient vector <m>\nabla f(2,0)</m>:
+      <me>f_x(2,0) = e^{2(0)}(1 + 2(0)) = 1(1) = 1</me>
+      <me>f_y(2,0) = (2)^2 e^{2(0)} = 4(1) = 4</me>
+      <me>\nabla f(2,0) = \langle 1, 4 \rangle</me>
+    </p>
+    <p>
+      Finally, we compute the directional derivative by evaluating the dot product of the gradient vector and our direction unit vector:
+      <md>
+        <mrow>D_{\mathbf{u}} f(2,0) \amp = \nabla f(2,0) \cdot \mathbf{u}</mrow>
+        <mrow>\amp = \langle 1, 4 \rangle \cdot \left\langle -\frac{3}{5}, \, \frac{4}{5} \right\rangle</mrow>
+        <mrow>\amp = 1\left(-\frac{3}{5}\right) + 4\left(\frac{4}{5}\right)</mrow>
+        <mrow>\amp = -\frac{3}{5} + \frac{16}{5} = \frac{13}{5} = 2.6</mrow>
+      </md>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-maximum-rate-of-change">
+  <statement>
+    <p>
+      For the function <m>f(x,y)=xe^{xy}</m> at the point <m>P(2,0)</m>, in what direction does <m>f</m> have the maximum rate of change? What is this maximum rate of change?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      According to the Gradient Theorem, a differentiable function increases most rapidly in the exact direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that vector.
+    </p>
+    <p>
+      From our calculations in the previous exercise, the gradient vector evaluated at the point <m>P(2,0)</m> is:
+      <me>\nabla f(2,0) = \langle 1, 4 \rangle</me>
+    </p>
+    <p>
+      Therefore, <m>f</m> has its maximum rate of change in the direction of the vector <m>\langle 1, 4 \rangle</m>. Expressed as a normalized unit vector, this direction is:
+      <me>\mathbf{u}_{\text{max}} = \frac{\nabla f(2,0)}{\|\nabla f(2,0)\|} = \left\langle \frac{1}{\sqrt{17}}, \, \frac{4}{\sqrt{17}} \right\rangle</me>
+    </p>
+    <p>
+      The maximum rate of change is the magnitude of this gradient vector:
+      <me>\|\nabla f(2,0)\| = \sqrt{1^2 + 4^2} = \sqrt{1 + 16} = \sqrt{17} \approx 4.1231</me>
+    </p>
+  </solution>
+</exercise>
+
+<definition xml:id="def-directional-derivative-three-variables">
+  <title>Directional Derivative with Three Variables</title>
+  <statement>
+    <p>
+      Let <m>\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j} + u_3\mathbf{k}</m> be a 3D unit vector. 
+      The <term>directional derivative of <m>f</m> at <m>P(x,y,z)</m> in the direction of <m>\mathbf{u}</m></term>, denoted by <m>D_{\mathbf{u}} f(x,y,z)</m>, is defined by the limit:
+      <me>D_{\mathbf{u}} f(x,y,z) = \lim_{s \to 0}\frac{f(x+su_1,y+su_2,z+su_3)-f(x,y,z)}{s}</me>
+    </p>
+  </statement>
+</definition>
+
+<theorem xml:id="thm-directional-derivative-formula-three-variables">
+  <title>Directional Derivative Formula for Three Variables</title>
+  <statement>
+    <p>
+      If <m>f</m> is a differentiable function of three variables and <m>\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j} + u_3\mathbf{k}</m> is a unit vector, then the directional derivative can be computed as:
+      <me>D_{\mathbf{u}} f(x,y,z) = f_x(x,y,z)u_1 + f_y(x,y,z)u_2 + f_z(x,y,z)u_3</me>
+    </p>
+  </statement>
+</theorem>
+
+<p>
+  The <term>gradient</term> of a function of three variables is the vector function denoted by <m>\nabla f</m> and defined by:
+  <me>\nabla f(x,y,z) = \langle f_x(x,y,z), f_y(x,y,z), f_z(x,y,z) \rangle = f_x(x,y,z)\mathbf{i} + f_y(x,y,z)\mathbf{j} + f_z(x,y,z)\mathbf{k}</me>
+  With this vector framework, the directional derivative can be written compactly as the dot product <m>D_{\mathbf{u}} f(x,y,z) = \nabla f(x,y,z) \cdot \mathbf{u}</m>.
+</p>
+
+<example xml:id="ex-directional-derivative-three-variables-evaluation">
+  <statement>
+    <p>
+      If <m>f(x,y,z)=x \sin(yz)</m>, find the gradient vector <m>\nabla f(x,y,z)</m>. 
+      Then, find the directional derivative of <m>f</m> at the point <m>(1,3,0)</m> in the direction of the vector <m>\mathbf{v}=\mathbf{i}+2\mathbf{j}-\mathbf{k}</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we compute the three first-order partial derivatives of <m>f(x,y,z) = x \sin(yz)</m> by treating the remaining variables as constants and applying single-variable chain rules:
+      <me>f_x(x,y,z) = \frac{\partial}{\partial x}[x \sin(yz)] = \sin(yz)</me>
+      <me>f_y(x,y,z) = \frac{\partial}{\partial y}[x \sin(yz)] = x \cdot \cos(yz) \cdot z = xz\cos(yz)</me>
+      <me>f_z(x,y,z) = \frac{\partial}{\partial z}[x \sin(yz)] = x \cdot \cos(yz) \cdot y = xy\cos(yz)</me>
+    </p>
+    <p>
+      Assembling these components gives the general gradient vector formula:
+      <me>\nabla f(x,y,z) = \langle \sin(yz), \, xz\cos(yz), \, xy\cos(yz) \rangle</me>
+    </p>
+    <p>
+      Next, we evaluate the gradient vector specifically at the given point <m>(1,3,0)</m>:
+      <me>f_x(1,3,0) = \sin(3 \cdot 0) = \sin(0) = 0</me>
+      <me>f_y(1,3,0) = (1)(0)\cos(3 \cdot 0) = 0</me>
+      <me>f_z(1,3,0) = (1)(3)\cos(3 \cdot 0) = 3\cos(0) = 3(1) = 3</me>
+      This yields the evaluated vector: <m>\nabla f(1,3,0) = \langle 0, 0, 3 \rangle</m>.
+    </p>
+    <p>
+      The direction vector <m>\mathbf{v} = \langle 1, 2, -1 \rangle</m> is not a unit vector. We must normalize it before computing the directional derivative. We calculate its magnitude:
+      <me>\|\mathbf{v}\| = \sqrt{1^2 + 2^2 + (-1)^2} = \sqrt{1 + 4 + 1} = \sqrt{6}</me>
+      Dividing <m>\mathbf{v}</m> by its magnitude gives the direction unit vector <m>\mathbf{u}</m>:
+      <me>\mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \left\langle \frac{1}{\sqrt{6}}, \, \frac{2}{\sqrt{6}}, \, -\frac{1}{\sqrt{6}} \right\rangle</me>
+    </p>
+    <p>
+      Finally, we calculate the directional derivative by taking the dot product of the evaluated gradient vector and our direction unit vector:
+      <md>
+        <mrow>D_{\mathbf{u}} f(1,3,0) \amp = \nabla f(1,3,0) \cdot \mathbf{u}</mrow>
+        <mrow>\amp = \langle 0, 0, 3 \rangle \cdot \left\langle \frac{1}{\sqrt{6}}, \, \frac{2}{\sqrt{6}}, \, -\frac{1}{\sqrt{6}} \right\rangle</mrow>
+        <mrow>\amp = 0\left(\frac{1}{\sqrt{6}}\right) + 0\left(\frac{2}{\sqrt{6}}\right) + 3\left(-\frac{1}{\sqrt{6}}\right)</mrow>
+        <mrow>\amp = -\frac{3}{\sqrt{6}} = -\frac{\sqrt{6}}{2} \approx -1.2247</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="chk-temperature-gradient-maximization">
+  <statement>
+    <p>
+      Suppose that the temperature at a point <m>(x,y,z)</m> in space is given by:
+      <me>T(x,y,z)=\frac{80}{1+x^2+2y^2+3z^2}</me>
+      where <m>T</m> is measured in degrees Celsius and <m>x, y, z</m> are measured in meters. 
+      In which direction does the temperature increase fastest at the point <m>(1,1,-2)</m>? 
+      What is the maximum rate of increase?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      According to the Gradient Theorem, a differentiable function increases most rapidly in the exact direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that gradient vector.
+    </p>
+    <p>
+      We rewrite the temperature function using a negative exponent to simplify differentiation: <m>T(x,y,z) = 80(1+x^2+2y^2+3z^2)^{-1}</m>. 
+      Next, we calculate the three first-order partial derivatives of <m>T</m> using the single-variable chain rule:
+      <me>T_x = -80(1+x^2+2y^2+3z^2)^{-2}(2x) = \frac{-160x}{(1+x^2+2y^2+3z^2)^2}</me>
+      <me>T_y = -80(1+x^2+2y^2+3z^2)^{-2}(4y) = \frac{-320y}{(1+x^2+2y^2+3z^2)^2}</me>
+      <me>T_z = -80(1+x^2+2y^2+3z^2)^{-2}(6z) = \frac{-480z}{(1+x^2+2y^2+3z^2)^2}</me>
+    </p>
+    <p>
+      Before evaluating the partials at the point <m>(1,1,-2)</m>, we find the value of the shared denominator expression:
+      <me>1 + x^2 + 2y^2 + 3z^2 = 1 + (1)^2 + 2(1)^2 + 3(-2)^2 = 1 + 1 + 2 + 12 = 16</me>
+      Substituting <m>x=1</m>, <m>y=1</m>, and <m>z=-2</m> into our partial derivatives yields:
+      <me>T_x(1,1,-2) = \frac{-160(1)}{(16)^2} = \frac{-160}{256} = -\frac{5}{8}</me>
+      <me>T_y(1,1,-2) = \frac{-320(1)}{(16)^2} = \frac{-320}{256} = -\frac{5}{4}</me>
+      <me>T_z(1,1,-2) = \frac{-480(-2)}{(16)^2} = \frac{960}{256} = \frac{15}{4}</me>
+    </p>
+    <p>
+      This gives our evaluated gradient vector:
+      <me>\nabla T(1,1,-2) = \left\langle -\frac{5}{8}, \, -\frac{5}{4}, \, \frac{15}{4} \right\rangle = \frac{5}{8}\langle -1, \, -2, \, 6 \rangle</me>
+      Therefore, the temperature increases fastest in the direction of the vector <m>\langle -1, -2, 6 \rangle</m> (or its corresponding normalized direction unit vector <m>\mathbf{u} = \frac{1}{\sqrt{41}}\langle -1, -2, 6 \rangle</m>).
+    </p>
+    <p>
+      The maximum rate of increase is the magnitude of this gradient vector:
+      <md>
+        <mrow>\|\nabla T(1,1,-2)\| \amp = \sqrt{\left(-\frac{5}{8}\right)^2 + \left(-\frac{5}{4}\right)^2 + \left(\frac{15}{4}\right)^2}</mrow>
+        <mrow>\amp = \sqrt{\frac{25}{64} + \frac{25}{16} + \frac{225}{16}} = \sqrt{\frac{25 + 100 + 900}{64}}</mrow>
+        <mrow>\amp = \sqrt{\frac{1025}{64}} = \frac{5\sqrt{41}}{8} \approx 4.0019 \text{ }^{\circ}\text{C/m}</mrow>
+      </md>
+      Thus, the maximum rate of temperature increase at the point <m>(1,1,-2)</m> is exactly <m>\frac{5\sqrt{41}}{8} \text{ }^{\circ}\text{C/m}</m>.
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-ohm-law-related-rates">
+  <statement>
+    <p>
+      A simple electrical circuit consists of a resistor <m>R</m> and an electromotive force <m>V</m>. 
+      At a certain instant, <m>V</m> is <m>80\text{ volts}</m> and is increasing at a rate of <m>5\text{ volts/min}</m>, while <m>R</m> is <m>40\text{ ohms}</m> and is decreasing at a rate of <m>2\text{ ohms/min}</m>. 
+      Use Ohm's law, <m>I=\frac{V}{R}</m>, to find the rate at which the current <m>I</m> is changing.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Ohm's law defines current <m>I</m> as a function of two variables—voltage <m>V</m> and resistance <m>R</m>: <m>I(V,R) = \frac{V}{R}</m>. 
+      Since both <m>V</m> and <m>R</m> change over time, they implicitly depend on a common time parameter <m>t</m>. 
+      By applying the Case I Multivariate Chain Rule, the rate of change of the current with respect to time is:
+      <me>\frac{dI}{dt} = \frac{\partial I}{\partial V}\frac{dV}{dt} + \frac{\partial I}{\partial R}\frac{dR}{dt}</me>
+    </p>
+    <p>
+      First, we compute the first-order partial derivatives of <m>I</m> with respect to <m>V</m> and <m>R</m>:
+      <me>\frac{\partial I}{\partial V} = \frac{\partial}{\partial V}\left[\frac{V}{R}\right] = \frac{1}{R} \quad \text{and} \quad \frac{\partial I}{\partial R} = \frac{\partial}{\partial R}\left[V R^{-1}\right] = -\frac{V}{R^2}</me>
+    </p>
+    <p>
+      From the statement of the problem, we isolate our baseline parameters and independent rate shifts at this specific instant (noting that a decreasing rate requires a negative value):
+      <me>V = 80, \quad R = 40, \quad \frac{dV}{dt} = 5, \quad \frac{dR}{dt} = -2</me>
+    </p>
+    <p>
+      Substituting these numerical values into our expanded chain rule expression yields:
+      <md>
+        <mrow>\frac{dI}{dt} \amp = \left(\frac{1}{R}\right)\frac{dV}{dt} + \left(-\frac{V}{R^2}\right)\frac{dR}{dt}</mrow>
+        <mrow>\amp = \left(\frac{1}{40}\right)(5) + \left(-\frac{80}{40^2}\right)(-2)</mrow>
+        <mrow>\amp = \frac{5}{40} + \left(-\frac{80}{1600}\right)(-2)</mrow>
+        <mrow>\amp = \frac{1}{8} + \left(-\frac{1}{20}\right)(-2) = \frac{1}{8} + \frac{1}{10}</mrow>
+        <mrow>\amp = \frac{5 + 4}{40} = \frac{9}{40} = 0.225\text{ amperes/min}</mrow>
+      </md>
+    </p>
+    <p>
+      Thus, at this instant, the current <m>I</m> is increasing at a rate of exactly <m>0.225\text{ amperes per minute}</m>.
+    </p>
+  </solution>
+</exercise>
+
+
+
+
+
+</section>

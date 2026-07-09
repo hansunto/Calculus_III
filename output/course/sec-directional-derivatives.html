@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>3.6 Directional Derivatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.9';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.846a0d6fafaa99e0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bbcfc02849ebc023.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-chain-rules.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Partial-Derivatives.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="activities.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Vector-valued-functions-5.html" class="internal"><span class="title">2.3 Integrals of Vector Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html" class="internal"><span class="title">2.4 Arc Length and Curvature</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html#subsec-curvature" class="internal"><span class="title">The Curvature</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-motion-in-space.html" class="internal"><span class="title">2.5 Motion in Space: Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangential-normal-components.html" class="internal"><span class="title">2.6 Tangential and Normal Components of Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Partial-Derivatives.html" class="internal"><span class="codenumber">3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-functions-several-variables.html" class="internal"><span class="title">Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-limits-continuity.html" class="internal"><span class="title">3.2 Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-partial-derivatives.html" class="internal"><span class="title">3.3 Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-increment.html" class="internal"><span class="title">3.4 Increments and Differentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-chain-rules.html" class="internal"><span class="title">3.5 Chain Rules</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-directional-derivatives.html" class="internal"><span class="title">3.6 Directional Derivatives</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">4</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">5</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">6</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">7</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-directional-derivatives">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">3.6 Directional Derivatives</span>
+</h2>
+<div class="para" id="sec-directional-derivatives-2">In this section, we will explore the concept of directional derivatives, which generalize the idea of partial derivatives to arbitrary directions in space. Directional derivatives provide a way to measure how a function changes as we move in a specific direction from a given point.<div class="autopermalink" data-description="Paragraph"><a href="#sec-directional-derivatives-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-directional-derivative"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.68</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="def-directional-derivative-1-1">
+<div class="para">Let <span class="process-math">\(\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j}\)</span> be a unit vector. The <dfn class="terminology">directional derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(P(x,y)\)</span> in the direction of <span class="process-math">\(\mathbf{u}\)</span></dfn>, denoted by <span class="process-math">\(D_{\mathbf{u}} f(x,y)\text{,}\)</span> is defined by the limit:</div>
+<div class="displaymath process-math" id="def-directional-derivative-1-1-4">
+\begin{equation*}
+D_{\mathbf{u}} f(x,y) = \lim_{s \to 0}\frac{f(x+su_1,y+su_2)-f(x,y)}{s}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-directional-derivative-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.68"><a href="#def-directional-derivative" title="Copy heading and permalink for Definition 3.68" aria-label="Copy heading and permalink for Definition 3.68">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-directional-derivative-formula"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.69</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directional Derivative Computation Formula.</span>
+</h3>
+<div class="para logical" id="thm-directional-derivative-formula-2-1">
+<div class="para">If <span class="process-math">\(f\)</span> is a differentiable function of two variables and <span class="process-math">\(\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j}\)</span> is a unit vector, then the directional derivative can be computed as:</div>
+<div class="displaymath process-math" id="thm-directional-derivative-formula-2-1-3">
+\begin{equation*}
+D_{\mathbf{u}} f(x,y) = f_x(x,y)u_1 + f_y(x,y)u_2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-directional-derivative-formula-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.69: Directional Derivative Computation Formula"><a href="#thm-directional-derivative-formula" title="Copy heading and permalink for Theorem 3.69: Directional Derivative Computation Formula" aria-label="Copy heading and permalink for Theorem 3.69: Directional Derivative Computation Formula">🔗</a></div>
+</article>
+<details id="ex-directional-derivative-evaluation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.70</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-directional-derivative-evaluation-1-1">
+<div class="para">Find the directional derivative <span class="process-math">\(D_{\mathbf{u}} f(x,y)\)</span> if</div>
+<div class="displaymath process-math" id="ex-directional-derivative-evaluation-1-1-2">
+\begin{equation*}
+f(x,y)=x^3-3xy+4y^2
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(\mathbf{u}\)</span> is the unit vector given by the angle <span class="process-math">\(\theta=\pi/6\text{.}\)</span> What is the value of <span class="process-math">\(D_{\mathbf{u}} f(1,2)\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-evaluation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-directional-derivative-evaluation-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-directional-derivative-evaluation-2-1">
+<div class="para">First, we find the horizontal and vertical components of our directional unit vector <span class="process-math">\(\mathbf{u}\)</span> using the given angle <span class="process-math">\(\theta = \pi/6\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-evaluation-2-1-3">
+\begin{equation*}
+u_1 = \cos\left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2} \quad \text{and} \quad u_2 = \sin\left(\frac{\pi}{6}\right) = \frac{1}{2}
+\end{equation*}
+</div>
+<div class="para">This gives the unit direction vector <span class="process-math">\(\mathbf{u} = \frac{\sqrt{3}}{2}\mathbf{i} + \frac{1}{2}\mathbf{j}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-evaluation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-directional-derivative-evaluation-2-2">
+<div class="para">Next, we calculate the general first-order partial derivatives of the function <span class="process-math">\(f(x,y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-evaluation-2-2-2">
+\begin{equation*}
+f_x(x,y) = \frac{\partial}{\partial x}(x^3-3xy+4y^2) = 3x^2 - 3y
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-evaluation-2-2-3">
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y}(x^3-3xy+4y^2) = -3x + 8y
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-evaluation-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-directional-derivative-evaluation-2-3">
+<div class="para">Applying the Theorem for Directional Derivatives, we substitute these components to find the general formula for <span class="process-math">\(D_{\mathbf{u}} f(x,y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-evaluation-2-3-2">
+\begin{align*}
+D_{\mathbf{u}} f(x,y) \amp = f_x(x,y)u_1 + f_y(x,y)u_2\\
+\amp = (3x^2 - 3y)\left(\frac{\sqrt{3}}{2}\right) + (-3x + 8y)\left(\frac{1}{2}\right)\\
+\amp = \frac{\sqrt{3}}{2}(3x^2 - 3y) - \frac{3}{2}x + 4y
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-evaluation-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-directional-derivative-evaluation-2-4">
+<div class="para">To find <span class="process-math">\(D_{\mathbf{u}} f(1,2)\text{,}\)</span> we evaluate our partial derivatives at the specific point <span class="process-math">\((x,y) = (1,2)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-evaluation-2-4-3">
+\begin{equation*}
+f_x(1,2) = 3(1)^2 - 3(2) = 3 - 6 = -3
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-evaluation-2-4-4">
+\begin{equation*}
+f_y(1,2) = -3(1) + 8(2) = -3 + 16 = 13
+\end{equation*}
+</div>
+<div class="para">Substituting these numerical values back into our formula yields:</div>
+<div class="displaymath process-math" id="ex-directional-derivative-evaluation-2-4-5">
+\begin{align*}
+D_{\mathbf{u}} f(1,2) \amp = (-3)\left(\frac{\sqrt{3}}{2}\right) + (13)\left(\frac{1}{2}\right)\\
+\amp = \frac{13 - 3\sqrt{3}}{2} \approx 3.9019
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-evaluation-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.70.1"><a href="#ex-directional-derivative-evaluation-2" title="Copy heading and permalink for Solution 3.70.1" aria-label="Copy heading and permalink for Solution 3.70.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 3.70"><a href="#ex-directional-derivative-evaluation" title="Copy heading and permalink for Example 3.70" aria-label="Copy heading and permalink for Example 3.70">🔗</a></div>
+</article></details>
+<div class="para logical" id="sec-directional-derivatives-6">
+<div class="para">By applying the properties of vector geometry, the directional derivative formula can be elegantly rewritten as the dot product of two distinct vector paths:</div>
+<div class="displaymath process-math" id="sec-directional-derivatives-6-1">
+\begin{align*}
+D_{\mathbf{u}} f(x,y) \amp = f_x(x,y)u_1 + f_y(x,y)u_2\\
+\amp = \langle f_x(x,y), f_y(x,y) \rangle \cdot \langle u_1, u_2 \rangle\\
+\amp = \langle f_x(x,y), f_y(x,y) \rangle \cdot \mathbf{u}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-directional-derivatives-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-gradient-vector"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.71</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Gradient Vector.</span>
+</h3>
+<div class="para logical" id="def-gradient-vector-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be a function of two variables. The <dfn class="terminology">gradient</dfn> of <span class="process-math">\(f\)</span> is the vector function denoted by <span class="process-math">\(\nabla f\)</span> and defined by:</div>
+<div class="displaymath process-math" id="def-gradient-vector-2-1-5">
+\begin{equation*}
+\nabla f(x,y) = \langle f_x(x,y), f_y(x,y) \rangle = f_x(x,y)\mathbf{i} + f_y(x,y)\mathbf{j}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-gradient-vector-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.71: The Gradient Vector"><a href="#def-gradient-vector" title="Copy heading and permalink for Definition 3.71: The Gradient Vector" aria-label="Copy heading and permalink for Definition 3.71: The Gradient Vector">🔗</a></div>
+</article>
+<div class="para logical" id="sec-directional-derivatives-8">
+<div class="para">With this notation for the gradient vector, we can rewrite the expression for the directional derivative as a clean vector dot product:</div>
+<div class="displaymath process-math" id="sec-directional-derivatives-8-1">
+\begin{equation*}
+D_{\mathbf{u}} f(x,y) = \nabla f(x,y) \cdot \mathbf{u}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-directional-derivatives-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-find-gradient-vector" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.72</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-find-gradient-vector-1-1">If <span class="process-math">\(f(x,y)=\sin(x)+e^{xy}\text{,}\)</span> find the gradient vector <span class="process-math">\(\nabla f(x,y)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-gradient-vector-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-find-gradient-vector-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-find-gradient-vector-2-1">To find the gradient vector, we first compute the first-order partial derivatives of <span class="process-math">\(f(x,y)\)</span> with respect to <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-gradient-vector-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-find-gradient-vector-2-2">
+<div class="para">For the <span class="process-math">\(x\)</span>-derivative, we treat <span class="process-math">\(y\)</span> as a constant and apply the single-variable chain rule to the exponential term:</div>
+<div class="displaymath process-math" id="ex-find-gradient-vector-2-2-3">
+\begin{equation*}
+f_x(x,y) = \frac{\partial}{\partial x}\left[\sin(x) + e^{xy}\right] = \cos(x) + y e^{xy}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-gradient-vector-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-find-gradient-vector-2-3">
+<div class="para">For the <span class="process-math">\(y\)</span>-derivative, we treat <span class="process-math">\(x\)</span> as a constant:</div>
+<div class="displaymath process-math" id="ex-find-gradient-vector-2-3-3">
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y}\left[\sin(x) + e^{xy}\right] = 0 + x e^{xy} = x e^{xy}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-gradient-vector-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-find-gradient-vector-2-4">
+<div class="para">Now, we assemble these component functions into the final gradient vector expression using both component-bracket and standard basis vector notations:</div>
+<div class="displaymath process-math" id="ex-find-gradient-vector-2-4-1">
+\begin{equation*}
+\nabla f(x,y) = \langle \cos(x) + y e^{xy}, \, x e^{xy} \rangle = \left(\cos(x) + y e^{xy}\right)\mathbf{i} + \left(x e^{xy}\right)\mathbf{j}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-gradient-vector-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.72.1"><a href="#ex-find-gradient-vector-2" title="Copy heading and permalink for Solution 3.72.1" aria-label="Copy heading and permalink for Solution 3.72.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 3.72"><a href="#ex-find-gradient-vector" title="Copy heading and permalink for Example 3.72" aria-label="Copy heading and permalink for Example 3.72">🔗</a></div>
+</article></details>
+<details id="chk-directional-derivative-nonunit" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.73</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="chk-directional-derivative-nonunit-1-1">Find the directional derivative of the function <span class="process-math">\(f(x,y)=x^2y^3-4y\)</span> at the point <span class="process-math">\((2,-1)\)</span> in the direction of the vector <span class="process-math">\(\mathbf{v}=2\mathbf{i}+5\mathbf{j}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-nonunit-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-directional-derivative-nonunit-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="chk-directional-derivative-nonunit-2-1">
+<div class="para">To compute the directional derivative, the direction vector must be a unit vector. We first find the magnitude of the given vector <span class="process-math">\(\mathbf{v} = \langle 2, 5 \rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-nonunit-2-1-2">
+\begin{equation*}
+\|\mathbf{v}\| = \sqrt{2^2 + 5^2} = \sqrt{4 + 25} = \sqrt{29}
+\end{equation*}
+</div>
+<div class="para">Normalizing <span class="process-math">\(\mathbf{v}\)</span> gives the required direction unit vector <span class="process-math">\(\mathbf{u}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-nonunit-2-1-5">
+\begin{equation*}
+\mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \left\langle \frac{2}{\sqrt{29}}, \, \frac{5}{\sqrt{29}} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-nonunit-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-directional-derivative-nonunit-2-2">
+<div class="para">Next, we calculate the general first-order partial derivatives of <span class="process-math">\(f(x,y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-nonunit-2-2-2">
+\begin{equation*}
+f_x(x,y) = \frac{\partial}{\partial x}(x^2y^3-4y) = 2xy^3
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-nonunit-2-2-3">
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y}(x^2y^3-4y) = 3x^2y^2 - 4
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-nonunit-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-directional-derivative-nonunit-2-3">
+<div class="para">Evaluating these partial derivatives at the given point <span class="process-math">\((2,-1)\)</span> yields the components of the gradient vector <span class="process-math">\(\nabla f(2,-1)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-nonunit-2-3-3">
+\begin{equation*}
+f_x(2,-1) = 2(2)(-1)^3 = -4
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-nonunit-2-3-4">
+\begin{equation*}
+f_y(2,-1) = 3(2)^2(-1)^2 - 4 = 12(1) - 4 = 8
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-nonunit-2-3-5">
+\begin{equation*}
+\nabla f(2,-1) = \langle -4, 8 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-nonunit-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-directional-derivative-nonunit-2-4">
+<div class="para">Finally, we compute the directional derivative by taking the dot product of the gradient vector and our direction unit vector:</div>
+<div class="displaymath process-math" id="chk-directional-derivative-nonunit-2-4-1">
+\begin{align*}
+D_{\mathbf{u}} f(2,-1) \amp = \nabla f(2,-1) \cdot \mathbf{u}\\
+\amp = \langle -4, 8 \rangle \cdot \left\langle \frac{2}{\sqrt{29}}, \, \frac{5}{\sqrt{29}} \right\rangle\\
+\amp = \frac{-4(2)}{\sqrt{29}} + \frac{8(5)}{\sqrt{29}}\\
+\amp = \frac{-8 + 40}{\sqrt{29}} = \frac{32}{\sqrt{29}} \approx 5.9423
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-nonunit-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.73.1"><a href="#chk-directional-derivative-nonunit-2" title="Copy heading and permalink for Solution 3.73.1" aria-label="Copy heading and permalink for Solution 3.73.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.73"><a href="#chk-directional-derivative-nonunit" title="Copy heading and permalink for Checkpoint 3.73" aria-label="Copy heading and permalink for Checkpoint 3.73">🔗</a></div>
+</article></details>
+<details id="chk-directional-derivative-two-points" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.74</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="chk-directional-derivative-two-points-1-1">Let <span class="process-math">\(f(x,y)=x^2-4xy\text{.}\)</span> Use the gradient to find the directional derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(P(1,2)\)</span> in the direction from <span class="process-math">\(P(1,2)\)</span> to <span class="process-math">\(Q(2,5)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-two-points-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-directional-derivative-two-points-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="chk-directional-derivative-two-points-2-1">
+<div class="para">First, we find the displacement vector <span class="process-math">\(\mathbf{v}\)</span> pointing from the initial point <span class="process-math">\(P\)</span> to the destination point <span class="process-math">\(Q\)</span> by subtracting their respective coordinates:</div>
+<div class="displaymath process-math" id="chk-directional-derivative-two-points-2-1-4">
+\begin{equation*}
+\mathbf{v} = \overrightarrow{PQ} = \langle 2-1, \, 5-2 \rangle = \langle 1, 3 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-two-points-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-directional-derivative-two-points-2-2">
+<div class="para">We find the magnitude of <span class="process-math">\(\mathbf{v}\)</span> and normalize it to obtain our unit direction vector <span class="process-math">\(\mathbf{u}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-two-points-2-2-3">
+\begin{equation*}
+\|\mathbf{v}\| = \sqrt{1^2 + 3^2} = \sqrt{1 + 9} = \sqrt{10}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-two-points-2-2-4">
+\begin{equation*}
+\mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \left\langle \frac{1}{\sqrt{10}}, \, \frac{3}{\sqrt{10}} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-two-points-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-directional-derivative-two-points-2-3">
+<div class="para">Next, we calculate the general gradient vector <span class="process-math">\(\nabla f(x,y)\)</span> by computing the first-order partial derivatives of <span class="process-math">\(f(x,y) = x^2-4xy\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-two-points-2-3-3">
+\begin{equation*}
+f_x(x,y) = 2x - 4y \quad \text{and} \quad f_y(x,y) = -4x
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-two-points-2-3-4">
+\begin{equation*}
+\nabla f(x,y) = \langle 2x - 4y, \, -4x \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-two-points-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-directional-derivative-two-points-2-4">
+<div class="para">Evaluating the gradient vector specifically at the point <span class="process-math">\(P(1,2)\)</span> yields:</div>
+<div class="displaymath process-math" id="chk-directional-derivative-two-points-2-4-2">
+\begin{equation*}
+\nabla f(1,2) = \langle 2(1) - 4(2), \, -4(1) \rangle = \langle 2 - 8, \, -4 \rangle = \langle -6, -4 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-two-points-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-directional-derivative-two-points-2-5">
+<div class="para">Finally, we compute the directional derivative by evaluating the dot product <span class="process-math">\(\nabla f(1,2) \cdot \mathbf{u}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-directional-derivative-two-points-2-5-2">
+\begin{align*}
+D_{\mathbf{u}} f(1,2) \amp = \langle -6, -4 \rangle \cdot \left\langle \frac{1}{\sqrt{10}}, \, \frac{3}{\sqrt{10}} \right\rangle\\
+\amp = \frac{-6(1)}{\sqrt{10}} + \frac{-4(3)}{\sqrt{10}}\\
+\amp = \frac{-6 - 12}{\sqrt{10}} = \frac{-18}{\sqrt{10}} = -\frac{9\sqrt{10}}{5} \approx -5.6921
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-directional-derivative-two-points-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.74.1"><a href="#chk-directional-derivative-two-points-2" title="Copy heading and permalink for Solution 3.74.1" aria-label="Copy heading and permalink for Solution 3.74.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.74"><a href="#chk-directional-derivative-two-points" title="Copy heading and permalink for Checkpoint 3.74" aria-label="Copy heading and permalink for Checkpoint 3.74">🔗</a></div>
+</article></details>
+<article class="theorem theorem-like" id="thm-gradient-maximization"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.75</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gradient Theorem.</span>
+</h3>
+<div class="para logical" id="thm-gradient-maximization-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be a function of two variables that is differentiable at the point <span class="process-math">\(P(x,y)\text{.}\)</span>
+</div>
+<ol class="decimal ol-marker-1" id="thm-gradient-maximization-2-1-3">
+<li id="thm-gradient-maximization-2-1-3-1">
+<div class="para" id="thm-gradient-maximization-2-1-3-1-1">The maximum value of the directional derivative <span class="process-math">\(D_{\mathbf{u}} f(x,y)\)</span> at <span class="process-math">\(P(x,y)\)</span> is <span class="process-math">\(\|\nabla f(x,y)\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-gradient-maximization-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#thm-gradient-maximization-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="thm-gradient-maximization-2-1-3-2">
+<div class="para" id="thm-gradient-maximization-2-1-3-2-1">The maximum rate of increase of <span class="process-math">\(f(x,y)\)</span> at <span class="process-math">\(P(x,y)\)</span> occurs in the exact direction of the gradient vector <span class="process-math">\(\nabla f(x,y)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-gradient-maximization-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#thm-gradient-maximization-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-gradient-maximization-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.75: Gradient Theorem"><a href="#thm-gradient-maximization" title="Copy heading and permalink for Theorem 3.75: Gradient Theorem" aria-label="Copy heading and permalink for Theorem 3.75: Gradient Theorem">🔗</a></div>
+</article>
+<article class="corollary theorem-like" id="cor-gradient-minimization"><h3 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.76</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Minimization via the Gradient Vector.</span>
+</h3>
+<div class="para logical" id="cor-gradient-minimization-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be a function of two variables that is differentiable at the point <span class="process-math">\(P(x,y)\text{.}\)</span>
+</div>
+<ol class="decimal ol-marker-1" id="cor-gradient-minimization-2-1-3">
+<li id="cor-gradient-minimization-2-1-3-1">
+<div class="para" id="cor-gradient-minimization-2-1-3-1-1">The minimum value of the directional derivative <span class="process-math">\(D_{\mathbf{u}} f(x,y)\)</span> at <span class="process-math">\(P(x,y)\)</span> is <span class="process-math">\(-\|\nabla f(x,y)\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor-gradient-minimization-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#cor-gradient-minimization-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="cor-gradient-minimization-2-1-3-2">
+<div class="para" id="cor-gradient-minimization-2-1-3-2-1">The maximum rate of decrease of <span class="process-math">\(f(x,y)\)</span> at <span class="process-math">\(P(x,y)\)</span> occurs in the opposite direction of the gradient vector, <span class="process-math">\(-\nabla f(x,y)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor-gradient-minimization-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#cor-gradient-minimization-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor-gradient-minimization-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 3.76: Minimization via the Gradient Vector"><a href="#cor-gradient-minimization" title="Copy heading and permalink for Corollary 3.76: Minimization via the Gradient Vector" aria-label="Copy heading and permalink for Corollary 3.76: Minimization via the Gradient Vector">🔗</a></div>
+</article>
+<details id="ex-maximum-rate-of-change-evaluation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.77</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-maximum-rate-of-change-evaluation-1-1">Let <span class="process-math">\(f(x,y)=2+x^2+\frac{1}{4}y^2\text{.}\)</span> Find the direction in which <span class="process-math">\(f(x,y)\)</span> increases most rapidly at the point <span class="process-math">\(P(1,2)\text{,}\)</span> and find the maximum rate of increase of <span class="process-math">\(f\)</span> at <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-maximum-rate-of-change-evaluation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-maximum-rate-of-change-evaluation-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-maximum-rate-of-change-evaluation-2-1">According to the Gradient Theorem, a differentiable function increases most rapidly in the direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that gradient.<div class="autopermalink" data-description="Paragraph"><a href="#ex-maximum-rate-of-change-evaluation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-maximum-rate-of-change-evaluation-2-2">
+<div class="para">First, we find the general first-order partial derivatives of <span class="process-math">\(f(x,y) = 2+x^2+\frac{1}{4}y^2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-maximum-rate-of-change-evaluation-2-2-2">
+\begin{equation*}
+f_x(x,y) = \frac{\partial}{\partial x}\left(2+x^2+\frac{1}{4}y^2\right) = 2x
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-maximum-rate-of-change-evaluation-2-2-3">
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y}\left(2+x^2+\frac{1}{4}y^2\right) = \frac{1}{2}y
+\end{equation*}
+</div>
+<div class="para">This gives our general gradient vector: <span class="process-math">\(\nabla f(x,y) = \langle 2x, \, \frac{1}{2}y \rangle\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-maximum-rate-of-change-evaluation-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-maximum-rate-of-change-evaluation-2-3">
+<div class="para">Next, we evaluate the gradient vector specifically at the point <span class="process-math">\(P(1,2)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-maximum-rate-of-change-evaluation-2-3-2">
+\begin{equation*}
+\nabla f(1,2) = \left\langle 2(1), \, \frac{1}{2}(2) \right\rangle = \langle 2, 1 \rangle
+\end{equation*}
+</div>
+<div class="para">Therefore, the direction in which <span class="process-math">\(f\)</span> increases most rapidly at <span class="process-math">\(P(1,2)\)</span> is given by the vector <span class="process-math">\(\langle 2, 1 \rangle\)</span> (or normalized as the unit direction vector <span class="process-math">\(\mathbf{u} = \langle \frac{2}{\sqrt{5}}, \frac{1}{\sqrt{5}} \rangle\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-maximum-rate-of-change-evaluation-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-maximum-rate-of-change-evaluation-2-4">
+<div class="para">Finally, we calculate the maximum rate of increase by taking the norm of this gradient vector:</div>
+<div class="displaymath process-math" id="ex-maximum-rate-of-change-evaluation-2-4-1">
+\begin{equation*}
+\|\nabla f(1,2)\| = \sqrt{2^2 + 1^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2.2361
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-maximum-rate-of-change-evaluation-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-maximum-rate-of-change-evaluation-2-5">Thus, the maximum rate of increase of the function at <span class="process-math">\(P(1,2)\)</span> is exactly <span class="process-math">\(\sqrt{5}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-maximum-rate-of-change-evaluation-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.77.1"><a href="#ex-maximum-rate-of-change-evaluation-2" title="Copy heading and permalink for Solution 3.77.1" aria-label="Copy heading and permalink for Solution 3.77.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 3.77"><a href="#ex-maximum-rate-of-change-evaluation" title="Copy heading and permalink for Example 3.77" aria-label="Copy heading and permalink for Example 3.77">🔗</a></div>
+</article></details>
+<details id="chk-rate-of-change-two-points" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.78</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="chk-rate-of-change-two-points-1-1">If <span class="process-math">\(f(x,y)=xe^{xy}\text{,}\)</span> find the rate of change of <span class="process-math">\(f\)</span> at the point <span class="process-math">\(P(2,0)\)</span> in the direction from <span class="process-math">\(P(2,0)\)</span> to <span class="process-math">\(Q(1/2,2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-rate-of-change-two-points-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-rate-of-change-two-points-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="chk-rate-of-change-two-points-2-1">
+<div class="para">The rate of change in a specific direction is given by the directional derivative. First, we find the displacement vector <span class="process-math">\(\mathbf{v}\)</span> pointing from <span class="process-math">\(P\)</span> to <span class="process-math">\(Q\)</span> by subtracting their coordinates:</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-1-4">
+\begin{equation*}
+\mathbf{v} = \overrightarrow{PQ} = \left\langle \frac{1}{2}-2, \, 2-0 \right\rangle = \left\langle -\frac{3}{2}, \, 2 \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-rate-of-change-two-points-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-rate-of-change-two-points-2-2">
+<div class="para">To compute a directional derivative, we must normalize <span class="process-math">\(\mathbf{v}\)</span> into a unit vector <span class="process-math">\(\mathbf{u}\text{.}\)</span> We find its magnitude:</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-2-3">
+\begin{equation*}
+\|\mathbf{v}\| = \sqrt{\left(-\frac{3}{2}\right)^2 + 2^2} = \sqrt{\frac{9}{4} + 4} = \sqrt{\frac{25}{4}} = \frac{5}{2}
+\end{equation*}
+</div>
+<div class="para">Dividing <span class="process-math">\(\mathbf{v}\)</span> by its magnitude gives the direction unit vector <span class="process-math">\(\mathbf{u}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-2-6">
+\begin{equation*}
+\mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \frac{2}{5} \left\langle -\frac{3}{2}, \, 2 \right\rangle = \left\langle -\frac{3}{5}, \, \frac{4}{5} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-rate-of-change-two-points-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-rate-of-change-two-points-2-3">
+<div class="para">Next, we calculate the general first-order partial derivatives of <span class="process-math">\(f(x,y) = xe^{xy}\)</span> using the single-variable product and chain rules:</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-3-2">
+\begin{equation*}
+f_x(x,y) = 1 \cdot e^{xy} + x \cdot (ye^{xy}) = e^{xy}(1 + xy)
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-3-3">
+\begin{equation*}
+f_y(x,y) = x \cdot (xe^{xy}) = x^2e^{xy}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-rate-of-change-two-points-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-rate-of-change-two-points-2-4">
+<div class="para">Evaluating these partial derivatives at the baseline point <span class="process-math">\(P(2,0)\)</span> yields the components of the gradient vector <span class="process-math">\(\nabla f(2,0)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-4-3">
+\begin{equation*}
+f_x(2,0) = e^{2(0)}(1 + 2(0)) = 1(1) = 1
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-4-4">
+\begin{equation*}
+f_y(2,0) = (2)^2 e^{2(0)} = 4(1) = 4
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-4-5">
+\begin{equation*}
+\nabla f(2,0) = \langle 1, 4 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-rate-of-change-two-points-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-rate-of-change-two-points-2-5">
+<div class="para">Finally, we compute the directional derivative by evaluating the dot product of the gradient vector and our direction unit vector:</div>
+<div class="displaymath process-math" id="chk-rate-of-change-two-points-2-5-1">
+\begin{align*}
+D_{\mathbf{u}} f(2,0) \amp = \nabla f(2,0) \cdot \mathbf{u}\\
+\amp = \langle 1, 4 \rangle \cdot \left\langle -\frac{3}{5}, \, \frac{4}{5} \right\rangle\\
+\amp = 1\left(-\frac{3}{5}\right) + 4\left(\frac{4}{5}\right)\\
+\amp = -\frac{3}{5} + \frac{16}{5} = \frac{13}{5} = 2.6
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-rate-of-change-two-points-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.78.1"><a href="#chk-rate-of-change-two-points-2" title="Copy heading and permalink for Solution 3.78.1" aria-label="Copy heading and permalink for Solution 3.78.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.78"><a href="#chk-rate-of-change-two-points" title="Copy heading and permalink for Checkpoint 3.78" aria-label="Copy heading and permalink for Checkpoint 3.78">🔗</a></div>
+</article></details>
+<details id="chk-maximum-rate-of-change" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.79</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="chk-maximum-rate-of-change-1-1">For the function <span class="process-math">\(f(x,y)=xe^{xy}\)</span> at the point <span class="process-math">\(P(2,0)\text{,}\)</span> in what direction does <span class="process-math">\(f\)</span> have the maximum rate of change? What is this maximum rate of change?<div class="autopermalink" data-description="Paragraph"><a href="#chk-maximum-rate-of-change-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-maximum-rate-of-change-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="chk-maximum-rate-of-change-2-1">According to the Gradient Theorem, a differentiable function increases most rapidly in the exact direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that vector.<div class="autopermalink" data-description="Paragraph"><a href="#chk-maximum-rate-of-change-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-maximum-rate-of-change-2-2">
+<div class="para">From our calculations in the previous exercise, the gradient vector evaluated at the point <span class="process-math">\(P(2,0)\)</span> is:</div>
+<div class="displaymath process-math" id="chk-maximum-rate-of-change-2-2-2">
+\begin{equation*}
+\nabla f(2,0) = \langle 1, 4 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-maximum-rate-of-change-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-maximum-rate-of-change-2-3">
+<div class="para">Therefore, <span class="process-math">\(f\)</span> has its maximum rate of change in the direction of the vector <span class="process-math">\(\langle 1, 4 \rangle\text{.}\)</span> Expressed as a normalized unit vector, this direction is:</div>
+<div class="displaymath process-math" id="chk-maximum-rate-of-change-2-3-3">
+\begin{equation*}
+\mathbf{u}_{\text{max}} = \frac{\nabla f(2,0)}{\|\nabla f(2,0)\|} = \left\langle \frac{1}{\sqrt{17}}, \, \frac{4}{\sqrt{17}} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-maximum-rate-of-change-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-maximum-rate-of-change-2-4">
+<div class="para">The maximum rate of change is the magnitude of this gradient vector:</div>
+<div class="displaymath process-math" id="chk-maximum-rate-of-change-2-4-1">
+\begin{equation*}
+\|\nabla f(2,0)\| = \sqrt{1^2 + 4^2} = \sqrt{1 + 16} = \sqrt{17} \approx 4.1231
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-maximum-rate-of-change-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.79.1"><a href="#chk-maximum-rate-of-change-2" title="Copy heading and permalink for Solution 3.79.1" aria-label="Copy heading and permalink for Solution 3.79.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.79"><a href="#chk-maximum-rate-of-change" title="Copy heading and permalink for Checkpoint 3.79" aria-label="Copy heading and permalink for Checkpoint 3.79">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-directional-derivative-three-variables"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.80</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directional Derivative with Three Variables.</span>
+</h3>
+<div class="para logical" id="def-directional-derivative-three-variables-2-1">
+<div class="para">Let <span class="process-math">\(\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j} + u_3\mathbf{k}\)</span> be a 3D unit vector. The <dfn class="terminology">directional derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(P(x,y,z)\)</span> in the direction of <span class="process-math">\(\mathbf{u}\)</span></dfn>, denoted by <span class="process-math">\(D_{\mathbf{u}} f(x,y,z)\text{,}\)</span> is defined by the limit:</div>
+<div class="displaymath process-math" id="def-directional-derivative-three-variables-2-1-4">
+\begin{equation*}
+D_{\mathbf{u}} f(x,y,z) = \lim_{s \to 0}\frac{f(x+su_1,y+su_2,z+su_3)-f(x,y,z)}{s}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-directional-derivative-three-variables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.80: Directional Derivative with Three Variables"><a href="#def-directional-derivative-three-variables" title="Copy heading and permalink for Definition 3.80: Directional Derivative with Three Variables" aria-label="Copy heading and permalink for Definition 3.80: Directional Derivative with Three Variables">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-directional-derivative-formula-three-variables"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.81</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directional Derivative Formula for Three Variables.</span>
+</h3>
+<div class="para logical" id="thm-directional-derivative-formula-three-variables-2-1">
+<div class="para">If <span class="process-math">\(f\)</span> is a differentiable function of three variables and <span class="process-math">\(\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j} + u_3\mathbf{k}\)</span> is a unit vector, then the directional derivative can be computed as:</div>
+<div class="displaymath process-math" id="thm-directional-derivative-formula-three-variables-2-1-3">
+\begin{equation*}
+D_{\mathbf{u}} f(x,y,z) = f_x(x,y,z)u_1 + f_y(x,y,z)u_2 + f_z(x,y,z)u_3
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-directional-derivative-formula-three-variables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.81: Directional Derivative Formula for Three Variables"><a href="#thm-directional-derivative-formula-three-variables" title="Copy heading and permalink for Theorem 3.81: Directional Derivative Formula for Three Variables" aria-label="Copy heading and permalink for Theorem 3.81: Directional Derivative Formula for Three Variables">🔗</a></div>
+</article>
+<div class="para logical" id="sec-directional-derivatives-19">
+<div class="para">The <dfn class="terminology">gradient</dfn> of a function of three variables is the vector function denoted by <span class="process-math">\(\nabla f\)</span> and defined by:</div>
+<div class="displaymath process-math" id="sec-directional-derivatives-19-3">
+\begin{equation*}
+\nabla f(x,y,z) = \langle f_x(x,y,z), f_y(x,y,z), f_z(x,y,z) \rangle = f_x(x,y,z)\mathbf{i} + f_y(x,y,z)\mathbf{j} + f_z(x,y,z)\mathbf{k}
+\end{equation*}
+</div>
+<div class="para">With this vector framework, the directional derivative can be written compactly as the dot product <span class="process-math">\(D_{\mathbf{u}} f(x,y,z) = \nabla f(x,y,z) \cdot \mathbf{u}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-directional-derivatives-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-directional-derivative-three-variables-evaluation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.82</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-directional-derivative-three-variables-evaluation-1-1">If <span class="process-math">\(f(x,y,z)=x \sin(yz)\text{,}\)</span> find the gradient vector <span class="process-math">\(\nabla f(x,y,z)\text{.}\)</span> Then, find the directional derivative of <span class="process-math">\(f\)</span> at the point <span class="process-math">\((1,3,0)\)</span> in the direction of the vector <span class="process-math">\(\mathbf{v}=\mathbf{i}+2\mathbf{j}-\mathbf{k}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-three-variables-evaluation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-directional-derivative-three-variables-evaluation-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-directional-derivative-three-variables-evaluation-2-1">
+<div class="para">First, we compute the three first-order partial derivatives of <span class="process-math">\(f(x,y,z) = x \sin(yz)\)</span> by treating the remaining variables as constants and applying single-variable chain rules:</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-1-2">
+\begin{equation*}
+f_x(x,y,z) = \frac{\partial}{\partial x}[x \sin(yz)] = \sin(yz)
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-1-3">
+\begin{equation*}
+f_y(x,y,z) = \frac{\partial}{\partial y}[x \sin(yz)] = x \cdot \cos(yz) \cdot z = xz\cos(yz)
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-1-4">
+\begin{equation*}
+f_z(x,y,z) = \frac{\partial}{\partial z}[x \sin(yz)] = x \cdot \cos(yz) \cdot y = xy\cos(yz)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-three-variables-evaluation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-directional-derivative-three-variables-evaluation-2-2">
+<div class="para">Assembling these components gives the general gradient vector formula:</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-2-1">
+\begin{equation*}
+\nabla f(x,y,z) = \langle \sin(yz), \, xz\cos(yz), \, xy\cos(yz) \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-three-variables-evaluation-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-directional-derivative-three-variables-evaluation-2-3">
+<div class="para">Next, we evaluate the gradient vector specifically at the given point <span class="process-math">\((1,3,0)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-3-2">
+\begin{equation*}
+f_x(1,3,0) = \sin(3 \cdot 0) = \sin(0) = 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-3-3">
+\begin{equation*}
+f_y(1,3,0) = (1)(0)\cos(3 \cdot 0) = 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-3-4">
+\begin{equation*}
+f_z(1,3,0) = (1)(3)\cos(3 \cdot 0) = 3\cos(0) = 3(1) = 3
+\end{equation*}
+</div>
+<div class="para">This yields the evaluated vector: <span class="process-math">\(\nabla f(1,3,0) = \langle 0, 0, 3 \rangle\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-three-variables-evaluation-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-directional-derivative-three-variables-evaluation-2-4">
+<div class="para">The direction vector <span class="process-math">\(\mathbf{v} = \langle 1, 2, -1 \rangle\)</span> is not a unit vector. We must normalize it before computing the directional derivative. We calculate its magnitude:</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-4-2">
+\begin{equation*}
+\|\mathbf{v}\| = \sqrt{1^2 + 2^2 + (-1)^2} = \sqrt{1 + 4 + 1} = \sqrt{6}
+\end{equation*}
+</div>
+<div class="para">Dividing <span class="process-math">\(\mathbf{v}\)</span> by its magnitude gives the direction unit vector <span class="process-math">\(\mathbf{u}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-4-5">
+\begin{equation*}
+\mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \left\langle \frac{1}{\sqrt{6}}, \, \frac{2}{\sqrt{6}}, \, -\frac{1}{\sqrt{6}} \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-three-variables-evaluation-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-directional-derivative-three-variables-evaluation-2-5">
+<div class="para">Finally, we calculate the directional derivative by taking the dot product of the evaluated gradient vector and our direction unit vector:</div>
+<div class="displaymath process-math" id="ex-directional-derivative-three-variables-evaluation-2-5-1">
+\begin{align*}
+D_{\mathbf{u}} f(1,3,0) \amp = \nabla f(1,3,0) \cdot \mathbf{u}\\
+\amp = \langle 0, 0, 3 \rangle \cdot \left\langle \frac{1}{\sqrt{6}}, \, \frac{2}{\sqrt{6}}, \, -\frac{1}{\sqrt{6}} \right\rangle\\
+\amp = 0\left(\frac{1}{\sqrt{6}}\right) + 0\left(\frac{2}{\sqrt{6}}\right) + 3\left(-\frac{1}{\sqrt{6}}\right)\\
+\amp = -\frac{3}{\sqrt{6}} = -\frac{\sqrt{6}}{2} \approx -1.2247
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-directional-derivative-three-variables-evaluation-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.82.1"><a href="#ex-directional-derivative-three-variables-evaluation-2" title="Copy heading and permalink for Solution 3.82.1" aria-label="Copy heading and permalink for Solution 3.82.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 3.82"><a href="#ex-directional-derivative-three-variables-evaluation" title="Copy heading and permalink for Example 3.82" aria-label="Copy heading and permalink for Example 3.82">🔗</a></div>
+</article></details>
+<details id="chk-temperature-gradient-maximization" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.83</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para logical" id="chk-temperature-gradient-maximization-1-1">
+<div class="para">Suppose that the temperature at a point <span class="process-math">\((x,y,z)\)</span> in space is given by:</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-1-1-2">
+\begin{equation*}
+T(x,y,z)=\frac{80}{1+x^2+2y^2+3z^2}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(T\)</span> is measured in degrees Celsius and <span class="process-math">\(x, y, z\)</span> are measured in meters. In which direction does the temperature increase fastest at the point <span class="process-math">\((1,1,-2)\text{?}\)</span> What is the maximum rate of increase?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-temperature-gradient-maximization-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-temperature-gradient-maximization-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="chk-temperature-gradient-maximization-2-1">According to the Gradient Theorem, a differentiable function increases most rapidly in the exact direction of its gradient vector, and the maximum rate of change is equal to the magnitude of that gradient vector.<div class="autopermalink" data-description="Paragraph"><a href="#chk-temperature-gradient-maximization-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-temperature-gradient-maximization-2-2">
+<div class="para">We rewrite the temperature function using a negative exponent to simplify differentiation: <span class="process-math">\(T(x,y,z) = 80(1+x^2+2y^2+3z^2)^{-1}\text{.}\)</span> Next, we calculate the three first-order partial derivatives of <span class="process-math">\(T\)</span> using the single-variable chain rule:</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-2-3">
+\begin{equation*}
+T_x = -80(1+x^2+2y^2+3z^2)^{-2}(2x) = \frac{-160x}{(1+x^2+2y^2+3z^2)^2}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-2-4">
+\begin{equation*}
+T_y = -80(1+x^2+2y^2+3z^2)^{-2}(4y) = \frac{-320y}{(1+x^2+2y^2+3z^2)^2}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-2-5">
+\begin{equation*}
+T_z = -80(1+x^2+2y^2+3z^2)^{-2}(6z) = \frac{-480z}{(1+x^2+2y^2+3z^2)^2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-temperature-gradient-maximization-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-temperature-gradient-maximization-2-3">
+<div class="para">Before evaluating the partials at the point <span class="process-math">\((1,1,-2)\text{,}\)</span> we find the value of the shared denominator expression:</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-3-2">
+\begin{equation*}
+1 + x^2 + 2y^2 + 3z^2 = 1 + (1)^2 + 2(1)^2 + 3(-2)^2 = 1 + 1 + 2 + 12 = 16
+\end{equation*}
+</div>
+<div class="para">Substituting <span class="process-math">\(x=1\text{,}\)</span> <span class="process-math">\(y=1\text{,}\)</span> and <span class="process-math">\(z=-2\)</span> into our partial derivatives yields:</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-3-6">
+\begin{equation*}
+T_x(1,1,-2) = \frac{-160(1)}{(16)^2} = \frac{-160}{256} = -\frac{5}{8}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-3-7">
+\begin{equation*}
+T_y(1,1,-2) = \frac{-320(1)}{(16)^2} = \frac{-320}{256} = -\frac{5}{4}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-3-8">
+\begin{equation*}
+T_z(1,1,-2) = \frac{-480(-2)}{(16)^2} = \frac{960}{256} = \frac{15}{4}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-temperature-gradient-maximization-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-temperature-gradient-maximization-2-4">
+<div class="para">This gives our evaluated gradient vector:</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-4-1">
+\begin{equation*}
+\nabla T(1,1,-2) = \left\langle -\frac{5}{8}, \, -\frac{5}{4}, \, \frac{15}{4} \right\rangle = \frac{5}{8}\langle -1, \, -2, \, 6 \rangle
+\end{equation*}
+</div>
+<div class="para">Therefore, the temperature increases fastest in the direction of the vector <span class="process-math">\(\langle -1, -2, 6 \rangle\)</span> (or its corresponding normalized direction unit vector <span class="process-math">\(\mathbf{u} = \frac{1}{\sqrt{41}}\langle -1, -2, 6 \rangle\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-temperature-gradient-maximization-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-temperature-gradient-maximization-2-5">
+<div class="para">The maximum rate of increase is the magnitude of this gradient vector:</div>
+<div class="displaymath process-math" id="chk-temperature-gradient-maximization-2-5-1">
+\begin{align*}
+\|\nabla T(1,1,-2)\| \amp = \sqrt{\left(-\frac{5}{8}\right)^2 + \left(-\frac{5}{4}\right)^2 + \left(\frac{15}{4}\right)^2}\\
+\amp = \sqrt{\frac{25}{64} + \frac{25}{16} + \frac{225}{16}} = \sqrt{\frac{25 + 100 + 900}{64}}\\
+\amp = \sqrt{\frac{1025}{64}} = \frac{5\sqrt{41}}{8} \approx 4.0019 \text{ }^{\circ}\text{C/m}
+\end{align*}
+</div>
+<div class="para">Thus, the maximum rate of temperature increase at the point <span class="process-math">\((1,1,-2)\)</span> is exactly <span class="process-math">\(\frac{5\sqrt{41}}{8} \text{ }^{\circ}\text{C/m}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-temperature-gradient-maximization-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.83.1"><a href="#chk-temperature-gradient-maximization-2" title="Copy heading and permalink for Solution 3.83.1" aria-label="Copy heading and permalink for Solution 3.83.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.83"><a href="#chk-temperature-gradient-maximization" title="Copy heading and permalink for Checkpoint 3.83" aria-label="Copy heading and permalink for Checkpoint 3.83">🔗</a></div>
+</article></details>
+<details id="chk-ohm-law-related-rates" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.84</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="chk-ohm-law-related-rates-1-1">A simple electrical circuit consists of a resistor <span class="process-math">\(R\)</span> and an electromotive force <span class="process-math">\(V\text{.}\)</span> At a certain instant, <span class="process-math">\(V\)</span> is <span class="process-math">\(80\text{ volts}\)</span> and is increasing at a rate of <span class="process-math">\(5\text{ volts/min}\text{,}\)</span> while <span class="process-math">\(R\)</span> is <span class="process-math">\(40\text{ ohms}\)</span> and is decreasing at a rate of <span class="process-math">\(2\text{ ohms/min}\text{.}\)</span> Use Ohm’s law, <span class="process-math">\(I=\frac{V}{R}\text{,}\)</span> to find the rate at which the current <span class="process-math">\(I\)</span> is changing.<div class="autopermalink" data-description="Paragraph"><a href="#chk-ohm-law-related-rates-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-ohm-law-related-rates-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="chk-ohm-law-related-rates-2-1">
+<div class="para">Ohm’s law defines current <span class="process-math">\(I\)</span> as a function of two variables—voltage <span class="process-math">\(V\)</span> and resistance <span class="process-math">\(R\text{:}\)</span> <span class="process-math">\(I(V,R) = \frac{V}{R}\text{.}\)</span> Since both <span class="process-math">\(V\)</span> and <span class="process-math">\(R\)</span> change over time, they implicitly depend on a common time parameter <span class="process-math">\(t\text{.}\)</span> By applying the Case I Multivariate Chain Rule, the rate of change of the current with respect to time is:</div>
+<div class="displaymath process-math" id="chk-ohm-law-related-rates-2-1-8">
+\begin{equation*}
+\frac{dI}{dt} = \frac{\partial I}{\partial V}\frac{dV}{dt} + \frac{\partial I}{\partial R}\frac{dR}{dt}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-ohm-law-related-rates-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-ohm-law-related-rates-2-2">
+<div class="para">First, we compute the first-order partial derivatives of <span class="process-math">\(I\)</span> with respect to <span class="process-math">\(V\)</span> and <span class="process-math">\(R\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-ohm-law-related-rates-2-2-4">
+\begin{equation*}
+\frac{\partial I}{\partial V} = \frac{\partial}{\partial V}\left[\frac{V}{R}\right] = \frac{1}{R} \quad \text{and} \quad \frac{\partial I}{\partial R} = \frac{\partial}{\partial R}\left[V R^{-1}\right] = -\frac{V}{R^2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-ohm-law-related-rates-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-ohm-law-related-rates-2-3">
+<div class="para">From the statement of the problem, we isolate our baseline parameters and independent rate shifts at this specific instant (noting that a decreasing rate requires a negative value):</div>
+<div class="displaymath process-math" id="chk-ohm-law-related-rates-2-3-1">
+\begin{equation*}
+V = 80, \quad R = 40, \quad \frac{dV}{dt} = 5, \quad \frac{dR}{dt} = -2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-ohm-law-related-rates-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-ohm-law-related-rates-2-4">
+<div class="para">Substituting these numerical values into our expanded chain rule expression yields:</div>
+<div class="displaymath process-math" id="chk-ohm-law-related-rates-2-4-1">
+\begin{align*}
+\frac{dI}{dt} \amp = \left(\frac{1}{R}\right)\frac{dV}{dt} + \left(-\frac{V}{R^2}\right)\frac{dR}{dt}\\
+\amp = \left(\frac{1}{40}\right)(5) + \left(-\frac{80}{40^2}\right)(-2)\\
+\amp = \frac{5}{40} + \left(-\frac{80}{1600}\right)(-2)\\
+\amp = \frac{1}{8} + \left(-\frac{1}{20}\right)(-2) = \frac{1}{8} + \frac{1}{10}\\
+\amp = \frac{5 + 4}{40} = \frac{9}{40} = 0.225\text{ amperes/min}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-ohm-law-related-rates-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="chk-ohm-law-related-rates-2-5">Thus, at this instant, the current <span class="process-math">\(I\)</span> is increasing at a rate of exactly <span class="process-math">\(0.225\text{ amperes per minute}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-ohm-law-related-rates-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.84.1"><a href="#chk-ohm-law-related-rates-2" title="Copy heading and permalink for Solution 3.84.1" aria-label="Copy heading and permalink for Solution 3.84.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.84"><a href="#chk-ohm-law-related-rates" title="Copy heading and permalink for Checkpoint 3.84" aria-label="Copy heading and permalink for Checkpoint 3.84">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section: 3.6 Directional Derivatives"><a href="#sec-directional-derivatives" title="Copy heading and permalink for Section: 3.6 Directional Derivatives" aria-label="Copy heading and permalink for Section: 3.6 Directional Derivatives">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-chain-rules.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="activities.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-chain-rules">
+  <title>3.5 Chain Rules</title>
+  <p>
+    The chain rule is a fundamental tool in calculus that allows us to compute the derivative of a composite function. 
+    In this section, we will derive the chain rule for functions of several variables and apply it to various cases.
+  </p>
+<p>
+  Recall that if <m>y=f(x)</m> and <m>x=g(t)</m>, where <m>f</m> and <m>g</m> are differentiable functions, then <m>y</m> is indirectly a differentiable function of <m>t</m>, and the single-variable chain rule applies:
+  <me>\frac{dy}{dt} = \frac{dy}{dx}\frac{dx}{dt}</me>
+</p>
+
+<theorem xml:id="thm-chain-rule-case1">
+  <title>The Chain Rule: Case I</title>
+  <statement>
+    <p>
+      Suppose that <m>z=f(x,y)</m> is a differentiable function of <m>x</m> and <m>y</m>, where <m>x=g(t)</m> and <m>y=h(t)</m> are both differentiable functions of <m>t</m>. 
+      Then <m>z</m> is a differentiable function of <m>t</m> and satisfies the formula:
+      <me>\frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}</me>
+    </p>
+
+    <figure xml:id="fig-chain-rule-tree-case1">
+      <caption>Dependency tree diagram for Case I of the Multivariate Chain Rule.</caption>
+      <image width="30%">
+        <description>A tree diagram branching from z down to independent paths through x and y, both terminating at the parameter t.</description>
+        <latex-image>
+          \begin{tikzpicture}[
+            level 1/.style={sibling distance=2.5cm, level distance=1.5cm},
+            level 2/.style={sibling distance=2.5cm, level distance=1.5cm},
+            edge from parent/.style={draw,-,thick},
+            every node/.style={inner sep=2pt, font=\small}
+          ]
+            \node {$z$}
+              child { node {$x$} 
+                child { node {$t$} 
+                  edge from parent node[left, pos=0.5] {$\frac{dx}{dt}$}
+                }
+                edge from parent node[above left, pos=0.5] {$\frac{\partial z}{\partial x}$}
+              }
+              child { node {$y$} 
+                child { node {$t$} 
+                  edge from parent node[right, pos=0.5] {$\frac{dy}{dt}$}
+                }
+                edge from parent node[above right, pos=0.5] {$\frac{\partial z}{\partial y}$}
+              };
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+  </statement>
+</theorem>
+
+<example xml:id="ex-chain-rule-case1-evaluation">
+  <statement>
+    <p>
+      If <m>z=x^2y+3xy^4</m>, where <m>x=\sin(2t)</m> and <m>y=\cos(t)</m>, find <m>\frac{dz}{dt}</m> when <m>t=0</m>.
+    </p>
+</statement>
+  <solution>
+    <p>
+    <figure xml:id="fig-chain-rule-example-tree">
+      <caption>Variable dependency tree diagram tailored to the specific functions of this example.</caption>
+      <image width="80%">
+        <description>A tree diagram branching from the function z down to variables x and y, both terminating at the common variable parameter t with custom functional mappings labeled alongside the nodes.</description>
+        <latex-image>
+          \begin{tikzpicture}[
+            level 1/.style={sibling distance=3cm, level distance=1.5cm},
+            level 2/.style={sibling distance=3cm, level distance=1.5cm},
+            edge from parent/.style={draw,-,thick},
+            every node/.style={inner sep=2pt, font=\small}
+          ]
+            \node {$z = x^2y+3xy^4$}
+              child { node {$x = \sin(2t)$} 
+                child { node {$t$} 
+                  edge from parent node[left, pos=0.5] {$\frac{dx}{dt} = 2\cos(2t)$}
+                }
+                edge from parent node[above left, pos=0.5] {$\frac{\partial z}{\partial x} = 2xy + 3y^4$}
+              }
+              child { node {$y = \cos(t)$} 
+                child { node {$t$} 
+                  edge from parent node[right, pos=0.5] {$\frac{dy}{dt} = -\sin(t)$}
+                }
+                edge from parent node[above right, pos=0.5] {$\frac{\partial z}{\partial y} = x^2 + 12xy^3$}
+              };
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+  
+      We first compute all the necessary components for the Case I Chain Rule formula. 
+      The first-order partial derivatives of <m>z</m> with respect to <m>x</m> and <m>y</m> are:
+      <me>\frac{\partial z}{\partial x} = 2xy + 3y^4 \quad \text{and} \quad \frac{\partial z}{\partial y} = x^2 + 12xy^3</me>
+    </p>
+    <p>
+      The single-variable derivatives of <m>x</m> and <m>y</m> with respect to the parameter <m>t</m> are:
+      <me>\frac{dx}{dt} = \frac{d}{dt}[\sin(2t)] = 2\cos(2t) \quad \text{and} \quad \frac{dy}{dt} = \frac{d}{dt}[\cos(t)] = -\sin(t)</me>
+    </p>
+    <p>
+      Now, we substitute these components into the chain rule formula:
+      <md>
+        <mrow>\frac{dz}{dt} \amp = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}</mrow>
+        <mrow>\amp = (2xy + 3y^4)(2\cos(2t)) + (x^2 + 12xy^3)(-\sin(t))</mrow>
+      </md>
+    </p>
+    <p>
+      To find the value of <m>\frac{dz}{dt}</m> at the specific parameter point <m>t = 0</m>, we first evaluate the corresponding coordinate locations for <m>x</m> and <m>y</m>:
+      <me>x = \sin(2(0)) = 0 \quad \text{and} \quad y = \cos(0) = 1</me>
+    </p>
+    <p>
+      Finally, substituting <m>t=0</m>, <m>x=0</m>, and <m>y=1</m> into our derivative expression yields:
+      <md>
+        <mrow>\frac{dz}{dt}\Big|_{t=0} \amp = \left(2(0)(1) + 3(1)^4\right)\left(2\cos(0)\right) + \left(0^2 + 12(0)(1)^3\right)\left(-\sin(0)\right)</mrow>
+        <mrow>\amp = (0 + 3)(2(1)) + (0 + 0)(0)</mrow>
+        <mrow>\amp = (3)(2) + 0</mrow>
+        <mrow>\amp = 6</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<theorem xml:id="thm-chain-rule-case2">
+  <title>The Chain Rule: Case II</title>
+  <statement>
+    <p>
+      Suppose that <m>z=f(x,y)</m> is a differentiable function of <m>x</m> and <m>y</m>, where <m>x=g(s,t)</m> and <m>y=h(s,t)</m> are both differentiable functions of <m>s</m> and <m>t</m>. 
+      Then <m>z</m> is a differentiable function of <m>s</m> and <m>t</m>, satisfying the partial derivative formulas:
+      <me>\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s} \quad \text{and} \quad \frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}</me>
+    </p>
+
+    <figure xml:id="fig-chain-rule-tree-case2">
+      <caption>Dependency tree diagram for Case II of the Multivariate Chain Rule.</caption>
+      <image width="70%">
+        <description>A tree diagram branching from z down to x and y, which each branch out further down to independent parameters s and t.</description>
+        <latex-image>
+          \begin{tikzpicture}[
+            level 1/.style={sibling distance=4.5cm, level distance=1.5cm},
+            level 2/.style={sibling distance=2.2cm, level distance=1.5cm},
+            edge from parent/.style={draw,-,thick},
+            every node/.style={inner sep=2pt, font=\small}
+          ]
+            \node {$z$}
+              child { node {$x$} 
+                child { node {$s$} 
+                  edge from parent node[left, pos=0.5] {$\frac{\partial x}{\partial s}$}
+                }
+                child { node {$t$} 
+                  edge from parent node[right, pos=0.5] {$\frac{\partial x}{\partial t}$}
+                }
+                edge from parent node[above left, pos=0.5] {$\frac{\partial z}{\partial x}$}
+              }
+              child { node {$y$} 
+                child { node {$s$} 
+                  edge from parent node[left, pos=0.5] {$\frac{\partial y}{\partial s}$}
+                }
+                child { node {$t$} 
+                  edge from parent node[right, pos=0.5] {$\frac{\partial y}{\partial t}$}
+                }
+                edge from parent node[above right, pos=0.5] {$\frac{\partial z}{\partial y}$}
+              };
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+  </statement>
+</theorem>
+
+<example xml:id="ex-chain-rule-case2-evaluation">
+  <statement>
+    <p>
+      If <m>z=e^x\sin(y)</m>, where <m>x=st^2</m> and <m>y=s^2t</m>, find <m>\frac{\partial z}{\partial s}</m> and <m>\frac{\partial z}{\partial t}</m>.
+    </p>
+</statement>
+  <solution>
+    <p>
+    <figure xml:id="fig-chain-rule-example2-tree">
+      <caption>Tailored dependency tree diagram tracking partial rate changes down to parameters <m>s</m> and <m>t</m>.</caption>
+      <image width="90%">
+        <description>A 3-level tree diagram mapping the function z down to intermediate variables x and y, 
+            which further subdivide down to the independent parameters s and t with explicit formulas labeled on 
+            each branch.</description>
+        <latex-image>
+          \begin{tikzpicture}[
+            level 1/.style={sibling distance=5.5cm, level distance=1.8cm},
+            level 2/.style={sibling distance=2.5cm, level distance=1.8cm},
+            edge from parent/.style={draw,-,thick},
+            every node/.style={inner sep=2pt, font=\small}
+          ]
+            \node {$z = e^x\sin(y)$}
+              child { node {$x = st^2$} 
+                child { node {$s$} 
+                  edge from parent node[left, pos=0.5] {$\frac{\partial x}{\partial s} = t^2$}
+                }
+                child { node {$t$} 
+                  edge from parent node[right, pos=0.5] {$\frac{\partial x}{\partial t} = 2st$}
+                }
+                edge from parent node[above left, pos=0.5] {$\frac{\partial z}{\partial x} = e^x\sin(y)$}
+              }
+              child { node {$y = s^2t$} 
+                child { node {$s$} 
+                  edge from parent node[left, pos=0.5] {$\frac{\partial y}{\partial s} = 2st$}
+                }
+                child { node {$t$} 
+                  edge from parent node[right, pos=0.5] {$\frac{\partial y}{\partial t} = s^2$}
+                }
+                edge from parent node[above right, pos=0.5] {$\frac{\partial z}{\partial y} = e^x\cos(y)$}
+              };
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+  
+      We first calculate the required first-order partial derivatives of the dependent surface function <m>z</m>:
+      <me>\frac{\partial z}{\partial x} = e^x\sin(y) \quad \text{and} \quad \frac{\partial z}{\partial y} = e^x\cos(y)</me>
+    </p>
+    <p>
+      Next, we calculate the partial derivatives for the intermediate variable functions <m>x</m> and <m>y</m> with respect to both independent parameters <m>s</m> and <m>t</m>:
+      <me>\frac{\partial x}{\partial s} = t^2, \quad \frac{\partial x}{\partial t} = 2st</me>
+      <me>\frac{\partial y}{\partial s} = 2st, \quad \frac{\partial y}{\partial t} = s^2</me>
+    </p>
+    <p>
+      Applying the Case II Chain Rule formula for the parameter <m>s</m>, we substitute our partial derivatives:
+      <md>
+        <mrow>\frac{\partial z}{\partial s} \amp = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s}</mrow>
+        <mrow>\amp = \left(e^x\sin(y)\right)(t^2) + \left(e^x\cos(y)\right)(2st)</mrow>
+        <mrow>\amp = t^2 e^{st^2}\sin(s^2t) + 2st e^{st^2}\cos(s^2t)</mrow>
+      </md>
+    </p>
+    <p>
+      Applying the Case II Chain Rule formula for the parameter <m>t</m>, we substitute our partial derivatives:
+      <md>
+        <mrow>\frac{\partial z}{\partial t} \amp = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}</mrow>
+        <mrow>\amp = \left(e^x\sin(y)\right)(2st) + \left(e^x\cos(y)\right)(s^2)</mrow>
+        <mrow>\amp = 2st e^{st^2}\sin(s^2t) + s^2 e^{st^2}\cos(s^2t)</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-chain-rule-five-variables">
+  <statement>
+    <p>
+      Use the chain rule to find <m>\frac{\partial w}{\partial z}</m>, if 
+      <me>w=r^2+sv+t^3, \quad r=x^2+y^2+z^2, \quad s=xyz, \quad v=xe^y, \quad t=yz^2</me>
+    </p>
+
+    <figure xml:id="fig-chain-rule-five-variables-tree">
+      <caption>Dependency tree diagram illustrating the intermediate variables linking <m>w</m> to the independent variable <m>z</m>.</caption>
+      <image width="75%">
+        <description>A tree diagram branching from w down to intermediate variables r, s, v, and t. From those, paths branch down further to variables x, y, and z where applicable, highlighting that only r, s, and t branch down to z.</description>
+        <latex-image>
+          \begin{tikzpicture}[
+            level 1/.style={sibling distance=3cm, level distance=1.5cm},
+            level 2/.style={sibling distance=1cm, level distance=1.8cm},
+            edge from parent/.style={draw,-,thick},
+            every node/.style={inner sep=2pt, font=\small}
+          ]
+            \node {$w$}
+              child { node {$r$} 
+                child { node {$x$} }
+                child { node {$y$} }
+                child { node {$z$} edge from parent[red, very thick] }
+              }
+              child { node {$s$} 
+                child { node {$x$} }
+                child { node {$y$} }
+                child { node {$z$} edge from parent[red, very thick] }
+              }
+              child { node {$v$} 
+                child { node {$x$} }
+                child { node {$y$} }
+              }
+              child { node {$t$} 
+                child { node {$y$} }
+                child { node {$z$} edge from parent[red, very thick] }
+              };
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+  </statement>
+  <solution>
+    <p>
+      The dependent variable <m>w</m> is directly a function of four intermediate variables: <m>r</m>, <m>s</m>, <m>v</m>, and <m>t</m>. 
+      By checking our dependency tree, we see that <m>r</m>, <m>s</m>, and <m>t</m> depend on the independent variable <m>z</m>, whereas <m>v</m> does not contain <m>z</m> (meaning <m>\frac{\partial v}{\partial z} = 0</m>). 
+      Therefore, the chain rule extension for this system is:
+      <me>\frac{\partial w}{\partial z} = \frac{\partial w}{\partial r}\frac{\partial r}{\partial z} + \frac{\partial w}{\partial s}\frac{\partial s}{\partial z} + \frac{\partial w}{\partial v}\frac{\partial v}{\partial z} + \frac{\partial w}{\partial t}\frac{\partial t}{\partial z}</me>
+    </p>
+    <p>
+      We find each required component derivative independently:
+      <me>\frac{\partial w}{\partial r} = 2r = 2(x^2+y^2+z^2) \quad \text{and} \quad \frac{\partial r}{\partial z} = 2z</me>
+      <me>\frac{\partial w}{\partial s} = v = xe^y \quad \text{and} \quad \frac{\partial s}{\partial z} = xy</me>
+      <me>\frac{\partial w}{\partial t} = 3t^2 = 3(yz^2)^2 = 3y^2z^4 \quad \text{and} \quad \frac{\partial t}{\partial z} = 2yz</me>
+    </p>
+    <p>
+      Substituting these components back into our general chain rule formula yields:
+      <md>
+        <mrow>\frac{\partial w}{\partial z} \amp = \left[2(x^2+y^2+z^2)\right](2z) + \left[xe^y\right](xy) + (xyz)(0) + \left[3y^2z^4\right](2yz)</mrow>
+        <mrow>\amp = 4z(x^2+y^2+z^2) + x^2ye^y + 6y^3z^5</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-chain-rule-differentiable-proof">
+  <statement>
+    <p>
+      If <m>g(s,t)=f(s^2-t^2,t^2-s^2)</m> and <m>f</m> is differentiable, show that <m>g</m> satisfies the partial differential equation:
+      <me>t\frac{\partial g}{\partial s}+s\frac{\partial g}{\partial t}=0</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Let us define the intermediate variables for the inner functions as <m>x = s^2 - t^2</m> and <m>y = t^2 - s^2</m>, so that <m>g(s,t) = f(x,y)</m>. 
+      By applying the Case II Chain Rule, we compute the general first-order partial derivatives of <m>g</m> with respect to the parameters <m>s</m> and <m>t</m>:
+    </p>
+    <p>
+      For the parameter <m>s</m>:
+      <md>
+        <mrow>\frac{\partial g}{\partial s} \amp = \frac{\partial f}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial s}</mrow>
+        <mrow>\amp = \frac{\partial f}{\partial x}(2s) + \frac{\partial f}{\partial y}(-2s)</mrow>
+        <mrow>\amp = 2s\frac{\partial f}{\partial x} - 2s\frac{\partial f}{\partial y}</mrow>
+      </md>
+    </p>
+    <p>
+      For the parameter <m>t</m>:
+      <md>
+        <mrow>\frac{\partial g}{\partial t} \amp = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t}</mrow>
+        <mrow>\amp = \frac{\partial f}{\partial x}(-2t) + \frac{\partial f}{\partial y}(2t)</mrow>
+        <mrow>\amp = -2t\frac{\partial f}{\partial x} + 2t\frac{\partial f}{\partial y}</mrow>
+      </md>
+    </p>
+    <p>
+      Now, we substitute these expressions directly into the left-hand side of the target verification equation:
+      <md>
+        <mrow>t\frac{\partial g}{\partial s} + s\frac{\partial g}{\partial t} \amp = t\left(2s\frac{\partial f}{\partial x} - 2s\frac{\partial f}{\partial y}\right) + s\left(-2t\frac{\partial f}{\partial x} + 2t\frac{\partial f}{\partial y}\right)</mrow>
+        <mrow>\amp = 2st\frac{\partial f}{\partial x} - 2st\frac{\partial f}{\partial y} - 2st\frac{\partial f}{\partial x} + 2st\frac{\partial f}{\partial y}</mrow>
+        <mrow>\amp = 0</mrow>
+      </md>
+    </p>
+    <p>
+      Since the expression simplifies identically to <m>0</m>, we have successfully shown that the function <m>g</m> satisfies the given equation.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-chain-rule-second-order">
+  <statement>
+    <p>
+      If <m>z=f(x,y)</m> has continuous second-order partial derivatives, <m>x=r^2+s^2</m>, and <m>y=2rs</m>, find <m>\frac{\partial z}{\partial r}</m> and <m>\frac{\partial^2 z}{\partial r^2}</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To find the first partial derivative <m>\frac{\partial z}{\partial r}</m>, we apply the Case II Multivariate Chain Rule:
+      <md>
+        <mrow>\frac{\partial z}{\partial r} \amp = \frac{\partial z}{\partial x}\frac{\partial x}{\partial r} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial r}</mrow>
+        <mrow>\amp = \frac{\partial z}{\partial x}(2r) + \frac{\partial z}{\partial y}(2s)</mrow>
+        <mrow>\amp = 2r\frac{\partial z}{\partial x} + 2s\frac{\partial z}{\partial y}</mrow>
+      </md>
+    </p>
+    <p>
+      To find the second partial derivative <m>\frac{\partial^2 z}{\partial r^2}</m>, we differentiate <m>\frac{\partial z}{\partial r}</m> with respect to <m>r</m>. 
+      This requires applying both the single-variable product rule and a nested multivariate chain rule since the internal terms <m>\frac{\partial z}{\partial x}</m> and <m>\frac{\partial z}{\partial y}</m> still implicitly depend on <m>x</m> and <m>y</m> (which depend on <m>r</m>):
+      <md>
+        <mrow>\frac{\partial^2 z}{\partial r^2} \amp = \frac{\partial}{\partial r}\left( 2r\frac{\partial z}{\partial x} + 2s\frac{\partial z}{\partial y} \right)</mrow>
+        <mrow>\amp = \left[ 2\frac{\partial z}{\partial x} + 2r\frac{\partial}{\partial r}\left(\frac{\partial z}{\partial x}\right) \right] + 2s\frac{\partial}{\partial r}\left(\frac{\partial z}{\partial y}\right)</mrow>
+      </md>
+    </p>
+    <p>
+      We expand the nested partial derivatives <m>\frac{\partial}{\partial r}\left(\frac{\partial z}{\partial x}\right)</m> and <m>\frac{\partial}{\partial r}\left(\frac{\partial z}{\partial y}\right)</m> using the chain rule:
+      <md>
+        <mrow>\frac{\partial}{\partial r}\left(\frac{\partial z}{\partial x}\right) \amp = \frac{\partial^2 z}{\partial x^2}\frac{\partial x}{\partial r} + \frac{\partial^2 z}{\partial y\,\partial x}\frac{\partial y}{\partial r} = \frac{\partial^2 z}{\partial x^2}(2r) + \frac{\partial^2 z}{\partial y\,\partial x}(2s)</mrow>
+        <mrow>\frac{\partial}{\partial r}\left(\frac{\partial z}{\partial y}\right) \amp = \frac{\partial^2 z}{\partial x\,\partial y}\frac{\partial x}{\partial r} + \frac{\partial^2 z}{\partial y^2}\frac{\partial y}{\partial r} = \frac{\partial^2 z}{\partial x\,\partial y}(2r) + \frac{\partial^2 z}{\partial y^2}(2s)</mrow>
+      </md>
+    </p>
+    <p>
+      Substituting these expansions back into our main differential expression yields:
+      <md>
+        <mrow>\frac{\partial^2 z}{\partial r^2} \amp = 2\frac{\partial z}{\partial x} + 2r\left[ 2r\frac{\partial^2 z}{\partial x^2} + 2s\frac{\partial^2 z}{\partial y\,\partial x} \right] + 2s\left[ 2r\frac{\partial^2 z}{\partial x\,\partial y} + 2s\frac{\partial^2 z}{\partial y^2} \right]</mrow>
+        <mrow>\amp = 2\frac{\partial z}{\partial x} + 4r^2\frac{\partial^2 z}{\partial x^2} + 4rs\frac{\partial^2 z}{\partial y\,\partial x} + 4rs\frac{\partial^2 z}{\partial x\,\partial y} + 4s^2\frac{\partial^2 z}{\partial y^2}</mrow>
+      </md>
+      Since the second-order partial derivatives are continuous, <term>Clairaut's Theorem</term> guarantees that the mixed partials are equal (<m>\frac{\partial^2 z}{\partial y\,\partial x} = \frac{\partial^2 z}{\partial x\,\partial y}</m>). Combining the like terms gives the final result:
+      <me>\frac{\partial^2 z}{\partial r^2} = 2\frac{\partial z}{\partial x} + 4r^2\frac{\partial^2 z}{\partial x^2} + 8rs\frac{\partial^2 z}{\partial x\,\partial y} + 4s^2\frac{\partial^2 z}{\partial y^2}</me>
+    </p>
+  </solution>
+</example>
+
+<p>
+  Suppose an equation of the form <m>F(x,y)=0</m> defines <m>y</m> implicitly as a differentiable function of <m>x</m>, such that <m>y=f(x)</m>, where <m>F(x,f(x))=0</m> for all <m>x</m> in the domain of <m>f</m>. 
+  If <m>F</m> is differentiable, we can apply the multivariate chain rule to differentiate both sides of the equation with respect to <m>x</m>, treating <m>x</m> as both an independent parameter and a base variable path:
+  <me>\frac{\partial F}{\partial x}\frac{dx}{dx} + \frac{\partial F}{\partial y}\frac{dy}{dx} = 0 \implies \frac{\partial F}{\partial x} + \frac{\partial F}{\partial y}\frac{dy}{dx} = 0</me>
+  If <m>\frac{\partial F}{\partial y} \neq 0</m>, we can isolate and solve for the single-variable derivative <m>\frac{dy}{dx}</m>.
+</p>
+
+<theorem xml:id="thm-implicit-differentiation-1">
+  <title>Implicit Differentiation: Case I</title>
+  <statement>
+    <p>
+      If an equation <m>F(x,y)=0</m> defines <m>y</m> implicitly as a differentiable function of <m>x</m>, then:
+      <me>\frac{dy}{dx} = -\frac{F_x(x,y)}{F_y(x,y)} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}}</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-implicit-differentiation-evaluation">
+  <statement>
+    <p>
+      Find <m>y'</m> if <m>x^3+y^3=6xy</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we move all terms to one side of the equation to define our multi-variable identity function <m>F(x,y) = 0</m>:
+      <me>F(x,y) = x^3 + y^3 - 6xy = 0</me>
+    </p>
+    <p>
+      Next, we calculate the first-order partial derivatives <m>F_x</m> and <m>F_y</m>:
+      <me>F_x(x,y) = \frac{\partial}{\partial x}(x^3 + y^3 - 6xy) = 3x^2 - 6y</me>
+      <me>F_y(x,y) = \frac{\partial}{\partial y}(x^3 + y^3 - 6xy) = 3y^2 - 6x</me>
+    </p>
+    <p>
+      Applying the Theorem for Implicit Differentiation, we substitute these partials into the formula:
+      <md>
+        <mrow>y' = \frac{dy}{dx} \amp = -\frac{F_x(x,y)}{F_y(x,y)}</mrow>
+        <mrow>\amp = -\frac{3x^2 - 6y}{3y^2 - 6x}</mrow>
+        <mrow>\amp = -\frac{3(x^2 - 2y)}{3(y^2 - 2x)}</mrow>
+        <mrow>\amp = -\frac{x^2 - 2y}{y^2 - 2x}</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<theorem xml:id="thm-implicit-differentiation-2">
+  <title>Implicit Differentiation: Case II</title>
+  <statement>
+    <p>
+      If an equation <m>F(x,y,z)=0</m> defines <m>z</m> implicitly as a differentiable function of two variables <m>x</m> and <m>y</m>, such that <m>z=f(x,y)</m> for every <m>(x,y)</m> in the domain of <m>f</m>, then:
+      <me>\frac{\partial z}{\partial x} = -\frac{F_x(x,y,z)}{F_z(x,y,z)} \quad \text{and} \quad \frac{\partial z}{\partial y} = -\frac{F_y(x,y,z)}{F_z(x,y,z)}</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-implicit-differentiation-three-variables">
+  <statement>
+    <p>
+      Find <m>\frac{\partial z}{\partial x}</m> and <m>\frac{\partial z}{\partial y}</m> if <m>z</m> is defined implicitly as a function of <m>x</m> and <m>y</m> by the equation:
+      <me>x^3+y^3+z^3+6xyz=1</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we move all terms to one side of the equation to define our three-variable identity function <m>F(x,y,z) = 0</m>:
+      <me>F(x,y,z) = x^3 + y^3 + z^3 + 6xyz - 1 = 0</me>
+    </p>
+    <p>
+      Next, we find the three required first-order partial derivatives of <m>F</m>:
+      <me>F_x(x,y,z) = \frac{\partial}{\partial x}(x^3 + y^3 + z^3 + 6xyz - 1) = 3x^2 + 6yz</me>
+      <me>F_y(x,y,z) = \frac{\partial}{\partial y}(x^3 + y^3 + z^3 + 6xyz - 1) = 3y^2 + 6xz</me>
+      <me>F_z(x,y,z) = \frac{\partial}{\partial z}(x^3 + y^3 + z^3 + 6xyz - 1) = 3z^2 + 6xy</me>
+    </p>
+    <p>
+      To find <m>\frac{\partial z}{\partial x}</m>, we substitute the partial derivatives <m>F_x</m> and <m>F_z</m> into the implicit differentiation formula and simplify by factoring out a common factor of 3:
+      <md>
+        <mrow>\frac{\partial z}{\partial x} \amp = -\frac{F_x(x,y,z)}{F_z(x,y,z)}</mrow>
+        <mrow>\amp = -\frac{3x^2 + 6yz}{3z^2 + 6xy}</mrow>
+        <mrow>\amp = -\frac{3(x^2 + 2yz)}{3(z^2 + 2xy)}</mrow>
+        <mrow>\amp = -\frac{x^2+2yz}{z^2+2xy}</mrow>
+      </md>
+    </p>
+    <p>
+      Similarly, to find <m>\frac{\partial z}{\partial y}</m>, we substitute the partial derivatives <m>F_y</m> and <m>F_z</m> into the corresponding formula and simplify:
+      <md>
+        <mrow>\frac{\partial z}{\partial y} \amp = -\frac{F_y(x,y,z)}{F_z(x,y,z)}</mrow>
+        <mrow>\amp = -\frac{3y^2 + 6xz}{3z^2 + 6xy}</mrow>
+        <mrow>\amp = -\frac{3(y^2 + 2xz)}{3(z^2 + 2xy)}</mrow>
+        <mrow>\amp = -\frac{y^2+2xz}{z^2+2xy}</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="chk-chain-rule-bivariate-parameters">
+  <statement>
+    <p>
+      Use the chain rule to find <m>\frac{\partial w}{\partial p}</m> and <m>\frac{\partial w}{\partial q}</m> if:
+      <me>w=r^3+s^2 \quad \text{with} \quad r=pq^2, \ \ s=p^2\sin(q)</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The dependent variable <m>w</m> is a function of intermediate variables <m>r</m> and <m>s</m>, which both depend on the independent parameters <m>p</m> and <m>q</m>. We apply the Case II Multivariate Chain Rule.
+    </p>
+    <p>
+      First, we find the baseline partial derivatives of <m>w</m>:
+      <me>\frac{\partial w}{\partial r} = 3r^2 = 3(pq^2)^2 = 3p^2q^4 \quad \text{and} \quad \frac{\partial w}{\partial s} = 2s = 2(p^2\sin(q)) = 2p^2\sin(q)</me>
+    </p>
+    <p>
+      Next, we calculate the partial derivatives of <m>r</m> and <m>s</m> with respect to the parameter <m>p</m>:
+      <me>\frac{\partial r}{\partial p} = q^2 \quad \text{and} \quad \frac{\partial s}{\partial p} = 2p\sin(q)</me>
+      Substituting these into the chain rule formula for <m>\frac{\partial w}{\partial p}</m> yields:
+      <md>
+        <mrow>\frac{\partial w}{\partial p} \amp = \frac{\partial w}{\partial r}\frac{\partial r}{\partial p} + \frac{\partial w}{\partial s}\frac{\partial s}{\partial p}</mrow>
+        <mrow>\amp = (3p^2q^4)(q^2) + (2p^2\sin(q))(2p\sin(q))</mrow>
+        <mrow>\amp = 3p^2q^6 + 4p^3\sin^2(q)</mrow>
+      </md>
+    </p>
+    <p>
+      Now, we calculate the partial derivatives of <m>r</m> and <m>s</m> with respect to the parameter <m>q</m>:
+      <me>\frac{\partial r}{\partial q} = 2pq \quad \text{and} \quad \frac{\partial s}{\partial q} = p^2\cos(q)</me>
+      Substituting these into the chain rule formula for <m>\frac{\partial w}{\partial q}</m> yields:
+      <md>
+        <mrow>\frac{\partial w}{\partial q} \amp = \frac{\partial w}{\partial r}\frac{\partial r}{\partial q} + \frac{\partial w}{\partial s}\frac{\partial s}{\partial q}</mrow>
+        <mrow>\amp = (3p^2q^4)(2pq) + (2p^2\sin(q))(p^2\cos(q))</mrow>
+        <mrow>\amp = 6p^3q^5 + 2p^4\sin(q)\cos(q)</mrow>
+      </md>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-chain-rule-single-parameter">
+  <statement>
+    <p>
+      Use the chain rule to find <m>\frac{\partial w}{\partial t}</m> if:
+      <me>w=x^2 \quad \text{with} \quad x=3t^2+1, \ \ y=2t-4, \ \ z=t^3</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      As defined by the given equations, the function <m>w</m> explicitly depends only on the variable <m>x</m>. Since <m>x</m> is a function of the single parameter <m>t</m>, this simplifies directly to the standard single-variable chain rule:
+      <me>\frac{dw}{dt} = \frac{dw}{dx}\frac{dx}{dt}</me>
+    </p>
+    <p>
+      We compute the component derivatives independently:
+      <me>\frac{dw}{dx} = 2x = 2(3t^2+1) = 6t^2+2 \quad \text{and} \quad \frac{dx}{dt} = 6t</me>
+    </p>
+    <p>
+      Multiplying these expressions together yields the rate of change with respect to <m>t</m>:
+      <md>
+        <mrow>\frac{dw}{dt} \amp = (6t^2+2)(6t)</mrow>
+        <mrow>\amp = 36t^3 + 12t</mrow>
+      </md>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-implicit-differentiation-bivariate">
+  <statement>
+    <p>
+      Find <m>\frac{dy}{dx}</m> if <m>y=f(x)</m> is determined implicitly by the equation:
+      <me>y^4+3y-4x^3-5x-1=0</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We define our multi-variable identity function <m>F(x,y) = 0</m> as:
+      <me>F(x,y) = y^4 + 3y - 4x^3 - 5x - 1 = 0</me>
+    </p>
+    <p>
+      Next, we evaluate the first-order partial derivatives <m>F_x</m> and <m>F_y</m>:
+      <me>F_x(x,y) = \frac{\partial}{\partial x}(y^4 + 3y - 4x^3 - 5x - 1) = -12x^2 - 5</me>
+      <me>F_y(x,y) = \frac{\partial}{\partial y}(y^4 + 3y - 4x^3 - 5x - 1) = 4y^3 + 3</me>
+    </p>
+    <p>
+      Applying the Implicit Differentiation Theorem Case I, we find:
+      <md>
+        <mrow>\frac{dy}{dx} \amp = -\frac{F_x(x,y)}{F_y(x,y)}</mrow>
+        <mrow>\amp = -\frac{-12x^2 - 5}{4y^3 + 3}</mrow>
+        <mrow>\amp = \frac{12x^2 + 5}{4y^3 + 3}</mrow>
+      </md>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-implicit-differentiation-trivariate">
+  <statement>
+    <p>
+      Find <m>\frac{\partial z}{\partial x}</m> and <m>\frac{\partial z}{\partial y}</m> if <m>z</m> is defined implicitly by the equation:
+      <me>x^2z^2+xy^2-z^3+4yz-5=0</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We define our three-variable identity function <m>F(x,y,z) = 0</m> as:
+      <me>F(x,y,z) = x^2z^2 + xy^2 - z^3 + 4yz - 5 = 0</me>
+    </p>
+    <p>
+      We calculate the three first-order partial derivatives of <m>F</m>:
+      <me>F_x(x,y,z) = 2xz^2 + y^2</me>
+      <me>F_y(x,y,z) = 2xy + 4z</me>
+      <me>F_z(x,y,z) = 2x^2z - 3z^2 + 4y</me>
+    </p>
+    <p>
+      Applying the Implicit Differentiation Theorem Case II for the partial derivative with respect to <m>x</m>:
+      <me>\frac{\partial z}{\partial x} = -\frac{F_x(x,y,z)}{F_z(x,y,z)} = -\frac{2xz^2 + y^2}{2x^2z - 3z^2 + 4y}</me>
+    </p>
+    <p>
+      Similarly, applying the formula for the partial derivative with respect to <m>y</m>:
+      <me>\frac{\partial z}{\partial y} = -\frac{F_y(x,y,z)}{F_z(x,y,z)} = -\frac{2xy + 4z}{2x^2z - 3z^2 + 4y}</me>
+    </p>
+  </solution>
+</exercise>
+
+  </section>
