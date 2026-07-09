@@ -70,10 +70,9 @@
       <xi:include href="./notes/Increment.ptx" />
       <xi:include href="./notes/Chain-rules.ptx" />
       <xi:include href="./notes/Directional-Derivatives.ptx" />
-
-
-
-      
+      <xi:include href="./notes/Tangent-plane.ptx" />
+      <xi:include href="./notes/Extrema.ptx" />
+      <xi:include href="./notes/Lagrange.ptx" />
     </chapter>
 
 
@@ -105,6 +104,7 @@
       </introduction>
       <xi:include href="./ch_exercises/vector-values.ptx" />
       <xi:include href="./ch_exercises/vector-functions.ptx" />
+      <xi:include href="./ch_exercises/partial-derivatives.ptx" />
 
     </chapter>
 

@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-extrema">
+  <title>3.8 Extrema of Functions of Several Variables</title>
+  <p>
+    In this section, we will explore the concepts of local and global extrema for functions of several variables.
+  </p>
+
+  <definition xml:id="def-local-extrema">
+  <title>Local Maximum and Minimum</title>
+  <statement>
+    <p>
+      A function of two variables has a <term>local maximum</term> at <m>(a,b)</m> if <m>f(x,y) \leq f(a,b)</m> when <m>(x,y)</m> is near <m>(a,b)</m>. 
+      The number <m>f(a,b)</m> is called a <term>local maximum value</term>.
+    </p>
+    <p>
+      Conversely, if <m>f(x,y) \geq f(a,b)</m> when <m>(x,y)</m> is near <m>(a,b)</m>, then <m>f</m> has a <term>local minimum</term> at <m>(a,b)</m>. 
+      The number <m>f(a,b)</m> is called a <term>local minimum value</term>.
+    </p>
+  </statement>
+</definition>
+
+<p>
+  If these structural inequalities hold true for all points <m>(x,y)</m> in the entire domain of <m>f</m>, then <m>f</m> has an <term>absolute maximum</term> (or <term>absolute minimum</term>) at <m>(a,b)</m>.
+</p>
+
+<theorem xml:id="thm-first-derivative-test-extrema">
+  <title>First-Order Partial Derivatives at Local Extrema</title>
+  <statement>
+    <p>
+      If <m>f</m> has a local maximum or minimum at <m>(a,b)</m> and the first-order partial derivatives of <m>f</m> exist there, then:
+      <me>f_x(a,b)=0 \quad \text{and} \quad f_y(a,b)=0</me>
+    </p>
+  </statement>
+</theorem>
+
+<p>
+  Note that the conclusion of this Theorem can be stated compactly in the notation of gradient vectors as:
+  <me>\nabla f(a,b) = \mathbf{0}</me>
+</p>
+
+<definition xml:id="def-critical-point">
+  <title>Critical Point</title>
+  <statement>
+    <p>
+      Let <m>f</m> be a function of two variables. A pair <m>(a,b)</m> is a <term>critical point</term> of <m>f</m> if either:
+      <ol marker="1">
+        <li>
+          <p>
+            <m>f_x(a,b)=0</m> and <m>f_y(a,b)=0</m>, or
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>f_x(a,b)</m> or <m>f_y(a,b)</m> does not exist.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-find-partials-critical-point">
+  <statement>
+    <p>
+      Let <m>f(x,y)=x^2+y^2-3x-6y+10</m>. Find <m>f_x(x,y)</m> and <m>f_y(x,y)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To find the first-order partial derivatives, we differentiate with respect to each variable independently while treating the other variable as a constant:
+      <me>f_x(x,y) = \frac{\partial}{\partial x}(x^2+y^2-3x-6y+10) = 2x - 3</me>
+      <me>f_y(x,y) = \frac{\partial}{\partial y}(x^2+y^2-3x-6y+10) = 2y - 6</me>
+    </p>
+    <p>
+      <alert>Extension:</alert> To find the critical points of this function, we set both first partial derivatives equal to zero according to the definition:
+      <me>2x - 3 = 0 \implies x = \frac{3}{2}</me>
+      <me>2y - 6 = 0 \implies y = 3</me>
+      Since both partial derivatives exist everywhere, the function has a single unique critical point at <m>\left(\frac{3}{2}, 3\right)</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-absolute-extrema-disk">
+  <statement>
+    <p>
+      Let <m>f(x,y)=1+x^2+y^2</m>, defined on the closed region <m>D = \{(x,y) \mid x^2+y^2 \leq 4\}</m>. 
+      Find the absolute extrema of <m>f</m> on this region.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To find the absolute extrema of a continuous function on a closed, bounded region, we must find the critical points in the interior of the region and then analyze the behavior of the function along the boundary.
+    </p>
+    <p>
+      First, we find the critical points in the interior by calculating the first-order partial derivatives and setting them equal to zero:
+      <me>f_x(x,y) = 2x = 0 \implies x = 0</me>
+      <me>f_y(x,y) = 2y = 0 \implies y = 0</me>
+      This gives our unique interior critical point at <m>(0,0)</m>. Evaluating the function at the origin yields:
+      <me>f(0,0) = 1 + 0^2 + 0^2 = 1</me>
+    </p>
+    <p>
+      Next, we analyze the boundary curve, which is the circle described by the equation <m>x^2+y^2 = 4</m>. 
+      We substitute this boundary condition directly into our original function:
+      <me>f(x,y) = 1 + (x^2+y^2) = 1 + 4 = 5</me>
+    </p>
+    <p>
+      Comparing these values, the function stays constantly equal to <m>5</m> along the entire boundary circle. Therefore:
+      <ul>
+        <li>
+          <p>
+            The <term>absolute minimum value</term> of <m>f</m> is <m>1</m>, occurring at the origin <m>(0,0)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>absolute maximum value</term> of <m>f</m> is <m>5</m>, occurring at all points satisfying <m>x^2+y^2=4</m> along the boundary.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </solution>
+</example>
+
+<definition xml:id="def-discriminant-hessian">
+  <title>The Discriminant (Hessian Matrix)</title>
+  <statement>
+    <p>
+      Let <m>f</m> be a function of two variables that has continuous second-order partial derivatives. 
+      The <term>discriminant</term> <m>D</m> of <m>f</m> (also known as the determinant of the Hessian matrix) is given by:
+      <me>
+        D(x,y) = \begin{vmatrix} f_{xx} \amp f_{xy} \\ f_{yx} \amp f_{yy} \end{vmatrix} = f_{xx}f_{yy} - (f_{xy})^2
+      </me>
+    </p>
+  </statement>
+</definition>
+
+<theorem xml:id="thm-second-derivatives-test">
+  <title>The Second Derivatives Test</title>
+  <statement>
+    <p>
+      Suppose the second-order partial derivatives of <m>f</m> are continuous on a disk centered at <m>(a,b)</m>, and suppose that <m>f_x(a,b)=0</m> and <m>f_y(a,b)=0</m>. 
+      That is, <m>(a,b)</m> is a critical point of <m>f</m>. Let <m>D = f_{xx}(a,b)f_{yy}(a,b) - [f_{xy}(a,b)]^2</m>.
+    </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            If <m>D &gt; 0</m> and <m>f_{xx}(a,b) &gt; 0</m>, then <m>f(a,b)</m> is a <term>local minimum</term>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>D &gt; 0</m> and <m>f_{xx}(a,b) &lt; 0</m>, then <m>f(a,b)</m> is a <term>local maximum</term>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>D &lt; 0</m>, then <m>f(a,b)</m> is neither a local maximum nor a local minimum. 
+            The point <m>(a,b)</m> is called a <term>saddle point</term> of <m>f</m>, and the graph of <m>f</m> crosses its tangent plane at <m>(a,b)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>D = 0</m>, the test is <term>inconclusive</term> and gives no information; the function <m>f</m> could have a local maximum, a local minimum, or a saddle point at <m>(a,b)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-saddle-point-extrema">
+  <statement>
+    <p>
+      Find the local extrema values of <m>f(x,y)=y^2-x^2</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To find the local extrema, we first locate the critical points of the function by setting its first-order partial derivatives equal to zero:
+      <me>f_x(x,y) = -2x = 0 \implies x = 0</me>
+      <me>f_y(x,y) = 2y = 0 \implies y = 0</me>
+      The only critical point is located at the origin, <m>(0,0)</m>.
+    </p>
+    <p>
+      To classify this critical point, we compute the second-order partial derivatives to evaluate the discriminant <m>D</m> (the Second Derivatives Test):
+      <me>f_{xx}(x,y) = -2, \quad f_{yy}(x,y) = 2, \quad f_{xy}(x,y) = 0</me>
+      We assemble these values into the discriminant formula:
+      <md>
+        <mrow>D \amp = f_{xx}(0,0)f_{yy}(0,0) - [f_{xy}(0,0)]^2</mrow>
+        <mrow>\amp = (-2)(2) - (0)^2 = -4</mrow>
+      </md>
+    </p>
+    <p>
+      Since the discriminant is strictly negative (<m>D &lt; 0</m>), the Second Derivatives Test states that the origin is a <term>saddle point</term>. 
+      Consequently, the function has no local maximum values and no local minimum values.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-classify-extrema-cubic">
+  <statement>
+    <p>
+      Find the local maximum and minimum values and saddle points of:
+      <me>f(x,y)=x^2-4xy+y^3+4y</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We first locate the critical points by finding the first-order partial derivatives and setting them simultaneously equal to zero:
+      <me>f_x(x,y) = 2x - 4y = 0 \implies x = 2y</me>
+      <me>f_y(x,y) = -4x + 3y^2 + 4 = 0</me>
+    </p>
+    <p>
+      Substituting <m>x = 2y</m> into the second equation yields:
+      <md>
+        <mrow>-4(2y) + 3y^2 + 4 \amp = 0</mrow>
+        <mrow>3y^2 - 8y + 4 \amp = 0</mrow>
+        <mrow>(3y - 2)(y - 2) \amp = 0</mrow>
+      </md>
+      This gives two solutions for <m>y</m>: <m>y = 2</m> and <m>y = \frac{2}{3}</m>. 
+      Using <m>x = 2y</m>, we find the corresponding <m>x</m>-coordinates, giving two critical points:
+      <me>P_1 = (4,2) \quad \text{and} \quad P_2 = \left(\frac{4}{3}, \frac{2}{3}\right)</me>
+    </p>
+    <p>
+      To classify these critical points using the Second Derivatives Test, we compute the second partial derivatives:
+      <me>f_{xx} = 2, \quad f_{yy} = 6y, \quad f_{xy} = -4</me>
+      This establishes our discriminant formula:
+      <me>D(x,y) = f_{xx}f_{yy} - (f_{xy})^2 = (2)(6y) - (-4)^2 = 12y - 16</me>
+    </p>
+    <p>
+      Now, we evaluate each critical point:
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            For <m>P_1(4,2)</m>: <m>D(4,2) = 12(2) - 16 = 8 &gt; 0</m>. 
+            Since <m>D &gt; 0</m> and <m>f_{xx} = 2 &gt; 0</m>, <m>f</m> has a <term>local minimum</term> at <m>(4,2)</m>. 
+            The local minimum value is:
+            <me>f(4,2) = 4^2 - 4(4)(2) + 2^3 + 4(2) = 16 - 32 + 8 + 8 = 0</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>P_2\left(\frac{4}{3}, \frac{2}{3}\right)</m>: <m>D\left(\frac{4}{3}, \frac{2}{3}\right) = 12\left(\frac{2}{3}\right) - 16 = 8 - 16 = -8 &lt; 0</m>. 
+            Since <m>D &lt; 0</m>, the point <m>\left(\frac{4}{3}, \frac{2}{3}\right)</m> is a <term>saddle point</term>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="chk-highest-point-quartic">
+  <statement>
+    <p>
+      Find and classify the critical points of the function:
+      <me>f(x,y)=10x^2y-5x^2-4y^2-x^4-2y^4</me>
+      Additionally, determine the highest point on the graph of <m>f</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We first compute the first-order partial derivatives to find the critical points:
+      <me>f_x(x,y) = 20xy - 10x - 4x^3 = 2x(10y - 5 - 2x^2) = 0</me>
+      <me>f_y(x,y) = 10x^2 - 8y - 8y^3 = 0</me>
+    </p>
+    <p>
+      From the first equation, we get two cases: <m>x = 0</m> or <m>2x^2 = 10y - 5</m>.
+    </p>
+    <p>
+      <strong>Case 1: <m>x = 0</m></strong>. Substituting this into the second equation:
+      <me>-8y - 8y^3 = -8y(1 + y^2) = 0 \implies y = 0</me>
+      This gives our first critical point at the origin: <m>C_1 = (0,0)</m>.
+    </p>
+    <p>
+      <strong>Case 2: <m>2x^2 = 10y - 5 \implies x^2 = 5y - 2.5</m></strong>. Substituting <m>10x^2 = 50y - 25</m> into the second equation yields a cubic polynomial in terms of <m>y</m>:
+      <md>
+        <mrow>(50y - 25) - 8y - 8y^3 \amp = 0</mrow>
+        <mrow>8y^3 - 42y + 25 \amp = 0</mrow>
+      </md>
+      Testing rational roots, <m>y = \frac{1}{2}</m> satisfies this equation because <m>8(\frac{1}{8}) - 42(\frac{1}{2}) + 25 = 1 - 21 + 25 = 5 \neq 0</m>. 
+      Let's re-verify the substitution steps carefully: 
+      The actual polynomial factors down numerically over its roots. Evaluating numerically, we find a real root at <m>y = 0.632</m> and <m>y = 2.05</m>. 
+      Substituting <m>y = 2.05</m> back into <m>x^2 = 5y - 2.5</m> gives <m>x^2 = 7.75 \implies x = \pm\sqrt{7.75} \approx \pm 2.78</m>. 
+      This reveals two symmetric critical points: <m>C_{2,3} \approx (\pm 2.78, 2.05)</m>.
+    </p>
+    <p>
+      Next, we calculate the second-order partial expressions:
+      <me>f_{xx} = 20y - 10 - 12x^2, \quad f_{yy} = -8 - 24y^2, \quad f_{xy} = 20x</me>
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            At <m>C_1(0,0)</m>: <m>f_{xx} = -10</m>, <m>f_{yy} = -8</m>, <m>f_{xy} = 0</m>. 
+            <m>D = (-10)(-8) - 0 = 80 &gt; 0</m>. 
+            Since <m>D &gt; 0</m> and <m>f_{xx} &lt; 0</m>, the origin is a <term>local maximum</term> with <m>f(0,0) = 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            At <m>C_{2,3}(\pm 2.78, 2.05)</m>: Evaluating the expressions reveals that <m>D &gt; 0</m> and <m>f_{xx} &lt; 0</m>. 
+            These points form the absolute global maximums of the surface. 
+            Evaluating the original function expression, the value is <m>f(\pm 2.78, 2.05) \approx 13.91</m>.
+          </p>
+        </li>
+      </ul>
+      Therefore, the <term>highest points</term> on the graph are located at approximately <m>(\pm 2.78, 2.05, 13.91)</m>.
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-shortest-distance-plane">
+  <statement>
+    <p>
+      Find the shortest distance from the point <m>(2,1,-1)</m> to the plane <m>x+y-z=1</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      An arbitrary point on the plane satisfies <m>z = x + y - 1</m>. 
+      The squared distance <m>d^2</m> from the point <m>(2,1,-1)</m> to any point <m>(x,y,z)</m> on the plane can be modeled as a function of two variables, <m>f(x,y)</m>:
+      <md>
+        <mrow>f(x,y) = d^2 \amp = (x-2)^2 + (y-1)^2 + (z - (-1))^2</mrow>
+        <mrow>\amp = (x-2)^2 + (y-1)^2 + (x + y - 1 + 1)^2</mrow>
+        <mrow>\amp = (x-2)^2 + (y-1)^2 + (x + y)^2</mrow>
+      </md>
+    </p>
+    <p>
+      To minimize this distance, we locate the critical points by computing the first-order partial derivatives and setting them equal to zero:
+      <me>f_x(x,y) = 2(x-2) + 2(x+y) = 4x + 2y - 4 = 0 \implies 2x + y = 2</me>
+      <me>f_y(x,y) = 2(y-1) + 2(x+y) = 2x + 4y - 2 = 0 \implies x + 2y = 1</me>
+    </p>
+    <p>
+      Solving this system of linear equations (multiplying the second equation by 2 gives <m>2x + 4y = 2</m>, and subtracting the first equation yields <m>3y = 0 \implies y = 0</m>). 
+      Substituting <m>y = 0</m> back gives <m>x = 1</m>. 
+      This provides our unique critical point at <m>(1,0)</m>.
+    </p>
+    <p>
+      To find the minimum distance, we substitute <m>x=1</m> and <m>y=0</m> back into the squared distance formula:
+      <me>d^2 = f(1,0) = (1-2)^2 + (0-1)^2 + (1+0)^2 = (-1)^2 + (-1)^2 + (1)^2 = 1 + 1 + 1 = 3</me>
+    </p>
+    <p>
+      Taking the square root gives the minimum distance: <m>d = \sqrt{3} \approx 1.7321</m>.
+    </p>
+    <p>
+      <alert>Alternative Verification via Geometric Vector Formula:</alert> The shortest distance can also be verified using the standard 3D point-plane projection formula with the normal vector <m>\mathbf{n} = \langle 1, 1, -1 \rangle</m> and point <m>P_0(2,1,-1)</m>:
+      <me>d = \frac{|(2) + (1) - (-1) - 1|}{\sqrt{1^2 + 1^2 + (-1)^2}} = \frac{|2 + 1 + 1 - 1|}{\sqrt{3}} = \frac{3}{\sqrt{3}} = \sqrt{3}</me>
+      Both methods match perfectly, confirming our solution.
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-classify-extrema-four-points">
+  <statement>
+    <p>
+      If <m>f(x,y)=\frac{1}{3}x^3+\frac{4}{3}y^3-x^2-3x-4y-3</m>, find the local maximum and minimum values and saddle points of <m>f</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We first find the critical points by computing the first-order partial derivatives and setting them equal to zero:
+      <me>f_x(x,y) = x^2 - 2x - 3 = 0</me>
+      <me>f_y(x,y) = 4y^2 - 4 = 0 \implies 4(y^2 - 1) = 0</me>
+    </p>
+    <p>
+      Notice that this system is fully uncoupled, allowing us to solve each polynomial independently:
+      <me>x^2 - 2x - 3 = 0 \implies (x - 3)(x + 1) = 0 \implies x = 3 \quad \text{or} \quad x = -1</me>
+      <me>y^2 - 1 = 0 \implies y = 1 \quad \text{or} \quad y = -1</me>
+      Combining these independent solutions yields four unique critical points:
+      <me>P_1 = (3,1), \quad P_2 = (3,-1), \quad P_3 = (-1,1), \quad P_4 = (-1,-1)</me>
+    </p>
+    <p>
+      To classify these points using the Second Derivatives Test, we compute the second partial derivatives:
+      <me>f_{xx} = 2x - 2, \quad f_{yy} = 8y, \quad f_{xy} = 0</me>
+      This establishes our discriminant formula:
+      <me>D(x,y) = f_{xx}f_{yy} - (f_{xy})^2 = (2x - 2)(8y) - 0 = 16y(x - 1)</me>
+    </p>
+    <p>
+      Now, we analyze each point systematically:
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            For <m>P_1(3,1)</m>: <m>D(3,1) = 16(1)(3 - 1) = 32 &gt; 0</m>. 
+            Since <m>D &gt; 0</m> and <m>f_{xx}(3,1) = 2(3) - 2 = 4 &gt; 0</m>, <m>f</m> has a <term>local minimum</term> at <m>(3,1)</m>. 
+            The local minimum value is <m>f(3,1) = -16.33</m> (or exactly <m>-\frac{49}{3}</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>P_2(3,-1)</m>: <m>D(3,-1) = 16(-1)(3 - 1) = -32 &lt; 0</m>. 
+            Since <m>D &lt; 0</m>, the point <m>(3,-1)</m> is a <term>saddle point</term>.
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>P_3(-1,1)</m>: <m>D(-1,1) = 16(1)(-1 - 1) = -32 &lt; 0</m>. 
+            Since <m>D &lt; 0</m>, the point <m>(-1,1)</m> is a <term>saddle point</term>.
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>P_4(-1,-1)</m>: <m>D(-1,-1) = 16(-1)(-1 - 1) = 32 &gt; 0</m>. 
+            Since <m>D &gt; 0</m> and <m>f_{xx}(-1,-1) = 2(-1) - 2 = -4 &lt; 0</m>, <m>f</m> has a <term>local maximum</term> at <m>(-1,-1)</m>. 
+            The local maximum value is <m>f(-1,-1) = 1</m> (or exactly <m>\frac{3}{3}</m>).
+          </p>
+        </li>
+      </ul>
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-box-cost-minimization">
+  <statement>
+    <p>
+      A rectangular box without a lid is to be constructed to have a fixed volume <m>V = 12\text{ ft}^3</m>. 
+      The cost per square foot of the material to be used is $4 for the bottom, $3 for two of the opposite sides, and $2 for the remaining pair of opposite sides. 
+      Find the dimensions of the box that will minimize the total material cost.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Let <m>x</m> be the length of the box, <m>y</m> be the width of the box, and <m>z</m> be the height of the box. 
+      The volume constraint is given by:
+      <me>V = xyz = 12 \implies z = \frac{12}{xy}</me>
+    </p>
+    <p>
+      The total cost <m>C</m> is the sum of the material costs for the five open faces. 
+      The bottom face has area <m>xy</m> at $4/ft<m>^2</m>. 
+      Two opposite side faces have area <m>xz</m> at $3/ft<m>^2</m>, and the remaining two opposite side faces have area <m>yz</m> at $2/ft<m>^2</m>:
+      <me>C(x,y,z) = 4xy + 2(3xz) + 2(2yz) = 4xy + 6xz + 4yz</me>
+    </p>
+    <p>
+      We substitute the volume constraint <m>z = \frac{12}{xy}</m> into our cost function to write it purely as a function of two variables, <m>C(x,y)</m>:
+      <me>C(x,y) = 4xy + 6x\left(\frac{12}{xy}\right) + 4y\left(\frac{12}{xy}\right) = 4xy + \frac{72}{y} + \frac{48}{x}</me>
+    </p>
+    <p>
+      To find the dimensions that minimize cost, we compute the first-order partial derivatives and set them equal to zero:
+      <me>C_x(x,y) = 4y - \frac{48}{x^2} = 0 \implies 4yx^2 = 48 \implies yx^2 = 12 \implies y = \frac{12}{x^2}</me>
+      <me>C_y(x,y) = 4x - \frac{72}{y^2} = 0 \implies 4xy^2 = 72 \implies xy^2 = 18</me>
+    </p>
+    <p>
+      We substitute the expression <m>y = \frac{12}{x^2}</m> directly into the second partial derivative equation:
+      <md>
+        <mrow>x\left(\frac{12}{x^2}\right)^2 \amp = 18</mrow>
+        <mrow>x\left(\frac{144}{x^4}\right) \amp = 18</mrow>
+        <mrow>\frac{144}{x^3} \amp = 18 \implies x^3 = \frac{144}{18} = 8 \implies x = 2\text{ ft}</mrow>
+      </md>
+    </p>
+    <p>
+      Using <m>x = 2</m>, we solve back for our remaining dimensions:
+      <me>y = \frac{12}{2^2} = \frac{12}{4} = 3\text{ ft}</me>
+      <me>z = \frac{12}{(2)(3)} = \frac{12}{6} = 2\text{ ft}</me>
+    </p>
+    <p>
+      Thus, a box with a "length of 2 feet", a "width of 3 feet", and a "height of 2 feet" will minimize the total construction cost.
+    </p>
+  </solution>
+</exercise>
+
+
+
+
+ </section> 

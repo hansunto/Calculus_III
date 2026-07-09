@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-lagrange-multipliers">
+  <title>3.9 Lagrange Multipliers</title>
+  <p>
+    In this section, we will explore the method of Lagrange multipliers, which is a powerful technique for finding 
+    the local maxima and minima of a function subject to equality constraints. This method is particularly useful 
+    in optimization problems where we want to maximize or minimize a function while satisfying certain conditions. 
+  </p>
+
+  <p>
+  Let <m>f(x,y)</m> be the temperature at the point <m>P(x,y)</m> on a flat metal plate, and let <m>C</m> be a curve that has the equation <m>g(x,y)=0</m>. 
+  Suppose we wish to find the points on <m>C</m> at which the temperature attains its largest or smallest value. 
+  This amounts to finding the extrema of <m>f(x,y)</m> <term>subject to the constraint</term> (side condition) <m>g(x,y)=0</m>.
+</p>
+
+<theorem xml:id="thm-lagrange-multipliers">
+  <title>Lagrange Multipliers Theorem</title>
+  <statement>
+    <p>
+      Suppose <m>f</m> and <m>g</m> are functions of two variables that have continuous first-order partial derivatives, and that <m>\nabla g \neq \mathbf{0}</m> throughout a region of the <m>xy</m>-plane. 
+      If <m>f</m> has an extremum <m>f(x_0,y_0)</m> subject to the constraint <m>g(x,y)=0</m>, then there is a real number <m>\lambda</m> such that:
+      <me>\nabla f(x_0,y_0) = \lambda \nabla g(x_0,y_0)</me>
+      The number <m>\lambda</m> is called a <term>Lagrange multiplier</term>.
+    </p>
+  </statement>
+</theorem>
+
+<corollary xml:id="cor-method-of-lagrange-multipliers">
+  <title>The Method of Lagrange Multipliers</title>
+  <statement>
+    <p>
+      To find the maximum and minimum values of <m>f(x,y)</m> subject to the constraint <m>g(x,y)=0</m> (assuming that these extreme values exist and <m>\nabla g \neq \mathbf{0}</m> on the curve <m>g(x,y)=0</m>):
+    </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            Find all values of <m>x</m>, <m>y</m>, and <m>\lambda</m> such that the following system of equations is satisfied:
+            <me>
+              \begin{cases}
+              f_x(x,y) \amp = \lambda g_x(x,y) \\
+              f_y(x,y) \amp = \lambda g_y(x,y) \\
+              g(x,y) \amp = 0
+              \end{cases}
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Evaluate <m>f</m> at all the points <m>(x,y)</m> that result from Step 1. 
+            The largest of these values is the absolute maximum value of <m>f</m>; the smallest is the absolute minimum value of <m>f</m> subject to the constraint.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</corollary>
+
+<example xml:id="ex-lagrange-two-variables-ellipse">
+  <statement>
+    <p>
+      Find the extrema of <m>f(x,y)=xy</m> if <m>(x,y)</m> is restricted to the ellipse <m>4x^2+y^2=4</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We define our constraint function as <m>g(x,y) = 4x^2 + y^2 - 4 = 0</m>. 
+      Next, we compute the first-order partial derivatives of both <m>f</m> and <m>g</m>:
+      <me>f_x = y, \quad f_y = x \quad \text{and} \quad g_x = 8x, \quad g_y = 2y</me>
+    </p>
+    <p>
+      Applying the Method of Lagrange Multipliers, we set up the corresponding system of equations:
+      <me>
+        \begin{cases}
+        y \amp = 8\lambda x \quad \text{(Eq. 1)} \\
+        x \amp = 2\lambda y \quad \text{(Eq. 2)} \\
+        4x^2 + y^2 \amp = 4 \quad \text{(Eq. 3)}
+        \end{cases}
+      </me>
+    </p>
+    <p>
+      If <m>x = 0</m>, then Eq. 1 implies <m>y = 0</m>, but the point <m>(0,0)</m> does not satisfy Eq. 3. 
+      Thus, <m>x \neq 0</m> and <m>y \neq 0</m>, which means <m>\lambda \neq 0</m>. 
+      We isolate <m>\lambda</m> from Eq. 1 and Eq. 2 to equate them:
+      <me>\lambda = \frac{y}{8x} = \frac{x}{2y} \implies 2y^2 = 8x^2 \implies y^2 = 4x^2</me>
+    </p>
+    <p>
+      Substituting <m>y^2 = 4x^2</m> directly into our constraint equation (Eq. 3) yields:
+      <me>4x^2 + (4x^2) = 4 \implies 8x^2 = 4 \implies x^2 = \frac{1}{2} \implies x = \pm \frac{1}{\sqrt{2}}</me>
+      Using <m>y^2 = 4x^2</m>, we find that <m>y^2 = 4\left(\frac{1}{2}\right) = 2 \implies y = \pm \sqrt{2}</m>. 
+      This produces four candidate critical points:
+      <me>\left(\frac{1}{\sqrt{2}}, \sqrt{2}\right), \quad \left(\frac{1}{\sqrt{2}}, -\sqrt{2}\right), \quad \left(-\frac{1}{\sqrt{2}}, \sqrt{2}\right), \quad \left(-\frac{1}{\sqrt{2}}, -\sqrt{2}\right)</me>
+    </p>
+    <p>
+      Finally, we evaluate the objective function <m>f(x,y) = xy</m> at these points:
+      <ul>
+        <li>
+          <p>
+            <m>f\left(\pm\frac{1}{\sqrt{2}}, \pm\sqrt{2}\right) = \left(\frac{1}{\sqrt{2}}\right)(\sqrt{2}) = 1</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>f\left(\pm\frac{1}{\sqrt{2}}, \mp\sqrt{2}\right) = \left(\frac{1}{\sqrt{2}}\right)(-\sqrt{2}) = -1</m>
+          </p>
+        </li>
+      </ul>
+      Therefore, the <term>maximum value</term> of <m>f</m> subject to the constraint is <m>1</m>, and the <term>minimum value</term> is <m>-1</m>.
+    </p>
+  </solution>
+</example>
+
+<theorem xml:id="thm-lagrange-three-variables">
+  <title>Lagrange Multipliers for Three Variables</title>
+  <statement>
+    <p>
+      Suppose <m>f</m> and <m>g</m> are functions of three variables that have continuous first-order partial derivatives, and that <m>\nabla g \neq \mathbf{0}</m> throughout a region of the <m>xyz</m>-plane. 
+      If <m>f</m> has an extremum <m>f(x_0,y_0,z_0)</m> subject to the constraint <m>g(x,y,z)=0</m>, then there is a real number <m>\lambda</m> such that:
+      <me>\nabla f(x_0,y_0,z_0) = \lambda \nabla g(x_0,y_0,z_0)</me>
+      The number <m>\lambda</m> is called a <term>Lagrange multiplier</term>.
+    </p>
+  </statement>
+</theorem>
+
+<corollary xml:id="cor-method-of-lagrange-multipliers-three-variables">
+  <title>The Method of Lagrange Multipliers: Three Variables</title>
+  <statement>
+    <p>
+      To find the maximum and minimum values of <m>f(x,y,z)</m> subject to the constraint <m>g(x,y,z)=0</m> (assuming that these values exist and <m>\nabla g \neq \mathbf{0}</m> on the surface <m>g(x,y,z)=0</m>):
+    </p>
+    <p>
+      <ol marker="1">
+        <li>
+          <p>
+            Find all values of <m>x, y, z,</m> and <m>\lambda</m> such that:
+            <me>
+              \begin{cases}
+              f_x(x,y,z) \amp = \lambda g_x(x,y,z) \\
+              f_y(x,y,z) \amp = \lambda g_y(x,y,z) \\
+              f_z(x,y,z) \amp = \lambda g_z(x,y,z) \\
+              g(x,y,z) \amp = 0
+              \end{cases}
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Evaluate <m>f</m> at all the points <m>(x,y,z)</m> that result from Step 1. 
+            The largest of these values is the maximum value of <m>f</m>; the smallest is the minimum value of <m>f</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</corollary>
+
+<example xml:id="ex-lagrange-cardboard-box">
+  <statement>
+    <p>
+      A rectangular box without a lid is to be made from <m>12\text{ m}^2</m> of cardboard. Find the maximum volume of such a box.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Let <m>x</m>, <m>y</m>, and <m>z</m> denote the length, width, and height of the box respectively. 
+      We want to maximize the volume function:
+      <me>f(x,y,z) = V = xyz</me>
+      subject to the surface area constraint that accounts for an open top (one bottom face and four side faces totaling <m>12\text{ m}^2</m>):
+      <me>g(x,y,z) = xy + 2xz + 2yz - 12 = 0</me>
+    </p>
+    <p>
+      We find the partial derivatives for our Lagrange configuration:
+      <me>f_x = yz, \quad f_y = xz, \quad f_z = xy</me>
+      <me>g_x = y + 2z, \quad g_y = x + 2z, \quad g_z = 2x + 2y</me>
+      This produces the following system of equations:
+      <me>
+        \begin{cases}
+        yz \amp = \lambda(y + 2z) \quad \text{(Eq. 1)} \\
+        xz \amp = \lambda(x + 2z) \quad \text{(Eq. 2)} \\
+        xy \amp = \lambda(2x + 2y) \quad \text{(Eq. 3)} \\
+        xy + 2xz + 2yz \amp = 12 \quad \text{(Eq. 4)}
+        \end{cases}
+      </me>
+    </p>
+    <p>
+      Since the dimensions must be strictly positive (<m>x,y,z &gt; 0</m>), <m>\lambda \neq 0</m>. We multiply Eq. 1 by <m>x</m>, Eq. 2 by <m>y</m>, and Eq. 3 by <m>z</m> to create matching left-hand expressions:
+      <me>xyz = \lambda(xy + 2xz)</me>
+      <me>xyz = \lambda(xy + 2yz)</me>
+      <me>xyz = \lambda(2xz + 2yz)</me>
+    </p>
+    <p>
+      Equating the first two expressions gives:
+      <me>\lambda(xy + 2xz) = \lambda(xy + 2yz) \implies 2xz = 2yz \implies x = y</me>
+      Equating the second and third expressions gives:
+      <me>\lambda(xy + 2yz) = \lambda(2xz + 2yz) \implies xy = 2xz \implies y = 2z</me>
+      Thus, we find the core dimension ratios: <m>x = y = 2z</m>.
+    </p>
+    <p>
+      We substitute these variables in terms of <m>z</m> into our constraint equation (Eq. 4):
+      <md>
+        <mrow>(2z)(2z) + 2(2z)z + 2(2z)z \amp = 12</mrow>
+        <mrow>4z^2 + 4z^2 + 4z^2 \amp = 12</mrow>
+        <mrow>12z^2 \amp = 12 \implies z^2 = 1 \implies z = 1\text{ m}</mrow>
+      </md>
+      Using our ratios, the remaining dimensions are <m>x = 2\text{ m}</m> and <m>y = 2\text{ m}</m>.
+    </p>
+    <p>
+      Finally, we evaluate the maximum volume:
+      <me>V = xyz = (2)(2)(1) = 4\text{ m}^3</me>
+      Thus, the maximum volume of the box is exactly <m>4\text{ cubic meters}</m>.
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="chk-lagrange-extrema-circle">
+  <statement>
+    <p>
+      Find the extreme values of the function <m>f(x,y)=x^2+2y^2</m> on the circle <m>x^2+y^2=1</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We define our constraint function as <m>g(x,y) = x^2 + y^2 - 1 = 0</m>. 
+      Next, we compute the first-order partial derivatives of both functions:
+      <me>f_x = 2x, \quad f_y = 4y \quad \text{and} \quad g_x = 2x, \quad g_y = 2y</me>
+    </p>
+    <p>
+      Applying the Method of Lagrange Multipliers, we set up the system of equations:
+      <me>
+        \begin{cases}
+        2x \amp = 2\lambda x \quad \text{(Eq. 1)} \\
+        4y \amp = 2\lambda y \quad \text{(Eq. 2)} \\
+        x^2 + y^2 \amp = 1 \quad \text{(Eq. 3)}
+        \end{cases}
+      </me>
+    </p>
+    <p>
+      From Eq. 1, we can group the terms to solve for case conditions:
+      <me>2x(1 - \lambda) = 0 \implies x = 0 \quad \text{or} \quad \lambda = 1</me>
+    </p>
+    <p>
+      <strong>Case 1: <m>x = 0</m></strong>. Substituting this into Eq. 3 yields:
+      <me>0^2 + y^2 = 1 \implies y = \pm 1</me>
+      This produces two candidate points: <m>(0, 1)</m> and <m>(0, -1)</m>.
+    </p>
+    <p>
+      <strong>Case 2: <m>\lambda = 1</m></strong>. Substituting this into Eq. 2 yields:
+      <me>4y = 2(1)y \implies 2y = 0 \implies y = 0</me>
+      Substituting <m>y = 0</m> back into Eq. 3 yields:
+      <me>x^2 + 0^2 = 1 \implies x = \pm 1</me>
+      This produces two more candidate points: <m>(1, 0)</m> and <m>(-1, 0)</m>.
+    </p>
+    <p>
+      Finally, we evaluate the objective function <m>f(x,y) = x^2 + 2y^2</m> at all four candidate points:
+      <ul>
+        <li>
+          <p>
+            <m>f(0, \pm 1) = 0^2 + 2(\pm 1)^2 = 2</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>f(\pm 1, 0) = (\pm 1)^2 + 2(0)^2 = 1</m>
+          </p>
+        </li>
+      </ul>
+      Therefore, the <term>maximum value</term> of <m>f</m> on the circle is <m>2</m> (occurring at <m>(0, \pm 1)</m>), and the <term>minimum value</term> is <m>1</m> (occurring at <m>(\pm 1, 0)</m>).
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="chk-lagrange-distance-sphere">
+  <statement>
+    <p>
+      Find the points on the sphere <m>x^2+y^2+z^2=4</m> that are closest to and farthest from the point <m>(3,1,-1)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The distance from any point <m>(x,y,z)</m> to <m>(3,1,-1)</m> is minimized or maximized when the squared distance is minimized or maximized. We define our objective function as:
+      <me>f(x,y,z) = (x-3)^2 + (y-1)^2 + (z+1)^2</me>
+      subject to the constraint describing the surface of the sphere:
+      <me>g(x,y,z) = x^2 + y^2 + z^2 - 4 = 0</me>
+    </p>
+    <p>
+      We compute the partial derivatives for both functions:
+      <me>f_x = 2(x-3), \quad f_y = 2(y-1), \quad f_z = 2(z+1)</me>
+      <me>g_x = 2x, \quad g_y = 2y, \quad g_z = 2z</me>
+      Setting up our Lagrange multiplier system:
+      <me>
+        \begin{cases}
+        2(x-3) \amp = 2\lambda x \implies x - 3 = \lambda x \quad \text{(Eq. 1)} \\
+        2(y-1) \amp = 2\lambda y \implies y - 1 = \lambda y \quad \text{(Eq. 2)} \\
+        2(z+1) \amp = 2\lambda z \implies z + 1 = \lambda z \quad \text{(Eq. 3)} \\
+        x^2 + y^2 + z^2 \amp = 4 \quad \text{(Eq. 4)}
+        \end{cases}
+      </me>
+    </p>
+    <p>
+      We isolate the coordinate variables in terms of <m>\lambda</m> from the first three equations:
+      <me>x(1 - \lambda) = 3 \implies x = \frac{3}{1-\lambda}</me>
+      <me>y(1 - \lambda) = 1 \implies y = \frac{1}{1-\lambda}</me>
+      <me>z(1 - \lambda) = -1 \implies z = \frac{-1}{1-\lambda}</me>
+      Notice that the coordinates are proportional to each other: <m>x = 3y</m> and <m>z = -y</m>.
+    </p>
+    <p>
+      We substitute these proportional ratios directly into our sphere constraint (Eq. 4):
+      <md>
+        <mrow>(3y)^2 + y^2 + (-y)^2 \amp = 4</mrow>
+        <mrow>9y^2 + y^2 + y^2 \amp = 4</mrow>
+        <mrow>11y^2 \amp = 4 \implies y^2 = \frac{4}{11} \implies y = \pm \frac{2}{\sqrt{11}}</mrow>
+      </md>
+    </p>
+    <p>
+      Using our proportional ratios, we find the two corresponding sets of coordinates:
+      <ul>
+        <li>
+          <p>
+            When <m>y = \frac{2}{\sqrt{11}}</m>, we get the point: 
+            <m>P_1 = \left(\frac{6}{\sqrt{11}}, \, \frac{2}{\sqrt{11}}, \, -\frac{2}{\sqrt{11}}\right)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            When <m>y = -\frac{2}{\sqrt{11}}</m>, we get the point: 
+            <m>P_2 = \left(-\frac{6}{\sqrt{11}}, \, -\frac{2}{\sqrt{11}}, \, \frac{2}{\sqrt{11}}\right)</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Geometrically, the point <m>P_1</m> has positive coordinates that align with the direction toward <m>(3,1,-1)</m>, making it the closest point. The point <m>P_2</m> has opposite orientation, making it the farthest point. 
+    </p>
+    <p>
+      Thus, the point <m>\left(\frac{6}{\sqrt{11}}, \frac{2}{\sqrt{11}}, -\frac{2}{\sqrt{11}}\right)</m> is <term>closest</term> to the given point, and <m>\left(-\frac{6}{\sqrt{11}}, -\frac{2}{\sqrt{11}}, \frac{2}{\sqrt{11}}\right)</m> is <term>farthest</term>.
+    </p>
+  </solution>
+</exercise>
+
+
+
+
+
+
+  </section>

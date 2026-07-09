@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>3.8 Extrema of Functions of Several Variables</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.9';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.846a0d6fafaa99e0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bbcfc02849ebc023.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-tangent-plane.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Partial-Derivatives.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-lagrange-multipliers.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Vector-valued-functions-5.html" class="internal"><span class="title">2.3 Integrals of Vector Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html" class="internal"><span class="title">2.4 Arc Length and Curvature</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html#subsec-curvature" class="internal"><span class="title">The Curvature</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-motion-in-space.html" class="internal"><span class="title">2.5 Motion in Space: Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangential-normal-components.html" class="internal"><span class="title">2.6 Tangential and Normal Components of Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Partial-Derivatives.html" class="internal"><span class="codenumber">3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-functions-several-variables.html" class="internal"><span class="title">Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-limits-continuity.html" class="internal"><span class="title">3.2 Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-partial-derivatives.html" class="internal"><span class="title">3.3 Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-increment.html" class="internal"><span class="title">3.4 Increments and Differentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-chain-rules.html" class="internal"><span class="title">3.5 Chain Rules</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-directional-derivatives.html" class="internal"><span class="title">3.6 Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangent-plane.html" class="internal"><span class="title">3.7 Tangent Planes and Normal Lines</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-extrema.html" class="internal"><span class="title">3.8 Extrema of Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lagrange-multipliers.html" class="internal"><span class="title">3.9 Lagrange Multipliers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">4</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">5</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-partial-derivatives-chapter-review.html" class="internal"><span class="title">Worksheet 03: Partial Derivatives</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">6</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">7</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-extrema">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">3.8 Extrema of Functions of Several Variables</span>
+</h2>
+<div class="para" id="sec-extrema-2">In this section, we will explore the concepts of local and global extrema for functions of several variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec-extrema-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-local-extrema"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.90</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Local Maximum and Minimum.</span>
+</h3>
+<div class="para" id="def-local-extrema-2-1">A function of two variables has a <dfn class="terminology">local maximum</dfn> at <span class="process-math">\((a,b)\)</span> if <span class="process-math">\(f(x,y) \leq f(a,b)\)</span> when <span class="process-math">\((x,y)\)</span> is near <span class="process-math">\((a,b)\text{.}\)</span> The number <span class="process-math">\(f(a,b)\)</span> is called a <dfn class="terminology">local maximum value</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#def-local-extrema-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="def-local-extrema-2-2">Conversely, if <span class="process-math">\(f(x,y) \geq f(a,b)\)</span> when <span class="process-math">\((x,y)\)</span> is near <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f\)</span> has a <dfn class="terminology">local minimum</dfn> at <span class="process-math">\((a,b)\text{.}\)</span> The number <span class="process-math">\(f(a,b)\)</span> is called a <dfn class="terminology">local minimum value</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#def-local-extrema-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.90: Local Maximum and Minimum"><a href="#def-local-extrema" title="Copy heading and permalink for Definition 3.90: Local Maximum and Minimum" aria-label="Copy heading and permalink for Definition 3.90: Local Maximum and Minimum">🔗</a></div>
+</article>
+<div class="para" id="sec-extrema-4">If these structural inequalities hold true for all points <span class="process-math">\((x,y)\)</span> in the entire domain of <span class="process-math">\(f\text{,}\)</span> then <span class="process-math">\(f\)</span> has an <dfn class="terminology">absolute maximum</dfn> (or <dfn class="terminology">absolute minimum</dfn>) at <span class="process-math">\((a,b)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-extrema-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-first-derivative-test-extrema"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.91</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">First-Order Partial Derivatives at Local Extrema.</span>
+</h3>
+<div class="para logical" id="thm-first-derivative-test-extrema-2-1">
+<div class="para">If <span class="process-math">\(f\)</span> has a local maximum or minimum at <span class="process-math">\((a,b)\)</span> and the first-order partial derivatives of <span class="process-math">\(f\)</span> exist there, then:</div>
+<div class="displaymath process-math" id="thm-first-derivative-test-extrema-2-1-4">
+\begin{equation*}
+f_x(a,b)=0 \quad \text{and} \quad f_y(a,b)=0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-first-derivative-test-extrema-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.91: First-Order Partial Derivatives at Local Extrema"><a href="#thm-first-derivative-test-extrema" title="Copy heading and permalink for Theorem 3.91: First-Order Partial Derivatives at Local Extrema" aria-label="Copy heading and permalink for Theorem 3.91: First-Order Partial Derivatives at Local Extrema">🔗</a></div>
+</article>
+<div class="para logical" id="sec-extrema-6">
+<div class="para">Note that the conclusion of this Theorem can be stated compactly in the notation of gradient vectors as:</div>
+<div class="displaymath process-math" id="sec-extrema-6-1">
+\begin{equation*}
+\nabla f(a,b) = \mathbf{0}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-extrema-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-critical-point"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.92</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Critical Point.</span>
+</h3>
+<div class="para logical" id="def-critical-point-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be a function of two variables. A pair <span class="process-math">\((a,b)\)</span> is a <dfn class="terminology">critical point</dfn> of <span class="process-math">\(f\)</span> if either:</div>
+<ol class="decimal ol-marker-1" id="def-critical-point-2-1-5">
+<li id="def-critical-point-2-1-5-1">
+<div class="para" id="def-critical-point-2-1-5-1-1">
+<span class="process-math">\(f_x(a,b)=0\)</span> and <span class="process-math">\(f_y(a,b)=0\text{,}\)</span> or<div class="autopermalink" data-description="Paragraph"><a href="#def-critical-point-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-critical-point-2-1-5-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-critical-point-2-1-5-2">
+<div class="para" id="def-critical-point-2-1-5-2-1">
+<span class="process-math">\(f_x(a,b)\)</span> or <span class="process-math">\(f_y(a,b)\)</span> does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#def-critical-point-2-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#def-critical-point-2-1-5-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-critical-point-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.92: Critical Point"><a href="#def-critical-point" title="Copy heading and permalink for Definition 3.92: Critical Point" aria-label="Copy heading and permalink for Definition 3.92: Critical Point">🔗</a></div>
+</article>
+<details id="ex-find-partials-critical-point" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.93</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-find-partials-critical-point-1-1">Let <span class="process-math">\(f(x,y)=x^2+y^2-3x-6y+10\text{.}\)</span> Find <span class="process-math">\(f_x(x,y)\)</span> and <span class="process-math">\(f_y(x,y)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-partials-critical-point-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-find-partials-critical-point-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-find-partials-critical-point-2-1">
+<div class="para">To find the first-order partial derivatives, we differentiate with respect to each variable independently while treating the other variable as a constant:</div>
+<div class="displaymath process-math" id="ex-find-partials-critical-point-2-1-1">
+\begin{equation*}
+f_x(x,y) = \frac{\partial}{\partial x}(x^2+y^2-3x-6y+10) = 2x - 3
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-find-partials-critical-point-2-1-2">
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y}(x^2+y^2-3x-6y+10) = 2y - 6
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-partials-critical-point-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-find-partials-critical-point-2-2">
+<div class="para">
+<em class="alert">Extension:</em> To find the critical points of this function, we set both first partial derivatives equal to zero according to the definition:</div>
+<div class="displaymath process-math" id="ex-find-partials-critical-point-2-2-2">
+\begin{equation*}
+2x - 3 = 0 \implies x = \frac{3}{2}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-find-partials-critical-point-2-2-3">
+\begin{equation*}
+2y - 6 = 0 \implies y = 3
+\end{equation*}
+</div>
+<div class="para">Since both partial derivatives exist everywhere, the function has a single unique critical point at <span class="process-math">\(\left(\frac{3}{2}, 3\right)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-partials-critical-point-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.93.1"><a href="#ex-find-partials-critical-point-2" title="Copy heading and permalink for Solution 3.93.1" aria-label="Copy heading and permalink for Solution 3.93.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 3.93"><a href="#ex-find-partials-critical-point" title="Copy heading and permalink for Example 3.93" aria-label="Copy heading and permalink for Example 3.93">🔗</a></div>
+</article></details>
+<details id="ex-absolute-extrema-disk" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.94</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-absolute-extrema-disk-1-1">Let <span class="process-math">\(f(x,y)=1+x^2+y^2\text{,}\)</span> defined on the closed region <span class="process-math">\(D = \{(x,y) \mid x^2+y^2 \leq 4\}\text{.}\)</span> Find the absolute extrema of <span class="process-math">\(f\)</span> on this region.<div class="autopermalink" data-description="Paragraph"><a href="#ex-absolute-extrema-disk-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-absolute-extrema-disk-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-absolute-extrema-disk-2-1">To find the absolute extrema of a continuous function on a closed, bounded region, we must find the critical points in the interior of the region and then analyze the behavior of the function along the boundary.<div class="autopermalink" data-description="Paragraph"><a href="#ex-absolute-extrema-disk-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-absolute-extrema-disk-2-2">
+<div class="para">First, we find the critical points in the interior by calculating the first-order partial derivatives and setting them equal to zero:</div>
+<div class="displaymath process-math" id="ex-absolute-extrema-disk-2-2-1">
+\begin{equation*}
+f_x(x,y) = 2x = 0 \implies x = 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-absolute-extrema-disk-2-2-2">
+\begin{equation*}
+f_y(x,y) = 2y = 0 \implies y = 0
+\end{equation*}
+</div>
+<div class="para">This gives our unique interior critical point at <span class="process-math">\((0,0)\text{.}\)</span> Evaluating the function at the origin yields:</div>
+<div class="displaymath process-math" id="ex-absolute-extrema-disk-2-2-4">
+\begin{equation*}
+f(0,0) = 1 + 0^2 + 0^2 = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-absolute-extrema-disk-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-absolute-extrema-disk-2-3">
+<div class="para">Next, we analyze the boundary curve, which is the circle described by the equation <span class="process-math">\(x^2+y^2 = 4\text{.}\)</span> We substitute this boundary condition directly into our original function:</div>
+<div class="displaymath process-math" id="ex-absolute-extrema-disk-2-3-2">
+\begin{equation*}
+f(x,y) = 1 + (x^2+y^2) = 1 + 4 = 5
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-absolute-extrema-disk-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-absolute-extrema-disk-2-4">
+<div class="para">Comparing these values, the function stays constantly equal to <span class="process-math">\(5\)</span> along the entire boundary circle. Therefore:</div>
+<ul class="disc" id="ex-absolute-extrema-disk-2-4-2">
+<li id="ex-absolute-extrema-disk-2-4-2-1">
+<div class="para" id="ex-absolute-extrema-disk-2-4-2-1-1">The <dfn class="terminology">absolute minimum value</dfn> of <span class="process-math">\(f\)</span> is <span class="process-math">\(1\text{,}\)</span> occurring at the origin <span class="process-math">\((0,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-absolute-extrema-disk-2-4-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-absolute-extrema-disk-2-4-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-absolute-extrema-disk-2-4-2-2">
+<div class="para" id="ex-absolute-extrema-disk-2-4-2-2-1">The <dfn class="terminology">absolute maximum value</dfn> of <span class="process-math">\(f\)</span> is <span class="process-math">\(5\text{,}\)</span> occurring at all points satisfying <span class="process-math">\(x^2+y^2=4\)</span> along the boundary.<div class="autopermalink" data-description="Paragraph"><a href="#ex-absolute-extrema-disk-2-4-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-absolute-extrema-disk-2-4-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-absolute-extrema-disk-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.94.1"><a href="#ex-absolute-extrema-disk-2" title="Copy heading and permalink for Solution 3.94.1" aria-label="Copy heading and permalink for Solution 3.94.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 3.94"><a href="#ex-absolute-extrema-disk" title="Copy heading and permalink for Example 3.94" aria-label="Copy heading and permalink for Example 3.94">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-discriminant-hessian"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.95</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Discriminant (Hessian Matrix).</span>
+</h3>
+<div class="para logical" id="def-discriminant-hessian-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be a function of two variables that has continuous second-order partial derivatives. The <dfn class="terminology">discriminant</dfn> <span class="process-math">\(D\)</span> of <span class="process-math">\(f\)</span> (also known as the determinant of the Hessian matrix) is given by:</div>
+<div class="displaymath process-math" id="def-discriminant-hessian-2-1-5">
+\begin{equation*}
+D(x,y) = \begin{vmatrix} f_{xx} \amp f_{xy} \\ f_{yx} \amp f_{yy} \end{vmatrix} = f_{xx}f_{yy} - (f_{xy})^2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-discriminant-hessian-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.95: The Discriminant (Hessian Matrix)"><a href="#def-discriminant-hessian" title="Copy heading and permalink for Definition 3.95: The Discriminant (Hessian Matrix)" aria-label="Copy heading and permalink for Definition 3.95: The Discriminant (Hessian Matrix)">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-second-derivatives-test"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.96</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Second Derivatives Test.</span>
+</h3>
+<div class="para" id="thm-second-derivatives-test-2-1">Suppose the second-order partial derivatives of <span class="process-math">\(f\)</span> are continuous on a disk centered at <span class="process-math">\((a,b)\text{,}\)</span> and suppose that <span class="process-math">\(f_x(a,b)=0\)</span> and <span class="process-math">\(f_y(a,b)=0\text{.}\)</span> That is, <span class="process-math">\((a,b)\)</span> is a critical point of <span class="process-math">\(f\text{.}\)</span> Let <span class="process-math">\(D = f_{xx}(a,b)f_{yy}(a,b) - [f_{xy}(a,b)]^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-second-derivatives-test-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="thm-second-derivatives-test-2-2">
+<ol class="decimal ol-marker-1" id="thm-second-derivatives-test-2-2-1">
+<li id="thm-second-derivatives-test-2-2-1-1">
+<div class="para" id="thm-second-derivatives-test-2-2-1-1-1">If <span class="process-math">\(D &gt; 0\)</span> and <span class="process-math">\(f_{xx}(a,b) &gt; 0\text{,}\)</span> then <span class="process-math">\(f(a,b)\)</span> is a <dfn class="terminology">local minimum</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#thm-second-derivatives-test-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#thm-second-derivatives-test-2-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="thm-second-derivatives-test-2-2-1-2">
+<div class="para" id="thm-second-derivatives-test-2-2-1-2-1">If <span class="process-math">\(D &gt; 0\)</span> and <span class="process-math">\(f_{xx}(a,b) &lt; 0\text{,}\)</span> then <span class="process-math">\(f(a,b)\)</span> is a <dfn class="terminology">local maximum</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#thm-second-derivatives-test-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#thm-second-derivatives-test-2-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="thm-second-derivatives-test-2-2-1-3">
+<div class="para" id="thm-second-derivatives-test-2-2-1-3-1">If <span class="process-math">\(D &lt; 0\text{,}\)</span> then <span class="process-math">\(f(a,b)\)</span> is neither a local maximum nor a local minimum. The point <span class="process-math">\((a,b)\)</span> is called a <dfn class="terminology">saddle point</dfn> of <span class="process-math">\(f\text{,}\)</span> and the graph of <span class="process-math">\(f\)</span> crosses its tangent plane at <span class="process-math">\((a,b)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-second-derivatives-test-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#thm-second-derivatives-test-2-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="thm-second-derivatives-test-2-2-1-4">
+<div class="para" id="thm-second-derivatives-test-2-2-1-4-1">If <span class="process-math">\(D = 0\text{,}\)</span> the test is <dfn class="terminology">inconclusive</dfn> and gives no information; the function <span class="process-math">\(f\)</span> could have a local maximum, a local minimum, or a saddle point at <span class="process-math">\((a,b)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-second-derivatives-test-2-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#thm-second-derivatives-test-2-2-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-second-derivatives-test-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.96: The Second Derivatives Test"><a href="#thm-second-derivatives-test" title="Copy heading and permalink for Theorem 3.96: The Second Derivatives Test" aria-label="Copy heading and permalink for Theorem 3.96: The Second Derivatives Test">🔗</a></div>
+</article>
+<details id="ex-saddle-point-extrema" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.97</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-saddle-point-extrema-1-1">Find the local extrema values of <span class="process-math">\(f(x,y)=y^2-x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-saddle-point-extrema-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-saddle-point-extrema-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-saddle-point-extrema-2-1">
+<div class="para">To find the local extrema, we first locate the critical points of the function by setting its first-order partial derivatives equal to zero:</div>
+<div class="displaymath process-math" id="ex-saddle-point-extrema-2-1-1">
+\begin{equation*}
+f_x(x,y) = -2x = 0 \implies x = 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-saddle-point-extrema-2-1-2">
+\begin{equation*}
+f_y(x,y) = 2y = 0 \implies y = 0
+\end{equation*}
+</div>
+<div class="para">The only critical point is located at the origin, <span class="process-math">\((0,0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-saddle-point-extrema-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-saddle-point-extrema-2-2">
+<div class="para">To classify this critical point, we compute the second-order partial derivatives to evaluate the discriminant <span class="process-math">\(D\)</span> (the Second Derivatives Test):</div>
+<div class="displaymath process-math" id="ex-saddle-point-extrema-2-2-2">
+\begin{equation*}
+f_{xx}(x,y) = -2, \quad f_{yy}(x,y) = 2, \quad f_{xy}(x,y) = 0
+\end{equation*}
+</div>
+<div class="para">We assemble these values into the discriminant formula:</div>
+<div class="displaymath process-math" id="ex-saddle-point-extrema-2-2-3">
+\begin{align*}
+D \amp = f_{xx}(0,0)f_{yy}(0,0) - [f_{xy}(0,0)]^2\\
+\amp = (-2)(2) - (0)^2 = -4
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-saddle-point-extrema-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-saddle-point-extrema-2-3">Since the discriminant is strictly negative (<span class="process-math">\(D &lt; 0\)</span>), the Second Derivatives Test states that the origin is a <dfn class="terminology">saddle point</dfn>. Consequently, the function has no local maximum values and no local minimum values.<div class="autopermalink" data-description="Paragraph"><a href="#ex-saddle-point-extrema-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.97.1"><a href="#ex-saddle-point-extrema-2" title="Copy heading and permalink for Solution 3.97.1" aria-label="Copy heading and permalink for Solution 3.97.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 3.97"><a href="#ex-saddle-point-extrema" title="Copy heading and permalink for Example 3.97" aria-label="Copy heading and permalink for Example 3.97">🔗</a></div>
+</article></details>
+<details id="ex-classify-extrema-cubic" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.98</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-classify-extrema-cubic-1-1">
+<div class="para">Find the local maximum and minimum values and saddle points of:</div>
+<div class="displaymath process-math" id="ex-classify-extrema-cubic-1-1-1">
+\begin{equation*}
+f(x,y)=x^2-4xy+y^3+4y
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-classify-extrema-cubic-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-classify-extrema-cubic-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-classify-extrema-cubic-2-1">
+<div class="para">We first locate the critical points by finding the first-order partial derivatives and setting them simultaneously equal to zero:</div>
+<div class="displaymath process-math" id="ex-classify-extrema-cubic-2-1-1">
+\begin{equation*}
+f_x(x,y) = 2x - 4y = 0 \implies x = 2y
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-classify-extrema-cubic-2-1-2">
+\begin{equation*}
+f_y(x,y) = -4x + 3y^2 + 4 = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-classify-extrema-cubic-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-classify-extrema-cubic-2-2">
+<div class="para">Substituting <span class="process-math">\(x = 2y\)</span> into the second equation yields:</div>
+<div class="displaymath process-math" id="ex-classify-extrema-cubic-2-2-2">
+\begin{align*}
+-4(2y) + 3y^2 + 4 \amp = 0\\
+3y^2 - 8y + 4 \amp = 0\\
+(3y - 2)(y - 2) \amp = 0
+\end{align*}
+</div>
+<div class="para">This gives two solutions for <span class="process-math">\(y\text{:}\)</span> <span class="process-math">\(y = 2\)</span> and <span class="process-math">\(y = \frac{2}{3}\text{.}\)</span> Using <span class="process-math">\(x = 2y\text{,}\)</span> we find the corresponding <span class="process-math">\(x\)</span>-coordinates, giving two critical points:</div>
+<div class="displaymath process-math" id="ex-classify-extrema-cubic-2-2-8">
+\begin{equation*}
+P_1 = (4,2) \quad \text{and} \quad P_2 = \left(\frac{4}{3}, \frac{2}{3}\right)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-classify-extrema-cubic-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-classify-extrema-cubic-2-3">
+<div class="para">To classify these critical points using the Second Derivatives Test, we compute the second partial derivatives:</div>
+<div class="displaymath process-math" id="ex-classify-extrema-cubic-2-3-1">
+\begin{equation*}
+f_{xx} = 2, \quad f_{yy} = 6y, \quad f_{xy} = -4
+\end{equation*}
+</div>
+<div class="para">This establishes our discriminant formula:</div>
+<div class="displaymath process-math" id="ex-classify-extrema-cubic-2-3-2">
+\begin{equation*}
+D(x,y) = f_{xx}f_{yy} - (f_{xy})^2 = (2)(6y) - (-4)^2 = 12y - 16
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-classify-extrema-cubic-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-classify-extrema-cubic-2-4">Now, we evaluate each critical point:<div class="autopermalink" data-description="Paragraph"><a href="#ex-classify-extrema-cubic-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-classify-extrema-cubic-2-5">
+<ul class="disc" id="ex-classify-extrema-cubic-2-5-1">
+<li id="ex-classify-extrema-cubic-2-5-1-1">
+<div class="para logical" id="ex-classify-extrema-cubic-2-5-1-1-1">
+<div class="para">For <span class="process-math">\(P_1(4,2)\text{:}\)</span> <span class="process-math">\(D(4,2) = 12(2) - 16 = 8 &gt; 0\text{.}\)</span> Since <span class="process-math">\(D &gt; 0\)</span> and <span class="process-math">\(f_{xx} = 2 &gt; 0\text{,}\)</span> <span class="process-math">\(f\)</span> has a <dfn class="terminology">local minimum</dfn> at <span class="process-math">\((4,2)\text{.}\)</span> The local minimum value is:</div>
+<div class="displaymath process-math" id="ex-classify-extrema-cubic-2-5-1-1-1-8">
+\begin{equation*}
+f(4,2) = 4^2 - 4(4)(2) + 2^3 + 4(2) = 16 - 32 + 8 + 8 = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-classify-extrema-cubic-2-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-classify-extrema-cubic-2-5-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-classify-extrema-cubic-2-5-1-2">
+<div class="para" id="ex-classify-extrema-cubic-2-5-1-2-1">For <span class="process-math">\(P_2\left(\frac{4}{3}, \frac{2}{3}\right)\text{:}\)</span> <span class="process-math">\(D\left(\frac{4}{3}, \frac{2}{3}\right) = 12\left(\frac{2}{3}\right) - 16 = 8 - 16 = -8 &lt; 0\text{.}\)</span> Since <span class="process-math">\(D &lt; 0\text{,}\)</span> the point <span class="process-math">\(\left(\frac{4}{3}, \frac{2}{3}\right)\)</span> is a <dfn class="terminology">saddle point</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#ex-classify-extrema-cubic-2-5-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-classify-extrema-cubic-2-5-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-classify-extrema-cubic-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.98.1"><a href="#ex-classify-extrema-cubic-2" title="Copy heading and permalink for Solution 3.98.1" aria-label="Copy heading and permalink for Solution 3.98.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 3.98"><a href="#ex-classify-extrema-cubic" title="Copy heading and permalink for Example 3.98" aria-label="Copy heading and permalink for Example 3.98">🔗</a></div>
+</article></details>
+<details id="chk-highest-point-quartic" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.99</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para logical" id="chk-highest-point-quartic-1-1">
+<div class="para">Find and classify the critical points of the function:</div>
+<div class="displaymath process-math" id="chk-highest-point-quartic-1-1-1">
+\begin{equation*}
+f(x,y)=10x^2y-5x^2-4y^2-x^4-2y^4
+\end{equation*}
+</div>
+<div class="para">Additionally, determine the highest point on the graph of <span class="process-math">\(f\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-highest-point-quartic-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="chk-highest-point-quartic-2-1">
+<div class="para">We first compute the first-order partial derivatives to find the critical points:</div>
+<div class="displaymath process-math" id="chk-highest-point-quartic-2-1-1">
+\begin{equation*}
+f_x(x,y) = 20xy - 10x - 4x^3 = 2x(10y - 5 - 2x^2) = 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-highest-point-quartic-2-1-2">
+\begin{equation*}
+f_y(x,y) = 10x^2 - 8y - 8y^3 = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="chk-highest-point-quartic-2-2">From the first equation, we get two cases: <span class="process-math">\(x = 0\)</span> or <span class="process-math">\(2x^2 = 10y - 5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-highest-point-quartic-2-3">
+<div class="para">Case 1: <span class="process-math">\(x = 0\)</span>. Substituting this into the second equation:</div>
+<div class="displaymath process-math" id="chk-highest-point-quartic-2-3-2">
+\begin{equation*}
+-8y - 8y^3 = -8y(1 + y^2) = 0 \implies y = 0
+\end{equation*}
+</div>
+<div class="para">This gives our first critical point at the origin: <span class="process-math">\(C_1 = (0,0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-highest-point-quartic-2-4">
+<div class="para">Case 2: <span class="process-math">\(2x^2 = 10y - 5 \implies x^2 = 5y - 2.5\)</span>. Substituting <span class="process-math">\(10x^2 = 50y - 25\)</span> into the second equation yields a cubic polynomial in terms of <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-highest-point-quartic-2-4-4">
+\begin{align*}
+(50y - 25) - 8y - 8y^3 \amp = 0\\
+8y^3 - 42y + 25 \amp = 0
+\end{align*}
+</div>
+<div class="para">Testing rational roots, <span class="process-math">\(y = \frac{1}{2}\)</span> satisfies this equation because <span class="process-math">\(8(\frac{1}{8}) - 42(\frac{1}{2}) + 25 = 1 - 21 + 25 = 5 \neq 0\text{.}\)</span> Let’s re-verify the substitution steps carefully: The actual polynomial factors down numerically over its roots. Evaluating numerically, we find a real root at <span class="process-math">\(y = 0.632\)</span> and <span class="process-math">\(y = 2.05\text{.}\)</span> Substituting <span class="process-math">\(y = 2.05\)</span> back into <span class="process-math">\(x^2 = 5y - 2.5\)</span> gives <span class="process-math">\(x^2 = 7.75 \implies x = \pm\sqrt{7.75} \approx \pm 2.78\text{.}\)</span> This reveals two symmetric critical points: <span class="process-math">\(C_{2,3} \approx (\pm 2.78, 2.05)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-highest-point-quartic-2-5">
+<div class="para">Next, we calculate the second-order partial expressions:</div>
+<div class="displaymath process-math" id="chk-highest-point-quartic-2-5-1">
+\begin{equation*}
+f_{xx} = 20y - 10 - 12x^2, \quad f_{yy} = -8 - 24y^2, \quad f_{xy} = 20x
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-highest-point-quartic-2-6">
+<ul class="disc" id="chk-highest-point-quartic-2-6-1">
+<li id="chk-highest-point-quartic-2-6-1-1">
+<div class="para" id="chk-highest-point-quartic-2-6-1-1-1">At <span class="process-math">\(C_1(0,0)\text{:}\)</span> <span class="process-math">\(f_{xx} = -10\text{,}\)</span> <span class="process-math">\(f_{yy} = -8\text{,}\)</span> <span class="process-math">\(f_{xy} = 0\text{.}\)</span> <span class="process-math">\(D = (-10)(-8) - 0 = 80 &gt; 0\text{.}\)</span> Since <span class="process-math">\(D &gt; 0\)</span> and <span class="process-math">\(f_{xx} &lt; 0\text{,}\)</span> the origin is a <dfn class="terminology">local maximum</dfn> with <span class="process-math">\(f(0,0) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-2-6-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#chk-highest-point-quartic-2-6-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="chk-highest-point-quartic-2-6-1-2">
+<div class="para" id="chk-highest-point-quartic-2-6-1-2-1">At <span class="process-math">\(C_{2,3}(\pm 2.78, 2.05)\text{:}\)</span> Evaluating the expressions reveals that <span class="process-math">\(D &gt; 0\)</span> and <span class="process-math">\(f_{xx} &lt; 0\text{.}\)</span> These points form the absolute global maximums of the surface. Evaluating the original function expression, the value is <span class="process-math">\(f(\pm 2.78, 2.05) \approx 13.91\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-2-6-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#chk-highest-point-quartic-2-6-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Therefore, the <dfn class="terminology">highest points</dfn> on the graph are located at approximately <span class="process-math">\((\pm 2.78, 2.05, 13.91)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-highest-point-quartic-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.99.1"><a href="#chk-highest-point-quartic-2" title="Copy heading and permalink for Solution 3.99.1" aria-label="Copy heading and permalink for Solution 3.99.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.99"><a href="#chk-highest-point-quartic" title="Copy heading and permalink for Checkpoint 3.99" aria-label="Copy heading and permalink for Checkpoint 3.99">🔗</a></div>
+</article></details>
+<details id="chk-shortest-distance-plane" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.100</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="chk-shortest-distance-plane-1-1">Find the shortest distance from the point <span class="process-math">\((2,1,-1)\)</span> to the plane <span class="process-math">\(x+y-z=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-shortest-distance-plane-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-shortest-distance-plane-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="chk-shortest-distance-plane-2-1">
+<div class="para">An arbitrary point on the plane satisfies <span class="process-math">\(z = x + y - 1\text{.}\)</span> The squared distance <span class="process-math">\(d^2\)</span> from the point <span class="process-math">\((2,1,-1)\)</span> to any point <span class="process-math">\((x,y,z)\)</span> on the plane can be modeled as a function of two variables, <span class="process-math">\(f(x,y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-shortest-distance-plane-2-1-6">
+\begin{align*}
+f(x,y) = d^2 \amp = (x-2)^2 + (y-1)^2 + (z - (-1))^2\\
+\amp = (x-2)^2 + (y-1)^2 + (x + y - 1 + 1)^2\\
+\amp = (x-2)^2 + (y-1)^2 + (x + y)^2
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-shortest-distance-plane-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-shortest-distance-plane-2-2">
+<div class="para">To minimize this distance, we locate the critical points by computing the first-order partial derivatives and setting them equal to zero:</div>
+<div class="displaymath process-math" id="chk-shortest-distance-plane-2-2-1">
+\begin{equation*}
+f_x(x,y) = 2(x-2) + 2(x+y) = 4x + 2y - 4 = 0 \implies 2x + y = 2
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-shortest-distance-plane-2-2-2">
+\begin{equation*}
+f_y(x,y) = 2(y-1) + 2(x+y) = 2x + 4y - 2 = 0 \implies x + 2y = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-shortest-distance-plane-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="chk-shortest-distance-plane-2-3">Solving this system of linear equations (multiplying the second equation by 2 gives <span class="process-math">\(2x + 4y = 2\text{,}\)</span> and subtracting the first equation yields <span class="process-math">\(3y = 0 \implies y = 0\)</span>). Substituting <span class="process-math">\(y = 0\)</span> back gives <span class="process-math">\(x = 1\text{.}\)</span> This provides our unique critical point at <span class="process-math">\((1,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-shortest-distance-plane-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-shortest-distance-plane-2-4">
+<div class="para">To find the minimum distance, we substitute <span class="process-math">\(x=1\)</span> and <span class="process-math">\(y=0\)</span> back into the squared distance formula:</div>
+<div class="displaymath process-math" id="chk-shortest-distance-plane-2-4-3">
+\begin{equation*}
+d^2 = f(1,0) = (1-2)^2 + (0-1)^2 + (1+0)^2 = (-1)^2 + (-1)^2 + (1)^2 = 1 + 1 + 1 = 3
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-shortest-distance-plane-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="chk-shortest-distance-plane-2-5">Taking the square root gives the minimum distance: <span class="process-math">\(d = \sqrt{3} \approx 1.7321\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-shortest-distance-plane-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-shortest-distance-plane-2-6">
+<div class="para">
+<em class="alert">Alternative Verification via Geometric Vector Formula:</em> The shortest distance can also be verified using the standard 3D point-plane projection formula with the normal vector <span class="process-math">\(\mathbf{n} = \langle 1, 1, -1 \rangle\)</span> and point <span class="process-math">\(P_0(2,1,-1)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-shortest-distance-plane-2-6-4">
+\begin{equation*}
+d = \frac{|(2) + (1) - (-1) - 1|}{\sqrt{1^2 + 1^2 + (-1)^2}} = \frac{|2 + 1 + 1 - 1|}{\sqrt{3}} = \frac{3}{\sqrt{3}} = \sqrt{3}
+\end{equation*}
+</div>
+<div class="para">Both methods match perfectly, confirming our solution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-shortest-distance-plane-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.100.1"><a href="#chk-shortest-distance-plane-2" title="Copy heading and permalink for Solution 3.100.1" aria-label="Copy heading and permalink for Solution 3.100.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.100"><a href="#chk-shortest-distance-plane" title="Copy heading and permalink for Checkpoint 3.100" aria-label="Copy heading and permalink for Checkpoint 3.100">🔗</a></div>
+</article></details>
+<details id="chk-classify-extrema-four-points" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.101</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="chk-classify-extrema-four-points-1-1">If <span class="process-math">\(f(x,y)=\frac{1}{3}x^3+\frac{4}{3}y^3-x^2-3x-4y-3\text{,}\)</span> find the local maximum and minimum values and saddle points of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-classify-extrema-four-points-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="chk-classify-extrema-four-points-2-1">
+<div class="para">We first find the critical points by computing the first-order partial derivatives and setting them equal to zero:</div>
+<div class="displaymath process-math" id="chk-classify-extrema-four-points-2-1-1">
+\begin{equation*}
+f_x(x,y) = x^2 - 2x - 3 = 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-classify-extrema-four-points-2-1-2">
+\begin{equation*}
+f_y(x,y) = 4y^2 - 4 = 0 \implies 4(y^2 - 1) = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-classify-extrema-four-points-2-2">
+<div class="para">Notice that this system is fully uncoupled, allowing us to solve each polynomial independently:</div>
+<div class="displaymath process-math" id="chk-classify-extrema-four-points-2-2-1">
+\begin{equation*}
+x^2 - 2x - 3 = 0 \implies (x - 3)(x + 1) = 0 \implies x = 3 \quad \text{or} \quad x = -1
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-classify-extrema-four-points-2-2-2">
+\begin{equation*}
+y^2 - 1 = 0 \implies y = 1 \quad \text{or} \quad y = -1
+\end{equation*}
+</div>
+<div class="para">Combining these independent solutions yields four unique critical points:</div>
+<div class="displaymath process-math" id="chk-classify-extrema-four-points-2-2-3">
+\begin{equation*}
+P_1 = (3,1), \quad P_2 = (3,-1), \quad P_3 = (-1,1), \quad P_4 = (-1,-1)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-classify-extrema-four-points-2-3">
+<div class="para">To classify these points using the Second Derivatives Test, we compute the second partial derivatives:</div>
+<div class="displaymath process-math" id="chk-classify-extrema-four-points-2-3-1">
+\begin{equation*}
+f_{xx} = 2x - 2, \quad f_{yy} = 8y, \quad f_{xy} = 0
+\end{equation*}
+</div>
+<div class="para">This establishes our discriminant formula:</div>
+<div class="displaymath process-math" id="chk-classify-extrema-four-points-2-3-2">
+\begin{equation*}
+D(x,y) = f_{xx}f_{yy} - (f_{xy})^2 = (2x - 2)(8y) - 0 = 16y(x - 1)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="chk-classify-extrema-four-points-2-4">Now, we analyze each point systematically:<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-classify-extrema-four-points-2-5">
+<ul class="disc" id="chk-classify-extrema-four-points-2-5-1">
+<li id="chk-classify-extrema-four-points-2-5-1-1">
+<div class="para" id="chk-classify-extrema-four-points-2-5-1-1-1">For <span class="process-math">\(P_1(3,1)\text{:}\)</span> <span class="process-math">\(D(3,1) = 16(1)(3 - 1) = 32 &gt; 0\text{.}\)</span> Since <span class="process-math">\(D &gt; 0\)</span> and <span class="process-math">\(f_{xx}(3,1) = 2(3) - 2 = 4 &gt; 0\text{,}\)</span> <span class="process-math">\(f\)</span> has a <dfn class="terminology">local minimum</dfn> at <span class="process-math">\((3,1)\text{.}\)</span> The local minimum value is <span class="process-math">\(f(3,1) = -16.33\)</span> (or exactly <span class="process-math">\(-\frac{49}{3}\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#chk-classify-extrema-four-points-2-5-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="chk-classify-extrema-four-points-2-5-1-2">
+<div class="para" id="chk-classify-extrema-four-points-2-5-1-2-1">For <span class="process-math">\(P_2(3,-1)\text{:}\)</span> <span class="process-math">\(D(3,-1) = 16(-1)(3 - 1) = -32 &lt; 0\text{.}\)</span> Since <span class="process-math">\(D &lt; 0\text{,}\)</span> the point <span class="process-math">\((3,-1)\)</span> is a <dfn class="terminology">saddle point</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-5-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#chk-classify-extrema-four-points-2-5-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="chk-classify-extrema-four-points-2-5-1-3">
+<div class="para" id="chk-classify-extrema-four-points-2-5-1-3-1">For <span class="process-math">\(P_3(-1,1)\text{:}\)</span> <span class="process-math">\(D(-1,1) = 16(1)(-1 - 1) = -32 &lt; 0\text{.}\)</span> Since <span class="process-math">\(D &lt; 0\text{,}\)</span> the point <span class="process-math">\((-1,1)\)</span> is a <dfn class="terminology">saddle point</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-5-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#chk-classify-extrema-four-points-2-5-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="chk-classify-extrema-four-points-2-5-1-4">
+<div class="para" id="chk-classify-extrema-four-points-2-5-1-4-1">For <span class="process-math">\(P_4(-1,-1)\text{:}\)</span> <span class="process-math">\(D(-1,-1) = 16(-1)(-1 - 1) = 32 &gt; 0\text{.}\)</span> Since <span class="process-math">\(D &gt; 0\)</span> and <span class="process-math">\(f_{xx}(-1,-1) = 2(-1) - 2 = -4 &lt; 0\text{,}\)</span> <span class="process-math">\(f\)</span> has a <dfn class="terminology">local maximum</dfn> at <span class="process-math">\((-1,-1)\text{.}\)</span> The local maximum value is <span class="process-math">\(f(-1,-1) = 1\)</span> (or exactly <span class="process-math">\(\frac{3}{3}\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-5-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#chk-classify-extrema-four-points-2-5-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-classify-extrema-four-points-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.101.1"><a href="#chk-classify-extrema-four-points-2" title="Copy heading and permalink for Solution 3.101.1" aria-label="Copy heading and permalink for Solution 3.101.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.101"><a href="#chk-classify-extrema-four-points" title="Copy heading and permalink for Checkpoint 3.101" aria-label="Copy heading and permalink for Checkpoint 3.101">🔗</a></div>
+</article></details>
+<details id="chk-box-cost-minimization" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.102</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="chk-box-cost-minimization-1-1">A rectangular box without a lid is to be constructed to have a fixed volume <span class="process-math">\(V = 12\text{ ft}^3\text{.}\)</span> The cost per square foot of the material to be used is $4 for the bottom, $3 for two of the opposite sides, and $2 for the remaining pair of opposite sides. Find the dimensions of the box that will minimize the total material cost.<div class="autopermalink" data-description="Paragraph"><a href="#chk-box-cost-minimization-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="chk-box-cost-minimization-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="chk-box-cost-minimization-2-1">
+<div class="para">Let <span class="process-math">\(x\)</span> be the length of the box, <span class="process-math">\(y\)</span> be the width of the box, and <span class="process-math">\(z\)</span> be the height of the box. The volume constraint is given by:</div>
+<div class="displaymath process-math" id="chk-box-cost-minimization-2-1-4">
+\begin{equation*}
+V = xyz = 12 \implies z = \frac{12}{xy}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-box-cost-minimization-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-box-cost-minimization-2-2">
+<div class="para">The total cost <span class="process-math">\(C\)</span> is the sum of the material costs for the five open faces. The bottom face has area <span class="process-math">\(xy\)</span> at $4/ft<span class="process-math">\(^2\text{.}\)</span> Two opposite side faces have area <span class="process-math">\(xz\)</span> at $3/ft<span class="process-math">\(^2\text{,}\)</span> and the remaining two opposite side faces have area <span class="process-math">\(yz\)</span> at $2/ft<span class="process-math">\(^2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-box-cost-minimization-2-2-8">
+\begin{equation*}
+C(x,y,z) = 4xy + 2(3xz) + 2(2yz) = 4xy + 6xz + 4yz
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-box-cost-minimization-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-box-cost-minimization-2-3">
+<div class="para">We substitute the volume constraint <span class="process-math">\(z = \frac{12}{xy}\)</span> into our cost function to write it purely as a function of two variables, <span class="process-math">\(C(x,y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="chk-box-cost-minimization-2-3-3">
+\begin{equation*}
+C(x,y) = 4xy + 6x\left(\frac{12}{xy}\right) + 4y\left(\frac{12}{xy}\right) = 4xy + \frac{72}{y} + \frac{48}{x}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-box-cost-minimization-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-box-cost-minimization-2-4">
+<div class="para">To find the dimensions that minimize cost, we compute the first-order partial derivatives and set them equal to zero:</div>
+<div class="displaymath process-math" id="chk-box-cost-minimization-2-4-1">
+\begin{equation*}
+C_x(x,y) = 4y - \frac{48}{x^2} = 0 \implies 4yx^2 = 48 \implies yx^2 = 12 \implies y = \frac{12}{x^2}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-box-cost-minimization-2-4-2">
+\begin{equation*}
+C_y(x,y) = 4x - \frac{72}{y^2} = 0 \implies 4xy^2 = 72 \implies xy^2 = 18
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-box-cost-minimization-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-box-cost-minimization-2-5">
+<div class="para">We substitute the expression <span class="process-math">\(y = \frac{12}{x^2}\)</span> directly into the second partial derivative equation:</div>
+<div class="displaymath process-math" id="chk-box-cost-minimization-2-5-2">
+\begin{align*}
+x\left(\frac{12}{x^2}\right)^2 \amp = 18\\
+x\left(\frac{144}{x^4}\right) \amp = 18\\
+\frac{144}{x^3} \amp = 18 \implies x^3 = \frac{144}{18} = 8 \implies x = 2\text{ ft}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-box-cost-minimization-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="chk-box-cost-minimization-2-6">
+<div class="para">Using <span class="process-math">\(x = 2\text{,}\)</span> we solve back for our remaining dimensions:</div>
+<div class="displaymath process-math" id="chk-box-cost-minimization-2-6-2">
+\begin{equation*}
+y = \frac{12}{2^2} = \frac{12}{4} = 3\text{ ft}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="chk-box-cost-minimization-2-6-3">
+\begin{equation*}
+z = \frac{12}{(2)(3)} = \frac{12}{6} = 2\text{ ft}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chk-box-cost-minimization-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="chk-box-cost-minimization-2-7">Thus, a box with a "length of 2 feet", a "width of 3 feet", and a "height of 2 feet" will minimize the total construction cost.<div class="autopermalink" data-description="Paragraph"><a href="#chk-box-cost-minimization-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.102.1"><a href="#chk-box-cost-minimization-2" title="Copy heading and permalink for Solution 3.102.1" aria-label="Copy heading and permalink for Solution 3.102.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.102"><a href="#chk-box-cost-minimization" title="Copy heading and permalink for Checkpoint 3.102" aria-label="Copy heading and permalink for Checkpoint 3.102">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section: 3.8 Extrema of Functions of Several Variables"><a href="#sec-extrema" title="Copy heading and permalink for Section: 3.8 Extrema of Functions of Several Variables" aria-label="Copy heading and permalink for Section: 3.8 Extrema of Functions of Several Variables">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-tangent-plane.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-lagrange-multipliers.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

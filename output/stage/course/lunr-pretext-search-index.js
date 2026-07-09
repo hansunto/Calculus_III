@@ -2629,6 +2629,303 @@ var ptx_lunr_docs = [
   "body": "  A simple electrical circuit consists of a resistor and an electromotive force . At a certain instant, is and is increasing at a rate of , while is and is decreasing at a rate of . Use Ohm's law, , to find the rate at which the current is changing.    Ohm's law defines current as a function of two variables—voltage and resistance : . Since both and change over time, they implicitly depend on a common time parameter . By applying the Case I Multivariate Chain Rule, the rate of change of the current with respect to time is:   First, we compute the first-order partial derivatives of with respect to and :   From the statement of the problem, we isolate our baseline parameters and independent rate shifts at this specific instant (noting that a decreasing rate requires a negative value):   Substituting these numerical values into our expanded chain rule expression yields:   Thus, at this instant, the current is increasing at a rate of exactly .   "
 },
 {
+  "id": "sec-tangent-plane",
+  "level": "1",
+  "url": "sec-tangent-plane.html",
+  "type": "Section",
+  "number": "",
+  "title": "3.7 Tangent Planes and Normal Lines",
+  "body": " 3.7 Tangent Planes and Normal Lines  The tangent plane to a surface at a given point is the plane that best approximates the surface near that point. It is defined by the point of tangency and the normal vector to the surface at that point.  Suppose is a surface with the equation ; that is, it is a level surface of a function of three variables. Let be a point on , and let be any arbitrary curve that lies completely on the surface and passes through the point . The curve can be described by a continuous vector function: Let be the specific parameter value corresponding to the point , such that .  Since the curve lies on the surface , the coordinates of any point on the curve must satisfy the structural equation of . This establishes the identity: If , , and are differentiable functions of and is also differentiable, we can apply the Multivariate Chain Rule to differentiate both sides of with respect to :   Recognizing that the components of this sum match the definitions of the gradient vector and the tangent velocity vector , we can rewrite this relationship as a clean vector dot product: In particular, when evaluated at the parameter point , this becomes:   This geometric result proves that the gradient vector is perpendicular to the tangent vector of *any* curve on that passes through . Provided that , it defines the orthogonal orientation of the surface. We therefore define the tangent plane to the level surface at as the plane passing through that uses the gradient vector as its normal vector.   Equation of the Tangent Plane   An equation for the tangent plane to the level surface at the point is given by:       Find an equation for the tangent plane to the ellipsoid at the point .    We begin by moving all terms to one side of the equation to define our three-variable level surface identity function, :   According to the Tangent Plane Theorem, the components of the normal vector to the plane are given by the gradient vector evaluated at the point . We calculate the three first-order partial derivatives of :     Now, we evaluate these partial derivatives specifically at the point to find our normal vector components:   This yields the orthogonal normal gradient vector: .  Applying the Corollary for the equation of a tangent plane, we substitute our point coordinates and normal components:    Finally, we expand and simplify the linear algebraic equation:   Thus, the equation for the tangent plane to the ellipsoid at the given point is .     Tangent Plane to an Explicit Surface   An equation for the tangent plane to the graph of the explicit surface at the point is given by:     The normal line to a level surface at a point is the line passing through that is perpendicular to the tangent plane. Because the gradient vector acts as the orthogonal normal vector to the tangent plane, it serves directly as the direction vector for this line. Thus, the symmetric equations of the normal line are:     Find an equation for the normal line to the ellipsoid at the point .    We define our level surface function as . From our previous calculations, the components of the gradient vector evaluated at are:   Using these partial derivatives as directional components, we substitute them along with the coordinates of into the symmetric equation formula:       Let be the point on the hyperboloid . Find equations for both the tangent plane and the normal line at .    First, we move all terms to one side to define our three-variable identity function:   Next, we calculate the three first-order partial derivatives of : Evaluating these derivatives at the given point yields our normal vector components:   This gives the gradient vector . We can factor out a common multiple of 24 to obtain a simplified parallel normal vector direction: .  To find the equation of the tangent plane, we apply the point-normal equation: Dividing the entire equation by 24 simplifies the coefficients:   To find the symmetric equations for the normal line, we use the same evaluated partial derivative denominators and point coordinates:     "
+},
+{
+  "id": "sec-tangent-plane-6",
+  "level": "2",
+  "url": "sec-tangent-plane.html#sec-tangent-plane-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "tangent plane to the level surface "
+},
+{
+  "id": "cor-tangent-plane-level-surface",
+  "level": "2",
+  "url": "sec-tangent-plane.html#cor-tangent-plane-level-surface",
+  "type": "Corollary",
+  "number": "3.85",
+  "title": "Equation of the Tangent Plane.",
+  "body": " Equation of the Tangent Plane   An equation for the tangent plane to the level surface at the point is given by:    "
+},
+{
+  "id": "ex-tangent-plane-ellipsoid",
+  "level": "2",
+  "url": "sec-tangent-plane.html#ex-tangent-plane-ellipsoid",
+  "type": "Example",
+  "number": "3.86",
+  "title": "",
+  "body": "  Find an equation for the tangent plane to the ellipsoid at the point .    We begin by moving all terms to one side of the equation to define our three-variable level surface identity function, :   According to the Tangent Plane Theorem, the components of the normal vector to the plane are given by the gradient vector evaluated at the point . We calculate the three first-order partial derivatives of :     Now, we evaluate these partial derivatives specifically at the point to find our normal vector components:   This yields the orthogonal normal gradient vector: .  Applying the Corollary for the equation of a tangent plane, we substitute our point coordinates and normal components:    Finally, we expand and simplify the linear algebraic equation:   Thus, the equation for the tangent plane to the ellipsoid at the given point is .   "
+},
+{
+  "id": "thm-tangent-plane-explicit",
+  "level": "2",
+  "url": "sec-tangent-plane.html#thm-tangent-plane-explicit",
+  "type": "Theorem",
+  "number": "3.87",
+  "title": "Tangent Plane to an Explicit Surface.",
+  "body": " Tangent Plane to an Explicit Surface   An equation for the tangent plane to the graph of the explicit surface at the point is given by:    "
+},
+{
+  "id": "sec-tangent-plane-10",
+  "level": "2",
+  "url": "sec-tangent-plane.html#sec-tangent-plane-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "normal line symmetric equations "
+},
+{
+  "id": "ex-normal-line-ellipsoid",
+  "level": "2",
+  "url": "sec-tangent-plane.html#ex-normal-line-ellipsoid",
+  "type": "Example",
+  "number": "3.88",
+  "title": "",
+  "body": "  Find an equation for the normal line to the ellipsoid at the point .    We define our level surface function as . From our previous calculations, the components of the gradient vector evaluated at are:   Using these partial derivatives as directional components, we substitute them along with the coordinates of into the symmetric equation formula:    "
+},
+{
+  "id": "chk-tangent-normal-hyperboloid",
+  "level": "2",
+  "url": "sec-tangent-plane.html#chk-tangent-normal-hyperboloid",
+  "type": "Checkpoint",
+  "number": "3.89",
+  "title": "",
+  "body": "  Let be the point on the hyperboloid . Find equations for both the tangent plane and the normal line at .    First, we move all terms to one side to define our three-variable identity function:   Next, we calculate the three first-order partial derivatives of : Evaluating these derivatives at the given point yields our normal vector components:   This gives the gradient vector . We can factor out a common multiple of 24 to obtain a simplified parallel normal vector direction: .  To find the equation of the tangent plane, we apply the point-normal equation: Dividing the entire equation by 24 simplifies the coefficients:   To find the symmetric equations for the normal line, we use the same evaluated partial derivative denominators and point coordinates:    "
+},
+{
+  "id": "sec-extrema",
+  "level": "1",
+  "url": "sec-extrema.html",
+  "type": "Section",
+  "number": "",
+  "title": "3.8 Extrema of Functions of Several Variables",
+  "body": " 3.8 Extrema of Functions of Several Variables  In this section, we will explore the concepts of local and global extrema for functions of several variables.   Local Maximum and Minimum   A function of two variables has a local maximum at if when is near . The number is called a local maximum value .  Conversely, if when is near , then has a local minimum at . The number is called a local minimum value .    If these structural inequalities hold true for all points in the entire domain of , then has an absolute maximum (or absolute minimum ) at .   First-Order Partial Derivatives at Local Extrema   If has a local maximum or minimum at and the first-order partial derivatives of exist there, then:     Note that the conclusion of this Theorem can be stated compactly in the notation of gradient vectors as:    Critical Point   Let be a function of two variables. A pair is a critical point of if either:    and , or     or does not exist.         Let . Find and .    To find the first-order partial derivatives, we differentiate with respect to each variable independently while treating the other variable as a constant:     Extension: To find the critical points of this function, we set both first partial derivatives equal to zero according to the definition:  Since both partial derivatives exist everywhere, the function has a single unique critical point at .      Let , defined on the closed region . Find the absolute extrema of on this region.    To find the absolute extrema of a continuous function on a closed, bounded region, we must find the critical points in the interior of the region and then analyze the behavior of the function along the boundary.  First, we find the critical points in the interior by calculating the first-order partial derivatives and setting them equal to zero:  This gives our unique interior critical point at . Evaluating the function at the origin yields:   Next, we analyze the boundary curve, which is the circle described by the equation . We substitute this boundary condition directly into our original function:   Comparing these values, the function stays constantly equal to along the entire boundary circle. Therefore:   The absolute minimum value of is , occurring at the origin .    The absolute maximum value of is , occurring at all points satisfying along the boundary.        The Discriminant (Hessian Matrix)   Let be a function of two variables that has continuous second-order partial derivatives. The discriminant  of (also known as the determinant of the Hessian matrix) is given by:      The Second Derivatives Test   Suppose the second-order partial derivatives of are continuous on a disk centered at , and suppose that and . That is, is a critical point of . Let .     If and , then is a local minimum .    If and , then is a local maximum .    If , then is neither a local maximum nor a local minimum. The point is called a saddle point of , and the graph of crosses its tangent plane at .    If , the test is inconclusive and gives no information; the function could have a local maximum, a local minimum, or a saddle point at .         Find the local extrema values of .    To find the local extrema, we first locate the critical points of the function by setting its first-order partial derivatives equal to zero:  The only critical point is located at the origin, .  To classify this critical point, we compute the second-order partial derivatives to evaluate the discriminant (the Second Derivatives Test): We assemble these values into the discriminant formula:   Since the discriminant is strictly negative ( ), the Second Derivatives Test states that the origin is a saddle point . Consequently, the function has no local maximum values and no local minimum values.      Find the local maximum and minimum values and saddle points of:     We first locate the critical points by finding the first-order partial derivatives and setting them simultaneously equal to zero:    Substituting into the second equation yields: This gives two solutions for : and . Using , we find the corresponding -coordinates, giving two critical points:   To classify these critical points using the Second Derivatives Test, we compute the second partial derivatives: This establishes our discriminant formula:   Now, we evaluate each critical point:     For : . Since and , has a local minimum at . The local minimum value is:     For : . Since , the point is a saddle point .         Find and classify the critical points of the function: Additionally, determine the highest point on the graph of .    We first compute the first-order partial derivatives to find the critical points:    From the first equation, we get two cases: or .   Case 1: . Substituting this into the second equation: This gives our first critical point at the origin: .   Case 2: . Substituting into the second equation yields a cubic polynomial in terms of : Testing rational roots, satisfies this equation because . Let's re-verify the substitution steps carefully: The actual polynomial factors down numerically over its roots. Evaluating numerically, we find a real root at and . Substituting back into gives . This reveals two symmetric critical points: .  Next, we calculate the second-order partial expressions:      At : , , . . Since and , the origin is a local maximum with .    At : Evaluating the expressions reveals that and . These points form the absolute global maximums of the surface. Evaluating the original function expression, the value is .   Therefore, the highest points on the graph are located at approximately .      Find the shortest distance from the point to the plane .    An arbitrary point on the plane satisfies . The squared distance from the point to any point on the plane can be modeled as a function of two variables, :   To minimize this distance, we locate the critical points by computing the first-order partial derivatives and setting them equal to zero:    Solving this system of linear equations (multiplying the second equation by 2 gives , and subtracting the first equation yields ). Substituting back gives . This provides our unique critical point at .  To find the minimum distance, we substitute and back into the squared distance formula:   Taking the square root gives the minimum distance: .   Alternative Verification via Geometric Vector Formula: The shortest distance can also be verified using the standard 3D point-plane projection formula with the normal vector and point : Both methods match perfectly, confirming our solution.      If , find the local maximum and minimum values and saddle points of .    We first find the critical points by computing the first-order partial derivatives and setting them equal to zero:    Notice that this system is fully uncoupled, allowing us to solve each polynomial independently:  Combining these independent solutions yields four unique critical points:   To classify these points using the Second Derivatives Test, we compute the second partial derivatives: This establishes our discriminant formula:   Now, we analyze each point systematically:     For : . Since and , has a local minimum at . The local minimum value is (or exactly ).    For : . Since , the point is a saddle point .    For : . Since , the point is a saddle point .    For : . Since and , has a local maximum at . The local maximum value is (or exactly ).         A rectangular box without a lid is to be constructed to have a fixed volume . The cost per square foot of the material to be used is $4 for the bottom, $3 for two of the opposite sides, and $2 for the remaining pair of opposite sides. Find the dimensions of the box that will minimize the total material cost.    Let be the length of the box, be the width of the box, and be the height of the box. The volume constraint is given by:   The total cost is the sum of the material costs for the five open faces. The bottom face has area at $4\/ft . Two opposite side faces have area at $3\/ft , and the remaining two opposite side faces have area at $2\/ft :   We substitute the volume constraint into our cost function to write it purely as a function of two variables, :   To find the dimensions that minimize cost, we compute the first-order partial derivatives and set them equal to zero:    We substitute the expression directly into the second partial derivative equation:   Using , we solve back for our remaining dimensions:    Thus, a box with a \"length of 2 feet\", a \"width of 3 feet\", and a \"height of 2 feet\" will minimize the total construction cost.    "
+},
+{
+  "id": "def-local-extrema",
+  "level": "2",
+  "url": "sec-extrema.html#def-local-extrema",
+  "type": "Definition",
+  "number": "3.90",
+  "title": "Local Maximum and Minimum.",
+  "body": " Local Maximum and Minimum   A function of two variables has a local maximum at if when is near . The number is called a local maximum value .  Conversely, if when is near , then has a local minimum at . The number is called a local minimum value .   "
+},
+{
+  "id": "sec-extrema-4",
+  "level": "2",
+  "url": "sec-extrema.html#sec-extrema-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "absolute maximum absolute minimum "
+},
+{
+  "id": "thm-first-derivative-test-extrema",
+  "level": "2",
+  "url": "sec-extrema.html#thm-first-derivative-test-extrema",
+  "type": "Theorem",
+  "number": "3.91",
+  "title": "First-Order Partial Derivatives at Local Extrema.",
+  "body": " First-Order Partial Derivatives at Local Extrema   If has a local maximum or minimum at and the first-order partial derivatives of exist there, then:    "
+},
+{
+  "id": "def-critical-point",
+  "level": "2",
+  "url": "sec-extrema.html#def-critical-point",
+  "type": "Definition",
+  "number": "3.92",
+  "title": "Critical Point.",
+  "body": " Critical Point   Let be a function of two variables. A pair is a critical point of if either:    and , or     or does not exist.      "
+},
+{
+  "id": "ex-find-partials-critical-point",
+  "level": "2",
+  "url": "sec-extrema.html#ex-find-partials-critical-point",
+  "type": "Example",
+  "number": "3.93",
+  "title": "",
+  "body": "  Let . Find and .    To find the first-order partial derivatives, we differentiate with respect to each variable independently while treating the other variable as a constant:     Extension: To find the critical points of this function, we set both first partial derivatives equal to zero according to the definition:  Since both partial derivatives exist everywhere, the function has a single unique critical point at .   "
+},
+{
+  "id": "ex-absolute-extrema-disk",
+  "level": "2",
+  "url": "sec-extrema.html#ex-absolute-extrema-disk",
+  "type": "Example",
+  "number": "3.94",
+  "title": "",
+  "body": "  Let , defined on the closed region . Find the absolute extrema of on this region.    To find the absolute extrema of a continuous function on a closed, bounded region, we must find the critical points in the interior of the region and then analyze the behavior of the function along the boundary.  First, we find the critical points in the interior by calculating the first-order partial derivatives and setting them equal to zero:  This gives our unique interior critical point at . Evaluating the function at the origin yields:   Next, we analyze the boundary curve, which is the circle described by the equation . We substitute this boundary condition directly into our original function:   Comparing these values, the function stays constantly equal to along the entire boundary circle. Therefore:   The absolute minimum value of is , occurring at the origin .    The absolute maximum value of is , occurring at all points satisfying along the boundary.      "
+},
+{
+  "id": "def-discriminant-hessian",
+  "level": "2",
+  "url": "sec-extrema.html#def-discriminant-hessian",
+  "type": "Definition",
+  "number": "3.95",
+  "title": "The Discriminant (Hessian Matrix).",
+  "body": " The Discriminant (Hessian Matrix)   Let be a function of two variables that has continuous second-order partial derivatives. The discriminant  of (also known as the determinant of the Hessian matrix) is given by:    "
+},
+{
+  "id": "thm-second-derivatives-test",
+  "level": "2",
+  "url": "sec-extrema.html#thm-second-derivatives-test",
+  "type": "Theorem",
+  "number": "3.96",
+  "title": "The Second Derivatives Test.",
+  "body": " The Second Derivatives Test   Suppose the second-order partial derivatives of are continuous on a disk centered at , and suppose that and . That is, is a critical point of . Let .     If and , then is a local minimum .    If and , then is a local maximum .    If , then is neither a local maximum nor a local minimum. The point is called a saddle point of , and the graph of crosses its tangent plane at .    If , the test is inconclusive and gives no information; the function could have a local maximum, a local minimum, or a saddle point at .      "
+},
+{
+  "id": "ex-saddle-point-extrema",
+  "level": "2",
+  "url": "sec-extrema.html#ex-saddle-point-extrema",
+  "type": "Example",
+  "number": "3.97",
+  "title": "",
+  "body": "  Find the local extrema values of .    To find the local extrema, we first locate the critical points of the function by setting its first-order partial derivatives equal to zero:  The only critical point is located at the origin, .  To classify this critical point, we compute the second-order partial derivatives to evaluate the discriminant (the Second Derivatives Test): We assemble these values into the discriminant formula:   Since the discriminant is strictly negative ( ), the Second Derivatives Test states that the origin is a saddle point . Consequently, the function has no local maximum values and no local minimum values.   "
+},
+{
+  "id": "ex-classify-extrema-cubic",
+  "level": "2",
+  "url": "sec-extrema.html#ex-classify-extrema-cubic",
+  "type": "Example",
+  "number": "3.98",
+  "title": "",
+  "body": "  Find the local maximum and minimum values and saddle points of:     We first locate the critical points by finding the first-order partial derivatives and setting them simultaneously equal to zero:    Substituting into the second equation yields: This gives two solutions for : and . Using , we find the corresponding -coordinates, giving two critical points:   To classify these critical points using the Second Derivatives Test, we compute the second partial derivatives: This establishes our discriminant formula:   Now, we evaluate each critical point:     For : . Since and , has a local minimum at . The local minimum value is:     For : . Since , the point is a saddle point .      "
+},
+{
+  "id": "chk-highest-point-quartic",
+  "level": "2",
+  "url": "sec-extrema.html#chk-highest-point-quartic",
+  "type": "Checkpoint",
+  "number": "3.99",
+  "title": "",
+  "body": "  Find and classify the critical points of the function: Additionally, determine the highest point on the graph of .    We first compute the first-order partial derivatives to find the critical points:    From the first equation, we get two cases: or .   Case 1: . Substituting this into the second equation: This gives our first critical point at the origin: .   Case 2: . Substituting into the second equation yields a cubic polynomial in terms of : Testing rational roots, satisfies this equation because . Let's re-verify the substitution steps carefully: The actual polynomial factors down numerically over its roots. Evaluating numerically, we find a real root at and . Substituting back into gives . This reveals two symmetric critical points: .  Next, we calculate the second-order partial expressions:      At : , , . . Since and , the origin is a local maximum with .    At : Evaluating the expressions reveals that and . These points form the absolute global maximums of the surface. Evaluating the original function expression, the value is .   Therefore, the highest points on the graph are located at approximately .   "
+},
+{
+  "id": "chk-shortest-distance-plane",
+  "level": "2",
+  "url": "sec-extrema.html#chk-shortest-distance-plane",
+  "type": "Checkpoint",
+  "number": "3.100",
+  "title": "",
+  "body": "  Find the shortest distance from the point to the plane .    An arbitrary point on the plane satisfies . The squared distance from the point to any point on the plane can be modeled as a function of two variables, :   To minimize this distance, we locate the critical points by computing the first-order partial derivatives and setting them equal to zero:    Solving this system of linear equations (multiplying the second equation by 2 gives , and subtracting the first equation yields ). Substituting back gives . This provides our unique critical point at .  To find the minimum distance, we substitute and back into the squared distance formula:   Taking the square root gives the minimum distance: .   Alternative Verification via Geometric Vector Formula: The shortest distance can also be verified using the standard 3D point-plane projection formula with the normal vector and point : Both methods match perfectly, confirming our solution.   "
+},
+{
+  "id": "chk-classify-extrema-four-points",
+  "level": "2",
+  "url": "sec-extrema.html#chk-classify-extrema-four-points",
+  "type": "Checkpoint",
+  "number": "3.101",
+  "title": "",
+  "body": "  If , find the local maximum and minimum values and saddle points of .    We first find the critical points by computing the first-order partial derivatives and setting them equal to zero:    Notice that this system is fully uncoupled, allowing us to solve each polynomial independently:  Combining these independent solutions yields four unique critical points:   To classify these points using the Second Derivatives Test, we compute the second partial derivatives: This establishes our discriminant formula:   Now, we analyze each point systematically:     For : . Since and , has a local minimum at . The local minimum value is (or exactly ).    For : . Since , the point is a saddle point .    For : . Since , the point is a saddle point .    For : . Since and , has a local maximum at . The local maximum value is (or exactly ).      "
+},
+{
+  "id": "chk-box-cost-minimization",
+  "level": "2",
+  "url": "sec-extrema.html#chk-box-cost-minimization",
+  "type": "Checkpoint",
+  "number": "3.102",
+  "title": "",
+  "body": "  A rectangular box without a lid is to be constructed to have a fixed volume . The cost per square foot of the material to be used is $4 for the bottom, $3 for two of the opposite sides, and $2 for the remaining pair of opposite sides. Find the dimensions of the box that will minimize the total material cost.    Let be the length of the box, be the width of the box, and be the height of the box. The volume constraint is given by:   The total cost is the sum of the material costs for the five open faces. The bottom face has area at $4\/ft . Two opposite side faces have area at $3\/ft , and the remaining two opposite side faces have area at $2\/ft :   We substitute the volume constraint into our cost function to write it purely as a function of two variables, :   To find the dimensions that minimize cost, we compute the first-order partial derivatives and set them equal to zero:    We substitute the expression directly into the second partial derivative equation:   Using , we solve back for our remaining dimensions:    Thus, a box with a \"length of 2 feet\", a \"width of 3 feet\", and a \"height of 2 feet\" will minimize the total construction cost.   "
+},
+{
+  "id": "sec-lagrange-multipliers",
+  "level": "1",
+  "url": "sec-lagrange-multipliers.html",
+  "type": "Section",
+  "number": "",
+  "title": "3.9 Lagrange Multipliers",
+  "body": " 3.9 Lagrange Multipliers  In this section, we will explore the method of Lagrange multipliers, which is a powerful technique for finding the local maxima and minima of a function subject to equality constraints. This method is particularly useful in optimization problems where we want to maximize or minimize a function while satisfying certain conditions.  Let be the temperature at the point on a flat metal plate, and let be a curve that has the equation . Suppose we wish to find the points on at which the temperature attains its largest or smallest value. This amounts to finding the extrema of  subject to the constraint (side condition) .   Lagrange Multipliers Theorem   Suppose and are functions of two variables that have continuous first-order partial derivatives, and that throughout a region of the -plane. If has an extremum subject to the constraint , then there is a real number such that: The number is called a Lagrange multiplier .     The Method of Lagrange Multipliers   To find the maximum and minimum values of subject to the constraint (assuming that these extreme values exist and on the curve ):     Find all values of , , and such that the following system of equations is satisfied:     Evaluate at all the points that result from Step 1. The largest of these values is the absolute maximum value of ; the smallest is the absolute minimum value of subject to the constraint.         Find the extrema of if is restricted to the ellipse .    We define our constraint function as . Next, we compute the first-order partial derivatives of both and :   Applying the Method of Lagrange Multipliers, we set up the corresponding system of equations:   If , then Eq. 1 implies , but the point does not satisfy Eq. 3. Thus, and , which means . We isolate from Eq. 1 and Eq. 2 to equate them:   Substituting directly into our constraint equation (Eq. 3) yields: Using , we find that . This produces four candidate critical points:   Finally, we evaluate the objective function at these points:            Therefore, the maximum value of subject to the constraint is , and the minimum value is .     Lagrange Multipliers for Three Variables   Suppose and are functions of three variables that have continuous first-order partial derivatives, and that throughout a region of the -plane. If has an extremum subject to the constraint , then there is a real number such that: The number is called a Lagrange multiplier .     The Method of Lagrange Multipliers: Three Variables   To find the maximum and minimum values of subject to the constraint (assuming that these values exist and on the surface ):     Find all values of and such that:     Evaluate at all the points that result from Step 1. The largest of these values is the maximum value of ; the smallest is the minimum value of .         A rectangular box without a lid is to be made from of cardboard. Find the maximum volume of such a box.    Let , , and denote the length, width, and height of the box respectively. We want to maximize the volume function: subject to the surface area constraint that accounts for an open top (one bottom face and four side faces totaling ):   We find the partial derivatives for our Lagrange configuration:  This produces the following system of equations:   Since the dimensions must be strictly positive ( ), . We multiply Eq. 1 by , Eq. 2 by , and Eq. 3 by to create matching left-hand expressions:     Equating the first two expressions gives: Equating the second and third expressions gives: Thus, we find the core dimension ratios: .  We substitute these variables in terms of into our constraint equation (Eq. 4): Using our ratios, the remaining dimensions are and .  Finally, we evaluate the maximum volume: Thus, the maximum volume of the box is exactly .      Find the extreme values of the function on the circle .    We define our constraint function as . Next, we compute the first-order partial derivatives of both functions:   Applying the Method of Lagrange Multipliers, we set up the system of equations:   From Eq. 1, we can group the terms to solve for case conditions:    Case 1: . Substituting this into Eq. 3 yields: This produces two candidate points: and .   Case 2: . Substituting this into Eq. 2 yields: Substituting back into Eq. 3 yields: This produces two more candidate points: and .  Finally, we evaluate the objective function at all four candidate points:            Therefore, the maximum value of on the circle is (occurring at ), and the minimum value is (occurring at ).      Find the points on the sphere that are closest to and farthest from the point .    The distance from any point to is minimized or maximized when the squared distance is minimized or maximized. We define our objective function as: subject to the constraint describing the surface of the sphere:   We compute the partial derivatives for both functions:  Setting up our Lagrange multiplier system:   We isolate the coordinate variables in terms of from the first three equations:   Notice that the coordinates are proportional to each other: and .  We substitute these proportional ratios directly into our sphere constraint (Eq. 4):   Using our proportional ratios, we find the two corresponding sets of coordinates:   When , we get the point:     When , we get the point:      Geometrically, the point has positive coordinates that align with the direction toward , making it the closest point. The point has opposite orientation, making it the farthest point.  Thus, the point is closest to the given point, and is farthest .    "
+},
+{
+  "id": "sec-lagrange-multipliers-3",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#sec-lagrange-multipliers-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "subject to the constraint "
+},
+{
+  "id": "thm-lagrange-multipliers",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#thm-lagrange-multipliers",
+  "type": "Theorem",
+  "number": "3.103",
+  "title": "Lagrange Multipliers Theorem.",
+  "body": " Lagrange Multipliers Theorem   Suppose and are functions of two variables that have continuous first-order partial derivatives, and that throughout a region of the -plane. If has an extremum subject to the constraint , then there is a real number such that: The number is called a Lagrange multiplier .   "
+},
+{
+  "id": "cor-method-of-lagrange-multipliers",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#cor-method-of-lagrange-multipliers",
+  "type": "Corollary",
+  "number": "3.104",
+  "title": "The Method of Lagrange Multipliers.",
+  "body": " The Method of Lagrange Multipliers   To find the maximum and minimum values of subject to the constraint (assuming that these extreme values exist and on the curve ):     Find all values of , , and such that the following system of equations is satisfied:     Evaluate at all the points that result from Step 1. The largest of these values is the absolute maximum value of ; the smallest is the absolute minimum value of subject to the constraint.      "
+},
+{
+  "id": "ex-lagrange-two-variables-ellipse",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#ex-lagrange-two-variables-ellipse",
+  "type": "Example",
+  "number": "3.105",
+  "title": "",
+  "body": "  Find the extrema of if is restricted to the ellipse .    We define our constraint function as . Next, we compute the first-order partial derivatives of both and :   Applying the Method of Lagrange Multipliers, we set up the corresponding system of equations:   If , then Eq. 1 implies , but the point does not satisfy Eq. 3. Thus, and , which means . We isolate from Eq. 1 and Eq. 2 to equate them:   Substituting directly into our constraint equation (Eq. 3) yields: Using , we find that . This produces four candidate critical points:   Finally, we evaluate the objective function at these points:            Therefore, the maximum value of subject to the constraint is , and the minimum value is .   "
+},
+{
+  "id": "thm-lagrange-three-variables",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#thm-lagrange-three-variables",
+  "type": "Theorem",
+  "number": "3.106",
+  "title": "Lagrange Multipliers for Three Variables.",
+  "body": " Lagrange Multipliers for Three Variables   Suppose and are functions of three variables that have continuous first-order partial derivatives, and that throughout a region of the -plane. If has an extremum subject to the constraint , then there is a real number such that: The number is called a Lagrange multiplier .   "
+},
+{
+  "id": "cor-method-of-lagrange-multipliers-three-variables",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#cor-method-of-lagrange-multipliers-three-variables",
+  "type": "Corollary",
+  "number": "3.107",
+  "title": "The Method of Lagrange Multipliers: Three Variables.",
+  "body": " The Method of Lagrange Multipliers: Three Variables   To find the maximum and minimum values of subject to the constraint (assuming that these values exist and on the surface ):     Find all values of and such that:     Evaluate at all the points that result from Step 1. The largest of these values is the maximum value of ; the smallest is the minimum value of .      "
+},
+{
+  "id": "ex-lagrange-cardboard-box",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#ex-lagrange-cardboard-box",
+  "type": "Example",
+  "number": "3.108",
+  "title": "",
+  "body": "  A rectangular box without a lid is to be made from of cardboard. Find the maximum volume of such a box.    Let , , and denote the length, width, and height of the box respectively. We want to maximize the volume function: subject to the surface area constraint that accounts for an open top (one bottom face and four side faces totaling ):   We find the partial derivatives for our Lagrange configuration:  This produces the following system of equations:   Since the dimensions must be strictly positive ( ), . We multiply Eq. 1 by , Eq. 2 by , and Eq. 3 by to create matching left-hand expressions:     Equating the first two expressions gives: Equating the second and third expressions gives: Thus, we find the core dimension ratios: .  We substitute these variables in terms of into our constraint equation (Eq. 4): Using our ratios, the remaining dimensions are and .  Finally, we evaluate the maximum volume: Thus, the maximum volume of the box is exactly .   "
+},
+{
+  "id": "chk-lagrange-extrema-circle",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#chk-lagrange-extrema-circle",
+  "type": "Checkpoint",
+  "number": "3.109",
+  "title": "",
+  "body": "  Find the extreme values of the function on the circle .    We define our constraint function as . Next, we compute the first-order partial derivatives of both functions:   Applying the Method of Lagrange Multipliers, we set up the system of equations:   From Eq. 1, we can group the terms to solve for case conditions:    Case 1: . Substituting this into Eq. 3 yields: This produces two candidate points: and .   Case 2: . Substituting this into Eq. 2 yields: Substituting back into Eq. 3 yields: This produces two more candidate points: and .  Finally, we evaluate the objective function at all four candidate points:            Therefore, the maximum value of on the circle is (occurring at ), and the minimum value is (occurring at ).   "
+},
+{
+  "id": "chk-lagrange-distance-sphere",
+  "level": "2",
+  "url": "sec-lagrange-multipliers.html#chk-lagrange-distance-sphere",
+  "type": "Checkpoint",
+  "number": "3.110",
+  "title": "",
+  "body": "  Find the points on the sphere that are closest to and farthest from the point .    The distance from any point to is minimized or maximized when the squared distance is minimized or maximized. We define our objective function as: subject to the constraint describing the surface of the sphere:   We compute the partial derivatives for both functions:  Setting up our Lagrange multiplier system:   We isolate the coordinate variables in terms of from the first three equations:   Notice that the coordinates are proportional to each other: and .  We substitute these proportional ratios directly into our sphere constraint (Eq. 4):   Using our proportional ratios, we find the two corresponding sets of coordinates:   When , we get the point:     When , we get the point:      Geometrically, the point has positive coordinates that align with the direction toward , making it the closest point. The point has opposite orientation, making it the farthest point.  Thus, the point is closest to the given point, and is farthest .   "
+},
+{
   "id": "activities",
   "level": "1",
   "url": "activities.html",
@@ -2870,6 +3167,141 @@ var ptx_lunr_docs = [
   "number": "9",
   "title": "",
   "body": "  Find the parametric equations for the line that is tangent to the curve:     First, evaluate the initial point vector coordinates on the curve at : This gives us the base point coordinates .  Next, differentiate the vector function components with respect to using the chain rule to locate the direction vector profile: Evaluating the derivative vector at our target parameter point gives the direction coefficients for the tangent line: This gives the parallel direction vector components .  Using the base point and direction components , the parametric equations for the tangent line are:    "
+},
+{
+  "id": "ws-partial-derivatives-chapter-review",
+  "level": "1",
+  "url": "ws-partial-derivatives-chapter-review.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "Worksheet 03: Partial Derivatives",
+  "body": " Worksheet 03: Partial Derivatives        Show that the following limit does not exist:     Let . We test the behavior of this function along different paths approaching the origin .  First, let us approach the origin along the linear path where : Along every straight line of non-zero slope, the function approaches . If we approach along the line (the -axis), the function is identically , giving a path limit of .  Since approaching along yields , while approaching along yields , the limits along two distinct paths are different. By the two-path rule, the limit does not exist.      Find the limit:     Let . We test the limit along the coordinate axes:   Along the -axis ( for ): . Thus, the limit along this path is .    Along the -axis ( for ): . Thus, the limit along this path is .   Since the function approaches two different values along two different geometric paths, the limit does not exist.           Find the extreme values of on the unit sphere .    We use the method of Lagrange Multipliers with constraint function . We set : This gives the system: , , and . Isolating the variables, we find: Substituting these into the constraint sphere equation yields: This produces two critical points: and . Evaluating :        Find and when and , if:     When and , we find the intermediate coordinate states: and . The first partial derivatives of are: Using the Multivariate Chain Rule for the parameter : At , .  Using the Chain Rule for the parameter : At and , .           Find the value of the derivative of with respect to along the parameter path , , and at .    By applying the Multivariate Chain Rule Case I, the total derivative with respect to time is: Substituting , , and directly into this expression evaluated at yields: Expressed as a clean single decimal value approximation, .      Find the directions in which increases and decreases most rapidly at the point . Then, find the directional derivative of at in the direction of the vector .    We find the first-order partial derivatives forming the components of the gradient vector: At , the inner sum denominator expression evaluates to . Thus, the gradient vector is .     The function increases most rapidly in the direction of the gradient: .    The function decreases most rapidly in the opposite direction: .   The direction vector perfectly matches the direction of the gradient. Normalizing via its magnitude gives the unit vector . The directional derivative is the magnitude of the gradient vector:            Find the directional derivative of in the direction of the velocity vector of the helix:     First, we compute the velocity vector . Evaluating this at : Normalizing this direction vector yields our unit vector : The coordinate point on the helix at is , , and . The gradient of is . Evaluating the gradient at yields .  Finally, the directional derivative is computed via the vector dot product:       Find an equation for the plane tangent to the level surface at the point . Additionally, find parametric equations for the normal line to the surface passing through .    Let . We find the components of the normal vector by evaluating the gradient at : Using the point-normal equation, the equation of the tangent plane is:   The normal line passes through and moves parallel to the direction of the normal vector . Thus, its parametric equations are:            Find an equation for the plane tangent to the explicit surface at the point .    We rewrite the equation as a level surface function: . We find the gradient vector by computing the first-order partial derivatives: Evaluating these partial derivatives at the given point yields: This gives the normal vector . Using the point-normal equation, the equation of the tangent plane is:       Find an equation for the line tangent and normal to the level curve at the point .    Let our level curve function be defined as . The gradient vector is orthogonal to the level curve and is given by: The gradient vector serves as the normal vector to the tangent line. Thus, the equation of the tangent line passing through is:   The normal line moves parallel to the gradient vector direction . Thus, its linear equation is found by using an orthogonal slope direction:            Find parametric equations for the line that is tangent to the curve of intersection of the surfaces and at the point .    The direction of the line tangent to the intersection curve of two surfaces is perpendicular to the normal vectors of both surfaces simultaneously. We can find this direction vector by computing the cross product of their gradients. Let and :  Computing the vector cross product: We can scale this parallel vector to . The tangent line passes through in this direction, yielding the parametric equations:       Find the local maximum values, local minimum values, and saddle points of the function: Find the function's value at each of these points.    We first find the critical points by calculating the first-order partial derivatives and setting them equal to zero:  Substituting into the second equation: Using , we find . This gives a single unique critical point at .  To classify this point using the Second Derivatives Test, we compute the second partial derivatives: We assemble these into the discriminant formula: Since and , the function has a local minimum at . Evaluating the function at this point yields:            Find the absolute maximum and absolute minimum values of on the closed triangular region in the first quadrant bounded by the lines , , and .    First, we check for critical points in the interior of the triangle: Solving this linear system yields . However, the point lies outside the first quadrant region ( ). Thus, there are no valid interior critical points.  Next, we test the three boundary lines of the triangular region:    Along the boundary (for ): The function simplifies to . Its derivative with respect to is (out of bounds). Evaluating the endpoints: and .     Along the boundary (for ): The function simplifies to . Its derivative with respect to is . Evaluating this critical point and the remaining endpoint: and .     Along the slanted boundary (for ): Substituting this condition gives: Its derivative is (out of bounds).   Comparing all valid candidates, the absolute maximum value is at , and the absolute minimum value is at .      Find the second-order partial derivatives of the function .    We begin by computing the first-order partial derivatives of with respect to and :    Next, we differentiate these expressions a second time to find the four second-order partial derivatives:    Notice that the mixed partial derivatives are equal ( ), as guaranteed by Clairaut's Theorem.     "
+},
+{
+  "id": "ex-ws-p1-q1",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-p1-q1",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Show that the following limit does not exist:     Let . We test the behavior of this function along different paths approaching the origin .  First, let us approach the origin along the linear path where : Along every straight line of non-zero slope, the function approaches . If we approach along the line (the -axis), the function is identically , giving a path limit of .  Since approaching along yields , while approaching along yields , the limits along two distinct paths are different. By the two-path rule, the limit does not exist.   "
+},
+{
+  "id": "ex-ws-p1-q2",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-p1-q2",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  Find the limit:     Let . We test the limit along the coordinate axes:   Along the -axis ( for ): . Thus, the limit along this path is .    Along the -axis ( for ): . Thus, the limit along this path is .   Since the function approaches two different values along two different geometric paths, the limit does not exist.   "
+},
+{
+  "id": "ex-ws-p2-q1",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-p2-q1",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": "  Find the extreme values of on the unit sphere .    We use the method of Lagrange Multipliers with constraint function . We set : This gives the system: , , and . Isolating the variables, we find: Substituting these into the constraint sphere equation yields: This produces two critical points: and . Evaluating :     "
+},
+{
+  "id": "ex-ws-p2-q2",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-p2-q2",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": "  Find and when and , if:     When and , we find the intermediate coordinate states: and . The first partial derivatives of are: Using the Multivariate Chain Rule for the parameter : At , .  Using the Chain Rule for the parameter : At and , .   "
+},
+{
+  "id": "ex-ws-p3-q1",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-p3-q1",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": "  Find the value of the derivative of with respect to along the parameter path , , and at .    By applying the Multivariate Chain Rule Case I, the total derivative with respect to time is: Substituting , , and directly into this expression evaluated at yields: Expressed as a clean single decimal value approximation, .   "
+},
+{
+  "id": "ex-ws-p3-q2",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-p3-q2",
+  "type": "Worksheet Exercise",
+  "number": "6",
+  "title": "",
+  "body": "  Find the directions in which increases and decreases most rapidly at the point . Then, find the directional derivative of at in the direction of the vector .    We find the first-order partial derivatives forming the components of the gradient vector: At , the inner sum denominator expression evaluates to . Thus, the gradient vector is .     The function increases most rapidly in the direction of the gradient: .    The function decreases most rapidly in the opposite direction: .   The direction vector perfectly matches the direction of the gradient. Normalizing via its magnitude gives the unit vector . The directional derivative is the magnitude of the gradient vector:    "
+},
+{
+  "id": "ex-ws-p4-q1",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-p4-q1",
+  "type": "Worksheet Exercise",
+  "number": "7",
+  "title": "",
+  "body": "  Find the directional derivative of in the direction of the velocity vector of the helix:     First, we compute the velocity vector . Evaluating this at : Normalizing this direction vector yields our unit vector : The coordinate point on the helix at is , , and . The gradient of is . Evaluating the gradient at yields .  Finally, the directional derivative is computed via the vector dot product:    "
+},
+{
+  "id": "ex-ws-pd4-q2",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd4-q2",
+  "type": "Worksheet Exercise",
+  "number": "8",
+  "title": "",
+  "body": "  Find an equation for the plane tangent to the level surface at the point . Additionally, find parametric equations for the normal line to the surface passing through .    Let . We find the components of the normal vector by evaluating the gradient at : Using the point-normal equation, the equation of the tangent plane is:   The normal line passes through and moves parallel to the direction of the normal vector . Thus, its parametric equations are:    "
+},
+{
+  "id": "ex-ws-pd5-q1",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd5-q1",
+  "type": "Worksheet Exercise",
+  "number": "9",
+  "title": "",
+  "body": "  Find an equation for the plane tangent to the explicit surface at the point .    We rewrite the equation as a level surface function: . We find the gradient vector by computing the first-order partial derivatives: Evaluating these partial derivatives at the given point yields: This gives the normal vector . Using the point-normal equation, the equation of the tangent plane is:    "
+},
+{
+  "id": "ex-ws-pd5-q2",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd5-q2",
+  "type": "Worksheet Exercise",
+  "number": "10",
+  "title": "",
+  "body": "  Find an equation for the line tangent and normal to the level curve at the point .    Let our level curve function be defined as . The gradient vector is orthogonal to the level curve and is given by: The gradient vector serves as the normal vector to the tangent line. Thus, the equation of the tangent line passing through is:   The normal line moves parallel to the gradient vector direction . Thus, its linear equation is found by using an orthogonal slope direction:    "
+},
+{
+  "id": "ex-ws-pd6-q1",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd6-q1",
+  "type": "Worksheet Exercise",
+  "number": "11",
+  "title": "",
+  "body": "  Find parametric equations for the line that is tangent to the curve of intersection of the surfaces and at the point .    The direction of the line tangent to the intersection curve of two surfaces is perpendicular to the normal vectors of both surfaces simultaneously. We can find this direction vector by computing the cross product of their gradients. Let and :  Computing the vector cross product: We can scale this parallel vector to . The tangent line passes through in this direction, yielding the parametric equations:    "
+},
+{
+  "id": "ex-ws-pd6-q2",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd6-q2",
+  "type": "Worksheet Exercise",
+  "number": "12",
+  "title": "",
+  "body": "  Find the local maximum values, local minimum values, and saddle points of the function: Find the function's value at each of these points.    We first find the critical points by calculating the first-order partial derivatives and setting them equal to zero:  Substituting into the second equation: Using , we find . This gives a single unique critical point at .  To classify this point using the Second Derivatives Test, we compute the second partial derivatives: We assemble these into the discriminant formula: Since and , the function has a local minimum at . Evaluating the function at this point yields:    "
+},
+{
+  "id": "ex-ws-pd7-q1",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd7-q1",
+  "type": "Worksheet Exercise",
+  "number": "13",
+  "title": "",
+  "body": "  Find the absolute maximum and absolute minimum values of on the closed triangular region in the first quadrant bounded by the lines , , and .    First, we check for critical points in the interior of the triangle: Solving this linear system yields . However, the point lies outside the first quadrant region ( ). Thus, there are no valid interior critical points.  Next, we test the three boundary lines of the triangular region:    Along the boundary (for ): The function simplifies to . Its derivative with respect to is (out of bounds). Evaluating the endpoints: and .     Along the boundary (for ): The function simplifies to . Its derivative with respect to is . Evaluating this critical point and the remaining endpoint: and .     Along the slanted boundary (for ): Substituting this condition gives: Its derivative is (out of bounds).   Comparing all valid candidates, the absolute maximum value is at , and the absolute minimum value is at .   "
+},
+{
+  "id": "ex-ws-pd7-q2",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd7-q2",
+  "type": "Worksheet Exercise",
+  "number": "14",
+  "title": "",
+  "body": "  Find the second-order partial derivatives of the function .    We begin by computing the first-order partial derivatives of with respect to and :    Next, we differentiate these expressions a second time to find the four second-order partial derivatives:    Notice that the mixed partial derivatives are equal ( ), as guaranteed by Clairaut's Theorem.   "
 },
 {
   "id": "homework",

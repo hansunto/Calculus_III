@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-tangent-plane">
+  <title>3.7 Tangent Planes and Normal Lines</title>
+<p>
+    The tangent plane to a surface at a given point is the plane that best approximates the surface near that point. 
+    It is defined by the point of tangency and the normal vector to the surface at that point. 
+</p>
+
+<p>
+  Suppose <m>S</m> is a surface with the equation <m>F(x,y,z)=0</m>; that is, it is a level surface of a function <m>F</m> of three variables. 
+  Let <m>P(x_0,y_0,z_0)</m> be a point on <m>S</m>, and let <m>C</m> be any arbitrary curve that lies completely on the surface <m>S</m> and passes through the point <m>P</m>. 
+  The curve <m>C</m> can be described by a continuous vector function:
+  <me>\mathbf{r}(t) = \langle f(t), \, g(t), \, h(t) \rangle</me>
+  Let <m>t_0</m> be the specific parameter value corresponding to the point <m>P</m>, such that <m>\mathbf{r}(t_0) = \langle x_0, \, y_0, \, z_0 \rangle</m>.
+</p>
+
+<p>
+  Since the curve <m>C</m> lies on the surface <m>S</m>, the coordinates of any point on the curve must satisfy the structural equation of <m>S</m>. 
+  This establishes the identity:
+  <men xml:id="eq-level-surface-composition">F(f(t), g(t), h(t)) = 0</men>
+  If <m>f</m>, <m>g</m>, and <m>h</m> are differentiable functions of <m>t</m> and <m>F</m> is also differentiable, we can apply the Multivariate Chain Rule to differentiate both sides of <xref ref="eq-level-surface-composition"/> with respect to <m>t</m>:
+  <me>\frac{\partial F}{\partial x}\frac{dx}{dt} + \frac{\partial F}{\partial y}\frac{dy}{dt} + \frac{\partial F}{\partial z}\frac{dz}{dt} = 0</me>
+</p>
+
+<p>
+  Recognizing that the components of this sum match the definitions of the gradient vector <m>\nabla F = \langle F_x, F_y, F_z \rangle</m> and the tangent velocity vector <m>\mathbf{r}'(t) = \langle f'(t), g'(t), h'(t) \rangle</m>, we can rewrite this relationship as a clean vector dot product:
+  <me>\nabla F \cdot \mathbf{r}'(t) = 0</me>
+  In particular, when evaluated at the parameter point <m>t=t_0</m>, this becomes:
+  <me>\nabla F(x_0,y_0,z_0) \cdot \mathbf{r}'(t_0) = 0</me>
+</p>
+
+<p>
+  This geometric result proves that the gradient vector <m>\nabla F</m> is perpendicular to the tangent vector <m>\mathbf{r}'(t_0)</m> of *any* curve <m>C</m> on <m>S</m> that passes through <m>P</m>. 
+  Provided that <m>\nabla F(x_0,y_0,z_0) \neq \mathbf{0}</m>, it defines the orthogonal orientation of the surface. 
+  We therefore define the <term>tangent plane to the level surface <m>F(x,y,z)=0</m></term> at <m>P(x_0,y_0,z_0)</m> as the plane passing through <m>P</m> that uses the gradient vector <m>\nabla F</m> as its normal vector.
+</p>
+
+<corollary xml:id="cor-tangent-plane-level-surface">
+  <title>Equation of the Tangent Plane</title>
+  <statement>
+    <p>
+      An equation for the tangent plane to the level surface <m>F(x,y,z)=0</m> at the point <m>P(x_0,y_0,z_0)</m> is given by:
+      <me>F_x(x_0,y_0,z_0)(x-x_0) + F_y(x_0,y_0,z_0)(y-y_0) + F_z(x_0,y_0,z_0)(z-z_0) = 0</me>
+    </p>
+  </statement>
+</corollary>
+
+<example xml:id="ex-tangent-plane-ellipsoid">
+  <statement>
+    <p>
+      Find an equation for the tangent plane to the ellipsoid <m>\frac{3}{4}x^2+3y^2+z^2=12</m> at the point <m>P_0(2,1,\sqrt{6})</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We begin by moving all terms to one side of the equation to define our three-variable level surface identity function, <m>F(x,y,z) = 0</m>:
+      <me>F(x,y,z) = \frac{3}{4}x^2 + 3y^2 + z^2 - 12 = 0</me>
+    </p>
+    <p>
+      According to the Tangent Plane Theorem, the components of the normal vector to the plane are given by the gradient vector <m>\nabla F</m> evaluated at the point <m>P_0</m>. We calculate the three first-order partial derivatives of <m>F</m>:
+      <me>F_x(x,y,z) = \frac{\partial}{\partial x}\left(\frac{3}{4}x^2 + 3y^2 + z^2 - 12\right) = \frac{3}{2}x</me>
+      <me>F_y(x,y,z) = \frac{\partial}{\partial y}\left(\frac{3}{4}x^2 + 3y^2 + z^2 - 12\right) = 6y</me>
+      <me>F_z(x,y,z) = \frac{\partial}{\partial z}\left(\frac{3}{4}x^2 + 3y^2 + z^2 - 12\right) = 2z</me>
+    </p>
+    <p>
+      Now, we evaluate these partial derivatives specifically at the point <m>P_0(2,1,\sqrt{6})</m> to find our normal vector components:
+      <me>F_x(2,1,\sqrt{6}) = \frac{3}{2}(2) = 3</me>
+      <me>F_y(2,1,\sqrt{6}) = 6(1) = 6</me>
+      <me>F_z(2,1,\sqrt{6}) = 2(\sqrt{6}) = 2\sqrt{6}</me>
+      This yields the orthogonal normal gradient vector: <m>\nabla F(2,1,\sqrt{6}) = \langle 3, \, 6, \, 2\sqrt{6} \rangle</m>.
+    </p>
+    <p>
+      Applying the Corollary for the equation of a tangent plane, we substitute our point coordinates and normal components:
+      <me>F_x(P_0)(x - x_0) + F_y(P_0)(y - y_0) + F_z(P_0)(z - z_0) = 0</me>
+      <me>3(x - 2) + 6(y - 1) + 2\sqrt{6}(z - \sqrt{6}) = 0</me>
+    </p>
+    <p>
+      Finally, we expand and simplify the linear algebraic equation:
+      <md>
+        <mrow>3x - 6 + 6y - 6 + 2\sqrt{6}z - 2(6) \amp = 0</mrow>
+        <mrow>3x + 6y + 2\sqrt{6}z - 6 - 6 - 12 \amp = 0</mrow>
+        <mrow>3x + 6y + 2\sqrt{6}z - 24 \amp = 0</mrow>
+        <mrow>3x + 6y + 2\sqrt{6}z \amp = 24</mrow>
+      </md>
+    </p>
+    <p>
+      Thus, the equation for the tangent plane to the ellipsoid at the given point is <m>3x + 6y + 2\sqrt{6}z = 24</m>.
+    </p>
+  </solution>
+</example>
+
+<theorem xml:id="thm-tangent-plane-explicit">
+  <title>Tangent Plane to an Explicit Surface</title>
+  <statement>
+    <p>
+      An equation for the tangent plane to the graph of the explicit surface <m>z=f(x,y)</m> at the point <m>P_0(x_0,y_0,z_0)</m> is given by:
+      <me>f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0) = z-z_0</me>
+    </p>
+  </statement>
+</theorem>
+
+<p>
+  The <term>normal line</term> to a level surface <m>S</m> at a point <m>P_0(x_0,y_0,z_0)</m> is the line passing through <m>P_0</m> that is perpendicular to the tangent plane. 
+  Because the gradient vector <m>\nabla F(x_0,y_0,z_0)</m> acts as the orthogonal normal vector to the tangent plane, it serves directly as the direction vector for this line. 
+  Thus, the <term>symmetric equations</term> of the normal line are:
+  <me>\frac{x-x_0}{F_x(x_0,y_0,z_0)} = \frac{y-y_0}{F_y(x_0,y_0,z_0)} = \frac{z-z_0}{F_z(x_0,y_0,z_0)}</me>
+</p>
+
+<example xml:id="ex-normal-line-ellipsoid">
+  <statement>
+    <p>
+      Find an equation for the normal line to the ellipsoid <m>\frac{3}{4}x^2+3y^2+z^2=12</m> at the point <m>P_0(2,1,\sqrt{6})</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We define our level surface function as <m>F(x,y,z) = \frac{3}{4}x^2 + 3y^2 + z^2 - 12 = 0</m>. 
+      From our previous calculations, the components of the gradient vector evaluated at <m>P_0(2,1,\sqrt{6stream})</m> are:
+      <me>F_x(P_0) = 3, \quad F_y(P_0) = 6, \quad F_z(P_0) = 2\sqrt{6}</me>
+    </p>
+    <p>
+      Using these partial derivatives as directional components, we substitute them along with the coordinates of <m>P_0</m> into the symmetric equation formula:
+      <me>\frac{x-2}{3} = \frac{y-1}{6} = \frac{z-\sqrt{6}}{2\sqrt{6}}</me>
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="chk-tangent-normal-hyperboloid">
+  <statement>
+    <p>
+      Let <m>P_0</m> be the point <m>(3,-4,2)</m> on the hyperboloid <m>16x^2-9y^2+36z^2=144</m>. 
+      Find equations for both the tangent plane and the normal line at <m>P_0</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we move all terms to one side to define our three-variable identity function:
+      <me>F(x,y,z) = 16x^2 - 9y^2 + 36z^2 - 144 = 0</me>
+    </p>
+    <p>
+      Next, we calculate the three first-order partial derivatives of <m>F</m>:
+      <me>F_x(x,y,z) = 32x, \quad F_y(x,y,z) = -18y, \quad F_z(x,y,z) = 72z</me>
+      Evaluating these derivatives at the given point <m>P_0(3,-4,2)</m> yields our normal vector components:
+      <me>F_x(3,-4,2) = 32(3) = 96</me>
+      <me>F_y(3,-4,2) = -18(-4) = 72</me>
+      <me>F_z(3,-4,2) = 72(2) = 144</me>
+      This gives the gradient vector <m>\nabla F(3,-4,2) = \langle 96, 72, 144 \rangle</m>. 
+      We can factor out a common multiple of 24 to obtain a simplified parallel normal vector direction: <m>\langle 4, 3, 6 \rangle</m>.
+    </p>
+    <p>
+      To find the equation of the tangent plane, we apply the point-normal equation:
+      <me>96(x - 3) + 72(y - (-4)) + 144(z - 2) = 0</me>
+      Dividing the entire equation by 24 simplifies the coefficients:
+      <md>
+        <mrow>4(x - 3) + 3(y + 4) + 6(z - 2) \amp = 0</mrow>
+        <mrow>4x - 12 + 3y + 12 + 6z - 12 \amp = 0</mrow>
+        <mrow>4x + 3y + 6z \amp = 12</mrow>
+      </md>
+    </p>
+    <p>
+      To find the symmetric equations for the normal line, we use the same evaluated partial derivative denominators and point coordinates:
+      <me>\frac{x-3}{4} = \frac{y+4}{3} = \frac{z-2}{6}</me>
+    </p>
+  </solution>
+</exercise>
+
+
+
+    </section>
+
+
