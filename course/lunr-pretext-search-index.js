@@ -2926,11 +2926,326 @@ var ptx_lunr_docs = [
   "body": "  Find the points on the sphere that are closest to and farthest from the point .    The distance from any point to is minimized or maximized when the squared distance is minimized or maximized. We define our objective function as: subject to the constraint describing the surface of the sphere:   We compute the partial derivatives for both functions:  Setting up our Lagrange multiplier system:   We isolate the coordinate variables in terms of from the first three equations:   Notice that the coordinates are proportional to each other: and .  We substitute these proportional ratios directly into our sphere constraint (Eq. 4):   Using our proportional ratios, we find the two corresponding sets of coordinates:   When , we get the point:     When , we get the point:      Geometrically, the point has positive coordinates that align with the direction toward , making it the closest point. The point has opposite orientation, making it the farthest point.  Thus, the point is closest to the given point, and is farthest .   "
 },
 {
+  "id": "sec-Double-integrals",
+  "level": "1",
+  "url": "sec-Double-integrals.html",
+  "type": "Section",
+  "number": "",
+  "title": "4.1 Double Integrals",
+  "body": " 4.1 Double Integrals   In this section, we will explore how double integrals can be used to calculate areas and volumes of regions in two-dimensional and three-dimensional space.   We consider a function , with two variables, defined on a rectangular region ,   Subdivide into small rectangles by using parallel lines to the - and -axis. The lines divide into rectangular pieces, where the number of such pieces gets large as the width and height of each piece gets small. These rectangles form a partition of . A small rectangular piece of width and height has area . If we number the small pieces partitioning in some order, then their areas are given by numbers , where is the area of the th small rectangle.      Let be defined on a region , and let be an inner partition of . A Riemann sum of for is any sum of the form , where is a point in , and is the area of .    The statement means that for every there is a such that if is an inner partition of with , then for every choice of in .    The double integral of over , denoted by , is if the limit exists.    Let be a continuous function of two variables such that for every in a region . The volume of the solid that lies under the graph of over is         Calculate the volume under the plane over the rectangular region in the -plane.      The rectangular region with explicit boundary lines labeled.   A plot of the 2D rectangular domain R showing boundary lines labeled x equals 0, x equals 2, y equals 0, and y equals 1.    The volume can be written as where is the cross-sectional area at . For each value of , we may calculate as the integral that is the area under the curve in the plane of the cross-section at .      The expression, , is called an iterated or repeated integral . The volume is obtained by integrating with respect to from to , holding fixed, and then integrating the resulting expression in with respect to from to .    Fubini's Theorem (First Form)   If is continuous throughout the rectangular region then      Evaluating a Double Integral   Calculate for       The rectangular region in the -plane.   A plot of the 2D rectangular domain R showing boundary lines x=0, x=2, y=-1, and y=1 with the region centered vertically on the x-axis.    We can integrate in either order using Fubini's Theorem. Let's integrate with respect to first, and then with respect to :   Alternatively, integrating with respect to first yields the same result:       Calculate for       The region in the -plane.   A plot of the 2D domain R bounded on the left by the vertical line x=pi\/6, on the right by the curve x=y^2, below by y=1, and above by y=3 with no axis ticks.    Because the limits for depend on , we must set this up as a Type II region and integrate with respect to first:   Since , the expression simplifies to:   We integrate each term. For the first term, we can use -substitution with and :   Thus, the exact value of the double integral is .     Fubini's Theorem (Stronger Form)   Let be continuous on a region .    If is defined by with and continuous on then     If is defined by with and continuous on then         Let be the region in the -plane bounded by the graphs of and . Evaluate .      The region bounded by and with an adjusted 2:1 aspect ratio.   A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=2x, stretched horizontally using a 2 to 1 axis ratio.    First, we find the points of intersection of the bounding curves by setting them equal to each other: This gives intersection points at and . On the interval , the line lies above the parabola . Thus, our region is described by and .  Using Fubini's stronger form, we integrate with respect to first:   The value of the double integral over the bounded region is .      Given , reverse the order of integration and evaluate the resulting integral.     Step 1: Analyze the Original Domain of Integration   The original limits correspond to a Type II integration order ( ). The boundaries for the region are given by: The inner lower boundary curve is equivalent to the parabola for . The upper boundary for is the vertical line . These boundaries intersect at the points and .    The integration domain viewed as a Type II region ( ), bounded on the left by and on the right by .   A plot of the domain R showing a horizontal arrow sweeping from the curve x equals root y to the line x equals 2, bounded vertically between y=0 and y=4.      Step 2: Reverse the Order of Integration to Type I ( )   To transition to Type I format, we look at the region sweeping from left to right along the constant boundaries of the -axis. The region spans from to . For any fixed value of , the vertical strip starts at the bottom boundary line and moves up to touch the upper parabolic curve boundary .  The rewritten boundary inequalities become:     The integration domain viewed as a Type I region ( ), bounded below by and above by .   A plot of the domain R showing a vertical arrow sweeping from the line y=0 up to the parabola y equals x squared, bounded horizontally between x=0 and x=2.      Step 3: Evaluate the New Iterated Integral   Setting up the reversed iterated integral gives: First, we integrate the inner expression with respect to , treating as a constant factor:   Now, we evaluate the outer single integral with respect to . We can use -substitution by setting: We transform the integration boundaries accordingly:   When :  When :   Substituting these components back into the integral equation yields:   Thus, the exact value of the reversed integration evaluation is .     Finding Volume   Find the volume of a prism whose base is the triangle in the -plane bounded by the -axis and the lines and , and whose top lies in the plane      Step 1: Identify the Base Region   The triangular base region in the -plane is bounded by the lines (the -axis), , and . These lines intersect at the coordinates , , and . Treating this as a Type I region, the limits of integration are:     The triangular base region in the -plane with a 2:1 horizontal-to-vertical aspect ratio.   A plot of the 2D triangular domain R bounded below by y=0, on the right by x=1, and above by the line y=x, with a vertical sweep arrow showing dy integration direction.      Step 2: Set Up and Evaluate the Volume Integral   The volume under the surface over the region is calculated using a double integral: First, we compute the inner integral with respect to , holding constant:   Next, we substitute this result into the outer integral and integrate with respect to :   The total volume of the prism is exactly .        Evaluate the double integral over the given region     Find the volume of the region bounded above by the paraboloid and below by the square .         Solution to Part 1:    The rectangular region in the -plane.   A plot of the 2D rectangular domain R bounded by x from 0 to ln 2 and y from 0 to ln 2, stretched horizontally using a 2 to 1 axis scale ratio.     Since the limits of integration for both variables are constants, this is a simple rectangular region. We can use Fubini's Theorem to write it as an iterated integral: Because the integrand factors into a function of multiplied by a function of , we can split the double integral into the product of two separate single integrals:   Evaluating each single integral independently:    Multiplying the two results together gives:      Solution to Part 2:   The volume under the surface over the square region is given by the double integral:     The square base domain in the -plane with a 2:1 horizontal-to-vertical aspect ratio.   A plot of a square domain from x=-1 to 1 and y=-1 to 1 centered at the origin, scaled wider on the x axis to follow a 2 to 1 layout ratio.     First, we compute the inner integral with respect to :   Now, we integrate this result with respect to across the outer boundaries: The total volume bounded by the paraboloid over the square base is .      "
+},
+{
+  "id": "sec-Double-integrals-5",
+  "level": "2",
+  "url": "sec-Double-integrals.html#sec-Double-integrals-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "partition "
+},
+{
+  "id": "def-riemann-double-integral",
+  "level": "2",
+  "url": "sec-Double-integrals.html#def-riemann-double-integral",
+  "type": "Definition",
+  "number": "4.1",
+  "title": "",
+  "body": "    Let be defined on a region , and let be an inner partition of . A Riemann sum of for is any sum of the form , where is a point in , and is the area of .    The statement means that for every there is a such that if is an inner partition of with , then for every choice of in .    The double integral of over , denoted by , is if the limit exists.    Let be a continuous function of two variables such that for every in a region . The volume of the solid that lies under the graph of over is      "
+},
+{
+  "id": "ex-volume-plane",
+  "level": "2",
+  "url": "sec-Double-integrals.html#ex-volume-plane",
+  "type": "Example",
+  "number": "4.2",
+  "title": "",
+  "body": "  Calculate the volume under the plane over the rectangular region in the -plane.      The rectangular region with explicit boundary lines labeled.   A plot of the 2D rectangular domain R showing boundary lines labeled x equals 0, x equals 2, y equals 0, and y equals 1.    The volume can be written as where is the cross-sectional area at . For each value of , we may calculate as the integral that is the area under the curve in the plane of the cross-section at .    "
+},
+{
+  "id": "note-iterated-integral",
+  "level": "2",
+  "url": "sec-Double-integrals.html#note-iterated-integral",
+  "type": "Note",
+  "number": "4.4",
+  "title": "",
+  "body": " The expression, , is called an iterated or repeated integral . The volume is obtained by integrating with respect to from to , holding fixed, and then integrating the resulting expression in with respect to from to .  "
+},
+{
+  "id": "thm-fubini-first-form",
+  "level": "2",
+  "url": "sec-Double-integrals.html#thm-fubini-first-form",
+  "type": "Theorem",
+  "number": "4.5",
+  "title": "Fubini’s Theorem (First Form).",
+  "body": " Fubini's Theorem (First Form)   If is continuous throughout the rectangular region then    "
+},
+{
+  "id": "ex-evaluate-double-integral",
+  "level": "2",
+  "url": "sec-Double-integrals.html#ex-evaluate-double-integral",
+  "type": "Example",
+  "number": "4.6",
+  "title": "Evaluating a Double Integral.",
+  "body": " Evaluating a Double Integral   Calculate for       The rectangular region in the -plane.   A plot of the 2D rectangular domain R showing boundary lines x=0, x=2, y=-1, and y=1 with the region centered vertically on the x-axis.    We can integrate in either order using Fubini's Theorem. Let's integrate with respect to first, and then with respect to :   Alternatively, integrating with respect to first yields the same result:    "
+},
+{
+  "id": "ex-double-integral-trig",
+  "level": "2",
+  "url": "sec-Double-integrals.html#ex-double-integral-trig",
+  "type": "Example",
+  "number": "4.8",
+  "title": "",
+  "body": "  Calculate for       The region in the -plane.   A plot of the 2D domain R bounded on the left by the vertical line x=pi\/6, on the right by the curve x=y^2, below by y=1, and above by y=3 with no axis ticks.    Because the limits for depend on , we must set this up as a Type II region and integrate with respect to first:   Since , the expression simplifies to:   We integrate each term. For the first term, we can use -substitution with and :   Thus, the exact value of the double integral is .   "
+},
+{
+  "id": "thm-fubini-stronger-form",
+  "level": "2",
+  "url": "sec-Double-integrals.html#thm-fubini-stronger-form",
+  "type": "Theorem",
+  "number": "4.10",
+  "title": "Fubini’s Theorem (Stronger Form).",
+  "body": " Fubini's Theorem (Stronger Form)   Let be continuous on a region .    If is defined by with and continuous on then     If is defined by with and continuous on then      "
+},
+{
+  "id": "ex-double-integral-bounded-region",
+  "level": "2",
+  "url": "sec-Double-integrals.html#ex-double-integral-bounded-region",
+  "type": "Example",
+  "number": "4.11",
+  "title": "",
+  "body": "  Let be the region in the -plane bounded by the graphs of and . Evaluate .      The region bounded by and with an adjusted 2:1 aspect ratio.   A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=2x, stretched horizontally using a 2 to 1 axis ratio.    First, we find the points of intersection of the bounding curves by setting them equal to each other: This gives intersection points at and . On the interval , the line lies above the parabola . Thus, our region is described by and .  Using Fubini's stronger form, we integrate with respect to first:   The value of the double integral over the bounded region is .   "
+},
+{
+  "id": "ex-reverse-integration-order",
+  "level": "2",
+  "url": "sec-Double-integrals.html#ex-reverse-integration-order",
+  "type": "Checkpoint",
+  "number": "4.13",
+  "title": "",
+  "body": "  Given , reverse the order of integration and evaluate the resulting integral.     Step 1: Analyze the Original Domain of Integration   The original limits correspond to a Type II integration order ( ). The boundaries for the region are given by: The inner lower boundary curve is equivalent to the parabola for . The upper boundary for is the vertical line . These boundaries intersect at the points and .    The integration domain viewed as a Type II region ( ), bounded on the left by and on the right by .   A plot of the domain R showing a horizontal arrow sweeping from the curve x equals root y to the line x equals 2, bounded vertically between y=0 and y=4.      Step 2: Reverse the Order of Integration to Type I ( )   To transition to Type I format, we look at the region sweeping from left to right along the constant boundaries of the -axis. The region spans from to . For any fixed value of , the vertical strip starts at the bottom boundary line and moves up to touch the upper parabolic curve boundary .  The rewritten boundary inequalities become:     The integration domain viewed as a Type I region ( ), bounded below by and above by .   A plot of the domain R showing a vertical arrow sweeping from the line y=0 up to the parabola y equals x squared, bounded horizontally between x=0 and x=2.      Step 3: Evaluate the New Iterated Integral   Setting up the reversed iterated integral gives: First, we integrate the inner expression with respect to , treating as a constant factor:   Now, we evaluate the outer single integral with respect to . We can use -substitution by setting: We transform the integration boundaries accordingly:   When :  When :   Substituting these components back into the integral equation yields:   Thus, the exact value of the reversed integration evaluation is .   "
+},
+{
+  "id": "ex-prism-volume",
+  "level": "2",
+  "url": "sec-Double-integrals.html#ex-prism-volume",
+  "type": "Example",
+  "number": "4.16",
+  "title": "Finding Volume.",
+  "body": " Finding Volume   Find the volume of a prism whose base is the triangle in the -plane bounded by the -axis and the lines and , and whose top lies in the plane      Step 1: Identify the Base Region   The triangular base region in the -plane is bounded by the lines (the -axis), , and . These lines intersect at the coordinates , , and . Treating this as a Type I region, the limits of integration are:     The triangular base region in the -plane with a 2:1 horizontal-to-vertical aspect ratio.   A plot of the 2D triangular domain R bounded below by y=0, on the right by x=1, and above by the line y=x, with a vertical sweep arrow showing dy integration direction.      Step 2: Set Up and Evaluate the Volume Integral   The volume under the surface over the region is calculated using a double integral: First, we compute the inner integral with respect to , holding constant:   Next, we substitute this result into the outer integral and integrate with respect to :   The total volume of the prism is exactly .   "
+},
+{
+  "id": "ex-double-integral-double-check",
+  "level": "2",
+  "url": "sec-Double-integrals.html#ex-double-integral-double-check",
+  "type": "Checkpoint",
+  "number": "4.18",
+  "title": "",
+  "body": "    Evaluate the double integral over the given region     Find the volume of the region bounded above by the paraboloid and below by the square .         Solution to Part 1:    The rectangular region in the -plane.   A plot of the 2D rectangular domain R bounded by x from 0 to ln 2 and y from 0 to ln 2, stretched horizontally using a 2 to 1 axis scale ratio.     Since the limits of integration for both variables are constants, this is a simple rectangular region. We can use Fubini's Theorem to write it as an iterated integral: Because the integrand factors into a function of multiplied by a function of , we can split the double integral into the product of two separate single integrals:   Evaluating each single integral independently:    Multiplying the two results together gives:      Solution to Part 2:   The volume under the surface over the square region is given by the double integral:     The square base domain in the -plane with a 2:1 horizontal-to-vertical aspect ratio.   A plot of a square domain from x=-1 to 1 and y=-1 to 1 centered at the origin, scaled wider on the x axis to follow a 2 to 1 layout ratio.     First, we compute the inner integral with respect to :   Now, we integrate this result with respect to across the outer boundaries: The total volume bounded by the paraboloid over the square base is .     "
+},
+{
+  "id": "sec-area-volume",
+  "level": "1",
+  "url": "sec-area-volume.html",
+  "type": "Section",
+  "number": "",
+  "title": "4.2 Area and Volume",
+  "body": " 4.2 Area and Volume   In this section, we will explore how to use double integrals to calculate the area of a region in the plane and the volume of a solid in three-dimensional space. We will also discuss the applications of these concepts in various fields.    Area   The area of a closed, bounded plane region is       Find the area of the region bounded by and in the first quadrant.     Step 1: Find Points of Intersection and Setup Boundaries   We find where the two curves intersect by setting them equal to each other: This gives intersection boundaries at and . On the interval , the line lies above the parabola . Thus, our region is described by:     The region bounded by and with a 2:1 horizontal-to-vertical aspect ratio.   A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=x, intersecting at (0,0) and (1,1).      Step 2: Evaluate the Double Integral   Using the definition of area, we set up the iterated integral with respect to first:   The area of the region is exactly .      Find the area of the region enclosed by the parabola and the line .     Step 1: Find Points of Intersection and Setup Boundaries   We find where the line and the parabola intersect by setting their equations equal to each other: This gives intersection boundaries at and . On the interval , the line lies above the parabola . Thus, our region is described by:     The region bounded by and with a 2:1 aspect ratio.   A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=x+2, intersecting at (-1,1) and (2,4).      Step 2: Evaluate the Area Double Integral   Using the definition of area, we set up the iterated integral with respect to first:   Now, evaluating at the upper and lower limits:   Subtracting the lower limit evaluation from the upper limit evaluation yields: The total area of the enclosed region is exactly (or ).     Average Value   The average value of over is       Find the average value of over the rectangle .     Step 1: Calculate the Area of Region   The region is a simple rectangle bounded by constant lines. The width along the -axis is and the height along the -axis is . Therefore, the area of is:     The rectangular domain with a 2:1 horizontal-to-vertical aspect ratio.   A plot of the 2D rectangular domain R bounded by x from 0 to pi and y from 0 to 1 with an aspect ratio of 2 to 1.      Step 2: Evaluate the Double Integral Over   To evaluate , we integrate with respect to first because the inner derivative factor is already present in the integrand, simplifying the anti-differentiation:    Step 3: Calculate the Final Average Value   Using the definition, we divide the value of the double integral by the total area computed in Step 1: The average value of the function over the given rectangle is exactly .     Volume   The volume of a solid lying under a surface over a closed, bounded plane region is       Find the volume of the solid in the first octant bounded by the coordinate planes, the paraboloid , and the plane .     Step 1: Identify the Base Region   In the first octant, the coordinate plane boundaries give , , and . The base region sits in the -plane ( ) and is a triangle bounded by the lines (the -axis), (the -axis), and the intersection line .  Rewriting the bounding line in terms of gives . Finding the intercepts of this line:  When :  When :  Therefore, setting this up as a Type I region, the boundaries are:     The triangular base region in the -plane with a 2:1 horizontal-to-vertical aspect ratio.   A plot of the 2D triangular base region R bounded by x=0, y=0, and the line y = 2 - 2x, with a vertical sweep arrow indicating the integration direction.      Step 2: Set Up and Evaluate the Iterated Integral   The ceiling of the solid is the paraboloid . We integrate this function over the triangular region : First, we integrate the inner expression with respect to :   Next, we integrate this simplified single variable polynomial expression with respect to over the outer boundary:   The total volume of the solid in the first octant is exactly .          Find the volume of the solid that lies in the first octant and is bounded by the three coordinate planes and the cylinders and .     Step 1: Identify the Base Region   In the first octant, the coordinate planes give , , and . The base region in the -plane is bounded by the circular cylinder base . Isolating gives . The region can be described as a Type II domain tracking from to :   The ceiling surface is given by isolating from the second cylinder equation: .   Step 2: Evaluate the Volume Integral   Using a double integral, we have: Integrating with respect to first: Now, integrating the remaining expression with respect to : The volume of the intersection solid in the first octant is exactly .         Reverse the order of integration and evaluate the integral      Step 1: Analyze and Reverse the Bounds   The original Type I description is bounded by and . This represents a triangular region bounded by the lines , , and . Reversing this to a Type II region ( ) gives:     The domain with horizontal sweeping arrows indicating the reversed order.   A triangular region bounded by y=x, x=0, and y=pi with horizontal sweep arrows indicating dx direction.      Step 2: Evaluate the Transformed Integral   Applying the reversed limits of integration: Evaluating the inner integral with respect to : Now evaluating the outer integral with respect to : The value of the integral is exactly .         Find the volume of the solid whose base is a region in the -plane that is bounded by the parabola and the line , while the top of the solid is bounded by the plane .     Step 1: Find the Intersection Boundaries of the Base   We set the base boundaries equal to find their intersection coordinates: The intersection points occur at and . On the interval , the parabola stays above the line . The Type I boundaries are:     The base region bounded by and .   A base domain bounded above by the parabola y=4-x^2 and below by the line y=3x, intersecting at x=-4 and x=1.      Step 2: Evaluate the Volume Integral   We compute the volume by integrating the ceiling function over : Integrating with respect to : Expanding the polynomial product results in: Now, evaluating the single integral with respect to : The volume of the solid is exactly .         Find the volume of the wedge cut from the first octant by the cylinder and the plane .     Step 1: Determine the Bounds in the Base Plane   In the first octant, and . The base triangle is bounded by the line . Setting gives the upper limit for at . Setting this up as a Type II integral gives:     The triangular base region for the wedge solid.   A triangular region bounded by the axes and the line x+y=2 in the first quadrant.      Step 2: Reverse the Limits to Type I ( )   To switch to a Type I layout, we examine the vertical bounds of the region across a horizontal span. The region spans along the -axis from to . For a fixed value of , a vertical strip starts at the bottom boundary line and sweeps upward until it reaches the line . The reversed boundary descriptions are:    Step 3: Setup and Evaluate the Transformed Integral   Using our new boundary configurations, the original unintegrable problem transitions into a solvable iterated integral: We compute the inner integral with respect to , treating as a constant factor: Next, we substitute this result back into the outer structural layer to integrate with respect to : We evaluate this final layer using -substitution. Let: Updating our definite limits of integration:  When :  When :  Substituting these elements back into the equation yields: The exact value of the reversed double integral is .     "
+},
+{
+  "id": "def-area-double-integral",
+  "level": "2",
+  "url": "sec-area-volume.html#def-area-double-integral",
+  "type": "Definition",
+  "number": "4.21",
+  "title": "Area.",
+  "body": " Area   The area of a closed, bounded plane region is    "
+},
+{
+  "id": "ex-area-between-curves",
+  "level": "2",
+  "url": "sec-area-volume.html#ex-area-between-curves",
+  "type": "Example",
+  "number": "4.22",
+  "title": "",
+  "body": "  Find the area of the region bounded by and in the first quadrant.     Step 1: Find Points of Intersection and Setup Boundaries   We find where the two curves intersect by setting them equal to each other: This gives intersection boundaries at and . On the interval , the line lies above the parabola . Thus, our region is described by:     The region bounded by and with a 2:1 horizontal-to-vertical aspect ratio.   A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=x, intersecting at (0,0) and (1,1).      Step 2: Evaluate the Double Integral   Using the definition of area, we set up the iterated integral with respect to first:   The area of the region is exactly .   "
+},
+{
+  "id": "ex-area-parabola-line",
+  "level": "2",
+  "url": "sec-area-volume.html#ex-area-parabola-line",
+  "type": "Example",
+  "number": "4.24",
+  "title": "",
+  "body": "  Find the area of the region enclosed by the parabola and the line .     Step 1: Find Points of Intersection and Setup Boundaries   We find where the line and the parabola intersect by setting their equations equal to each other: This gives intersection boundaries at and . On the interval , the line lies above the parabola . Thus, our region is described by:     The region bounded by and with a 2:1 aspect ratio.   A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=x+2, intersecting at (-1,1) and (2,4).      Step 2: Evaluate the Area Double Integral   Using the definition of area, we set up the iterated integral with respect to first:   Now, evaluating at the upper and lower limits:   Subtracting the lower limit evaluation from the upper limit evaluation yields: The total area of the enclosed region is exactly (or ).   "
+},
+{
+  "id": "def-average-value-double-integral",
+  "level": "2",
+  "url": "sec-area-volume.html#def-average-value-double-integral",
+  "type": "Definition",
+  "number": "4.26",
+  "title": "Average Value.",
+  "body": " Average Value   The average value of over is    "
+},
+{
+  "id": "ex-average-value-trig",
+  "level": "2",
+  "url": "sec-area-volume.html#ex-average-value-trig",
+  "type": "Example",
+  "number": "4.27",
+  "title": "",
+  "body": "  Find the average value of over the rectangle .     Step 1: Calculate the Area of Region   The region is a simple rectangle bounded by constant lines. The width along the -axis is and the height along the -axis is . Therefore, the area of is:     The rectangular domain with a 2:1 horizontal-to-vertical aspect ratio.   A plot of the 2D rectangular domain R bounded by x from 0 to pi and y from 0 to 1 with an aspect ratio of 2 to 1.      Step 2: Evaluate the Double Integral Over   To evaluate , we integrate with respect to first because the inner derivative factor is already present in the integrand, simplifying the anti-differentiation:    Step 3: Calculate the Final Average Value   Using the definition, we divide the value of the double integral by the total area computed in Step 1: The average value of the function over the given rectangle is exactly .   "
+},
+{
+  "id": "def-volume-double-integral",
+  "level": "2",
+  "url": "sec-area-volume.html#def-volume-double-integral",
+  "type": "Definition",
+  "number": "4.29",
+  "title": "Volume.",
+  "body": " Volume   The volume of a solid lying under a surface over a closed, bounded plane region is    "
+},
+{
+  "id": "ex-volume-first-octant",
+  "level": "2",
+  "url": "sec-area-volume.html#ex-volume-first-octant",
+  "type": "Example",
+  "number": "4.30",
+  "title": "",
+  "body": "  Find the volume of the solid in the first octant bounded by the coordinate planes, the paraboloid , and the plane .     Step 1: Identify the Base Region   In the first octant, the coordinate plane boundaries give , , and . The base region sits in the -plane ( ) and is a triangle bounded by the lines (the -axis), (the -axis), and the intersection line .  Rewriting the bounding line in terms of gives . Finding the intercepts of this line:  When :  When :  Therefore, setting this up as a Type I region, the boundaries are:     The triangular base region in the -plane with a 2:1 horizontal-to-vertical aspect ratio.   A plot of the 2D triangular base region R bounded by x=0, y=0, and the line y = 2 - 2x, with a vertical sweep arrow indicating the integration direction.      Step 2: Set Up and Evaluate the Iterated Integral   The ceiling of the solid is the paraboloid . We integrate this function over the triangular region : First, we integrate the inner expression with respect to :   Next, we integrate this simplified single variable polynomial expression with respect to over the outer boundary:   The total volume of the solid in the first octant is exactly .   "
+},
+{
+  "id": "ex-volume-intersecting-cylinders",
+  "level": "2",
+  "url": "sec-area-volume.html#ex-volume-intersecting-cylinders",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Find the volume of the solid that lies in the first octant and is bounded by the three coordinate planes and the cylinders and .     Step 1: Identify the Base Region   In the first octant, the coordinate planes give , , and . The base region in the -plane is bounded by the circular cylinder base . Isolating gives . The region can be described as a Type II domain tracking from to :   The ceiling surface is given by isolating from the second cylinder equation: .   Step 2: Evaluate the Volume Integral   Using a double integral, we have: Integrating with respect to first: Now, integrating the remaining expression with respect to : The volume of the intersection solid in the first octant is exactly .   "
+},
+{
+  "id": "ex-reverse-order-sinc",
+  "level": "2",
+  "url": "sec-area-volume.html#ex-reverse-order-sinc",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  Reverse the order of integration and evaluate the integral      Step 1: Analyze and Reverse the Bounds   The original Type I description is bounded by and . This represents a triangular region bounded by the lines , , and . Reversing this to a Type II region ( ) gives:     The domain with horizontal sweeping arrows indicating the reversed order.   A triangular region bounded by y=x, x=0, and y=pi with horizontal sweep arrows indicating dx direction.      Step 2: Evaluate the Transformed Integral   Applying the reversed limits of integration: Evaluating the inner integral with respect to : Now evaluating the outer integral with respect to : The value of the integral is exactly .   "
+},
+{
+  "id": "ex-volume-parabola-line",
+  "level": "2",
+  "url": "sec-area-volume.html#ex-volume-parabola-line",
+  "type": "Exercise",
+  "number": "3",
+  "title": "",
+  "body": "  Find the volume of the solid whose base is a region in the -plane that is bounded by the parabola and the line , while the top of the solid is bounded by the plane .     Step 1: Find the Intersection Boundaries of the Base   We set the base boundaries equal to find their intersection coordinates: The intersection points occur at and . On the interval , the parabola stays above the line . The Type I boundaries are:     The base region bounded by and .   A base domain bounded above by the parabola y=4-x^2 and below by the line y=3x, intersecting at x=-4 and x=1.      Step 2: Evaluate the Volume Integral   We compute the volume by integrating the ceiling function over : Integrating with respect to : Expanding the polynomial product results in: Now, evaluating the single integral with respect to : The volume of the solid is exactly .   "
+},
+{
+  "id": "ex-volume-wedge-cylinder",
+  "level": "2",
+  "url": "sec-area-volume.html#ex-volume-wedge-cylinder",
+  "type": "Exercise",
+  "number": "4",
+  "title": "",
+  "body": "  Find the volume of the wedge cut from the first octant by the cylinder and the plane .     Step 1: Determine the Bounds in the Base Plane   In the first octant, and . The base triangle is bounded by the line . Setting gives the upper limit for at . Setting this up as a Type II integral gives:     The triangular base region for the wedge solid.   A triangular region bounded by the axes and the line x+y=2 in the first quadrant.      Step 2: Reverse the Limits to Type I ( )   To switch to a Type I layout, we examine the vertical bounds of the region across a horizontal span. The region spans along the -axis from to . For a fixed value of , a vertical strip starts at the bottom boundary line and sweeps upward until it reaches the line . The reversed boundary descriptions are:    Step 3: Setup and Evaluate the Transformed Integral   Using our new boundary configurations, the original unintegrable problem transitions into a solvable iterated integral: We compute the inner integral with respect to , treating as a constant factor: Next, we substitute this result back into the outer structural layer to integrate with respect to : We evaluate this final layer using -substitution. Let: Updating our definite limits of integration:  When :  When :  Substituting these elements back into the equation yields: The exact value of the reversed double integral is .   "
+},
+{
+  "id": "sec-polar-coordinates",
+  "level": "1",
+  "url": "sec-polar-coordinates.html",
+  "type": "Section",
+  "number": "",
+  "title": "4.3 Double Integrals in Polar coordinates",
+  "body": " 4.3 Double Integrals in Polar coordinates   In this section, we will explore the use of polar coordinates to evaluate double integrals over regions that are more naturally described in polar form. Polar coordinates provide a convenient way to describe circular and radial symmetry in two-dimensional space.  We will derive the formula for converting a double integral from Cartesian coordinates to polar coordinates and apply it to various examples.    Evaluation Theorem          Find the area of the region that lies outside the circle and inside the circle .     Step 1: Find the Points of Intersection and Limits   We find the angular intersection points of the two curves by setting their expressions equal to each other: In the standard first and second quadrants, this yields the angular bounds: For any angle between these limits, the radial variable starts on the inner circle boundary and sweeps outward to the outer circle boundary . Thus, our region is bounded by:     The region lying inside and outside displayed with a balanced 1:1 ratio.   A polar coordinate plot using a balanced 1 to 1 aspect ratio showing a clean crescent region between two overlapping circles.      Step 2: Evaluate the Double Area Integral   Using the Evaluation Theorem with to calculate area: Evaluating at the definite boundary constraints: The area of the region is exactly .      Find the area of the region bounded by one loop of the lemniscate , where .     Step 1: Set Up the Integration Loop Bounds   A single loop of the lemniscate is traced out as the radius starts at the origin, sweeps outward, and returns to the origin. This occurs when: For any angle in the first quadrant, the variable spans from the origin to the boundary line curve .    One loop of the lemniscate curve with a balanced 1:1 ratio.   A polar coordinate plot of a single petal loop localized inside the first quadrant with an isometric 1 to 1 grid system.      Step 2: Evaluate the Iterated Area Integral   Using the Evaluation Theorem to compute the area of this region: The area enclosed by one loop of the lemniscate is exactly .     Change of Variables Formula          Use polar coordinates to evaluate      Step 1: Analyze the Region of Integration   The original limits are given in Cartesian coordinates where: The upper boundary curve represents the upper half of a circle centered at the origin with radius . Since runs from to , the region is a complete upper semicircle sitting in the first and second quadrants.  Converting this region to polar coordinates, the radius starts at the origin and sweeps outward to the boundary circle . The angle opens from the positive -axis ( ) all the way around to the negative -axis ( ). Therefore, the polar boundaries are:     The semicircular integration region displayed with a balanced 1:1 ratio.   A polar coordinate plot of an upper semicircle with radius a, showing radial integration arrows stretching outward from the origin.      Step 2: Convert and Evaluate the Integral   Using the relationship and changing the differential element to polar form ( ), we substitute our values into the formula: Simplifying the inner integrand components gives:   Since the limits of integration are entirely constants and the variables inside the integrand are completely independent, we can separate this double integral into the product of two single integrals: The value of the double integral evaluated using polar coordinates is exactly .      Find the volume of the solid that is bounded by the paraboloid and the -plane.     Step 1: Identify the Base Region in the -plane   The solid sits beneath the paraboloid ceiling and is bounded below by the -plane, where . We find the footprint or boundary curve of this base region by setting the paraboloid equation to zero: This represents a complete circle centered at the origin with a radius of .  Converting this full circular disk to polar coordinates gives us constant boundaries that span all four quadrants:     The circular base domain plotted with a balanced 1:1 aspect ratio.   A polar coordinate plot of a full circular region of radius 2 centered at the origin, with radial arrows tracking out from the center to indicate integration sweeping directions.      Step 2: Convert and Evaluate the Volume Integral   The height function inside the double integral can be converted to polar coordinates using , which yields . Substituting this ceiling function and the polar area differential element ( ) into our volume formula gives: Distributing the inner radial factor across the integrand parameters:   Since the boundary parameters are entirely composed of constants and the individual components inside the expression are mathematically independent, we can factor the double integral into a simple product of two independent single integrals: The total volume of the solid enclosed under the paraboloid is exactly .          Change the Cartesian integral into an equivalent polar integral then evaluate the integral:                   Solution to Part (a):   The original Cartesian limits restrict the domain to: The curve describes the lower half of a unit circle centered at the origin. Because both and values are exclusively negative or zero, the integration domain is a quarter-circle resting entirely inside the third quadrant .  Converting to polar variables, the radial sweep starts at the origin and extends out to the curve boundary . The angle sweeps across the third quadrant from to :     The third-quadrant quarter-disk integration region with a balanced 1:1 aspect ratio.   A plot of a quarter-circle domain of radius 1 sitting strictly inside the third quadrant with radial arrows pointing outwards from the origin.     Substituting the polar translation rules ( and ) transforms the expression into: Evaluating the angular integral yields . For the radial integral, we apply algebraic long division:  Multiplying our two separate solutions together gives:      Solution to Part (b):   The original integration walls are given by: This maps out the complete full unit circular disk centered at the origin. Converting to polar tracking variables yields: Substituting and the differential multiplier element ( ) gives: The outer integral maps directly to . For the inner single radial integral, we perform a quick -substitution: Updating limits: when , and when .  Combining the structural components yields:            Find the area of the region cut from the first quadrant (first octant base) by the cardioid .     Step 1: Set Up the Polar Integration Boundaries   The phrase \"cut from the first quadrant\" restricts our angle tracking bounds to . Inside this angular sweep, the radius starts at the origin and pushes out to hit the outer wall profile of the cardioid :  % Isometric 1:1 Cardioid Quadrant Fragment Figure  The section of the cardioid cut by the first quadrant plotted with a balanced 1:1 isometric ratio.   A polar coordinate layout mapping the first-quadrant section of a cardioid curve, extending up to a max height of y=2 along the upper vertical axis.      Step 2: Evaluate the Area Integration   Using the polar double integral definition for finding area ( ):  Using the half-angle reduction identity :   The total area cut inside the first quadrant is exactly .         Find the average height of the hemisphere surface above the disk in the -plane.     Step 1: Determine the Base Area   The base region is a complete circular disk described by , which yields a clear radius of . The geometric area of this full circular base region is: Converted to polar coordinate conditions, our tracking parameters are: and .   Step 2: Set Up and Evaluate the Average Value Theorem Form   According to the average value theorem, the average height is computed by finding the total volume under the dome surface and dividing it by the total area of the floor disk: Since the bounds are completely constants and the inner function components are independent, we can pull apart the double integral: We compute the remaining single integral using -substitution: Updating parameters: when , and when .  The average height of the hemisphere surface above the floor base disk is exactly .     "
+},
+{
+  "id": "thm-polar-evaluation",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#thm-polar-evaluation",
+  "type": "Theorem",
+  "number": "4.35",
+  "title": "Evaluation Theorem.",
+  "body": " Evaluation Theorem       "
+},
+{
+  "id": "ex-area-between-polar-circles",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#ex-area-between-polar-circles",
+  "type": "Example",
+  "number": "4.36",
+  "title": "",
+  "body": "  Find the area of the region that lies outside the circle and inside the circle .     Step 1: Find the Points of Intersection and Limits   We find the angular intersection points of the two curves by setting their expressions equal to each other: In the standard first and second quadrants, this yields the angular bounds: For any angle between these limits, the radial variable starts on the inner circle boundary and sweeps outward to the outer circle boundary . Thus, our region is bounded by:     The region lying inside and outside displayed with a balanced 1:1 ratio.   A polar coordinate plot using a balanced 1 to 1 aspect ratio showing a clean crescent region between two overlapping circles.      Step 2: Evaluate the Double Area Integral   Using the Evaluation Theorem with to calculate area: Evaluating at the definite boundary constraints: The area of the region is exactly .   "
+},
+{
+  "id": "ex-area-lemniscate",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#ex-area-lemniscate",
+  "type": "Checkpoint",
+  "number": "4.38",
+  "title": "",
+  "body": "  Find the area of the region bounded by one loop of the lemniscate , where .     Step 1: Set Up the Integration Loop Bounds   A single loop of the lemniscate is traced out as the radius starts at the origin, sweeps outward, and returns to the origin. This occurs when: For any angle in the first quadrant, the variable spans from the origin to the boundary line curve .    One loop of the lemniscate curve with a balanced 1:1 ratio.   A polar coordinate plot of a single petal loop localized inside the first quadrant with an isometric 1 to 1 grid system.      Step 2: Evaluate the Iterated Area Integral   Using the Evaluation Theorem to compute the area of this region: The area enclosed by one loop of the lemniscate is exactly .   "
+},
+{
+  "id": "thm-polar-change-of-variables",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#thm-polar-change-of-variables",
+  "type": "Theorem",
+  "number": "4.40",
+  "title": "Change of Variables Formula.",
+  "body": " Change of Variables Formula       "
+},
+{
+  "id": "ex-polar-evaluation-semicircle",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#ex-polar-evaluation-semicircle",
+  "type": "Example",
+  "number": "4.41",
+  "title": "",
+  "body": "  Use polar coordinates to evaluate      Step 1: Analyze the Region of Integration   The original limits are given in Cartesian coordinates where: The upper boundary curve represents the upper half of a circle centered at the origin with radius . Since runs from to , the region is a complete upper semicircle sitting in the first and second quadrants.  Converting this region to polar coordinates, the radius starts at the origin and sweeps outward to the boundary circle . The angle opens from the positive -axis ( ) all the way around to the negative -axis ( ). Therefore, the polar boundaries are:     The semicircular integration region displayed with a balanced 1:1 ratio.   A polar coordinate plot of an upper semicircle with radius a, showing radial integration arrows stretching outward from the origin.      Step 2: Convert and Evaluate the Integral   Using the relationship and changing the differential element to polar form ( ), we substitute our values into the formula: Simplifying the inner integrand components gives:   Since the limits of integration are entirely constants and the variables inside the integrand are completely independent, we can separate this double integral into the product of two single integrals: The value of the double integral evaluated using polar coordinates is exactly .   "
+},
+{
+  "id": "ex-volume-paraboloid-polar",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#ex-volume-paraboloid-polar",
+  "type": "Example",
+  "number": "4.43",
+  "title": "",
+  "body": "  Find the volume of the solid that is bounded by the paraboloid and the -plane.     Step 1: Identify the Base Region in the -plane   The solid sits beneath the paraboloid ceiling and is bounded below by the -plane, where . We find the footprint or boundary curve of this base region by setting the paraboloid equation to zero: This represents a complete circle centered at the origin with a radius of .  Converting this full circular disk to polar coordinates gives us constant boundaries that span all four quadrants:     The circular base domain plotted with a balanced 1:1 aspect ratio.   A polar coordinate plot of a full circular region of radius 2 centered at the origin, with radial arrows tracking out from the center to indicate integration sweeping directions.      Step 2: Convert and Evaluate the Volume Integral   The height function inside the double integral can be converted to polar coordinates using , which yields . Substituting this ceiling function and the polar area differential element ( ) into our volume formula gives: Distributing the inner radial factor across the integrand parameters:   Since the boundary parameters are entirely composed of constants and the individual components inside the expression are mathematically independent, we can factor the double integral into a simple product of two independent single integrals: The total volume of the solid enclosed under the paraboloid is exactly .   "
+},
+{
+  "id": "ex-cartesian-to-polar-conversions",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#ex-cartesian-to-polar-conversions",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Change the Cartesian integral into an equivalent polar integral then evaluate the integral:                   Solution to Part (a):   The original Cartesian limits restrict the domain to: The curve describes the lower half of a unit circle centered at the origin. Because both and values are exclusively negative or zero, the integration domain is a quarter-circle resting entirely inside the third quadrant .  Converting to polar variables, the radial sweep starts at the origin and extends out to the curve boundary . The angle sweeps across the third quadrant from to :     The third-quadrant quarter-disk integration region with a balanced 1:1 aspect ratio.   A plot of a quarter-circle domain of radius 1 sitting strictly inside the third quadrant with radial arrows pointing outwards from the origin.     Substituting the polar translation rules ( and ) transforms the expression into: Evaluating the angular integral yields . For the radial integral, we apply algebraic long division:  Multiplying our two separate solutions together gives:      Solution to Part (b):   The original integration walls are given by: This maps out the complete full unit circular disk centered at the origin. Converting to polar tracking variables yields: Substituting and the differential multiplier element ( ) gives: The outer integral maps directly to . For the inner single radial integral, we perform a quick -substitution: Updating limits: when , and when .  Combining the structural components yields:      "
+},
+{
+  "id": "ex-area-cardioid-octant",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#ex-area-cardioid-octant",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  Find the area of the region cut from the first quadrant (first octant base) by the cardioid .     Step 1: Set Up the Polar Integration Boundaries   The phrase \"cut from the first quadrant\" restricts our angle tracking bounds to . Inside this angular sweep, the radius starts at the origin and pushes out to hit the outer wall profile of the cardioid :  % Isometric 1:1 Cardioid Quadrant Fragment Figure  The section of the cardioid cut by the first quadrant plotted with a balanced 1:1 isometric ratio.   A polar coordinate layout mapping the first-quadrant section of a cardioid curve, extending up to a max height of y=2 along the upper vertical axis.      Step 2: Evaluate the Area Integration   Using the polar double integral definition for finding area ( ):  Using the half-angle reduction identity :   The total area cut inside the first quadrant is exactly .   "
+},
+{
+  "id": "ex-average-height-hemisphere",
+  "level": "2",
+  "url": "sec-polar-coordinates.html#ex-average-height-hemisphere",
+  "type": "Exercise",
+  "number": "3",
+  "title": "",
+  "body": "  Find the average height of the hemisphere surface above the disk in the -plane.     Step 1: Determine the Base Area   The base region is a complete circular disk described by , which yields a clear radius of . The geometric area of this full circular base region is: Converted to polar coordinate conditions, our tracking parameters are: and .   Step 2: Set Up and Evaluate the Average Value Theorem Form   According to the average value theorem, the average height is computed by finding the total volume under the dome surface and dividing it by the total area of the floor disk: Since the bounds are completely constants and the inner function components are independent, we can pull apart the double integral: We compute the remaining single integral using -substitution: Updating parameters: when , and when .  The average height of the hemisphere surface above the floor base disk is exactly .   "
+},
+{
   "id": "activities",
   "level": "1",
   "url": "activities.html",
   "type": "Chapter",
-  "number": "4",
+  "number": "5",
   "title": "MyOpenMath Interactive Activities",
   "body": " MyOpenMath Interactive Activities   These files contain copies of the interactive MyOpenMath exercises that guided our learning for each topic. Special thanks to Professor Jason Hardin for sharing his MyOpenMath question bank.      "
 },
@@ -3175,7 +3490,7 @@ var ptx_lunr_docs = [
   "type": "Worksheet",
   "number": "",
   "title": "Worksheet 03: Partial Derivatives",
-  "body": " Worksheet 03: Partial Derivatives        Show that the following limit does not exist:     Let . We test the behavior of this function along different paths approaching the origin .  First, let us approach the origin along the linear path where : Along every straight line of non-zero slope, the function approaches . If we approach along the line (the -axis), the function is identically , giving a path limit of .  Since approaching along yields , while approaching along yields , the limits along two distinct paths are different. By the two-path rule, the limit does not exist.      Find the limit:     Let . We test the limit along the coordinate axes:   Along the -axis ( for ): . Thus, the limit along this path is .    Along the -axis ( for ): . Thus, the limit along this path is .   Since the function approaches two different values along two different geometric paths, the limit does not exist.           Find the extreme values of on the unit sphere .    We use the method of Lagrange Multipliers with constraint function . We set : This gives the system: , , and . Isolating the variables, we find: Substituting these into the constraint sphere equation yields: This produces two critical points: and . Evaluating :        Find and when and , if:     When and , we find the intermediate coordinate states: and . The first partial derivatives of are: Using the Multivariate Chain Rule for the parameter : At , .  Using the Chain Rule for the parameter : At and , .           Find the value of the derivative of with respect to along the parameter path , , and at .    By applying the Multivariate Chain Rule Case I, the total derivative with respect to time is: Substituting , , and directly into this expression evaluated at yields: Expressed as a clean single decimal value approximation, .      Find the directions in which increases and decreases most rapidly at the point . Then, find the directional derivative of at in the direction of the vector .    We find the first-order partial derivatives forming the components of the gradient vector: At , the inner sum denominator expression evaluates to . Thus, the gradient vector is .     The function increases most rapidly in the direction of the gradient: .    The function decreases most rapidly in the opposite direction: .   The direction vector perfectly matches the direction of the gradient. Normalizing via its magnitude gives the unit vector . The directional derivative is the magnitude of the gradient vector:            Find the directional derivative of in the direction of the velocity vector of the helix:     First, we compute the velocity vector . Evaluating this at : Normalizing this direction vector yields our unit vector : The coordinate point on the helix at is , , and . The gradient of is . Evaluating the gradient at yields .  Finally, the directional derivative is computed via the vector dot product:       Find an equation for the plane tangent to the level surface at the point . Additionally, find parametric equations for the normal line to the surface passing through .    Let . We find the components of the normal vector by evaluating the gradient at : Using the point-normal equation, the equation of the tangent plane is:   The normal line passes through and moves parallel to the direction of the normal vector . Thus, its parametric equations are:            Find an equation for the plane tangent to the explicit surface at the point .    We rewrite the equation as a level surface function: . We find the gradient vector by computing the first-order partial derivatives: Evaluating these partial derivatives at the given point yields: This gives the normal vector . Using the point-normal equation, the equation of the tangent plane is:       Find an equation for the line tangent and normal to the level curve at the point .    Let our level curve function be defined as . The gradient vector is orthogonal to the level curve and is given by: The gradient vector serves as the normal vector to the tangent line. Thus, the equation of the tangent line passing through is:   The normal line moves parallel to the gradient vector direction . Thus, its linear equation is found by using an orthogonal slope direction:            Find parametric equations for the line that is tangent to the curve of intersection of the surfaces and at the point .    The direction of the line tangent to the intersection curve of two surfaces is perpendicular to the normal vectors of both surfaces simultaneously. We can find this direction vector by computing the cross product of their gradients. Let and :  Computing the vector cross product: We can scale this parallel vector to . The tangent line passes through in this direction, yielding the parametric equations:       Find the local maximum values, local minimum values, and saddle points of the function: Find the function's value at each of these points.    We first find the critical points by calculating the first-order partial derivatives and setting them equal to zero:  Substituting into the second equation: Using , we find . This gives a single unique critical point at .  To classify this point using the Second Derivatives Test, we compute the second partial derivatives: We assemble these into the discriminant formula: Since and , the function has a local minimum at . Evaluating the function at this point yields:            Find the absolute maximum and absolute minimum values of on the closed triangular region in the first quadrant bounded by the lines , , and .    First, we check for critical points in the interior of the triangle: Solving this linear system yields . However, the point lies outside the first quadrant region ( ). Thus, there are no valid interior critical points.  Next, we test the three boundary lines of the triangular region:    Along the boundary (for ): The function simplifies to . Its derivative with respect to is (out of bounds). Evaluating the endpoints: and .     Along the boundary (for ): The function simplifies to . Its derivative with respect to is . Evaluating this critical point and the remaining endpoint: and .     Along the slanted boundary (for ): Substituting this condition gives: Its derivative is (out of bounds).   Comparing all valid candidates, the absolute maximum value is at , and the absolute minimum value is at .      Find the second-order partial derivatives of the function .    We begin by computing the first-order partial derivatives of with respect to and :    Next, we differentiate these expressions a second time to find the four second-order partial derivatives:    Notice that the mixed partial derivatives are equal ( ), as guaranteed by Clairaut's Theorem.     "
+  "body": " Worksheet 03: Partial Derivatives        Show that the following limit does not exist:     Let . We test the behavior of this function along different paths approaching the origin .  First, let us approach the origin along the linear path where : Along every straight line of non-zero slope, the function approaches . If we approach along the line (the -axis), the function is identically , giving a path limit of .  Since approaching along yields , while approaching along yields , the limits along two distinct paths are different. By the two-path rule, the limit does not exist.      Find the limit:     Let . We test the limit along the coordinate axes:   Along the -axis ( for ): . Thus, the limit along this path is .    Along the -axis ( for ): . Thus, the limit along this path is .   Since the function approaches two different values along two different geometric paths, the limit does not exist.           Find the extreme values of on the unit sphere .    We use the method of Lagrange Multipliers with constraint function . We set : This gives the system: , , and . Isolating the variables, we find: Substituting these into the constraint sphere equation yields: This produces two critical points: and . Evaluating :        Find and when and , if:     When and , we find the intermediate coordinate states: and . The first partial derivatives of are: Using the Multivariate Chain Rule for the parameter : At , .  Using the Chain Rule for the parameter : At and , .           Find the value of the derivative of with respect to along the parameter path , , and at .    By applying the Multivariate Chain Rule Case I, the total derivative with respect to time is: Substituting , , and directly into this expression evaluated at yields: Expressed as a clean single decimal value approximation, .      Find the directions in which increases and decreases most rapidly at the point . Then, find the directional derivative of at in the direction of the vector .    We find the first-order partial derivatives forming the components of the gradient vector: At , the inner sum denominator expression evaluates to . Thus, the gradient vector is .     The function increases most rapidly in the direction of the gradient: .    The function decreases most rapidly in the opposite direction: .   The direction vector perfectly matches the direction of the gradient. Normalizing via its magnitude gives the unit vector . The directional derivative is the magnitude of the gradient vector:            Find the directional derivative of in the direction of the velocity vector of the helix:     First, we compute the velocity vector . Evaluating this at : Normalizing this direction vector yields our unit vector : The coordinate point on the helix at is , , and . The gradient of is . Evaluating the gradient at yields .  Finally, the directional derivative is computed via the vector dot product:       Find an equation for the plane tangent to the level surface at the point . Additionally, find parametric equations for the normal line to the surface passing through .    Let . We find the components of the normal vector by evaluating the gradient at : Using the point-normal equation, the equation of the tangent plane is:   The normal line passes through and moves parallel to the direction of the normal vector . Thus, its parametric equations are:            Find an equation for the plane tangent to the explicit surface at the point .    We rewrite the equation as a level surface function: . We find the gradient vector by computing the first-order partial derivatives: Evaluating these partial derivatives at the given point yields: This gives the normal vector . Using the point-normal equation, the equation of the tangent plane is:       Find an equation for the line tangent and normal to the level curve at the point .    Let our level curve function be defined as . The gradient vector is orthogonal to the level curve and is given by: The gradient vector serves as the normal vector to the tangent line. Thus, the equation of the tangent line passing through is:   The normal line moves parallel to the gradient vector direction . Thus, its linear equation is found by using an orthogonal slope direction:            Find parametric equations for the line that is tangent to the curve of intersection of the surfaces and at the point .    The direction of the line tangent to the intersection curve of two surfaces is perpendicular to the normal vectors of both surfaces simultaneously. We can find this direction vector by computing the cross product of their gradients. Let and :  Computing the vector cross product: We can scale this parallel vector to . The tangent line passes through in this direction, yielding the parametric equations:       Find the local maximum values, local minimum values, and saddle points of the function: Find the function's value at each of these points.    We first find the critical points by calculating the first-order partial derivatives and setting them equal to zero:  Substituting into the second equation: Using , we find . This gives a single unique critical point at .  To classify this point using the Second Derivatives Test, we compute the second partial derivatives: We assemble these into the discriminant formula: Since and , the function has a local minimum at . Evaluating the function at this point yields:            Find the absolute maximum and absolute minimum values of on the closed triangular region in the first quadrant bounded by the lines , , and .    First, we check for critical points in the interior of the triangle: Solving this linear system yields . However, the point lies outside the first quadrant region ( ). Thus, there are no valid interior critical points.  Next, we test the three boundary lines of the triangular region:    Along the boundary (for ): The function simplifies to . Its derivative with respect to is (out of bounds). Evaluating the endpoints: and .     Along the boundary (for ): The function simplifies to . Its derivative with respect to is . Evaluating this critical point and the remaining endpoint: and .     Along the slanted boundary (for ): Substituting this condition gives: Its derivative is (out of bounds).   Comparing all valid candidates, the absolute maximum value is at , and the absolute minimum value is at .      Find the second-order partial derivatives of the function .    We begin by computing the first-order partial derivatives of with respect to and :    Next, we differentiate these expressions a second time to find the four second-order partial derivatives:    Notice that the mixed partial derivatives are equal ( ), as guaranteed by Clairaut's Theorem.           Find the absolute max and min values of on the square region enclosed by the lines and .    First, we find the critical points in the interior of the region by setting the partial derivatives to zero:   Since our region is bounded by , the values and lie outside the square. The only interior critical point is . Evaluating the function here yields:   Next, we check the four boundaries of the square region:    On the right boundary ( ): . Setting gives . We check the critical point and the edge endpoints:     On the left boundary ( ): . The critical point is . Checking these locations gives:     On the top boundary ( ): . Setting gives . Checking these locations gives:     On the bottom boundary ( ): . The critical point is . Checking these locations gives:     Comparing all computed values, the absolute maximum value is occurring at , and the absolute minimum value is occurring at .      If , , , , find and by the Chain Rule. Then check your answer another way.     Method 1: Chain Rule   First, we find the partial derivatives of with respect to its intermediate variables , , and :   Now, we calculate the partial derivatives of the inner components with respect to and :   Applying the Chain Rule for :   Applying the Chain Rule for :    Method 2: Direct Substitution   We can check our work by substituting , , and into the expression for before differentiating:   Thus, the function can be rewritten directly as:   Differentiating directly with respect to and yields: Both methods yield identical results.     "
 },
 {
   "id": "ex-ws-p1-q1",
@@ -3304,11 +3619,29 @@ var ptx_lunr_docs = [
   "body": "  Find the second-order partial derivatives of the function .    We begin by computing the first-order partial derivatives of with respect to and :    Next, we differentiate these expressions a second time to find the four second-order partial derivatives:    Notice that the mixed partial derivatives are equal ( ), as guaranteed by Clairaut's Theorem.   "
 },
 {
+  "id": "ex-ws-pd8-q1",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd8-q1",
+  "type": "Worksheet Exercise",
+  "number": "15",
+  "title": "",
+  "body": "  Find the absolute max and min values of on the square region enclosed by the lines and .    First, we find the critical points in the interior of the region by setting the partial derivatives to zero:   Since our region is bounded by , the values and lie outside the square. The only interior critical point is . Evaluating the function here yields:   Next, we check the four boundaries of the square region:    On the right boundary ( ): . Setting gives . We check the critical point and the edge endpoints:     On the left boundary ( ): . The critical point is . Checking these locations gives:     On the top boundary ( ): . Setting gives . Checking these locations gives:     On the bottom boundary ( ): . The critical point is . Checking these locations gives:     Comparing all computed values, the absolute maximum value is occurring at , and the absolute minimum value is occurring at .   "
+},
+{
+  "id": "ex-ws-pd8-q2",
+  "level": "2",
+  "url": "ws-partial-derivatives-chapter-review.html#ex-ws-pd8-q2",
+  "type": "Worksheet Exercise",
+  "number": "16",
+  "title": "",
+  "body": "  If , , , , find and by the Chain Rule. Then check your answer another way.     Method 1: Chain Rule   First, we find the partial derivatives of with respect to its intermediate variables , , and :   Now, we calculate the partial derivatives of the inner components with respect to and :   Applying the Chain Rule for :   Applying the Chain Rule for :    Method 2: Direct Substitution   We can check our work by substituting , , and into the expression for before differentiating:   Thus, the function can be rewritten directly as:   Differentiating directly with respect to and yields: Both methods yield identical results.   "
+},
+{
   "id": "homework",
   "level": "1",
   "url": "homework.html",
   "type": "Chapter",
-  "number": "6",
+  "number": "7",
   "title": "Homework",
   "body": " Homework    "
 },
@@ -3335,7 +3668,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ma-150-syllabus.html#subsec-105-TentativeSchedule-3",
   "type": "Table",
-  "number": "7.1",
+  "number": "8.1",
   "title": "Course Schedule and Exam Dates",
   "body": " Course Schedule and Exam Dates        Unit  Topics  Due Dates    1  Voting methods, apportionment  Fri 5\/22    2  Simple interest, compound interest  Wed 5\/27    3  Annuities, installment loans (Quiz 1)   Wed 5\/27    4  Mortgages, credit cards  Wed 6\/3      In-Person Exam 1 Thu 6\/4 (3:30-5:00pm) (S-136)     5  Set basics, subsets  Wed 6\/10    6  Set operations, surveys (Quiz 2)   Wed 6\/10    7  Intro to probability, events involving “not”, “or”, “and”  Wed 6\/17    8  Counting, permutations, combinations (Quiz 3)  Wed 6\/17      Online Exam 2 (Thu 6\/25)     9  Probability with counting, odds, conditional  Fri 6\/26      In-Person FINAL EXAM Thu 7\/2 (3:30-6:30pm) (S-136)      "
 }

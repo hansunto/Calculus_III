@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>4.1 Double Integrals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.9';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.846a0d6fafaa99e0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bbcfc02849ebc023.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-Multiple-Integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Multiple-Integrals.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-Triple-integrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Vector-valued-functions-5.html" class="internal"><span class="title">2.3 Integrals of Vector Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html" class="internal"><span class="title">2.4 Arc Length and Curvature</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html#subsec-curvature" class="internal"><span class="title">The Curvature</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-motion-in-space.html" class="internal"><span class="title">2.5 Motion in Space: Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangential-normal-components.html" class="internal"><span class="title">2.6 Tangential and Normal Components of Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Partial-Derivatives.html" class="internal"><span class="codenumber">3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-functions-several-variables.html" class="internal"><span class="title">Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-limits-continuity.html" class="internal"><span class="title">3.2 Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-partial-derivatives.html" class="internal"><span class="title">3.3 Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-increment.html" class="internal"><span class="title">3.4 Increments and Differentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-chain-rules.html" class="internal"><span class="title">3.5 Chain Rules</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-directional-derivatives.html" class="internal"><span class="title">3.6 Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangent-plane.html" class="internal"><span class="title">3.7 Tangent Planes and Normal Lines</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-extrema.html" class="internal"><span class="title">3.8 Extrema of Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lagrange-multipliers.html" class="internal"><span class="title">3.9 Lagrange Multipliers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Multiple-Integrals.html" class="internal"><span class="codenumber">4</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-double-integrals.html" class="internal"><span class="title">4.1 Double Integrals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Triple-integrals.html" class="internal"><span class="title">4.2 Triple Integrals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Change-of-Variables.html" class="internal"><span class="title">Change of Variables</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">5</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">6</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-partial-derivatives-chapter-review.html" class="internal"><span class="title">Worksheet 03: Partial Derivatives</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">7</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">8</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-double-integrals">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">4.1 Double Integrals</span>
+</h2>
+<section class="introduction" id="sec-double-integrals-2">
+<div class="para" id="sec-double-integrals-2-1">Double integrals are a fundamental concept in multivariable calculus, allowing us to compute areas, volumes, and other quantities over two-dimensional regions.<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-double-integrals-2-2">In this section, we will explore the definition of double integrals, their properties, and techniques for evaluating them in various coordinate systems.<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<div class="para" id="sec-double-integrals-3">We consider a function <span class="process-math">\(f(x,y)\text{,}\)</span> with two variables, defined on a rectangular region <span class="process-math">\(R\text{,}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="sec-double-integrals-4">
+\begin{equation*}
+R : \quad a \leq x \leq b, \quad c \leq y \leq d.
+\end{equation*}
+</div>
+<div class="para" id="sec-double-integrals-5">Subdivide <span class="process-math">\(R\)</span> into small rectangles by using parallel lines to the <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axis. The lines divide <span class="process-math">\(R\)</span> into <span class="process-math">\(n\)</span> rectangular pieces, where the number of such pieces <span class="process-math">\(n\)</span> gets large as the width and height of each piece gets small. These rectangles form a <dfn class="terminology">partition</dfn> of <span class="process-math">\(R\text{.}\)</span> A small rectangular piece of width <span class="process-math">\(\Delta x\)</span> and height <span class="process-math">\(\Delta y\)</span> has area <span class="process-math">\(\Delta A=\Delta x \Delta y\text{.}\)</span> If we number the small pieces partitioning <span class="process-math">\(R\)</span> in some order, then their areas are given by numbers <span class="process-math">\(\Delta A_1, \Delta A_2, \dots, \Delta A_n\text{,}\)</span> where <span class="process-math">\(\Delta A_k\)</span> is the area of the <span class="process-math">\(k\)</span>th small rectangle.<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-riemann-double-integral"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<ol class="decimal ol-marker-1" id="def-riemann-double-integral-1-1">
+<li id="def-riemann-double-integral-1-1-1">
+<div class="para" id="def-riemann-double-integral-1-1-1-1">Let <span class="process-math">\(f(x,y)\)</span> be defined on a region <span class="process-math">\(R\text{,}\)</span> and let <span class="process-math">\(P=\{R_k\}\)</span> be an inner partition of <span class="process-math">\(R\text{.}\)</span> A <dfn class="terminology">Riemann sum</dfn> of <span class="process-math">\(f\)</span> for <span class="process-math">\(P\)</span> is any sum of the form <span class="process-math">\(\displaystyle \sum_{k} f(x_k,y_k)\Delta A_k\text{,}\)</span> where <span class="process-math">\((x_k,y_k)\)</span> is a point in <span class="process-math">\(R_k\text{,}\)</span> and <span class="process-math">\(\Delta A_k\)</span> is the area of <span class="process-math">\(R_k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-riemann-double-integral-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-riemann-double-integral-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-riemann-double-integral-1-1-2">
+<div class="para logical" id="def-riemann-double-integral-1-1-2-1">
+<div class="para">The statement</div>
+<div class="displaymath process-math" id="def-riemann-double-integral-1-1-2-1-1">
+\begin{equation*}
+\lim_{|P|\to 0} \sum_{k} f(x_k,y_k)\Delta A_k=L
+\end{equation*}
+</div>
+<div class="para">means that for every <span class="process-math">\(\epsilon \gt 0\)</span> there is a <span class="process-math">\(\delta \gt 0\)</span> such that if <span class="process-math">\(P=\{R_k\}\)</span> is an inner partition of <span class="process-math">\(R\)</span> with <span class="process-math">\(\|P\| \lt \delta\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="def-riemann-double-integral-1-1-2-1-7">
+\begin{equation*}
+\left| \sum_{k} f(x_k,y_k)\Delta A_k-L \right| \lt \epsilon
+\end{equation*}
+</div>
+<div class="para">for every choice of <span class="process-math">\((x_k,y_k)\)</span> in <span class="process-math">\(R_k\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-riemann-double-integral-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#def-riemann-double-integral-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="def-riemann-double-integral-1-1-3">
+<div class="para logical" id="def-riemann-double-integral-1-1-3-1">
+<div class="para">The <dfn class="terminology">double integral of <span class="process-math">\(f\)</span> over <span class="process-math">\(R\)</span></dfn>, denoted by <span class="process-math">\(\iint_R f(x,y)\,dA\text{,}\)</span> is</div>
+<div class="displaymath process-math" id="def-riemann-double-integral-1-1-3-1-3">
+\begin{equation*}
+\iint_R f(x,y)\,dA = \lim_{|P|\to 0} \sum_{k} f(x_k,y_k)\Delta A_k,
+\end{equation*}
+</div>
+<div class="para">if the limit exists.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-riemann-double-integral-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#def-riemann-double-integral-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="def-riemann-double-integral-1-1-4">
+<div class="para logical" id="def-riemann-double-integral-1-1-4-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be a continuous function of two variables such that <span class="process-math">\(f(x,y) \geq 0\)</span> for every <span class="process-math">\((x,y)\)</span> in a region <span class="process-math">\(R\text{.}\)</span> The <dfn class="terminology">volume <span class="process-math">\(V\)</span></dfn> of the solid that lies under the graph of <span class="process-math">\(z=f(x,y)\)</span> over <span class="process-math">\(R\)</span> is</div>
+<div class="displaymath process-math" id="def-riemann-double-integral-1-1-4-1-8">
+\begin{equation*}
+V = \iint_R f(x,y)\,dA.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-riemann-double-integral-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#def-riemann-double-integral-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Definition 4.1"><a href="#def-riemann-double-integral" title="Copy heading and permalink for Definition 4.1" aria-label="Copy heading and permalink for Definition 4.1">🔗</a></div>
+</article>
+<details id="ex-volume-plane" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-volume-plane-1-1">Calculate the volume under the plane <span class="process-math">\(z=4-x-y\)</span> over the rectangular region <span class="process-math">\(R: 0 \leq x \leq 2, \quad 0 \leq y \leq 1\)</span> in the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-plane-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-volume-plane-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-volume-plane-2-1">
+<div class="para">
+<figure class="figure figure-like" id="fig-rectangular-domain-labeled"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/img-rectangular-domain-labeled.svg" role="img" class="contained" alt="A plot of the 2D rectangular domain R showing boundary lines labeled x equals 0, x equals 2, y equals 0, and y equals 1."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The rectangular region <span class="process-math">\(R\)</span> with explicit boundary lines labeled.<div class="autopermalink" data-description="Figure 4.3"><a href="#fig-rectangular-domain-labeled" title="Copy heading and permalink for Figure 4.3" aria-label="Copy heading and permalink for Figure 4.3">🔗</a></div></figcaption>
+</figure> The volume can be written as</div>
+<div class="displaymath process-math" id="ex-volume-plane-2-1-2">
+\begin{equation*}
+\int^{x=2}_{x=0} A(x)\,dx,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(A(x)\)</span> is the cross-sectional area at <span class="process-math">\(x\text{.}\)</span> For each value of <span class="process-math">\(x\text{,}\)</span> we may calculate <span class="process-math">\(A(x)\)</span> as the integral</div>
+<div class="displaymath process-math" id="ex-volume-plane-2-1-7">
+\begin{equation*}
+A(x) = \int^{y=1}_{y=0} (4-x-y)\,dy,
+\end{equation*}
+</div>
+<div class="para">that is the area under the curve <span class="process-math">\(z=4-x-y\)</span> in the plane of the cross-section at <span class="process-math">\(x\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-plane-2-1-10">
+\begin{equation*}
+\text{Volume} = \int^{x=2}_{x=0} A(x)\,dx = \int^{x=2}_{x=0} \left( \int^{y=1}_{y=0} (4-x-y)\,dy \right) dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-plane-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.2.1"><a href="#ex-volume-plane-2" title="Copy heading and permalink for Solution 4.2.1" aria-label="Copy heading and permalink for Solution 4.2.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.2"><a href="#ex-volume-plane" title="Copy heading and permalink for Example 4.2" aria-label="Copy heading and permalink for Example 4.2">🔗</a></div>
+</article></details>
+<article class="note remark-like" id="note-iterated-integral"><h3 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="note-iterated-integral-1">The expression, <span class="process-math">\(\displaystyle \int^{x=2}_{x=0}\int^{y=1}_{y=0} (4-x-y)\,dydx\text{,}\)</span> is called an <dfn class="terminology">iterated or repeated integral</dfn>. The volume is obtained by integrating <span class="process-math">\(4-x-y\)</span> with respect to <span class="process-math">\(y\)</span> from <span class="process-math">\(y=0\)</span> to <span class="process-math">\(y=1\text{,}\)</span> holding <span class="process-math">\(x\)</span> fixed, and then integrating the resulting expression in <span class="process-math">\(x\)</span> with respect to <span class="process-math">\(x\)</span> from <span class="process-math">\(x=0\)</span> to <span class="process-math">\(x=2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#note-iterated-integral-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 4.4"><a href="#note-iterated-integral" title="Copy heading and permalink for Note 4.4" aria-label="Copy heading and permalink for Note 4.4">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-fubini-first-form"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fubini’s Theorem (First Form).</span>
+</h3>
+<div class="para logical" id="thm-fubini-first-form-2-1">
+<div class="para">If <span class="process-math">\(f(x,y)\)</span> is continuous throughout the rectangular region <span class="process-math">\(R : a \leq x \leq b, \ c \leq y \leq d,\)</span> then</div>
+<div class="displaymath process-math" id="thm-fubini-first-form-2-1-3">
+\begin{equation*}
+\iint_R f(x,y)\,dA = \int^d_c \int^b_a f(x,y)\,dxdy = \int^b_a \int^d_c f(x,y)\,dydx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-fubini-first-form-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.5: Fubini’s Theorem (First Form)"><a href="#thm-fubini-first-form" title="Copy heading and permalink for Theorem 4.5: Fubini’s Theorem (First Form)" aria-label="Copy heading and permalink for Theorem 4.5: Fubini’s Theorem (First Form)">🔗</a></div>
+</article>
+<details id="ex-evaluate-double-integral" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating a Double Integral.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-evaluate-double-integral-2-1">
+<div class="para">Calculate <span class="process-math">\(\iint_R f(x,y)\,dA\)</span> for</div>
+<div class="displaymath process-math" id="ex-evaluate-double-integral-2-1-2">
+\begin{equation*}
+f(x,y) = 1-6x^2y \quad \text{for} \quad R : 0 \leq x \leq 2, \ -1 \leq y \leq 1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-evaluate-double-integral-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-evaluate-double-integral-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-evaluate-double-integral-3-1">
+<figure class="figure figure-like" id="fig-domain-negative-y"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-domain-negative-y.svg" role="img" class="contained" alt="A plot of the 2D rectangular domain R showing boundary lines x=0, x=2, y=-1, and y=1 with the region centered vertically on the x-axis."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The rectangular region <span class="process-math">\(R: 0 \leq x \leq 2, \ -1 \leq y \leq 1\)</span> in the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Figure 4.7"><a href="#fig-domain-negative-y" title="Copy heading and permalink for Figure 4.7" aria-label="Copy heading and permalink for Figure 4.7">🔗</a></div></figcaption>
+</figure> We can integrate in either order using Fubini’s Theorem. Let’s integrate with respect to <span class="process-math">\(x\)</span> first, and then with respect to <span class="process-math">\(y\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-evaluate-double-integral-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-evaluate-double-integral-3-2">
+\begin{align*}
+\iint_R (1-6x^2y)\,dA \amp = \int_{-1}^{1} \int_{0}^{2} (1-6x^2y)\,dxdy\\
+\amp = \int_{-1}^{1} \left[ x - 2x^3y \right]_{x=0}^{x=2} \,dy\\
+\amp = \int_{-1}^{1} \left( (2 - 2(8)y) - (0 - 0) \right) \,dy\\
+\amp = \int_{-1}^{1} (2 - 16y)\,dy\\
+\amp = \left[ 2y - 8y^2 \right]_{-1}^{1}\\
+\amp = (2(1) - 8(1)^2) - (2(-1) - 8(-1)^2)\\
+\amp = (2 - 8) - (-2 - 8)\\
+\amp = -6 - (-10) = 4
+\end{align*}
+</div>
+<div class="para" id="ex-evaluate-double-integral-3-3">Alternatively, integrating with respect to <span class="process-math">\(y\)</span> first yields the same result:<div class="autopermalink" data-description="Paragraph"><a href="#ex-evaluate-double-integral-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-evaluate-double-integral-3-4">
+\begin{align*}
+\int_{0}^{2} \int_{-1}^{1} (1-6x^2y)\,dydx \amp = \int_{0}^{2} \left[ y - 3x^2y^2 \right]_{y=-1}^{y=1} \,dx\\
+\amp = \int_{0}^{2} \left( (1 - 3x^2(1)^2) - (-1 - 3x^2(-1)^2) \right) \,dx\\
+\amp = \int_{0}^{2} (1 - 3x^2 + 1 + 3x^2)\,dx\\
+\amp = \int_{0}^{2} 2\,dx\\
+\amp = \left[ 2x \right]_{0}^{2} = 4
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Solution 4.6.1"><a href="#ex-evaluate-double-integral-3" title="Copy heading and permalink for Solution 4.6.1" aria-label="Copy heading and permalink for Solution 4.6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.6: Evaluating a Double Integral"><a href="#ex-evaluate-double-integral" title="Copy heading and permalink for Example 4.6: Evaluating a Double Integral" aria-label="Copy heading and permalink for Example 4.6: Evaluating a Double Integral">🔗</a></div>
+</article></details>
+<details id="ex-double-integral-trig" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-double-integral-trig-1-1">
+<div class="para">Calculate <span class="process-math">\(\iint_R f(x,y)\,dA\)</span> for</div>
+<div class="displaymath process-math" id="ex-double-integral-trig-1-1-2">
+\begin{equation*}
+f(x,y) = 2y\cos x \quad \text{for} \quad R : \pi/6 \leq x \leq y^2, \ 1 \leq y \leq 3.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-trig-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-double-integral-trig-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-double-integral-trig-2-1">
+<figure class="figure figure-like" id="fig-domain-variable-bounds"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/img-domain-variable-bounds.svg" role="img" class="contained" alt="A plot of the 2D domain R bounded on the left by the vertical line x=pi/6, on the right by the curve x=y^2, below by y=1, and above by y=3 with no axis ticks."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The region <span class="process-math">\(R: \pi/6 \leq x \leq y^2, \ 1 \leq y \leq 3\)</span> in the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Figure 4.9"><a href="#fig-domain-variable-bounds" title="Copy heading and permalink for Figure 4.9" aria-label="Copy heading and permalink for Figure 4.9">🔗</a></div></figcaption>
+</figure> Because the limits for <span class="process-math">\(x\)</span> depend on <span class="process-math">\(y\text{,}\)</span> we must set this up as a Type II region and integrate with respect to <span class="process-math">\(x\)</span> first:<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-trig-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-double-integral-trig-2-2">
+\begin{align*}
+\iint_R 2y\cos x\,dA \amp = \int_{1}^{3} \int_{\pi/6}^{y^2} 2y\cos x \,dxdy\\
+\amp = \int_{1}^{3} \left[ 2y\sin x \right]_{x=\pi/6}^{x=y^2} \,dy\\
+\amp = \int_{1}^{3} \left( 2y\sin(y^2) - 2y\sin\left(\frac{\pi}{6}\right) \right) \,dy
+\end{align*}
+</div>
+<div class="para" id="ex-double-integral-trig-2-3">Since <span class="process-math">\(\sin(\pi/6) = \frac{1}{2}\text{,}\)</span> the expression simplifies to:<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-trig-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-double-integral-trig-2-4">
+\begin{align*}
+\amp = \int_{1}^{3} \left( 2y\sin(y^2) - y \right) \,dy
+\end{align*}
+</div>
+<div class="para" id="ex-double-integral-trig-2-5">We integrate each term. For the first term, we can use <span class="process-math">\(u\)</span>-substitution with <span class="process-math">\(u = y^2\)</span> and <span class="process-math">\(du = 2y\,dy\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-trig-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-double-integral-trig-2-6">
+\begin{align*}
+\amp = \left[ -\cos(y^2) - \frac{1}{2}y^2 \right]_{1}^{3}\\
+\amp = \left( -\cos(9) - \frac{1}{2}(9) \right) - \left( -\cos(1) - \frac{1}{2}(1) \right)\\
+\amp = \cos(1) - \cos(9) - \frac{9}{2} + \frac{1}{2}\\
+\amp = \cos(1) - \cos(9) - 4
+\end{align*}
+</div>
+<div class="para" id="ex-double-integral-trig-2-7">Thus, the exact value of the double integral is <span class="process-math">\(\cos(1) - \cos(9) - 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-trig-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.8.1"><a href="#ex-double-integral-trig-2" title="Copy heading and permalink for Solution 4.8.1" aria-label="Copy heading and permalink for Solution 4.8.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.8"><a href="#ex-double-integral-trig" title="Copy heading and permalink for Example 4.8" aria-label="Copy heading and permalink for Example 4.8">🔗</a></div>
+</article></details>
+<article class="theorem theorem-like" id="thm-fubini-stronger-form"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fubini’s Theorem (Stronger Form).</span>
+</h3>
+<div class="para" id="thm-fubini-stronger-form-2-1">Let <span class="process-math">\(f(x,y)\)</span> be continuous on a region <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-fubini-stronger-form-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal ol-marker-1" id="thm-fubini-stronger-form-2-2">
+<li id="thm-fubini-stronger-form-2-2-1">
+<div class="para logical" id="thm-fubini-stronger-form-2-2-1-1">
+<div class="para">If <span class="process-math">\(R\)</span> is defined by <span class="process-math">\(a \leq x \leq b, \ g_1(x) \leq y \leq g_2(x),\)</span> with <span class="process-math">\(g_1\)</span> and <span class="process-math">\(g_2\)</span> continuous on <span class="process-math">\([a,b],\)</span> then</div>
+<div class="displaymath process-math" id="thm-fubini-stronger-form-2-2-1-1-6">
+\begin{equation*}
+\iint_R f(x,y)\,dA = \int^b_a \int^{g_2(x)}_{g_1(x)} f(x,y)\,dydx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-fubini-stronger-form-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#thm-fubini-stronger-form-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="thm-fubini-stronger-form-2-2-2">
+<div class="para logical" id="thm-fubini-stronger-form-2-2-2-1">
+<div class="para">If <span class="process-math">\(R\)</span> is defined by <span class="process-math">\(c \leq y \leq d, \ h_1(y) \leq x \leq h_2(y),\)</span> with <span class="process-math">\(h_1\)</span> and <span class="process-math">\(h_2\)</span> continuous on <span class="process-math">\([c,d],\)</span> then</div>
+<div class="displaymath process-math" id="thm-fubini-stronger-form-2-2-2-1-6">
+\begin{equation*}
+\iint_R f(x,y)\,dA = \int^d_c \int^{h_2(y)}_{h_1(y)} f(x,y)\,dxdy.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-fubini-stronger-form-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#thm-fubini-stronger-form-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Theorem 4.10: Fubini’s Theorem (Stronger Form)"><a href="#thm-fubini-stronger-form" title="Copy heading and permalink for Theorem 4.10: Fubini’s Theorem (Stronger Form)" aria-label="Copy heading and permalink for Theorem 4.10: Fubini’s Theorem (Stronger Form)">🔗</a></div>
+</article>
+<details id="ex-double-integral-bounded-region" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-double-integral-bounded-region-1-1">Let <span class="process-math">\(R\)</span> be the region in the <span class="process-math">\(xy\)</span>-plane bounded by the graphs of <span class="process-math">\(y=x^2\)</span> and <span class="process-math">\(y=2x\text{.}\)</span> Evaluate <span class="process-math">\(\iint_R (x^3+4y)\,dA\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-bounded-region-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-double-integral-bounded-region-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-double-integral-bounded-region-2-1">
+<div class="para">
+<figure class="figure figure-like" id="fig-bounded-region-parabola"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-bounded-region-parabola.svg" role="img" class="contained" alt="A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=2x, stretched horizontally using a 2 to 1 axis ratio."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The region <span class="process-math">\(R\)</span> bounded by <span class="process-math">\(y=x^2\)</span> and <span class="process-math">\(y=2x\)</span> with an adjusted 2:1 aspect ratio.<div class="autopermalink" data-description="Figure 4.12"><a href="#fig-bounded-region-parabola" title="Copy heading and permalink for Figure 4.12" aria-label="Copy heading and permalink for Figure 4.12">🔗</a></div></figcaption>
+</figure> First, we find the points of intersection of the bounding curves by setting them equal to each other:</div>
+<div class="displaymath process-math" id="ex-double-integral-bounded-region-2-1-2">
+\begin{equation*}
+x^2 = 2x \implies x^2 - 2x = 0 \implies x(x-2) = 0
+\end{equation*}
+</div>
+<div class="para">This gives intersection points at <span class="process-math">\(x = 0\)</span> and <span class="process-math">\(x = 2\text{.}\)</span> On the interval <span class="process-math">\([0,2]\text{,}\)</span> the line <span class="process-math">\(y = 2x\)</span> lies above the parabola <span class="process-math">\(y = x^2\text{.}\)</span> Thus, our region is described by <span class="process-math">\(0 \leq x \leq 2\)</span> and <span class="process-math">\(x^2 \leq y \leq 2x\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-bounded-region-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-double-integral-bounded-region-2-2">Using Fubini’s stronger form, we integrate with respect to <span class="process-math">\(y\)</span> first:<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-bounded-region-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-double-integral-bounded-region-2-3">
+\begin{align*}
+\iint_R (x^3+4y)\,dA \amp = \int_{0}^{2} \int_{x^2}^{2x} (x^3+4y)\,dydx\\
+\amp = \int_{0}^{2} \left[ x^3y + 2y^2 \right]_{y=x^2}^{y=2x} \,dx\\
+\amp = \int_{0}^{2} \left( \left(x^3(2x) + 2(2x)^2\right) - \left(x^3(x^2) + 2(x^2)^2\right) \right) \,dx\\
+\amp = \int_{0}^{2} \left( 2x^4 + 8x^2 - x^5 - 2x^4 \right) \,dx\\
+\amp = \int_{0}^{2} \left( 8x^2 - x^5 \right) \,dx\\
+\amp = \left[ \frac{8}{3}x^3 - \frac{1}{6}x^6 \right]_{0}^{2}\\
+\amp = \left( \frac{8}{3}(8) - \frac{1}{6}(64) \right) - (0 - 0)\\
+\amp = \frac{64}{3} - \frac{32}{3} = \frac{32}{3}
+\end{align*}
+</div>
+<div class="para" id="ex-double-integral-bounded-region-2-4">The value of the double integral over the bounded region is <span class="process-math">\(\frac{32}{3}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-bounded-region-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.11.1"><a href="#ex-double-integral-bounded-region-2" title="Copy heading and permalink for Solution 4.11.1" aria-label="Copy heading and permalink for Solution 4.11.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.11"><a href="#ex-double-integral-bounded-region" title="Copy heading and permalink for Example 4.11" aria-label="Copy heading and permalink for Example 4.11">🔗</a></div>
+</article></details>
+<details id="ex-reverse-integration-order" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="ex-reverse-integration-order-1-1">Given <span class="process-math">\(\displaystyle \int^4_0\int^2_{\sqrt{y}}y\cos(x^5) \, dxdy\text{,}\)</span> reverse the order of integration and evaluate the resulting integral.<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-reverse-integration-order-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-reverse-integration-order-2-1">Step 1: Analyze the Original Domain of Integration<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-reverse-integration-order-2-2">
+<div class="para">The original limits correspond to a Type II integration order (<span class="process-math">\(dxdy\)</span>). The boundaries for the region <span class="process-math">\(R\)</span> are given by:</div>
+<div class="displaymath process-math" id="ex-reverse-integration-order-2-2-3">
+\begin{equation*}
+0 \leq y \leq 4 \quad \text{and} \quad \sqrt{y} \leq x \leq 2
+\end{equation*}
+</div>
+<div class="para">The inner lower boundary curve <span class="process-math">\(x = \sqrt{y}\)</span> is equivalent to the parabola <span class="process-math">\(y = x^2\)</span> for <span class="process-math">\(x \geq 0\text{.}\)</span> The upper boundary for <span class="process-math">\(x\)</span> is the vertical line <span class="process-math">\(x = 2\text{.}\)</span> These boundaries intersect at the points <span class="process-math">\((0,0)\)</span> and <span class="process-math">\((2,4)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-domain-dxdy"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-domain-dxdy.svg" role="img" class="contained" alt="A plot of the domain R showing a horizontal arrow sweeping from the curve x equals root y to the line x equals 2, bounded vertically between y=0 and y=4."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The integration domain <span class="process-math">\(R\)</span> viewed as a Type II region (<span class="process-math">\(dxdy\)</span>), bounded on the left by <span class="process-math">\(x=\sqrt{y}\)</span> and on the right by <span class="process-math">\(x=2\text{.}\)</span><div class="autopermalink" data-description="Figure 4.14"><a href="#fig-domain-dxdy" title="Copy heading and permalink for Figure 4.14" aria-label="Copy heading and permalink for Figure 4.14">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-reverse-integration-order-2-4">Step 2: Reverse the Order of Integration to Type I (<span class="process-math">\(dydx\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-reverse-integration-order-2-5">To transition to Type I format, we look at the region sweeping from left to right along the constant boundaries of the <span class="process-math">\(x\)</span>-axis. The region spans from <span class="process-math">\(x = 0\)</span> to <span class="process-math">\(x = 2\text{.}\)</span> For any fixed value of <span class="process-math">\(x\text{,}\)</span> the vertical strip starts at the bottom boundary line <span class="process-math">\(y = 0\)</span> and moves up to touch the upper parabolic curve boundary <span class="process-math">\(y = x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-reverse-integration-order-2-6">
+<div class="para">The rewritten boundary inequalities become:</div>
+<div class="displaymath process-math" id="ex-reverse-integration-order-2-6-1">
+\begin{equation*}
+0 \leq x \leq 2 \quad \text{and} \quad 0 \leq y \leq x^2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-domain-dydx"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-domain-dydx.svg" role="img" class="contained" alt="A plot of the domain R showing a vertical arrow sweeping from the line y=0 up to the parabola y equals x squared, bounded horizontally between x=0 and x=2."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The integration domain <span class="process-math">\(R\)</span> viewed as a Type I region (<span class="process-math">\(dydx\)</span>), bounded below by <span class="process-math">\(y=0\)</span> and above by <span class="process-math">\(y=x^2\text{.}\)</span><div class="autopermalink" data-description="Figure 4.15"><a href="#fig-domain-dydx" title="Copy heading and permalink for Figure 4.15" aria-label="Copy heading and permalink for Figure 4.15">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-reverse-integration-order-2-8">Step 3: Evaluate the New Iterated Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-reverse-integration-order-2-9">
+<div class="para">Setting up the reversed iterated integral gives:</div>
+<div class="displaymath process-math" id="ex-reverse-integration-order-2-9-1">
+\begin{equation*}
+\int_{0}^{2} \int_{0}^{x^2} y\cos(x^5) \, dy \, dx
+\end{equation*}
+</div>
+<div class="para">First, we integrate the inner expression with respect to <span class="process-math">\(y\text{,}\)</span> treating <span class="process-math">\(\cos(x^5)\)</span> as a constant factor:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-reverse-integration-order-2-10">
+\begin{align*}
+\int_{0}^{2} \left[ \frac{1}{2}y^2 \cos(x^5) \right]_{y=0}^{y=x^2} \, dx \amp = \int_{0}^{2} \left( \frac{1}{2}(x^2)^2 \cos(x^5) - 0 \right) \, dx\\
+\amp = \int_{0}^{2} \frac{1}{2}x^4 \cos(x^5) \, dx
+\end{align*}
+</div>
+<div class="para logical" id="ex-reverse-integration-order-2-11">
+<div class="para">Now, we evaluate the outer single integral with respect to <span class="process-math">\(x\text{.}\)</span> We can use <span class="process-math">\(u\)</span>-substitution by setting:</div>
+<div class="displaymath process-math" id="ex-reverse-integration-order-2-11-3">
+\begin{equation*}
+u = x^5 \implies du = 5x^4 \, dx \implies \frac{1}{5}\,du = x^4 \, dx
+\end{equation*}
+</div>
+<div class="para">We transform the integration boundaries accordingly:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ex-reverse-integration-order-2-12">
+<li id="ex-reverse-integration-order-2-12-1">
+<div class="para" id="ex-reverse-integration-order-2-12-1-1">When <span class="process-math">\(x = 0\text{:}\)</span> <span class="process-math">\(u = 0^5 = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-reverse-integration-order-2-12-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-reverse-integration-order-2-12-2">
+<div class="para" id="ex-reverse-integration-order-2-12-2-1">When <span class="process-math">\(x = 2\text{:}\)</span> <span class="process-math">\(u = 2^5 = 32\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-reverse-integration-order-2-12-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="ex-reverse-integration-order-2-13">Substituting these components back into the integral equation yields:<div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-reverse-integration-order-2-14">
+\begin{align*}
+\int_{0}^{32} \frac{1}{2} \cdot \left(\frac{1}{5} \cos(u)\right) \, du \amp = \frac{1}{10} \int_{0}^{32} \cos(u) \, du\\
+\amp = \frac{1}{10} \Big[ \sin(u) \Big]_{0}^{32}\\
+\amp = \frac{1}{10} \big( \sin(32) - \sin(0) \big)\\
+\amp = \frac{\sin(32)}{10}
+\end{align*}
+</div>
+<div class="para" id="ex-reverse-integration-order-2-15">Thus, the exact value of the reversed integration evaluation is <span class="process-math">\(\frac{\sin(32)}{10}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-reverse-integration-order-2-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.13.1"><a href="#ex-reverse-integration-order-2" title="Copy heading and permalink for Solution 4.13.1" aria-label="Copy heading and permalink for Solution 4.13.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.13"><a href="#ex-reverse-integration-order" title="Copy heading and permalink for Checkpoint 4.13" aria-label="Copy heading and permalink for Checkpoint 4.13">🔗</a></div>
+</article></details>
+<details id="ex-prism-volume" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding Volume.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-prism-volume-2-1">
+<div class="para">Find the volume of a prism whose base is the triangle in the <span class="process-math">\(xy\)</span>-plane bounded by the <span class="process-math">\(x\)</span>-axis and the lines <span class="process-math">\(y=x\)</span> and <span class="process-math">\(x=1\text{,}\)</span> and whose top lies in the plane</div>
+<div class="displaymath process-math" id="ex-prism-volume-2-1-5">
+\begin{equation*}
+z = f(x,y) = 3-x-y.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-prism-volume-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-prism-volume-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-prism-volume-3-1">Step 1: Identify the Base Region <span class="process-math">\(R\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-prism-volume-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-prism-volume-3-2">
+<div class="para">The triangular base region <span class="process-math">\(R\)</span> in the <span class="process-math">\(xy\)</span>-plane is bounded by the lines <span class="process-math">\(y = 0\)</span> (the <span class="process-math">\(x\)</span>-axis), <span class="process-math">\(y = x\text{,}\)</span> and <span class="process-math">\(x = 1\text{.}\)</span> These lines intersect at the coordinates <span class="process-math">\((0,0)\text{,}\)</span> <span class="process-math">\((1,0)\text{,}\)</span> and <span class="process-math">\((1,1)\text{.}\)</span> Treating this as a Type I region, the limits of integration are:</div>
+<div class="displaymath process-math" id="ex-prism-volume-3-2-10">
+\begin{equation*}
+0 \leq x \leq 1 \quad \text{and} \quad 0 \leq y \leq x
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-prism-volume-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-prism-base-domain"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-prism-base-domain.svg" role="img" class="contained" alt="A plot of the 2D triangular domain R bounded below by y=0, on the right by x=1, and above by the line y=x, with a vertical sweep arrow showing dy integration direction."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The triangular base region <span class="process-math">\(R\)</span> in the <span class="process-math">\(xy\)</span>-plane with a 2:1 horizontal-to-vertical aspect ratio.<div class="autopermalink" data-description="Figure 4.17"><a href="#fig-prism-base-domain" title="Copy heading and permalink for Figure 4.17" aria-label="Copy heading and permalink for Figure 4.17">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-prism-volume-3-4">Step 2: Set Up and Evaluate the Volume Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-prism-volume-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-prism-volume-3-5">
+<div class="para">The volume <span class="process-math">\(V\)</span> under the surface <span class="process-math">\(z = 3-x-y\)</span> over the region <span class="process-math">\(R\)</span> is calculated using a double integral:</div>
+<div class="displaymath process-math" id="ex-prism-volume-3-5-4">
+\begin{equation*}
+V = \iint_R (3-x-y) \, dA = \int_{0}^{1} \int_{0}^{x} (3-x-y) \, dy \, dx
+\end{equation*}
+</div>
+<div class="para">First, we compute the inner integral with respect to <span class="process-math">\(y\text{,}\)</span> holding <span class="process-math">\(x\)</span> constant:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-prism-volume-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-prism-volume-3-6">
+\begin{align*}
+\int_{0}^{x} (3-x-y) \, dy \amp = \left[ 3y - xy - \frac{1}{2}y^2 \right]_{y=0}^{y=x}\\
+\amp = \left( 3(x) - x(x) - \frac{1}{2}(x)^2 \right) - 0\\
+\amp = 3x - x^2 - \frac{1}{2}x^2\\
+\amp = 3x - \frac{3}{2}x^2
+\end{align*}
+</div>
+<div class="para" id="ex-prism-volume-3-7">Next, we substitute this result into the outer integral and integrate with respect to <span class="process-math">\(x\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-prism-volume-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-prism-volume-3-8">
+\begin{align*}
+V \amp = \int_{0}^{1} \left( 3x - \frac{3}{2}x^2 \right) \, dx\\
+\amp = \left[ \frac{3}{2}x^2 - \frac{1}{2}x^3 \right]_{0}^{1}\\
+\amp = \left( \frac{3}{2}(1)^2 - \frac{1}{2}(1)^3 \right) - 0\\
+\amp = \frac{3}{2} - \frac{1}{2} = 1
+\end{align*}
+</div>
+<div class="para" id="ex-prism-volume-3-9">The total volume of the prism is exactly <span class="process-math">\(1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-prism-volume-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.16.1"><a href="#ex-prism-volume-3" title="Copy heading and permalink for Solution 4.16.1" aria-label="Copy heading and permalink for Solution 4.16.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.16: Finding Volume"><a href="#ex-prism-volume" title="Copy heading and permalink for Example 4.16: Finding Volume" aria-label="Copy heading and permalink for Example 4.16: Finding Volume">🔗</a></div>
+</article></details>
+<details id="ex-double-integral-double-check" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<ol class="decimal ol-marker-1" id="ex-double-integral-double-check-1-1">
+<li id="ex-double-integral-double-check-1-1-1">
+<div class="para logical" id="ex-double-integral-double-check-1-1-1-1">
+<div class="para">Evaluate the double integral over the given region</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-1-1-1-1-1">
+\begin{equation*}
+\iint_R e^{x-y}\,dA, \qquad R: 0\leq x \leq \ln 2, \ 0\leq y\leq \ln 2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.18.1"><a href="#ex-double-integral-double-check-1-1-1" title="Copy heading and permalink for Item 4.18.1" aria-label="Copy heading and permalink for Item 4.18.1">🔗</a></div>
+</li>
+<li id="ex-double-integral-double-check-1-1-2">
+<div class="para" id="ex-double-integral-double-check-1-1-2-1">Find the volume of the region bounded above by the paraboloid <span class="process-math">\(z=x^2+y^2\)</span> and below by the square <span class="process-math">\(R:-1\leq x\leq 1, \ -1\leq y \leq 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.18.2"><a href="#ex-double-integral-double-check-1-1-2" title="Copy heading and permalink for Item 4.18.2" aria-label="Copy heading and permalink for Item 4.18.2">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-double-integral-double-check-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal ol-marker-1" id="ex-double-integral-double-check-2-1">
+<li id="ex-double-integral-double-check-2-1-1">
+<div class="para" id="ex-double-integral-double-check-2-1-1-1">Solution to Part 1:<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ln2-rectangular-domain"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/latex-image/img-ln2-rectangular-domain.svg" role="img" class="contained" alt="A plot of the 2D rectangular domain R bounded by x from 0 to ln 2 and y from 0 to ln 2, stretched horizontally using a 2 to 1 axis scale ratio."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The rectangular region <span class="process-math">\(R: 0 \leq x \leq \ln 2, \ 0 \leq y \leq \ln 2\)</span> in the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Figure 4.19"><a href="#fig-ln2-rectangular-domain" title="Copy heading and permalink for Figure 4.19" aria-label="Copy heading and permalink for Figure 4.19">🔗</a></div></figcaption>
+</figure>
+<div class="para logical" id="ex-double-integral-double-check-2-1-1-3">
+<div class="para">Since the limits of integration for both variables are constants, this is a simple rectangular region. We can use Fubini’s Theorem to write it as an iterated integral:</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-2-1-1-3-1">
+\begin{equation*}
+\iint_R e^{x-y}\,dA = \int_{0}^{\ln 2} \int_{0}^{\ln 2} e^x e^{-y} \,dx\,dy
+\end{equation*}
+</div>
+<div class="para">Because the integrand factors into a function of <span class="process-math">\(x\)</span> multiplied by a function of <span class="process-math">\(y\text{,}\)</span> we can split the double integral into the product of two separate single integrals:</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-2-1-1-3-4">
+\begin{equation*}
+= \left( \int_{0}^{\ln 2} e^x \,dx \right) \left( \int_{0}^{\ln 2} e^{-y} \,dy \right)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-2-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-double-integral-double-check-2-1-1-4">
+<div class="para">Evaluating each single integral independently:</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-2-1-1-4-1">
+\begin{equation*}
+\int_{0}^{\ln 2} e^x \,dx = \left[ e^x \right]_{0}^{\ln 2} = e^{\ln 2} - e^0 = 2 - 1 = 1
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-2-1-1-4-2">
+\begin{equation*}
+\int_{0}^{\ln 2} e^{-y} \,dy = \left[ -e^{-y} \right]_{0}^{\ln 2} = -e^{-\ln 2} - (-e^0) = -\frac{1}{2} + 1 = \frac{1}{2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-2-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-double-integral-double-check-2-1-1-5">
+<div class="para">Multiplying the two results together gives:</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-2-1-1-5-1">
+\begin{equation*}
+\iint_R e^{x-y}\,dA = 1 \cdot \frac{1}{2} = \frac{1}{2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-2-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.18.1"><a href="#ex-double-integral-double-check-2-1-1" title="Copy heading and permalink for Item 4.18.1" aria-label="Copy heading and permalink for Item 4.18.1">🔗</a></div>
+</li>
+<li id="ex-double-integral-double-check-2-1-2">
+<div class="para" id="ex-double-integral-double-check-2-1-2-1">Solution to Part 2:<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-double-integral-double-check-2-1-2-2">
+<div class="para">The volume <span class="process-math">\(V\)</span> under the surface <span class="process-math">\(z = x^2 + y^2\)</span> over the square region <span class="process-math">\(R\)</span> is given by the double integral:</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-2-1-2-2-4">
+\begin{equation*}
+V = \iint_R (x^2 + y^2)\,dA = \int_{-1}^{1} \int_{-1}^{1} (x^2 + y^2) \,dy\,dx
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-2-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-square-domain"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/latex-image/img-square-domain.svg" role="img" class="contained" alt="A plot of a square domain from x=-1 to 1 and y=-1 to 1 centered at the origin, scaled wider on the x axis to follow a 2 to 1 layout ratio."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The square base domain <span class="process-math">\(R: [-1,1] \times [-1,1]\)</span> in the <span class="process-math">\(xy\)</span>-plane with a 2:1 horizontal-to-vertical aspect ratio.<div class="autopermalink" data-description="Figure 4.20"><a href="#fig-square-domain" title="Copy heading and permalink for Figure 4.20" aria-label="Copy heading and permalink for Figure 4.20">🔗</a></div></figcaption>
+</figure>
+<div class="para logical" id="ex-double-integral-double-check-2-1-2-4">
+<div class="para">First, we compute the inner integral with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-2-1-2-4-2">
+\begin{align*}
+\int_{-1}^{1} (x^2 + y^2) \,dy \amp = \left[ x^2y + \frac{1}{3}y^3 \right]_{y=-1}^{y=1}\\
+\amp = \left( x^2(1) + \frac{1}{3}(1)^3 \right) - \left( x^2(-1) + \frac{1}{3}(-1)^3 \right)\\
+\amp = \left( x^2 + \frac{1}{3} \right) - \left( -x^2 - \frac{1}{3} \right)\\
+\amp = 2x^2 + \frac{2}{3}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-2-1-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-double-integral-double-check-2-1-2-5">
+<div class="para">Now, we integrate this result with respect to <span class="process-math">\(x\)</span> across the outer boundaries:</div>
+<div class="displaymath process-math" id="ex-double-integral-double-check-2-1-2-5-2">
+\begin{align*}
+V \amp = \int_{-1}^{1} \left( 2x^2 + \frac{2}{3} \right) \,dx\\
+\amp = \left[ \frac{2}{3}x^3 + \frac{2}{3}x \right]_{-1}^{1}\\
+\amp = \left( \frac{2}{3}(1)^3 + \frac{2}{3}(1) \right) - \left( \frac{2}{3}(-1)^3 + \frac{2}{3}(-1) \right)\\
+\amp = \left( \frac{2}{3} + \frac{2}{3} \right) - \left( -\frac{2}{3} - \frac{2}{3} \right)\\
+\amp = \frac{4}{3} - \left( -\frac{4}{3} \right) = \frac{8}{3}
+\end{align*}
+</div>
+<div class="para">The total volume bounded by the paraboloid over the square base is <span class="process-math">\(\frac{8}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-double-integral-double-check-2-1-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.18.2"><a href="#ex-double-integral-double-check-2-1-2" title="Copy heading and permalink for Item 4.18.2" aria-label="Copy heading and permalink for Item 4.18.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 4.18.1"><a href="#ex-double-integral-double-check-2" title="Copy heading and permalink for Solution 4.18.1" aria-label="Copy heading and permalink for Solution 4.18.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.18"><a href="#ex-double-integral-double-check" title="Copy heading and permalink for Checkpoint 4.18" aria-label="Copy heading and permalink for Checkpoint 4.18">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section: 4.1 Double Integrals"><a href="#sec-double-integrals" title="Copy heading and permalink for Section: 4.1 Double Integrals" aria-label="Copy heading and permalink for Section: 4.1 Double Integrals">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-Multiple-Integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-Triple-integrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
