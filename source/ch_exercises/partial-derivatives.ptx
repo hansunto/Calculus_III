@@ -407,6 +407,124 @@
     <pagebreak />
   </page>
 
+  <!-- ========================================== -->
+<!-- PAGE 8                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-pd8"> 
+
+  <exercise xml:id="ex-ws-pd8-q1">
+    <statement>
+      <p> 
+        Find the absolute max and min values of <m>f(x,y)=x^3+y^3+3x^2-3y^2</m> on the square region enclosed by the lines <m>x=\pm1</m> and <m>y=\pm1</m>.
+      </p> 
+    </statement>
+    <solution>
+      <p>
+        First, we find the critical points in the interior of the region by setting the partial derivatives to zero:
+      </p>
+      <md>
+        <mrow>f_x(x,y) \amp = 3x^2 + 6x = 3x(x+2) = 0 \implies x = 0, \, x = -2</mrow>
+        <mrow>f_y(x,y) \amp = 3y^2 - 6y = 3y(y-2) = 0 \implies y = 0, \, y = 2</mrow>
+      </md>
+      <p>
+        Since our region is bounded by <m>[-1,1] \times [-1,1]</m>, the values <m>x = -2</m> and <m>y = 2</m> lie outside the square. The only interior critical point is <m>(0,0)</m>. Evaluating the function here yields:
+        <me>f(0,0) = 0</me>
+      </p>
+      <p>
+        Next, we check the four boundaries of the square region:
+      </p>
+      <ul>
+        <li>
+          <p>
+            On the right boundary (<m>x = 1, -1 \le y \le 1</m>): <m>g_1(y) = f(1,y) = y^3 - 3y^2 + 4</m>. Setting <m>g_1'(y) = 3y^2 - 6y = 0</m> gives <m>y = 0</m>. We check the critical point and the edge endpoints: 
+            <me>f(1,0) = 4, \quad f(1,-1) = 0, \quad f(1,1) = 2</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            On the left boundary (<m>x = -1, -1 \le y \le 1</m>): <m>g_2(y) = f(-1,y) = y^3 - 3y^2 + 2</m>. The critical point is <m>y = 0</m>. Checking these locations gives:
+            <me>f(-1,0) = 2, \quad f(-1,-1) = -2, \quad f(-1,1) = 0</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            On the top boundary (<m>y = 1, -1 \le x \le 1</m>): <m>h_1(x) = f(x,1) = x^3 + 3x^2 - 2</m>. Setting <m>h_1'(x) = 3x^2 + 6x = 0</m> gives <m>x = 0</m>. Checking these locations gives:
+            <me>f(0,1) = -2, \quad f(-1,1) = 0, \quad f(1,1) = 2</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            On the bottom boundary (<m>y = -1, -1 \le x \le 1</m>): <m>h_2(x) = f(x,-1) = x^3 + 3x^2 - 4</m>. The critical point is <m>x = 0</m>. Checking these locations gives:
+            <me>f(0,-1) = -4, \quad f(-1,-1) = -2, \quad f(1,-1) = 0</me>
+          </p>
+        </li>
+      </ul>
+      <p>
+        Comparing all computed values, the absolute maximum value is <m>4</m> occurring at <m>(1,0)</m>, and the absolute minimum value is <m>-4</m> occurring at <m>(0,-1)</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-ws-pd8-q2">
+    <statement>
+      <p> 
+        If <m>w=\ln(x^2+y^2+2z)</m>, <m>x=r+s</m>, <m>y=r-s</m>, <m>z=2rs</m>, find <m>w_r</m> and <m>w_s</m> by the Chain Rule. Then check your answer another way.
+      </p> 
+    </statement>
+    <solution>
+      <p>
+        <strong>Method 1: Chain Rule</strong>
+      </p>
+      <p>
+        First, we find the partial derivatives of <m>w</m> with respect to its intermediate variables <m>x</m>, <m>y</m>, and <m>z</m>:
+      </p>
+      <me>w_x = \frac{2x}{x^2+y^2+2z}, \quad w_y = \frac{2y}{x^2+y^2+2z}, \quad w_z = \frac{2}{x^2+y^2+2z}</me>
+      <p>
+        Now, we calculate the partial derivatives of the inner components with respect to <m>r</m> and <m>s</m>:
+      </p>
+      <me>x_r = 1, \quad y_r = 1, \quad z_r = 2s \qquad \text{and} \qquad x_s = 1, \quad y_s = -1, \quad z_s = 2r</me>
+      <p>
+        Applying the Chain Rule for <m>w_r</m>:
+      </p>
+      <md>
+        <mrow>w_r \amp = w_x x_r + w_y y_r + w_z z_r</mrow>
+        <mrow>\amp = \frac{2x(1) + 2y(1) + 2(2s)}{x^2+y^2+2z} = \frac{2(r+s) + 2(r-s) + 4s}{(r+s)^2 + (r-s)^2 + 2(2rs)}</mrow>
+        <mrow>\amp = \frac{2r + 2s + 2r - 2s + 4s}{(r^2+2rs+s^2) + (r^2-2rs+s^2) + 4rs} = \frac{4r + 4s}{2r^2 + 4rs + 2s^2}</mrow>
+        <mrow>\amp = \frac{4(r+s)}{2(r+s)^2} = \frac{2}{r+s}</mrow>
+      </md>
+      <p>
+        Applying the Chain Rule for <m>w_s</m>:
+      </p>
+      <md>
+        <mrow>w_s \amp = w_x x_s + w_y y_s + w_z z_s</mrow>
+        <mrow>\amp = \frac{2x(1) + 2y(-1) + 2(2r)}{x^2+y^2+2z} = \frac{2(r+s) - 2(r-s) + 4r}{2(r+s)^2}</mrow>
+        <mrow>\amp = \frac{2r + 2s - 2r + 2s + 4r}{2(r+s)^2} = \frac{4r + 4s}{2(r+s)^2} = \frac{2}{r+s}</mrow>
+      </md>
+      <p>
+        <strong>Method 2: Direct Substitution</strong>
+      </p>
+      <p>
+        We can check our work by substituting <m>x</m>, <m>y</m>, and <m>z</m> into the expression for <m>w</m> before differentiating:
+      </p>
+      <md>
+        <mrow>x^2 + y^2 + 2z \amp = (r+s)^2 + (r-s)^2 + 2(2rs)</mrow>
+        <mrow>\amp = (r^2 + 2rs + s^2) + (r^2 - 2rs + s^2) + 4rs</mrow>
+        <mrow>\amp = 2r^2 + 4rs + 2s^2 = 2(r+s)^2</mrow>
+      </md>
+      <p>
+        Thus, the function can be rewritten directly as:
+        <me>w = \ln(2(r+s)^2) = \ln(2) + 2\ln(r+s)</me>
+      </p>
+      <p>
+        Differentiating directly with respect to <m>r</m> and <m>s</m> yields:
+        <me>w_r = \frac{2}{r+s} \qquad \text{and} \qquad w_s = \frac{2}{r+s}</me>
+        Both methods yield identical results.
+      </p>
+    </solution>
+  </exercise>
+
+</page>
+
   </worksheet>
 
   

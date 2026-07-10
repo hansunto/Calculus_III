@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-polar-coordinates">
+    <title>4.3 Double Integrals in Polar coordinates</title>
+    <introduction>
+        <p>
+            In this section, we will explore the use of polar coordinates to evaluate double integrals over regions that are more naturally described in polar form. 
+            Polar coordinates provide a convenient way to describe circular and radial symmetry in two-dimensional space.
+        </p>
+        <p>
+            We will derive the formula for converting a double integral from Cartesian coordinates to polar coordinates and apply it to various examples.
+        </p>   
+    </introduction>
+
+<theorem xml:id="thm-polar-evaluation">
+  <title>Evaluation Theorem</title>
+  <statement>
+    <p>
+      <me>\iint_R f(r,\theta)\,dA = \int^{\beta}_{\alpha} \int^{g_2(\theta)}_{g_1(\theta)} f(r,\theta)r\,drd\theta.</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-area-between-polar-circles">
+  <statement>
+    <p>
+      Find the area of the region <m>R</m> that lies outside the circle <m>r=a</m> and inside the circle <m>r=2a\sin\theta</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Find the Points of Intersection and Limits</strong>
+    </p>
+    <p>
+      We find the angular intersection points of the two curves by setting their expressions equal to each other:
+      <me>2a\sin\theta = a \implies \sin\theta = \frac{1}{2}.</me>
+      In the standard first and second quadrants, this yields the angular bounds:
+      <me>\alpha = \frac{\pi}{6} \quad \text{and} \quad \beta = \frac{5\pi}{6}.</me>
+      For any angle <m>\theta</m> between these limits, the radial variable <m>r</m> starts on the inner circle boundary <m>r = a</m> and sweeps outward to the outer circle boundary <m>r = 2a\sin\theta</m>. Thus, our region <m>R</m> is bounded by:
+      <me>\frac{\pi}{6} \leq \theta \leq \frac{5\pi}{6} \quad \text{and} \quad a \leq r \leq 2a\sin\theta.</me>
+    </p>
+
+    <!-- 2:1 Aspect Ratio Polar Domain Figure -->
+<figure xml:id="fig-polar-circles-domain-balanced">
+  <caption>The region <m>R</m> lying inside <m>r=2a\sin\theta</m> and outside <m>r=a</m> displayed with a balanced 1:1 ratio.</caption>
+  <image xml:id="img-polar-circles-domain-balanced" width="70%">
+    <description>A polar coordinate plot using a balanced 1 to 1 aspect ratio showing a clean crescent region between two overlapping circles.</description>
+    <latex-image>
+      <![CDATA[
+      \begin{tikzpicture}[x=1.8cm, y=1.8cm, >=latex]
+        % Shaded Region R using absolute Cartesian parametric conversions
+        \fill[blue!15, domain=30:150, samples=60, variable=\t] 
+          plot ({2*sin(\t)*cos(\t)}, {2*sin(\t)*sin(\t)}) -- 
+          plot[domain=150:30, variable=\t] ({1*cos(\t)}, {1*sin(\t)}) -- cycle;
+        
+        % Primary Coordinate Grid Axes (Isometric layout)
+        \draw[->, thick] (-2.2, 0) -- (2.2, 0) node[below] {$x$};
+        \draw[->, thick] (0, -0.3) -- (0, 2.4) node[left] {$y$};
+        
+        % Outer Bounding Curve Wall (r = 2 sin theta)
+        \draw[blue!80!black, thick, domain=0:180, samples=60, variable=\t] 
+          plot ({2*sin(\t)*cos(\t)}, {2*sin(\t)*sin(\t)});
+        
+        % Inner Bounding Curve Wall Segment (r = 1)
+        \draw[blue!80!black, thick, domain=30:150, samples=40, variable=\t] 
+          plot ({1*cos(\t)}, {1*sin(\t)});
+        
+        % Full Inner Circle Outline (Dashed background reference)
+        \draw[gray, dashed, domain=0:360, samples=60, variable=\t] 
+          plot ({1*cos(\t)}, {1*sin(\t)});
+        
+        % Sector Projection Ray Vectors
+        \draw[gray, dotted, thick] (0,0) -- (1.732, 1.0);  % 30 degrees projection
+        \draw[gray, dotted, thick] (0,0) -- (-1.732, 1.0); % 150 degrees projection
+        
+        % Representative Vector Arrow indicating integration sweep direction
+        \draw[->, red, thick] (0.342, 0.940) -- (0.643, 1.767) node[midway, right] {$dr$};
+        
+        % Text Node Metadata Labels
+        \node[right, blue!60!black] at (0.707, 0.707) {$r=a$};
+        \node[above, blue!60!black] at (0, 2.0) {$r=2a\sin\theta$};
+        \node[right] at (1.4, 0.9) {\small $\theta=\frac{\pi}{6}$};
+        \node[left] at (-1.4, 0.9) {\small $\theta=\frac{5\pi}{6}$};
+        \node at (0, 1.4) {\small $R$};
+      \end{tikzpicture}
+      ]]>
+    </latex-image>
+  </image>
+</figure>
+    <p>
+      <strong>Step 2: Evaluate the Double Area Integral</strong>
+    </p>
+    <p>
+      Using the Evaluation Theorem with <m>f(r,\theta) = 1</m> to calculate area:
+      <md>
+        <mrow>A \amp = \int_{\pi/6}^{5\pi/6} \int_{a}^{2a\sin\theta} r \, drd\theta = \int_{\pi/6}^{5\pi/6} \left[ \frac{1}{2}r^2 \right]_{a}^{2a\sin\theta} \, d\theta</mrow>
+        <mrow>\amp = \frac{1}{2} \int_{\pi/6}^{5\pi/6} \left( 4a^2\sin^2\theta - a^2 \right) \, d\theta</mrow>
+        <mrow>\amp = \frac{a^2}{2} \int_{\pi/6}^{5\pi/6} \left( 4\left(\frac{1-\cos(2\theta)}{2}\right) - 1 \right) \, d\theta</mrow>
+        <mrow>\amp = \frac{a^2}{2} \int_{\pi/6}^{5\pi/6} \left( 2 - 2\cos(2\theta) - 1 \right) \, d\theta = \frac{a^2}{2} \int_{\pi/6}^{5\pi/6} \left( 1 - 2\cos(2\theta) \right) \, d\theta</mrow>
+        <mrow>\amp = \frac{a^2}{2} \Big[ \theta - \sin(2\theta) \Big]_{\pi/6}^{5\pi/6}</mrow>
+      </md>
+      Evaluating at the definite boundary constraints:
+      <md>
+        <mrow>A \amp = \frac{a^2}{2} \left[ \left( \frac{5\pi}{6} - \sin\left(\frac{5\pi}{3}\right) \right) - \left( \frac{\pi}{6} - \sin\left(\frac{\pi}{3}\right) \right) \right]</mrow>
+        <mrow>\amp = \frac{a^2}{2} \left[ \left( \frac{5\pi}{6} - \left(-\frac{\sqrt{3}}{2}\right) \right) - \left( \frac{\pi}{6} - \frac{\sqrt{3}}{2} \right) \right]</mrow>
+        <mrow>\amp = \frac{a^2}{2} \left[ \frac{4\pi}{6} + \frac{2\sqrt{3}}{2} \right] = \frac{a^2}{2} \left( \frac{2\pi}{3} + \sqrt{3} \right) = a^2\left(\frac{\pi}{3} + \frac{\sqrt{3}}{2}\right).</mrow>
+      </md>
+      The area of the region is exactly <m>a^2\left(\frac{\pi}{3} + \frac{\sqrt{3}}{2}\right)</m>.
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="ex-area-lemniscate">
+  <statement>
+    <p>
+      Find the area of the region <m>R</m> bounded by one loop of the lemniscate <m>r^2=a^2\sin(2\theta)</m>, where <m>a \gt 0</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Set Up the Integration Loop Bounds</strong>
+    </p>
+    <p>
+      A single loop of the lemniscate <m>r^2 = a^2\sin(2\theta)</m> is traced out as the radius starts at the origin, sweeps outward, and returns to the origin. This occurs when:
+      <me>a^2\sin(2\theta) \geq 0 \implies 0 \leq 2\theta \leq \pi \implies 0 \leq \theta \leq \frac{\pi}{2}.</me>
+      For any angle <m>\theta</m> in the first quadrant, the variable <m>r</m> spans from the origin <m>r=0</m> to the boundary line curve <m>r = \sqrt{a^2\sin(2\theta)} = a\sqrt{\sin(2\theta)}</m>.
+    </p>
+
+    <!-- 2:1 Aspect Ratio Lemniscate Loop Figure -->
+<figure xml:id="fig-lemniscate-loop-isometric">
+  <caption>One loop of the lemniscate curve <m>r^2=a^2\sin(2\theta)</m> with a balanced 1:1 ratio.</caption>
+  <image xml:id="img-lemniscate-loop-isometric" width="60%">
+    <description>A polar coordinate plot of a single petal loop localized inside the first quadrant with an isometric 1 to 1 grid system.</description>
+    <latex-image>
+      <![CDATA[
+      \begin{tikzpicture}[x=3.0cm, y=3.0cm, >=latex]
+        % Shaded Lemniscate Loop using absolute Cartesian parametric conversions: r = sqrt(2*sin(2*t))
+        \fill[blue!15, domain=0:90, samples=100, variable=\t] (0,0) -- 
+          plot ({sqrt(2*sin(2*\t))*cos(\t)}, {sqrt(2*sin(2*\t))*sin(\t)}) -- cycle;
+        
+        % Primary Coordinate Grid Axes (Isometric layout)
+        \draw[->, thick] (-0.3, 0) -- (1.8, 0) node[below] {$x$};
+        \draw[->, thick] (0, -0.3) -- (0, 1.8) node[left] {$y$};
+        
+        % Main Lemniscate Outer Curve Boundary Path
+        \draw[blue!80!black, thick, domain=0:90, samples=100, variable=\t] 
+          plot ({sqrt(2*sin(2*\t))*cos(\t)}, {sqrt(2*sin(2*\t))*sin(\t)});
+        
+        % Angular boundary ray at 45 degrees for structural reference
+        \draw[gray, dotted, thick] (0,0) -- (45:1.6);
+        
+        % Labels and Context Metadata
+        \node[above right, blue!60!black] at (0.85, 0.85) {$r^2=a^2\sin(2\theta)$};
+        \node at (0.55, 0.35) {\small Region $R$};
+        
+        % Origin point
+        \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+        
+        % Key boundary markers matching a^2 = 2 configuration
+        \draw (1.414, 1.5pt) -- (1.414, -1.5pt) node[below] {\small $a$};
+        \draw (1.5pt, 1.414) -- (-1.5pt, 1.414) node[left] {\small $a$};
+      \end{tikzpicture}
+      ]]>
+    </latex-image>
+  </image>
+</figure>
+
+    <p>
+      <strong>Step 2: Evaluate the Iterated Area Integral</strong>
+    </p>
+    <p>
+      Using the Evaluation Theorem to compute the area of this region:
+      <md>
+        <mrow>A \amp = \int_{0}^{\pi/2} \int_{0}^{a\sqrt{\sin(2\theta)}} r \, drd\theta</mrow>
+        <mrow>\amp = \int_{0}^{\pi/2} \left[ \frac{1}{2}r^2 \right]_{0}^{a\sqrt{\sin(2\theta)}} \, d\theta</mrow>
+        <mrow>\amp = \int_{0}^{\pi/2} \frac{1}{2}a^2\sin(2\theta) \, d\theta</mrow>
+        <mrow>\amp = \frac{a^2}{2} \left[ -\frac{1}{2}\cos(2\theta) \right]_{0}^{\pi/2}</mrow>
+        <mrow>\amp = -\frac{a^2}{4} \Big( \cos(\pi) - \cos(0) \Big)</mrow>
+        <mrow>\amp = -\frac{a^2}{4} \Big( -1 - 1 \Big) = -\frac{a^2}{4}(-2) = \frac{a^2}{2}.</mrow>
+      </md>
+      The area enclosed by one loop of the lemniscate is exactly <m>\frac{a^2}{2}</m>.
+    </p>
+  </solution>
+</exercise>
+
+<theorem xml:id="thm-polar-change-of-variables">
+  <title>Change of Variables Formula</title>
+  <statement>
+    <p>
+      <me>\iint_R f(x,y)\,dydx = \iint_{R} f(r\cos\theta, r\sin\theta)r\,drd\theta.</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-polar-evaluation-semicircle">
+  <statement>
+    <p>
+      Use polar coordinates to evaluate 
+      <me>\int^a_{-a}\int^{\sqrt{a^2-x^2}}_0(x^2+y^2)^{3/2}\,dydx.</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Analyze the Region of Integration <m>R</m></strong>
+    </p>
+    <p>
+      The original limits are given in Cartesian coordinates where:
+      <me>-a \leq x \leq a \quad \text{and} \quad 0 \leq y \leq \sqrt{a^2-x^2}.</me>
+      The upper boundary curve <m>y = \sqrt{a^2-x^2}</m> represents the upper half of a circle centered at the origin with radius <m>a</m>. Since <m>x</m> runs from <m>-a</m> to <m>a</m>, the region <m>R</m> is a complete upper semicircle sitting in the first and second quadrants.
+    </p>
+    <p>
+      Converting this region to polar coordinates, the radius <m>r</m> starts at the origin and sweeps outward to the boundary circle <m>r = a</m>. The angle <m>\theta</m> opens from the positive <m>x</m>-axis (<m>0</m>) all the way around to the negative <m>x</m>-axis (<m>\pi</m>). Therefore, the polar boundaries are:
+      <me>0 \leq \theta \leq \pi \quad \text{and} \quad 0 \leq r \leq a.</me>
+    </p>
+
+    <!-- Balanced Large 1:1 Semicircular Domain Figure -->
+    <figure xml:id="fig-semicircle-polar-domain">
+      <caption>The semicircular integration region <m>R</m> displayed with a balanced 1:1 ratio.</caption>
+      <image xml:id="img-semicircle-polar-domain" width="70%">
+        <description>A polar coordinate plot of an upper semicircle with radius a, showing radial integration arrows stretching outward from the origin.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=2.0cm, y=2.0cm, >=latex]
+            % Shaded Upper Semicircle Region R
+            \fill[blue!15, domain=0:180, samples=80, variable=\t] (0,0) -- plot ({1.5*cos(\t)}, {1.5*sin(\t)}) -- cycle;
+            
+            % Primary Isometric Coordinate Axes
+            \draw[->, thick] (-2.0, 0) -- (2.0, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.3) -- (0, 2.0) node[left] {$y$};
+            
+            % Semicircular Outer Boundary Curve (Assuming a=1.5 for visual scale)
+            \draw[blue!80!black, thick, domain=0:180, samples=80, variable=\t] plot ({1.5*cos(\t)}, {1.5*sin(\t)});
+            
+            % Dynamic Integration Sweep Vectors
+            \draw[->, red, thick] (0,0) -- (45:1.2) node[midway, above left] {$dr$};
+            \draw[->, red, thick] (0,0) -- (135:1.2);
+            
+            % Region and Curve Labels
+            \node[above right, blue!60!black] at (60:1.5) {$r=a$};
+            \node at (90:0.7) {\small Region $R$};
+            
+            % Crucial Intersection Vertices
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1.5,0) circle (1.5pt) node[below right] {$(a,0)$};
+            \fill (-1.5,0) circle (1.5pt) node[below left] {$(-a,0)$};
+            \fill (0,1.5) circle (1.5pt) node[above right] {$(0,a)$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Convert and Evaluate the Integral</strong>
+    </p>
+    <p>
+      Using the relationship <m>x^2 + y^2 = r^2</m> and changing the differential element to polar form (<m>dA = r\,drd\theta</m>), we substitute our values into the formula:
+      <me>\int^a_{-a}\int^{\sqrt{a^2-x^2}}_0 (x^2+y^2)^{3/2} \,dydx = \int_{0}^{\pi} \int_{0}^{a} (r^2)^{3/2} \cdot r \,drd\theta</me>
+      Simplifying the inner integrand components gives:
+      <me>= \int_{0}^{\pi} \int_{0}^{a} r^3 \cdot r \,drd\theta = \int_{0}^{\pi} \int_{0}^{a} r^4 \,drd\theta</me>
+    </p>
+    <p>
+      Since the limits of integration are entirely constants and the variables inside the integrand are completely independent, we can separate this double integral into the product of two single integrals:
+      <md>
+        <mrow>\int_{0}^{\pi} \int_{0}^{a} r^4 \,drd\theta \amp = \left( \int_{0}^{\pi} \,d\theta \right) \left( \int_{0}^{a} r^4 \,dr \right)</mrow>
+        <mrow>\amp = \Big[ \theta \Big]_{0}^{\pi} \cdot \left[ \frac{1}{5}r^5 \right]_{0}^{a}</mrow>
+        <mrow>\amp = (\pi - 0) \cdot \left( \frac{1}{5}a^5 - 0 \right)</mrow>
+        <mrow>\amp = \frac{\pi a^5}{5}.</mrow>
+      </md>
+      The value of the double integral evaluated using polar coordinates is exactly <m>\frac{\pi a^5}{5}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-volume-paraboloid-polar">
+  <statement>
+    <p>
+      Find the volume <m>V</m> of the solid that is bounded by the paraboloid <m>z=4-x^2-y^2</m> and the <m>xy</m>-plane.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Identify the Base Region <m>R</m> in the <m>xy</m>-plane</strong>
+    </p>
+    <p>
+      The solid sits beneath the paraboloid ceiling and is bounded below by the <m>xy</m>-plane, where <m>z = 0</m>. We find the footprint or boundary curve of this base region <m>R</m> by setting the paraboloid equation to zero:
+      <me>4 - x^2 - y^2 = 0 \implies x^2 + y^2 = 4.</me>
+      This represents a complete circle centered at the origin with a radius of <m>r = 2</m>.
+    </p>
+    <p>
+      Converting this full circular disk to polar coordinates gives us constant boundaries that span all four quadrants:
+      <me>0 \leq \theta \leq 2\pi \quad \text{and} \quad 0 \leq r \leq 2.</me>
+    </p>
+
+    <!-- Balanced Large 1:1 Circular Disk Domain Figure -->
+    <figure xml:id="fig-paraboloid-base-domain">
+      <caption>The circular base domain <m>R: x^2 + y^2 \leq 4</m> plotted with a balanced 1:1 aspect ratio.</caption>
+      <image xml:id="img-paraboloid-base-domain" width="70%">
+        <description>A polar coordinate plot of a full circular region of radius 2 centered at the origin, with radial arrows tracking out from the center to indicate integration sweeping directions.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.8cm, y=1.8cm, >=latex]
+            % Shaded Full Circular Footprint R
+            \fill[blue!15, domain=0:360, samples=80, variable=\t] plot ({2*cos(\t)}, {2*sin(\t)});
+            
+            % Primary Isometric Coordinate Grid Axes
+            \draw[->, thick] (-2.5, 0) -- (2.5, 0) node[below] {$x$};
+            \draw[->, thick] (0, -2.5) -- (0, 2.5) node[left] {$y$};
+            
+            % Circular Boundary Outline (Radius = 2)
+            \draw[blue!80!black, thick, domain=0:360, samples=80, variable=\t] plot ({2*cos(\t)}, {2*sin(\t)});
+            
+            % Radial Integration Sweep Vectors
+            \draw[->, red, thick] (0,0) -- (45:1.6) node[midway, above left] {$dr$};
+            \draw[->, red, thick] (0,0) -- (135:1.6);
+            \draw[->, red, thick] (0,0) -- (225:1.6);
+            \draw[->, red, thick] (0,0) -- (315:1.6);
+            
+            % Labels
+            \node[above right, blue!60!black] at (30:2.0) {$r=2$};
+            \node at (0.5, -0.5) {\small Region $R$};
+            
+            % Vertices and Intercepts
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (2,0) circle (1.5pt) node[below right] {$(2,0)$};
+            \fill (-2,0) circle (1.5pt) node[below left] {$(-2,0)$};
+            \fill (0,2) circle (1.5pt) node[above right] {$(0,2)$};
+            \fill (0,-2) circle (1.5pt) node[below left] {$(0,-2)$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Convert and Evaluate the Volume Integral</strong>
+    </p>
+    <p>
+      The height function inside the double integral can be converted to polar coordinates using <m>x^2 + y^2 = r^2</m>, which yields <m>z = 4 - r^2</m>. Substituting this ceiling function and the polar area differential element (<m>dA = r\,drd\theta</m>) into our volume formula gives:
+      <me>V = \iint_R (4 - x^2 - y^2) \, dA = \int_{0}^{2\pi} \int_{0}^{2} (4 - r^2)r \, dr d\theta</me>
+      Distributing the inner radial factor across the integrand parameters:
+      <me>= \int_{0}^{2\pi} \int_{0}^{2} (4r - r^3) \, dr d\theta</me>
+    </p>
+    <p>
+      Since the boundary parameters are entirely composed of constants and the individual components inside the expression are mathematically independent, we can factor the double integral into a simple product of two independent single integrals:
+      <md>
+        <mrow>V \amp = \left( \int_{0}^{2\pi} \,d\theta \right) \left( \int_{0}^{2} (4r - r^3) \,dr \right)</mrow>
+        <mrow>\amp = \Big[ \theta \Big]_{0}^{2\pi} \cdot \left[ 2r^2 - \frac{1}{4}r^4 \right]_{0}^{2}</mrow>
+        <mrow>\amp = (2\pi - 0) \cdot \left( \left(2(2)^2 - \frac{1}{4}(2)^4\right) - 0 \right)</mrow>
+        <mrow>\amp = 2\pi \cdot \left( 8 - \frac{16}{4} \right)</mrow>
+        <mrow>\amp = 2\pi \cdot (8 - 4) = 2\pi \cdot 4 = 8\pi.</mrow>
+      </md>
+      The total volume of the solid enclosed under the paraboloid is exactly <m>8\pi</m>.
+    </p>
+  </solution>
+</example>
+
+<exercises xml:id="exercises-polar-coordinates-advanced">
+
+  <!-- ========================================== -->
+  <!-- QUESTION 1                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-cartesian-to-polar-conversions">
+    <statement>
+      <p>
+        Change the Cartesian integral into an equivalent polar integral then evaluate the integral:
+      </p>
+      <ol label="a">
+        <li>
+          <p>
+            <m>\displaystyle\int^0_{-1}\int^0_{-\sqrt{1-x^2}} \frac{2}{1+\sqrt{x^2+y^2}}\,dydx</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\displaystyle\int^1_{-1}\int^{\sqrt{1-y^2}}_{-\sqrt{1-y^2}}\ln(x^2+y^2+1)\,dxdy</m>
+          </p>
+        </li>
+      </ol>
+    </statement>
+    <solution>
+      <ol label="a">
+        <li>
+          <p>
+            <strong>Solution to Part (a):</strong>
+          </p>
+          <p>
+            The original Cartesian limits restrict the domain to:
+            <me>-1 \leq x \leq 0 \quad \text{and} \quad -\sqrt{1-x^2} \leq y \leq 0.</me>
+            The curve <m>y = -\sqrt{1-x^2}</m> describes the lower half of a unit circle centered at the origin. Because both <m>x</m> and <m>y</m> values are exclusively negative or zero, the integration domain <m>R</m> is a quarter-circle resting entirely inside the <strong>third quadrant</strong>.
+          </p>
+          <p>
+            Converting to polar variables, the radial sweep starts at the origin <m>r=0</m> and extends out to the curve boundary <m>r=1</m>. The angle <m>\theta</m> sweeps across the third quadrant from <m>\pi</m> to <m>\frac{3\pi}{2}</m>:
+            <me>\pi \leq \theta \leq \frac{3\pi}{2} \quad \text{and} \quad 0 \leq r \leq 1.</me>
+          </p>
+
+          <!-- Isometric 1:1 Third-Quadrant Domain Figure -->
+         <figure xml:id="fig-polar-domain-third-quad"> 
+  <caption>The third-quadrant quarter-disk integration region <m>R</m> with a balanced 1:1 aspect ratio.</caption> 
+  <image xml:id="img-polar-domain-third-quad" width="60%"> 
+    <description>A plot of a quarter-circle domain of radius 1 sitting strictly inside the third quadrant with radial arrows pointing outwards from the origin.</description> 
+    <latex-image> 
+      <![CDATA[ 
+      \begin{tikzpicture}[x=2.2cm, y=2.2cm, >=latex] 
+        % Shaded Third-Quadrant Quarter-Disk Region R 
+        \fill[blue!15, domain=180:270, samples=40, variable=\t] (0,0) -- plot ({1*cos(\t)}, {1*sin(\t)}) -- cycle; 
+        
+        % Primary Coordinate Grid Axes (Isometric layout) 
+        \draw[->, thick] (-1.4, 0) -- (1.4, 0) node[below] {$x$}; 
+        \draw[->, thick] (0, -1.4) -- (0, 1.4) node[left] {$y$}; 
+        
+        % Quarter-Circle Wall Line (Radius = 1) 
+        \draw[blue!80!black, thick, domain=180:270, samples=40, variable=\t] plot ({1*cos(\t)}, {1*sin(\t)}); 
+        \draw[blue!80!black, thick] (-1,0) -- (0,0) -- (0,-1); 
+        
+        % Representative Radial Sweep Vector Arrow (Converted to explicit Cartesian coordinates) 
+        %\draw[->, red, thick] (0,0) -- (-0.53, -0.53) node[midway, below left] {$dr$}; 
+        
+        % Metadata Labels 
+        \node[below left, blue!60!black] at (-0.866, -0.5) {$r=1$}; 
+        \node at (-0.4, -0.4) {\small $R$}; 
+        \fill (0,0) circle (1.5pt) node[above right] {$(0,0)$}; 
+      \end{tikzpicture} 
+      ]]> 
+    </latex-image> 
+  </image> 
+</figure>
+
+          <p>
+            Substituting the polar translation rules (<m>\sqrt{x^2+y^2}=r</m> and <m>dydx = r\,drd\theta</m>) transforms the expression into:
+            <me>\int_{\pi}^{3\pi/2} \int_{0}^{1} \frac{2}{1+r} \cdot r \, dr d\theta = \left( \int_{\pi}^{3\pi/2} \,d\theta \right) \left( \int_{0}^{1} \frac{2r}{1+r} \,dr \right)</me>
+            Evaluating the angular integral yields <m>\frac{3\pi}{2} - \pi = \frac{\pi}{2}</m>. For the radial integral, we apply algebraic long division:
+            <me>\int_{0}^{1} \frac{2r}{1+r} \,dr = 2\int_{0}^{1} \frac{(r+1)-1}{1+r} \,dr = 2\int_{0}^{1} \left(1 - \frac{1}{1+r}\right) \,dr</me>
+            <me>= 2 \Big[ r - \ln|1+r| \Big]_{0}^{1} = 2 \Big( (1 - \ln 2) - (0 - \ln 1) \Big) = 2 - 2\ln 2.</me>
+            Multiplying our two separate solutions together gives:
+            <me>\text{Value} = \frac{\pi}{2}(2 - 2\ln 2) = \pi(1 - \ln 2).</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Solution to Part (b):</strong>
+          </p>
+          <p>
+            The original integration walls are given by:
+            <me>-1 \leq y \leq 1 \quad \text{and} \quad -\sqrt{1-y^2} \leq x \leq \sqrt{1-y^2}.</me>
+            This maps out the complete <strong>full unit circular disk</strong> centered at the origin. Converting to polar tracking variables yields:
+            <me>0 \leq \theta \leq 2\pi \quad \text{and} \quad 0 \leq r \leq 1.</me>
+            Substituting <m>x^2+y^2 = r^2</m> and the differential multiplier element (<m>dxdy = r\,drd\theta</m>) gives:
+            <me>\int_{0}^{2\pi} \int_{0}^{1} \ln(r^2+1) \cdot r \, dr d\theta = \left( \int_{0}^{2\pi} \,d\theta \right) \left( \int_{0}^{1} r\ln(r^2+1) \,dr \right)</me>
+            The outer integral maps directly to <m>2\pi</m>. For the inner single radial integral, we perform a quick <m>u</m>-substitution:
+            <me>u = r^2+1 \implies du = 2r\,dr \implies \frac{1}{2}\,du = r\,dr.</me>
+            Updating limits: when <m>r=0 \implies u=1</m>, and when <m>r=1 \implies u=2</m>.
+            <me>\int_{0}^{1} r\ln(r^2+1) \,dr = \frac{1}{2} \int_{1}^{2} \ln(u) \,du = \frac{1}{2} \Big[ u\ln(u) - u \Big]_{1}^{2}</me>
+            <me>= \frac{1}{2} \Big( (2\ln 2 - 2) - (1\ln 1 - 1) \Big) = \frac{1}{2} (2\ln 2 - 2 + 1) = \ln 2 - \frac{1}{2}.</me>
+            Combining the structural components yields:
+            <me>\text{Value} = 2\pi \left(\ln 2 - \frac{1}{2}\right) = 2\pi\ln 2 - \pi.</me>
+          </p>
+        </li>
+      </ol>
+    </solution>
+  </exercise>
+
+    <!-- ========================================== -->
+  <!-- QUESTION 2                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-area-cardioid-octant">
+    <statement>
+      <p>
+        Find the area of the region cut from the first quadrant (first octant base) by the cardioid <m>r=1+\sin\theta</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Set Up the Polar Integration Boundaries</strong>
+      </p>
+      <p>
+        The phrase "cut from the first quadrant" restricts our angle tracking bounds to <m>0 \leq \theta \leq \frac{\pi}{2}</m>. 
+        Inside this angular sweep, the radius starts at the origin <m>r=0</m> and pushes out to hit the outer wall profile of the cardioid <m>r = 1+\sin\theta</m>:
+        <me>0 \leq \theta \leq \frac{\pi}{2} \quad \text{and} \quad 0 \leq r \leq 1+\sin\theta.</me>
+      </p>
+
+      % Isometric 1:1 Cardioid Quadrant Fragment Figure
+      <figure xml:id="fig-polar-cardioid-first-quad">
+        <caption>The section of the cardioid <m>r=1+\sin\theta</m> cut by the first quadrant plotted with a balanced 1:1 isometric ratio.</caption>
+        <image xml:id="img-polar-cardioid-first-quad" width="65%">
+          <description>A polar coordinate layout mapping the first-quadrant section of a cardioid curve, extending up to a max height of y=2 along the upper vertical axis.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=1.8cm, y=1.8cm, >=latex]
+              % Shaded Region cut by first quadrant boundaries
+              \fill[blue!15, domain=0:90, samples=60, variable=\t] (0,0) -- 
+                plot ({(1+sin(\t))*cos(\t)}, {(1+sin(\t))*sin(\t)}) -- (0,0) -- cycle;
+              
+              % Coordinate Axes (Isometric layout)
+              \draw[->, thick] (-0.3, 0) -- (1.8, 0) node[below] {$x$};
+              \draw[->, thick] (0, -0.3) -- (0, 2.4) node[left] {$y$};
+              
+              % Cardioid Curve Segment Path
+              \draw[blue!80!black, thick, domain=0:90, samples=60, variable=\t] 
+                plot ({(1+sin(\t))*cos(\t)}, {(1+sin(\t))*sin(\t)});
+              
+              % Sector Boundaries 
+              \draw[blue!80!black, thick] (0,0) -- (1,0);
+              \draw[blue!80!black, thick] (0,0) -- (0,2);
+              
+              % Text Metadata Labels
+              \node[above right, blue!60!black] at (45:1.5) {$r=1+\sin\theta$};
+              \node at (0.4, 0.5) {\small Region $R$};
+              \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+              \fill (1,0) circle (1.5pt) node[below] {$1$};
+              \fill (0,2) circle (1.5pt) node[left] {$2$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 2: Evaluate the Area Integration</strong>
+      </p>
+      <p>
+        Using the polar double integral definition for finding area (<m>dA = r\,drd\theta</m>):
+        <me>A = \int_{0}^{\pi/2} \int_{0}^{1+\sin\theta} r \, dr d\theta = \int_{0}^{\pi/2} \left[ \frac{1}{2}r^2 \right]_{0}^{1+\sin\theta} \, d\theta</me>
+        <me>= \frac{1}{2} \int_{0}^{\pi/2} (1 + \sin\theta)^2 \, d\theta = \frac{1}{2} \int_{0}^{\pi/2} (1 + 2\sin\theta + \sin^2\theta) \, d\theta</me>
+        Using the half-angle reduction identity <m>\sin^2\theta = \frac{1-\cos(2\theta)}{2}</m>:
+        <me>= \frac{1}{2} \int_{0}^{\pi/2} \left( 1 + 2\sin\theta + \frac{1}{2} - \frac{1}{2}\cos(2\theta) \right) \, d\theta = \frac{1}{2} \int_{0}^{\pi/2} \left( \frac{3}{2} + 2\sin\theta - \frac{1}{2}\cos(2\theta) \right) \, d\theta</me>
+        <me>= \frac{1}{2} \left[ \frac{3}{2}\theta - 2\cos\theta - \frac{1}{4}\sin(2\theta) \right]_{0}^{\pi/2}</me>
+        <me>= \frac{1}{2} \left[ \left( \frac{3\pi}{4} - 0 - 0 \right) - \left( 0 - 2 - 0 \right) \right] = \frac{1}{2} \left( \frac{3\pi}{4} + 2 \right) = \frac{3\pi}{8} + 1.</me>
+        The total area cut inside the first quadrant is exactly <m>\frac{3\pi}{8} + 1</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ========================================== -->
+  <!-- QUESTION 3                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-average-height-hemisphere">
+    <statement>
+      <p>
+        Find the average height of the hemisphere surface <m>z=\sqrt{2^2-x^2-y^2}</m> above the disk <m>x^2+y^2\leq 4</m> in the <m>xy</m>-plane.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Determine the Base Area</strong>
+      </p>
+      <p>
+        The base region <m>R</m> is a complete circular disk described by <m>x^2+y^2 \leq 4</m>, which yields a clear radius of <m>R_0 = 2</m>. 
+        The geometric area of this full circular base region is:
+        <me>\text{Area}(R) = \pi R_0^2 = \pi (2)^2 = 4\pi.</me>
+        Converted to polar coordinate conditions, our tracking parameters are: <m>0 \leq \theta \leq 2\pi</m> and <m>0 \leq r \leq 2</m>.
+      </p>
+      <p>
+        <strong>Step 2: Set Up and Evaluate the Average Value Theorem Form</strong>
+      </p>
+      <p>
+        According to the average value theorem, the average height <m>\bar{z}</m> is computed by finding the total volume under the dome surface and dividing it by the total area of the floor disk:
+        <me>\bar{z} = \frac{1}{\text{Area}(R)} \iint_R z \, dA = \frac{1}{4\pi} \int_{0}^{2\pi} \int_{0}^{2} \sqrt{4-r^2} \cdot r \, dr d\theta</me>
+        Since the bounds are completely constants and the inner function components are independent, we can pull apart the double integral:
+        <me>\bar{z} = \frac{1}{4\pi} \left( \int_{0}^{2\pi} \,d\theta \right) \left( \int_{0}^{2} r\sqrt{4-r^2} \,dr \right) = \frac{2\pi}{4\pi} \int_{0}^{2} r(4-r^2)^{1/2} \,dr = \frac{1}{2} \int_{0}^{2} r(4-r^2)^{1/2} \,dr</me>
+        We compute the remaining single integral using <m>u</m>-substitution:
+        <me>u = 4-r^2 \implies du = -2r\,dr \implies -\frac{1}{2}\,du = r\,dr.</me>
+        Updating parameters: when <m>r=0 \implies u=4</m>, and when <m>r=2 \implies u=0</m>.
+        <me>\bar{z} = \frac{1}{2} \int_{4}^{0} \left(-\frac{1}{2} u^{1/2}\right) \,du = \frac{1}{4} \int_{0}^{4} u^{1/2} \,du</me>
+        <me>= \frac{1}{4} \left[ \frac{2}{3}u^{3/2} \right]_{0}^{4} = \frac{1}{4} \left( \frac{2}{3}(4)^{3/2} - 0 \right) = \frac{1}{4} \left( \frac{2}{3} \cdot 8 \right) = \frac{16}{12} = \frac{4}{3}.</me>
+        The average height of the hemisphere surface above the floor base disk is exactly <m>\frac{4}{3}</m>.
+      </p>
+    </solution>
+  </exercise>
+
+</exercises>
+
+</section>

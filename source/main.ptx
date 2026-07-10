@@ -75,6 +75,26 @@
       <xi:include href="./notes/Lagrange.ptx" />
     </chapter>
 
+    <chapter xml:id="ch-Multiple-Integrals">
+      <title>Multiple Integrals</title>
+      <introduction>
+        <p>
+          Double and triple integrals extend the concept of integration to functions of two and three variables, respectively. 
+          They are used to compute volumes, surface areas, and other quantities in multi-dimensional spaces.
+        </p>
+        <p>
+          In this chapter, we will study the techniques for evaluating double and triple integrals, including iterated integrals and change of variables.
+        </p>
+      </introduction>
+      <xi:include href="./notes/Double-integrals.ptx" />
+      <xi:include href="./notes/Area-and-volume.ptx" /> 
+      <xi:include href="./notes/polar.ptx" />
+      <xi:include href="./notes/Triple-integrals.ptx" />
+      <!--<xi:include href="./notes/Change-of-variables.ptx" />-->
+
+      
+
+      </chapter>
 
 
 
@@ -107,6 +127,8 @@
       <xi:include href="./ch_exercises/partial-derivatives.ptx" />
 
     </chapter>
+
+
 
 
 

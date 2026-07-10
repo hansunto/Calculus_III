@@ -1,0 +1,58 @@
+INFO    : Since no target was supplied, we will use "course".
+
+INFO    : Building target course
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : Generating any needed assets.
+WARNING : Now generating latex images
+INFO    : converting latex-image pictures from /workspaces/Calculus_III/source/main.ptx to svg graphics for placement in /workspaces/Calculus_III/generated-assets/latex-image
+INFO    : extracting latex-image pictures from /workspaces/Calculus_III/source/main.ptx
+INFO    : string parameters passed to extraction stylesheet: {'cli.version': '2.38', 'publisher': '/workspaces/Calculus_III/publication/publication.ptx'}
+INFO    : discovering source file's directory name: /workspaces/Calculus_III/source
+INFO    : verifying and expanding input directory: /workspaces/Calculus_III/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/Calculus_III/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/Calculus_III/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/Calculus_III/assets
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/extract-latex-image.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/extract-latex-image.xsl
+INFO    : converting img-volume-octant-base.tex to img-volume-octant-base.pdf
+INFO    : cropping img-volume-octant-base.pdf to cropped-img-volume-octant-base.pdf
+INFO    : renaming cropped-img-volume-octant-base.pdf to img-volume-octant-base.pdf
+INFO    : converting img-volume-octant-base.pdf to img-volume-octant-base.svg
+INFO    : Removing temporary directory /tmp/ptx-9tyzyjqe
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /workspaces/Calculus_III/output/course.
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 8.1.9
+INFO    : Downloading Runestone Services, version 8.1.9
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-denver
+INFO    : converting /workspaces/Calculus_III/source/main.ptx to HTML in /tmp/ptx-4swjzu92
+INFO    : XSL conversion of /workspaces/Calculus_III/source/main.ptx by /home/codespace/.ptx/2.38.3/core/xsl/pretext-html.xsl
+INFO    : messages from the log for XSL processing:
+WARNING : * PTX:WARNING: In a section containing subsections, any content that is not inside a subsection needs to be inside an <introduction> and/or  <conclusion>.
+INFO    : *              located within: "sec-dot-product" (xml:id), "1.3 The Dot Product" (title)
+INFO    : *              located within: "sec-cross-product" (xml:id), "1.4 The Cross Product (The vector product)" (title)
+INFO    : *              located within: "sec-lines-planes" (xml:id), "1.5 Lines and Planes" (title)
+INFO    : *              located within: "sec-Vector-valued-functions" (xml:id), "2.1 Vector-valued Functions and space curves" (title)
+INFO    : *              located within: "2.2 Derivatives of Vector Functions" (title)
+INFO    : *              located within: "2.4 Arc Length and Curvature " (title)
+INFO    : * PTX:INFO:   checking all deprecated elements.
+WARNING : * PTX:DEPRECATE: (2022-04-25) a "@label" attribute (on a "ul" or "ol" element) has been deprecated and should be replaced by the functionally equivalent "@marker".  We will attempt to honor your request (4 times)
+INFO    : *              located within: "def-riemann-double-integral" (xml:id)
+INFO    : *              located within: "thm-fubini-stronger-form" (xml:id), "Fubini's Theorem (Stronger Form)" (title)
+INFO    : *              located within: "ex-double-integral-double-check" (xml:id)
+INFO    : * --------------
+INFO    : successful application of /home/codespace/.ptx/2.38.3/core/xsl/pretext-html.xsl
+INFO    : Removing temporary directory /tmp/ptx-4swjzu92
+INFO    : Removing temporary directory /tmp/ptx-08v348w8
+INFO    : 
+Finished build for target course. Run `pretext view course` to see the results.
+
+INFO    : 
+Success!  Built requested target(s) without errors.
+
+INFO    : 

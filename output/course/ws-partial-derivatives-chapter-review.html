@@ -211,18 +211,32 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lagrange-multipliers.html" class="internal"><span class="title">3.9 Lagrange Multipliers</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">4</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Multiple-Integrals.html" class="internal"><span class="codenumber">4</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Double-integrals.html" class="internal"><span class="title">4.1 Double Integrals</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-area-volume.html" class="internal"><span class="title">4.2 Area and Volume</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-area-volume.html#exercises-multivariable-volumes" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polar-coordinates.html" class="internal"><span class="title">4.3 Double Integrals in Polar coordinates</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-polar-coordinates.html#exercises-polar-coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">5</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
 <li class="toc-item toc-chapter contains-active">
-<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">5</span> <span class="title">Chapter Exercises</span></a></div>
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">6</span> <span class="title">Chapter Exercises</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
 <li class="toc-item toc-worksheet active"><div class="toc-title-box"><a href="ws-partial-derivatives-chapter-review.html" class="internal"><span class="title">Worksheet 03: Partial Derivatives</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">6</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">7</span> <span class="title">Homework</span></a></div></li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">7</span> <span class="title">Course Documents</span></a></div>
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">8</span> <span class="title">Course Documents</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-section">
 <div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
 <ul class="structural toc-item-list">
@@ -855,6 +869,164 @@ f_{yy} = \frac{\partial}{\partial y}(\sin x) = 0
 </div></details>
 </div>
 <div class="autopermalink" data-description="Worksheet Exercise 14"><a href="#ex-ws-pd7-q2" title="Copy heading and permalink for Worksheet Exercise 14" aria-label="Copy heading and permalink for Worksheet Exercise 14">🔗</a></div>
+</article></section><section class="onepage" id="ws-pd8">
+<article class="exercise exercise-like" id="ex-ws-pd8-q1"><h3 class="heading"><span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ex-ws-pd8-q1-1-1">Find the absolute max and min values of <span class="process-math">\(f(x,y)=x^3+y^3+3x^2-3y^2\)</span> on the square region enclosed by the lines <span class="process-math">\(x=\pm1\)</span> and <span class="process-math">\(y=\pm1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ws-pd8-q1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-pd8-q1-2-1">First, we find the critical points in the interior of the region by setting the partial derivatives to zero:<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q1-2-2">
+\begin{align*}
+f_x(x,y) \amp = 3x^2 + 6x = 3x(x+2) = 0 \implies x = 0, \, x = -2\\
+f_y(x,y) \amp = 3y^2 - 6y = 3y(y-2) = 0 \implies y = 0, \, y = 2
+\end{align*}
+</div>
+<div class="para logical" id="ex-ws-pd8-q1-2-3">
+<div class="para">Since our region is bounded by <span class="process-math">\([-1,1] \times [-1,1]\text{,}\)</span> the values <span class="process-math">\(x = -2\)</span> and <span class="process-math">\(y = 2\)</span> lie outside the square. The only interior critical point is <span class="process-math">\((0,0)\text{.}\)</span> Evaluating the function here yields:</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q1-2-3-5">
+\begin{equation*}
+f(0,0) = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-pd8-q1-2-4">Next, we check the four boundaries of the square region:<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ex-ws-pd8-q1-2-5">
+<li id="ex-ws-pd8-q1-2-5-1">
+<div class="para logical" id="ex-ws-pd8-q1-2-5-1-1">
+<div class="para">On the right boundary (<span class="process-math">\(x = 1, -1 \le y \le 1\)</span>): <span class="process-math">\(g_1(y) = f(1,y) = y^3 - 3y^2 + 4\text{.}\)</span> Setting <span class="process-math">\(g_1'(y) = 3y^2 - 6y = 0\)</span> gives <span class="process-math">\(y = 0\text{.}\)</span> We check the critical point and the edge endpoints:</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q1-2-5-1-1-5">
+\begin{equation*}
+f(1,0) = 4, \quad f(1,-1) = 0, \quad f(1,1) = 2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-pd8-q1-2-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-ws-pd8-q1-2-5-2">
+<div class="para logical" id="ex-ws-pd8-q1-2-5-2-1">
+<div class="para">On the left boundary (<span class="process-math">\(x = -1, -1 \le y \le 1\)</span>): <span class="process-math">\(g_2(y) = f(-1,y) = y^3 - 3y^2 + 2\text{.}\)</span> The critical point is <span class="process-math">\(y = 0\text{.}\)</span> Checking these locations gives:</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q1-2-5-2-1-4">
+\begin{equation*}
+f(-1,0) = 2, \quad f(-1,-1) = -2, \quad f(-1,1) = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-2-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-pd8-q1-2-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-ws-pd8-q1-2-5-3">
+<div class="para logical" id="ex-ws-pd8-q1-2-5-3-1">
+<div class="para">On the top boundary (<span class="process-math">\(y = 1, -1 \le x \le 1\)</span>): <span class="process-math">\(h_1(x) = f(x,1) = x^3 + 3x^2 - 2\text{.}\)</span> Setting <span class="process-math">\(h_1'(x) = 3x^2 + 6x = 0\)</span> gives <span class="process-math">\(x = 0\text{.}\)</span> Checking these locations gives:</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q1-2-5-3-1-5">
+\begin{equation*}
+f(0,1) = -2, \quad f(-1,1) = 0, \quad f(1,1) = 2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-2-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-pd8-q1-2-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-ws-pd8-q1-2-5-4">
+<div class="para logical" id="ex-ws-pd8-q1-2-5-4-1">
+<div class="para">On the bottom boundary (<span class="process-math">\(y = -1, -1 \le x \le 1\)</span>): <span class="process-math">\(h_2(x) = f(x,-1) = x^3 + 3x^2 - 4\text{.}\)</span> The critical point is <span class="process-math">\(x = 0\text{.}\)</span> Checking these locations gives:</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q1-2-5-4-1-4">
+\begin{equation*}
+f(0,-1) = -4, \quad f(-1,-1) = -2, \quad f(1,-1) = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-2-5-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-pd8-q1-2-5-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="ex-ws-pd8-q1-2-6">Comparing all computed values, the absolute maximum value is <span class="process-math">\(4\)</span> occurring at <span class="process-math">\((1,0)\text{,}\)</span> and the absolute minimum value is <span class="process-math">\(-4\)</span> occurring at <span class="process-math">\((0,-1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q1-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.1"><a href="#ex-ws-pd8-q1-2" title="Copy heading and permalink for Solution 15.1" aria-label="Copy heading and permalink for Solution 15.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15"><a href="#ex-ws-pd8-q1" title="Copy heading and permalink for Worksheet Exercise 15" aria-label="Copy heading and permalink for Worksheet Exercise 15">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-ws-pd8-q2"><h3 class="heading"><span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ex-ws-pd8-q2-1-1">If <span class="process-math">\(w=\ln(x^2+y^2+2z)\text{,}\)</span> <span class="process-math">\(x=r+s\text{,}\)</span> <span class="process-math">\(y=r-s\text{,}\)</span> <span class="process-math">\(z=2rs\text{,}\)</span> find <span class="process-math">\(w_r\)</span> and <span class="process-math">\(w_s\)</span> by the Chain Rule. Then check your answer another way.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ws-pd8-q2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-pd8-q2-2-1">Method 1: Chain Rule<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-pd8-q2-2-2">First, we find the partial derivatives of <span class="process-math">\(w\)</span> with respect to its intermediate variables <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q2-2-3">
+\begin{equation*}
+w_x = \frac{2x}{x^2+y^2+2z}, \quad w_y = \frac{2y}{x^2+y^2+2z}, \quad w_z = \frac{2}{x^2+y^2+2z}
+\end{equation*}
+</div>
+<div class="para" id="ex-ws-pd8-q2-2-4">Now, we calculate the partial derivatives of the inner components with respect to <span class="process-math">\(r\)</span> and <span class="process-math">\(s\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q2-2-5">
+\begin{equation*}
+x_r = 1, \quad y_r = 1, \quad z_r = 2s \qquad \text{and} \qquad x_s = 1, \quad y_s = -1, \quad z_s = 2r
+\end{equation*}
+</div>
+<div class="para" id="ex-ws-pd8-q2-2-6">Applying the Chain Rule for <span class="process-math">\(w_r\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q2-2-7">
+\begin{align*}
+w_r \amp = w_x x_r + w_y y_r + w_z z_r\\
+\amp = \frac{2x(1) + 2y(1) + 2(2s)}{x^2+y^2+2z} = \frac{2(r+s) + 2(r-s) + 4s}{(r+s)^2 + (r-s)^2 + 2(2rs)}\\
+\amp = \frac{2r + 2s + 2r - 2s + 4s}{(r^2+2rs+s^2) + (r^2-2rs+s^2) + 4rs} = \frac{4r + 4s}{2r^2 + 4rs + 2s^2}\\
+\amp = \frac{4(r+s)}{2(r+s)^2} = \frac{2}{r+s}
+\end{align*}
+</div>
+<div class="para" id="ex-ws-pd8-q2-2-8">Applying the Chain Rule for <span class="process-math">\(w_s\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q2-2-9">
+\begin{align*}
+w_s \amp = w_x x_s + w_y y_s + w_z z_s\\
+\amp = \frac{2x(1) + 2y(-1) + 2(2r)}{x^2+y^2+2z} = \frac{2(r+s) - 2(r-s) + 4r}{2(r+s)^2}\\
+\amp = \frac{2r + 2s - 2r + 2s + 4r}{2(r+s)^2} = \frac{4r + 4s}{2(r+s)^2} = \frac{2}{r+s}
+\end{align*}
+</div>
+<div class="para" id="ex-ws-pd8-q2-2-10">Method 2: Direct Substitution<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-pd8-q2-2-11">We can check our work by substituting <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> into the expression for <span class="process-math">\(w\)</span> before differentiating:<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q2-2-12">
+\begin{align*}
+x^2 + y^2 + 2z \amp = (r+s)^2 + (r-s)^2 + 2(2rs)\\
+\amp = (r^2 + 2rs + s^2) + (r^2 - 2rs + s^2) + 4rs\\
+\amp = 2r^2 + 4rs + 2s^2 = 2(r+s)^2
+\end{align*}
+</div>
+<div class="para logical" id="ex-ws-pd8-q2-2-13">
+<div class="para">Thus, the function can be rewritten directly as:</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q2-2-13-1">
+\begin{equation*}
+w = \ln(2(r+s)^2) = \ln(2) + 2\ln(r+s)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-pd8-q2-2-14">
+<div class="para">Differentiating directly with respect to <span class="process-math">\(r\)</span> and <span class="process-math">\(s\)</span> yields:</div>
+<div class="displaymath process-math" id="ex-ws-pd8-q2-2-14-3">
+\begin{equation*}
+w_r = \frac{2}{r+s} \qquad \text{and} \qquad w_s = \frac{2}{r+s}
+\end{equation*}
+</div>
+<div class="para">Both methods yield identical results.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-pd8-q2-2-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 16.1"><a href="#ex-ws-pd8-q2-2" title="Copy heading and permalink for Solution 16.1" aria-label="Copy heading and permalink for Solution 16.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 16"><a href="#ex-ws-pd8-q2" title="Copy heading and permalink for Worksheet Exercise 16" aria-label="Copy heading and permalink for Worksheet Exercise 16">🔗</a></div>
 </article></section><div class="autopermalink" data-description="Worksheet: Worksheet 03: Partial Derivatives"><a href="#ws-partial-derivatives-chapter-review" title="Copy heading and permalink for Worksheet: Worksheet 03: Partial Derivatives" aria-label="Copy heading and permalink for Worksheet: Worksheet 03: Partial Derivatives">🔗</a></div>
 </section>
 </div>

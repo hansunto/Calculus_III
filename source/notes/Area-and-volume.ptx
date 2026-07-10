@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-area-volume">
+    <title>4.2 Area and Volume</title>
+    <introduction>
+        <p>
+            In this section, we will explore how to use double integrals to calculate the area of a region 
+            in the plane and the volume of a solid in three-dimensional space. We will also discuss the 
+            applications of these concepts in various fields.
+        </p>    
+    </introduction>
+<definition xml:id="def-area-double-integral">
+  <title>Area</title>
+  <statement>
+    <p>
+      The area of a closed, bounded plane region <m>R</m> is
+      <me>A = \iint_R \,dA.</me>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-area-between-curves">
+  <statement>
+    <p>
+      Find the area of the region <m>R</m> bounded by <m>y=x</m> and <m>y=x^2</m> in the first quadrant.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Find Points of Intersection and Setup Boundaries</strong>
+    </p>
+    <p>
+      We find where the two curves intersect by setting them equal to each other:
+      <me>x = x^2 \implies x^2 - x = 0 \implies x(x-1) = 0</me>
+      This gives intersection boundaries at <m>x = 0</m> and <m>x = 1</m>. On the interval <m>[0,1]</m>, the line <m>y = x</m> lies above the parabola <m>y = x^2</m>. Thus, our region is described by:
+      <me>0 \leq x \leq 1 \quad \text{and} \quad x^2 \leq y \leq x</me>
+    </p>
+
+    <!-- 2:1 Aspect Ratio Domain Figure -->
+    <figure xml:id="fig-area-domain-parabola">
+      <caption>The region <m>R</m> bounded by <m>y=x^2</m> and <m>y=x</m> with a 2:1 horizontal-to-vertical aspect ratio.</caption>
+      <image xml:id="img-area-domain-parabola" width="45%">
+        <description>A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=x, intersecting at (0,0) and (1,1).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=2.0cm, y=2.0cm, >=latex]
+            % Shaded Region R
+            \fill[blue!15] plot[domain=0:1, samples=50, variable=\x] ({\x}, {\x*\x}) -- (1,1) -- cycle;
+            
+            % Primary Grid Axes
+            \draw[->, thick] (-0.2, 0) -- (1.3, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.2) -- (0, 1.3) node[left] {$y$};
+            
+            % Boundary Curves
+            \draw[blue!80!black, thick, domain=0:1, samples=50, variable=\x] plot ({\x}, {\x*\x}); % y=x^2
+            \draw[blue!80!black, thick] (0,0) -- (1,1);                                         % y=x
+            
+            % Dashed projection helpers running to the upper intersection point
+            \draw[dashed, gray] (1, 0) -- (1, 1);
+            \draw[dashed, gray] (0, 1) -- (1, 1);
+            
+            % Representative Vertical Sweep Arrow for Type I Integration
+            \draw[->, red, thick] (0.5, 0.28) -- (0.5, 0.45) node[below right] {$dy$};
+            
+            % Boundary Line/Curve Labels
+            \node[right, blue!60!black] at (0.7, 0.49) {$y=x^2$};
+            \node[left, blue!60!black] at (0.45, 0.45) {$y=x$};
+            
+            % Region Center Marker
+            \node at (0.6, 0.5) {\small $R$};
+            
+            % Vertices and Intersection Points
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1,1) circle (1.5pt) node[above right] {$(1,1)$};
+            
+            % Exact Projection Points along the Axis Edges
+            \node[below] at (1, 0) {\small $1$};
+            \node[left] at (0, 1) {\small $1$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Evaluate the Double Integral</strong>
+    </p>
+    <p>
+      Using the definition of area, we set up the iterated integral with respect to <m>y</m> first:
+    </p>
+    <md>
+      <mrow>A \amp = \int_{0}^{1} \int_{x^2}^{x} \,dy\,dx</mrow>
+      <mrow>\amp = \int_{0}^{1} \Big[ y \Big]_{y=x^2}^{y=x} \,dx</mrow>
+      <mrow>\amp = \int_{0}^{1} (x - x^2) \,dx</mrow>
+      <mrow>\amp = \left[ \frac{1}{2}x^2 - \frac{1}{3}x^3 \right]_{0}^{1}</mrow>
+      <mrow>\amp = \left( \frac{1}{2}(1)^2 - \frac{1}{3}(1)^3 \right) - 0</mrow>
+      <mrow>\amp = \frac{1}{2} - \frac{1}{3} = \frac{1}{6}</mrow>
+    </md>
+    <p>
+      The area of the region is exactly <m>\frac{1}{6}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-area-parabola-line">
+  <statement>
+    <p>
+      Find the area of the region <m>R</m> enclosed by the parabola <m>y=x^2</m> and the line <m>y=x+2</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Find Points of Intersection and Setup Boundaries</strong>
+    </p>
+    <p>
+      We find where the line and the parabola intersect by setting their equations equal to each other:
+      <me>x^2 = x + 2 \implies x^2 - x - 2 = 0 \implies (x-2)(x+1) = 0</me>
+      This gives intersection boundaries at <m>x = -1</m> and <m>x = 2</m>. On the interval <m>[-1, 2]</m>, the line <m>y = x + 2</m> lies above the parabola <m>y = x^2</m>. Thus, our region <m>R</m> is described by:
+      <me>-1 \leq x \leq 2 \quad \text{and} \quad x^2 \leq y \leq x + 2</me>
+    </p>
+
+    <!-- 2:1 Aspect Ratio Bounded Domain Figure -->
+    <figure xml:id="fig-area-parabola-line">
+      <caption>The region <m>R</m> bounded by <m>y=x^2</m> and <m>y=x+2</m> with a 2:1 aspect ratio.</caption>
+      <image xml:id="img-area-parabola-line" width="60%">
+        <description>A plot of the 2D domain R bounded below by the parabola y=x^2 and above by the line y=x+2, intersecting at (-1,1) and (2,4).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.5cm, y=0.75cm, >=latex]
+            % Shaded Region R
+            \fill[blue!15] plot[domain=-1:2, samples=50, variable=\x] ({\x}, {\x*\x}) -- (2,4) -- cycle;
+            
+            % Primary Grid Axes
+            \draw[->, thick] (-1.8, 0) -- (2.8, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.5) -- (0, 5.2) node[left] {$y$};
+            
+            % Boundary Curves
+            \draw[blue!80!black, thick, domain=-1.2:2.2, samples=50, variable=\x] plot ({\x}, {\x*\x}); % y=x^2
+            \draw[blue!80!black, thick, domain=-1.5:2.4] plot ({\x}, {\x+2});                           % y=x+2
+            
+            % Dashed projection helpers running to intersection points
+            \draw[dashed, gray] (-1, 0) -- (-1, 1) -- (0, 1);
+            \draw[dashed, gray] (2, 0) -- (2, 4) -- (0, 4);
+            
+            % Representative Vertical Sweep Arrow for Type I Integration
+            \draw[->, red, thick] (0.5, 0.25) -- (0.5, 2.3) node[midway, right] {$dy$};
+            
+            % Boundary Line/Curve Labels
+            \node[below right, blue!60!black] at (1.3, 1.69) {$y=x^2$};
+            \node[above left, blue!60!black] at (1.2, 3.2) {$y=x+2$};
+            
+            % Region Center Marker
+            \node at (0.2, 1.3) {\small $R$};
+            
+            % Vertices and Intersection Points
+            \fill (-1,1) circle (2pt) node[above left] {$(-1,1)$};
+            \fill (2,4) circle (2pt) node[above right] {$(2,4)$};
+            
+            % Exact Projection Points along the Axis Edges
+            \node[below] at (-1, 0) {\small $-1$};
+            \node[below] at (2, 0) {\small $2$};
+            \node[left] at (0, 1) {\small $1$};
+            \node[left] at (0, 4) {\small $4$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Evaluate the Area Double Integral</strong>
+    </p>
+    <p>
+      Using the definition of area, we set up the iterated integral with respect to <m>y</m> first:
+    </p>
+    <md>
+      <mrow>A \amp = \int_{-1}^{2} \int_{x^2}^{x+2} \,dy\,dx</mrow>
+      <mrow>\amp = \int_{-1}^{2} \Big[ y \Big]_{y=x^2}^{y=x+2} \,dx</mrow>
+      <mrow>\amp = \int_{-1}^{2} (x + 2 - x^2) \,dx</mrow>
+      <mrow>\amp = \left[ \frac{1}{2}x^2 + 2x - \frac{1}{3}x^3 \right]_{-1}^{2}</mrow>
+    </md>
+    <p>
+      Now, evaluating at the upper and lower limits:
+    </p>
+    <md>
+      <mrow>\text{Upper limit } (x=2): \amp \quad \frac{1}{2}(2)^2 + 2(2) - \frac{1}{3}(2)^3 = 2 + 4 - \frac{8}{3} = \frac{10}{3}</mrow>
+      <mrow>\text{Lower limit } (x=-1): \amp \quad \frac{1}{2}(-1)^2 + 2(-1) - \frac{1}{3}(-1)^3 = \frac{1}{2} - 2 + \frac{1}{3} = -\frac{7}{6}</mrow>
+    </md>
+    <p>
+      Subtracting the lower limit evaluation from the upper limit evaluation yields:
+      <md>
+        <mrow>A \amp = \frac{10}{3} - \left( -\frac{7}{6} \right)</mrow>
+        <mrow>\amp = \frac{20}{6} + \frac{7}{6} = \frac{27}{6} = \frac{9}{2}</mrow>
+      </md>
+      The total area of the enclosed region is exactly <m>\frac{9}{2}</m> (or <m>4.5</m>).
+    </p>
+  </solution>
+</example>
+
+<definition xml:id="def-average-value-double-integral">
+  <title>Average Value</title>
+  <statement>
+    <p>
+      The average value of <m>f</m> over <m>R</m> is
+      <me>\text{Average Value} = \frac{1}{\text{area of } R} \iint_R f \,dA.</me>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-average-value-trig">
+  <statement>
+    <p>
+      Find the average value of <m>f(x,y)=x\cos(xy)</m> over the rectangle <m>R: 0\leq x \leq \pi, \quad 0\leq y \leq 1</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Calculate the Area of Region <m>R</m></strong>
+    </p>
+    <p>
+      The region <m>R</m> is a simple rectangle bounded by constant lines. 
+      The width along the <m>x</m>-axis is <m>\pi</m> and the height along the <m>y</m>-axis is <m>1</m>. 
+      Therefore, the area of <m>R</m> is:
+      <me>\text{Area}(R) = \text{width} \times \text{height} = \pi \times 1 = \pi.</me>
+    </p>
+
+    <!-- 2:1 Aspect Ratio Rectangular Domain Figure -->
+    <figure xml:id="fig-average-value-domain">
+      <caption>The rectangular domain <m>R: 0 \leq x \leq \pi, \ 0 \leq y \leq 1</m> with a 2:1 horizontal-to-vertical aspect ratio.</caption>
+      <image xml:id="img-average-value-domain" width="60%">
+        <description>A plot of the 2D rectangular domain R bounded by x from 0 to pi and y from 0 to 1 with an aspect ratio of 2 to 1.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.5cm, y=3.0cm, >=latex]
+            % Shaded Region R
+            \fill[blue!15] (0,0) rectangle (3.1416, 1.0);
+            
+            % Primary Grid Axes
+            \draw[->, thick] (-0.3, 0) -- (3.7, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.15) -- (0, 1.3) node[left] {$y$};
+            
+            % Boundary Lines
+            \draw[blue!80!black, thick] (0,0) rectangle (3.1416, 1.0);
+            \draw[dashed, gray] (3.1416, 1.0) -- (3.5, 1.0);
+            \draw[dashed, gray] (3.1416, 1.0) -- (3.1416, 1.2);
+            
+            % Boundary Line Labels
+            \node[left, blue!60!black] at (0, 0.5) {$x=0$};
+            \node[right, blue!60!black] at (3.1416, 0.5) {$x=\pi$};
+            \node[below, blue!60!black] at (1.57, 0) {$y=0$};
+            \node[above, blue!60!black] at (1.57, 1.0) {$y=1$};
+            
+            % Region Center Marker
+            \node at (1.57, 0.5) {\small Region $R$};
+            
+            % Vertices
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (3.1416, 0) circle (1.5pt);
+            \fill (0, 1.0) circle (1.5pt);
+            \fill (3.1416, 1.0) circle (1.5pt) node[above right] {$(\pi,1)$};
+            
+            % Axis Labels
+            \node[below=2pt] at (3.1416, 0) {\small $\pi$};
+            \node[left=2pt] at (0, 1.0) {\small $1$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Evaluate the Double Integral Over <m>R</m></strong>
+    </p>
+    <p>
+      To evaluate <m>\iint_R x\cos(xy) \,dA</m>, we integrate with respect to <m>y</m> first because the inner derivative factor <m>x</m> is already present in the integrand, simplifying the anti-differentiation:
+    </p>
+    <md>
+      <mrow>\iint_R x\cos(xy) \,dA \amp = \int_{0}^{\pi} \int_{0}^{1} x\cos(xy) \,dy\,dx</mrow>
+      <mrow>\amp = \int_{0}^{\pi} \Big[ \sin(xy) \Big]_{y=0}^{y=1} \,dx</mrow>
+      <mrow>\amp = \int_{0}^{\pi} \left( \sin(x \cdot 1) - \sin(x \cdot 0) \right) \,dx</mrow>
+      <mrow>\amp = \int_{0}^{\pi} \sin(x) \,dx</mrow>
+      <mrow>\amp = \Big[ -\cos(x) \Big]_{0}^{\pi}</mrow>
+      <mrow>\amp = -\cos(\pi) - (-\cos(0))</mrow>
+      <mrow>\amp = -(-1) + 1 = 1 + 1 = 2</mrow>
+    </md>
+
+    <p>
+      <strong>Step 3: Calculate the Final Average Value</strong>
+    </p>
+    <p>
+      Using the definition, we divide the value of the double integral by the total area computed in Step 1:
+      <me>\text{Average Value} = \frac{1}{\pi} \cdot 2 = \frac{2}{\pi}.</me>
+      The average value of the function over the given rectangle is exactly <m>\frac{2}{\pi}</m>.
+    </p>
+  </solution>
+</example>
+
+<definition xml:id="def-volume-double-integral">
+  <title>Volume</title>
+  <statement>
+    <p>
+      The volume of a solid lying under a surface <m>z = f(x,y)</m> over a closed, bounded plane region <m>R</m> is
+      <me>V = \iint_R f(x,y)\,dA.</me>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-volume-first-octant">
+  <statement>
+    <p>
+      Find the volume <m>V</m> of the solid in the first octant bounded by the coordinate planes, the paraboloid <m>z=x^2+y^2+1</m>, and the plane <m>2x+y=2</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Identify the Base Region <m>R</m></strong>
+    </p>
+    <p>
+      In the first octant, the coordinate plane boundaries give <m>x \geq 0</m>, <m>y \geq 0</m>, and <m>z \geq 0</m>. The base region <m>R</m> sits in the <m>xy</m>-plane (<m>z=0</m>) and is a triangle bounded by the lines <m>x = 0</m> (the <m>y</m>-axis), <m>y = 0</m> (the <m>x</m>-axis), and the intersection line <m>2x + y = 2</m>.
+    </p>
+    <p>
+      Rewriting the bounding line in terms of <m>y</m> gives <m>y = 2 - 2x</m>. Finding the intercepts of this line:
+      <ul>
+        <li><p>When <m>y = 0</m>: <m>2x = 2 \implies x = 1</m></p></li>
+        <li><p>When <m>x = 0</m>: <m>y = 2</m></p></li>
+      </ul>
+      Therefore, setting this up as a Type I region, the boundaries are:
+      <me>0 \leq x \leq 1 \quad \text{and} \quad 0 \leq y \leq 2 - 2x</me>
+    </p>
+
+    <!-- 2:1 Aspect Ratio Triangular Domain Figure -->
+    <figure xml:id="fig-volume-octant-base">
+      <caption>The triangular base region <m>R</m> in the <m>xy</m>-plane with a 2:1 horizontal-to-vertical aspect ratio.</caption>
+      <image xml:id="img-volume-octant-base" width="50%">
+        <description>A plot of the 2D triangular base region R bounded by x=0, y=0, and the line y = 2 - 2x, with a vertical sweep arrow indicating the integration direction.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=3.0cm, y=1.5cm, >=latex]
+            % Shaded Triangular Region R
+            \fill[blue!15] (0,0) -- (1,0) -- (0,2) -- cycle;
+            
+            % Primary Grid Axes
+            \draw[->, thick] (-0.2, 0) -- (1.4, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.2) -- (0, 2.4) node[left] {$y$};
+            
+            % Boundary Lines
+            \draw[blue!80!black, thick] (0,2) -- (1,0);  % 2x + y = 2
+            \draw[blue!80!black, thick] (0,0) -- (1,0);  % y=0
+            \draw[blue!80!black, thick] (0,0) -- (0,2);  % x=0
+            
+            % Representative Vertical Sweep Arrow for Type I Integration
+            \draw[->, red, thick] (0.4, 0.1) -- (0.4, 1.0) node[midway, right] {$dy$};
+            
+            % Boundary Labels
+            \node[above right, blue!60!black] at (0.5, 1.0) {$2x+y=2$};
+            \node[below, blue!60!black] at (0.5, 0) {$y=0$};
+            \node[left, blue!60!black] at (0, 1.0) {$x=0$};
+            
+            % Region Label
+            \node at (0.25, 0.25) {\small Region $R$};
+            
+            % Vertices
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1,0) circle (1.5pt) node[below right] {$(1,0)$};
+            \fill (0,2) circle (1.5pt) node[above left] {$(0,2)$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Set Up and Evaluate the Iterated Integral</strong>
+    </p>
+    <p>
+      The ceiling of the solid is the paraboloid <m>z = x^2 + y^2 + 1</m>. We integrate this function over the triangular region <m>R</m>:
+      <me>V = \int_{0}^{1} \int_{0}^{2-2x} (x^2 + y^2 + 1) \, dy \, dx</me>
+      First, we integrate the inner expression with respect to <m>y</m>:
+    </p>
+    <md>
+      <mrow>\int_{0}^{2-2x} (x^2 + y^2 + 1) \, dy \amp = \left[ x^2y + \frac{1}{3}y^3 + y \right]_{y=0}^{y=2-2x}</mrow>
+      <mrow>\amp = x^2(2-2x) + \frac{1}{3}(2-2x)^3 + (2-2x)</mrow>
+      <mrow>\amp = 2x^2 - 2x^3 + \frac{1}{3}(8 - 24x + 24x^2 - 8x^3) + 2 - 2x</mrow>
+      <mrow>\amp = 2x^2 - 2x^3 + \frac{8}{3} - 8x + 8x^2 - \frac{8}{3}x^3 + 2 - 2x</mrow>
+      <mrow>\amp = \left(-2 - \frac{8}{3}\right)x^3 + (2 + 8)x^2 + (-8 - 2)x + \left(\frac{8}{3} + 2\right)</mrow>
+      <mrow>\amp = -\frac{14}{3}x^3 + 10x^2 - 10x + \frac{14}{3}</mrow>
+    </md>
+    <p>
+      Next, we integrate this simplified single variable polynomial expression with respect to <m>x</m> over the outer boundary:
+    </p>
+    <md>
+      <mrow>V \amp = \int_{0}^{1} \left( -\frac{14}{3}x^3 + 10x^2 - 10x + \frac{14}{3} \right) \, dx</mrow>
+      <mrow>\amp = \left[ -\frac{14}{12}x^4 + \frac{10}{3}x^3 - 5x^2 + \frac{14}{3}x \right]_{0}^{1}</mrow>
+      <mrow>\amp = \left( -\frac{7}{6}(1)^4 + \frac{10}{3}(1)^3 - 5(1)^2 + \frac{14}{3}(1) \right) - 0</mrow>
+      <mrow>\amp = -\frac{7}{6} + \frac{10}{3} - 5 + \frac{14}{3}</mrow>
+      <mrow>\amp = -\frac{7}{6} + \frac{24}{3} - 5</mrow>
+      <mrow>\amp = -\frac{7}{6} + 8 - 5 = -\frac{7}{6} + 3</mrow>
+      <mrow>\amp = -\frac{7}{6} + \frac{18}{6} = \frac{11}{6}</mrow>
+    </md>
+    <p>
+      The total volume of the solid in the first octant is exactly <m>\frac{11}{6}</m>.
+    </p>
+  </solution>
+</example>
+
+<exercises xml:id="exercises-multivariable-volumes">
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 1                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-volume-intersecting-cylinders">
+    <statement>
+      <p>
+        Find the volume <m>V</m> of the solid that lies in the first octant and is bounded by the three coordinate planes and the cylinders <m>x^2+y^2=9</m> and <m>y^2+z^2=9</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Identify the Base Region <m>R</m></strong>
+      </p>
+      <p>
+        In the first octant, the coordinate planes give <m>x \geq 0</m>, <m>y \geq 0</m>, and <m>z \geq 0</m>. The base region <m>R</m> in the <m>xy</m>-plane is bounded by the circular cylinder base <m>x^2+y^2=9</m>. Isolating <m>x</m> gives <m>x = \sqrt{9-y^2}</m>. 
+        The region can be described as a Type II domain tracking from <m>y=0</m> to <m>y=3</m>:
+        <me>0 \leq y \leq 3 \quad \text{and} \quad 0 \leq x \leq \sqrt{9-y^2}</me>
+      </p>
+      <p>
+        The ceiling surface is given by isolating <m>z</m> from the second cylinder equation: <m>z = \sqrt{9-y^2}</m>.
+      </p>
+      <p>
+        <strong>Step 2: Evaluate the Volume Integral</strong>
+      </p>
+      <p>
+        Using a double integral, we have:
+        <me>V = \iint_R \sqrt{9-y^2} \, dA = \int_{0}^{3} \int_{0}^{\sqrt{9-y^2}} \sqrt{9-y^2} \, dx \, dy</me>
+        Integrating with respect to <m>x</m> first:
+        <me>\int_{0}^{\sqrt{9-y^2}} \sqrt{9-y^2} \, dx = \left[ x\sqrt{9-y^2} \right]_{x=0}^{x=\sqrt{9-y^2}} = (\sqrt{9-y^2})^2 - 0 = 9 - y^2</me>
+        Now, integrating the remaining expression with respect to <m>y</m>:
+        <me>V = \int_{0}^{3} (9-y^2) \, dy = \left[ 9y - \frac{1}{3}y^3 \right]_{0}^{3} = \left( 9(3) - \frac{1}{3}(27) \right) - 0 = 27 - 9 = 18</me>
+        The volume of the intersection solid in the first octant is exactly <m>18</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 2                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-reverse-order-sinc">
+    <statement>
+      <p>
+        Reverse the order of integration and evaluate the integral
+        <me>\int^\pi_0 \int^\pi_x \frac{\sin y}{y} \, dydx</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Analyze and Reverse the Bounds</strong>
+      </p>
+      <p>
+        The original Type I description is bounded by <m>0 \leq x \leq \pi</m> and <m>x \leq y \leq \pi</m>. This represents a triangular region bounded by the lines <m>y = x</m>, <m>x = 0</m>, and <m>y = \pi</m>. 
+        Reversing this to a Type II region (<m>dxdy</m>) gives:
+        <me>0 \leq y \leq \pi \quad \text{and} \quad 0 \leq x \leq y</me>
+      </p>
+
+      <!-- 2:1 Aspect Ratio Triangular Sweep Figure -->
+      <figure xml:id="fig-reverse-sinc-domain">
+        <caption>The domain <m>R</m> with horizontal sweeping arrows indicating the reversed <m>dxdy</m> order.</caption>
+        <image xml:id="img-reverse-sinc-domain" width="50%">
+          <description>A triangular region bounded by y=x, x=0, and y=pi with horizontal sweep arrows indicating dx direction.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=1.0cm, y=1.0cm, >=latex]
+              \fill[blue!15] (0,0) -- (0,3.14) -- (3.14,3.14) -- cycle;
+              \draw[->, thick] (-0.3,0) -- (3.6,0) node[below] {$x$};
+              \draw[->, thick] (0,-0.3) -- (0,3.6) node[left] {$y$};
+              \draw[blue!80!black, thick] (0,0) -- (3.14,3.14);
+              \node at (3.0, 2.14) {$y=x$};
+              \draw[blue!80!black, thick] (0,3.14) -- (3.14,3.14) node[above left] {$y=\pi$};
+              \draw[->, red, thick] (0,1.8) -- (1.7,1.8) node[midway, above] {$dx$};
+              \fill (0,3.14) circle (1.5pt) node[left] {$\pi$};
+              \fill (3.14,3.14) circle (1.5pt) node[right] {$(\pi,\pi)$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 2: Evaluate the Transformed Integral</strong>
+      </p>
+      <p>
+        Applying the reversed limits of integration:
+        <me>\int_{0}^{\pi} \int_{0}^{y} \frac{\sin y}{y} \, dx \, dy</me>
+        Evaluating the inner integral with respect to <m>x</m>:
+        <me>\int_{0}^{y} \frac{\sin y}{y} \, dx = \left[ x \frac{\sin y}{y} \right]_{x=0}^{x=y} = y \left(\frac{\sin y}{y}\right) - 0 = \sin y</me>
+        Now evaluating the outer integral with respect to <m>y</m>:
+        <me>\int_{0}^{\pi} \sin y \, dy = \Big[ -\cos y \Big]_{0}^{\pi} = -\cos(\pi) - (-\cos 0) = -(-1) + 1 = 2</me>
+        The value of the integral is exactly <m>2</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 3                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-volume-parabola-line">
+    <statement>
+      <p>
+        Find the volume of the solid whose base is a region in the <m>xy</m>-plane that is bounded by the parabola <m>y=4-x^2</m> and the line <m>y=3x</m>, while the top of the solid is bounded by the plane <m>z=x+4</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Find the Intersection Boundaries of the Base</strong>
+      </p>
+      <p>
+        We set the base boundaries equal to find their intersection coordinates:
+        <me>4 - x^2 = 3x \implies x^2 + 3x - 4 = 0 \implies (x+4)(x-1) = 0</me>
+        The intersection points occur at <m>x = -4</m> and <m>x = 1</m>. On the interval <m>[-4, 1]</m>, the parabola <m>y = 4-x^2</m> stays above the line <m>y = 3x</m>. The Type I boundaries are:
+        <me>-4 \leq x \leq 1 \quad \text{and} \quad 3x \leq y \leq 4-x^2</me>
+      </p>
+
+      <!-- 2:1 Aspect Ratio Bounded Base Figure -->
+      <figure xml:id="fig-base-parabola-line"> 
+  <caption>The base region <m>R</m> bounded by <m>y=4-x^2</m> and <m>y=3x</m>.</caption> 
+  <image xml:id="img-base-parabola-line" width="55%"> 
+    <description>A base domain bounded above by the parabola y=4-x^2 and below by the line y=3x, intersecting at x=-4 and x=1.</description> 
+    <latex-image> 
+      <![CDATA[ 
+      \begin{tikzpicture}[x=0.6cm, y=0.2cm, >=latex] 
+        % Shaded Region R
+        \fill[blue!15] plot[domain=-4:1, samples=50, variable=\x] ({\x}, {4-\x*\x}) -- (1,3) -- cycle; 
+        
+        % Primary Grid Axes
+        \draw[->, thick] (-5.2, 0) -- (2.5, 0) node[below] {$x$}; 
+        \draw[->, thick] (0, -13.5) -- (0, 6.0) node[left] {$y$}; 
+        
+        % Boundary Curves
+        \draw[blue!80!black, thick, domain=-4.3:1.5, samples=50] plot ({\x}, {4-\x*\x}); 
+        \draw[blue!80!black, thick, domain=-4.5:1.6] plot ({\x}, {3*\x}); 
+        
+        % Curve Labels (shifted outside the shaded geometry to prevent overlap)
+        \node[above left, blue!60!black] at (-2.2, -0.84) {$y=4-x^2$}; 
+        \node[below right, blue!60!black] at (-1.5, -4.5) {$y=3x$}; 
+        
+        % Intersection Vertices
+        \fill (-4,-12) circle (2.5pt) node[below left] {$(-4,-12)$}; 
+        \fill (1,3) circle (2.5pt) node[above right] {$(1,3)$}; 
+      \end{tikzpicture} 
+      ]]> 
+    </latex-image> 
+  </image> 
+</figure>
+
+      <p>
+        <strong>Step 2: Evaluate the Volume Integral</strong>
+      </p>
+      <p>
+        We compute the volume by integrating the ceiling function <m>z = x+4</m> over <m>R</m>:
+        <me>V = \int_{-4}^{1} \int_{3x}^{4-x^2} (x+4) \, dy \, dx</me>
+        Integrating with respect to <m>y</m>:
+        <me>\int_{3x}^{4-x^2} (x+4) \, dy = (x+4)\Big[ y \Big]_{3x}^{4-x^2} = (x+4)(4 - x^2 - 3x)</me>
+        Expanding the polynomial product results in:
+        <me>= 4x - x^3 - 3x^2 + 16 - 4x^2 - 12x = -x^3 - 7x^2 - 8x + 16</me>
+        Now, evaluating the single integral with respect to <m>x</m>:
+        <md>
+          <mrow>V \amp = \int_{-4}^{1} (-x^3 - 7x^2 - 8x + 16) \, dx = \left[ -\frac{1}{4}x^4 - \frac{7}{3}x^3 - 4x^2 + 16x \right]_{-4}^{1}</mrow>
+          <mrow>\amp = \left( -\frac{1}{4} - \frac{7}{3} - 4 + 16 \right) - \left( -\frac{256}{4} - \frac{7(-64)}{3} - 4(16) + 16(-4) \right)</mrow>
+          <mrow>\amp = \left( \frac{113}{12} \right) - \left( -64 + \frac{448}{3} - 64 - 64 \right) = \frac{113}{12} - \left( -\frac{128}{3} \right) = \frac{113 + 512}{12} = \frac{625}{12}</mrow>
+        </md>
+        The volume of the solid is exactly <m>\frac{625}{12}</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 4                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-volume-wedge-cylinder">
+    <statement>
+      <p>
+        Find the volume of the wedge cut from the first octant by the cylinder <m>z=12-3y^2</m> and the plane <m>x+y=2</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Determine the Bounds in the Base Plane</strong>
+      </p>
+      <p>
+        In the first octant, <m>x \geq 0</m> and <m>y \geq 0</m>. The base triangle <m>R</m> is bounded by the line <m>x+y=2 \implies x = 2-y</m>. 
+        Setting <m>x=0</m> gives the upper limit for <m>y</m> at <m>y=2</m>. 
+        Setting this up as a Type II integral gives:
+        <me>0 \leq y \leq 2 \quad \text{and} \quad 0 \leq x \leq 2-y</me>
+      </p>
+
+      <!-- 2:1 Aspect Ratio Triangular Base Figure -->
+      <figure xml:id="fig-wedge-triangular-base">
+        <caption>The triangular base region <m>R</m> for the wedge solid.</caption>
+        <image xml:id="img-wedge-triangular-base" width="50%">
+          <description>A triangular region bounded by the axes and the line x+y=2 in the first quadrant.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=2.0cm, y=2.0cm, >=latex]
+              \fill[blue!15] (0,0) -- (2,0) -- (0,2) -- cycle;
+              \draw[->, thick] (-0.2,0) -- (2.4,0) node[below] {$x$};
+              \draw[->, thick] (0,-0.2) -- (0,2.4) node[left] {$y$};
+            \draw[blue!80!black, thick] (0,2) -- (2,0) node[midway, above right] {$x+y=2$};
+            \fill (0,2) circle (1.5pt) node[left] {$(0,2)$};
+            \fill (2,0) circle (1.5pt) node[below] {$(2,0)$};
+            \node at (0.5,0.5) {\small Region $R$};
+            \end{tikzpicture}]]>
+            </latex-image>
+            </image>
+        </figure>
+<p>
+        <strong>Step 2: Reverse the Limits to Type I (<m>dydx</m>)</strong>
+      </p>
+      <p>
+        To switch to a Type I layout, we examine the vertical bounds of the region across a horizontal span. The region spans along the <m>x</m>-axis from <m>x = 0</m> to <m>x = 1</m>. For a fixed value of <m>x</m>, a vertical strip starts at the bottom boundary line <m>y = 0</m> and sweeps upward until it reaches the line <m>y = x</m>. 
+        The reversed boundary descriptions are:
+        <me>0 \leq x \leq 1 \quad \text{and} \quad 0 \leq y \leq x.</me>
+      </p>
+
+      <p>
+        <strong>Step 3: Setup and Evaluate the Transformed Integral</strong>
+      </p>
+      <p>
+        Using our new boundary configurations, the original unintegrable problem transitions into a solvable iterated integral:
+        <me>\int_{0}^{1} \int_{0}^{x} e^{x^2} \, dy \, dx</me>
+        We compute the inner integral with respect to <m>y</m>, treating <m>e^{x^2}</m> as a constant factor:
+        <me>\int_{0}^{x} e^{x^2} \, dy = \left[ y e^{x^2} \right]_{y=0}^{y=x} = x e^{x^2} - 0 = x e^{x^2}.</me>
+        Next, we substitute this result back into the outer structural layer to integrate with respect to <m>x</m>:
+        <me>\int_{0}^{1} x e^{x^2} \, dx</me>
+        We evaluate this final layer using <m>u</m>-substitution. Let:
+        <me>u = x^2 \implies du = 2x \, dx \implies \frac{1}{2}\,du = x \, dx.</me>
+        Updating our definite limits of integration:
+        <ul>
+          <li><p>When <m>x = 0</m>: <m>u = 0^2 = 0</m></p></li>
+          <li><p>When <m>x = 1</m>: <m>u = 1^2 = 1</m></p></li>
+        </ul>
+        Substituting these elements back into the equation yields:
+        <md>
+          <mrow>\int_{0}^{1} \frac{1}{2} e^u \, du \amp = \left[ \frac{1}{2} e^u \right]_{0}^{1}</mrow>
+          <mrow>\amp = \frac{1}{2}e^1 - \frac{1}{2}e^0</mrow>
+          <mrow>\amp = \frac{1}{2}(e - 1).</mrow>
+        </md>
+        The exact value of the reversed double integral is <m>\frac{e - 1}{2}</m>.
+      </p>
+    </solution>
+    </exercise>
+    </exercises>
+
+
+</section>    
