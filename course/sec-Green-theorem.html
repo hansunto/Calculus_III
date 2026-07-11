@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>5.3 Green’s Theorem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.11';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.8b6d53d5a91823a0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.2901d6466316ff22.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-Line-Integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Vector-fields.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-Curl-Divergence.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Vector-valued-functions-5.html" class="internal"><span class="title">2.3 Integrals of Vector Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html" class="internal"><span class="title">2.4 Arc Length and Curvature</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html#subsec-curvature" class="internal"><span class="title">The Curvature</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-motion-in-space.html" class="internal"><span class="title">2.5 Motion in Space: Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangential-normal-components.html" class="internal"><span class="title">2.6 Tangential and Normal Components of Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Partial-Derivatives.html" class="internal"><span class="codenumber">3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-functions-several-variables.html" class="internal"><span class="title">Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-limits-continuity.html" class="internal"><span class="title">3.2 Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-partial-derivatives.html" class="internal"><span class="title">3.3 Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-increment.html" class="internal"><span class="title">3.4 Increments and Differentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-chain-rules.html" class="internal"><span class="title">3.5 Chain Rules</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-directional-derivatives.html" class="internal"><span class="title">3.6 Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangent-plane.html" class="internal"><span class="title">3.7 Tangent Planes and Normal Lines</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-extrema.html" class="internal"><span class="title">3.8 Extrema of Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lagrange-multipliers.html" class="internal"><span class="title">3.9 Lagrange Multipliers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Multiple-Integrals.html" class="internal"><span class="codenumber">4</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Double-integrals.html" class="internal"><span class="title">4.1 Double Integrals</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-area-volume.html" class="internal"><span class="title">4.2 Area and Volume</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-area-volume.html#exercises-multivariable-volumes" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polar-coordinates.html" class="internal"><span class="title">4.3 Double Integrals in Polar coordinates</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-polar-coordinates.html#exercises-polar-coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Triple-integrals.html" class="internal"><span class="title">4.4 Triple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Triple-integrals.html#exercises-triple-integrals-regions" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Triple-integrals.html#exercises-triple-integrals-advanced" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Cylindrical-Coordinates.html" class="internal"><span class="title">4.5 Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Cylindrical-Coordinates.html#exercises-exercises-Cylindrical-Coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Change-of-Variables.html" class="internal"><span class="title">4.6 Change of Variables and Jacobians</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Vector-fields.html" class="internal"><span class="codenumber">5</span> <span class="title">Integration in Vector Fields</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Vector-fields.html" class="internal"><span class="title">5.1 Vector Fields</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Line-Integrals.html" class="internal"><span class="title">5.2 Line Integrals</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-Green-theorem.html" class="internal"><span class="title">5.3 Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Curl-Divergence.html" class="internal"><span class="title">5.4 Curl and Divergence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">6</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-partial-derivatives-chapter-review.html" class="internal"><span class="title">Worksheet 03: Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-multiple-integrals-chapter-review.html" class="internal"><span class="title">Worksheet 04: Multiple Integrals</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-fields-chapter-review.html" class="internal"><span class="title">Worksheet 05: Vector Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">7</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">8</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">9</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-Green-theorem">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">5.3 Green’s Theorem</span>
+</h2>
+<section class="introduction" id="sec-Green-theorem-2">
+<div class="para" id="sec-Green-theorem-2-1">Green’s Theorem is a fundamental result in vector calculus that relates the line integral of a vector field around a simple closed curve to the double integral of the curl of the field over the region enclosed by the curve.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Green-theorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-Green-theorem-2-2">In this section, we will explore the statement and proof of Green’s Theorem, as well as its applications in calculating areas and evaluating line integrals.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Green-theorem-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<article class="definition definition-like" id="def-conservative-field"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.28</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conservative Vector Field.</span>
+</h3>
+<div class="para" id="def-conservative-field-2-1">Suppose <span class="process-math">\(\mathbf{F}\)</span> is a vector field that is continuous on an open connected region <span class="process-math">\(D\text{.}\)</span> If <span class="process-math">\(\int_C \mathbf{F} \cdot d\mathbf{r}\)</span> is independent of path in <span class="process-math">\(D\text{,}\)</span> then <span class="process-math">\(\mathbf{F}\)</span> is a <dfn class="terminology">conservative vector field</dfn> on <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="def-conservative-field-2-2">
+<div class="para">Equivalently, if there exists a differentiable scalar function <span class="process-math">\(f\)</span> such that:</div>
+<div class="displaymath process-math" id="def-conservative-field-2-2-2">
+\begin{equation*}
+\mathbf{F} = P\mathbf{i} + Q\mathbf{j} = \frac{\partial f}{\partial x}\mathbf{i} + \frac{\partial f}{\partial y}\mathbf{j} = \nabla f,
+\end{equation*}
+</div>
+<div class="para">then <span class="process-math">\(\mathbf{F}\)</span> is conservative, and <span class="process-math">\(f\)</span> is called a <dfn class="terminology">potential function</dfn> for <span class="process-math">\(\mathbf{F}\text{,}\)</span> where <span class="process-math">\(f(x,y) = \int_C \mathbf{F} \cdot d\mathbf{r}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-field-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.28: Conservative Vector Field"><a href="#def-conservative-field" title="Copy heading and permalink for Definition 5.28: Conservative Vector Field" aria-label="Copy heading and permalink for Definition 5.28: Conservative Vector Field">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-component-test-conservative"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.29</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Component Test for Conservative Vector Fields.</span>
+</h3>
+<div class="para logical" id="thm-component-test-conservative-2-1">
+<div class="para">Let <span class="process-math">\(\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j}\)</span> be a vector field on a simply-connected domain <span class="process-math">\(D\text{,}\)</span> where <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> have continuous first-order partial derivatives. Then <span class="process-math">\(\mathbf{F}\)</span> is a conservative vector field if and only if:</div>
+<div class="displaymath process-math" id="thm-component-test-conservative-2-1-6">
+\begin{equation*}
+\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}
+\end{equation*}
+</div>
+<div class="para">throughout <span class="process-math">\(D\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-component-test-conservative-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.29: Component Test for Conservative Vector Fields"><a href="#thm-component-test-conservative" title="Copy heading and permalink for Theorem 5.29: Component Test for Conservative Vector Fields" aria-label="Copy heading and permalink for Theorem 5.29: Component Test for Conservative Vector Fields">🔗</a></div>
+</article>
+<details id="ex-test-conservative-field" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.30</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-test-conservative-field-1-1">
+<div class="para">Determine whether or not the vector field:</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-1-1-1">
+\begin{equation*}
+\mathbf{F}(x,y) = (x-y)\mathbf{i} + (x-2)\mathbf{j}
+\end{equation*}
+</div>
+<div class="para">is conservative.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-test-conservative-field-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-test-conservative-field-2-1">Step 1: Identify Component Functions<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-test-conservative-field-2-2">
+<div class="para">We match the given vector field to the standard component form <span class="process-math">\(\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-2-2-2">
+\begin{equation*}
+P(x,y) = x - y \quad \text{and} \quad Q(x,y) = x - 2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-test-conservative-field-2-3">Step 2: Compute and Compare Cross-Partial Derivatives<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-test-conservative-field-2-4">
+<div class="para">We apply the component test from <a href="sec-Green-theorem.html#thm-component-test-conservative" class="xref" data-knowl="./knowl/xref/thm-component-test-conservative.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.29: Component Test for Conservative Vector Fields">Theorem 5.29</a> by taking partial derivatives:</div>
+<ul class="disc" id="ex-test-conservative-field-2-4-2">
+<li id="ex-test-conservative-field-2-4-2-1">
+<div class="para logical" id="ex-test-conservative-field-2-4-2-1-1">
+<div class="para">Differentiate <span class="process-math">\(P\)</span> with respect to <span class="process-math">\(y\)</span> (treating <span class="process-math">\(x\)</span> as a constant):</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-2-4-2-1-1-4">
+\begin{equation*}
+\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(x - y) = -1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-2-4-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-test-conservative-field-2-4-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-test-conservative-field-2-4-2-2">
+<div class="para logical" id="ex-test-conservative-field-2-4-2-2-1">
+<div class="para">Differentiate <span class="process-math">\(Q\)</span> with respect to <span class="process-math">\(x\)</span> (treating <span class="process-math">\(y\)</span> as a constant):</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-2-4-2-2-1-4">
+\begin{equation*}
+\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(x - 2) = 1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-2-4-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-test-conservative-field-2-4-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-test-conservative-field-2-5">Step 3: Conclusion<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-test-conservative-field-2-6">
+<div class="para">Comparing the results, we see that:</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-2-6-1">
+\begin{equation*}
+\frac{\partial P}{\partial y} = -1 \quad \neq \quad \frac{\partial Q}{\partial x} = 1.
+\end{equation*}
+</div>
+<div class="para">Because the cross-partial derivatives are not equal (<span class="process-math">\(\frac{\partial P}{\partial y} \neq \frac{\partial Q}{\partial x}\)</span>), the vector field <span class="process-math">\(\mathbf{F}(x,y)\)</span> fails the component test. Therefore, <span class="process-math">\(\mathbf{F}\)</span> is not conservative.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.30.1"><a href="#ex-test-conservative-field-2" title="Copy heading and permalink for Solution 5.30.1" aria-label="Copy heading and permalink for Solution 5.30.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.30"><a href="#ex-test-conservative-field" title="Copy heading and permalink for Example 5.30" aria-label="Copy heading and permalink for Example 5.30">🔗</a></div>
+</article></details>
+<details id="ex-test-conservative-field-polynomial" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.31</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-test-conservative-field-polynomial-1-1">
+<div class="para">Determine whether or not the vector field:</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-polynomial-1-1-1">
+\begin{equation*}
+\mathbf{F}(x,y) = (3+2xy)\mathbf{i} + (x^2-3y^2)\mathbf{j}
+\end{equation*}
+</div>
+<div class="para">is conservative.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-test-conservative-field-polynomial-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-test-conservative-field-polynomial-2-1">Step 1: Identify Component Functions<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-test-conservative-field-polynomial-2-2">
+<div class="para">We match the given vector field to the standard component form <span class="process-math">\(\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-polynomial-2-2-2">
+\begin{equation*}
+P(x,y) = 3 + 2xy \quad \text{and} \quad Q(x,y) = x^2 - 3y^2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-test-conservative-field-polynomial-2-3">Step 2: Compute and Compare Cross-Partial Derivatives<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-test-conservative-field-polynomial-2-4">
+<div class="para">We take the cross-partial derivatives of the component functions:</div>
+<ul class="disc" id="ex-test-conservative-field-polynomial-2-4-1">
+<li id="ex-test-conservative-field-polynomial-2-4-1-1">
+<div class="para logical" id="ex-test-conservative-field-polynomial-2-4-1-1-1">
+<div class="para">Differentiate <span class="process-math">\(P\)</span> with respect to <span class="process-math">\(y\)</span> (holding <span class="process-math">\(x\)</span> constant):</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-polynomial-2-4-1-1-1-4">
+\begin{equation*}
+\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(3 + 2xy) = 2x.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-2-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-test-conservative-field-polynomial-2-4-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-test-conservative-field-polynomial-2-4-1-2">
+<div class="para logical" id="ex-test-conservative-field-polynomial-2-4-1-2-1">
+<div class="para">Differentiate <span class="process-math">\(Q\)</span> with respect to <span class="process-math">\(x\)</span> (holding <span class="process-math">\(y\)</span> constant):</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-polynomial-2-4-1-2-1-4">
+\begin{equation*}
+\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(x^2 - 3y^2) = 2x.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-2-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-test-conservative-field-polynomial-2-4-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-test-conservative-field-polynomial-2-5">Step 3: Conclusion<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-test-conservative-field-polynomial-2-6">
+<div class="para">Comparing the results, we see that:</div>
+<div class="displaymath process-math" id="ex-test-conservative-field-polynomial-2-6-1">
+\begin{equation*}
+\frac{\partial P}{\partial y} = 2x \quad = \quad \frac{\partial Q}{\partial x} = 2x.
+\end{equation*}
+</div>
+<div class="para">Because <span class="process-math">\(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\)</span> continuously throughout the entire <span class="process-math">\(\mathbb{R}^2\)</span> plane, the component test is satisfied. Therefore, the vector field <span class="process-math">\(\mathbf{F}(x,y)\)</span> is conservative.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-test-conservative-field-polynomial-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.31.1"><a href="#ex-test-conservative-field-polynomial-2" title="Copy heading and permalink for Solution 5.31.1" aria-label="Copy heading and permalink for Solution 5.31.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.31"><a href="#ex-test-conservative-field-polynomial" title="Copy heading and permalink for Example 5.31" aria-label="Copy heading and permalink for Example 5.31">🔗</a></div>
+</article></details>
+<details id="ex-find-potential-and-integrate" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.32</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-find-potential-and-integrate-1-1">
+<div class="para">If <span class="process-math">\(\mathbf{F}(x,y) = (3+2xy)\mathbf{i} + (x^2-3y^2)\mathbf{j}\text{,}\)</span> find a function <span class="process-math">\(f\)</span> such that <span class="process-math">\(\mathbf{F} = \nabla f\text{.}\)</span> Then evaluate the line integral <span class="process-math">\(\int_C \mathbf{F} \cdot d\mathbf{r}\text{,}\)</span> where <span class="process-math">\(C\)</span> is the curve given by:</div>
+<div class="displaymath process-math" id="ex-find-potential-and-integrate-1-1-6">
+\begin{equation*}
+\mathbf{r}(t) = e^t\sin t\mathbf{i} + e^t\cos t\mathbf{j}, \quad 0 \leq t \leq \pi.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-potential-and-integrate-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-find-potential-and-integrate-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-find-potential-and-integrate-2-1">Part 1: Find the Potential Function <span class="process-math">\(f(x,y)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-potential-and-integrate-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-find-potential-and-integrate-2-2">
+<div class="para">We require <span class="process-math">\(\nabla f = \langle f_x, f_y \rangle = \langle P, Q \rangle\text{.}\)</span> This gives two conditions:</div>
+<div class="displaymath process-math" id="ex-find-potential-and-integrate-2-2-2">
+\begin{equation*}
+(1) \quad f_x(x,y) = 3 + 2xy \qquad \text{and} \quad (2) \quad f_y(x,y) = x^2 - 3y^2.
+\end{equation*}
+</div>
+<div class="para">Integrating equation (1) with respect to <span class="process-math">\(x\text{,}\)</span> treating <span class="process-math">\(y\)</span> as a constant, we introduce a constant-of-integration function <span class="process-math">\(g(y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-find-potential-and-integrate-2-2-6">
+\begin{equation*}
+f(x,y) = \int (3 + 2xy)\,dx = 3x + x^2y + g(y).
+\end{equation*}
+</div>
+<div class="para">To find <span class="process-math">\(g(y)\text{,}\)</span> we take the partial derivative of this expression with respect to <span class="process-math">\(y\)</span> and set it equal to equation (2):</div>
+<div class="displaymath process-math" id="ex-find-potential-and-integrate-2-2-9">
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y}\left(3x + x^2y + g(y)\right) = x^2 + g'(y).
+\end{equation*}
+</div>
+<div class="para">Matching this with equation (2):</div>
+<div class="displaymath process-math" id="ex-find-potential-and-integrate-2-2-10">
+\begin{equation*}
+x^2 + g'(y) = x^2 - 3y^2 \implies g'(y) = -3y^2.
+\end{equation*}
+</div>
+<div class="para">Integrating <span class="process-math">\(g'(y)\)</span> with respect to <span class="process-math">\(y\)</span> yields <span class="process-math">\(g(y) = -y^3 + C\text{.}\)</span> Setting the constant <span class="process-math">\(C = 0\text{,}\)</span> our potential function is:</div>
+<div class="displaymath process-math" id="ex-find-potential-and-integrate-2-2-15">
+\begin{equation*}
+f(x,y) = 3x + x^2y - y^3.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-potential-and-integrate-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-find-potential-and-integrate-2-3">Part 2: Evaluate the Line Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-potential-and-integrate-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-find-potential-and-integrate-2-4">
+<div class="para">Because <span class="process-math">\(\mathbf{F}\)</span> is conservative, we use the Fundamental Theorem of Line Integrals: <span class="process-math">\(\int_C \mathbf{F} \cdot d\mathbf{r} = f(\mathbf{r}(\pi)) - f(\mathbf{r}(0))\text{.}\)</span> We determine the initial and terminal points from the parameter values:</div>
+<ul class="disc" id="ex-find-potential-and-integrate-2-4-3">
+<li id="ex-find-potential-and-integrate-2-4-3-1">
+<div class="para" id="ex-find-potential-and-integrate-2-4-3-1-1">Initial Point (<span class="process-math">\(t=0\)</span>): <span class="process-math">\(\mathbf{r}(0) = \langle e^0\sin(0), e^0\cos(0) \rangle = \langle 0, 1 \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-potential-and-integrate-2-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-find-potential-and-integrate-2-4-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-find-potential-and-integrate-2-4-3-2">
+<div class="para" id="ex-find-potential-and-integrate-2-4-3-2-1">Terminal Point (<span class="process-math">\(t=\pi\)</span>): <span class="process-math">\(\mathbf{r}(\pi) = \langle e^\pi\sin(\pi), e^\pi\cos(\pi) \rangle = \langle 0, -e^\pi \rangle\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-find-potential-and-integrate-2-4-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-find-potential-and-integrate-2-4-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Now, evaluating the potential function at these points:</div>
+<div class="displaymath process-math" id="ex-find-potential-and-integrate-2-4-4">
+\begin{align*}
+f(\mathbf{r}(\pi)) = f(0, -e^\pi) \amp = 3(0) + (0)^2(-e^\pi) - (-e^\pi)^3 = e^{3\pi}\\
+f(\mathbf{r}(0)) = f(0, 1) \amp = 3(0) + (0)^2(1) - (1)^3 = -1.
+\end{align*}
+</div>
+<div class="para">Subtracting the initial value from the terminal value:</div>
+<div class="displaymath process-math" id="ex-find-potential-and-integrate-2-4-5">
+\begin{equation*}
+\int_C \mathbf{F} \cdot d\mathbf{r} = e^{3\pi} - (-1) = e^{3\pi} + 1.
+\end{equation*}
+</div>
+<div class="para">The value of the vector line integral is exactly <span class="process-math">\(e^{3\pi} + 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-find-potential-and-integrate-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.32.1"><a href="#ex-find-potential-and-integrate-2" title="Copy heading and permalink for Solution 5.32.1" aria-label="Copy heading and permalink for Solution 5.32.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.32"><a href="#ex-find-potential-and-integrate" title="Copy heading and permalink for Example 5.32" aria-label="Copy heading and permalink for Example 5.32">🔗</a></div>
+</article></details>
+<details id="exercise-find-potential-3d" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.33</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exercise-find-potential-3d-1-1">If <span class="process-math">\(\mathbf{F}(x,y,z) = y^2\mathbf{i} + (2xy+e^{3z})\mathbf{j} + 3ye^{3z}\mathbf{k}\text{,}\)</span> find a function <span class="process-math">\(f\)</span> such that <span class="process-math">\(\nabla f = \mathbf{F}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-find-potential-3d-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercise-find-potential-3d-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="exercise-find-potential-3d-2-1">
+<div class="para">We need to find a scalar function <span class="process-math">\(f(x,y,z)\)</span> such that its gradient equals the component functions <span class="process-math">\(\langle P, Q, R \rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-1-3">
+\begin{equation*}
+(1) \quad f_x = y^2, \qquad (2) \quad f_y = 2xy + e^{3z}, \qquad (3) \quad f_z = 3ye^{3z}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-find-potential-3d-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-find-potential-3d-2-2">
+<div class="para">We integrate equation (1) with respect to <span class="process-math">\(x\text{,}\)</span> treating <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> as constant factors, which introduces an integration function <span class="process-math">\(g(y,z)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-2-5">
+\begin{equation*}
+f(x,y,z) = \int y^2 \,dx = xy^2 + g(y,z).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-find-potential-3d-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-find-potential-3d-2-3">
+<div class="para">To find <span class="process-math">\(g(y,z)\text{,}\)</span> we differentiate this expression with respect to <span class="process-math">\(y\)</span> and equate it to equation (2):</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-3-3">
+\begin{equation*}
+f_y = \frac{\partial}{\partial y}\left(xy^2 + g(y,z)\right) = 2xy + \frac{\partial g}{\partial y}.
+\end{equation*}
+</div>
+<div class="para">Matching this with equation (2) gives:</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-3-4">
+\begin{equation*}
+2xy + \frac{\partial g}{\partial y} = 2xy + e^{3z} \implies \frac{\partial g}{\partial y} = e^{3z}.
+\end{equation*}
+</div>
+<div class="para">Integrating this partial derivative with respect to <span class="process-math">\(y\)</span> introduces an integration constant function <span class="process-math">\(h(z)\)</span> depending only on <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-3-8">
+\begin{equation*}
+g(y,z) = \int e^{3z}\,dy = ye^{3z} + h(z).
+\end{equation*}
+</div>
+<div class="para">Substituting <span class="process-math">\(g(y,z)\)</span> back into our expression for <span class="process-math">\(f\)</span> updates the potential function equation:</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-3-11">
+\begin{equation*}
+f(x,y,z) = xy^2 + ye^{3z} + h(z).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-find-potential-3d-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exercise-find-potential-3d-2-4">
+<div class="para">Finally, we differentiate this updated equation with respect to <span class="process-math">\(z\)</span> and compare it with equation (3):</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-4-2">
+\begin{equation*}
+f_z = \frac{\partial}{\partial z}\left(xy^2 + ye^{3z} + h(z)\right) = 3ye^{3z} + h'(z).
+\end{equation*}
+</div>
+<div class="para">Matching this with equation (3) shows:</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-4-3">
+\begin{equation*}
+3ye^{3z} + h'(z) = 3ye^{3z} \implies h'(z) = 0 \implies h(z) = C.
+\end{equation*}
+</div>
+<div class="para">Choosing the constant <span class="process-math">\(C = 0\text{,}\)</span> our final 3D potential function is:</div>
+<div class="displaymath process-math" id="exercise-find-potential-3d-2-4-5">
+\begin{equation*}
+f(x,y,z) = xy^2 + ye^{3z}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise-find-potential-3d-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.33.1"><a href="#exercise-find-potential-3d-2" title="Copy heading and permalink for Solution 5.33.1" aria-label="Copy heading and permalink for Solution 5.33.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.33"><a href="#exercise-find-potential-3d" title="Copy heading and permalink for Checkpoint 5.33" aria-label="Copy heading and permalink for Checkpoint 5.33">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-green-theorem"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.34</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Green’s Theorem.</span>
+</h3>
+<div class="para" id="def-green-theorem-2-1">Let <span class="process-math">\(C\)</span> be a positively oriented, piecewise smooth, simple closed curve in the plane, and let <span class="process-math">\(D\)</span> be the region bounded by <span class="process-math">\(C\text{.}\)</span> If <span class="process-math">\(P(x,y)\)</span> and <span class="process-math">\(Q(x,y)\)</span> have continuous partial derivatives on an open region that contains <span class="process-math">\(D\text{,}\)</span> then<div class="autopermalink" data-description="Paragraph"><a href="#def-green-theorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="def-green-theorem-2-2">
+\begin{equation*}
+\oint_C (P \, dx + Q \, dy) = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Definition 5.34: Green’s Theorem"><a href="#def-green-theorem" title="Copy heading and permalink for Definition 5.34: Green’s Theorem" aria-label="Copy heading and permalink for Definition 5.34: Green’s Theorem">🔗</a></div>
+</article>
+<details id="ex-green-theorem-application" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.35</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-green-theorem-application-1-1">Use Green’s Theorem to evaluate the line integral of the vector field <span class="process-math">\(\mathbf{F}(x,y) = (y^2, x^2)\)</span> around the unit circle centered at the origin.<div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-green-theorem-application-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-green-theorem-application-2-1">First, we identify the components of the vector field: <span class="process-math">\(P(x,y) = y^2\)</span> and <span class="process-math">\(Q(x,y) = x^2\text{.}\)</span> We compute their partial derivatives:<div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ex-green-theorem-application-2-2">
+<li id="ex-green-theorem-application-2-2-1">
+<div class="para" id="ex-green-theorem-application-2-2-1-1">
+<span class="process-math">\(\displaystyle \frac{\partial Q}{\partial x} = 2x\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-green-theorem-application-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-green-theorem-application-2-2-2">
+<div class="para" id="ex-green-theorem-application-2-2-2-1">
+<span class="process-math">\(\displaystyle \frac{\partial P}{\partial y} = 2y\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-green-theorem-application-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="ex-green-theorem-application-2-3">Applying Green’s Theorem, we have:<div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-green-theorem-application-2-4">
+\begin{equation*}
+\oint_C (y^2 \, dx + x^2 \,dy) = \iint_D (2x - 2y) \, dA.
+\end{equation*}
+</div>
+<div class="para" id="ex-green-theorem-application-2-5">The region <span class="process-math">\(D\)</span> is the unit disk, which can be described in polar coordinates as <span class="process-math">\(0 \leq r \leq 1\)</span> and <span class="process-math">\(0 \leq \theta \leq 2\pi\text{.}\)</span> The double integral becomes:<div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-green-theorem-application-2-6">
+\begin{equation*}
+\iint_D (2r\cos\theta - 2r\sin\theta) \, r \, dr \, d\theta = \int_0^{2\pi} \int_0^1 (2r^2\cos\theta - 2r^2\sin\theta) \, dr \, d\theta.
+\end{equation*}
+</div>
+<div class="para" id="ex-green-theorem-application-2-7">Evaluating the inner integral with respect to <span class="process-math">\(r\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-green-theorem-application-2-8">
+\begin{equation*}
+\int_0^1 (2r^2\cos\theta - 2r^2\sin\theta) \, dr = \left[ \frac{2r^3}{3}\cos\theta - \frac{2r^3}{3}\sin\theta \right]_0^1 = \frac{2}{3}(\cos\theta - \sin\theta).
+\end{equation*}
+</div>
+<div class="para" id="ex-green-theorem-application-2-9">Now, we integrate with respect to <span class="process-math">\(\theta\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-green-theorem-application-2-10">
+\begin{equation*}
+\int_0^{2\pi} \frac{2}{3}   (\cos\theta - \sin\theta) \, d\theta = \frac{2}{3} \left[ \sin\theta + \cos\theta \right]_0^{2\pi} = 0.
+\end{equation*}
+</div>
+<div class="para" id="ex-green-theorem-application-2-11">Therefore, the value of the line integral is <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-green-theorem-application-2-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.35.1"><a href="#ex-green-theorem-application-2" title="Copy heading and permalink for Solution 5.35.1" aria-label="Copy heading and permalink for Solution 5.35.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.35"><a href="#ex-green-theorem-application" title="Copy heading and permalink for Example 5.35" aria-label="Copy heading and permalink for Example 5.35">🔗</a></div>
+</article></details>
+<article class="assemblage assemblage-like" id="asm-closed-loop-integral"><h3 class="heading"><span class="title">Closed Loop Notation.</span></h3>
+<div class="para" id="asm-closed-loop-integral-2">The notation <span class="process-math">\(\displaystyle \oint_C P\,dx + Q\,dy\)</span> is used to indicate that a line integral is evaluated around a closed curve <span class="process-math">\(C\)</span> using its positive (counterclockwise) orientation.<div class="autopermalink" data-description="Paragraph"><a href="#asm-closed-loop-integral-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Closed Loop Notation"><a href="#asm-closed-loop-integral" title="Copy heading and permalink for Assemblage: Closed Loop Notation" aria-label="Copy heading and permalink for Assemblage: Closed Loop Notation">🔗</a></div>
+</article>
+<article class="assemblage assemblage-like" id="asm-greens-theorem-boundary"><h3 class="heading"><span class="title">Boundary Notation in Green’s Theorem.</span></h3>
+<div class="para logical" id="asm-greens-theorem-boundary-2">
+<div class="para">If the positively oriented closed boundary curve of a planar region <span class="process-math">\(D\)</span> is denoted by <span class="process-math">\(\partial D\text{,}\)</span> the mathematical statement for Green’s Theorem can be compactly written as:</div>
+<div class="displaymath process-math" id="asm-greens-theorem-boundary-2-3">
+\begin{equation*}
+\iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA = \int_{\partial D} P\,dx + Q\,dy = \oint_{\partial D} P\,dx + Q\,dy.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#asm-greens-theorem-boundary-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Boundary Notation in Green’s Theorem"><a href="#asm-greens-theorem-boundary" title="Copy heading and permalink for Assemblage: Boundary Notation in Green’s Theorem" aria-label="Copy heading and permalink for Assemblage: Boundary Notation in Green’s Theorem">🔗</a></div>
+</article>
+<details id="ex-greens-theorem-triangle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.36</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-greens-theorem-triangle-1-1">Evaluate <span class="process-math">\(\oint_C x^4\,dx + xy\,dy\text{,}\)</span> where <span class="process-math">\(C\)</span> is the triangular curve consisting of the line segments from <span class="process-math">\((0,0)\)</span> to <span class="process-math">\((1,0)\text{,}\)</span> from <span class="process-math">\((1,0)\)</span> to <span class="process-math">\((0,1)\text{,}\)</span> and from <span class="process-math">\((0,1)\)</span> to <span class="process-math">\((0,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-triangle-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-greens-theorem-triangle-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-greens-theorem-triangle-2-1">Step 1: Analyze the Path and Identify Boundary Components<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-greens-theorem-triangle-2-2">
+<div class="para">The path <span class="process-math">\(C\)</span> forms a closed, counterclockwise triangular loop enclosing a first-quadrant region <span class="process-math">\(D\text{.}\)</span> Because <span class="process-math">\(C\)</span> matches the definition of a positively oriented boundary curve, we can evaluate this line integral easily using Green’s Theorem:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-triangle-2-2-4">
+\begin{equation*}
+\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-triangle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-greens-theorem-triangle-2-3">
+<div class="para">First, we isolate our component fields from the given line integral string:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-triangle-2-3-1">
+\begin{equation*}
+P(x,y) = x^4 \quad \text{and} \quad Q(x,y) = xy.
+\end{equation*}
+</div>
+<div class="para">Next, we calculate their respective first-order partial derivatives:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-triangle-2-3-2">
+\begin{equation*}
+\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(x^4) = 0 \quad \text{and} \quad \frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(xy) = y.
+\end{equation*}
+</div>
+<div class="para">This transforms our double integrand expression into:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-triangle-2-3-3">
+\begin{equation*}
+\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = y - 0 = y.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-triangle-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-greens-triangle-path"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/latex-image/img-greens-triangle-path.svg" role="img" class="contained" alt="A 2D coordinate plot mapping a triangular closed loop moving counterclockwise from (0,0) to (1,0) to (0,1) and back to the origin."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.37<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The positively oriented closed triangular path <span class="process-math">\(C = \partial D\)</span> enclosing region <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Figure 5.37"><a href="#fig-greens-triangle-path" title="Copy heading and permalink for Figure 5.37" aria-label="Copy heading and permalink for Figure 5.37">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-greens-theorem-triangle-2-5">Step 2: Set Up and Evaluate the Double Region Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-triangle-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-greens-theorem-triangle-2-6">
+<div class="para">The triangular region <span class="process-math">\(D\)</span> is bounded below by the <span class="process-math">\(x\)</span>-axis (<span class="process-math">\(y=0\)</span>) and above by the slanted line path connecting <span class="process-math">\((1,0)\)</span> and <span class="process-math">\((0,1)\text{,}\)</span> which gives the equation <span class="process-math">\(y = 1-x\text{.}\)</span> Treating <span class="process-math">\(D\)</span> as a Type I domain, our variable bounds span:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-triangle-2-6-8">
+\begin{equation*}
+0 \leq x \leq 1 \quad \text{and} \quad 0 \leq y \leq 1-x.
+\end{equation*}
+</div>
+<div class="para">Applying Green’s Theorem, we set up and evaluate the iterated integral:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-triangle-2-6-9">
+\begin{equation*}
+\oint_C x^4\,dx + xy\,dy = \int_{0}^{1} \int_{0}^{1-x} y \, dy \, dx
+\end{equation*}
+</div>
+<div class="para">Evaluating the inner variable layer with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-greens-theorem-triangle-2-6-11">
+\begin{equation*}
+\int_{0}^{1-x} y \, dy = \left[ \frac{1}{2}y^2 \right]_{0}^{1-x} = \frac{1}{2}(1-x)^2 = \frac{1}{2}(1 - 2x + x^2).
+\end{equation*}
+</div>
+<div class="para">Substituting this expression into our outer layer and evaluating with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-greens-theorem-triangle-2-6-13">
+\begin{align*}
+\int_{0}^{1} \frac{1}{2}(1 - 2x + x^2) \, dx \amp = \frac{1}{2} \left[ x - x^2 + \frac{1}{3}x^3 \right]_{0}^{1}\\
+\amp = \frac{1}{2} \left( 1 - (1)^2 + \frac{1}{3}(1)^3 - 0 \right)\\
+\amp = \frac{1}{2} \left( 1 - 1 + \frac{1}{3} \right) = \frac{1}{2}\left(\frac{1}{3}\right) = \frac{1}{6}.
+\end{align*}
+</div>
+<div class="para">The value of the closed-loop line integral evaluated via Green’s Theorem is exactly <span class="process-math">\(\frac{1}{6}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-triangle-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.36.1"><a href="#ex-greens-theorem-triangle-2" title="Copy heading and permalink for Solution 5.36.1" aria-label="Copy heading and permalink for Solution 5.36.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.36"><a href="#ex-greens-theorem-triangle" title="Copy heading and permalink for Example 5.36" aria-label="Copy heading and permalink for Example 5.36">🔗</a></div>
+</article></details>
+<details id="ex-greens-theorem-circle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.38</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-greens-theorem-circle-1-1">Evaluate <span class="process-math">\(\oint_C(3y-e^{\sin x})\,dx + (7x+\sqrt{y^4+1})\,dy\text{,}\)</span> where <span class="process-math">\(C\)</span> is the circle <span class="process-math">\(x^2+y^2=9\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-circle-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-greens-theorem-circle-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-greens-theorem-circle-2-1">Step 1: Compute Partial Derivatives and Apply Green’s Theorem<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-circle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-greens-theorem-circle-2-2">
+<div class="para">The path <span class="process-math">\(C\)</span> is a closed circle centered at the origin with a radius of <span class="process-math">\(r=3\text{,}\)</span> oriented counterclockwise. Evaluating this coordinate line integral directly would be extremely difficult due to the transcendental terms <span class="process-math">\(e^{\sin x}\)</span> and <span class="process-math">\(\sqrt{y^4+1}\text{.}\)</span> Instead, we match the terms to component fields:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-circle-2-2-5">
+\begin{equation*}
+P(x,y) = 3y - e^{\sin x} \quad \text{and} \quad Q(x,y) = 7x + \sqrt{y^4+1}.
+\end{equation*}
+</div>
+<div class="para">Next, we calculate their respective first-order partial derivatives:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-circle-2-2-6">
+\begin{equation*}
+\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(3y - e^{\sin x}) = 3,
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-greens-theorem-circle-2-2-7">
+\begin{equation*}
+\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(7x + \sqrt{y^4+1}) = 7.
+\end{equation*}
+</div>
+<div class="para">By Green’s Theorem, the closed line integral transforms into a double integral over the circular interior region <span class="process-math">\(D\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-greens-theorem-circle-2-2-9">
+\begin{equation*}
+\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA = \iint_D (7 - 3) \, dA = \iint_D 4 \, dA.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-circle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-greens-circular-path"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-greens-circular-path.svg" role="img" class="contained" alt="A 2D coordinate plot showing a counterclockwise oriented circle of radius 3 centered at the origin enclosing a shaded disk region D."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.39<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The positively oriented boundary circle <span class="process-math">\(C: x^2 + y^2 = 9\)</span> enclosing region <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Figure 5.39"><a href="#fig-greens-circular-path" title="Copy heading and permalink for Figure 5.39" aria-label="Copy heading and permalink for Figure 5.39">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-greens-theorem-circle-2-4">Step 2: Evaluate the Factored Region Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-circle-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-greens-theorem-circle-2-5">
+<div class="para">We can factor the constant out of the double integral:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-circle-2-5-1">
+\begin{equation*}
+\iint_D 4 \, dA = 4 \iint_D 1 \, dA.
+\end{equation*}
+</div>
+<div class="para">Recall that the double integral <span class="process-math">\(\iint_D 1 \, dA\)</span> represents the geometric area of the region <span class="process-math">\(D\text{.}\)</span> Because <span class="process-math">\(D\)</span> is a complete circle of radius <span class="process-math">\(R = 3\text{,}\)</span> we use the standard formula for circular areas:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-circle-2-5-6">
+\begin{equation*}
+\text{Area}(D) = \pi R^2 = \pi (3)^2 = 9\pi.
+\end{equation*}
+</div>
+<div class="para">Substituting this area evaluation back into the factored expression gives:</div>
+<div class="displaymath process-math" id="ex-greens-theorem-circle-2-5-7">
+\begin{equation*}
+V = 4 \cdot \text{Area}(D) = 4(9\pi) = 36\pi.
+\end{equation*}
+</div>
+<div class="para">The value of the closed-loop line integral is exactly <span class="process-math">\(36\pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-theorem-circle-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.38.1"><a href="#ex-greens-theorem-circle-2" title="Copy heading and permalink for Solution 5.38.1" aria-label="Copy heading and permalink for Solution 5.38.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.38"><a href="#ex-greens-theorem-circle" title="Copy heading and permalink for Example 5.38" aria-label="Copy heading and permalink for Example 5.38">🔗</a></div>
+</article></details>
+<div class="para logical" id="sec-Green-theorem-15">
+<div class="para">If it is known that <span class="process-math">\(P(x,y)=Q(x,y)=0\)</span> on the curve <span class="process-math">\(C\text{,}\)</span> then Green’s Theorem dictates:</div>
+<div class="displaymath process-math" id="sec-Green-theorem-15-3">
+\begin{equation*}
+\iint_D \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) dA = \int_{C} P\,dx + Q\,dy = 0,
+\end{equation*}
+</div>
+<div class="para">regardless of what values <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> assume within the interior region <span class="process-math">\(D\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-Green-theorem-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-Green-theorem-16">
+<div class="para">Suppose we are computing the area of <span class="process-math">\(D\text{.}\)</span> Since the area of <span class="process-math">\(D\)</span> is given by <span class="process-math">\(\iint_D 1 \, dA\text{,}\)</span> we want to select component fields <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> such that:</div>
+<div class="displaymath process-math" id="sec-Green-theorem-16-6">
+\begin{equation*}
+\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1.
+\end{equation*}
+</div>
+<div class="para">There are several standard choices that satisfy this criterion, leading to useful line integral formulas for area calculation:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-Green-theorem-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="asm-greens-theorem-area-formulas"><h3 class="heading"><span class="title">Area Formulas via Green’s Theorem.</span></h3>
+<div class="para logical" id="asm-greens-theorem-area-formulas-2">
+<div class="para">By applying Green’s Theorem, the area of a planar region <span class="process-math">\(D\)</span> can be calculated along its boundary <span class="process-math">\(C = \partial D\)</span> using any of the following equivalent formulas:</div>
+<ol class="decimal ol-marker-1" id="asm-greens-theorem-area-formulas-2-3">
+<li id="asm-greens-theorem-area-formulas-2-3-1">
+<div class="para logical" id="asm-greens-theorem-area-formulas-2-3-1-1">
+<div class="para">If <span class="process-math">\(P(x,y)=0\)</span> and <span class="process-math">\(Q(x,y)=x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="asm-greens-theorem-area-formulas-2-3-1-1-3">
+\begin{equation*}
+\text{Area}(D) = \oint_C x \, dy
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#asm-greens-theorem-area-formulas-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#asm-greens-theorem-area-formulas-2-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="asm-greens-theorem-area-formulas-2-3-2">
+<div class="para logical" id="asm-greens-theorem-area-formulas-2-3-2-1">
+<div class="para">If <span class="process-math">\(P(x,y)=-y\)</span> and <span class="process-math">\(Q(x,y)=0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="asm-greens-theorem-area-formulas-2-3-2-1-3">
+\begin{equation*}
+\text{Area}(D) = -\oint_C y \, dx
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#asm-greens-theorem-area-formulas-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#asm-greens-theorem-area-formulas-2-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="asm-greens-theorem-area-formulas-2-3-3">
+<div class="para logical" id="asm-greens-theorem-area-formulas-2-3-3-1">
+<div class="para">If <span class="process-math">\(P(x,y)=-\frac{1}{2}y\)</span> and <span class="process-math">\(Q(x,y)=\frac{1}{2}x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="asm-greens-theorem-area-formulas-2-3-3-1-3">
+\begin{equation*}
+\text{Area}(D) = \frac{1}{2} \oint_C x \, dy - y \, dx
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#asm-greens-theorem-area-formulas-2-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#asm-greens-theorem-area-formulas-2-3-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#asm-greens-theorem-area-formulas-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Area Formulas via Green’s Theorem"><a href="#asm-greens-theorem-area-formulas" title="Copy heading and permalink for Assemblage: Area Formulas via Green’s Theorem" aria-label="Copy heading and permalink for Assemblage: Area Formulas via Green’s Theorem">🔗</a></div>
+</article>
+<article class="corollary theorem-like" id="cor-greens-theorem-area"><h3 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.40</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Area Formulas via Green’s Theorem.</span>
+</h3>
+<div class="para logical" id="cor-greens-theorem-area-2-1">
+<div class="para">Green’s Theorem yields the following equivalent line integral formulas for calculating the geometric area <span class="process-math">\(A\)</span> of a planar region <span class="process-math">\(D\)</span> along its positively oriented boundary curve <span class="process-math">\(C\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="cor-greens-theorem-area-2-1-4">
+\begin{equation*}
+A = \oint_C x\,dy = -\oint_C y\,dx = \frac{1}{2}\oint_C x\,dy - y\,dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor-greens-theorem-area-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 5.40: Area Formulas via Green’s Theorem"><a href="#cor-greens-theorem-area" title="Copy heading and permalink for Corollary 5.40: Area Formulas via Green’s Theorem" aria-label="Copy heading and permalink for Corollary 5.40: Area Formulas via Green’s Theorem">🔗</a></div>
+</article>
+<details id="ex-ellipse-area-greens" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.41</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-ellipse-area-greens-1-1">Find the area enclosed by the ellipse <span class="process-math">\(\displaystyle \frac{x^2}{a^2}+\frac{y^2}{b^2}=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipse-area-greens-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ellipse-area-greens-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ellipse-area-greens-2-1">Step 1: Parameterize the Elliptical Boundary Curve <span class="process-math">\(C\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipse-area-greens-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ellipse-area-greens-2-2">
+<div class="para">The complete, positively oriented perimeter of the ellipse can be parameterized by standard trigonometric tracking angles:</div>
+<div class="displaymath process-math" id="ex-ellipse-area-greens-2-2-1">
+\begin{equation*}
+x(t) = a\cos(t) \implies dx = -a\sin(t)\,dt,
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-ellipse-area-greens-2-2-2">
+\begin{equation*}
+y(t) = b\sin(t) \implies dy = b\cos(t)\,dt,
+\end{equation*}
+</div>
+<div class="para">where the parameter <span class="process-math">\(t\)</span> sweeps across a full revolution: <span class="process-math">\(0 \leq t \leq 2\pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipse-area-greens-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ellipse-path-greens"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-ellipse-path-greens.svg" role="img" class="contained" alt="A 2D coordinate plot mapping an ellipse centered at the origin stretching from -a to a on the x-axis and -b to b on the y-axis, with counterclockwise orientation arrows."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.42<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The positively oriented boundary curve <span class="process-math">\(C\)</span> enclosing the elliptical region.<div class="autopermalink" data-description="Figure 5.42"><a href="#fig-ellipse-path-greens" title="Copy heading and permalink for Figure 5.42" aria-label="Copy heading and permalink for Figure 5.42">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-ellipse-area-greens-2-4">Step 2: Apply the Symmetric Line Integral Area Formula<div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipse-area-greens-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ellipse-area-greens-2-5">
+<div class="para">Using the symmetric area differential layout from <a href="sec-Green-theorem.html#cor-greens-theorem-area" class="xref" data-knowl="./knowl/xref/cor-greens-theorem-area.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.40: Area Formulas via Green’s Theorem">Corollary 5.40</a>, we expand the integrand:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-greens-theorem-area.html" id="ex-ellipse-area-greens-2-5-2">
+\begin{align*}
+A \amp = \frac{1}{2}\oint_C x\,dy - y\,dx\\
+\amp = \frac{1}{2} \int_{0}^{2\pi} \left[ (a\cos t)(b\cos t\,dt) - (b\sin t)(-a\sin t\,dt) \right]\\
+\amp = \frac{1}{2} \int_{0}^{2\pi} \left( ab\cos^2 t + ab\sin^2 t \right) \, dt\\
+\amp = \frac{1}{2} \int_{0}^{2\pi} ab\left(\cos^2 t + \sin^2 t\right) \, dt = \frac{1}{2} \int_{0}^{2\pi} ab \, dt.
+\end{align*}
+</div>
+<div class="para">Evaluating this simple constant single variable integral:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-greens-theorem-area.html" id="ex-ellipse-area-greens-2-5-3">
+\begin{equation*}
+A = \frac{1}{2}ab \Big[ t \Big]_{0}^{2\pi} = \frac{1}{2}ab(2\pi - 0) = \pi ab.
+\end{equation*}
+</div>
+<div class="para">The area enclosed by the general ellipse is exactly <span class="process-math">\(\pi ab\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipse-area-greens-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.41.1"><a href="#ex-ellipse-area-greens-2" title="Copy heading and permalink for Solution 5.41.1" aria-label="Copy heading and permalink for Solution 5.41.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.41"><a href="#ex-ellipse-area-greens" title="Copy heading and permalink for Example 5.41" aria-label="Copy heading and permalink for Example 5.41">🔗</a></div>
+</article></details>
+<details id="ex-greens-semi-annulus" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.43</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="ex-greens-semi-annulus-1-1">Evaluate <span class="process-math">\(\oint_C y^2\,dx + 3x\,dy\text{,}\)</span> where <span class="process-math">\(C\)</span> is the boundary of the semi-annular region <span class="process-math">\(D\)</span> in the upper half-plane between the circles <span class="process-math">\(x^2+y^2=1\)</span> and <span class="process-math">\(x^2+y^2=4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-semi-annulus-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-greens-semi-annulus-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-greens-semi-annulus-2-1">Step 1: Compute Partial Derivatives and Apply Green’s Theorem<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-semi-annulus-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-greens-semi-annulus-2-2">
+<div class="para">The boundary <span class="process-math">\(C = \partial D\)</span> consists of four smooth pieces: two concentric upper semicircles and two connecting straight segments along the <span class="process-math">\(x\)</span>-axis. Evaluating all four parts as individual line integrals would be tedious, so we apply Green’s Theorem. First, isolate the component fields:</div>
+<div class="displaymath process-math" id="ex-greens-semi-annulus-2-2-3">
+\begin{equation*}
+P(x,y) = y^2 \quad \text{and} \quad Q(x,y) = 3x.
+\end{equation*}
+</div>
+<div class="para">Next, calculate their first-order partial derivatives:</div>
+<div class="displaymath process-math" id="ex-greens-semi-annulus-2-2-4">
+\begin{equation*}
+\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(y^2) = 2y \quad \text{and} \quad \frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(3x) = 3.
+\end{equation*}
+</div>
+<div class="para">This transforms the closed line integral into a double integral over the upper semi-annular region <span class="process-math">\(D\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-greens-semi-annulus-2-2-6">
+\begin{equation*}
+\oint_C y^2\,dx + 3x\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA = \iint_D (3 - 2y) \, dA.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-semi-annulus-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-greens-semi-annulus-path"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-greens-semi-annulus-path.svg" role="img" class="contained" alt="A 2D coordinate plot showing a shaded half-ring in the upper half-plane between radius 1 and 2, with counterclockwise tracking arrowheads outlining the perimeter."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.44<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The semi-annular integration domain <span class="process-math">\(D\)</span> and its complete closed boundary path <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Figure 5.44"><a href="#fig-greens-semi-annulus-path" title="Copy heading and permalink for Figure 5.44" aria-label="Copy heading and permalink for Figure 5.44">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-greens-semi-annulus-2-4">Step 2: Convert to Polar Coordinates and Evaluate<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-semi-annulus-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-greens-semi-annulus-2-5">
+<div class="para">Because the region <span class="process-math">\(D\)</span> is a circular sector, we evaluate the double integral by converting to polar coordinates using the substitutions <span class="process-math">\(y = r\sin\theta\)</span> and <span class="process-math">\(dA = r\,drd\theta\text{.}\)</span> The bounds for the semi-annulus are:</div>
+<div class="displaymath process-math" id="ex-greens-semi-annulus-2-5-4">
+\begin{equation*}
+0 \leq \theta \leq \pi \quad \text{and} \quad 1 \leq r \leq 2.
+\end{equation*}
+</div>
+<div class="para">Substituting these parameters into the integral:</div>
+<div class="displaymath process-math" id="ex-greens-semi-annulus-2-5-5">
+\begin{equation*}
+\iint_D (3 - 2y) \, dA = \int_{0}^{\pi} \int_{1}^{2} (3 - 2r\sin\theta)r \, dr d\theta = \int_{0}^{\pi} \int_{1}^{2} \left( 3r - 2r^2\sin\theta \right) \, dr d\theta.
+\end{equation*}
+</div>
+<div class="para">Evaluating the inner radial integral layer with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-greens-semi-annulus-2-5-7">
+\begin{align*}
+\int_{1}^{2} \left( 3r - 2r^2\sin\theta \right) \, dr \amp = \left[ \frac{3}{2}r^2 - \frac{2}{3}r^3\sin\theta \right]_{r=1}^{r=2}\\
+\amp = \left( \frac{3}{2}(4) - \frac{2}{3}(8)\sin\theta \right) - \left( \frac{3}{2}(1) - \frac{2}{3}(1)\sin\theta \right)\\
+\amp = \left( 6 - \frac{16}{3}\sin\theta \right) - \left( \frac{3}{2} - \frac{2}{3}\sin\theta \right)\\
+\amp = \left( 6 - \frac{3}{2} \right) + \left( -\frac{16}{3} + \frac{2}{3} \right)\sin\theta = \frac{9}{2} - \frac{14}{3}\sin\theta.
+\end{align*}
+</div>
+<div class="para">Now, substitute this expression into the outer layer and integrate with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-greens-semi-annulus-2-5-9">
+\begin{align*}
+\int_{0}^{\pi} \left( \frac{9}{2} - \frac{14}{3}\sin\theta \right) \, d\theta \amp = \left[ \frac{9}{2}\theta + \frac{14}{3}\cos\theta \right]_{0}^{\pi}\\
+\amp = \left( \frac{9\pi}{2} + \frac{14}{3}\cos(\pi) \right) - \left( 0 + \frac{14}{3}\cos(0) \right)\\
+\amp = \left( \frac{9\pi}{2} - \frac{14}{3} \right) - \frac{14}{3} = \frac{9\pi}{2} - \frac{28}{3}.
+\end{align*}
+</div>
+<div class="para">The value of the closed boundary line integral over the semi-annulus is exactly <span class="process-math">\(\frac{9\pi}{2} - \frac{28}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-greens-semi-annulus-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.43.1"><a href="#ex-greens-semi-annulus-2" title="Copy heading and permalink for Solution 5.43.1" aria-label="Copy heading and permalink for Solution 5.43.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.43"><a href="#ex-greens-semi-annulus" title="Copy heading and permalink for Checkpoint 5.43" aria-label="Copy heading and permalink for Checkpoint 5.43">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section: 5.3 Green’s Theorem"><a href="#sec-Green-theorem" title="Copy heading and permalink for Section: 5.3 Green’s Theorem" aria-label="Copy heading and permalink for Section: 5.3 Green’s Theorem">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-Line-Integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-Curl-Divergence.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

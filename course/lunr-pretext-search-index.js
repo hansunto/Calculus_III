@@ -3529,13 +3529,436 @@ var ptx_lunr_docs = [
   "body": "  Evaluate the double integral: where is the region in the -plane bounded by the trapezoid with vertices , , , and .     Step 1: Choose a Transformation and Find its Inverse   Looking at the structure of the integrand and the boundary behaviors of the trapezoid, we can simplify the problem by defining the new tracking variables: We solve this system of linear equations for and in terms of and to find the inverse transformation equations:     Step 2: Calculate the Jacobian Matrix Determinant   Using , we compute the partial derivative array: Taking the absolute value, the area differential element transforms as: .   Step 3: Map the Integration Regions   The trapezoidal region in the -plane is bounded by four line segments: the -axis ( ), the -axis ( ), and the slanted parallel lines connecting the intercepts, which are and . Substituting our definitions for and , we find their values along these boundaries:  Along the boundary line .  Along the boundary line .  Along the -axis line .  Along the -axis line .  This transforms the skewed trapezoid into a simpler trapezoidal region in the -plane bounded by the horizontal lines and the rays .      The original trapezoidal region in the -plane.   A 2D coordinate plot mapping a shaded trapezoid in the first quadrant bounded by the axes and parallel slanted lines running between x+y=1 and x+y=2.       The transformed region in the -plane.   A 2D coordinate plot mapping an upside-down trapezoid centered on the vertical v-axis, opening outward as v goes from 1 to 2.       Step 4: Set Up and Evaluate the Transformed Integral   We rewrite the iterated double integral using our new boundaries, substituting the integrand and the area differential element : First, we integrate the inner expression with respect to , treating as a constant factor: Next, we substitute this result into the outer structural layer and integrate with respect to : The exact value of the double integral over the trapezoidal region is .   "
 },
 {
-  "id": "activities",
+  "id": "sec-Vector-fields",
   "level": "1",
-  "url": "activities.html",
-  "type": "Chapter",
-  "number": "5",
-  "title": "MyOpenMath Interactive Activities",
-  "body": " MyOpenMath Interactive Activities   These files contain copies of the interactive MyOpenMath exercises that guided our learning for each topic. Special thanks to Professor Jason Hardin for sharing his MyOpenMath question bank.      "
+  "url": "sec-Vector-fields.html",
+  "type": "Section",
+  "number": "",
+  "title": "5.1 Vector Fields",
+  "body": " 5.1 Vector Fields   A vector field is a function that assigns a vector to each point in space. It can be visualized as a collection of arrows, where each arrow represents the vector at a specific point.    Vector Field on   Let be a set in . A vector field on is a function that assigns to each point in a two-dimensional vector .    Since is a two-dimensional vector, we can write it in terms of its component functions  and as follows: or in shorthand notation: Here, and are scalar functions of two variables and are referred to as scalar fields to clearly distinguish them from vector fields.   Vector Field on   Let be a subset of . A vector field on is a function that assigns to each point in a three-dimensional vector .      A vector field on is defined by: Describe by sketching some vectors of .    To understand the behavior of this field, we evaluate the vector outputs at a few sample points across different quadrants:   At : (pointing straight up).  At : (pointing straight left).  At : (pointing straight down).  At : (pointing straight right).     Sample vectors from the field indicating a counterclockwise rotation.   A 2D vector field plot showing concentric circular field arrays revolving counterclockwise around the origin.       Taking the dot product of the position vector with the vector field , we get: Since the dot product of the position vector and the field vector is zero at all points, is always perpendicular to the radius vector. Thus, is strictly tangent to a circle centered at the origin, showing that the vector fields forms an explicit counterclockwise rotation.    Sketch the vector field in given by:      Geometric Analysis:   The vector field depends entirely on the height variable . Its structural behaviors can be summarized as follows:   The vectors have no horizontal components ( , ), meaning they are completely vertical, pointing parallel to the -axis.  On the -plane where , the field vectors are all zero vectors ( ).  Above the -plane where , the vectors point straight up, and their magnitudes increase linearly with their height distance from the floor.  Below the -plane where , the vectors point straight down, and their lengths similarly increase as becomes more negative.     Sample vectors from the 3D field with explicit marker nodes highlighting their initial starting points.   A 3D coordinate plot showing vertical vectors with black dots indicating their initial starting points, growing larger as they move further above or below the horizontal xy plane grid track.       "
+},
+{
+  "id": "def-vector-field-2d",
+  "level": "2",
+  "url": "sec-Vector-fields.html#def-vector-field-2d",
+  "type": "Definition",
+  "number": "5.1",
+  "title": "Vector Field on <span class=\"process-math\">\\(\\mathbb{R}^2\\)<\/span>.",
+  "body": " Vector Field on   Let be a set in . A vector field on is a function that assigns to each point in a two-dimensional vector .   "
+},
+{
+  "id": "sec-Vector-fields-4",
+  "level": "2",
+  "url": "sec-Vector-fields.html#sec-Vector-fields-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "component functions scalar fields "
+},
+{
+  "id": "def-vector-field-3d",
+  "level": "2",
+  "url": "sec-Vector-fields.html#def-vector-field-3d",
+  "type": "Definition",
+  "number": "5.2",
+  "title": "Vector Field on <span class=\"process-math\">\\(\\mathbb{R}^3\\)<\/span>.",
+  "body": " Vector Field on   Let be a subset of . A vector field on is a function that assigns to each point in a three-dimensional vector .   "
+},
+{
+  "id": "ex-vector-field-rotation",
+  "level": "2",
+  "url": "sec-Vector-fields.html#ex-vector-field-rotation",
+  "type": "Example",
+  "number": "5.3",
+  "title": "",
+  "body": "  A vector field on is defined by: Describe by sketching some vectors of .    To understand the behavior of this field, we evaluate the vector outputs at a few sample points across different quadrants:   At : (pointing straight up).  At : (pointing straight left).  At : (pointing straight down).  At : (pointing straight right).     Sample vectors from the field indicating a counterclockwise rotation.   A 2D vector field plot showing concentric circular field arrays revolving counterclockwise around the origin.      "
+},
+{
+  "id": "ex-vector-field-3d-vertical",
+  "level": "2",
+  "url": "sec-Vector-fields.html#ex-vector-field-3d-vertical",
+  "type": "Example",
+  "number": "5.5",
+  "title": "",
+  "body": "  Sketch the vector field in given by:      Geometric Analysis:   The vector field depends entirely on the height variable . Its structural behaviors can be summarized as follows:   The vectors have no horizontal components ( , ), meaning they are completely vertical, pointing parallel to the -axis.  On the -plane where , the field vectors are all zero vectors ( ).  Above the -plane where , the vectors point straight up, and their magnitudes increase linearly with their height distance from the floor.  Below the -plane where , the vectors point straight down, and their lengths similarly increase as becomes more negative.     Sample vectors from the 3D field with explicit marker nodes highlighting their initial starting points.   A 3D coordinate plot showing vertical vectors with black dots indicating their initial starting points, growing larger as they move further above or below the horizontal xy plane grid track.      "
+},
+{
+  "id": "sec-Line-Integrals",
+  "level": "1",
+  "url": "sec-Line-Integrals.html",
+  "type": "Section",
+  "number": "",
+  "title": "5.2 Line Integrals",
+  "body": " 5.2 Line Integrals   A line integral is a type of integral where the function to be integrated is evaluated along a curve or path in space. It generalizes the concept of integration to functions defined on curves, allowing us to compute quantities such as work done by a force field along a path.    Line Integral along a Curve   If is defined on a smooth curve given by parametric equations or by the vector equation , then the line integral of along is: provided this limit exists.    Since the differential of arc length along is related to the parameter by , we arrive at the following formula for evaluation:   Evaluation of Line Integrals          Evaluate , where is the upper half of the unit circle .     Step 1: Parameterize the Path curve   The upper half of the unit circle can be parameterized using standard polar angles where: Next, we calculate the derivatives and the arc length differential element :      The upper semicircular path plotted with a balanced 1:1 ratio.   A 2D coordinate plot mapping the upper branch of a unit circle path stretching from (1,0) counterclockwise around to (-1,0).      Step 2: Evaluate the Iterated Integral   Substituting the parametric expressions into our line integral layout formula: The exact value of the line integral along the semicircle path is .      Evaluate , where consists of the arc of the parabola from to followed by the vertical line segment from to .     Step 1: Parameterize the Piecewise Paths and Sketch   Because is a piecewise smooth curve, we split the line integral into two separate parts: .     Path (Parabola): Parameterizing using gives:       Path (Vertical Line): Parameterizing using along the vertical boundary line gives:        The piecewise smooth path plotted with a balanced 1:1 ratio.   A 2D coordinate plot mapping a path made of a parabolic segment from (0,0) up to (1,1), continuing straight up to (1,2).      Step 2: Evaluate the Component Integrals   We evaluate each integral expression independently:     Evaluation along :  Using -substitution where . Limits: when , and when .      Evaluation along :       Step 3: Combine Results   Adding the two individual components together gives the total value of the line integral: The complete line integral value along the piecewise path is exactly .    To distinguish the original line integral from and , we call the first the line integral with respect to arc length . If everything is expressed in terms of the parameter , where , , , and , we have:  It often happens that line integrals with respect to and occur together. When this happens, we write:   A vector representation of the straight line segment that starts from and ends at is given by:     Evaluate , where is the line segment from to .     Step 1: Parameterize the Straight Line Segment   Using the vector representation for a line segment with initial point and terminal point : This gives our parametric equations on the interval :      The directed straight line segment path plotted with a balanced 1:1 ratio.   A 2D coordinate plot mapping a straight line segment path running from (-5,-3) diagonally up-right to (0,2).      Step 2: Setup and Evaluate the Iterated Integral   Substituting our parametric definitions and differentials into the given coordinate line integral string: Finding a common denominator of for the rational components: The value of the line integral with respect to the coordinate variables is exactly .      Evaluate , where is the arc of the parabola from to .     Step 1: Parameterize the Parabolic Path Curve   Since the parabola is given in the form , it is most natural to use itself as the parameter. Let: where the parameter varies from the initial -coordinate ( ) to the terminal -coordinate ( ): . Substituting this into the parabola equation gives the parametric description for and its differential:     The directed parabolic arc path plotted with a balanced 1:1 ratio.   A 2D coordinate plot mapping a parabolic arc starting at (-5,-3), curving up-right to an x-intercept at (4,0), and ending at (0,2).      Step 2: Setup and Evaluate the Iterated Integral   Substituting our parametric equations and differentials into the given line integral yields:   Now, evaluating at the upper and lower limits:   Subtracting the lower limit evaluation from the upper limit evaluation gives: The value of the line integral along the parabolic arc path is exactly .    If denotes the curve consisting of the same points as but with the opposite orientation, then we have: But if we integrate with respect to arc length, the value of the line integral does not change when we reverse the orientation of the curve: This occurs because the arc length differential segment is always positive, whereas the coordinate differentials and change sign when we reverse the orientation of .   Line Integrals in Space   If is defined on a smooth space curve given by parametric equations or by the vector equation , then the line integral of along is: provided this limit exists.     Evaluation of Space Line Integrals   The line integral can be evaluated by expressing the differential element in terms of the parameter :       Evaluate , where is the circular helix given by the equations , for .     Step 1: Compute the Arc Length Differential Element   We find the derivatives of the parametric equations with respect to the parameter : Substituting these into the radical magnitude formula for space curves gives:      The circular helix path tracing smoothly upward in 3D space from to .   A smooth, mathematically accurate 3D coordinate plot mapping a circular helical curve winding upward over one full revolution around the z-axis.      Step 2: Set Up and Evaluate the Iterated Integral   We rewrite the integrand entirely in terms of by substituting , , and across our bounds from to : Using the trigonometric half-angle reduction identity : The exact value of the line integral along the circular helix space curve is .      Evaluate , where consists of the line segment from to followed by the vertical line segment from to .    Because is a piecewise smooth curve, we split the line integral into the sum of its two separate component tracks: .   Step 1: Parameterize Path and Evaluate   The straight line segment starts at and ends at . Using the standard vector parameterization formula for :   Substituting these parametric expressions into the first line integral gives:    Step 2: Parameterize Path and Evaluate   The vertical line segment goes straight downward from to . Along this path, and remain constant, which makes their differentials zero:  The height variable drops continuously from down to . Let's use as our parameter on the directional interval from to , where :     The piecewise space path tracing through three-dimensional space.   A 3D coordinate plot mapping a straight line segment path running diagonally up from (2,0,0) to (3,4,5), followed by a vertical segment dropping straight down to (3,4,0).      Step 3: Combine Component Integrals   Adding the results from the two paths together gives the final total evaluation: The complete line integral value along the piecewise space curve path is exactly (or ).     Line Integral of a Vector Field   Let be a continuous vector field defined on a smooth curve given by a vector function for . Then the line integral of along is: where is the unit tangent vector at the point on .     Work Done by a Force Field   We define the work  done by a continuous force field as the limit of Riemann sums over a smooth curve : If the curve is given by the parametric vector equation , then the unit tangent vector profile simplifies to , allowing us to rewrite the definition as an evaluation formula:       Find the work done by the force field in moving a particle along the quarter-circle for .     Step 1: Express the Vector Field and Velocity Vector in terms of   From the parametric equations of the curve, we have and . Substituting these into the vector field equation yields: Next, we take the derivative of the path vector equation to compute the velocity vector:    Step 2: Calculate the Inner Dot Product   We find the dot product of the field and the tangent vector:    Step 3: Evaluate the Work Integral   Using the work formula for a vector field, we evaluate the definite integral from to : We solve this using a simple -substitution. Let: Updating limits: when , and when . The total work done by the force field along the quarter-circle is exactly .      Evaluate , where and is the twisted cubic given by:      Step 1: Express the Field and Differentials in terms of   We translate the position and component paths into the parameter space:   Substituting these variables into our component definitions for the field vector gives: The tangent vector is: .   Step 2: Setup and Evaluate the Vector Line Integral   We find the dot product and substitute it into the work form expression: Now evaluate the integral over the parameter limits from to : The value of the line integral along the twisted cubic curve is exactly .    Suppose the vector field on is given in component form by the equation . We use the definition of the line integral of along the curve to expand the expression into coordinate components:    Equivalence of Vector and Coordinate Form   The last integral matches the definition of a line integral with respect to coordinate variables. Therefore, we establish the following equivalence:      Let the smooth space curve be parameterized by the vector function for . The derivative of with respect to the parameter provides the tangent velocity vector:   By definition, the line integral of a continuous vector field along is evaluated as: Substituting the component forms of both and into the dot product yields:   We can distribute the integral across the addition operations. Separating this into three distinct single integrals gives:   Recall from the definition of line integrals with respect to coordinate variables that the differentials , , and are defined parametrically as: Replacing these differential terms back into the single integrals transforms the parameter space representations into their corresponding coordinate line integrals along :   Combining these three adjacent coordinate integrals under a single integral sign produces the standard shorthand notation:    "
+},
+{
+  "id": "def-line-integral-arc-length",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#def-line-integral-arc-length",
+  "type": "Definition",
+  "number": "5.7",
+  "title": "Line Integral along a Curve.",
+  "body": " Line Integral along a Curve   If is defined on a smooth curve given by parametric equations or by the vector equation , then the line integral of along is: provided this limit exists.   "
+},
+{
+  "id": "thm-line-integral-evaluation",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#thm-line-integral-evaluation",
+  "type": "Theorem",
+  "number": "5.8",
+  "title": "Evaluation of Line Integrals.",
+  "body": " Evaluation of Line Integrals       "
+},
+{
+  "id": "ex-line-integral-semicircle",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#ex-line-integral-semicircle",
+  "type": "Example",
+  "number": "5.9",
+  "title": "",
+  "body": "  Evaluate , where is the upper half of the unit circle .     Step 1: Parameterize the Path curve   The upper half of the unit circle can be parameterized using standard polar angles where: Next, we calculate the derivatives and the arc length differential element :      The upper semicircular path plotted with a balanced 1:1 ratio.   A 2D coordinate plot mapping the upper branch of a unit circle path stretching from (1,0) counterclockwise around to (-1,0).      Step 2: Evaluate the Iterated Integral   Substituting the parametric expressions into our line integral layout formula: The exact value of the line integral along the semicircle path is .   "
+},
+{
+  "id": "ex-line-integral-piecewise",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#ex-line-integral-piecewise",
+  "type": "Example",
+  "number": "5.11",
+  "title": "",
+  "body": "  Evaluate , where consists of the arc of the parabola from to followed by the vertical line segment from to .     Step 1: Parameterize the Piecewise Paths and Sketch   Because is a piecewise smooth curve, we split the line integral into two separate parts: .     Path (Parabola): Parameterizing using gives:       Path (Vertical Line): Parameterizing using along the vertical boundary line gives:        The piecewise smooth path plotted with a balanced 1:1 ratio.   A 2D coordinate plot mapping a path made of a parabolic segment from (0,0) up to (1,1), continuing straight up to (1,2).      Step 2: Evaluate the Component Integrals   We evaluate each integral expression independently:     Evaluation along :  Using -substitution where . Limits: when , and when .      Evaluation along :       Step 3: Combine Results   Adding the two individual components together gives the total value of the line integral: The complete line integral value along the piecewise path is exactly .   "
+},
+{
+  "id": "sec-Line-Integrals-8",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#sec-Line-Integrals-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "line integral with respect to arc length "
+},
+{
+  "id": "ex-line-integral-coordinate-segment",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#ex-line-integral-coordinate-segment",
+  "type": "Example",
+  "number": "5.13",
+  "title": "",
+  "body": "  Evaluate , where is the line segment from to .     Step 1: Parameterize the Straight Line Segment   Using the vector representation for a line segment with initial point and terminal point : This gives our parametric equations on the interval :      The directed straight line segment path plotted with a balanced 1:1 ratio.   A 2D coordinate plot mapping a straight line segment path running from (-5,-3) diagonally up-right to (0,2).      Step 2: Setup and Evaluate the Iterated Integral   Substituting our parametric definitions and differentials into the given coordinate line integral string: Finding a common denominator of for the rational components: The value of the line integral with respect to the coordinate variables is exactly .   "
+},
+{
+  "id": "ex-line-integral-coordinate-parabola",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#ex-line-integral-coordinate-parabola",
+  "type": "Example",
+  "number": "5.15",
+  "title": "",
+  "body": "  Evaluate , where is the arc of the parabola from to .     Step 1: Parameterize the Parabolic Path Curve   Since the parabola is given in the form , it is most natural to use itself as the parameter. Let: where the parameter varies from the initial -coordinate ( ) to the terminal -coordinate ( ): . Substituting this into the parabola equation gives the parametric description for and its differential:     The directed parabolic arc path plotted with a balanced 1:1 ratio.   A 2D coordinate plot mapping a parabolic arc starting at (-5,-3), curving up-right to an x-intercept at (4,0), and ending at (0,2).      Step 2: Setup and Evaluate the Iterated Integral   Substituting our parametric equations and differentials into the given line integral yields:   Now, evaluating at the upper and lower limits:   Subtracting the lower limit evaluation from the upper limit evaluation gives: The value of the line integral along the parabolic arc path is exactly .   "
+},
+{
+  "id": "def-line-integral-space",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#def-line-integral-space",
+  "type": "Definition",
+  "number": "5.17",
+  "title": "Line Integrals in Space.",
+  "body": " Line Integrals in Space   If is defined on a smooth space curve given by parametric equations or by the vector equation , then the line integral of along is: provided this limit exists.   "
+},
+{
+  "id": "thm-line-integral-space-evaluation",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#thm-line-integral-space-evaluation",
+  "type": "Theorem",
+  "number": "5.18",
+  "title": "Evaluation of Space Line Integrals.",
+  "body": " Evaluation of Space Line Integrals   The line integral can be evaluated by expressing the differential element in terms of the parameter :    "
+},
+{
+  "id": "ex-line-integral-helix",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#ex-line-integral-helix",
+  "type": "Example",
+  "number": "5.19",
+  "title": "",
+  "body": "  Evaluate , where is the circular helix given by the equations , for .     Step 1: Compute the Arc Length Differential Element   We find the derivatives of the parametric equations with respect to the parameter : Substituting these into the radical magnitude formula for space curves gives:      The circular helix path tracing smoothly upward in 3D space from to .   A smooth, mathematically accurate 3D coordinate plot mapping a circular helical curve winding upward over one full revolution around the z-axis.      Step 2: Set Up and Evaluate the Iterated Integral   We rewrite the integrand entirely in terms of by substituting , , and across our bounds from to : Using the trigonometric half-angle reduction identity : The exact value of the line integral along the circular helix space curve is .   "
+},
+{
+  "id": "ex-line-integral-space-piecewise",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#ex-line-integral-space-piecewise",
+  "type": "Example",
+  "number": "5.21",
+  "title": "",
+  "body": "  Evaluate , where consists of the line segment from to followed by the vertical line segment from to .    Because is a piecewise smooth curve, we split the line integral into the sum of its two separate component tracks: .   Step 1: Parameterize Path and Evaluate   The straight line segment starts at and ends at . Using the standard vector parameterization formula for :   Substituting these parametric expressions into the first line integral gives:    Step 2: Parameterize Path and Evaluate   The vertical line segment goes straight downward from to . Along this path, and remain constant, which makes their differentials zero:  The height variable drops continuously from down to . Let's use as our parameter on the directional interval from to , where :     The piecewise space path tracing through three-dimensional space.   A 3D coordinate plot mapping a straight line segment path running diagonally up from (2,0,0) to (3,4,5), followed by a vertical segment dropping straight down to (3,4,0).      Step 3: Combine Component Integrals   Adding the results from the two paths together gives the final total evaluation: The complete line integral value along the piecewise space curve path is exactly (or ).   "
+},
+{
+  "id": "def-line-integral-vector-field",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#def-line-integral-vector-field",
+  "type": "Definition",
+  "number": "5.23",
+  "title": "Line Integral of a Vector Field.",
+  "body": " Line Integral of a Vector Field   Let be a continuous vector field defined on a smooth curve given by a vector function for . Then the line integral of along is: where is the unit tangent vector at the point on .   "
+},
+{
+  "id": "def-work-done-force-field",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#def-work-done-force-field",
+  "type": "Definition",
+  "number": "5.24",
+  "title": "Work Done by a Force Field.",
+  "body": " Work Done by a Force Field   We define the work  done by a continuous force field as the limit of Riemann sums over a smooth curve : If the curve is given by the parametric vector equation , then the unit tangent vector profile simplifies to , allowing us to rewrite the definition as an evaluation formula:    "
+},
+{
+  "id": "ex-work-done-quarter-circle",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#ex-work-done-quarter-circle",
+  "type": "Example",
+  "number": "5.25",
+  "title": "",
+  "body": "  Find the work done by the force field in moving a particle along the quarter-circle for .     Step 1: Express the Vector Field and Velocity Vector in terms of   From the parametric equations of the curve, we have and . Substituting these into the vector field equation yields: Next, we take the derivative of the path vector equation to compute the velocity vector:    Step 2: Calculate the Inner Dot Product   We find the dot product of the field and the tangent vector:    Step 3: Evaluate the Work Integral   Using the work formula for a vector field, we evaluate the definite integral from to : We solve this using a simple -substitution. Let: Updating limits: when , and when . The total work done by the force field along the quarter-circle is exactly .   "
+},
+{
+  "id": "ex-line-integral-twisted-cubic",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#ex-line-integral-twisted-cubic",
+  "type": "Example",
+  "number": "5.26",
+  "title": "",
+  "body": "  Evaluate , where and is the twisted cubic given by:      Step 1: Express the Field and Differentials in terms of   We translate the position and component paths into the parameter space:   Substituting these variables into our component definitions for the field vector gives: The tangent vector is: .   Step 2: Setup and Evaluate the Vector Line Integral   We find the dot product and substitute it into the work form expression: Now evaluate the integral over the parameter limits from to : The value of the line integral along the twisted cubic curve is exactly .   "
+},
+{
+  "id": "thm-line-integral-vector-component-equivalence",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#thm-line-integral-vector-component-equivalence",
+  "type": "Theorem",
+  "number": "5.27",
+  "title": "Equivalence of Vector and Coordinate Form.",
+  "body": " Equivalence of Vector and Coordinate Form   The last integral matches the definition of a line integral with respect to coordinate variables. Therefore, we establish the following equivalence:    "
+},
+{
+  "id": "proof-line-integral-component-equivalence",
+  "level": "2",
+  "url": "sec-Line-Integrals.html#proof-line-integral-component-equivalence",
+  "type": "Proof",
+  "number": "1",
+  "title": "",
+  "body": " Let the smooth space curve be parameterized by the vector function for . The derivative of with respect to the parameter provides the tangent velocity vector:   By definition, the line integral of a continuous vector field along is evaluated as: Substituting the component forms of both and into the dot product yields:   We can distribute the integral across the addition operations. Separating this into three distinct single integrals gives:   Recall from the definition of line integrals with respect to coordinate variables that the differentials , , and are defined parametrically as: Replacing these differential terms back into the single integrals transforms the parameter space representations into their corresponding coordinate line integrals along :   Combining these three adjacent coordinate integrals under a single integral sign produces the standard shorthand notation:   "
+},
+{
+  "id": "sec-Green-theorem",
+  "level": "1",
+  "url": "sec-Green-theorem.html",
+  "type": "Section",
+  "number": "",
+  "title": "5.3 Green’s Theorem",
+  "body": " 5.3 Green's Theorem   Green's Theorem is a fundamental result in vector calculus that relates the line integral of a vector field around a simple closed curve to the double integral of the curl of the field over the region enclosed by the curve.  In this section, we will explore the statement and proof of Green's Theorem, as well as its applications in calculating areas and evaluating line integrals.    Conservative Vector Field   Suppose is a vector field that is continuous on an open connected region . If is independent of path in , then is a conservative vector field on .  Equivalently, if there exists a differentiable scalar function such that: then is conservative, and is called a potential function for , where .     Component Test for Conservative Vector Fields   Let be a vector field on a simply-connected domain , where and have continuous first-order partial derivatives. Then is a conservative vector field if and only if: throughout .      Determine whether or not the vector field: is conservative.     Step 1: Identify Component Functions   We match the given vector field to the standard component form :    Step 2: Compute and Compare Cross-Partial Derivatives   We apply the component test from by taking partial derivatives:   Differentiate with respect to (treating as a constant):     Differentiate with respect to (treating as a constant):       Step 3: Conclusion   Comparing the results, we see that: Because the cross-partial derivatives are not equal ( ), the vector field fails the component test. Therefore, is not conservative .      Determine whether or not the vector field: is conservative.     Step 1: Identify Component Functions   We match the given vector field to the standard component form :    Step 2: Compute and Compare Cross-Partial Derivatives   We take the cross-partial derivatives of the component functions:   Differentiate with respect to (holding constant):     Differentiate with respect to (holding constant):       Step 3: Conclusion   Comparing the results, we see that: Because continuously throughout the entire plane, the component test is satisfied. Therefore, the vector field is conservative .      If , find a function such that . Then evaluate the line integral , where is the curve given by:      Part 1: Find the Potential Function   We require . This gives two conditions: Integrating equation (1) with respect to , treating as a constant, we introduce a constant-of-integration function : To find , we take the partial derivative of this expression with respect to and set it equal to equation (2): Matching this with equation (2): Integrating with respect to yields . Setting the constant , our potential function is:    Part 2: Evaluate the Line Integral   Because is conservative, we use the Fundamental Theorem of Line Integrals: . We determine the initial and terminal points from the parameter values:  Initial Point ( ): .  Terminal Point ( ): .  Now, evaluating the potential function at these points: Subtracting the initial value from the terminal value: The value of the vector line integral is exactly .      If , find a function such that .    We need to find a scalar function such that its gradient equals the component functions :   We integrate equation (1) with respect to , treating and as constant factors, which introduces an integration function :   To find , we differentiate this expression with respect to and equate it to equation (2): Matching this with equation (2) gives: Integrating this partial derivative with respect to introduces an integration constant function depending only on : Substituting back into our expression for updates the potential function equation:   Finally, we differentiate this updated equation with respect to and compare it with equation (3): Matching this with equation (3) shows: Choosing the constant , our final 3D potential function is:      Green's Theorem   Let be a positively oriented, piecewise smooth, simple closed curve in the plane, and let be the region bounded by . If and have continuous partial derivatives on an open region that contains , then       Use Green's Theorem to evaluate the line integral of the vector field around the unit circle centered at the origin.    First, we identify the components of the vector field: and . We compute their partial derivatives:      Applying Green's Theorem, we have:   The region is the unit disk, which can be described in polar coordinates as and . The double integral becomes:   Evaluating the inner integral with respect to :   Now, we integrate with respect to :   Therefore, the value of the line integral is .     Closed Loop Notation  The notation is used to indicate that a line integral is evaluated around a closed curve using its positive (counterclockwise) orientation.    Boundary Notation in Green's Theorem  If the positively oriented closed boundary curve of a planar region is denoted by , the mathematical statement for Green's Theorem can be compactly written as:      Evaluate , where is the triangular curve consisting of the line segments from to , from to , and from to .     Step 1: Analyze the Path and Identify Boundary Components   The path forms a closed, counterclockwise triangular loop enclosing a first-quadrant region . Because matches the definition of a positively oriented boundary curve, we can evaluate this line integral easily using Green's Theorem:   First, we isolate our component fields from the given line integral string: Next, we calculate their respective first-order partial derivatives: This transforms our double integrand expression into:     The positively oriented closed triangular path enclosing region .   A 2D coordinate plot mapping a triangular closed loop moving counterclockwise from (0,0) to (1,0) to (0,1) and back to the origin.      Step 2: Set Up and Evaluate the Double Region Integral   The triangular region is bounded below by the -axis ( ) and above by the slanted line path connecting and , which gives the equation . Treating as a Type I domain, our variable bounds span: Applying Green's Theorem, we set up and evaluate the iterated integral: Evaluating the inner variable layer with respect to : Substituting this expression into our outer layer and evaluating with respect to : The value of the closed-loop line integral evaluated via Green's Theorem is exactly .      Evaluate , where is the circle .     Step 1: Compute Partial Derivatives and Apply Green's Theorem   The path is a closed circle centered at the origin with a radius of , oriented counterclockwise. Evaluating this coordinate line integral directly would be extremely difficult due to the transcendental terms and . Instead, we match the terms to component fields: Next, we calculate their respective first-order partial derivatives:  By Green's Theorem, the closed line integral transforms into a double integral over the circular interior region :     The positively oriented boundary circle enclosing region .   A 2D coordinate plot showing a counterclockwise oriented circle of radius 3 centered at the origin enclosing a shaded disk region D.      Step 2: Evaluate the Factored Region Integral   We can factor the constant out of the double integral: Recall that the double integral represents the geometric area of the region . Because is a complete circle of radius , we use the standard formula for circular areas: Substituting this area evaluation back into the factored expression gives: The value of the closed-loop line integral is exactly .    If it is known that on the curve , then Green's Theorem dictates: regardless of what values and assume within the interior region .  Suppose we are computing the area of . Since the area of is given by , we want to select component fields and such that: There are several standard choices that satisfy this criterion, leading to useful line integral formulas for area calculation:   Area Formulas via Green's Theorem  By applying Green's Theorem, the area of a planar region can be calculated along its boundary using any of the following equivalent formulas:   If and :     If and :     If and :        Area Formulas via Green's Theorem   Green's Theorem yields the following equivalent line integral formulas for calculating the geometric area of a planar region along its positively oriented boundary curve :       Find the area enclosed by the ellipse .     Step 1: Parameterize the Elliptical Boundary Curve   The complete, positively oriented perimeter of the ellipse can be parameterized by standard trigonometric tracking angles:  where the parameter sweeps across a full revolution: .    The positively oriented boundary curve enclosing the elliptical region.   A 2D coordinate plot mapping an ellipse centered at the origin stretching from -a to a on the x-axis and -b to b on the y-axis, with counterclockwise orientation arrows.      Step 2: Apply the Symmetric Line Integral Area Formula   Using the symmetric area differential layout from , we expand the integrand: Evaluating this simple constant single variable integral: The area enclosed by the general ellipse is exactly .      Evaluate , where is the boundary of the semi-annular region in the upper half-plane between the circles and .     Step 1: Compute Partial Derivatives and Apply Green's Theorem   The boundary consists of four smooth pieces: two concentric upper semicircles and two connecting straight segments along the -axis. Evaluating all four parts as individual line integrals would be tedious, so we apply Green's Theorem. First, isolate the component fields: Next, calculate their first-order partial derivatives: This transforms the closed line integral into a double integral over the upper semi-annular region :     The semi-annular integration domain and its complete closed boundary path .   A 2D coordinate plot showing a shaded half-ring in the upper half-plane between radius 1 and 2, with counterclockwise tracking arrowheads outlining the perimeter.      Step 2: Convert to Polar Coordinates and Evaluate   Because the region is a circular sector, we evaluate the double integral by converting to polar coordinates using the substitutions and . The bounds for the semi-annulus are: Substituting these parameters into the integral: Evaluating the inner radial integral layer with respect to : Now, substitute this expression into the outer layer and integrate with respect to : The value of the closed boundary line integral over the semi-annulus is exactly .    "
+},
+{
+  "id": "def-conservative-field",
+  "level": "2",
+  "url": "sec-Green-theorem.html#def-conservative-field",
+  "type": "Definition",
+  "number": "5.28",
+  "title": "Conservative Vector Field.",
+  "body": " Conservative Vector Field   Suppose is a vector field that is continuous on an open connected region . If is independent of path in , then is a conservative vector field on .  Equivalently, if there exists a differentiable scalar function such that: then is conservative, and is called a potential function for , where .   "
+},
+{
+  "id": "thm-component-test-conservative",
+  "level": "2",
+  "url": "sec-Green-theorem.html#thm-component-test-conservative",
+  "type": "Theorem",
+  "number": "5.29",
+  "title": "Component Test for Conservative Vector Fields.",
+  "body": " Component Test for Conservative Vector Fields   Let be a vector field on a simply-connected domain , where and have continuous first-order partial derivatives. Then is a conservative vector field if and only if: throughout .   "
+},
+{
+  "id": "ex-test-conservative-field",
+  "level": "2",
+  "url": "sec-Green-theorem.html#ex-test-conservative-field",
+  "type": "Example",
+  "number": "5.30",
+  "title": "",
+  "body": "  Determine whether or not the vector field: is conservative.     Step 1: Identify Component Functions   We match the given vector field to the standard component form :    Step 2: Compute and Compare Cross-Partial Derivatives   We apply the component test from by taking partial derivatives:   Differentiate with respect to (treating as a constant):     Differentiate with respect to (treating as a constant):       Step 3: Conclusion   Comparing the results, we see that: Because the cross-partial derivatives are not equal ( ), the vector field fails the component test. Therefore, is not conservative .   "
+},
+{
+  "id": "ex-test-conservative-field-polynomial",
+  "level": "2",
+  "url": "sec-Green-theorem.html#ex-test-conservative-field-polynomial",
+  "type": "Example",
+  "number": "5.31",
+  "title": "",
+  "body": "  Determine whether or not the vector field: is conservative.     Step 1: Identify Component Functions   We match the given vector field to the standard component form :    Step 2: Compute and Compare Cross-Partial Derivatives   We take the cross-partial derivatives of the component functions:   Differentiate with respect to (holding constant):     Differentiate with respect to (holding constant):       Step 3: Conclusion   Comparing the results, we see that: Because continuously throughout the entire plane, the component test is satisfied. Therefore, the vector field is conservative .   "
+},
+{
+  "id": "ex-find-potential-and-integrate",
+  "level": "2",
+  "url": "sec-Green-theorem.html#ex-find-potential-and-integrate",
+  "type": "Example",
+  "number": "5.32",
+  "title": "",
+  "body": "  If , find a function such that . Then evaluate the line integral , where is the curve given by:      Part 1: Find the Potential Function   We require . This gives two conditions: Integrating equation (1) with respect to , treating as a constant, we introduce a constant-of-integration function : To find , we take the partial derivative of this expression with respect to and set it equal to equation (2): Matching this with equation (2): Integrating with respect to yields . Setting the constant , our potential function is:    Part 2: Evaluate the Line Integral   Because is conservative, we use the Fundamental Theorem of Line Integrals: . We determine the initial and terminal points from the parameter values:  Initial Point ( ): .  Terminal Point ( ): .  Now, evaluating the potential function at these points: Subtracting the initial value from the terminal value: The value of the vector line integral is exactly .   "
+},
+{
+  "id": "exercise-find-potential-3d",
+  "level": "2",
+  "url": "sec-Green-theorem.html#exercise-find-potential-3d",
+  "type": "Checkpoint",
+  "number": "5.33",
+  "title": "",
+  "body": "  If , find a function such that .    We need to find a scalar function such that its gradient equals the component functions :   We integrate equation (1) with respect to , treating and as constant factors, which introduces an integration function :   To find , we differentiate this expression with respect to and equate it to equation (2): Matching this with equation (2) gives: Integrating this partial derivative with respect to introduces an integration constant function depending only on : Substituting back into our expression for updates the potential function equation:   Finally, we differentiate this updated equation with respect to and compare it with equation (3): Matching this with equation (3) shows: Choosing the constant , our final 3D potential function is:    "
+},
+{
+  "id": "def-green-theorem",
+  "level": "2",
+  "url": "sec-Green-theorem.html#def-green-theorem",
+  "type": "Definition",
+  "number": "5.34",
+  "title": "Green’s Theorem.",
+  "body": " Green's Theorem   Let be a positively oriented, piecewise smooth, simple closed curve in the plane, and let be the region bounded by . If and have continuous partial derivatives on an open region that contains , then    "
+},
+{
+  "id": "ex-green-theorem-application",
+  "level": "2",
+  "url": "sec-Green-theorem.html#ex-green-theorem-application",
+  "type": "Example",
+  "number": "5.35",
+  "title": "",
+  "body": "  Use Green's Theorem to evaluate the line integral of the vector field around the unit circle centered at the origin.    First, we identify the components of the vector field: and . We compute their partial derivatives:      Applying Green's Theorem, we have:   The region is the unit disk, which can be described in polar coordinates as and . The double integral becomes:   Evaluating the inner integral with respect to :   Now, we integrate with respect to :   Therefore, the value of the line integral is .   "
+},
+{
+  "id": "ex-greens-theorem-triangle",
+  "level": "2",
+  "url": "sec-Green-theorem.html#ex-greens-theorem-triangle",
+  "type": "Example",
+  "number": "5.36",
+  "title": "",
+  "body": "  Evaluate , where is the triangular curve consisting of the line segments from to , from to , and from to .     Step 1: Analyze the Path and Identify Boundary Components   The path forms a closed, counterclockwise triangular loop enclosing a first-quadrant region . Because matches the definition of a positively oriented boundary curve, we can evaluate this line integral easily using Green's Theorem:   First, we isolate our component fields from the given line integral string: Next, we calculate their respective first-order partial derivatives: This transforms our double integrand expression into:     The positively oriented closed triangular path enclosing region .   A 2D coordinate plot mapping a triangular closed loop moving counterclockwise from (0,0) to (1,0) to (0,1) and back to the origin.      Step 2: Set Up and Evaluate the Double Region Integral   The triangular region is bounded below by the -axis ( ) and above by the slanted line path connecting and , which gives the equation . Treating as a Type I domain, our variable bounds span: Applying Green's Theorem, we set up and evaluate the iterated integral: Evaluating the inner variable layer with respect to : Substituting this expression into our outer layer and evaluating with respect to : The value of the closed-loop line integral evaluated via Green's Theorem is exactly .   "
+},
+{
+  "id": "ex-greens-theorem-circle",
+  "level": "2",
+  "url": "sec-Green-theorem.html#ex-greens-theorem-circle",
+  "type": "Example",
+  "number": "5.38",
+  "title": "",
+  "body": "  Evaluate , where is the circle .     Step 1: Compute Partial Derivatives and Apply Green's Theorem   The path is a closed circle centered at the origin with a radius of , oriented counterclockwise. Evaluating this coordinate line integral directly would be extremely difficult due to the transcendental terms and . Instead, we match the terms to component fields: Next, we calculate their respective first-order partial derivatives:  By Green's Theorem, the closed line integral transforms into a double integral over the circular interior region :     The positively oriented boundary circle enclosing region .   A 2D coordinate plot showing a counterclockwise oriented circle of radius 3 centered at the origin enclosing a shaded disk region D.      Step 2: Evaluate the Factored Region Integral   We can factor the constant out of the double integral: Recall that the double integral represents the geometric area of the region . Because is a complete circle of radius , we use the standard formula for circular areas: Substituting this area evaluation back into the factored expression gives: The value of the closed-loop line integral is exactly .   "
+},
+{
+  "id": "cor-greens-theorem-area",
+  "level": "2",
+  "url": "sec-Green-theorem.html#cor-greens-theorem-area",
+  "type": "Corollary",
+  "number": "5.40",
+  "title": "Area Formulas via Green’s Theorem.",
+  "body": " Area Formulas via Green's Theorem   Green's Theorem yields the following equivalent line integral formulas for calculating the geometric area of a planar region along its positively oriented boundary curve :    "
+},
+{
+  "id": "ex-ellipse-area-greens",
+  "level": "2",
+  "url": "sec-Green-theorem.html#ex-ellipse-area-greens",
+  "type": "Example",
+  "number": "5.41",
+  "title": "",
+  "body": "  Find the area enclosed by the ellipse .     Step 1: Parameterize the Elliptical Boundary Curve   The complete, positively oriented perimeter of the ellipse can be parameterized by standard trigonometric tracking angles:  where the parameter sweeps across a full revolution: .    The positively oriented boundary curve enclosing the elliptical region.   A 2D coordinate plot mapping an ellipse centered at the origin stretching from -a to a on the x-axis and -b to b on the y-axis, with counterclockwise orientation arrows.      Step 2: Apply the Symmetric Line Integral Area Formula   Using the symmetric area differential layout from , we expand the integrand: Evaluating this simple constant single variable integral: The area enclosed by the general ellipse is exactly .   "
+},
+{
+  "id": "ex-greens-semi-annulus",
+  "level": "2",
+  "url": "sec-Green-theorem.html#ex-greens-semi-annulus",
+  "type": "Checkpoint",
+  "number": "5.43",
+  "title": "",
+  "body": "  Evaluate , where is the boundary of the semi-annular region in the upper half-plane between the circles and .     Step 1: Compute Partial Derivatives and Apply Green's Theorem   The boundary consists of four smooth pieces: two concentric upper semicircles and two connecting straight segments along the -axis. Evaluating all four parts as individual line integrals would be tedious, so we apply Green's Theorem. First, isolate the component fields: Next, calculate their first-order partial derivatives: This transforms the closed line integral into a double integral over the upper semi-annular region :     The semi-annular integration domain and its complete closed boundary path .   A 2D coordinate plot showing a shaded half-ring in the upper half-plane between radius 1 and 2, with counterclockwise tracking arrowheads outlining the perimeter.      Step 2: Convert to Polar Coordinates and Evaluate   Because the region is a circular sector, we evaluate the double integral by converting to polar coordinates using the substitutions and . The bounds for the semi-annulus are: Substituting these parameters into the integral: Evaluating the inner radial integral layer with respect to : Now, substitute this expression into the outer layer and integrate with respect to : The value of the closed boundary line integral over the semi-annulus is exactly .   "
+},
+{
+  "id": "sec-Curl-Divergence",
+  "level": "1",
+  "url": "sec-Curl-Divergence.html",
+  "type": "Section",
+  "number": "",
+  "title": "5.4 Curl and Divergence",
+  "body": " 5.4 Curl and Divergence   In this section, we will introduce two important concepts in vector calculus: curl and divergence. These concepts are used to describe the behavior of vector fields in three-dimensional space.    The Curl of a Vector Field   If is a vector field on and the partial derivatives of , , and all exist, then the curl of is the vector field defined by: In terms of the del gradient operator, this can be written as a formal cross product:       If , find .     Step 1: Set Up the Formal Cross Product Matrix   We express the curl as a symbolic 3-by-3 determinant using the component fields , , and :    Step 2: Expand the Determinant by Coactors   Expanding along the first row yields three 2-by-2 component derivative blocks:    Step 3: Evaluate Partial Derivatives and Simplify   Computing each bracketed operation yields:   For the component:     For the component (including the outer subtraction sign):     For the component:       Step 4: Conclusion   Combining the evaluated terms gives the final vector field:      The Curl of a Gradient Field   If is a function of three variables that has continuous second-order partial derivatives, then: Since a conservative vector field is defined as one for which there exists a potential scalar function such that , it follows that if is a conservative vector field, then:       Show that the vector field is not conservative.     Step 1: Compute the Curl of the Field   According to , if a vector field is conservative, its curl must equal the zero vector. Let's calculate using a symbolic cross product: Expanding along the first row yields:    Step 2: Conclusion   Because throughout , the field fails the zero-curl condition. Therefore, is not conservative .      Show that the vector field is conservative.     Step 1: Compute the Curl of the Field   We match the given parameters to the component fields , , and . We evaluate their symbolic determinant:    Step 2: Evaluate Component Derivatives   Expanding by row minors and taking partial derivatives:   For the component:     For the component:     For the component:       Step 3: Conclusion   Combining our calculated vector paths yields: Because continuously everywhere on the simply-connected domain , the test is satisfied. Therefore, the vector field is conservative .     The Divergence of a Vector Field   If is a vector field on and the partial derivatives , , and all exist, then the divergence of is the scalar field defined by: In terms of the del gradient operator, this can be written as a formal dot product:       If , find .     Step 1: Identify Component Functions   We match the given vector field to the standard component form :    Step 2: Compute Partial Derivatives   We find the corresponding first-order partial derivative for each independent component:   Differentiate with respect to :     Differentiate with respect to :     Differentiate with respect to :       Step 3: Combine and Simplify   According to the divergence definition, we sum the three partial derivative terms together: The divergence of the vector field is the scalar function .     The Divergence of a Curl   If is a vector field on and its component functions , , and have continuous second-order partial derivatives, then:       Show that the vector field cannot be written as the curl of another vector field; that is, for any vector field .     Step 1: Apply the Divergence of a Curl Theorem   According to , if a vector field can be expressed as the curl of some vector field (meaning ), then taking its divergence must automatically yield zero: Therefore, to show that cannot be written as a curl, we only need to compute and verify that it is not identically zero.   Step 2: Calculate the Divergence of   We extract the component fields from the problem statement: , , and . We apply the standard divergence sum formula:    Step 3: Conclusion   The result shows that , which is not identically zero everywhere in (for instance, at the point , ).  Because , it fails the fundamental identity requirement of a curl field. Therefore,  cannot be written as the curl of another vector field ( ).    "
+},
+{
+  "id": "def-curl-3d",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#def-curl-3d",
+  "type": "Definition",
+  "number": "5.45",
+  "title": "The Curl of a Vector Field.",
+  "body": " The Curl of a Vector Field   If is a vector field on and the partial derivatives of , , and all exist, then the curl of is the vector field defined by: In terms of the del gradient operator, this can be written as a formal cross product:    "
+},
+{
+  "id": "ex-curl-calculation",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#ex-curl-calculation",
+  "type": "Example",
+  "number": "5.46",
+  "title": "",
+  "body": "  If , find .     Step 1: Set Up the Formal Cross Product Matrix   We express the curl as a symbolic 3-by-3 determinant using the component fields , , and :    Step 2: Expand the Determinant by Coactors   Expanding along the first row yields three 2-by-2 component derivative blocks:    Step 3: Evaluate Partial Derivatives and Simplify   Computing each bracketed operation yields:   For the component:     For the component (including the outer subtraction sign):     For the component:       Step 4: Conclusion   Combining the evaluated terms gives the final vector field:    "
+},
+{
+  "id": "thm-curl-conservative-test",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#thm-curl-conservative-test",
+  "type": "Theorem",
+  "number": "5.47",
+  "title": "The Curl of a Gradient Field.",
+  "body": " The Curl of a Gradient Field   If is a function of three variables that has continuous second-order partial derivatives, then: Since a conservative vector field is defined as one for which there exists a potential scalar function such that , it follows that if is a conservative vector field, then:    "
+},
+{
+  "id": "ex-show-not-conservative-3d",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#ex-show-not-conservative-3d",
+  "type": "Example",
+  "number": "5.48",
+  "title": "",
+  "body": "  Show that the vector field is not conservative.     Step 1: Compute the Curl of the Field   According to , if a vector field is conservative, its curl must equal the zero vector. Let's calculate using a symbolic cross product: Expanding along the first row yields:    Step 2: Conclusion   Because throughout , the field fails the zero-curl condition. Therefore, is not conservative .   "
+},
+{
+  "id": "ex-show-conservative-3d",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#ex-show-conservative-3d",
+  "type": "Example",
+  "number": "5.49",
+  "title": "",
+  "body": "  Show that the vector field is conservative.     Step 1: Compute the Curl of the Field   We match the given parameters to the component fields , , and . We evaluate their symbolic determinant:    Step 2: Evaluate Component Derivatives   Expanding by row minors and taking partial derivatives:   For the component:     For the component:     For the component:       Step 3: Conclusion   Combining our calculated vector paths yields: Because continuously everywhere on the simply-connected domain , the test is satisfied. Therefore, the vector field is conservative .   "
+},
+{
+  "id": "def-divergence-3d",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#def-divergence-3d",
+  "type": "Definition",
+  "number": "5.50",
+  "title": "The Divergence of a Vector Field.",
+  "body": " The Divergence of a Vector Field   If is a vector field on and the partial derivatives , , and all exist, then the divergence of is the scalar field defined by: In terms of the del gradient operator, this can be written as a formal dot product:    "
+},
+{
+  "id": "ex-divergence-evaluation",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#ex-divergence-evaluation",
+  "type": "Example",
+  "number": "5.51",
+  "title": "",
+  "body": "  If , find .     Step 1: Identify Component Functions   We match the given vector field to the standard component form :    Step 2: Compute Partial Derivatives   We find the corresponding first-order partial derivative for each independent component:   Differentiate with respect to :     Differentiate with respect to :     Differentiate with respect to :       Step 3: Combine and Simplify   According to the divergence definition, we sum the three partial derivative terms together: The divergence of the vector field is the scalar function .   "
+},
+{
+  "id": "thm-div-curl-zero",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#thm-div-curl-zero",
+  "type": "Theorem",
+  "number": "5.52",
+  "title": "The Divergence of a Curl.",
+  "body": " The Divergence of a Curl   If is a vector field on and its component functions , , and have continuous second-order partial derivatives, then:    "
+},
+{
+  "id": "ex-show-not-a-curl",
+  "level": "2",
+  "url": "sec-Curl-Divergence.html#ex-show-not-a-curl",
+  "type": "Example",
+  "number": "5.53",
+  "title": "",
+  "body": "  Show that the vector field cannot be written as the curl of another vector field; that is, for any vector field .     Step 1: Apply the Divergence of a Curl Theorem   According to , if a vector field can be expressed as the curl of some vector field (meaning ), then taking its divergence must automatically yield zero: Therefore, to show that cannot be written as a curl, we only need to compute and verify that it is not identically zero.   Step 2: Calculate the Divergence of   We extract the component fields from the problem statement: , , and . We apply the standard divergence sum formula:    Step 3: Conclusion   The result shows that , which is not identically zero everywhere in (for instance, at the point , ).  Because , it fails the fundamental identity requirement of a curl field. Therefore,  cannot be written as the curl of another vector field ( ).   "
 },
 {
   "id": "ws-vectors-chapter-review",
@@ -4006,11 +4429,83 @@ var ptx_lunr_docs = [
   "body": "  Evaluate the double integral:      Step 1: Choose a Transformation and Calculate the Jacobian   The structure of the integrand suggests a change of variables transformation. Let's define the new tracking variables: Solving this linear system for and to find the inverse transformation equations: Now compute the Jacobian determinant of this transformation: Thus, the area differential element transforms as: .   Step 2: Map the Triangular Domain Boundaries   The original region is a triangle bounded by , and . Translating these boundary equations into the -plane:  The boundary line .  The line .  The line .  This maps the triangle into a new triangular region in the -plane described by and .    The transformed triangular region inside the -plane.   A triangle in the uv-plane bounded by u=1, v=u, and v=-2u with a vertical sweep arrow.      Step 3: Setup and Evaluate the New Integral   Substituting the new tracking terms into the change of variables formula: Evaluating the inner layer with respect to : Now substitute this into the outer single layer and evaluate with respect to : The value of the transformed double integral is exactly .   "
 },
 {
+  "id": "ws-vector-fields-chapter-review",
+  "level": "1",
+  "url": "ws-vector-fields-chapter-review.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "Worksheet 05: Vector Fields",
+  "body": " Worksheet 05: Vector Fields        Integrate the scalar function over the circle path parameterization:      Step 1: Compute the Derivatives and the Arc Length Element   From the given vector path equation, the components are: Differentiating each coordinate component with respect to the parameter yields: We substitute these into the 3D arc length differential equation:      The circular integration path lying entirely within the vertical -plane.   A 3D coordinate plot showing a circle of radius 4 centered at the origin resting in the vertical xz plane, with counterclockwise orientation tracking arrows.      Step 2: Setup and Evaluate the Line Integral   Next, we substitute the component equations into the integrand function : Combining the function value, the element , and our parameters from to : The exact value of the line integral around the vertical circle path is .      Evaluate the line integral along a straight line path segment: where is the directed straight line segment starting from the initial coordinate point and ending at the terminal point .     Step 1: Parameterize the Straight Line Segment   Using the vector parameterization equation for a line segment with initial point and terminal point :   where the parameter varies along the continuous interval: .   Step 2: Setup and Simplify the Integrand Components   We combine the differentials and coordinates into the core parameter groups: Because the combined differential vector sums perfectly to zero everywhere along this straight linear trajectory, the entire line integral drops: The exact value of the coordinate line integral along this specific segment is .           Integrate the vector field around the circular path cut from the sphere by the horizontal plane , oriented clockwise as viewed from above.     Step 1: Identify the Geometry and Path Parameterization   Substituting the plane constraint into the sphere equation reveals the radius of the circular intersection track: This describes a horizontal circle of radius resting at a height of . A standard counterclockwise orientation uses . Because the question explicitly specifies a clockwise orientation as viewed from above, we reverse the tracking parameter direction:   where the parameter varies continuously across a full revolution: .    The circular path loop formed by slicing the sphere at the horizontal plane .   A 3D coordinate plot showing a sphere cut by a horizontal plane at z=-1 with a clockwise tracking circle trajectory.      Step 2: Setup and Evaluate the Vector Line Integral   We rewrite the vector line integral in differential component form: . Substituting into our component fields gives: Because , the component drops out completely. Substituting the parametric equations into the line integral yields:    Step 3: Evaluate the Double Area Integral   Using the parameters, we assemble the iterated region integral: The lateral surface area of the cylinder is exactly (which perfectly matches our geometric formula verification: ).      Evaluate the closed loop coordinate line integral by applying Green's Theorem: where is the perimeter boundary curve of the square cut from the first quadrant by the horizontal and vertical lines and , oriented counterclockwise.     Step 1: Compute Partial Derivatives and Apply Green's Theorem   The path forms a closed square loop oriented counterclockwise. Evaluating each of the four edges independently would be tedious, so we apply Green's Theorem: Next, we find their respective first-order cross-partial derivatives:  By Green's Theorem, the closed line integral transforms into a double integral over the square domain :    Step 2: Evaluate the Iterated Double Integral   First, we integrate the inner expression with respect to , treating as a constant factor: Now, substitute this polynomial expression into the outer layer and integrate with respect to : The final value of the closed square line integral is exactly .           Determine which of the following vector fields are conservative, and which are not. Support your answers with partial derivative tests:          We apply the 3D curl component test ( for a field to be conservative) across all four cases:     Field (a): Here, . Calculating cross-partials shows: Since , Field (a) is conservative (with potential function ).     Field (b): This is the classical inverse-square gravitational\/electric field model. Let . The components are . Differentiating the components yields symmetric cross-partials: All component pairs match identically, meaning . Thus, Field (b) is conservative (with potential function ).     Field (c): Here, . Let's compute the cross-partial derivative of the first two components: Because the cross-partials are unequal ( ), the curl is non-zero. Thus, Field (c) is not conservative .     Field (d): The components are . Let's check the cross-partial derivative of and :  Checking the remaining component pairs reveals that and match symmetrically everywhere on its domain. Since , Field (d) is conservative (with potential function ).        Find the work done by the force field along a straight line segment path from the origin to the point .     Step 1: Check if the Field is Conservative   Let's determine if is conservative by checking its curl components:  Because the curl is not zero ( ), the field is not conservative. Therefore, the work depends on the path, and we must evaluate the line integral directly along the specified straight line segment path.   Step 2: Parameterize the Path and Compute Differentials   The straight line segment connecting to can be parameterized linearly as:   where the parameter varies continuously over the interval: .   Step 3: Setup and Evaluate the Work Integral   We rewrite the work line integral in differential component form: . Substituting our parametric expressions and differentials gives: The total work done by the field along the straight line path is exactly .     "
+},
+{
+  "id": "ex-ws-vf-p1",
+  "level": "2",
+  "url": "ws-vector-fields-chapter-review.html#ex-ws-vf-p1",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Integrate the scalar function over the circle path parameterization:      Step 1: Compute the Derivatives and the Arc Length Element   From the given vector path equation, the components are: Differentiating each coordinate component with respect to the parameter yields: We substitute these into the 3D arc length differential equation:      The circular integration path lying entirely within the vertical -plane.   A 3D coordinate plot showing a circle of radius 4 centered at the origin resting in the vertical xz plane, with counterclockwise orientation tracking arrows.      Step 2: Setup and Evaluate the Line Integral   Next, we substitute the component equations into the integrand function : Combining the function value, the element , and our parameters from to : The exact value of the line integral around the vertical circle path is .   "
+},
+{
+  "id": "ex-ws-vf-p2",
+  "level": "2",
+  "url": "ws-vector-fields-chapter-review.html#ex-ws-vf-p2",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  Evaluate the line integral along a straight line path segment: where is the directed straight line segment starting from the initial coordinate point and ending at the terminal point .     Step 1: Parameterize the Straight Line Segment   Using the vector parameterization equation for a line segment with initial point and terminal point :   where the parameter varies along the continuous interval: .   Step 2: Setup and Simplify the Integrand Components   We combine the differentials and coordinates into the core parameter groups: Because the combined differential vector sums perfectly to zero everywhere along this straight linear trajectory, the entire line integral drops: The exact value of the coordinate line integral along this specific segment is .   "
+},
+{
+  "id": "ex-ws-vf-p3",
+  "level": "2",
+  "url": "ws-vector-fields-chapter-review.html#ex-ws-vf-p3",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": "  Integrate the vector field around the circular path cut from the sphere by the horizontal plane , oriented clockwise as viewed from above.     Step 1: Identify the Geometry and Path Parameterization   Substituting the plane constraint into the sphere equation reveals the radius of the circular intersection track: This describes a horizontal circle of radius resting at a height of . A standard counterclockwise orientation uses . Because the question explicitly specifies a clockwise orientation as viewed from above, we reverse the tracking parameter direction:   where the parameter varies continuously across a full revolution: .    The circular path loop formed by slicing the sphere at the horizontal plane .   A 3D coordinate plot showing a sphere cut by a horizontal plane at z=-1 with a clockwise tracking circle trajectory.      Step 2: Setup and Evaluate the Vector Line Integral   We rewrite the vector line integral in differential component form: . Substituting into our component fields gives: Because , the component drops out completely. Substituting the parametric equations into the line integral yields:    Step 3: Evaluate the Double Area Integral   Using the parameters, we assemble the iterated region integral: The lateral surface area of the cylinder is exactly (which perfectly matches our geometric formula verification: ).   "
+},
+{
+  "id": "ex-ws-vf-p4",
+  "level": "2",
+  "url": "ws-vector-fields-chapter-review.html#ex-ws-vf-p4",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": "  Evaluate the closed loop coordinate line integral by applying Green's Theorem: where is the perimeter boundary curve of the square cut from the first quadrant by the horizontal and vertical lines and , oriented counterclockwise.     Step 1: Compute Partial Derivatives and Apply Green's Theorem   The path forms a closed square loop oriented counterclockwise. Evaluating each of the four edges independently would be tedious, so we apply Green's Theorem: Next, we find their respective first-order cross-partial derivatives:  By Green's Theorem, the closed line integral transforms into a double integral over the square domain :    Step 2: Evaluate the Iterated Double Integral   First, we integrate the inner expression with respect to , treating as a constant factor: Now, substitute this polynomial expression into the outer layer and integrate with respect to : The final value of the closed square line integral is exactly .   "
+},
+{
+  "id": "ex-ws-vf-p5",
+  "level": "2",
+  "url": "ws-vector-fields-chapter-review.html#ex-ws-vf-p5",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": "  Determine which of the following vector fields are conservative, and which are not. Support your answers with partial derivative tests:          We apply the 3D curl component test ( for a field to be conservative) across all four cases:     Field (a): Here, . Calculating cross-partials shows: Since , Field (a) is conservative (with potential function ).     Field (b): This is the classical inverse-square gravitational\/electric field model. Let . The components are . Differentiating the components yields symmetric cross-partials: All component pairs match identically, meaning . Thus, Field (b) is conservative (with potential function ).     Field (c): Here, . Let's compute the cross-partial derivative of the first two components: Because the cross-partials are unequal ( ), the curl is non-zero. Thus, Field (c) is not conservative .     Field (d): The components are . Let's check the cross-partial derivative of and :  Checking the remaining component pairs reveals that and match symmetrically everywhere on its domain. Since , Field (d) is conservative (with potential function ).     "
+},
+{
+  "id": "ex-ws-vf-p6",
+  "level": "2",
+  "url": "ws-vector-fields-chapter-review.html#ex-ws-vf-p6",
+  "type": "Worksheet Exercise",
+  "number": "6",
+  "title": "",
+  "body": "  Find the work done by the force field along a straight line segment path from the origin to the point .     Step 1: Check if the Field is Conservative   Let's determine if is conservative by checking its curl components:  Because the curl is not zero ( ), the field is not conservative. Therefore, the work depends on the path, and we must evaluate the line integral directly along the specified straight line segment path.   Step 2: Parameterize the Path and Compute Differentials   The straight line segment connecting to can be parameterized linearly as:   where the parameter varies continuously over the interval: .   Step 3: Setup and Evaluate the Work Integral   We rewrite the work line integral in differential component form: . Substituting our parametric expressions and differentials gives: The total work done by the field along the straight line path is exactly .   "
+},
+{
+  "id": "activities",
+  "level": "1",
+  "url": "activities.html",
+  "type": "Chapter",
+  "number": "7",
+  "title": "MyOpenMath Interactive Activities",
+  "body": " MyOpenMath Interactive Activities   These files contain copies of the interactive MyOpenMath exercises that guided our learning for each topic. Special thanks to Professor Jason Hardin for sharing his MyOpenMath question bank.      "
+},
+{
   "id": "homework",
   "level": "1",
   "url": "homework.html",
   "type": "Chapter",
-  "number": "7",
+  "number": "8",
   "title": "Homework",
   "body": " Homework    "
 },
@@ -4037,7 +4532,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ma-150-syllabus.html#subsec-105-TentativeSchedule-3",
   "type": "Table",
-  "number": "8.1",
+  "number": "9.1",
   "title": "Course Schedule and Exam Dates",
   "body": " Course Schedule and Exam Dates        Unit  Topics  Due Dates    1  Voting methods, apportionment  Fri 5\/22    2  Simple interest, compound interest  Wed 5\/27    3  Annuities, installment loans (Quiz 1)   Wed 5\/27    4  Mortgages, credit cards  Wed 6\/3      In-Person Exam 1 Thu 6\/4 (3:30-5:00pm) (S-136)     5  Set basics, subsets  Wed 6\/10    6  Set operations, surveys (Quiz 2)   Wed 6\/10    7  Intro to probability, events involving “not”, “or”, “and”  Wed 6\/17    8  Counting, permutations, combinations (Quiz 3)  Wed 6\/17      Online Exam 2 (Thu 6\/25)     9  Probability with counting, odds, conditional  Fri 6\/26      In-Person FINAL EXAM Thu 7\/2 (3:30-6:30pm) (S-136)      "
 }
