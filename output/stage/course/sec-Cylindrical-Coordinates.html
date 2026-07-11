@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>4.5 Cylindrical Coordinates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.11';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.8b6d53d5a91823a0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.2901d6466316ff22.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-Triple-integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Multiple-Integrals.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-Change-of-Variables.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Vector-valued-functions-5.html" class="internal"><span class="title">2.3 Integrals of Vector Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html" class="internal"><span class="title">2.4 Arc Length and Curvature</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html#subsec-curvature" class="internal"><span class="title">The Curvature</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-motion-in-space.html" class="internal"><span class="title">2.5 Motion in Space: Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangential-normal-components.html" class="internal"><span class="title">2.6 Tangential and Normal Components of Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Partial-Derivatives.html" class="internal"><span class="codenumber">3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-functions-several-variables.html" class="internal"><span class="title">Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-limits-continuity.html" class="internal"><span class="title">3.2 Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-partial-derivatives.html" class="internal"><span class="title">3.3 Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-increment.html" class="internal"><span class="title">3.4 Increments and Differentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-chain-rules.html" class="internal"><span class="title">3.5 Chain Rules</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-directional-derivatives.html" class="internal"><span class="title">3.6 Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangent-plane.html" class="internal"><span class="title">3.7 Tangent Planes and Normal Lines</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-extrema.html" class="internal"><span class="title">3.8 Extrema of Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lagrange-multipliers.html" class="internal"><span class="title">3.9 Lagrange Multipliers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Multiple-Integrals.html" class="internal"><span class="codenumber">4</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Double-integrals.html" class="internal"><span class="title">4.1 Double Integrals</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-area-volume.html" class="internal"><span class="title">4.2 Area and Volume</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-area-volume.html#exercises-multivariable-volumes" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polar-coordinates.html" class="internal"><span class="title">4.3 Double Integrals in Polar coordinates</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-polar-coordinates.html#exercises-polar-coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Triple-integrals.html" class="internal"><span class="title">4.4 Triple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Triple-integrals.html#exercises-triple-integrals-regions" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Triple-integrals.html#exercises-triple-integrals-advanced" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-Cylindrical-Coordinates.html" class="internal"><span class="title">4.5 Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Cylindrical-Coordinates.html#exercises-exercises-Cylindrical-Coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Change-of-Variables.html" class="internal"><span class="title">4.6 Change of Variables and Jacobians</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">5</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">6</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-partial-derivatives-chapter-review.html" class="internal"><span class="title">Worksheet 03: Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-multiple-integrals-chapter-review.html" class="internal"><span class="title">Worksheet 04: Multiple Integrals</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">7</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">8</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-Cylindrical-Coordinates">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">4.5 Cylindrical Coordinates</span>
+</h2>
+<section class="introduction" id="sec-Cylindrical-Coordinates-2">
+<div class="para" id="sec-Cylindrical-Coordinates-2-1">Cylindrical coordinates are a three-dimensional coordinate system that extends polar coordinates by adding a third coordinate for height. They are particularly useful for problems with cylindrical symmetry.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Cylindrical-Coordinates-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<div class="para" id="sec-Cylindrical-Coordinates-3">In the cylindrical coordinate system, a point <span class="process-math">\(P\)</span> in three-dimensional space is represented by the ordered triple <span class="process-math">\((r,\theta,z)\text{,}\)</span> where <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\)</span> are polar coordinates of the projection of <span class="process-math">\(P\)</span> onto the <span class="process-math">\(xy\)</span>-plane and <span class="process-math">\(z\)</span> is the directed distance from the <span class="process-math">\(xy\)</span>-plane to <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-Cylindrical-Coordinates-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-cylindrical-conversion"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.60</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Rectangular and Cylindrical Relationships.</span>
+</h3>
+<div class="para logical" id="thm-cylindrical-conversion-2-1">
+<div class="para">The rectangular coordinates <span class="process-math">\((x,y,z)\)</span> and the cylindrical coordinates <span class="process-math">\((r,\theta,z)\)</span> of a point <span class="process-math">\(P\)</span> are related as follows:</div>
+<div class="displaymath process-math" id="thm-cylindrical-conversion-2-1-4">
+\begin{equation*}
+x=r\cos \theta, \quad y=r\sin \theta, \quad \tan \theta =\frac{y}{x},
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="thm-cylindrical-conversion-2-1-5">
+\begin{equation*}
+x^2+y^2=r^2, \quad z=z.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-cylindrical-conversion-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.60: Rectangular and Cylindrical Relationships"><a href="#thm-cylindrical-conversion" title="Copy heading and permalink for Theorem 4.60: Rectangular and Cylindrical Relationships" aria-label="Copy heading and permalink for Theorem 4.60: Rectangular and Cylindrical Relationships">🔗</a></div>
+</article>
+<details id="ex-ellipsoid-cylindrical" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.61</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-ellipsoid-cylindrical-1-1">
+<div class="para">Find an equation in cylindrical coordinates for the ellipsoid</div>
+<div class="displaymath process-math" id="ex-ellipsoid-cylindrical-1-1-1">
+\begin{equation*}
+4x^2+4y^2+z^2=1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipsoid-cylindrical-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ellipsoid-cylindrical-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-ellipsoid-cylindrical-2-1">
+<div class="para">We can find the cylindrical equation by factoring out the common coefficients from the first two terms to isolate the standard polar identity:</div>
+<div class="displaymath process-math" id="ex-ellipsoid-cylindrical-2-1-1">
+\begin{equation*}
+4(x^2 + y^2) + z^2 = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipsoid-cylindrical-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ellipsoid-cylindrical-2-2">
+<div class="para">Using the relationship from <a href="sec-Cylindrical-Coordinates.html#thm-cylindrical-conversion" class="xref" data-knowl="./knowl/xref/thm-cylindrical-conversion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.60: Rectangular and Cylindrical Relationships">Theorem 4.60</a>, we substitute <span class="process-math">\(x^2 + y^2 = r^2\)</span> into our equation:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-cylindrical-conversion.html" id="ex-ellipsoid-cylindrical-2-2-3">
+\begin{equation*}
+4r^2 + z^2 = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipsoid-cylindrical-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ellipsoid-cylindrical-2-3">Thus, the equation of the ellipsoid in cylindrical coordinates is <span class="process-math">\(4r^2 + z^2 = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ellipsoid-cylindrical-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.61.1"><a href="#ex-ellipsoid-cylindrical-2" title="Copy heading and permalink for Solution 4.61.1" aria-label="Copy heading and permalink for Solution 4.61.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.61"><a href="#ex-ellipsoid-cylindrical" title="Copy heading and permalink for Example 4.61" aria-label="Copy heading and permalink for Example 4.61">🔗</a></div>
+</article></details>
+<article class="theorem theorem-like" id="thm-cylindrical-triple-evaluation"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.62</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluation Theorem in Cylindrical Coordinates.</span>
+</h3>
+<div class="para logical" id="thm-cylindrical-triple-evaluation-2-1">
+<div class="displaymath process-math" id="thm-cylindrical-triple-evaluation-2-1-1">
+\begin{equation*}
+\iiint_Q f(x,y,z)\,dV = \int^{\beta}_{\alpha} \int^{h_2(\theta)}_{h_1(\theta)} \int^{u_2(r\cos\theta, r\sin\theta)}_{u_1(r\cos\theta, r\sin\theta)} f(r\cos\theta, r\sin\theta, z)r\,dzdrd\theta.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-cylindrical-triple-evaluation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.62: Evaluation Theorem in Cylindrical Coordinates"><a href="#thm-cylindrical-triple-evaluation" title="Copy heading and permalink for Theorem 4.62: Evaluation Theorem in Cylindrical Coordinates" aria-label="Copy heading and permalink for Theorem 4.62: Evaluation Theorem in Cylindrical Coordinates">🔗</a></div>
+</article>
+<details id="ex-cylindrical-integral-evaluation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.63</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-cylindrical-integral-evaluation-1-1">
+<div class="para">Evaluate the iterated triple integral in cylindrical coordinates:</div>
+<div class="displaymath process-math" id="ex-cylindrical-integral-evaluation-1-1-1">
+\begin{equation*}
+\int^{2\pi}_{0} \int^{1}_{0} \int^{1/2}_{-1/2} (r^2\sin^2\theta+z^2)r \, dzdrd\theta.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cylindrical-integral-evaluation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-cylindrical-integral-evaluation-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-cylindrical-integral-evaluation-2-1">
+<div class="para">Because all six integration limits are constant bounds, the domain of integration represents a solid cylinder of radius <span class="process-math">\(1\)</span> and height <span class="process-math">\(1\)</span> centered on the <span class="process-math">\(z\)</span>-axis. We distribute the extra radial factor <span class="process-math">\(r\)</span> into the integrand and evaluate from the inside out:</div>
+<div class="displaymath process-math" id="ex-cylindrical-integral-evaluation-2-1-5">
+\begin{equation*}
+= \int^{2\pi}_{0} \int^{1}_{0} \int^{1/2}_{-1/2} (r^3\sin^2\theta + rz^2) \, dzdrd\theta.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cylindrical-integral-evaluation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-cylindrical-integral-evaluation-2-2">Step 1: Evaluate the Inner Integral with respect to <span class="process-math">\(z\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-cylindrical-integral-evaluation-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-cylindrical-integral-evaluation-2-3">
+<div class="para">Treating <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\)</span> as constant parameters:</div>
+<div class="displaymath process-math" id="ex-cylindrical-integral-evaluation-2-3-3">
+\begin{align*}
+\int^{1/2}_{-1/2} (r^3\sin^2\theta + rz^2) \, dz \amp = \left[ r^3\sin^2\theta \cdot z + \frac{1}{3}rz^3 \right]_{z=-1/2}^{z=1/2}\\
+\amp = \left( r^3\sin^2\theta\left(\frac{1}{2}\right) + \frac{1}{3}r\left(\frac{1}{8}\right) \right) - \left( r^3\sin^2\theta\left(-\frac{1}{2}\right) + \frac{1}{3}r\left(-\frac{1}{8}\right) \right)\\
+\amp = \frac{1}{2}r^3\sin^2\theta + \frac{1}{24}r + \frac{1}{2}r^3\sin^2\theta + \frac{1}{24}r\\
+\amp = r^3\sin^2\theta + \frac{1}{12}r.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cylindrical-integral-evaluation-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-cylindrical-integral-evaluation-2-4">Step 2: Evaluate the Middle Integral with respect to <span class="process-math">\(r\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-cylindrical-integral-evaluation-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-cylindrical-integral-evaluation-2-5">
+<div class="para">We substitute our expression from Step 1 and integrate with respect to <span class="process-math">\(r\text{,}\)</span> keeping <span class="process-math">\(\theta\)</span> constant:</div>
+<div class="displaymath process-math" id="ex-cylindrical-integral-evaluation-2-5-3">
+\begin{align*}
+\int_{0}^{1} \left( r^3\sin^2\theta + \frac{1}{12}r \right) \, dr \amp = \left[ \frac{1}{4}r^4\sin^2\theta + \frac{1}{24}r^2 \right]_{0}^{1}\\
+\amp = \left( \frac{1}{4}(1)^4\sin^2\theta + \frac{1}{24}(1)^2 \right) - 0\\
+\amp = \frac{1}{4}\sin^2\theta + \frac{1}{24}.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cylindrical-integral-evaluation-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-cylindrical-integral-evaluation-2-6">Step 3: Evaluate the Outer Integral with respect to <span class="process-math">\(\theta\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-cylindrical-integral-evaluation-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-cylindrical-integral-evaluation-2-7">
+<div class="para">Finally, we evaluate across the angular domain. We split the terms and use the trigonometric power-reduction identity <span class="process-math">\(\sin^2\theta = \frac{1-\cos(2\theta)}{2}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-cylindrical-integral-evaluation-2-7-2">
+\begin{align*}
+\int_{0}^{2\pi} \left( \frac{1}{4}\sin^2\theta + \frac{1}{24} \right) \, d\theta \amp = \frac{1}{4} \int_{0}^{2\pi} \left( \frac{1-\cos(2\theta)}{2} \right) \, d\theta + \frac{1}{24} \int_{0}^{2\pi} \, d\theta\\
+\amp = \frac{1}{8} \Big[ \theta - \frac{1}{2}\sin(2\theta) \Big]_{0}^{2\pi} + \frac{1}{24} \Big[ \theta \Big]_{0}^{2\pi}\\
+\amp = \frac{1}{8} \Big( (2\pi - 0) - 0 \Big) + \frac{1}{24}(2\pi - 0)\\
+\amp = \frac{2\pi}{8} + \frac{2\pi}{24} = \frac{\pi}{4} + \frac{\pi}{12} = \frac{3\pi + \pi}{12} = \frac{4\pi}{12} = \frac{\pi}{3}.
+\end{align*}
+</div>
+<div class="para">The exact value of the cylindrical triple integral is <span class="process-math">\(\frac{\pi}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cylindrical-integral-evaluation-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.63.1"><a href="#ex-cylindrical-integral-evaluation-2" title="Copy heading and permalink for Solution 4.63.1" aria-label="Copy heading and permalink for Solution 4.63.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.63"><a href="#ex-cylindrical-integral-evaluation" title="Copy heading and permalink for Example 4.63" aria-label="Copy heading and permalink for Example 4.63">🔗</a></div>
+</article></details>
+<details id="ex-volume-cylinder-paraboloid-cylindrical" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.64</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-volume-cylinder-paraboloid-cylindrical-1-1">Find the volume of the solid that lies within the cylinder <span class="process-math">\(x^2+y^2=1\text{,}\)</span> below the plane <span class="process-math">\(z=4\text{,}\)</span> and above the paraboloid <span class="process-math">\(z=1-x^2-y^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-paraboloid-cylindrical-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-volume-cylinder-paraboloid-cylindrical-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-volume-cylinder-paraboloid-cylindrical-2-1">Step 1: Identify the Boundaries and Region in Cylindrical Coordinates<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-paraboloid-cylindrical-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-paraboloid-cylindrical-2-2">
+<div class="para">The lateral boundary is the cylinder <span class="process-math">\(x^2+y^2=1\text{,}\)</span> which simplifies directly to <span class="process-math">\(r = 1\)</span> in polar form. This describes a full circular disk base region <span class="process-math">\(R\)</span> in the <span class="process-math">\(xy\)</span>-plane:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-paraboloid-cylindrical-2-2-5">
+\begin{equation*}
+0 \leq \theta \leq 2\pi \quad \text{and} \quad 0 \leq r \leq 1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-paraboloid-cylindrical-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-paraboloid-cylindrical-2-3">
+<div class="para">The solid is bounded above by the flat plane ceiling <span class="process-math">\(z = 4\)</span> and capped below by the paraboloid floor surface. Converting the floor equation to cylindrical form using <span class="process-math">\(x^2+y^2=r^2\)</span> yields:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-paraboloid-cylindrical-2-3-3">
+\begin{equation*}
+z = 1 - (x^2 + y^2) \implies z = 1 - r^2.
+\end{equation*}
+</div>
+<div class="para">Therefore, for any point <span class="process-math">\((r, \theta)\)</span> in the base circle, the vertical variable <span class="process-math">\(z\)</span> spans:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-paraboloid-cylindrical-2-3-6">
+\begin{equation*}
+1 - r^2 \leq z \leq 4.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-paraboloid-cylindrical-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cylinder-base-disk"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="generated/latex-image/img-cylinder-base-disk.svg" role="img" class="contained" alt="A polar plot mapping a full unit circular disk centered at the origin, with four radial sweep arrows tracking out to r=1."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.65<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The shared circular base projection region <span class="process-math">\(R: x^2 + y^2 \leq 1\)</span> plotted with an isometric layout.<div class="autopermalink" data-description="Figure 4.65"><a href="#fig-cylinder-base-disk" title="Copy heading and permalink for Figure 4.65" aria-label="Copy heading and permalink for Figure 4.65">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-volume-cylinder-paraboloid-cylindrical-2-5">Step 2: Set Up and Evaluate the Volume Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-paraboloid-cylindrical-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-paraboloid-cylindrical-2-6">
+<div class="para">Using the volume double integral definition with the cylindrical volume element (<span class="process-math">\(dV = r\,dzdrd\theta\)</span>), we establish the iterated integral:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-paraboloid-cylindrical-2-6-2">
+\begin{equation*}
+V = \int_{0}^{2\pi} \int_{0}^{1} \int_{1-r^2}^{4} r \, dz \, dr \, d\theta
+\end{equation*}
+</div>
+<div class="para">Evaluating the inner integral with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-paraboloid-cylindrical-2-6-4">
+\begin{equation*}
+\int_{1-r^2}^{4} r \, dz = r \Big[ z \Big]_{1-r^2}^{4} = r \Big( 4 - (1 - r^2) \Big) = r(3 + r^2) = 3r + r^3.
+\end{equation*}
+</div>
+<div class="para">Next, substituting into the middle layer and integrating with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-paraboloid-cylindrical-2-6-6">
+\begin{equation*}
+\int_{0}^{1} (3r + r^3) \, dr = \left[ \frac{3}{2}r^2 + \frac{1}{4}r^4 \right]_{0}^{1} = \frac{3}{2} + \frac{1}{4} - 0 = \frac{6+1}{4} = \frac{7}{4}.
+\end{equation*}
+</div>
+<div class="para">Finally, evaluating the outer angular layer:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-paraboloid-cylindrical-2-6-7">
+\begin{equation*}
+V = \int_{0}^{2\pi} \frac{7}{4} \, d\theta = \frac{7}{4} \Big[ \theta \Big]_{0}^{2\pi} = \frac{7}{4}(2\pi) = \frac{7\pi}{2}.
+\end{equation*}
+</div>
+<div class="para">The total volume of the solid is exactly <span class="process-math">\(\frac{7\pi}{2}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-paraboloid-cylindrical-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.64.1"><a href="#ex-volume-cylinder-paraboloid-cylindrical-2" title="Copy heading and permalink for Solution 4.64.1" aria-label="Copy heading and permalink for Solution 4.64.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.64"><a href="#ex-volume-cylinder-paraboloid-cylindrical" title="Copy heading and permalink for Example 4.64" aria-label="Copy heading and permalink for Example 4.64">🔗</a></div>
+</article></details>
+<details id="ex-cartesian-to-cylindrical-cone" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.66</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para logical" id="ex-cartesian-to-cylindrical-cone-1-1">
+<div class="para">Evaluate the iterated triple integral by converting it to cylindrical coordinates:</div>
+<div class="displaymath process-math" id="ex-cartesian-to-cylindrical-cone-1-1-1">
+\begin{equation*}
+\int^2_{-2}\int^{\sqrt{4-x^2}}_{-\sqrt{4-x^2}}\int^{2}_{\sqrt{x^2+y^2}}(x^2+y^2)\,dzdydx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cartesian-to-cylindrical-cone-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-cartesian-to-cylindrical-cone-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-cartesian-to-cylindrical-cone-2-1">Step 1: Translate the Boundaries to Cylindrical Coordinates<div class="autopermalink" data-description="Paragraph"><a href="#ex-cartesian-to-cylindrical-cone-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-cartesian-to-cylindrical-cone-2-2">
+<div class="para">The outer Cartesian boundaries describe the base region shadow footprint <span class="process-math">\(R\)</span> in the <span class="process-math">\(xy\)</span>-plane:</div>
+<div class="displaymath process-math" id="ex-cartesian-to-cylindrical-cone-2-2-3">
+\begin{equation*}
+-2 \leq x \leq 2 \quad \text{and} \quad -\sqrt{4-x^2} \leq y \leq \sqrt{4-x^2}.
+\end{equation*}
+</div>
+<div class="para">This matches a complete circular disk of radius <span class="process-math">\(r = 2\)</span> centered at the origin, which translates into constant polar tracking boundaries:</div>
+<div class="displaymath process-math" id="ex-cartesian-to-cylindrical-cone-2-2-5">
+\begin{equation*}
+0 \leq \theta \leq 2\pi \quad \text{and} \quad 0 \leq r \leq 2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cartesian-to-cylindrical-cone-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-cartesian-to-cylindrical-cone-2-3">
+<div class="para">The inner vertical limits bound <span class="process-math">\(z\)</span> below by the cone surface <span class="process-math">\(z = \sqrt{x^2+y^2}\)</span> and above by the flat plane ceiling <span class="process-math">\(z = 2\text{.}\)</span> Substituting <span class="process-math">\(\sqrt{x^2+y^2} = r\)</span> gives:</div>
+<div class="displaymath process-math" id="ex-cartesian-to-cylindrical-cone-2-3-5">
+\begin{equation*}
+r \leq z \leq 2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cartesian-to-cylindrical-cone-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-cartesian-to-cylindrical-cone-2-4">Step 2: Convert and Evaluate the Iterated Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-cartesian-to-cylindrical-cone-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-cartesian-to-cylindrical-cone-2-5">
+<div class="para">We substitute the inner integrand term <span class="process-math">\(x^2 + y^2 = r^2\)</span> and change the differential string to cylindrical form (<span class="process-math">\(dzdydx = r\,dzdrd\theta\)</span>):</div>
+<div class="displaymath process-math" id="ex-cartesian-to-cylindrical-cone-2-5-3">
+\begin{equation*}
+\iiint_Q (x^2+y^2)\,dV = \int_{0}^{2\pi} \int_{0}^{2} \int_{r}^{2} (r^2) \cdot r \, dz \, dr \, d\theta = \int_{0}^{2\pi} \int_{0}^{2} \int_{r}^{2} r^3 \, dz \, dr \, d\theta
+\end{equation*}
+</div>
+<div class="para">Evaluating the innermost variable layer with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-cartesian-to-cylindrical-cone-2-5-5">
+\begin{equation*}
+\int_{r}^{2} r^3 \, dz = r^3 \Big[ z \Big]_{r}^{2} = r^3(2 - r) = 2r^3 - r^4.
+\end{equation*}
+</div>
+<div class="para">Substituting this polynomial result into the middle layer and integrating with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-cartesian-to-cylindrical-cone-2-5-7">
+\begin{equation*}
+\int_{0}^{2} (2r^3 - r^4) \, dr = \left[ \frac{1}{2}r^4 - \frac{1}{5}r^5 \right]_{0}^{2} = \left( \frac{1}{2}(16) - \frac{1}{5}(32) \right) - 0 = 8 - \frac{32}{5} = \frac{40 - 32}{5} = \frac{8}{5}.
+\end{equation*}
+</div>
+<div class="para">Finally, evaluating the outer decoupled angular integral layer:</div>
+<div class="displaymath process-math" id="ex-cartesian-to-cylindrical-cone-2-5-8">
+\begin{equation*}
+\int_{0}^{2\pi} \frac{8}{5} \, d\theta = \frac{8}{5} \Big[ \theta \Big]_{0}^{2\pi} = \frac{8}{5}(2\pi) = \frac{16\pi}{5}.
+\end{equation*}
+</div>
+<div class="para">The exact evaluation of the transformed cylindrical integral is <span class="process-math">\(\frac{16\pi}{5}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-cartesian-to-cylindrical-cone-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.66.1"><a href="#ex-cartesian-to-cylindrical-cone-2" title="Copy heading and permalink for Solution 4.66.1" aria-label="Copy heading and permalink for Solution 4.66.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.66"><a href="#ex-cartesian-to-cylindrical-cone" title="Copy heading and permalink for Checkpoint 4.66" aria-label="Copy heading and permalink for Checkpoint 4.66">🔗</a></div>
+</article></details>
+<section class="exercises" id="exercises-exercises-Cylindrical-Coordinates-advanced">
+<h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="ex-volume-from-figure-3d"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-volume-from-figure-3d-1-1">Find the volume <span class="process-math">\(V\)</span> of the solid region <span class="process-math">\(Q\)</span> shown in the figure below. The region is bounded above by a paraboloid ceiling and below by a shallow quartic bowl, meeting at a shared intersection ring on the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  
+<figure class="figure figure-like" id="fig-paraboloid-quartic-solid-shading-fixed"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="generated/latex-image/img-paraboloid-quartic-solid-shading-fixed.svg" role="img" class="contained" alt="A 3D coordinate plot showing a shaded lens-like solid matching the exact transparent layered look of the original textbook image."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.67<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>3D solid region <span class="process-math">\(Q\)</span> bounded by a paraboloid roof and a quartic floor with fixed shading layers.<div class="autopermalink" data-description="Figure 4.67"><a href="#fig-paraboloid-quartic-solid-shading-fixed" title="Copy heading and permalink for Figure 4.67" aria-label="Copy heading and permalink for Figure 4.67">🔗</a></div></figcaption>
+</figure><div class="solutions">
+<details id="ex-volume-from-figure-3d-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-volume-from-figure-3d-2-1">Step 1: Extract Equations from the Figure and Determine the Setup<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-from-figure-3d-2-2">
+<div class="para">Reading the label vectors from the figure, the solid region <span class="process-math">\(Q\)</span> is bounded:</div>
+<ul class="disc" id="ex-volume-from-figure-3d-2-2-2">
+<li id="ex-volume-from-figure-3d-2-2-2-1">
+<div class="para" id="ex-volume-from-figure-3d-2-2-2-1-1">Above by the paraboloid ceiling: <span class="process-math">\(z = 4 - 4(x^2 + y^2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-volume-from-figure-3d-2-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-volume-from-figure-3d-2-2-2-2">
+<div class="para" id="ex-volume-from-figure-3d-2-2-2-2-1">Below by the quartic bowl floor: <span class="process-math">\(z = (x^2 + y^2)^2 - 1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-volume-from-figure-3d-2-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">We convert these boundaries into cylindrical coordinates using the polar identity <span class="process-math">\(x^2 + y^2 = r^2\text{,}\)</span> which yields <span class="process-math">\(z = 4 - 4r^2\)</span> for the top and <span class="process-math">\(z = r^4 - 1\)</span> for the bottom.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-volume-from-figure-3d-2-3">Step 2: Find the Radial Limits of Integration<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-from-figure-3d-2-4">
+<div class="para">The figure illustrates that the surfaces meet symmetrically at a boundary curve in the <span class="process-math">\(xy\)</span>-plane (<span class="process-math">\(z=0\)</span>). To find this intersection ring radius, we set the floor equation equal to the ceiling equation:</div>
+<div class="displaymath process-math" id="ex-volume-from-figure-3d-2-4-3">
+\begin{equation*}
+r^4 - 1 = 4 - 4r^2 \implies r^4 + 4r^2 - 5 = 0
+\end{equation*}
+</div>
+<div class="para">Factoring this polynomial expression as a quadratic in terms of <span class="process-math">\(r^2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-from-figure-3d-2-4-5">
+\begin{equation*}
+(r^2 + 5)(r^2 - 1) = 0
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(r^2\)</span> must be a non-negative real value, we find <span class="process-math">\(r^2 = 1 \implies r = 1\text{.}\)</span> This yields a complete, full base disk footprint. The cylindrical limits of integration are:</div>
+<div class="displaymath process-math" id="ex-volume-from-figure-3d-2-4-8">
+\begin{equation*}
+0 \leq \theta \leq 2\pi, \quad 0 \leq r \leq 1, \quad r^4 - 1 \leq z \leq 4 - 4r^2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-volume-from-figure-3d-2-5">Step 3: Evaluate the Triple Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-from-figure-3d-2-6">
+<div class="para">Using the cylindrical differential volume tracking element (<span class="process-math">\(dV = r\,dzdrd\theta\)</span>), we set up and compute the volume:</div>
+<div class="displaymath process-math" id="ex-volume-from-figure-3d-2-6-2">
+\begin{equation*}
+V = \int_{0}^{2\pi} \int_{0}^{1} \int_{r^4 - 1}^{4 - 4r^2} r \, dz \, dr \, d\theta
+\end{equation*}
+</div>
+<div class="para">Integrating the inner layer with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-from-figure-3d-2-6-4">
+\begin{equation*}
+\int_{r^4 - 1}^{4 - 4r^2} r \, dz = r \Big[ z \Big]_{r^4 - 1}^{4 - 4r^2} = r \Big( (4 - 4r^2) - (r^4 - 1) \Big) = 5r - 4r^3 - r^5.
+\end{equation*}
+</div>
+<div class="para">We split the remaining decoupled double integral into a simple product of two independent single integrals:</div>
+<div class="displaymath process-math" id="ex-volume-from-figure-3d-2-6-5">
+\begin{align*}
+V \amp = \left( \int_{0}^{2\pi} \, d\theta \right) \left( \int_{0}^{1} (5r - 4r^3 - r^5) \, dr \right)\\
+\amp = \Big[ \theta \Big]_{0}^{2\pi} \cdot \left[ \frac{5}{2}r^2 - r^4 - \frac{1}{6}r^6 \right]_{0}^{1}\\
+\amp = (2\pi - 0) \cdot \left( \frac{5}{2}(1)^2 - (1)^4 - \frac{1}{6}(1)^6 - 0 \right)\\
+\amp = 2\pi \cdot \left( \frac{15}{6} - \frac{6}{6} - \frac{1}{6} \right) = 2\pi \cdot \frac{8}{6} = \frac{8\pi}{3}.
+\end{align*}
+</div>
+<div class="para">The total volume of the solid shown in the figure is exactly <span class="process-math">\(\frac{8\pi}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-from-figure-3d-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.1"><a href="#ex-volume-from-figure-3d-2" title="Copy heading and permalink for Solution 1.1" aria-label="Copy heading and permalink for Solution 1.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#ex-volume-from-figure-3d" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-volume-cylinder-plane-wedge-octant"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-volume-cylinder-plane-wedge-octant-1-1">Find the volume <span class="process-math">\(V\)</span> of the solid wedge bounded below by the <span class="process-math">\(xy\)</span>-plane (<span class="process-math">\(z=0\)</span>), laterally by the circular cylinder <span class="process-math">\(r = 3\cos\theta\text{,}\)</span> and above by the slanted plane <span class="process-math">\(z = -y\)</span> inside the octant where <span class="process-math">\(x \gt 0\text{,}\)</span> <span class="process-math">\(y \lt 0\text{,}\)</span> and <span class="process-math">\(z \gt 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-plane-wedge-octant-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  
+<figure class="figure figure-like" id="fig-cylinder-plane-wedge-exact-3d"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-cylinder-plane-wedge-exact-3d.svg" role="img" class="contained" alt="A precise 3D vector reproduction matching the layout, line weights, shading style, and axes orientation of the original textbook image."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.68<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The 3D solid wedge cut from the cylinder <span class="process-math">\(r=3\cos\theta\)</span> by the plane <span class="process-math">\(z=-y\text{.}\)</span><div class="autopermalink" data-description="Figure 4.68"><a href="#fig-cylinder-plane-wedge-exact-3d" title="Copy heading and permalink for Figure 4.68" aria-label="Copy heading and permalink for Figure 4.68">🔗</a></div></figcaption>
+</figure><div class="solutions">
+<details id="ex-volume-cylinder-plane-wedge-octant-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-volume-cylinder-plane-wedge-octant-2-1">Step 1: Verify the Octant Constraints and Integration Bounds<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-plane-wedge-octant-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-volume-cylinder-plane-wedge-octant-2-2">The geometric restrictions are defined by the region <span class="process-math">\(x \gt 0\text{,}\)</span> <span class="process-math">\(y \lt 0\text{,}\)</span> and <span class="process-math">\(z \gt 0\text{.}\)</span> This confines the base of the solid to the fourth quadrant of the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-plane-wedge-octant-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-plane-wedge-octant-2-3">
+<div class="para">The lateral boundary is the off-center cylinder <span class="process-math">\(r = 3\cos\theta\text{.}\)</span> In polar terms, this circle is fully traced on the horizontal interval <span class="process-math">\(-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}\text{.}\)</span> Restricting this base circle to the fourth quadrant (<span class="process-math">\(y \lt 0\)</span>) isolates our angular integration interval to:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-plane-wedge-octant-2-3-4">
+\begin{equation*}
+-\frac{\pi}{2} \leq \theta \leq 0.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-plane-wedge-octant-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-plane-wedge-octant-2-4">
+<div class="para">Inside this angle range, the radius <span class="process-math">\(r\)</span> starts at the origin and sweeps outward to intersect the cylinder wall <span class="process-math">\(r = 3\cos\theta\text{.}\)</span> The ceiling plane equation <span class="process-math">\(z = -y\)</span> translates directly to cylindrical form as <span class="process-math">\(z = -r\sin\theta\text{.}\)</span> Because <span class="process-math">\(\theta\)</span> is negative in the fourth quadrant, <span class="process-math">\(\sin\theta \lt 0\text{,}\)</span> which correctly ensures that the height <span class="process-math">\(z = -r\sin\theta\)</span> remains strictly positive (<span class="process-math">\(z \gt 0\)</span>). The final bounds are:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-plane-wedge-octant-2-4-9">
+\begin{equation*}
+-\frac{\pi}{2} \leq \theta \leq 0, \quad 0 \leq r \leq 3\cos\theta, \quad 0 \leq z \leq -r\sin\theta.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-plane-wedge-octant-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-volume-cylinder-plane-wedge-octant-2-5">Step 2: Evaluate the Cylindrical Volume Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-plane-wedge-octant-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-plane-wedge-octant-2-6">
+<div class="para">Using the cylindrical volume element configuration (<span class="process-math">\(dV = r\,dzdrd\theta\)</span>), we set up the iterated double integral:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-plane-wedge-octant-2-6-2">
+\begin{equation*}
+V = \int_{-\pi/2}^{0} \int_{0}^{3\cos\theta} \int_{0}^{-r\sin\theta} r \, dz \, dr \, d\theta
+\end{equation*}
+</div>
+<div class="para">Evaluating the innermost variable layer with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-plane-wedge-octant-2-6-4">
+\begin{equation*}
+\int_{0}^{-r\sin\theta} r \, dz = r \Big[ z \Big]_{0}^{-r\sin\theta} = -r^2\sin\theta.
+\end{equation*}
+</div>
+<div class="para">Substituting this into the middle layer and integrating with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-plane-wedge-octant-2-6-6">
+\begin{align*}
+\int_{0}^{3\cos\theta} (-r^2\sin\theta) \, dr \amp = -\sin\theta \left[ \frac{1}{3}r^3 \right]_{0}^{3\cos\theta} = -\frac{1}{3}\sin\theta \Big( 27\cos^3\theta \Big)\\
+\amp = -9\cos^3\theta\sin\theta.
+\end{align*}
+</div>
+<div class="para">Finally, we evaluate the outer angular layer with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-plane-wedge-octant-2-6-8">
+\begin{equation*}
+V = \int_{-\pi/2}^{0} -9\cos^3\theta\sin\theta \, d\theta
+\end{equation*}
+</div>
+<div class="para">We solve this using a basic <span class="process-math">\(u\)</span>-substitution. Let:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-plane-wedge-octant-2-6-10">
+\begin{equation*}
+u = \cos\theta \implies du = -\sin\theta \, d\theta \implies -du = \sin\theta \, d\theta.
+\end{equation*}
+</div>
+<div class="para">Updating our definite boundaries: when <span class="process-math">\(\theta = -\frac{\pi}{2} \implies u = 0\text{,}\)</span> and when <span class="process-math">\(\theta = 0 \implies u = 1\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-plane-wedge-octant-2-6-13">
+\begin{align*}
+V \amp = \int_{0}^{1} 9u^3 \, du = \left[ \frac{9}{4}u^4 \right]_{0}^{1}\\
+\amp = \frac{9}{4}(1)^4 - 0 = \frac{9}{4}.
+\end{align*}
+</div>
+<div class="para">The total volume of the solid wedge within the specified octant is exactly <span class="process-math">\(\frac{9}{4}\)</span> (or <span class="process-math">\(2.25\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-plane-wedge-octant-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.1"><a href="#ex-volume-cylinder-plane-wedge-octant-2" title="Copy heading and permalink for Solution 2.1" aria-label="Copy heading and permalink for Solution 2.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#ex-volume-cylinder-plane-wedge-octant" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-volume-cylinder-slanted-plane"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-volume-cylinder-slanted-plane-1-1">Find the volume of the region enclosed by the cylinder <span class="process-math">\(x^2+y^2=4\)</span> and the planes <span class="process-math">\(z=0\)</span> and <span class="process-math">\(y+z=4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-slanted-plane-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-volume-cylinder-slanted-plane-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-volume-cylinder-slanted-plane-2-1">Step 1: Translate Boundaries to Cylindrical Coordinates<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-slanted-plane-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-slanted-plane-2-2">
+<div class="para">The lateral boundary is a solid cylinder of radius <span class="process-math">\(2\)</span> centered at the origin, which describes a complete circular disk base region <span class="process-math">\(R\)</span> in the <span class="process-math">\(xy\)</span>-plane:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-slanted-plane-2-2-4">
+\begin{equation*}
+0 \leq \theta \leq 2\pi \quad \text{and} \quad 0 \leq r \leq 2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-slanted-plane-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-slanted-plane-2-3">
+<div class="para">The solid is bounded below by the floor plane <span class="process-math">\(z = 0\)</span> and capped above by the slanted plane ceiling. Isolating <span class="process-math">\(z\)</span> from the plane equation and converting to cylindrical coordinates using the standard substitution rule <span class="process-math">\(y = r\sin\theta\)</span> gives:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-slanted-plane-2-3-4">
+\begin{equation*}
+y + z = 4 \implies z = 4 - y \implies z = 4 - r\sin\theta.
+\end{equation*}
+</div>
+<div class="para">Therefore, for any point <span class="process-math">\((r, \theta)\)</span> in the base circle, the vertical variable <span class="process-math">\(z\)</span> spans:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-slanted-plane-2-3-7">
+\begin{equation*}
+0 \leq z \leq 4 - r\sin\theta.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-slanted-plane-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-volume-cylinder-slanted-plane-2-4">Step 2: Set Up and Evaluate the Volume Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-slanted-plane-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-volume-cylinder-slanted-plane-2-5">
+<div class="para">Using the volume triple integral definition with the cylindrical volume element (<span class="process-math">\(dV = r\,dzdrd\theta\)</span>), we establish the iterated integral:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-slanted-plane-2-5-2">
+\begin{equation*}
+V = \int_{0}^{2\pi} \int_{0}^{2} \int_{0}^{4-r\sin\theta} r \, dz \, dr \, d\theta
+\end{equation*}
+</div>
+<div class="para">Evaluating the innermost layer with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-slanted-plane-2-5-4">
+\begin{equation*}
+\int_{0}^{4-r\sin\theta} r \, dz = r \Big[ z \Big]_{0}^{4-r\sin\theta} = r(4 - r\sin\theta) = 4r - r^2\sin\theta.
+\end{equation*}
+</div>
+<div class="para">Substituting this result into the middle layer and integrating with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-slanted-plane-2-5-6">
+\begin{align*}
+\int_{0}^{2} (4r - r^2\sin\theta) \, dr \amp = \left[ 2r^2 - \frac{1}{3}r^3\sin\theta \right]_{0}^{2}\\
+\amp = \left( 2(2)^2 - \frac{1}{3}(2)^3\sin\theta \right) - 0\\
+\amp = 8 - \frac{8}{3}\sin\theta.
+\end{align*}
+</div>
+<div class="para">Finally, computing across the complete angular revolution outer loop:</div>
+<div class="displaymath process-math" id="ex-volume-cylinder-slanted-plane-2-5-7">
+\begin{align*}
+V \amp = \int_{0}^{2\pi} \left( 8 - \frac{8}{3}\sin\theta \right) \, d\theta\\
+\amp = \left[ 8\theta + \frac{8}{3}\cos\theta \right]_{0}^{2\pi}\\
+\amp = \left( 8(2\pi) + \frac{8}{3}\cos(2\pi) \right) - \left( 0 + \frac{8}{3}\cos(0) \right)\\
+\amp = \left( 16\pi + \frac{8}{3} \right) - \frac{8}{3} = 16\pi.
+\end{align*}
+</div>
+<div class="para">The total volume of the region enclosed by the cylinder and the planes is exactly <span class="process-math">\(16\pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-volume-cylinder-slanted-plane-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.1"><a href="#ex-volume-cylinder-slanted-plane-2" title="Copy heading and permalink for Solution 3.1" aria-label="Copy heading and permalink for Solution 3.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#ex-volume-cylinder-slanted-plane" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises"><a href="#exercises-exercises-Cylindrical-Coordinates-advanced" title="Copy heading and permalink for Exercises" aria-label="Copy heading and permalink for Exercises">🔗</a></div>
+</section><div class="autopermalink" data-description="Section: 4.5 Cylindrical Coordinates"><a href="#sec-Cylindrical-Coordinates" title="Copy heading and permalink for Section: 4.5 Cylindrical Coordinates" aria-label="Copy heading and permalink for Section: 4.5 Cylindrical Coordinates">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-Triple-integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-Change-of-Variables.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

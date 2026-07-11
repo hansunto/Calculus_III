@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Worksheet 04: Multiple Integrals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.11';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.8b6d53d5a91823a0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.2901d6466316ff22.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ws-partial-derivatives-chapter-review.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Exercises.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="homework.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Vector-valued-functions-5.html" class="internal"><span class="title">2.3 Integrals of Vector Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html" class="internal"><span class="title">2.4 Arc Length and Curvature</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html#subsec-curvature" class="internal"><span class="title">The Curvature</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-motion-in-space.html" class="internal"><span class="title">2.5 Motion in Space: Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangential-normal-components.html" class="internal"><span class="title">2.6 Tangential and Normal Components of Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Partial-Derivatives.html" class="internal"><span class="codenumber">3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-functions-several-variables.html" class="internal"><span class="title">Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-limits-continuity.html" class="internal"><span class="title">3.2 Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-partial-derivatives.html" class="internal"><span class="title">3.3 Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-increment.html" class="internal"><span class="title">3.4 Increments and Differentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-chain-rules.html" class="internal"><span class="title">3.5 Chain Rules</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-directional-derivatives.html" class="internal"><span class="title">3.6 Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangent-plane.html" class="internal"><span class="title">3.7 Tangent Planes and Normal Lines</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-extrema.html" class="internal"><span class="title">3.8 Extrema of Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lagrange-multipliers.html" class="internal"><span class="title">3.9 Lagrange Multipliers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Multiple-Integrals.html" class="internal"><span class="codenumber">4</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Double-integrals.html" class="internal"><span class="title">4.1 Double Integrals</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-area-volume.html" class="internal"><span class="title">4.2 Area and Volume</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-area-volume.html#exercises-multivariable-volumes" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polar-coordinates.html" class="internal"><span class="title">4.3 Double Integrals in Polar coordinates</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-polar-coordinates.html#exercises-polar-coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Triple-integrals.html" class="internal"><span class="title">4.4 Triple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Triple-integrals.html#exercises-triple-integrals-regions" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Triple-integrals.html#exercises-triple-integrals-advanced" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Cylindrical-Coordinates.html" class="internal"><span class="title">4.5 Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Cylindrical-Coordinates.html#exercises-exercises-Cylindrical-Coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Change-of-Variables.html" class="internal"><span class="title">4.6 Change of Variables and Jacobians</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">5</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">6</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-partial-derivatives-chapter-review.html" class="internal"><span class="title">Worksheet 03: Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-worksheet active"><div class="toc-title-box"><a href="ws-multiple-integrals-chapter-review.html" class="internal"><span class="title">Worksheet 04: Multiple Integrals</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">7</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">8</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<div class="print-preview-header">
+<h2 class="print-preview">Print preview</h2>
+<div class="print-controls">
+<div class="print-controls-toggles">
+<form class="papersize-select" id="papersize-select">
+<span class="name">Paper size</span><label><input type="radio" name="papersize" value="a4">A4
+        </label><label><input type="radio" name="papersize" value="letter">Letter
+        </label>
+</form>
+<details class="print-options"><summary>Additional printing options</summary><div class="hide-solutions-options"><div class="hide-option">
+<label for="hide-solution-checkbox">Hide solutions</label><input type="checkbox" id="hide-solution-checkbox">
+</div></div>
+<div class="header-footer-options">
+<div class="header-option">
+<span class="title">Print headers</span><label>First page<input type="checkbox" id="print-first-page-header-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-header-checkbox" checked></label>
+</div>
+<div class="footer-option">
+<span class="title">Print footers</span><label>First page<input type="checkbox" id="print-first-page-footer-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-footer-checkbox" checked></label>
+</div>
+</div>
+<div class="highlight-workspace-option">
+<label for="highlight-workspace-checkbox">Highlight workspace</label><input type="checkbox" id="highlight-workspace-checkbox">
+</div></details>
+</div>
+<button class="print-button" title="Print" onClick="window.print()"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span><span class="name">Print</span></button>
+</div>
+</div>
+<section class="worksheet" id="ws-multiple-integrals-chapter-review" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h2 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Worksheet 04: Multiple Integrals</span><div class="print-links"><a href="?printpreview=ws-multiple-integrals-chapter-review" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h2>
+<section class="onepage" id="ws-page1">
+<article class="exercise exercise-like" id="ex-ws-mi-p1"><h3 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ex-ws-mi-p1-1-1">
+<div class="para">Sketch the region of integration and evaluate the double integral:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p1-1-1-1">
+\begin{equation*}
+\int^{3/2}_0 \int^{\sqrt{9-4y^2}}_{-\sqrt{9-4y^2}} y \, dx \, dy.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ws-mi-p1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-mi-p1-2-1">Step 1: Identify and Sketch the Region of Integration<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p1-2-2">
+<div class="para">The given bounds of integration describe a Type II region in Cartesian coordinates where:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p1-2-2-1">
+\begin{equation*}
+0 \leq y \leq \frac{3}{2} \quad \text{and} \quad -\sqrt{9-4y^2} \leq x \leq \sqrt{9-4y^2}.
+\end{equation*}
+</div>
+<div class="para">Squaring the inner variable bounds reveals the equation of the perimeter curve:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p1-2-2-2">
+\begin{equation*}
+x = \pm\sqrt{9-4y^2} \implies x^2 = 9 - 4y^2 \implies x^2 + 4y^2 = 9 \implies \frac{x^2}{9} + \frac{y^2}{9/4} = 1.
+\end{equation*}
+</div>
+<div class="para">This is an ellipse centered at the origin with a horizontal semi-axis of <span class="process-math">\(a=3\)</span> and a vertical semi-axis of <span class="process-math">\(b=3/2\text{.}\)</span> Because <span class="process-math">\(y \geq 0\text{,}\)</span> the region <span class="process-math">\(R\)</span> is the upper half-ellipse.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ws-p1-ellipse"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-ws-p1-ellipse.svg" role="img" class="contained" alt="A plot of an upper half ellipse stretching from x=-3 to 3 and y=0 to 1.5 with a horizontal sweep arrow."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The upper half-ellipse region <span class="process-math">\(R\)</span> with horizontal sweeping arrows indicating Type II integration.<div class="autopermalink" data-description="Figure 6.1"><a href="#fig-ws-p1-ellipse" title="Copy heading and permalink for Figure 6.1" aria-label="Copy heading and permalink for Figure 6.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-ws-mi-p1-2-4">Step 2: Evaluate the Double Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p1-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p1-2-5">
+<div class="para">We integrate the innermost expression with respect to <span class="process-math">\(x\text{,}\)</span> treating <span class="process-math">\(y\)</span> as a constant factor:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p1-2-5-3">
+\begin{align*}
+\int^{\sqrt{9-4y^2}}_{-\sqrt{9-4y^2}} y \, dx \amp = y \Big[ x \Big]_{-\sqrt{9-4y^2}}^{\sqrt{9-4y^2}} = y \left( \sqrt{9-4y^2} - \left(-\sqrt{9-4y^2}\right) \right)\\
+\amp = 2y\sqrt{9-4y^2}.
+\end{align*}
+</div>
+<div class="para">Now substitute this into the outer variable layer and integrate with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p1-2-5-5">
+\begin{equation*}
+\int^{3/2}_0 2y\sqrt{9-4y^2} \, dy.
+\end{equation*}
+</div>
+<div class="para">We solve this using a simple <span class="process-math">\(u\)</span>-substitution. Let:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p1-2-5-7">
+\begin{equation*}
+u = 9 - 4y^2 \implies du = -8y \, dy \implies -\frac{1}{4}\,du = 2y \, dy.
+\end{equation*}
+</div>
+<div class="para">Updating limits of integration: when <span class="process-math">\(y = 0 \implies u = 9\text{,}\)</span> and when <span class="process-math">\(y = \frac{3}{2} \implies u = 9 - 4\left(\frac{9}{4}\right) = 0\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p1-2-5-10">
+\begin{align*}
+\int_{9}^{0} -\frac{1}{4}u^{1/2} \, du \amp = \frac{1}{4} \int_{0}^{9} u^{1/2} \, du = \frac{1}{4} \left[ \frac{2}{3}u^{3/2} \right]_{0}^{9}\\
+\amp = \frac{1}{6} \left( 9^{3/2} - 0 \right) = \frac{1}{6}(27) = \frac{9}{2}.
+\end{align*}
+</div>
+<div class="para">The value of the upper half-ellipse integral is exactly <span class="process-math">\(\frac{9}{2}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p1-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.1"><a href="#ex-ws-mi-p1-2" title="Copy heading and permalink for Solution 1.1" aria-label="Copy heading and permalink for Solution 1.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#ex-ws-mi-p1" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
+</article></section><section class="onepage" id="ws-page2">
+<article class="exercise exercise-like" id="ex-ws-mi-p2"><h3 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ex-ws-mi-p2-1-1">
+<div class="para">Write an equivalent integral with the order of integration reversed. Then evaluate the integral:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p2-1-1-1">
+\begin{equation*}
+\int^4_0 \int^{(y-4)/2}_{-\sqrt{4-y}} \, dx \, dy.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ws-mi-p2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-mi-p2-2-1">Step 1: Analyze and Sketch the Region of Integration<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p2-2-2">
+<div class="para">The original integral is given in Type II format (<span class="process-math">\(dxdy\)</span>) with limits:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p2-2-2-2">
+\begin{equation*}
+0 \leq y \leq 4 \quad \text{and} \quad -\sqrt{4-y} \leq x \leq \frac{y-4}{2}.
+\end{equation*}
+</div>
+<div class="para">Let’s rewrite these inner boundary walls by isolating <span class="process-math">\(y\)</span> in terms of <span class="process-math">\(x\text{:}\)</span>
+</div>
+<ul class="disc" id="ex-ws-mi-p2-2-2-5">
+<li id="ex-ws-mi-p2-2-2-5-1">
+<div class="para" id="ex-ws-mi-p2-2-2-5-1-1">Left boundary: <span class="process-math">\(x = -\sqrt{4-y} \implies x^2 = 4-y \implies y = 4 - x^2\)</span> (with <span class="process-math">\(x \leq 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-2-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-mi-p2-2-2-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p2-2-2-5-2">
+<div class="para" id="ex-ws-mi-p2-2-2-5-2-1">Right boundary: <span class="process-math">\(x = \frac{y-4}{2} \implies 2x = y-4 \implies y = 2x + 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-2-2-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-mi-p2-2-2-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">To locate the intersection vertices, we set these two equations equal to each other:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p2-2-2-6">
+\begin{equation*}
+4 - x^2 = 2x + 4 \implies x^2 + 2x = 0 \implies x(x+2) = 0 \implies x = -2, \, x = 0.
+\end{equation*}
+</div>
+<div class="para">The intersection points are <span class="process-math">\((-2,0)\)</span> and <span class="process-math">\((0,4)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ws-p2-region"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-ws-p2-region.svg" role="img" class="contained" alt="A plot of a domain bounded below by a straight line and above by a parabola branch on the interval x from -2 to 0."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The integration domain bounded above by the parabola <span class="process-math">\(y=4-x^2\)</span> and below by the line <span class="process-math">\(y=2x+4\text{.}\)</span><div class="autopermalink" data-description="Figure 6.2"><a href="#fig-ws-p2-region" title="Copy heading and permalink for Figure 6.2" aria-label="Copy heading and permalink for Figure 6.2">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-ws-mi-p2-2-4">Step 2: Reverse the Order of Integration to Type I (<span class="process-math">\(dydx\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p2-2-5">
+<div class="para">Viewing the region vertically, the horizontal span across the <span class="process-math">\(x\)</span>-axis runs continuously from <span class="process-math">\(x = -2\)</span> to <span class="process-math">\(x = 0\text{.}\)</span> For any fixed value of <span class="process-math">\(x\text{,}\)</span> a vertical strip starts at the bottom straight line boundary <span class="process-math">\(y = 2x+4\)</span> and sweeps upward to touch the upper parabolic curve boundary <span class="process-math">\(y = 4-x^2\text{.}\)</span> The equivalent reversed iterated integral setup is:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p2-2-5-7">
+\begin{equation*}
+\int_{-2}^{0} \int_{2x+4}^{4-x^2} \, dy \, dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-mi-p2-2-6">Step 3: Evaluate the Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p2-2-7">
+<div class="para">Evaluating the inner variable layer directly:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p2-2-7-1">
+\begin{equation*}
+\int_{2x+4}^{4-x^2} 1 \, dy = \Big[ y \Big]_{2x+4}^{4-x^2} = (4-x^2) - (2x+4) = -x^2 - 2x.
+\end{equation*}
+</div>
+<div class="para">Now, integrate this remaining simple single variable polynomial expression across the outer boundaries:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p2-2-7-2">
+\begin{align*}
+\int_{-2}^{0} (-x^2 - 2x) \, dx \amp = \left[ -\frac{1}{3}x^3 - x^2 \right]_{-2}^{0}\\
+\amp = 0 - \left( -\frac{1}{3}(-2)^3 - (-2)^2 \right)\\
+\amp = -\left( \frac{8}{3} - 4 \right) = -\left( -\frac{4}{3} \right) = \frac{4}{3}.
+\end{align*}
+</div>
+<div class="para">The value of the reversed double integral is exactly <span class="process-math">\(\frac{4}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p2-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.1"><a href="#ex-ws-mi-p2-2" title="Copy heading and permalink for Solution 2.1" aria-label="Copy heading and permalink for Solution 2.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#ex-ws-mi-p2" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
+</article></section><section class="onepage" id="ws-page3">
+<article class="exercise exercise-like" id="ex-ws-mi-p3"><h3 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ex-ws-mi-p3-1-1">
+<div class="para">Evaluate the integral:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p3-1-1-1">
+\begin{equation*}
+\int^8_0 \int^2_{\sqrt{x}} \frac{1}{y^4+1} \, dy \, dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ws-mi-p3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-mi-p3-2-1">Step 1: Analyze the Region and Reverse the Order<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p3-2-2">
+<div class="para">The inner integrand function <span class="process-math">\(\frac{1}{y^4+1}\)</span> does not have an elementary antiderivative with respect to <span class="process-math">\(y\text{.}\)</span> Therefore, we must switch the integration order from Type I (<span class="process-math">\(dydx\)</span>) to Type II (<span class="process-math">\(dxdy\)</span>). The original Cartesian bounds are:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p3-2-2-5">
+\begin{equation*}
+0 \leq x \leq 8 \quad \text{and} \quad \sqrt{x} \leq y \leq 2.
+\end{equation*}
+</div>
+<div class="para">Isolating <span class="process-math">\(x\)</span> from the lower boundary curve: <span class="process-math">\(y = \sqrt{x} \implies x = y^3\text{.}\)</span> The new bounds for the reversed integral are:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p3-2-2-8">
+\begin{equation*}
+0 \leq y \leq 2 \quad \text{and} \quad 0 \leq x \leq y^2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-mi-p3-2-3">Step 2: Set Up and Compute the Transformed Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p3-2-4">
+<div class="para">Applying our reversed boundaries creates a solvable iterated integral:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p3-2-4-1">
+\begin{equation*}
+\int_{0}^{2} \int_{0}^{y^3} \frac{1}{y^4+1} \, dx \, dy.
+\end{equation*}
+</div>
+<div class="para">Evaluating the inner integral with respect to <span class="process-math">\(x\text{,}\)</span> treating the <span class="process-math">\(y\)</span>-term as a constant factor:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p3-2-4-4">
+\begin{equation*}
+\int_{0}^{y^3} \frac{1}{y^4+1} \, dx = \left[ \frac{x}{y^4+1} \right]_{x=0}^{x=y^3} = \frac{y^3}{y^4+1}.
+\end{equation*}
+</div>
+<div class="para">Now substitute this result into the outer structural layer to integrate with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p3-2-4-6">
+\begin{equation*}
+\int_{0}^{2} \frac{y^3}{y^4+1} \, dy.
+\end{equation*}
+</div>
+<div class="para">We can solve this easily using <span class="process-math">\(u\)</span>-substitution. Let:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p3-2-4-8">
+\begin{equation*}
+u = y^4 + 1 \implies du = 4y^3 \, dy \implies \frac{1}{4}\,du = y^3 \, dy.
+\end{equation*}
+</div>
+<div class="para">Updating our definite boundaries: when <span class="process-math">\(y = 0 \implies u = 1\text{,}\)</span> and when <span class="process-math">\(y = 2 \implies u = 2^4 + 1 = 17\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p3-2-4-11">
+\begin{align*}
+\int_{1}^{17} \frac{1}{4} \cdot \frac{1}{u} \, du \amp = \left[ \frac{1}{4}\ln|u| \right]_{1}^{17}\\
+\amp = \frac{1}{4}\ln(17) - \frac{1}{4}\ln(1) = \frac{\ln(17)}{4}.
+\end{align*}
+</div>
+<div class="para">The exact evaluation of the reversed integration is <span class="process-math">\(\frac{\ln(17)}{4}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p3-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.1"><a href="#ex-ws-mi-p3-2" title="Copy heading and permalink for Solution 3.1" aria-label="Copy heading and permalink for Solution 3.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#ex-ws-mi-p3" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
+</article></section><section class="onepage" id="ws-page4">
+<article class="exercise exercise-like" id="ex-ws-mi-p4"><h3 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ex-ws-mi-p4-1-1">Find the volume under the paraboloid <span class="process-math">\(z=x^2+y^2\)</span> above the triangle enclosed by the lines <span class="process-math">\(y=x\text{,}\)</span> <span class="process-math">\(x=0\text{,}\)</span> and <span class="process-math">\(x+y=2\)</span> in the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ws-mi-p4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-mi-p4-2-1">Step 1: Identify and Sketch the Base Region <span class="process-math">\(R\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p4-2-2">
+<div class="para">The base footprint region <span class="process-math">\(R\)</span> is a triangle bounded by the vertical <span class="process-math">\(y\)</span>-axis (<span class="process-math">\(x=0\)</span>), the diagonal line <span class="process-math">\(y=x\text{,}\)</span> and the downward-sloping line <span class="process-math">\(x+y=2 \implies y = 2-x\text{.}\)</span> We locate the upper corner vertex by intersecting the lines:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p4-2-2-6">
+\begin{equation*}
+x = 2-x \implies 2x = 2 \implies x = 1 \implies y = 1.
+\end{equation*}
+</div>
+<div class="para">The three vertices of the triangle are <span class="process-math">\((0,0)\text{,}\)</span> <span class="process-math">\((0,2)\text{,}\)</span> and <span class="process-math">\((1,1)\text{.}\)</span> Treating this as a Type I region, the vertical variable <span class="process-math">\(y\)</span> is bounded below by <span class="process-math">\(y = x\)</span> and above by <span class="process-math">\(y = 2-x\)</span> on the horizontal interval <span class="process-math">\(0 \leq x \leq 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ws-p4-triangle"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-ws-p4-triangle.svg" role="img" class="contained" alt="A triangle with vertices at (0,0), (0,2), and (1,1) with a vertical sweep arrow showing dy integration."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The triangular base region <span class="process-math">\(R\)</span> inside the first quadrant with a vertical sweep arrow.<div class="autopermalink" data-description="Figure 6.3"><a href="#fig-ws-p4-triangle" title="Copy heading and permalink for Figure 6.3" aria-label="Copy heading and permalink for Figure 6.3">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-ws-mi-p4-2-4">Step 2: Set Up and Evaluate the Volume Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p4-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p4-2-5">
+<div class="para">According to the volume definition theorem, we integrate the ceiling function <span class="process-math">\(z = x^2 + y^2\)</span> over the domain <span class="process-math">\(R\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p4-2-5-3">
+\begin{equation*}
+V = \iint_R (x^2+y^2)\,dA = \int_{0}^{1} \int_{x}^{2-x} (x^2+y^2) \, dy \, dx.
+\end{equation*}
+</div>
+<div class="para">First, evaluate the inner integral with respect to <span class="process-math">\(y\text{,}\)</span> holding <span class="process-math">\(x\)</span> constant:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p4-2-5-6">
+\begin{align*}
+\int_{x}^{2-x} (x^2+y^2) \, dy \amp = \left[ x^2y + \frac{1}{3}y^3 \right]_{y=x}^{y=2-x}\\
+\amp = \left( x^2(2-x) + \frac{1}{3}(2-x)^3 \right) - \left( x^2(x) + \frac{1}{3}x^3 \right)\\
+\amp = 2x^2 - x^3 + \frac{1}{3}(8 - 12x + 12x^2 - 4x^3) - x^3 - \frac{1}{3}x^3\\
+\amp = -\frac{10}{3}x^3 + 6x^2 - 4x + \frac{8}{3}.
+\end{align*}
+</div>
+<div class="para">Next, substitute this polynomial into the outer layer and integrate with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p4-2-5-8">
+\begin{align*}
+V \amp = \int_{0}^{1} \left( -\frac{10}{3}x^3 + 6x^2 - 4x + \frac{8}{3} \right) \, dx\\
+\amp = \left[ -\frac{10}{12}x^4 + 2x^3 - 2x^2 + \frac{8}{3}x \right]_{0}^{1}\\
+\amp = -\frac{5}{6} + 2 - 2 + \frac{8}{3} = \frac{11}{6}.
+\end{align*}
+</div>
+<div class="para">The total volume of the solid region under the paraboloid ceiling is exactly <span class="process-math">\(\frac{11}{6}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p4-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1"><a href="#ex-ws-mi-p4-2" title="Copy heading and permalink for Solution 4.1" aria-label="Copy heading and permalink for Solution 4.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 4"><a href="#ex-ws-mi-p4" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div>
+</article></section><section class="onepage" id="ws-page5">
+<article class="exercise exercise-like" id="ex-ws-mi-p5"><h3 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ex-ws-mi-p5-1-1">
+<div class="para">Evaluate the triple integral:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p5-1-1-1">
+\begin{equation*}
+\int^\pi_0 \int^\pi_0 \int^\pi_0 \cos(x+y+z) \, dx \, dy \, dz.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ws-mi-p5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-mi-p5-2-1">Step-by-Step Mathematical Evaluation:<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-mi-p5-2-2">Since all six boundaries of integration are constants, this problem evaluates a volume density over a perfect cube in 3D space. We integrate from the innermost variable layer outward.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p5-2-3">
+<div class="para">Step 1: Inner integral with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p5-2-3-2">
+\begin{align*}
+\int_{0}^{\pi} \cos(x+y+z) \, dx \amp = \Big[ \sin(x+y+z) \Big]_{x=0}^{x=\pi}\\
+\amp = \sin(\pi+y+z) - \sin(y+z)\\
+\amp = -\sin(y+z) - \sin(y+z) = -2\sin(y+z),
+\end{align*}
+</div>
+<div class="para">where we applied the identity <span class="process-math">\(\sin(\pi+\phi) = -\sin(\phi)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p5-2-4">
+<div class="para">Step 2: Middle integral with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p5-2-4-2">
+\begin{align*}
+\int_{0}^{\pi} -2\sin(y+z) \, dy \amp = \Big[ 2\cos(y+z) \Big]_{y=0}^{y=\pi}\\
+\amp = 2\cos(\pi+z) - 2\cos(z)\\
+\amp = 2(-\cos z) - 2\cos z = -4\cos z,
+\end{align*}
+</div>
+<div class="para">where we applied the identity <span class="process-math">\(\cos(\pi+\phi) = -\cos(\phi)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p5-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p5-2-5">
+<div class="para">Step 3: Outer integral with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p5-2-5-2">
+\begin{align*}
+\int_{0}^{\pi} -4\cos z \, dz \amp = \Big[ -4\sin z \Big]_{0}^{\pi}\\
+\amp = -4\sin(\pi) - (-4\sin 0) = 0.
+\end{align*}
+</div>
+<div class="para">The final computed value of the triple cosine integral over the cube is exactly <span class="process-math">\(0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p5-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.1"><a href="#ex-ws-mi-p5-2" title="Copy heading and permalink for Solution 5.1" aria-label="Copy heading and permalink for Solution 5.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 5"><a href="#ex-ws-mi-p5" title="Copy heading and permalink for Worksheet Exercise 5" aria-label="Copy heading and permalink for Worksheet Exercise 5">🔗</a></div>
+</article></section><section class="onepage" id="ws-page6">
+<article class="exercise exercise-like" id="ex-ws-mi-p6"><h3 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ex-ws-mi-p6-1-1">
+<div class="para">Given the cylindrical coordinate integral:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p6-1-1-1">
+\begin{equation*}
+\int^{2\pi}_0 \int^{\sqrt{2}}_0 \int^{\sqrt{4-r^2}}_r 3 \, dz \, r \, dr \, d\theta, \qquad r \geq 0
+\end{equation*}
+</div>
+<div class="para">perform the following tasks:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-2" id="ex-ws-mi-p6-1-2">
+<li id="ex-ws-mi-p6-1-2-1">
+<div class="para" id="ex-ws-mi-p6-1-2-1-1">Convert to rectangular coordinates with the order of integration <span class="process-math">\(dz \, dx \, dy\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.a"><a href="#ex-ws-mi-p6-1-2-1" title="Copy heading and permalink for Item 6.a" aria-label="Copy heading and permalink for Item 6.a">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p6-1-2-2">
+<div class="para" id="ex-ws-mi-p6-1-2-2-1">Convert to spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.b"><a href="#ex-ws-mi-p6-1-2-2" title="Copy heading and permalink for Item 6.b" aria-label="Copy heading and permalink for Item 6.b">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p6-1-2-3">
+<div class="para" id="ex-ws-mi-p6-1-2-3-1">Evaluate one of the integrals.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.c"><a href="#ex-ws-mi-p6-1-2-3" title="Copy heading and permalink for Item 6.c" aria-label="Copy heading and permalink for Item 6.c">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-ws-mi-p6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-mi-p6-2-1">Step 1: Analyze the Geometry of the Solid Region <span class="process-math">\(Q\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p6-2-2">
+<div class="para">Reading the cylindrical bounds from inside out reveals:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p6-2-2-1">
+\begin{equation*}
+0 \leq \theta \leq 2\pi, \quad 0 \leq r \leq \sqrt{2}, \quad r \leq z \leq \sqrt{4-r^2}.
+\end{equation*}
+</div>
+<div class="para">The upper ceiling <span class="process-math">\(z = \sqrt{4-r^2} \implies x^2+y^2+z^2 = 4\)</span> describes a sphere of radius <span class="process-math">\(2\text{.}\)</span> The lower floor boundary is the cone <span class="process-math">\(z = r \implies z = \sqrt{x^2+y^2}\text{.}\)</span> The intersection of the cone and the sphere occurs where <span class="process-math">\(r^2 = 4-r^2 \implies r = \sqrt{2}\text{.}\)</span> Thus, the solid <span class="process-math">\(Q\)</span> is an ice-cream-cone-shaped region inside a sphere carved out by an interior cone.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-mi-p6-2-3">Step 2: Complete the Target Conversions<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha ol-marker-2" id="ex-ws-mi-p6-2-4">
+<li id="ex-ws-mi-p6-2-4-1">
+<div class="para logical" id="ex-ws-mi-p6-2-4-1-1">
+<div class="para">The base shadow of the intersection ring on the <span class="process-math">\(xy\)</span>-plane is a circle of radius <span class="process-math">\(\sqrt{2}\text{.}\)</span> In the order <span class="process-math">\(dz \, dx \, dy\text{,}\)</span> the rectangular formulation is:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p6-2-4-1-1-4">
+\begin{equation*}
+\int^{\sqrt{2}}_{-\sqrt{2}} \int^{\sqrt{2-y^2}}_{-\sqrt{2-y^2}} \int^{\sqrt{4-x^2-y^2}}_{\sqrt{x^2+y^2}} 3 \, dz \, dx \, dy.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.a"><a href="#ex-ws-mi-p6-2-4-1" title="Copy heading and permalink for Item 6.a" aria-label="Copy heading and permalink for Item 6.a">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p6-2-4-2">
+<div class="para logical" id="ex-ws-mi-p6-2-4-2-1">
+<div class="para">The radius <span class="process-math">\(\rho\)</span> spans from <span class="process-math">\(0\)</span> out to the spherical cap <span class="process-math">\(\rho = 2\text{.}\)</span> The cone <span class="process-math">\(z = r\)</span> makes an angle of <span class="process-math">\(\phi = \frac{\pi}{4}\)</span> with the positive vertical <span class="process-math">\(z\)</span>-axis. Incorporating <span class="process-math">\(dV = \rho^2\sin\phi \, d\rho d\phi d\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p6-2-4-2-1-8">
+\begin{equation*}
+\int^{2\pi}_0 \int^{\pi/4}_0 \int^{2}_0 3\rho^2\sin\phi \, d\rho \, d\phi \, d\theta.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-2-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.b"><a href="#ex-ws-mi-p6-2-4-2" title="Copy heading and permalink for Item 6.b" aria-label="Copy heading and permalink for Item 6.b">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p6-2-4-3">
+<div class="para logical" id="ex-ws-mi-p6-2-4-3-1">
+<div class="para">Evaluating the spherical integral by separating the independent variables:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p6-2-4-3-1-1">
+\begin{align*}
+V \amp = 3 \left( \int^{2\pi}_0 \, d\theta \right) \left( \int^{\pi/4}_0 \sin\phi \, d\phi \right) \left( \int^{2}_0 \rho^2 \, d\rho \right)\\
+\amp = 3 \cdot \Big[ \theta \Big]_{0}^{2\pi} \cdot \Big[ -\cos\phi \Big]_{0}^{\pi/4} \cdot \left[ \frac{1}{3}\rho^3 \right]_{0}^{2}\\
+\amp = 3 \cdot (2\pi) \cdot \left( 1 - \frac{\sqrt{2}}{2} \right) \cdot \left( \frac{8}{3} \right) = 8\pi(2 - \sqrt{2}).
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p6-2-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.c"><a href="#ex-ws-mi-p6-2-4-3" title="Copy heading and permalink for Item 6.c" aria-label="Copy heading and permalink for Item 6.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 6.1"><a href="#ex-ws-mi-p6-2" title="Copy heading and permalink for Solution 6.1" aria-label="Copy heading and permalink for Solution 6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 6"><a href="#ex-ws-mi-p6" title="Copy heading and permalink for Worksheet Exercise 6" aria-label="Copy heading and permalink for Worksheet Exercise 6">🔗</a></div>
+</article></section><section class="onepage" id="ws-page7">
+<article class="exercise exercise-like" id="ex-ws-mi-p7"><h3 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ex-ws-mi-p7-1-1">
+<div class="para">Given the Cartesian triple integral:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p7-1-1-1">
+\begin{equation*}
+\int^1_{-1} \int^{\sqrt{1-x^2}}_{-\sqrt{1-x^2}} \int^1_{\sqrt{x^2+y^2}} \, dz \, dy \, dx
+\end{equation*}
+</div>
+<div class="para">perform the following tasks:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-2" id="ex-ws-mi-p7-1-2">
+<li id="ex-ws-mi-p7-1-2-1">
+<div class="para" id="ex-ws-mi-p7-1-2-1-1">Convert the expression into spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.a"><a href="#ex-ws-mi-p7-1-2-1" title="Copy heading and permalink for Item 7.a" aria-label="Copy heading and permalink for Item 7.a">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p7-1-2-2">
+<div class="para" id="ex-ws-mi-p7-1-2-2-1">Evaluate the new transformed integral.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.b"><a href="#ex-ws-mi-p7-1-2-2" title="Copy heading and permalink for Item 7.b" aria-label="Copy heading and permalink for Item 7.b">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-ws-mi-p7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-mi-p7-2-1">Step 1: Identify Boundaries and Structural Slices<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-mi-p7-2-2">The outer boundaries track a complete unit circle base shadow disk in the <span class="process-math">\(xy\)</span>-plane with radius <span class="process-math">\(r=1\text{.}\)</span> The interior vertical boundaries are bounded below by the cone <span class="process-math">\(z = \sqrt{x^2+y^2} \implies z = r\)</span> and capped above by the flat horizontal plane ceiling <span class="process-math">\(z = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p7-2-3">
+<div class="para">Mapping these two surfaces to spherical coordinates:</div>
+<ul class="disc" id="ex-ws-mi-p7-2-3-1">
+<li id="ex-ws-mi-p7-2-3-1-1">
+<div class="para" id="ex-ws-mi-p7-2-3-1-1-1">The lower boundary cone <span class="process-math">\(z = r \implies \phi = \frac{\pi}{4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-2-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-mi-p7-2-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p7-2-3-1-2">
+<div class="para" id="ex-ws-mi-p7-2-3-1-2-1">The upper boundary plane <span class="process-math">\(z = 1 \implies \rho\cos\phi = 1 \implies \rho = \sec\phi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-2-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-mi-p7-2-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Thus, for any angle <span class="process-math">\(\phi\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(\frac{\pi}{4}\text{,}\)</span> the radius variable <span class="process-math">\(\rho\)</span> shoots out from the origin until it hits the flat ceiling at <span class="process-math">\(\rho = \sec\phi\text{.}\)</span> The spherical limits are:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p7-2-3-7">
+\begin{equation*}
+0 \leq \theta \leq 2\pi, \quad 0 \leq \phi \leq \frac{\pi}{4}, \quad 0 \leq \rho \leq \sec\phi.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-mi-p7-2-4">Step 2: Complete the Tasks<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha ol-marker-2" id="ex-ws-mi-p7-2-5">
+<li id="ex-ws-mi-p7-2-5-1">
+<div class="para logical" id="ex-ws-mi-p7-2-5-1-1">
+<div class="para">Substituting the spherical differential volume element (<span class="process-math">\(dzdydx = \rho^2\sin\phi \, d\rho d\phi d\theta\)</span>) yields the formulation:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p7-2-5-1-1-2">
+\begin{equation*}
+\int^{2\pi}_0 \int^{\pi/4}_0 \int^{\sec\phi}_0 \rho^2\sin\phi \, d\rho \, d\phi \, d\theta.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.a"><a href="#ex-ws-mi-p7-2-5-1" title="Copy heading and permalink for Item 7.a" aria-label="Copy heading and permalink for Item 7.a">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p7-2-5-2">
+<div class="para logical" id="ex-ws-mi-p7-2-5-2-1">
+<div class="para">Evaluating the inner radial integral layer with respect to <span class="process-math">\(\rho\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p7-2-5-2-1-2">
+\begin{equation*}
+\int^{\sec\phi}_0 \rho^2\sin\phi \, d\rho = \sin\phi \left[ \frac{1}{3}\rho^3 \right]_{0}^{\sec\phi} = \frac{1}{3}\sin\phi\sec^3\phi = \frac{1}{3}\frac{\sin\phi}{\cos^3\phi}.
+\end{equation*}
+</div>
+<div class="para">Next, substitute this into the middle layer and integrate with respect to <span class="process-math">\(\phi\)</span> using <span class="process-math">\(u = \cos\phi \implies du = -\sin\phi \, d\phi\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p7-2-5-2-1-5">
+\begin{equation*}
+\int^{\pi/4}_0 \frac{1}{3}\frac{\sin\phi}{\cos^3\phi} \, d\phi = \frac{1}{3} \int_{1/\sqrt{2}}^{1} u^{-3} \, du = \frac{1}{3} \left[ -\frac{1}{2}u^{-2} \right]_{1/\sqrt{2}}^{1} = \frac{1}{6}.
+\end{equation*}
+</div>
+<div class="para">Finally, evaluate across the decoupled outer angular revolution layer:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p7-2-5-2-1-6">
+\begin{equation*}
+V = \int_{0}^{2\pi} \frac{1}{6} \, d\theta = \frac{1}{6}(2\pi) = \frac{\pi}{3} .
+\end{equation*}
+</div>
+<div class="para">The evaluated value of the triple integral is exactly <span class="process-math">\(\frac{\pi}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p7-2-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.b"><a href="#ex-ws-mi-p7-2-5-2" title="Copy heading and permalink for Item 7.b" aria-label="Copy heading and permalink for Item 7.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 7.1"><a href="#ex-ws-mi-p7-2" title="Copy heading and permalink for Solution 7.1" aria-label="Copy heading and permalink for Solution 7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 7"><a href="#ex-ws-mi-p7" title="Copy heading and permalink for Worksheet Exercise 7" aria-label="Copy heading and permalink for Worksheet Exercise 7">🔗</a></div>
+</article></section><section class="onepage" id="ws-page8">
+<article class="exercise exercise-like" id="ex-ws-mi-p8"><h3 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ex-ws-mi-p8-1-1">
+<div class="para">Evaluate the double integral:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p8-1-1-1">
+\begin{equation*}
+\int^1_0 \int^{1-x}_0 \sqrt{x+y}(y-2x)^2 \, dy \, dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-ws-mi-p8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-ws-mi-p8-2-1">Step 1: Choose a Transformation and Calculate the Jacobian<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p8-2-2">
+<div class="para">The structure of the integrand suggests a change of variables transformation. Let’s define the new tracking variables:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p8-2-2-1">
+\begin{equation*}
+u = x + y \quad \text{and} \quad v = y - 2x.
+\end{equation*}
+</div>
+<div class="para">Solving this linear system for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> to find the inverse transformation equations:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p8-2-2-4">
+\begin{equation*}
+x = \frac{1}{3}u - \frac{1}{3}v \quad \text{and} \quad y = \frac{2}{3}u + \frac{1}{3}v.
+\end{equation*}
+</div>
+<div class="para">Now compute the Jacobian determinant <span class="process-math">\(J(u,v)\)</span> of this transformation:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p8-2-2-6">
+\begin{equation*}
+\frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} \frac{1}{3} \amp -\frac{1}{3} \\ \frac{2}{3} \amp \frac{1}{3} \end{vmatrix} = \left(\frac{1}{3}\right)\left(\frac{1}{3}\right) - \left(-\frac{1}{3}\right)\left(\frac{2}{3}\right) = \frac{1}{9} + \frac{2}{9} = \frac{1}{3}.
+\end{equation*}
+</div>
+<div class="para">Thus, the area differential element transforms as: <span class="process-math">\(dydx = \left|\frac{1}{3}\right|\,dudv = \frac{1}{3}\,dudv\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-ws-mi-p8-2-3">Step 2: Map the Triangular Domain Boundaries<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p8-2-4">
+<div class="para">The original region <span class="process-math">\(R\)</span> is a triangle bounded by <span class="process-math">\(x=0, y=0\text{,}\)</span> and <span class="process-math">\(x+y=1\text{.}\)</span> Translating these boundary equations into the <span class="process-math">\(uv\)</span>-plane:</div>
+<ul class="disc" id="ex-ws-mi-p8-2-4-5">
+<li id="ex-ws-mi-p8-2-4-5-1">
+<div class="para" id="ex-ws-mi-p8-2-4-5-1-1">The boundary line <span class="process-math">\(x+y=1 \implies u = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-4-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-mi-p8-2-4-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p8-2-4-5-2">
+<div class="para" id="ex-ws-mi-p8-2-4-5-2-1">The line <span class="process-math">\(x=0 \implies \frac{1}{3}u - \frac{1}{3}v = 0 \implies v = u\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-4-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-mi-p8-2-4-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-ws-mi-p8-2-4-5-3">
+<div class="para" id="ex-ws-mi-p8-2-4-5-3-1">The line <span class="process-math">\(y=0 \implies \frac{2}{3}u + \frac{1}{3}v = 0 \implies v = -2u\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-4-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-ws-mi-p8-2-4-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">This maps the triangle into a new triangular region <span class="process-math">\(S\)</span> in the <span class="process-math">\(uv\)</span>-plane described by <span class="process-math">\(0 \leq u \leq 1\)</span> and <span class="process-math">\(-2u \leq v \leq u\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ws-p8-uvmap"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-ws-p8-uvmap.svg" role="img" class="contained" alt="A triangle in the uv-plane bounded by u=1, v=u, and v=-2u with a vertical sweep arrow."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The transformed triangular region <span class="process-math">\(S\)</span> inside the <span class="process-math">\(uv\)</span>-plane.<div class="autopermalink" data-description="Figure 6.4"><a href="#fig-ws-p8-uvmap" title="Copy heading and permalink for Figure 6.4" aria-label="Copy heading and permalink for Figure 6.4">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-ws-mi-p8-2-6">Step 3: Setup and Evaluate the New Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-ws-mi-p8-2-7">
+<div class="para">Substituting the new tracking terms into the change of variables formula:</div>
+<div class="displaymath process-math" id="ex-ws-mi-p8-2-7-1">
+\begin{equation*}
+V = \int_{0}^{1} \int_{-2u}^{u} \sqrt{u} \cdot v^2 \cdot \left( \frac{1}{3} \, dv \, du \right) = \frac{1}{3} \int_{0}^{1} \sqrt{u} \left( \int_{-2u}^{u} v^2 \, dv \right) du.
+\end{equation*}
+</div>
+<div class="para">Evaluating the inner layer with respect to <span class="process-math">\(v\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p8-2-7-3">
+\begin{equation*}
+\int_{-2u}^{u} v^2 \, dv = \left[ \frac{1}{3}v^3 \right]_{-2u}^{u} = \frac{1}{3}\left( u^3 - (-2u)^3 \right) = \frac{1}{3}(u^3 + 8u^3) = 3u^3.
+\end{equation*}
+</div>
+<div class="para">Now substitute this into the outer single layer and evaluate with respect to <span class="process-math">\(u\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ws-mi-p8-2-7-5">
+\begin{align*}
+V \amp = \frac{1}{3} \int_{0}^{1} u^{1/2} \cdot \Big( 3u^3 \Big) \, du = \int_{0}^{1} u^{7/2} \, du\\
+\amp = \left[ \frac{2}{9}u^{9/2} \right]_{0}^{1} = \frac{2}{9}.
+\end{align*}
+</div>
+<div class="para">The value of the transformed double integral is exactly <span class="process-math">\(\frac{2}{9}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ws-mi-p8-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 8.1"><a href="#ex-ws-mi-p8-2" title="Copy heading and permalink for Solution 8.1" aria-label="Copy heading and permalink for Solution 8.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 8"><a href="#ex-ws-mi-p8" title="Copy heading and permalink for Worksheet Exercise 8" aria-label="Copy heading and permalink for Worksheet Exercise 8">🔗</a></div>
+</article></section><div class="autopermalink" data-description="Worksheet: Worksheet 04: Multiple Integrals"><a href="#ws-multiple-integrals-chapter-review" title="Copy heading and permalink for Worksheet: Worksheet 04: Multiple Integrals" aria-label="Copy heading and permalink for Worksheet: Worksheet 04: Multiple Integrals">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ws-partial-derivatives-chapter-review.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="homework.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<worksheet xml:id="ws-multiple-integrals-chapter-review">
+    <title>Worksheet 04: Multiple Integrals</title>
+
+  <!-- ========================================== -->
+<!-- PAGE 1                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-page1">
+  <exercise xml:id="ex-ws-mi-p1">
+    <statement>
+      <p>
+        Sketch the region of integration and evaluate the double integral:
+        <me>\int^{3/2}_0 \int^{\sqrt{9-4y^2}}_{-\sqrt{9-4y^2}} y \, dx \, dy.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Identify and Sketch the Region of Integration</strong>
+      </p>
+      <p>
+        The given bounds of integration describe a Type II region in Cartesian coordinates where:
+        <me>0 \leq y \leq \frac{3}{2} \quad \text{and} \quad -\sqrt{9-4y^2} \leq x \leq \sqrt{9-4y^2}.</me>
+        Squaring the inner variable bounds reveals the equation of the perimeter curve:
+        <me>x = \pm\sqrt{9-4y^2} \implies x^2 = 9 - 4y^2 \implies x^2 + 4y^2 = 9 \implies \frac{x^2}{9} + \frac{y^2}{9/4} = 1.</me>
+        This is an ellipse centered at the origin with a horizontal semi-axis of <m>a=3</m> and a vertical semi-axis of <m>b=3/2</m>. Because <m>y \geq 0</m>, the region <m>R</m> is the upper half-ellipse.
+      </p>
+
+      <!-- Balanced Isometric 1:1 Upper Ellipse Domain Figure -->
+      <figure xml:id="fig-ws-p1-ellipse">
+        <caption>The upper half-ellipse region <m>R</m> with horizontal sweeping arrows indicating Type II integration.</caption>
+        <image xml:id="img-ws-p1-ellipse" width="60%">
+          <description>A plot of an upper half ellipse stretching from x=-3 to 3 and y=0 to 1.5 with a horizontal sweep arrow.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=0.7cm, y=1.4cm, >=latex]
+              % Shaded upper semi-ellipse region R
+              \fill[blue!15, domain=0:180, samples=60, variable=\t] plot ({3*cos(\t)}, {1.5*sin(\t)}) -- cycle;
+              
+              % Primary Grid Axes (Isometric balanced aspect layout)
+              \draw[->, thick] (-3.5, 0) -- (3.5, 0) node[below] {$x$};
+              \draw[->, thick] (0, -0.3) -- (0, 1.8) node[left] {$y$};
+              
+              % Bounding Curve Wall
+              \draw[blue!80!black, thick, domain=0:180, samples=60, variable=\t] plot ({3*cos(\t)}, {1.5*sin(\t)});
+              \draw[blue!80!black, thick] (-3,0) -- (3,0);
+              
+              % Horizontal Sweep Arrow Reference 
+              \draw[->, red, thick] (-1.8, 0.6) -- (1.8, 0.6) node[midway, above] {$dx$};
+              
+              % Coordinate Target Labels
+              \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+              \fill (3,0) circle (1.5pt) node[below] {$3$};
+              \fill (-3,0) circle (1.5pt) node[below] {$-3$};
+              \fill (0,1.5) circle (1.5pt) node[above right] {$\frac{3}{2}$};
+              \node at (0, 1.0) {\small Region $R$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 2: Evaluate the Double Integral</strong>
+      </p>
+      <p>
+        We integrate the innermost expression with respect to <m>x</m>, treating <m>y</m> as a constant factor:
+        <md>
+          <mrow>\int^{\sqrt{9-4y^2}}_{-\sqrt{9-4y^2}} y \, dx \amp = y \Big[ x \Big]_{-\sqrt{9-4y^2}}^{\sqrt{9-4y^2}} = y \left( \sqrt{9-4y^2} - \left(-\sqrt{9-4y^2}\right) \right)</mrow>
+          <mrow>\amp = 2y\sqrt{9-4y^2}.</mrow>
+        </md>
+        Now substitute this into the outer variable layer and integrate with respect to <m>y</m>:
+        <me>\int^{3/2}_0 2y\sqrt{9-4y^2} \, dy.</me>
+        We solve this using a simple <m>u</m>-substitution. Let:
+        <me>u = 9 - 4y^2 \implies du = -8y \, dy \implies -\frac{1}{4}\,du = 2y \, dy.</me>
+        Updating limits of integration: when <m>y = 0 \implies u = 9</m>, and when <m>y = \frac{3}{2} \implies u = 9 - 4\left(\frac{9}{4}\right) = 0</m>.
+        <md>
+          <mrow>\int_{9}^{0} -\frac{1}{4}u^{1/2} \, du \amp = \frac{1}{4} \int_{0}^{9} u^{1/2} \, du = \frac{1}{4} \left[ \frac{2}{3}u^{3/2} \right]_{0}^{9}</mrow>
+          <mrow>\amp = \frac{1}{6} \left( 9^{3/2} - 0 \right) = \frac{1}{6}(27) = \frac{9}{2}.</mrow>
+        </md>
+        The value of the upper half-ellipse integral is exactly <m>\frac{9}{2}</m>.
+      </p>
+    </solution>
+  </exercise>
+</page>
+
+<!-- ========================================== -->
+<!-- PAGE 2                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-page2">
+  <exercise xml:id="ex-ws-mi-p2">
+    <statement>
+      <p>
+        Write an equivalent integral with the order of integration reversed. Then evaluate the integral:
+        <me>\int^4_0 \int^{(y-4)/2}_{-\sqrt{4-y}} \, dx \, dy.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Analyze and Sketch the Region of Integration</strong>
+      </p>
+      <p>
+        The original integral is given in Type II format (<m>dxdy</m>) with limits:
+        <me>0 \leq y \leq 4 \quad \text{and} \quad -\sqrt{4-y} \leq x \leq \frac{y-4}{2}.</me>
+        Let's rewrite these inner boundary walls by isolating <m>y</m> in terms of <m>x</m>:
+        <ul>
+          <li><p>Left boundary: <m>x = -\sqrt{4-y} \implies x^2 = 4-y \implies y = 4 - x^2</m> (with <m>x \leq 0</m>).</p></li>
+          <li><p>Right boundary: <m>x = \frac{y-4}{2} \implies 2x = y-4 \implies y = 2x + 4</m>.</p></li>
+        </ul>
+        To locate the intersection vertices, we set these two equations equal to each other:
+        <me>4 - x^2 = 2x + 4 \implies x^2 + 2x = 0 \implies x(x+2) = 0 \implies x = -2, \, x = 0.</me>
+        The intersection points are <m>(-2,0)</m> and <m>(0,4)</m>.
+      </p>
+
+      <!-- Balanced Isometric 1:1 Parabola-Line Boundary Figure -->
+      <figure xml:id="fig-ws-p2-region">
+        <caption>The integration domain bounded above by the parabola <m>y=4-x^2</m> and below by the line <m>y=2x+4</m>.</caption>
+        <image xml:id="img-ws-p2-region" width="60%">
+          <description>A plot of a domain bounded below by a straight line and above by a parabola branch on the interval x from -2 to 0.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=2.0cm, y=1.0cm, >=latex]
+              % Shaded Region
+              \fill[blue!15, domain=-2:0, samples=40, variable=\x] plot ({\x}, {4-\x*\x}) -- (0,4) -- cycle;
+              
+              % Primary Grid Axes Space
+              \draw[->, thick] (-2.5, 0) -- (1.0, 0) node[below] {$x$};
+              \draw[->, thick] (0, -0.5) -- (0, 4.8) node[left] {$y$};
+              
+              % Bounding lines
+              \draw[blue!80!black, thick, domain=-2.2:0.3, samples=40, variable=\x] plot ({\x}, {4-\x*\x});
+              \draw[blue!80!black, thick, domain=-2.2:0.2] plot ({\x}, {2*\x+4});
+              
+              % Vertical Sweep Vector indicating reversed order
+              \draw[->, red, thick] (-1.0, 2.05) -- (-1.0, 2.95) node[midway, right] {$dy$};
+              
+              % Labels
+              \node[above left, blue!60!black] at (-1.3, 2.3) {$y=4-x^2$};
+              \node[below right, blue!60!black] at (-1.5, 1.0) {$y=2x+4$};
+              \fill (-2,0) circle (1.5pt) node[below left] {$(-2,0)$};
+              \fill (0,4) circle (1.5pt) node[right] {$(0,4)$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 2: Reverse the Order of Integration to Type I (<m>dydx</m>)</strong>
+      </p>
+      <p>
+        Viewing the region vertically, the horizontal span across the <m>x</m>-axis runs continuously from <m>x = -2</m> to <m>x = 0</m>. For any fixed value of <m>x</m>, a vertical strip starts at the bottom straight line boundary <m>y = 2x+4</m> and sweeps upward to touch the upper parabolic curve boundary <m>y = 4-x^2</m>. 
+        The equivalent reversed iterated integral setup is:
+        <me>\int_{-2}^{0} \int_{2x+4}^{4-x^2} \, dy \, dx.</me>
+      </p>
+      <p>
+        <strong>Step 3: Evaluate the Integral</strong>
+      </p>
+      <p>
+        Evaluating the inner variable layer directly:
+        <me>\int_{2x+4}^{4-x^2} 1 \, dy = \Big[ y \Big]_{2x+4}^{4-x^2} = (4-x^2) - (2x+4) = -x^2 - 2x.</me>
+        Now, integrate this remaining simple single variable polynomial expression across the outer boundaries:
+        <md>
+          <mrow>\int_{-2}^{0} (-x^2 - 2x) \, dx \amp = \left[ -\frac{1}{3}x^3 - x^2 \right]_{-2}^{0}</mrow>
+          <mrow>\amp = 0 - \left( -\frac{1}{3}(-2)^3 - (-2)^2 \right)</mrow>
+          <mrow>\amp = -\left( \frac{8}{3} - 4 \right) = -\left( -\frac{4}{3} \right) = \frac{4}{3}.</mrow>
+        </md>
+        The value of the reversed double integral is exactly <m>\frac{4}{3}</m>.
+      </p>
+    </solution>
+  </exercise>
+</page>
+
+<!-- ========================================== -->
+<!-- PAGE 3                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-page3">
+  <exercise xml:id="ex-ws-mi-p3">
+    <statement>
+      <p>
+        Evaluate the integral:
+        <me>\int^8_0 \int^2_{\sqrt{x}} \frac{1}{y^4+1} \, dy \, dx.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Analyze the Region and Reverse the Order</strong>
+      </p>
+      <p>
+        The inner integrand function <m>\frac{1}{y^4+1}</m> does not have an elementary antiderivative with respect to <m>y</m>. Therefore, we must switch the integration order from Type I (<m>dydx</m>) to Type II (<m>dxdy</m>). The original Cartesian bounds are:
+        <me>0 \leq x \leq 8 \quad \text{and} \quad \sqrt{x} \leq y \leq 2.</me>
+        Isolating <m>x</m> from the lower boundary curve: <m>y = \sqrt{x} \implies x = y^3</m>. 
+        The new bounds for the reversed integral are:
+        <me>0 \leq y \leq 2 \quad \text{and} \quad 0 \leq x \leq y^2.</me>
+      </p>
+      <p>
+        <strong>Step 2: Set Up and Compute the Transformed Integral</strong>
+      </p>
+      <p>
+        Applying our reversed boundaries creates a solvable iterated integral:
+        <me>\int_{0}^{2} \int_{0}^{y^3} \frac{1}{y^4+1} \, dx \, dy.</me>
+        Evaluating the inner integral with respect to <m>x</m>, treating the <m>y</m>-term as a constant factor:
+        <me>\int_{0}^{y^3} \frac{1}{y^4+1} \, dx = \left[ \frac{x}{y^4+1} \right]_{x=0}^{x=y^3} = \frac{y^3}{y^4+1}.</me>
+        Now substitute this result into the outer structural layer to integrate with respect to <m>y</m>:
+        <me>\int_{0}^{2} \frac{y^3}{y^4+1} \, dy.</me>
+        We can solve this easily using <m>u</m>-substitution. Let:
+        <me>u = y^4 + 1 \implies du = 4y^3 \, dy \implies \frac{1}{4}\,du = y^3 \, dy.</me>
+        Updating our definite boundaries: when <m>y = 0 \implies u = 1</m>, and when <m>y = 2 \implies u = 2^4 + 1 = 17</m>.
+        <md>
+          <mrow>\int_{1}^{17} \frac{1}{4} \cdot \frac{1}{u} \, du \amp = \left[ \frac{1}{4}\ln|u| \right]_{1}^{17}</mrow>
+          <mrow>\amp = \frac{1}{4}\ln(17) - \frac{1}{4}\ln(1) = \frac{\ln(17)}{4}.</mrow>
+        </md>
+        The exact evaluation of the reversed integration is <m>\frac{\ln(17)}{4}</m>.
+      </p>
+    </solution>
+  </exercise>
+</page>
+
+<!-- ========================================== -->
+<!-- PAGE 4                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-page4">
+  <exercise xml:id="ex-ws-mi-p4">
+    <statement>
+      <p>
+        Find the volume under the paraboloid <m>z=x^2+y^2</m> above the triangle enclosed by the lines <m>y=x</m>, <m>x=0</m>, and <m>x+y=2</m> in the <m>xy</m>-plane.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Identify and Sketch the Base Region <m>R</m></strong>
+      </p>
+      <p>
+        The base footprint region <m>R</m> is a triangle bounded by the vertical <m>y</m>-axis (<m>x=0</m>), the diagonal line <m>y=x</m>, and the downward-sloping line <m>x+y=2 \implies y = 2-x</m>. 
+        We locate the upper corner vertex by intersecting the lines:
+        <me>x = 2-x \implies 2x = 2 \implies x = 1 \implies y = 1.</me>
+        The three vertices of the triangle are <m>(0,0)</m>, <m>(0,2)</m>, and <m>(1,1)</m>. Treating this as a Type I region, the vertical variable <m>y</m> is bounded below by <m>y = x</m> and above by <m>y = 2-x</m> on the horizontal interval <m>0 \leq x \leq 1</m>.
+      </p>
+
+      <figure xml:id="fig-ws-p4-triangle">
+        <caption>The triangular base region <m>R</m> inside the first quadrant with a vertical sweep arrow.</caption>
+        <image xml:id="img-ws-p4-triangle" width="50%">
+          <description>A triangle with vertices at (0,0), (0,2), and (1,1) with a vertical sweep arrow showing dy integration.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=4.0cm, y=2.5cm, >=latex]
+              % Shaded Triangle
+              \fill[blue!15] (0,0) -- (0,2) -- (1,1) -- cycle;
+              
+              % Primary Coordinate Space Grid Axes
+              \draw[->, thick] (-0.2, 0) -- (1.5, 0) node[below] {$x$};
+              \draw[->, thick] (0, -0.2) -- (0, 2.4) node[left] {$y$};
+              
+              % Boundary Lines
+              \draw[blue!80!black, thick] (0,0) -- (1,1) node[midway, right] {$y=x$};
+              \draw[blue!80!black, thick] (0,2) -- (1,1) node[midway, above right] {$x+y=2$};
+              \draw[blue!80!black, thick] (0,0) -- (0,2);
+              
+              % Vertical Sweep vector path indicator
+              \draw[->, red, thick] (0.4, 0.45) -- (0.4, 1.55) node[midway, above right] {$dy$};
+              
+              % Label Points
+              \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+              \fill (0,2) circle (1.5pt) node[left] {$(0,2)$};
+              \fill (1,1) circle (1.5pt) node[right=2pt] {$(1,1)$};
+              \node at (0.35, 0.9) {\small Region $R$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+      <p>
+        <strong>Step 2: Set Up and Evaluate the Volume Integral</strong>
+      </p>
+      <p>
+        According to the volume definition theorem, we integrate the ceiling function <m>z = x^2 + y^2</m> over the domain <m>R</m>:
+        <me>V = \iint_R (x^2+y^2)\,dA = \int_{0}^{1} \int_{x}^{2-x} (x^2+y^2) \, dy \, dx.</me>
+        First, evaluate the inner integral with respect to <m>y</m>, holding <m>x</m> constant:
+        <md>
+          <mrow>\int_{x}^{2-x} (x^2+y^2) \, dy \amp = \left[ x^2y + \frac{1}{3}y^3 \right]_{y=x}^{y=2-x}</mrow>
+          <mrow>\amp = \left( x^2(2-x) + \frac{1}{3}(2-x)^3 \right) - \left( x^2(x) + \frac{1}{3}x^3 \right)</mrow>
+          <mrow>\amp = 2x^2 - x^3 + \frac{1}{3}(8 - 12x + 12x^2 - 4x^3) - x^3 - \frac{1}{3}x^3</mrow>
+          <mrow>\amp = -\frac{10}{3}x^3 + 6x^2 - 4x + \frac{8}{3}.</mrow>
+        </md>
+        Next, substitute this polynomial into the outer layer and integrate with respect to <m>x</m>:
+        <md>
+          <mrow>V \amp = \int_{0}^{1} \left( -\frac{10}{3}x^3 + 6x^2 - 4x + \frac{8}{3} \right) \, dx</mrow>
+          <mrow>\amp = \left[ -\frac{10}{12}x^4 + 2x^3 - 2x^2 + \frac{8}{3}x \right]_{0}^{1}</mrow>
+          <mrow>\amp = -\frac{5}{6} + 2 - 2 + \frac{8}{3} = \frac{11}{6}.</mrow>
+        </md>
+        The total volume of the solid region under the paraboloid ceiling is exactly <m>\frac{11}{6}</m>.
+      </p>
+    </solution>
+  </exercise>
+</page>
+
+<!-- ========================================== -->
+<!-- PAGE 5                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-page5">
+  <exercise xml:id="ex-ws-mi-p5">
+    <statement>
+      <p>
+        Evaluate the triple integral:
+        <me>\int^\pi_0 \int^\pi_0 \int^\pi_0 \cos(x+y+z) \, dx \, dy \, dz.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step-by-Step Mathematical Evaluation:</strong>
+      </p>
+      <p>
+        Since all six boundaries of integration are constants, this problem evaluates a volume density over a perfect cube in 3D space. We integrate from the innermost variable layer outward.
+      </p>
+      <p>
+        <strong>Step 1: Inner integral with respect to <m>x</m>:</strong>
+        <md>
+          <mrow>\int_{0}^{\pi} \cos(x+y+z) \, dx \amp = \Big[ \sin(x+y+z) \Big]_{x=0}^{x=\pi}</mrow>
+          <mrow>\amp = \sin(\pi+y+z) - \sin(y+z)</mrow>
+          <mrow>\amp = -\sin(y+z) - \sin(y+z) = -2\sin(y+z),</mrow>
+        </md>
+        where we applied the identity <m>\sin(\pi+\phi) = -\sin(\phi)</m>.
+      </p>
+      <p>
+        <strong>Step 2: Middle integral with respect to <m>y</m>:</strong>
+        <md>
+          <mrow>\int_{0}^{\pi} -2\sin(y+z) \, dy \amp = \Big[ 2\cos(y+z) \Big]_{y=0}^{y=\pi}</mrow>
+          <mrow>\amp = 2\cos(\pi+z) - 2\cos(z)</mrow>
+          <mrow>\amp = 2(-\cos z) - 2\cos z = -4\cos z,</mrow>
+        </md>
+        where we applied the identity <m>\cos(\pi+\phi) = -\cos(\phi)</m>.
+      </p>
+      <p>
+        <strong>Step 3: Outer integral with respect to <m>z</m>:</strong>
+        <md>
+          <mrow>\int_{0}^{\pi} -4\cos z \, dz \amp = \Big[ -4\sin z \Big]_{0}^{\pi}</mrow>
+          <mrow>\amp = -4\sin(\pi) - (-4\sin 0) = 0.</mrow>
+        </md>
+        The final computed value of the triple cosine integral over the cube is exactly <m>0</m>.
+      </p>
+    </solution>
+  </exercise>
+</page>
+
+<!-- ========================================== -->
+<!-- PAGE 6                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-page6">
+  <exercise xml:id="ex-ws-mi-p6">
+    <statement>
+      <p>
+        Given the cylindrical coordinate integral:
+        <me>\int^{2\pi}_0 \int^{\sqrt{2}}_0 \int^{\sqrt{4-r^2}}_r 3 \, dz \, r \, dr \, d\theta, \qquad r \geq 0</me>
+        perform the following tasks:
+      </p>
+      <ol label="a">
+        <li><p>Convert to rectangular coordinates with the order of integration <m>dz \, dx \, dy</m>.</p></li>
+        <li><p>Convert to spherical coordinates.</p></li>
+        <li><p>Evaluate one of the integrals.</p></li>
+      </ol>
+    </statement>
+    <solution>
+        <p>
+        <strong>Step 1: Analyze the Geometry of the Solid Region <m>Q</m></strong>
+      </p>
+      <p>
+        Reading the cylindrical bounds from inside out reveals:
+        <me>0 \leq \theta \leq 2\pi, \quad 0 \leq r \leq \sqrt{2}, \quad r \leq z \leq \sqrt{4-r^2}.</me>
+        The upper ceiling <m>z = \sqrt{4-r^2} \implies x^2+y^2+z^2 = 4</m> describes a sphere of radius <m>2</m>. The lower floor boundary is the cone <m>z = r \implies z = \sqrt{x^2+y^2}</m>. 
+        The intersection of the cone and the sphere occurs where <m>r^2 = 4-r^2 \implies r = \sqrt{2}</m>. Thus, the solid <m>Q</m> is an ice-cream-cone-shaped region inside a sphere carved out by an interior cone.
+      </p>
+
+      <p>
+        <strong>Step 2: Complete the Target Conversions</strong>
+      </p>
+      <ol label="a">
+        <li>
+          <p>
+            The base shadow of the intersection ring on the <m>xy</m>-plane is a circle of radius <m>\sqrt{2}</m>. In the order <m>dz \, dx \, dy</m>, the rectangular formulation is:
+            <me>\int^{\sqrt{2}}_{-\sqrt{2}} \int^{\sqrt{2-y^2}}_{-\sqrt{2-y^2}} \int^{\sqrt{4-x^2-y^2}}_{\sqrt{x^2+y^2}} 3 \, dz \, dx \, dy.</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            The radius <m>\rho</m> spans from <m>0</m> out to the spherical cap <m>\rho = 2</m>. The cone <m>z = r</m> makes an angle of <m>\phi = \frac{\pi}{4}</m> with the positive vertical <m>z</m>-axis. Incorporating <m>dV = \rho^2\sin\phi \, d\rho d\phi d\theta</m>:
+            <me>\int^{2\pi}_0 \int^{\pi/4}_0 \int^{2}_0 3\rho^2\sin\phi \, d\rho \, d\phi \, d\theta.</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Evaluating the spherical integral by separating the independent variables:
+            <md>
+              <mrow>V \amp = 3 \left( \int^{2\pi}_0 \, d\theta \right) \left( \int^{\pi/4}_0 \sin\phi \, d\phi \right) \left( \int^{2}_0 \rho^2 \, d\rho \right)</mrow>
+              <mrow>\amp = 3 \cdot \Big[ \theta \Big]_{0}^{2\pi} \cdot \Big[ -\cos\phi \Big]_{0}^{\pi/4} \cdot \left[ \frac{1}{3}\rho^3 \right]_{0}^{2}</mrow>
+              <mrow>\amp = 3 \cdot (2\pi) \cdot \left( 1 - \frac{\sqrt{2}}{2} \right) \cdot \left( \frac{8}{3} \right) = 8\pi(2 - \sqrt{2}).</mrow>
+            </md>
+          </p>
+        </li>
+      </ol>
+    </solution>
+  </exercise>
+</page>
+
+<!-- ========================================== -->
+<!-- PAGE 7                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-page7">
+  <exercise xml:id="ex-ws-mi-p7">
+    <statement>
+      <p>
+        Given the Cartesian triple integral:
+        <me>\int^1_{-1} \int^{\sqrt{1-x^2}}_{-\sqrt{1-x^2}} \int^1_{\sqrt{x^2+y^2}} \, dz \, dy \, dx</me>
+        perform the following tasks:
+      </p>
+      <ol label="a">
+        <li><p>Convert the expression into spherical coordinates.</p></li>
+        <li><p>Evaluate the new transformed integral.</p></li>
+      </ol>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Identify Boundaries and Structural Slices</strong>
+      </p>
+      <p>
+        The outer boundaries track a complete unit circle base shadow disk in the <m>xy</m>-plane with radius <m>r=1</m>. The interior vertical boundaries are bounded below by the cone <m>z = \sqrt{x^2+y^2} \implies z = r</m> and capped above by the flat horizontal plane ceiling <m>z = 1</m>.
+      </p>
+      <p>
+        Mapping these two surfaces to spherical coordinates:
+        <ul>
+          <li><p>The lower boundary cone <m>z = r \implies \phi = \frac{\pi}{4}</m>.</p></li>
+          <li><p>The upper boundary plane <m>z = 1 \implies \rho\cos\phi = 1 \implies \rho = \sec\phi</m>.</p></li>
+        </ul>
+        Thus, for any angle <m>\phi</m> between <m>0</m> and <m>\frac{\pi}{4}</m>, the radius variable <m>\rho</m> shoots out from the origin until it hits the flat ceiling at <m>\rho = \sec\phi</m>. The spherical limits are:
+        <me>0 \leq \theta \leq 2\pi, \quad 0 \leq \phi \leq \frac{\pi}{4}, \quad 0 \leq \rho \leq \sec\phi.</me>
+      </p>
+      <p>
+        <strong>Step 2: Complete the Tasks</strong>
+      </p>
+      <ol label="a">
+        <li>
+          <p>
+            Substituting the spherical differential volume element (<m>dzdydx = \rho^2\sin\phi \, d\rho d\phi d\theta</m>) yields the formulation:
+            <me>\int^{2\pi}_0 \int^{\pi/4}_0 \int^{\sec\phi}_0 \rho^2\sin\phi \, d\rho \, d\phi \, d\theta.</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Evaluating the inner radial integral layer with respect to <m>\rho</m>:
+            <me>\int^{\sec\phi}_0 \rho^2\sin\phi \, d\rho = \sin\phi \left[ \frac{1}{3}\rho^3 \right]_{0}^{\sec\phi} = \frac{1}{3}\sin\phi\sec^3\phi = \frac{1}{3}\frac{\sin\phi}{\cos^3\phi}.</me>
+            Next, substitute this into the middle layer and integrate with respect to <m>\phi</m> using <m>u = \cos\phi \implies du = -\sin\phi \, d\phi</m>:
+            <me>\int^{\pi/4}_0 \frac{1}{3}\frac{\sin\phi}{\cos^3\phi} \, d\phi = \frac{1}{3} \int_{1/\sqrt{2}}^{1} u^{-3} \, du = \frac{1}{3} \left[ -\frac{1}{2}u^{-2} \right]_{1/\sqrt{2}}^{1} = \frac{1}{6}.</me>
+            Finally, evaluate across the decoupled outer angular revolution layer:
+            <me>V = \int_{0}^{2\pi} \frac{1}{6} \, d\theta = \frac{1}{6}(2\pi) = \frac{\pi}{3} .</me>
+            The evaluated value of the triple integral is exactly <m>\frac{\pi}{3}</m>.
+          </p>
+        </li>
+      </ol>
+    </solution>
+  </exercise>
+</page>
+
+<!-- ========================================== -->
+<!-- PAGE 8                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-page8">
+  <exercise xml:id="ex-ws-mi-p8">
+    <statement>
+      <p>
+        Evaluate the double integral:
+        <me>\int^1_0 \int^{1-x}_0 \sqrt{x+y}(y-2x)^2 \, dy \, dx.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Choose a Transformation and Calculate the Jacobian</strong>
+      </p>
+      <p>
+        The structure of the integrand suggests a change of variables transformation. Let's define the new tracking variables:
+        <me>u = x + y \quad \text{and} \quad v = y - 2x.</me>
+        Solving this linear system for <m>x</m> and <m>y</m> to find the inverse transformation equations:
+        <me>x = \frac{1}{3}u - \frac{1}{3}v \quad \text{and} \quad y = \frac{2}{3}u + \frac{1}{3}v.</me>
+        Now compute the Jacobian determinant <m>J(u,v)</m> of this transformation:
+        <me>\frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} \frac{1}{3} \amp -\frac{1}{3} \\ \frac{2}{3} \amp \frac{1}{3} \end{vmatrix} = \left(\frac{1}{3}\right)\left(\frac{1}{3}\right) - \left(-\frac{1}{3}\right)\left(\frac{2}{3}\right) = \frac{1}{9} + \frac{2}{9} = \frac{1}{3}.</me>
+        Thus, the area differential element transforms as: <m>dydx = \left|\frac{1}{3}\right|\,dudv = \frac{1}{3}\,dudv</m>.
+      </p>
+            <p>
+        <strong>Step 2: Map the Triangular Domain Boundaries</strong>
+      </p>
+      <p>
+        The original region <m>R</m> is a triangle bounded by <m>x=0, y=0</m>, and <m>x+y=1</m>. Translating these boundary equations into the <m>uv</m>-plane:
+        <ul>
+          <li><p>The boundary line <m>x+y=1 \implies u = 1</m>.</p></li>
+          <li><p>The line <m>x=0 \implies \frac{1}{3}u - \frac{1}{3}v = 0 \implies v = u</m>.</p></li>
+          <li><p>The line <m>y=0 \implies \frac{2}{3}u + \frac{1}{3}v = 0 \implies v = -2u</m>.</p></li>
+        </ul>
+        This maps the triangle into a new triangular region <m>S</m> in the <m>uv</m>-plane described by <m>0 \leq u \leq 1</m> and <m>-2u \leq v \leq u</m>.
+      </p>
+
+      <!-- Balanced Isometric 1:1 uv-Plane Mapping Figure -->
+      <figure xml:id="fig-ws-p8-uvmap">
+        <caption>The transformed triangular region <m>S</m> inside the <m>uv</m>-plane.</caption>
+        <image xml:id="img-ws-p8-uvmap" width="50%">
+          <description>A triangle in the uv-plane bounded by u=1, v=u, and v=-2u with a vertical sweep arrow.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=3.5cm, y=1.75cm, >=latex]
+              % Shaded Triangle
+              \fill[blue!15] (0,0) -- (1,1) -- (1,-2) -- cycle;
+              
+              % Axes system (Isometric 1:1 scale proportions)
+              \draw[->, thick] (-0.3, 0) -- (1.5, 0) node[below] {$u$};
+              \draw[->, thick] (0, -2.4) -- (0, 1.5) node[left] {$v$};
+              
+              % Boundaries
+              \draw[blue!80!black, thick] (0,0) -- (1,1) node[midway, left] {$v=u$};
+              \draw[blue!80!black, thick] (0,0) -- (1,-2) node[midway, left] {$v=-2u$};
+              \draw[blue!80!black, thick] (1,1) -- (1,-2) node[midway, right] {$u=1$};
+              
+              % Vertical Sweep vector
+              \draw[->, red, thick] (0.6, -1.1) -- (0.6, 0.4) node[midway, right] {$dv$};
+              
+              \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+              \fill (1,1) circle (1.2pt) node[above right] {$(1,1)$};
+              \fill (1,-2) circle (1.2pt) node[below right] {$(1,-2)$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+      
+      <p>
+        <strong>Step 3: Setup and Evaluate the New Integral</strong>
+      </p>
+      <p>
+        Substituting the new tracking terms into the change of variables formula:
+        <me>V = \int_{0}^{1} \int_{-2u}^{u} \sqrt{u} \cdot v^2 \cdot \left( \frac{1}{3} \, dv \, du \right) = \frac{1}{3} \int_{0}^{1} \sqrt{u} \left( \int_{-2u}^{u} v^2 \, dv \right) du.</me>
+        Evaluating the inner layer with respect to <m>v</m>:
+        <me>\int_{-2u}^{u} v^2 \, dv = \left[ \frac{1}{3}v^3 \right]_{-2u}^{u} = \frac{1}{3}\left( u^3 - (-2u)^3 \right) = \frac{1}{3}(u^3 + 8u^3) = 3u^3.</me>
+        Now substitute this into the outer single layer and evaluate with respect to <m>u</m>:
+        <md>
+          <mrow>V \amp = \frac{1}{3} \int_{0}^{1} u^{1/2} \cdot \Big( 3u^3 \Big) \, du = \int_{0}^{1} u^{7/2} \, du</mrow>
+          <mrow>\amp = \left[ \frac{2}{9}u^{9/2} \right]_{0}^{1} = \frac{2}{9}.</mrow>
+        </md>
+        The value of the transformed double integral is exactly <m>\frac{2}{9}</m>.
+      </p>
+    </solution>
+  </exercise>
+</page>
+
+    
+</worksheet>

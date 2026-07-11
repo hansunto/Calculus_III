@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-Cylindrical-Coordinates">
+    <title>4.5 Cylindrical Coordinates</title>
+    <introduction>
+        <p>
+            Cylindrical coordinates are a three-dimensional coordinate system that extends polar coordinates 
+            by adding a third coordinate for height. They are particularly useful for problems with cylindrical 
+            symmetry.
+        </p>
+    </introduction>
+
+    <p>
+  In the cylindrical coordinate system, a point <m>P</m> in three-dimensional space is represented by the ordered triple <m>(r,\theta,z)</m>, where <m>r</m> and <m>\theta</m> are polar coordinates of the projection of <m>P</m> onto the <m>xy</m>-plane and <m>z</m> is the directed distance from the <m>xy</m>-plane to <m>P</m>.
+</p>
+
+<theorem xml:id="thm-cylindrical-conversion">
+  <title>Rectangular and Cylindrical Relationships</title>
+  <statement>
+    <p>
+      The rectangular coordinates <m>(x,y,z)</m> and the cylindrical coordinates <m>(r,\theta,z)</m> of a point <m>P</m> are related as follows:
+      <me>x=r\cos \theta, \quad y=r\sin \theta, \quad \tan \theta =\frac{y}{x},</me>
+      <me>x^2+y^2=r^2, \quad z=z.</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-ellipsoid-cylindrical">
+  <statement>
+    <p>
+      Find an equation in cylindrical coordinates for the ellipsoid 
+      <me>4x^2+4y^2+z^2=1.</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We can find the cylindrical equation by factoring out the common coefficients from the first two terms to isolate the standard polar identity:
+      <me>4(x^2 + y^2) + z^2 = 1</me>
+    </p>
+    <p>
+      Using the relationship from <xref ref="thm-cylindrical-conversion" />, we substitute <m>x^2 + y^2 = r^2</m> into our equation:
+      <me>4r^2 + z^2 = 1</me>
+    </p>
+    <p>
+      Thus, the equation of the ellipsoid in cylindrical coordinates is <m>4r^2 + z^2 = 1</m>.
+    </p>
+  </solution>
+</example>
+
+<theorem xml:id="thm-cylindrical-triple-evaluation">
+  <title>Evaluation Theorem in Cylindrical Coordinates</title>
+  <statement>
+    <p>
+      <me>\iiint_Q f(x,y,z)\,dV = \int^{\beta}_{\alpha} \int^{h_2(\theta)}_{h_1(\theta)} \int^{u_2(r\cos\theta, r\sin\theta)}_{u_1(r\cos\theta, r\sin\theta)} f(r\cos\theta, r\sin\theta, z)r\,dzdrd\theta.</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-cylindrical-integral-evaluation">
+  <statement>
+    <p>
+      Evaluate the iterated triple integral in cylindrical coordinates:
+      <me>\int^{2\pi}_{0} \int^{1}_{0} \int^{1/2}_{-1/2} (r^2\sin^2\theta+z^2)r \, dzdrd\theta.</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Because all six integration limits are constant bounds, the domain of integration represents a solid cylinder of radius <m>1</m> and height <m>1</m> centered on the <m>z</m>-axis. We distribute the extra radial factor <m>r</m> into the integrand and evaluate from the inside out:
+      <me>= \int^{2\pi}_{0} \int^{1}_{0} \int^{1/2}_{-1/2} (r^3\sin^2\theta + rz^2) \, dzdrd\theta.</me>
+    </p>
+    <p>
+      <strong>Step 1: Evaluate the Inner Integral with respect to <m>z</m></strong>
+    </p>
+    <p>
+      Treating <m>r</m> and <m>\theta</m> as constant parameters:
+      <md>
+        <mrow>\int^{1/2}_{-1/2} (r^3\sin^2\theta + rz^2) \, dz \amp = \left[ r^3\sin^2\theta \cdot z + \frac{1}{3}rz^3 \right]_{z=-1/2}^{z=1/2}</mrow>
+        <mrow>\amp = \left( r^3\sin^2\theta\left(\frac{1}{2}\right) + \frac{1}{3}r\left(\frac{1}{8}\right) \right) - \left( r^3\sin^2\theta\left(-\frac{1}{2}\right) + \frac{1}{3}r\left(-\frac{1}{8}\right) \right)</mrow>
+        <mrow>\amp = \frac{1}{2}r^3\sin^2\theta + \frac{1}{24}r + \frac{1}{2}r^3\sin^2\theta + \frac{1}{24}r</mrow>
+        <mrow>\amp = r^3\sin^2\theta + \frac{1}{12}r.</mrow>
+      </md>
+    </p>
+    <p>
+      <strong>Step 2: Evaluate the Middle Integral with respect to <m>r</m></strong>
+    </p>
+    <p>
+      We substitute our expression from Step 1 and integrate with respect to <m>r</m>, keeping <m>\theta</m> constant:
+      <md>
+        <mrow>\int_{0}^{1} \left( r^3\sin^2\theta + \frac{1}{12}r \right) \, dr \amp = \left[ \frac{1}{4}r^4\sin^2\theta + \frac{1}{24}r^2 \right]_{0}^{1}</mrow>
+        <mrow>\amp = \left( \frac{1}{4}(1)^4\sin^2\theta + \frac{1}{24}(1)^2 \right) - 0</mrow>
+        <mrow>\amp = \frac{1}{4}\sin^2\theta + \frac{1}{24}.</mrow>
+      </md>
+    </p>
+    <p>
+      <strong>Step 3: Evaluate the Outer Integral with respect to <m>\theta</m></strong>
+    </p>
+    <p>
+      Finally, we evaluate across the angular domain. We split the terms and use the trigonometric power-reduction identity <m>\sin^2\theta = \frac{1-\cos(2\theta)}{2}</m>:
+      <md>
+        <mrow>\int_{0}^{2\pi} \left( \frac{1}{4}\sin^2\theta + \frac{1}{24} \right) \, d\theta \amp = \frac{1}{4} \int_{0}^{2\pi} \left( \frac{1-\cos(2\theta)}{2} \right) \, d\theta + \frac{1}{24} \int_{0}^{2\pi} \, d\theta</mrow>
+        <mrow>\amp = \frac{1}{8} \Big[ \theta - \frac{1}{2}\sin(2\theta) \Big]_{0}^{2\pi} + \frac{1}{24} \Big[ \theta \Big]_{0}^{2\pi}</mrow>
+        <mrow>\amp = \frac{1}{8} \Big( (2\pi - 0) - 0 \Big) + \frac{1}{24}(2\pi - 0)</mrow>
+        <mrow>\amp = \frac{2\pi}{8} + \frac{2\pi}{24} = \frac{\pi}{4} + \frac{\pi}{12} = \frac{3\pi + \pi}{12} = \frac{4\pi}{12} = \frac{\pi}{3}.</mrow>
+      </md>
+      The exact value of the cylindrical triple integral is <m>\frac{\pi}{3}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-volume-cylinder-paraboloid-cylindrical">
+  <statement>
+    <p>
+      Find the volume of the solid that lies within the cylinder <m>x^2+y^2=1</m>, below the plane <m>z=4</m>, and above the paraboloid <m>z=1-x^2-y^2</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Identify the Boundaries and Region in Cylindrical Coordinates</strong>
+    </p>
+    <p>
+      The lateral boundary is the cylinder <m>x^2+y^2=1</m>, which simplifies directly to <m>r = 1</m> in polar form. This describes a full circular disk base region <m>R</m> in the <m>xy</m>-plane:
+      <me>0 \leq \theta \leq 2\pi \quad \text{and} \quad 0 \leq r \leq 1.</me>
+    </p>
+    <p>
+      The solid is bounded above by the flat plane ceiling <m>z = 4</m> and capped below by the paraboloid floor surface. Converting the floor equation to cylindrical form using <m>x^2+y^2=r^2</m> yields:
+      <me>z = 1 - (x^2 + y^2) \implies z = 1 - r^2.</me>
+      Therefore, for any point <m>(r, \theta)</m> in the base circle, the vertical variable <m>z</m> spans:
+      <me>1 - r^2 \leq z \leq 4.</me>
+    </p>
+
+    <!-- Balanced Large 1:1 Base Disk Diagram -->
+    <figure xml:id="fig-cylinder-base-disk">
+      <caption>The shared circular base projection region <m>R: x^2 + y^2 \leq 1</m> plotted with an isometric layout.</caption>
+      <image xml:id="img-cylinder-base-disk" width="65%">
+        <description>A polar plot mapping a full unit circular disk centered at the origin, with four radial sweep arrows tracking out to r=1.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.8cm, y=1.8cm, >=latex]
+            % Shaded Full Circular Footprint R
+            \fill[blue!15, domain=0:360, samples=80, variable=\t] plot ({1*cos(\t)}, {1*sin(\t)});
+            
+            % Primary Isometric Coordinate Grid Axes (1:1 aspect ratio)
+            \draw[->, thick] (-1.4, 0) -- (1.4, 0) node[below] {$x$};
+            \draw[->, thick] (0, -1.4) -- (0, 1.4) node[left] {$y$};
+            
+            % Circular Boundary Outline (Radius = 1)
+            \draw[blue!80!black, thick, domain=0:360, samples=80, variable=\t] plot ({1*cos(\t)}, {1*sin(\t)});
+            
+            % Radial Integration Sweep Vectors
+            \draw[->, red, thick] (0,0) -- (45:0.8) node[midway, above left] {$dr$};
+            \draw[->, red, thick] (0,0) -- (135:0.8);
+            \draw[->, red, thick] (0,0) -- (225:0.8);
+            \draw[->, red, thick] (0,0) -- (315:0.8);
+            
+            % Labels
+            \node[above right, blue!60!black] at (30:1.0) {$r=1$};
+            \node at (0.35, -0.35) {\small Region $R$};
+            
+            % Intercept Markers
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1,0) circle (1.5pt) node[below right] {$1$};
+            \fill (-1,0) circle (1.5pt) node[below left] {$-1$};
+            \fill (0,1) circle (1.5pt) node[above right] {$1$};
+            \fill (0,-1) circle (1.5pt) node[below left] {$-1$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Set Up and Evaluate the Volume Integral</strong>
+    </p>
+    <p>
+      Using the volume double integral definition with the cylindrical volume element (<m>dV = r\,dzdrd\theta</m>), we establish the iterated integral:
+      <me>V = \int_{0}^{2\pi} \int_{0}^{1} \int_{1-r^2}^{4} r \, dz \, dr \, d\theta</me>
+      Evaluating the inner integral with respect to <m>z</m>:
+      <me>\int_{1-r^2}^{4} r \, dz = r \Big[ z \Big]_{1-r^2}^{4} = r \Big( 4 - (1 - r^2) \Big) = r(3 + r^2) = 3r + r^3.</me>
+      Next, substituting into the middle layer and integrating with respect to <m>r</m>:
+      <me>\int_{0}^{1} (3r + r^3) \, dr = \left[ \frac{3}{2}r^2 + \frac{1}{4}r^4 \right]_{0}^{1} = \frac{3}{2} + \frac{1}{4} - 0 = \frac{6+1}{4} = \frac{7}{4}.</me>
+      Finally, evaluating the outer angular layer:
+      <me>V = \int_{0}^{2\pi} \frac{7}{4} \, d\theta = \frac{7}{4} \Big[ \theta \Big]_{0}^{2\pi} = \frac{7}{4}(2\pi) = \frac{7\pi}{2}.</me>
+      The total volume of the solid is exactly <m>\frac{7\pi}{2}</m>.
+    </p>
+  </solution>
+</example>
+<exercise xml:id="ex-cartesian-to-cylindrical-cone">
+  <statement>
+    <p>
+      Evaluate the iterated triple integral by converting it to cylindrical coordinates:
+      <me>\int^2_{-2}\int^{\sqrt{4-x^2}}_{-\sqrt{4-x^2}}\int^{2}_{\sqrt{x^2+y^2}}(x^2+y^2)\,dzdydx.</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Translate the Boundaries to Cylindrical Coordinates</strong>
+    </p>
+    <p>
+      The outer Cartesian boundaries describe the base region shadow footprint <m>R</m> in the <m>xy</m>-plane:
+      <me>-2 \leq x \leq 2 \quad \text{and} \quad -\sqrt{4-x^2} \leq y \leq \sqrt{4-x^2}.</me>
+      This matches a complete circular disk of radius <m>r = 2</m> centered at the origin, which translates into constant polar tracking boundaries:
+      <me>0 \leq \theta \leq 2\pi \quad \text{and} \quad 0 \leq r \leq 2.</me>
+    </p>
+    <p>
+      The inner vertical limits bound <m>z</m> below by the cone surface <m>z = \sqrt{x^2+y^2}</m> and above by the flat plane ceiling <m>z = 2</m>. Substituting <m>\sqrt{x^2+y^2} = r</m> gives:
+      <me>r \leq z \leq 2.</me>
+    </p>
+    <p>
+      <strong>Step 2: Convert and Evaluate the Iterated Integral</strong>
+    </p>
+    <p>
+      We substitute the inner integrand term <m>x^2 + y^2 = r^2</m> and change the differential string to cylindrical form (<m>dzdydx = r\,dzdrd\theta</m>):
+      <me>\iiint_Q (x^2+y^2)\,dV = \int_{0}^{2\pi} \int_{0}^{2} \int_{r}^{2} (r^2) \cdot r \, dz \, dr \, d\theta = \int_{0}^{2\pi} \int_{0}^{2} \int_{r}^{2} r^3 \, dz \, dr \, d\theta</me>
+      Evaluating the innermost variable layer with respect to <m>z</m>:
+      <me>\int_{r}^{2} r^3 \, dz = r^3 \Big[ z \Big]_{r}^{2} = r^3(2 - r) = 2r^3 - r^4.</me>
+      Substituting this polynomial result into the middle layer and integrating with respect to <m>r</m>:
+      <me>\int_{0}^{2} (2r^3 - r^4) \, dr = \left[ \frac{1}{2}r^4 - \frac{1}{5}r^5 \right]_{0}^{2} = \left( \frac{1}{2}(16) - \frac{1}{5}(32) \right) - 0 = 8 - \frac{32}{5} = \frac{40 - 32}{5} = \frac{8}{5}.</me>
+      Finally, evaluating the outer decoupled angular integral layer:
+      <me>\int_{0}^{2\pi} \frac{8}{5} \, d\theta = \frac{8}{5} \Big[ \theta \Big]_{0}^{2\pi} = \frac{8}{5}(2\pi) = \frac{16\pi}{5}.</me>
+      The exact evaluation of the transformed cylindrical integral is <m>\frac{16\pi}{5}</m>.
+    </p>
+  </solution>
+</exercise>
+
+<exercises xml:id="exercises-exercises-Cylindrical-Coordinates-advanced">
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 1                                 -->
+  <!-- ========================================== -->
+
+<exercise xml:id="ex-volume-from-figure-3d">
+  <statement>
+    <p>
+      Find the volume <m>V</m> of the solid region <m>Q</m> shown in the figure below. The region is bounded above by a paraboloid ceiling and below by a shallow quartic bowl, meeting at a shared intersection ring on the <m>xy</m>-plane.
+    </p>
+
+    <!-- Balanced Isometric 3D Solid Vector Figure -->
+  <figure xml:id="fig-paraboloid-quartic-solid-shading-fixed"> 
+  <caption>3D solid region <m>Q</m> bounded by a paraboloid roof and a quartic floor with fixed shading layers.</caption> 
+  <image xml:id="img-paraboloid-quartic-solid-shading-fixed" width="45%"> 
+    <description>A 3D coordinate plot showing a shaded lens-like solid matching the exact transparent layered look of the original textbook image.</description> 
+    <latex-image> 
+      <![CDATA[ 
+      \begin{tikzpicture}[x={(-0.6cm,-0.45cm)}, y={(0.85cm,-0.3cm)}, z={(0cm,0.9cm)}, >=latex, line join=round, line cap=round] 
+        
+        % 1. BACK SHADING LAYER (Drawn first so it sits behind the axes)
+        % Lower Quartic Bowl Back
+        \fill[cyan!10, opacity=0.6, domain=0:180, samples=40, variable=\t] 
+          (0,0,-1) -- plot ({1.0*cos(\t)}, {1.0*sin(\t)}, 0) -- cycle;
+        % Upper Paraboloid Dome Back
+        \fill[cyan!15, opacity=0.6, domain=0:180, samples=40, variable=\t] 
+          (0,0,4) -- plot ({1.0*cos(\t)}, {1.0*sin(\t)}, 0) -- cycle;
+
+        % 2. PRIMARY 3D SPATIAL AXES (Layered between front and back surfaces)
+        \draw[->, thick] (0,0,0) -- (2.2, 0, 0) node[below left] {$x$}; 
+        \draw[->, thick] (0,0,0) -- (0, 2.4, 0) node[below right] {$y$}; 
+        \draw[->, thick] (0,0,-1.4) -- (0, 0, 4.8) node[above] {$z$}; 
+
+        % Structural Dashed Negative Interior Axis Projections
+        \draw[dashed, gray!80, thin] (0,0,0) -- (-1.5, 0, 0);
+        \draw[dashed, gray!80, thin] (0,0,0) -- (0, -1.8, 0);
+        \draw[dashed, gray!80, thin] (0,0,0) -- (0, 0, -1.2);
+
+        % Interior Elliptical Wireframe Grid Projections (xy-floor interior cross)
+        \draw[dashed, gray!70, thin] (-1.0, 0, 0) -- (1.0, 0, 0);
+        \draw[dashed, gray!70, thin] (0, -1.0, 0) -- (0, 1.0, 0);
+
+        % 3. FRONT SHADING LAYER (Drawn over the axes to create a realistic 3D volume effect)
+        % Lower Quartic Bowl Front
+        \fill[cyan!20, opacity=0.7, domain=180:360, samples=40, variable=\t] 
+          (0,0,-1) -- plot ({1.0*cos(\t)}, {1.0*sin(\t)}, 0) -- cycle;
+        % Upper Paraboloid Dome Front
+        \fill[cyan!25, opacity=0.7, domain=180:360, samples=40, variable=\t] 
+          (0,0,4) -- plot ({1.0*cos(\t)}, {1.0*sin(\t)}, 0) -- cycle;
+
+        % 4. OUTLINE AND WIREFRAME PROFILE RIBS
+        % Shared Intersection Ring Outline at the boundary (z = 0, r = 1)
+        \draw[cyan!80!black, thick, domain=0:360, samples=60, variable=\t] 
+          plot ({1.0*cos(\t)}, {1.0*sin(\t)}, 0);
+
+        % Structural Upper Paraboloid and Lower Bowl Silhouette Ribs
+        \draw[cyan!80!black, thick, domain=0:1.0, samples=30, variable=\r] plot ({\r}, 0, {4 - 4*\r*\r});
+        \draw[cyan!80!black, thick, domain=0:1.0, samples=30, variable=\r] plot ({-\r}, 0, {4 - 4*\r*\r});
+        \draw[cyan!80!black, thick, domain=0:1.0, samples=30, variable=\r] plot (0, {\r}, {4 - 4*\r*\r});
+        \draw[cyan!80!black, thick, domain=0:1.0, samples=30, variable=\r] plot (0, {-\r}, {4 - 4*\r*\r});
+        
+        \draw[cyan!80!black, thick, domain=0:1.0, samples=30, variable=\r] plot ({\r}, 0, {\r*\r*\r*\r - 1});
+        \draw[cyan!80!black, thick, domain=0:1.0, samples=30, variable=\r] plot ({-\r}, 0, {\r*\r*\r*\r - 1});
+        \draw[cyan!80!black, thick, domain=0:1.0, samples=30, variable=\r] plot (0, {\r}, {\r*\r*\r*\r - 1});
+        \draw[cyan!80!black, thick, domain=0:1.0, samples=30, variable=\r] plot (0, {-\r}, {\r*\r*\r*\r - 1});
+
+        % 5. TEXTBOOK LABELS
+        \node[right] at (0.6, 0.4, 3.4) {$z = 4 - 4(x^2+y^2)$}; 
+        \node[right] at (0.5, 0.5, -1.1) {$z = (x^2+y^2)^2 - 1$}; 
+      \end{tikzpicture} 
+      ]]> 
+    </latex-image> 
+  </image> 
+</figure>
+
+</statement>
+  <solution>
+    <p>
+      <strong>Step 1: Extract Equations from the Figure and Determine the Setup</strong>
+    </p>
+    <p>
+      Reading the label vectors from the figure, the solid region <m>Q</m> is bounded:
+      <ul>
+        <li><p>Above by the paraboloid ceiling: <m>z = 4 - 4(x^2 + y^2)</m></p></li>
+        <li><p>Below by the quartic bowl floor: <m>z = (x^2 + y^2)^2 - 1</m></p></li>
+      </ul>
+      We convert these boundaries into cylindrical coordinates using the polar identity <m>x^2 + y^2 = r^2</m>, which yields <m>z = 4 - 4r^2</m> for the top and <m>z = r^4 - 1</m> for the bottom.
+    </p>
+    <p>
+      <strong>Step 2: Find the Radial Limits of Integration</strong>
+    </p>
+    <p>
+      The figure illustrates that the surfaces meet symmetrically at a boundary curve in the <m>xy</m>-plane (<m>z=0</m>). To find this intersection ring radius, we set the floor equation equal to the ceiling equation:
+      <me>r^4 - 1 = 4 - 4r^2 \implies r^4 + 4r^2 - 5 = 0</me>
+      Factoring this polynomial expression as a quadratic in terms of <m>r^2</m>:
+      <me>(r^2 + 5)(r^2 - 1) = 0</me>
+      Since <m>r^2</m> must be a non-negative real value, we find <m>r^2 = 1 \implies r = 1</m>. This yields a complete, full base disk footprint. The cylindrical limits of integration are:
+      <me>0 \leq \theta \leq 2\pi, \quad 0 \leq r \leq 1, \quad r^4 - 1 \leq z \leq 4 - 4r^2.</me>
+    </p>
+    <p>
+      <strong>Step 3: Evaluate the Triple Integral</strong>
+    </p>
+    <p>
+      Using the cylindrical differential volume tracking element (<m>dV = r\,dzdrd\theta</m>), we set up and compute the volume:
+      <me>V = \int_{0}^{2\pi} \int_{0}^{1} \int_{r^4 - 1}^{4 - 4r^2} r \, dz \, dr \, d\theta</me>
+      Integrating the inner layer with respect to <m>z</m>:
+      <me>\int_{r^4 - 1}^{4 - 4r^2} r \, dz = r \Big[ z \Big]_{r^4 - 1}^{4 - 4r^2} = r \Big( (4 - 4r^2) - (r^4 - 1) \Big) = 5r - 4r^3 - r^5.</me>
+      We split the remaining decoupled double integral into a simple product of two independent single integrals:
+      <md>
+        <mrow>V \amp = \left( \int_{0}^{2\pi} \, d\theta \right) \left( \int_{0}^{1} (5r - 4r^3 - r^5) \, dr \right)</mrow>
+        <mrow>\amp = \Big[ \theta \Big]_{0}^{2\pi} \cdot \left[ \frac{5}{2}r^2 - r^4 - \frac{1}{6}r^6 \right]_{0}^{1}</mrow>
+        <mrow>\amp = (2\pi - 0) \cdot \left( \frac{5}{2}(1)^2 - (1)^4 - \frac{1}{6}(1)^6 - 0 \right)</mrow>
+        <mrow>\amp = 2\pi \cdot \left( \frac{15}{6} - \frac{6}{6} - \frac{1}{6} \right) = 2\pi \cdot \frac{8}{6} = \frac{8\pi}{3}.</mrow>
+      </md>
+      The total volume of the solid shown in the figure is exactly <m>\frac{8\pi}{3}</m>.
+    </p>
+  </solution>
+</exercise>
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 2                           -->
+  <!-- ========================================== -->
+
+<exercise xml:id="ex-volume-cylinder-plane-wedge-octant">
+  <statement>
+    <p>
+      Find the volume <m>V</m> of the solid wedge bounded below by the <m>xy</m>-plane (<m>z=0</m>), laterally by the circular cylinder <m>r = 3\cos\theta</m>, and above by the slanted plane <m>z = -y</m> inside the octant where <m>x \gt 0</m>, <m>y \lt 0</m>, and <m>z \gt 0</m>.
+    </p>
+
+    <!-- Balanced Isometric 3D Solid Vector Figure (x > 0, y < 0, z > 0) -->
+<figure xml:id="fig-cylinder-plane-wedge-exact-3d">
+  <caption>The 3D solid wedge cut from the cylinder <m>r=3\cos\theta</m> by the plane <m>z=-y</m>.</caption>
+  <image xml:id="img-cylinder-plane-wedge-exact-3d" width="50%">
+    <description>A precise 3D vector reproduction matching the layout, line weights, shading style, and axes orientation of the original textbook image.</description>
+    <latex-image>
+      <![CDATA[
+      \begin{tikzpicture}[x={(-0.65cm,-0.45cm)}, y={(0.75cm,-0.35cm)}, z={(0cm,1.2cm)}, >=latex, line join=round, line cap=round]
+        
+        % 1. Shaded Solid Body (Using pure mathematical parametric coordinates for perfect accuracy)
+        % Light blue shading for the vertical curved cylindrical back wall
+        \fill[cyan!20, opacity=0.75, domain=-90:0, samples=40, variable=\t] 
+          (0,0,0) -- plot ({3*cos(\t)*cos(\t)}, {3*cos(\t)*sin(\t)}, 0) -- (3,0,0) -- cycle;
+          
+        % Darker blue shading overlay for the upper slanted plane cap face (z = -y)
+        \fill[cyan!35, opacity=0.7, domain=-90:0, samples=40, variable=\t] 
+          (0,0,0) -- plot ({3*cos(\t)*cos(\t)}, {3*cos(\t)*sin(\t)}, {-3*cos(\t)*sin(\t)}) -- (3,0,0) -- cycle;
+
+        % 2. Primary 3D Coordinate Space Axes (Oriented exactly to match the graphic text frame)
+        \draw[->, thick] (0,0,0) -- (4.0, 0, 0) node[below left] {$x$};
+        \draw[->, thick] (0,-2.2,0) -- (0, 2.2, 0) node[below right] {$y$};
+        \draw[->, thick] (0,0,-0.2) -- (0, 0, 3.2) node[above] {$z$};
+
+        % 3. Base Circular Profile Footprint Line (r = 3 cos theta) along the floor
+        \draw[cyan!80!black, thick, domain=-90:0, samples=40, variable=\t] 
+          plot ({3*cos(\t)*cos(\t)}, {3*cos(\t)*sin(\t)}, 0);
+
+        % 4. Vertical Contour Cylinder Rib Line (Furthest edge profile)
+        \draw[cyan!80!black, thick, domain=0:1.5, samples=10, variable=\z] 
+          plot (1.5, -1.5, \z);
+
+        % 5. Upper Slanted Plane Intersection Cap Perimeter Tracks (z = -y)
+        \draw[cyan!80!black, thick, domain=-90:0, samples=40, variable=\t] 
+          plot ({3*cos(\t)*cos(\t)}, {3*cos(\t)*sin(\t)}, {-3*cos(\t)*sin(\t)});
+          
+        % Internal floor-shading trace line separating the front profile
+        \draw[cyan!70!black, thin, domain=-90:0, samples=40, variable=\t] 
+          plot ({3*cos(\t)*cos(\t)}, {3*cos(\t)*sin(\t)}, {-1.5*cos(\t)*sin(\t)});
+
+        % 6. Annotation Labels positioned to mirror the source document perfectly
+        \node[left] at (2.2, -1.6, 0.4) {$r = 3\cos\theta$};
+        \node[above right] at (1.1, -1.2, 1.6) {$z = -y$};
+      \end{tikzpicture}
+      ]]>
+    </latex-image>
+  </image>
+</figure>
+
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Verify the Octant Constraints and Integration Bounds</strong>
+    </p>
+    <p>
+      The geometric restrictions are defined by the region <m>x \gt 0</m>, <m>y \lt 0</m>, and <m>z \gt 0</m>. This confines the base of the solid to the <strong>fourth quadrant</strong> of the <m>xy</m>-plane.
+    </p>
+    <p>
+      The lateral boundary is the off-center cylinder <m>r = 3\cos\theta</m>. In polar terms, this circle is fully traced on the horizontal interval <m>-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}</m>. Restricting this base circle to the fourth quadrant (<m>y \lt 0</m>) isolates our angular integration interval to:
+      <me>-\frac{\pi}{2} \leq \theta \leq 0.</me>
+    </p>
+    <p>
+      Inside this angle range, the radius <m>r</m> starts at the origin and sweeps outward to intersect the cylinder wall <m>r = 3\cos\theta</m>. The ceiling plane equation <m>z = -y</m> translates directly to cylindrical form as <m>z = -r\sin\theta</m>. Because <m>\theta</m> is negative in the fourth quadrant, <m>\sin\theta \lt 0</m>, which correctly ensures that the height <m>z = -r\sin\theta</m> remains strictly positive (<m>z \gt 0</m>). The final bounds are:
+      <me>-\frac{\pi}{2} \leq \theta \leq 0, \quad 0 \leq r \leq 3\cos\theta, \quad 0 \leq z \leq -r\sin\theta.</me>
+    </p>
+    <p>
+      <strong>Step 2: Evaluate the Cylindrical Volume Integral</strong>
+    </p>
+    <p>
+      Using the cylindrical volume element configuration (<m>dV = r\,dzdrd\theta</m>), we set up the iterated double integral:
+      <me>V = \int_{-\pi/2}^{0} \int_{0}^{3\cos\theta} \int_{0}^{-r\sin\theta} r \, dz \, dr \, d\theta</me>
+      Evaluating the innermost variable layer with respect to <m>z</m>:
+      <me>\int_{0}^{-r\sin\theta} r \, dz = r \Big[ z \Big]_{0}^{-r\sin\theta} = -r^2\sin\theta.</me>
+      Substituting this into the middle layer and integrating with respect to <m>r</m>:
+      <md>
+        <mrow>\int_{0}^{3\cos\theta} (-r^2\sin\theta) \, dr \amp = -\sin\theta \left[ \frac{1}{3}r^3 \right]_{0}^{3\cos\theta} = -\frac{1}{3}\sin\theta \Big( 27\cos^3\theta \Big)</mrow>
+        <mrow>\amp = -9\cos^3\theta\sin\theta.</mrow>
+      </md>
+      Finally, we evaluate the outer angular layer with respect to <m>\theta</m>:
+      <me>V = \int_{-\pi/2}^{0} -9\cos^3\theta\sin\theta \, d\theta</me>
+      We solve this using a basic <m>u</m>-substitution. Let:
+      <me>u = \cos\theta \implies du = -\sin\theta \, d\theta \implies -du = \sin\theta \, d\theta.</me>
+      Updating our definite boundaries: when <m>\theta = -\frac{\pi}{2} \implies u = 0</m>, and when <m>\theta = 0 \implies u = 1</m>.
+      <md>
+        <mrow>V \amp = \int_{0}^{1} 9u^3 \, du = \left[ \frac{9}{4}u^4 \right]_{0}^{1}</mrow>
+        <mrow>\amp = \frac{9}{4}(1)^4 - 0 = \frac{9}{4}.</mrow>
+      </md>
+      The total volume of the solid wedge within the specified octant is exactly <m>\frac{9}{4}</m> (or <m>2.25</m>).
+    </p>
+  </solution>
+</exercise>
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 3                                 -->
+  <!-- ========================================== -->
+
+<exercise xml:id="ex-volume-cylinder-slanted-plane">
+  <statement>
+    <p>
+      Find the volume of the region enclosed by the cylinder <m>x^2+y^2=4</m> and the planes <m>z=0</m> and <m>y+z=4</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Translate Boundaries to Cylindrical Coordinates</strong>
+    </p>
+    <p>
+      The lateral boundary is a solid cylinder of radius <m>2</m> centered at the origin, which describes a complete circular disk base region <m>R</m> in the <m>xy</m>-plane:
+      <me>0 \leq \theta \leq 2\pi \quad \text{and} \quad 0 \leq r \leq 2.</me>
+    </p>
+    <p>
+      The solid is bounded below by the floor plane <m>z = 0</m> and capped above by the slanted plane ceiling. Isolating <m>z</m> from the plane equation and converting to cylindrical coordinates using the standard substitution rule <m>y = r\sin\theta</m> gives:
+      <me>y + z = 4 \implies z = 4 - y \implies z = 4 - r\sin\theta.</me>
+      Therefore, for any point <m>(r, \theta)</m> in the base circle, the vertical variable <m>z</m> spans:
+      <me>0 \leq z \leq 4 - r\sin\theta.</me>
+    </p>
+
+    <p>
+      <strong>Step 2: Set Up and Evaluate the Volume Integral</strong>
+    </p>
+    <p>
+      Using the volume triple integral definition with the cylindrical volume element (<m>dV = r\,dzdrd\theta</m>), we establish the iterated integral:
+      <me>V = \int_{0}^{2\pi} \int_{0}^{2} \int_{0}^{4-r\sin\theta} r \, dz \, dr \, d\theta</me>
+      Evaluating the innermost layer with respect to <m>z</m>:
+      <me>\int_{0}^{4-r\sin\theta} r \, dz = r \Big[ z \Big]_{0}^{4-r\sin\theta} = r(4 - r\sin\theta) = 4r - r^2\sin\theta.</me>
+      Substituting this result into the middle layer and integrating with respect to <m>r</m>:
+      <md>
+        <mrow>\int_{0}^{2} (4r - r^2\sin\theta) \, dr \amp = \left[ 2r^2 - \frac{1}{3}r^3\sin\theta \right]_{0}^{2}</mrow>
+        <mrow>\amp = \left( 2(2)^2 - \frac{1}{3}(2)^3\sin\theta \right) - 0</mrow>
+        <mrow>\amp = 8 - \frac{8}{3}\sin\theta.</mrow>
+      </md>
+      Finally, computing across the complete angular revolution outer loop:
+      <md>
+        <mrow>V \amp = \int_{0}^{2\pi} \left( 8 - \frac{8}{3}\sin\theta \right) \, d\theta</mrow>
+        <mrow>\amp = \left[ 8\theta + \frac{8}{3}\cos\theta \right]_{0}^{2\pi}</mrow>
+        <mrow>\amp = \left( 8(2\pi) + \frac{8}{3}\cos(2\pi) \right) - \left( 0 + \frac{8}{3}\cos(0) \right)</mrow>
+        <mrow>\amp = \left( 16\pi + \frac{8}{3} \right) - \frac{8}{3} = 16\pi.</mrow>
+      </md>
+      The total volume of the region enclosed by the cylinder and the planes is exactly <m>16\pi</m>.
+    </p>
+  </solution>
+</exercise>
+</exercises>
+
+
+
+
+</section>

@@ -90,7 +90,8 @@
       <xi:include href="./notes/Area-and-volume.ptx" /> 
       <xi:include href="./notes/polar.ptx" />
       <xi:include href="./notes/Triple-integrals.ptx" />
-      <!--<xi:include href="./notes/Change-of-variables.ptx" />-->
+      <xi:include href="./notes/Cylindrical-Coordinates.ptx" />
+      <xi:include href="./notes/Change-of-variables.ptx" />
 
       
 
@@ -125,6 +126,7 @@
       <xi:include href="./ch_exercises/vector-values.ptx" />
       <xi:include href="./ch_exercises/vector-functions.ptx" />
       <xi:include href="./ch_exercises/partial-derivatives.ptx" />
+      <xi:include href="./ch_exercises/multiple-integrals.ptx" />
 
     </chapter>
 

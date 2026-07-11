@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="sec-Triple-integrals">
-    <title>4.5 Triple Integrals</title>
+    <title>4.4 Triple Integrals</title>
     <introduction>
         <p>
             Triple integrals extend the concept of double integrals to three dimensions, allowing us to compute volumes and other quantities over three-dimensional regions.
@@ -11,6 +11,755 @@
         </p>
     </introduction>
     
+<theorem xml:id="thm-triple-integral-evaluation">
+  <title>Evaluation Theorem of Triple Integral</title>
+  <statement>
+    <p>
+      <me>\iiint_Q f(x,y,z)\,dV = \iint_R \left[ \int^{k_2(x,y)}_{k_1(x,y)} f(x,y,z)\,dz \right] dA.</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-triple-integral-rectangular">
+  <statement>
+    <p>
+      Evaluate <m>\iiint_Q (xy^2+yz^3)\,dV</m> if 
+      <me>Q=\{(x,y,z): -1\leq x\leq 1, \ 3\leq y\leq 4, \ 0\leq z \leq 2.\}</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Since the region of integration <m>Q</m> is a rectangular box bounded entirely by constant limits, we can express the triple integral as an iterated integral in any order. Let's integrate with respect to <m>z</m> first, then <m>y</m>, and finally <m>x</m>:
+      <me>\iiint_Q (xy^2+yz^3)\,dV = \int_{-1}^{1} \int_{3}^{4} \int_{0}^{2} (xy^2+yz^3) \, dz \, dy \, dx</me>
+    </p>
+    <p>
+      <strong>Step 1: Evaluate the Inner Integral with respect to <m>z</m></strong>
+    </p>
+    <p>
+      Holding <m>x</m> and <m>y</m> constant, we find the antiderivative with respect to <m>z</m>:
+      <md>
+        <mrow>\int_{0}^{2} (xy^2+yz^3) \, dz \amp = \left[ xy^2z + \frac{1}{4}yz^4 \right]_{z=0}^{z=2}</mrow>
+        <mrow>\amp = \left( xy^2(2) + \frac{1}{4}y(2)^4 \right) - 0</mrow>
+        <mrow>\amp = 2xy^2 + \frac{16}{4}y = 2xy^2 + 4y.</mrow>
+      </md>
+    </p>
+    <p>
+      <strong>Step 2: Evaluate the Middle Integral with respect to <m>y</m></strong>
+    </p>
+    <p>
+      We substitute our result from Step 1 into the middle layer and integrate with respect to <m>y</m>, holding <m>x</m> constant:
+      <md>
+        <mrow>\int_{3}^{4} (2xy^2 + 4y) \, dy \amp = \left[ \frac{2}{3}xy^3 + 2y^2 \right]_{y=3}^{y=4}</mrow>
+        <mrow>\amp = \left( \frac{2}{3}x(4)^3 + 2(4)^2 \right) - \left( \frac{2}{3}x(3)^3 + 2(3)^2 \right)</mrow>
+        <mrow>\amp = \left( \frac{128}{3}x + 32 \right) - \left( 18x + 18 \right)</mrow>
+        <mrow>\amp = \left( \frac{128}{3} - \frac{54}{3} \right)x + (32 - 18)</mrow>
+        <mrow>\amp = \frac{74}{3}x + 14.</mrow>
+      </md>
+    </p>
+    <p>
+      <strong>Step 3: Evaluate the Outer Integral with respect to <m>x</m></strong>
+    </p>
+    <p>
+      Finally, we integrate our remaining linear expression over the outer bounds from <m>x = -1</m> to <m>x = 1</m>:
+      <md>
+        <mrow>\int_{-1}^{1} \left( \frac{74}{3}x + 14 \right) \, dx \amp = \left[ \frac{37}{3}x^2 + 14x \right]_{-1}^{1}</mrow>
+        <mrow>\amp = \left( \frac{37}{3}(1)^2 + 14(1) \right) - \left( \frac{37}{3}(-1)^2 + 14(-1) \right)</mrow>
+        <mrow>\amp = \left( \frac{37}{3} + 14 \right) - \left( \frac{37}{3} - 14 \right)</mrow>
+        <mrow>\amp = \frac{37}{3} + 14 - \frac{37}{3} + 14 = 28.</mrow>
+      </md>
+      *(Note: We can also recognize that <m>\frac{74}{3}x</m> is an odd function integrated over a symmetric interval <m>[-1,1]</m>, meaning its net integral automatically drops to <m>0</m>).*
+    </p>
+    <p>
+      The value of the triple integral over the rectangular box region <m>Q</m> is exactly <m>28</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-triple-integrals-parts">
+  <statement>
+    <p>
+      Evaluate the following triple integrals:
+    </p>
+    <ol label="1">
+      <li> <p> <m>\displaystyle\int^1_0\int^{2-x}_0\int^{2-x-y}_0 \,dz\,dy\,dx</m> </p> </li>
+      <li> <p> <m>\displaystyle\int^e_1\int^e_1\int^e_1 \ln x \ln y \ln z \,dz\,dx\,dy</m> </p> </li>
+    </ol>
+  </statement>
+  <solution>
+    <ol label="1">
+      <li> <p> <strong>Solution to Part 1:</strong> </p>
+        <p>
+          This integral models a solid wedge bounded by the coordinate planes and a tetrahedron face. 
+          We evaluate it from the innermost variable layer outward.
+        </p>
+        <p> <strong>Step 1: Inner integral with respect to <m>z</m>:</strong>
+          <me>\int^{2-x-y}_0 1 \,dz = \Big[ z \Big]_{0}^{2-x-y} = 2 - x - y</me>
+        </p>
+        <p> <strong>Step 2: Middle integral with respect to <m>y</m>:</strong>
+          <md>
+            <mrow>\int^{2-x}_0 (2 - x - y) \,dy \amp = \left[ (2-x)y - \frac{1}{2}y^2 \right]_{y=0}^{y=2-x}</mrow>
+            <mrow>\amp = (2-x)(2-x) - \frac{1}{2}(2-x)^2</mrow>
+            <mrow>\amp = \frac{1}{2}(2-x)^2 = \frac{1}{2}(4 - 4x + x^2)</mrow>
+            <mrow>\amp = 2 - 2x + \frac{1}{2}x^2</mrow>
+          </md>
+        </p>
+        <p> <strong>Step 3: Outer integral with respect to <m>x</m>:</strong>
+          <md>
+            <mrow>\int^{1}_0 \left( 2 - 2x + \frac{1}{2}x^2 \right) \,dx \amp = \left[ 2x - x^2 + \frac{1}{6}x^3 \right]_{0}^{1}</mrow>
+            <mrow>\amp = \left( 2(1) - (1)^2 + \frac{1}{6}(1)^3 \right) - 0</mrow>
+            <mrow>\amp = 2 - 1 + \frac{1}{6} = 1 + \frac{1}{6} = \frac{7}{6}</mrow>
+          </md>
+          The exact evaluation of the first triple integral is <m>\frac{7}{6}</m>.
+        </p>
+      </li>
+
+      <li> <p>  <strong>Solution to Part 2:</strong> </p>
+        <p>
+          The integration boundary defines a perfect cube in <m>\mathbb{R}^3</m> bounded entirely by constant limits. Because the three variables within the integrand function are completely independent and separable, we can pull the triple integral apart into the mathematical product of three identical single integrals:
+          <me>\int^e_1\int^e_1\int^e_1 \ln x \ln y \ln z \,dz\,dx\,dy = \left( \int^e_1 \ln x \,dx \right) \left( \int^e_1 \ln y \,dy \right) \left( \int^e_1 \ln z \,dz \right)</me>
+        </p>
+        <p>
+          Using integration by parts (<m>\int \ln(t)\,dt = t\ln(t) - t</m>), we evaluate a single profile factor:
+          <md>
+            <mrow>\int^e_1 \ln t \,dt \amp = \Big[ t\ln t - t \Big]_{1}^{e}</mrow>
+            <mrow>\amp = (e\ln e - e) - (1\ln 1 - 1)</mrow>
+            <mrow>\amp = (e - e) - (0 - 1) = 0 - (-1) = 1</mrow>
+          </md>
+        </p>
+        <p>
+          Multiplying the three decoupled results together gives:
+          <me>\text{Value} = 1 \times 1 \times 1 = 1</me>
+          The exact evaluation of the logarithmic triple integral is <m>1</m>.
+        </p>
+      </li>
+    </ol>
+  </solution>
+</example>
+
+<exercises xml:id="exercises-triple-integrals-regions">
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 1                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-triple-integral-first-octant">
+    <statement>
+      <p>
+        Express <m>\iiint_Q f(x,y,z)\,dV</m> as an iterated integral if <m>Q</m> is the region in the first octant bounded by the coordinate planes, the paraboloid <m>z=2+x^2+\frac{1}{4}y^2</m>, and the cylinder <m>x^2+y^2=1</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Identify the Bounds of the Solid Region <m>Q</m></strong>
+      </p>
+      <p>
+        The solid sits in the first octant, which sets our lower bounds at <m>x \geq 0</m>, <m>y \geq 0</m>, and <m>z \geq 0</m>. The floor is the <m>xy</m>-plane (<m>z=0</m>), and the upper ceiling is the paraboloid <m>z = 2+x^2+\frac{1}{4}y^2</m>. Thus, for any point <m>(x,y)</m> in the base projection region <m>R</m>, the vertical variable spans:
+        <me>0 \leq z \leq 2+x^2+\frac{1}{4}y^2.</me>
+      </p>
+      <p>
+        <strong>Step 2: Project onto the <m>xy</m>-plane to Find Region <m>R</m></strong>
+      </p>
+      <p>
+        The lateral boundaries are given by the coordinate planes (<m>x=0</m> and <m>y=0</m>) and the cylinder <m>x^2+y^2=1</m>. Projecting this onto the <m>xy</m>-plane reveals that the base footprint <m>R</m> is a complete quarter-unit-circle disk in the first quadrant.
+      </p>
+      <p>
+        Treating <m>R</m> as a Type I region, we solve the cylinder equation for <m>y</m> to find the upper curve boundary: <m>y = \sqrt{1-x^2}</m>. This yields the following 2D boundary parameters:
+        <me>0 \leq x \leq 1 \quad \text{and} \quad 0 \leq y \leq \sqrt{1-x^2}.</me>
+      </p>
+
+      <!-- Isometric 1:1 Base Disks Projections -->
+      <figure xml:id="fig-quarter-disk-base">
+        <caption>The first-quadrant quarter-disk base projection region <m>R</m> plotted with a 1:1 isometric ratio.</caption>
+        <image xml:id="img-quarter-disk-base" width="55%">
+          <description>A plot of a quarter-circle domain of radius 1 sitting strictly inside the first quadrant with a vertical sweep arrow indicating Type I integration alignment.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=2.5cm, y=2.5cm, >=latex]
+              % Shaded First Quadrant Quarter Disk
+              \fill[blue!15, domain=0:90, samples=40, variable=\t] (0,0) -- plot ({1*cos(\t)}, {1*sin(\t)}) -- cycle;
+              
+              % Coordinate Axes (Isometric layout)
+              \draw[->, thick] (-0.2, 0) -- (1.4, 0) node[below] {$x$};
+              \draw[->, thick] (0, -0.2) -- (0, 1.4) node[left] {$y$};
+              
+              % Boundary Circular Path Segment (Radius = 1)
+              \draw[blue!80!black, thick, domain=0:90, samples=40, variable=\t] plot ({1*cos(\t)}, {1*sin(\t)});
+              \draw[blue!80!black, thick] (0,0) -- (1,0);
+              \draw[blue!80!black, thick] (0,0) -- (0,1);
+              
+              % Vertical Integration Sweep Vector
+              \draw[->, red, thick] (0.5, 0.05) -- (0.5, 0.75) node[midway, right] {$dy$};
+              
+              % Labels
+              \node[above right, blue!60!black] at (45:1.0) {$x^2+y^2=1$};
+              \node at (0.35, 0.2) {\small Region $R$};
+              \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+              \fill (1,0) circle (1.5pt) node[below] {$1$};
+              \fill (0,1) circle (1.5pt) node[left] {$1$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 3: Assemble the Iterated Integral</strong>
+      </p>
+      <p>
+        Combining our 3D variable layers into the final iterated layout produces:
+        <me>\iiint_Q f(x,y,z)\,dV = \int_{0}^{1} \int_{0}^{\sqrt{1-x^2}} \int_{0}^{2+x^2+\frac{1}{4}y^2} f(x,y,z) \, dz \, dy \, dx.</me>
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 2                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-volume-cylinder-planes">
+    <statement>
+      <p>
+        Find the volume <m>V</m> of the solid that is bounded by the cylinder <m>y=x^2</m> and the planes <m>y+z=4</m> and <m>z=0</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Identify the Integration Boundaries</strong>
+      </p>
+      <p>
+        The solid is bounded below by the plane <m>z=0</m> and capped above by the slanted plane <m>y+z=4 \implies z = 4-y</m>. Thus, our interior height spans <m>0 \leq z \leq 4-y</m>.
+      </p>
+      <p>
+        To find the base region <m>R</m> in the <m>xy</m>-plane, we look at the boundaries where the ceiling plane intersects the floor (<m>z=0</m>). Setting <m>z=0</m> in <m>y+z=4</m> gives the straight line boundary <m>y=4</m>. The other lateral boundary is the parabolic cylinder curve <m>y=x^2</m>.
+      </p>
+      <p>
+        The intersection points of the line <m>y=4</m> and the parabola <m>y=x^2</m> occur where:
+        <me>x^2 = 4 \implies x = -2 \quad \text{and} \quad x = 2.</me>
+        On the interval <m>[-2, 2]</m>, the line <m>y=4</m> sits above the parabola <m>y=x^2</m>. Treating this footprint as a Type I domain yields:
+        <me>-2 \leq x \leq 2 \quad \text{and} \quad x^2 \leq y \leq 4.</me>
+      </p>
+
+      <!-- 1:1 Balanced Parabolic Footprint Region -->
+      <figure xml:id="fig-parabolic-base-footprint">
+        <caption>The base projection region <m>R</m> enclosed by <m>y=x^2</m> and <m>y=4</m> plotted with an isometric layout.</caption>
+        <image xml:id="img-parabolic-base-footprint" width="60%">
+          <description>A plot of a 2D domain bounded below by a parabola and above by a horizontal line at y=4, intersecting at x=-2 and x=2.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=1.0cm, y=0.8cm, >=latex]
+              % Shaded Footprint Region
+              \fill[blue!15] plot[domain=-2:2, samples=40, variable=\x] ({\x}, {\x*\x}) -- cycle;
+              
+              % Coordinate Axes (Isometric layout)
+              \draw[->, thick] (-2.6, 0) -- (2.6, 0) node[below] {$x$};
+              \draw[->, thick] (0, -0.4) -- (0, 4.6) node[left] {$y$};
+              
+              % Boundary Paths
+              \draw[blue!80!black, thick, domain=-2.1:2.1, samples=40, variable=\x] plot ({\x}, {\x*\x});
+              \draw[blue!80!black, thick] (-2.3, 4) -- (2.3, 4) node[midway, above right] {$y=4$};
+              
+              % Vector arrow indicating sweep direction
+              \draw[->, red, thick] (1.0, 1.0) -- (1.0, 3.8) node[midway, right] {$dy$};
+              
+              % Labels
+              \node[below right, blue!60!black] at (1.5, 2.25) {$y=x^2$};
+              \node at (0, 2.5) {\small Region $R$};
+              \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+              \fill (-2,4) circle (1.5pt) node[above left] {$(-2,4)$};
+              \fill (2,4) circle (1.5pt) node[above right] {$(2,4)$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 2: Setup and Evaluate the Volume Integral</strong>
+      </p>
+      <p>
+        The total volume <m>V</m> is calculated by integrating the height function over our region <m>R</m>:
+        <me>V = \iiint_Q \,dV = \int_{-2}^{2} \int_{x^2}^{4} \int_{0}^{4-y} \,dz\,dy\,dx</me>
+        Evaluating the inner integral with respect to <m>z</m>:
+        <me>\int_{0}^{4-y} 1 \,dz = 4 - y.</me>
+        Substituting this result into the middle layer and integrating with respect to <m>y</m>:
+        <md>
+          <mrow>\int_{x^2}^{4} (4 - y) \, dy \amp = \left[ 4y - \frac{1}{2}y^2 \right]_{y=x^2}^{y=4}</mrow>
+          <mrow>\amp = \left( 4(4) - \frac{1}{2}(4)^2 \right) - \left( 4x^2 - \frac{1}{2}(x^2)^2 \right)</mrow>
+          <mrow>\amp = (16 - 8) - 4x^2 + \frac{1}{2}x^4 = 8 - 4x^2 + \frac{1}{2}x^4.</mrow>
+        </md>
+        Finally, substituting this expression into the outer layer and integrating with respect to <m>x</m>:
+        <md>
+          <mrow>V \amp = \int_{-2}^{2} \left( 8 - 4x^2 + \frac{1}{2}x^4 \right) \, dx</mrow>
+          <mrow>\amp = \left[ 8x - \frac{4}{3}x^3 + \frac{1}{10}x^5 \right]_{-2}^{2}</mrow>
+        </md>
+        Since this function contains only even powers and is integrated over a symmetric interval <m>[-2, 2]</m>, we can compute twice the integral from <m>0</m> to <m>2</m>:
+        <md>
+          <mrow>V \amp = 2 \left[ 8(2) - \frac{4}{3}(2)^3 + \frac{1}{10}(2)^5 - 0 \right]</mrow>
+          <mrow>\amp = 2 \left( 16 - \frac{32}{3} + \frac{32}{10} \right) = 2 \left( 16 - \frac{32}{3} + \frac{16}{5} \right)</mrow>
+          <mrow>\amp = 2 \left( \frac{240 - 160 + 48module}{15} \right) = 2 \left( \frac{128}{15} \right) = \frac{256}{15}.</mrow>
+        </md>
+        The total volume of the solid is exactly <m>\frac{256}{15}</m>.
+      </p>
+    </solution>
+  </exercise>
+
+</exercises>
+
+<theorem xml:id="thm-triple-integral-alternate-order">
+  <title>Evaluation Theorem (Alternate Order)</title>
+  <statement>
+    <p>
+      <me>\iiint_Q f(x,y,z)\,dV = \int^b_a \int^{h_2(x)}_{h_1(x)} \int^{k_2(x,z)}_{k_1(x,z)} f(x,y,z)\,dydzdx.</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-volume-parabolic-cylinder-wedge">
+  <statement>
+    <p>
+      Find the volume of the region <m>Q</m> bounded by the graphs of <m>z=3x^2</m>, <m>z=4-x^2</m>, <m>y=0</m>, and <m>z+y=6</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Identify the Projection Region in the <m>xz</m>-plane</strong>
+    </p>
+    <p>
+      The solid is bounded along the <m>y</m>-axis by the vertical plane <m>y = 0</m> on the left and the slanted plane <m>z + y = 6 \implies y = 6 - z</m> on the right. 
+      To find the footprint region <m>R</m> in the <m>xz</m>-plane, we look at where the two parabolic cylinders intersect:
+      <me>3x^2 = 4 - x^2 \implies 4x^2 = 4 \implies x^2 = 1 \implies x = -1, \, x = 1.</me>
+      Evaluating these boundaries at <m>x = 0</m> shows that <m>z = 4 - x^2</m> acts as the upper tracking ceiling and <m>z = 3x^2</m> acts as the lower floor in the <m>xz</m>-plane. The 2D bounds for <m>R</m> are:
+      <me>-1 \leq x \leq 1 \quad \text{and} \quad 3x^2 \leq z \leq 4 - x^2.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 xz-Plane Footprint Diagram -->
+    <figure xml:id="fig-xz-projection-parabolas">
+      <caption>The projection footprint region <m>R</m> in the <m>xz</m>-plane bounded by <m>z=3x^2</m> and <m>z=4-x^2</m>.</caption>
+      <image xml:id="img-xz-projection-parabolas" width="55%">
+        <description>A 2D coordinate plot mapping a region bounded below by an upward opening parabola and above by a downward opening parabola on the interval from x equals negative 1 to positive 1.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=2.0cm, y=1.0cm, >=latex]
+            % Shaded Region R
+            \fill[blue!15] plot[domain=-1:1, samples=40, variable=\x] ({\x}, {4-\x*\x}) -- 
+              plot[domain=1:-1, samples=40, variable=\x] ({\x}, {3*\x*\x}) -- cycle;
+            
+            % Primary Grid Axes (Isometric balanced 1:1 units)
+            \draw[->, thick] (-1.5, 0) -- (1.5, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.4) -- (0, 4.5) node[left] {$z$};
+            
+            % Boundary Curves
+            \draw[blue!80!black, thick, domain=-1.2:1.2, samples=40, variable=\x] plot ({\x}, {3*\x*\x});
+            \draw[blue!80!black, thick, domain=-1.2:1.2, samples=40, variable=\x] plot ({\x}, {4-\x*\x});
+            
+            % Sweep Vector indicating dz integration tracking
+            \draw[->, red, thick] (0.4, 0.48) -- (0.4, 3.84) node[midway, right] {$dz$};
+            
+            % Variable Labels
+            \node[below right, blue!60!black] at (0.8, 1.92) {$z=3x^2$};
+            \node[above right, blue!60!black] at (0.7, 3.5) {$z=4-x^2$};
+            \node at (0, 2.0) {\small Region $R$};
+            
+            % Key Intersections
+            \fill (-1,3) circle (1.5pt) node[left] {$(-1,3)$};
+            \fill (1,3) circle (1.5pt) node[right] {$(1,3)$};
+            \fill (0,4) circle (1.5pt) node[above left] {$(0,4)$};
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Set Up and Evaluate the Volume Integral</strong>
+    </p>
+    <p>
+      Using the requested <m>dy\,dz\,dx</m> iteration format, the triple integral for volume becomes:
+      <me>V = \int_{-1}^{1} \int_{3x^2}^{4-x^2} \int_{0}^{6-z} \, dy \, dz \, dx</me>
+      Evaluating the inner layer with respect to <m>y</m>:
+      <me>\int_{0}^{6-z} 1 \, dy = 6 - z.</me>
+      Substituting into the middle layer and integrating with respect to <m>z</m>:
+      <md>
+        <mrow>\int_{3x^2}^{4-x^2} (6 - z) \, dz \amp = \left[ 6z - \frac{1}{2}z^2 \right]_{3x^2}^{4-x^2}</mrow>
+        <mrow>\amp = \left( 6(4-x^2) - \frac{1}{2}(4-x^2)^2 \right) - \left( 6(3x^2) - \frac{1}{2}(3x^2)^2 \right)</mrow>
+        <mrow>\amp = \left( 24 - 6x^2 - \frac{1}{2}(16 - 8x^2 + x^4) \right) - \left( 18x^2 - \frac{9}{2}x^4 \right)</mrow>
+        <mrow>\amp = \left( 24 - 6x^2 - 8 + 4x^2 - \frac{1}{2}x^4 \right) - 18x^2 + \frac{9}{2}x^4</mrow>
+        <mrow>\amp = 16 - 20x^2 + 4x^4.</mrow>
+      </md>
+      Finally, substituting this even polynomial expression across our symmetric outer limits:
+      <md>
+        <mrow>V \amp = \int_{-1}^{1} (16 - 20x^2 + 4x^4) \, dx = 2\int_{0}^{1} (16 - 20x^2 + 4x^4) \, dx</mrow>
+        <mrow>\amp = 2 \left[ 16x - \frac{20}{3}x^3 + \frac{4}{5}x^5 \right]_{0}^{1} = 2 \left( 16 - \frac{20}{3} + \frac{4}{5} - 0 \right)</mrow>
+        <mrow>\amp = 2 \left( \frac{240 - 100 + 12}{15} \right) = 2 \left( \frac{152}{15} \right) = \frac{304}{15}.</mrow>
+      </md>
+      The total volume of the solid is exactly <m>\frac{304}{15}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-triple-integral-dx-first">
+  <statement>
+    <p>
+      For the solid bounded by the cylinder <m>y=x^2</m> and the planes <m>y+z=4</m> and <m>z=0</m>, set up a triple integral for the volume of this solid in which the first integration is with respect to <m>x</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Set Up Bounds with respect to <m>x</m></strong>
+    </p>
+    <p>
+      To make <m>x</m> the innermost variable of integration, we fix a point <m>(y,z)</m> and find how the solid extends horizontally. Bounded laterally by the cylinder <m>y = x^2</m>, isolating <m>x</m> gives the walls:
+      <me>x = -\sqrt{y} \quad \text{and} \quad x = \sqrt{y}.</me>
+      Thus, our innermost boundary layer spans: <m>-\sqrt{y} \leq x \leq \sqrt{y}</m>.
+    </p>
+    <p>
+      <strong>Step 2: Find the Projection footprint in the <m>yz</m>-plane</strong>
+    </p>
+    <p>
+      Next, we project the boundaries onto the <m>yz</m>-plane. The solid is bounded below by <m>z = 0</m> and capped by the plane <m>y + z = 4</m>. 
+      Because the cylinder wall bounds <m>x</m> for any valid real number where <m>y \geq x^2</m>, it enforces a natural restriction that <m>y \geq 0</m>. 
+      Setting <m>z = 0</m> in the plane equation gives an outer bounding intercept at <m>y = 4</m>. 
+    </p>
+    <p>
+      Viewing this in the <m>yz</m>-plane as a standard 2D region, <m>y</m> varies continuously from <m>0</m> to <m>4</m>. For any fixed value of <m>y</m>, <m>z</m> runs vertically from the floor <m>z = 0</m> up to the line <m>z = 4 - y</m>. The remaining iterated boundary inequalities are:
+      <me>0 \leq y \leq 4 \quad \text{and} \quad 0 \leq z \leq 4 - y.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 yz-Plane Projection Diagram -->
+    <figure xml:id="fig-yz-projection-plane">
+      <caption>The projection footprint region <m>R</m> in the <m>yz</m>-plane bounded by <m>z=0</m>, <m>y=0</m>, and the line <m>z=4-y</m>.</caption>
+      <image xml:id="img-yz-projection-plane" width="55%">
+        <description>A 2D coordinate plot mapping a triangular region bounded by the y-axis, the z-axis, and a downward-sloping line from (0,4) to (4,0).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.2cm, y=1.2cm, >=latex]
+            % Shaded Triangular Region R
+            \fill[blue!15] (0,0) -- (4,0) -- (0,4) -- cycle;
+            
+            % Primary Grid Axes (Isometric balanced 1:1 units)
+            \draw[->, thick] (-0.5, 0) -- (4.8, 0) node[below] {$y$};
+            \draw[->, thick] (0, -0.5) -- (0, 4.8) node[left] {$z$};
+            
+            % Boundary Line (y + z = 4 -> z = 4 - y)
+            \draw[blue!80!black, thick] (0,4) -- (4,0);
+            \draw[blue!80!black, thick] (0,0) -- (4,0);
+            \draw[blue!80!black, thick] (0,0) -- (0,4);
+            
+            % Sweep Vector indicating dz integration tracking
+            \draw[->, red, thick] (1.5, 0.1) -- (1.5, 2.3) node[midway, right] {$dz$};
+            
+            % Variable Labels
+            \node[above right, blue!60!black] at (2.0, 2.0) {$z=4-y$};
+            \node at (0.8, 0.8) {\small Region $R$};
+            
+            % Key Intersections and Intercept Markers
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (4,0) circle (1.5pt) node[below] {$4$};
+            \fill (0,4) circle (1.5pt) node[left] {$4$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      <strong>Step 3: Assemble the Reversed Integral String</strong>
+    </p>
+    <p>
+      Arranging these bounds together into an iterated format (<m>dz\,dy</m> for the outer 2D slice profile) produces:
+      <me>V = \int_{0}^{4} \int_{0}^{4-y} \int_{-\sqrt{y}}^{\sqrt{y}} \, dx \, dz \, dy.</me>
+      (Note: If you prefer grouping by slices matching <m>dy\,dz</m>, the alternate valid sequence is
+       <m>\int_{0}^{4} \int_{0}^{4-z} \int_{-\sqrt{y}}^{\sqrt{y}} \, dx \, dy \, dz</m>).
+    </p>
+  </solution>
+</example>
+
+<exercises xml:id="exercises-triple-integrals-advanced">
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 1                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-tetrahedron-six-orders">
+    <statement>
+      <p>
+        Write six different iterated triple integrals for the volume of the tetrahedron cut from the first octant by the plane <m>6x+3y+2z=6</m>. Evaluate one of the integrals.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Identify Intercepts and Bounds</strong>
+      </p>
+      <p>
+        In the first octant, the bounding constraints are <m>x \geq 0</m>, <m>y \geq 0</m>, and <m>z \geq 0</m>. The intercepts of the bounding plane <m>6x+3y+2z=6</m> with the axes are:
+        <ul>
+          <li><p><m>x</m>-intercept: Set <m>y=0, z=0 \implies 6x=6 \implies x=1</m></p></li>
+          <li><p><m>y</m>-intercept: Set <m>x=0, z=0 \implies 3y=6 \implies y=2</m></p></li>
+          <li><p><m>z</m>-intercept: Set <m>x=0, y=0 \implies 2z=6 \implies z=3</m></p></li>
+        </ul>
+      </p>
+      <p>
+        <strong>Step 2: Generate the Six Iterated Order Formats</strong>
+      </p>
+      <p>
+        By isolating variables sequentially, we get the following six equivalent iterated setup strings:
+      </p>
+      <ol label="1">
+        <li>
+          <p>
+            Order <m>dz\,dy\,dx</m>:
+            <me>V = \int_{0}^{1} \int_{0}^{2-2x} \int_{0}^{3-3x-\frac{3}{2}y} \, dz\,dy\,dx</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Order <m>dz\,dx\,dy</m>:
+            <me>V = \int_{0}^{2} \int_{0}^{1-\frac{1}{2}y} \int_{0}^{3-3x-\frac{3}{2}y} \, dz\,dx\,dy</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Order <m>dy\,dz\,dx</m>:
+            <me>V = \int_{0}^{1} \int_{0}^{3-3x} \int_{0}^{2-2x-\frac{2}{3}z} \, dy\,dz\,dx</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Order <m>dy\,dx\,dz</m>:
+            <me>V = \int_{0}^{3} \int_{0}^{1-\frac{1}{3}z} \int_{0}^{2-2x-\frac{2}{3}z} \, dy\,dx\,dz</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Order <m>dx\,dz\,dy</m>:
+            <me>V = \int_{0}^{2} \int_{0}^{3-\frac{3}{2}y} \int_{0}^{1-\frac{1}{2}y-\frac{1}{3}z} \, dx\,dz\,dy</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Order <m>dx\,dy\,dz</m>:
+            <me>V = \int_{0}^{3} \int_{0}^{2-\frac{2}{3}z} \int_{0}^{1-\frac{1}{2}y-\frac{1}{3}z} \, dx\,dy\,dz</me>
+          </p>
+        </li>
+      </ol>
+
+      <!-- Isometric 1:1 Base Projection Figure for dz dy dx layout -->
+      <figure xml:id="fig-tetrahedron-xy-base">
+        <caption>The 2D projection footprint <m>R</m> of the tetrahedron in the <m>xy</m>-plane.</caption>
+        <image xml:id="img-tetrahedron-xy-base" width="50%">
+          <description>A 2D plot mapping a right-triangular base area from x=0 to x=1 and y=0 to y=2 with a vertical tracking sweep line.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x=3.0cm, y=1.5cm, >=latex]
+              % Shaded Triangular Region
+              \fill[blue!15] (0,0) -- (1,0) -- (0,2) -- cycle;
+              
+              % Coordinate Axes (Isometric balanced aspect ratio)
+              \draw[->, thick] (-0.2, 0) -- (1.4, 0) node[below] {$x$};
+              \draw[->, thick] (0, -0.3) -- (0, 2.4) node[left] {$y$};
+              
+              % Boundary Line (6x + 3y = 6 -> y = 2 - 2x)
+              \draw[blue!80!black, thick] (0,2) -- (1,0);
+              \draw[blue!80!black, thick] (0,0) -- (1,0);
+              \draw[blue!80!black, thick] (0,0) -- (0,2);
+              
+              % Sweep Vector
+              \draw[->, red, thick] (0.4, 0.1) -- (0.4, 1.0) node[midway, above right] {$dy$};
+              
+              % Metadata Labels
+              \node[above right, blue!60!black] at (0.5, 1.0) {$y=2-2x$};
+              \node at (0.25, 0.3) {\small Region $R$};
+              \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+              \fill (1,0) circle (1.5pt) node[below] {$1$};
+              \fill (0,2) circle (1.5pt) node[left] {$2$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 3: Evaluate One of the Integrals</strong>
+      </p>
+      <p>
+        Let's evaluate the first order sequence (<m>dz\,dy\,dx</m>):
+      </p>
+      <md>
+        <mrow>V \amp = \int_{0}^{1} \int_{0}^{2-2x} \left(3 - 3x - \frac{3}{2}y\right) \, dy\,dx</mrow>
+        <mrow>\amp = \int_{0}^{1} \left[ (3-3x)y - \frac{3}{4}y^2 \right]_{y=0}^{y=2-2x} \, dx</mrow>
+        <mrow>\amp = \int_{0}^{1} \left( 3(1-x)(2(1-x)) - \frac{3}{4}(2(1-x))^2 \right) \, dx</mrow>
+        <mrow>\amp = \int_{0}^{1} \left( 6(1-x)^2 - 3(1-x)^2 \right) \, dx = \int_{0}^{1} 3(1-x)^2 \, dx</mrow>
+        <mrow>\amp = \Big[ -(1-x)^3 \Big]_{0}^{1} = 0 - (-1) = 1.</mrow>
+      </md>
+      <p>
+        The volume of the tetrahedron is exactly <m>1</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 2                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-volume-intersecting-cylinders-advanced">
+    <statement>
+      <p>
+        Find the volume of the region common to the interiors of the cylinders <m>x^2+y^2=1</m> and <m>x^2+z^2=1</m> 
+        (known as a Steinmetz solid).
+      </p>
+    </statement>
+    <solution>
+      <p> <strong>Step 1: Set Up the Volume Integral Limits</strong> </p>
+    <p>
+      By symmetry, the solid is composed of 8 identical parts distributed symmetrically across all octants. 
+      Let's find the volume in the first octant (<m>x,y,z \geq 0</m>) and multiply by 8.
+    </p>
+    <p>
+      In the first octant, the ceiling boundary is given by isolating <m>z</m> from the second cylinder: 
+      <m>z = \sqrt{1-x^2}</m>. 
+      The base region <m>R</m> in the <m>xy</m>-plane is a quarter-circle bounded by 
+      <m>x^2+y^2=1 \implies y = \sqrt{1-x^2}</m>. 
+      Thus, the first octant boundaries are:
+      <me>0 \leq x \leq 1, \quad 0 \leq y \leq \sqrt{1-x^2}, \quad 0 \leq z \leq \sqrt{1-x^2}.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 xy-Plane Projection Diagram -->
+    <figure xml:id="fig-steinmetz-xy-base">
+      <caption>The projection footprint region <m>R</m> of the Steinmetz solid in the <m>xy</m>-plane (First Octant).</caption>
+      <image xml:id="img-steinmetz-xy-base" width="50%">
+        <description>A 2D coordinate plot mapping a quarter-circle base region of radius 1 sitting strictly inside the first quadrant with a vertical tracking sweep line indicating the integration order.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=3.0cm, y=3.0cm, >=latex]
+            % Shaded Quarter-Disk Region R
+            \fill[blue!15, domain=0:90, samples=50, variable=\t] (0,0) -- plot ({1*cos(\t)}, {1*sin(\t)}) -- cycle;
+            
+            % Primary Grid Axes (Isometric balanced 1:1 units)
+            \draw[->, thick] (-0.2, 0) -- (1.4, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.2) -- (0, 1.4) node[left] {$y$};
+            
+            % Boundary Circular Path Segment (Radius = 1)
+            \draw[blue!80!black, thick, domain=0:90, samples=50, variable=\t] plot ({1*cos(\t)}, {1*sin(\t)});
+            \draw[blue!80!black, thick] (0,0) -- (1,0);
+            \draw[blue!80!black, thick] (0,0) -- (0,1);
+            
+            % Sweep Vector indicating dy integration tracking
+            \draw[->, red, thick] (0.5, 0.05) -- (0.5, 0.78) node[midway, right] {$dy$};
+            
+            % Variable Labels
+            \node[above right, blue!60!black] at (45:1.0) {$x^2+y^2=1$};
+            \node at (0.35, 0.15) {\small Region $R$};
+            
+            % Key Intersections and Intercept Markers
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1,0) circle (1.5pt) node[below] {$1$};
+            \fill (0,1) circle (1.5pt) node[left] {$1$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+      <p>
+        <strong>Step 2: Evaluate the Triple Integral</strong>
+      </p>
+      <p>
+        Multiplying our first-octant slice by 8:
+        <me>V = 8 \int_{0}^{1} \int_{0}^{\sqrt{1-x^2}} \int_{0}^{\sqrt{1-x^2}} \, dz\,dy\,dx</me>
+        Integrating with respect to <m>z</m> first:
+        <me>\int_{0}^{\sqrt{1-x^2}} 1 \, dz = \sqrt{1-x^2}.</me>
+        Substituting into the middle layer and integrating with respect to <m>y</m>:
+        <me>\int_{0}^{\sqrt{1-x^2}} \sqrt{1-x^2} \, dy = \left[ y\sqrt{1-x^2} \right]_{y=0}^{y=\sqrt{1-x^2}} = (\sqrt{1-x^2})^2 = 1 - x^2.</me>
+        Finally, integrating with respect to <m>x</m>:
+        <me>V = 8 \int_{0}^{1} (1-x^2) \, dx = 8 \left[ x - \frac{1}{3}x^3 \right]_{0}^{1} = 8 \left(1 - \frac{1}{3}\right) = 8 \cdot \frac{2}{3} = \frac{16}{3}.</me>
+        The total volume of the intersection region common to both cylinders is exactly <m>\frac{16}{3}</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ========================================== -->
+  <!-- EXERCISE 3                                 -->
+  <!-- ========================================== -->
+  <exercise xml:id="ex-volume-between-two-planes">
+    <statement>
+      <p>
+        Find the volume of the region between the planes <m>x+y+2z=2</m> and <m>2x+2y+z=4</m> in the first octant.
+      </p>
+    </statement>
+    <solution>
+          <p>
+      <strong>Step 1: Determine the Plane Intersections and Projection Footprint</strong>
+    </p>
+    <p>
+      We express the height function <m>z</m> for both planes to determine which function acts as the upper ceiling inside the first octant:
+      <ul>
+        <li><p>Plane 1: <m>z_1 = 1 - \frac{1}{2}x - \frac{1}{2}y</m></p></li>
+        <li><p>Plane 2: <m>z_2 = 4 - 2x - 2y</m></p></li>
+      </ul>
+      Setting <m>z_1 = z_2</m> reveals where they intersect in the <m>xy</m>-plane:
+      <me>1 - \frac{1}{2}x - \frac{1}{2}y = 4 - 2x - 2y \implies \frac{3}{2}x + \frac{3}{2}y = 3 \implies x + y = 2.</me>
+      On the triangular region bounded by the coordinate lines and <m>x+y=2</m>, we evaluate a test coordinate point, e.g., <m>(0,0)</m>. Here, <m>z_2 = 4</m> and <m>z_1 = 1</m>. Thus, Plane 2 acts as the upper boundary and Plane 1 acts as the lower boundary.
+    </p>
+    <p>
+      The 2D footprint region <m>R</m> in the <m>xy</m>-plane is bounded by the coordinate axes <m>x=0</m>, <m>y=0</m>, and the intersection line <m>y = 2-x</m>. Treating this as a Type I domain yields:
+      <me>0 \leq x \leq 2 \quad \text{and} \quad 0 \leq y \leq 2-x.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 xy-Plane Projection Diagram -->
+    <figure xml:id="fig-planes-xy-base">
+      <caption>The projection footprint region <m>R</m> in the <m>xy</m>-plane bounded by the coordinate axes and the intersection line <m>x+y=2</m>.</caption>
+      <image xml:id="img-planes-xy-base" width="50%">
+        <description>A 2D coordinate plot mapping a triangular base region from x=0 to x=2 and y=0 to y=2 with a vertical tracking sweep line indicating the integration order.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=2.0cm, y=2.0cm, >=latex]
+            % Shaded Triangular Base Region R
+            \fill[blue!15] (0,0) -- (2,0) -- (0,2) -- cycle;
+            
+            % Primary Grid Axes (Isometric balanced 1:1 units)
+            \draw[->, thick] (-0.3, 0) -- (2.6, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.3) -- (0, 2.6) node[left] {$y$};
+            
+            % Boundary Lines
+            \draw[blue!80!black, thick] (0,2) -- (2,0);
+            \draw[blue!80!black, thick] (0,0) -- (2,0);
+            \draw[blue!80!black, thick] (0,0) -- (0,2);
+            
+            % Sweep Vector indicating dy integration tracking
+            \draw[->, red, thick] (0.6, 0.05) -- (0.6, 1.3) node[midway, right] {$dy$};
+            
+            % Variable Labels
+            \node[above right, blue!60!black] at (1.0, 1.0) {$y=2-x$};
+            \node at (0.5, 0.3) {\small Region $R$};
+            
+            % Key Intersections and Intercept Markers
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (2,0) circle (1.5pt) node[below] {$2$};
+            \fill (0,2) circle (1.5pt) node[left] {$2$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+      <p>
+        <strong>Step 2: Evaluate the Volume Difference Integral</strong>
+      </p>
+      <p>
+        The 2D footprint region <m>R</m> is a triangle bounded by <m>x=0, y=0</m>, and <m>y = 2-x</m>. Setting up the volume integral as a difference between the two surfaces:
+        <me>V = \int_{0}^{2} \int_{0}^{2-x} \int_{1 - \frac{1}{2}x - \frac{1}{2}y}^{4 - 2x - 2y} \, dz\,dy\,dx</me>
+        Evaluating the inner integral yields the height difference:
+        <me>\int_{1 - \frac{1}{2}x - \frac{1}{2}y}^{4 - 2x - 2y} 1 \, dz = (4 - 2x - 2y) - \left(1 - \frac{1}{2}x - \frac{1}{2}y\right) = 3 - \frac{3}{2}x - \frac{3}{2}y = \frac{3}{2}(2 - x - y).</me>
+        Now, integrating the middle layer with respect to <m>y</m>:
+        <md>
+          <mrow>\frac{3}{2} \int_{0}^{2-x} (2 - x - y) \, dy \amp = \frac{3}{2} \left[ (2-x)y - \frac{1}{2}y^2 \right]_{0}^{2-x}</mrow>
+          <mrow>\amp = \frac{3}{2} \left( (2-x)^2 - \frac{1}{2}(2-x)^2 \right) = \frac{3}{4}(2-x)^2.</mrow>
+        </md>
+        Finally, evaluating the outer single variable integral with respect to <m>x</m>:
+        <me>V = \int_{0}^{2} \frac{3}{4}(2-x)^2 \, dx = \left[ -\frac{1}{4}(2-x)^3 \right]_{0}^{2} = 0 - \left( -\frac{1}{4}(8) \right) = 2.</me>
+        The volume enclosed between the two planes in the first octant is exactly <m>2</m>.
+      </p>
+    </solution>
+  </exercise>
+
+</exercises>
+
     
 
     </section>
