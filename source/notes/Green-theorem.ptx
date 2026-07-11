@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-Green-theorem">
+    <title>5.3 Green's Theorem</title>
+    <introduction>
+        <p>
+            Green's Theorem is a fundamental result in vector calculus that relates the line integral of a vector field around a simple closed curve to the double integral of the curl of the field over the region enclosed by the curve.
+        </p>
+        <p>
+            In this section, we will explore the statement and proof of Green's Theorem, as well as its applications in calculating areas and evaluating line integrals.
+        </p>
+    </introduction>
+<definition xml:id="def-conservative-field">
+  <title>Conservative Vector Field</title>
+  <statement>
+    <p>
+      Suppose <m>\mathbf{F}</m> is a vector field that is continuous on an open connected region <m>D</m>. If <m>\int_C \mathbf{F} \cdot d\mathbf{r}</m> is independent of path in <m>D</m>, then <m>\mathbf{F}</m> is a <term>conservative vector field</term> on <m>D</m>. 
+    </p>
+    <p>
+      Equivalently, if there exists a differentiable scalar function <m>f</m> such that:
+      <me>\mathbf{F} = P\mathbf{i} + Q\mathbf{j} = \frac{\partial f}{\partial x}\mathbf{i} + \frac{\partial f}{\partial y}\mathbf{j} = \nabla f,</me>
+      then <m>\mathbf{F}</m> is conservative, and <m>f</m> is called a <term>potential function</term> for <m>\mathbf{F}</m>, where <m>f(x,y) = \int_C \mathbf{F} \cdot d\mathbf{r}</m>.
+    </p>
+  </statement>
+</definition>
+
+<theorem xml:id="thm-component-test-conservative">
+  <title>Component Test for Conservative Vector Fields</title>
+  <statement>
+    <p>
+      Let <m>\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j}</m> be a vector field on a simply-connected domain <m>D</m>, where <m>P</m> and <m>Q</m> have continuous first-order partial derivatives. Then <m>\mathbf{F}</m> is a conservative vector field if and only if:
+      <me>\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}</me>
+      throughout <m>D</m>.
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-test-conservative-field">
+  <statement>
+    <p>
+      Determine whether or not the vector field:
+      <me>\mathbf{F}(x,y) = (x-y)\mathbf{i} + (x-2)\mathbf{j}</me>
+      is conservative.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Identify Component Functions</strong>
+    </p>
+    <p>
+      We match the given vector field to the standard component form <m>\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j}</m>:
+      <me>P(x,y) = x - y \quad \text{and} \quad Q(x,y) = x - 2.</me>
+    </p>
+    <p>
+      <strong>Step 2: Compute and Compare Cross-Partial Derivatives</strong>
+    </p>
+    <p>
+      We apply the component test from <xref ref="thm-component-test-conservative" /> by taking partial derivatives:
+      <ul>
+        <li>
+          <p>
+            Differentiate <m>P</m> with respect to <m>y</m> (treating <m>x</m> as a constant):
+            <me>\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(x - y) = -1.</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Differentiate <m>Q</m> with respect to <m>x</m> (treating <m>y</m> as a constant):
+            <me>\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(x - 2) = 1.</me>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      <strong>Step 3: Conclusion</strong>
+    </p>
+    <p>
+      Comparing the results, we see that:
+      <me>\frac{\partial P}{\partial y} = -1 \quad \neq \quad \frac{\partial Q}{\partial x} = 1.</me>
+      Because the cross-partial derivatives are not equal (<m>\frac{\partial P}{\partial y} \neq \frac{\partial Q}{\partial x}</m>), the vector field <m>\mathbf{F}(x,y)</m> fails the component test. Therefore, <m>\mathbf{F}</m> is <strong>not conservative</strong>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-test-conservative-field-polynomial">
+  <statement>
+    <p>
+      Determine whether or not the vector field:
+      <me>\mathbf{F}(x,y) = (3+2xy)\mathbf{i} + (x^2-3y^2)\mathbf{j}</me>
+      is conservative.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Identify Component Functions</strong>
+    </p>
+    <p>
+      We match the given vector field to the standard component form <m>\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j}</m>:
+      <me>P(x,y) = 3 + 2xy \quad \text{and} \quad Q(x,y) = x^2 - 3y^2.</me>
+    </p>
+    <p>
+      <strong>Step 2: Compute and Compare Cross-Partial Derivatives</strong>
+    </p>
+    <p>
+      We take the cross-partial derivatives of the component functions:
+      <ul>
+        <li>
+          <p>
+            Differentiate <m>P</m> with respect to <m>y</m> (holding <m>x</m> constant):
+            <me>\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(3 + 2xy) = 2x.</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Differentiate <m>Q</m> with respect to <m>x</m> (holding <m>y</m> constant):
+            <me>\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(x^2 - 3y^2) = 2x.</me>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      <strong>Step 3: Conclusion</strong>
+    </p>
+    <p>
+      Comparing the results, we see that:
+      <me>\frac{\partial P}{\partial y} = 2x \quad = \quad \frac{\partial Q}{\partial x} = 2x.</me>
+      Because <m>\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}</m> continuously throughout the entire <m>\mathbb{R}^2</m> plane, the component test is satisfied. Therefore, the vector field <m>\mathbf{F}(x,y)</m> is <strong>conservative</strong>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-find-potential-and-integrate">
+  <statement>
+    <p>
+      If <m>\mathbf{F}(x,y) = (3+2xy)\mathbf{i} + (x^2-3y^2)\mathbf{j}</m>, find a function <m>f</m> such that <m>\mathbf{F} = \nabla f</m>. 
+      Then evaluate the line integral <m>\int_C \mathbf{F} \cdot d\mathbf{r}</m>, where <m>C</m> is the curve given by:
+      <me>\mathbf{r}(t) = e^t\sin t\mathbf{i} + e^t\cos t\mathbf{j}, \quad 0 \leq t \leq \pi.</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Part 1: Find the Potential Function <m>f(x,y)</m></strong>
+    </p>
+    <p>
+      We require <m>\nabla f = \langle f_x, f_y \rangle = \langle P, Q \rangle</m>. This gives two conditions:
+      <me>(1) \quad f_x(x,y) = 3 + 2xy \qquad \text{and} \quad (2) \quad f_y(x,y) = x^2 - 3y^2.</me>
+      Integrating equation (1) with respect to <m>x</m>, treating <m>y</m> as a constant, we introduce a constant-of-integration function <m>g(y)</m>:
+      <me>f(x,y) = \int (3 + 2xy)\,dx = 3x + x^2y + g(y).</me>
+      To find <m>g(y)</m>, we take the partial derivative of this expression with respect to <m>y</m> and set it equal to equation (2):
+      <me>f_y(x,y) = \frac{\partial}{\partial y}\left(3x + x^2y + g(y)\right) = x^2 + g'(y).</me>
+      Matching this with equation (2):
+      <me>x^2 + g'(y) = x^2 - 3y^2 \implies g'(y) = -3y^2.</me>
+      Integrating <m>g'(y)</m> with respect to <m>y</m> yields <m>g(y) = -y^3 + C</m>. Setting the constant <m>C = 0</m>, our potential function is:
+      <me>f(x,y) = 3x + x^2y - y^3.</me>
+    </p>
+    <p>
+      <strong>Part 2: Evaluate the Line Integral</strong>
+    </p>
+    <p>
+      Because <m>\mathbf{F}</m> is conservative, we use the Fundamental Theorem of Line Integrals: <m>\int_C \mathbf{F} \cdot d\mathbf{r} = f(\mathbf{r}(\pi)) - f(\mathbf{r}(0))</m>. We determine the initial and terminal points from the parameter values:
+      <ul>
+        <li><p>Initial Point (<m>t=0</m>): <m>\mathbf{r}(0) = \langle e^0\sin(0), e^0\cos(0) \rangle = \langle 0, 1 \rangle</m>.</p></li>
+        <li><p>Terminal Point (<m>t=\pi</m>): <m>\mathbf{r}(\pi) = \langle e^\pi\sin(\pi), e^\pi\cos(\pi) \rangle = \langle 0, -e^\pi \rangle</m>.</p></li>
+      </ul>
+      Now, evaluating the potential function at these points:
+      <md>
+        <mrow>f(\mathbf{r}(\pi)) = f(0, -e^\pi) \amp = 3(0) + (0)^2(-e^\pi) - (-e^\pi)^3 = e^{3\pi}</mrow>
+        <mrow>f(\mathbf{r}(0)) = f(0, 1) \amp = 3(0) + (0)^2(1) - (1)^3 = -1.</mrow>
+      </md>
+      Subtracting the initial value from the terminal value:
+      <me>\int_C \mathbf{F} \cdot d\mathbf{r} = e^{3\pi} - (-1) = e^{3\pi} + 1.</me>
+      The value of the vector line integral is exactly <m>e^{3\pi} + 1</m>.
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="exercise-find-potential-3d">
+  <statement>
+    <p>
+      If <m>\mathbf{F}(x,y,z) = y^2\mathbf{i} + (2xy+e^{3z})\mathbf{j} + 3ye^{3z}\mathbf{k}</m>, find a function <m>f</m> such that <m>\nabla f = \mathbf{F}</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We need to find a scalar function <m>f(x,y,z)</m> such that its gradient equals the component functions <m>\langle P, Q, R \rangle</m>:
+      <me>(1) \quad f_x = y^2, \qquad (2) \quad f_y = 2xy + e^{3z}, \qquad (3) \quad f_z = 3ye^{3z}.</me>
+    </p>
+    <p>
+      We integrate equation (1) with respect to <m>x</m>, treating <m>y</m> and <m>z</m> as constant factors, which introduces an integration function <m>g(y,z)</m>:
+      <me>f(x,y,z) = \int y^2 \,dx = xy^2 + g(y,z).</me>
+    </p>
+    <p>
+      To find <m>g(y,z)</m>, we differentiate this expression with respect to <m>y</m> and equate it to equation (2):
+      <me>f_y = \frac{\partial}{\partial y}\left(xy^2 + g(y,z)\right) = 2xy + \frac{\partial g}{\partial y}.</me>
+      Matching this with equation (2) gives:
+      <me>2xy + \frac{\partial g}{\partial y} = 2xy + e^{3z} \implies \frac{\partial g}{\partial y} = e^{3z}.</me>
+      Integrating this partial derivative with respect to <m>y</m> introduces an integration constant function <m>h(z)</m> depending only on <m>z</m>:
+      <me>g(y,z) = \int e^{3z}\,dy = ye^{3z} + h(z).</me>
+      Substituting <m>g(y,z)</m> back into our expression for <m>f</m> updates the potential function equation:
+      <me>f(x,y,z) = xy^2 + ye^{3z} + h(z).</me>
+    </p>
+    <p>
+      Finally, we differentiate this updated equation with respect to <m>z</m> and compare it with equation (3):
+      <me>f_z = \frac{\partial}{\partial z}\left(xy^2 + ye^{3z} + h(z)\right) = 3ye^{3z} + h'(z).</me>
+      Matching this with equation (3) shows:
+      <me>3ye^{3z} + h'(z) = 3ye^{3z} \implies h'(z) = 0 \implies h(z) = C.</me>
+      Choosing the constant <m>C = 0</m>, our final 3D potential function is:
+      <me>f(x,y,z) = xy^2 + ye^{3z}.</me>
+    </p>
+  </solution>
+</exercise>
+
+    <definition xml:id="def-green-theorem">
+        <title>Green's Theorem</title>
+        <statement>
+            <p>
+                Let <m>C</m> be a positively oriented, piecewise smooth, simple closed curve in the plane, and let <m>D</m> be the region bounded by <m>C</m>. If <m>P(x,y)</m> and <m>Q(x,y)</m> have continuous partial derivatives on an open region that contains <m>D</m>, then
+            </p>
+            <me>\oint_C (P \, dx + Q \, dy) = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA.</me>
+        </statement>
+    </definition>
+
+    <example xml:id="ex-green-theorem-application">
+        <statement>
+            <p>
+                Use Green's Theorem to evaluate the line integral of the vector field <m>\mathbf{F}(x,y) = (y^2, x^2)</m> around the unit circle centered at the origin.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                First, we identify the components of the vector field: <m>P(x,y) = y^2</m> and <m>Q(x,y) = x^2</m>. We compute their partial derivatives:
+            </p>
+            <ul>
+                <li><p><m>\frac{\partial Q}{\partial x} = 2x</m></p></li>
+                <li><p><m>\frac{\partial P}{\partial y} = 2y</m></p></li>
+            </ul>
+            <p>
+                Applying Green's Theorem, we have:
+            </p>
+            <me>\oint_C (y^2 \, dx + x^2 \,dy) = \iint_D (2x - 2y) \, dA.</me>
+            <p>
+                The region <m>D</m> is the unit disk, which can be described in polar coordinates as <m>0 \leq r \leq 1</m> and <m>0 \leq \theta \leq 2\pi</m>. 
+                The double integral becomes:
+            </p>
+            <me>\iint_D (2r\cos\theta - 2r\sin\theta) \, r \, dr \, d\theta = \int_0^{2\pi} \int_0^1 (2r^2\cos\theta - 2r^2\sin\theta) \, dr \, d\theta.</me>
+            <p>
+                Evaluating the inner integral with respect to <m>r</m>:
+            </p>
+            <me>\int_0^1 (2r^2\cos\theta - 2r^2\sin\theta) \, dr = \left[ \frac{2r^3}{3}\cos\theta - \frac{2r^3}{3}\sin\theta \right]_0^1 = \frac{2}{3}(\cos\theta - \sin\theta).</me>
+            <p>
+                Now, we integrate with respect to <m>\theta</m>:
+            </p>
+            <me>\int_0^{2\pi} \frac{2}{3}   (\cos\theta - \sin\theta) \, d\theta = \frac{2}{3} \left[ \sin\theta + \cos\theta \right]_0^{2\pi} = 0.</me>
+            <p>
+                Therefore, the value of the line integral is <m>0</m>.
+            </p>    
+            
+        </solution>
+    </example>  
+
+<assemblage xml:id="asm-closed-loop-integral">
+  <title>Closed Loop Notation</title>
+  <p>
+    The notation <m>\displaystyle \oint_C P\,dx + Q\,dy</m> is used to indicate that a line integral is evaluated around a closed curve <m>C</m> using its positive (counterclockwise) orientation.
+  </p>
+</assemblage>
+
+<assemblage xml:id="asm-greens-theorem-boundary">
+  <title>Boundary Notation in Green's Theorem</title>
+  <p>
+    If the positively oriented closed boundary curve of a planar region <m>D</m> is denoted by <m>\partial D</m>, the mathematical statement for Green's Theorem can be compactly written as:
+    <me>\iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA = \int_{\partial D} P\,dx + Q\,dy = \oint_{\partial D} P\,dx + Q\,dy.</me>
+  </p>
+</assemblage>
+
+<example xml:id="ex-greens-theorem-triangle">
+  <statement>
+    <p>
+      Evaluate <m>\oint_C x^4\,dx + xy\,dy</m>, where <m>C</m> is the triangular curve consisting of the line segments from <m>(0,0)</m> to <m>(1,0)</m>, from <m>(1,0)</m> to <m>(0,1)</m>, and from <m>(0,1)</m> to <m>(0,0)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Analyze the Path and Identify Boundary Components</strong>
+    </p>
+    <p>
+      The path <m>C</m> forms a closed, counterclockwise triangular loop enclosing a first-quadrant region <m>D</m>. Because <m>C</m> matches the definition of a positively oriented boundary curve, we can evaluate this line integral easily using Green's Theorem:
+      <me>\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA.</me>
+    </p>
+    <p>
+      First, we isolate our component fields from the given line integral string:
+      <me>P(x,y) = x^4 \quad \text{and} \quad Q(x,y) = xy.</me>
+      Next, we calculate their respective first-order partial derivatives:
+      <me>\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(x^4) = 0 \quad \text{and} \quad \frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(xy) = y.</me>
+      This transforms our double integrand expression into:
+      <me>\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = y - 0 = y.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 Triangular Loop Path Figure -->
+    <figure xml:id="fig-greens-triangle-path">
+      <caption>The positively oriented closed triangular path <m>C = \partial D</m> enclosing region <m>D</m>.</caption>
+      <image xml:id="img-greens-triangle-path" width="55%">
+        <description>A 2D coordinate plot mapping a triangular closed loop moving counterclockwise from (0,0) to (1,0) to (0,1) and back to the origin.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=2.2cm, y=2.2cm, >=latex]
+            % Shaded Enclosed Interior Region D
+            \fill[blue!15] (0,0) -- (1,0) -- (0,1) -- cycle;
+            
+            % Primary Grid Axes (Isometric balanced 1:1 layout)
+            \draw[->, thick] (-0.2, 0) -- (1.4, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.2) -- (0, 1.4) node[left] {$y$};
+            
+            % Closed Directed Boundary Path Lines
+            \draw[blue!80!black, thick] (0,0) -- (1,0);
+            \draw[blue!80!black, thick] (1,0) -- (0,1);
+            \draw[blue!80!black, thick] (0,1) -- (0,0);
+            
+            % Explicit orientation indicator arrowheads along the path vector lines
+            \draw[->, red, thick] (0.4, 0) -- (0.5, 0);
+            \draw[->, red, thick] (0.6, 0.4) -- (0.5, 0.5);
+            \draw[->, red, thick] (0, 0.6) -- (0, 0.5);
+            
+            % Labels and Key Intercept Coordinates
+            \node[below, blue!60!black] at (0.5, -0.05) {$y=0$};
+            \node[above right, blue!60!black] at (0.5, 0.5) {$y=1-x$};
+            \node[left, blue!60!black] at (-0.05, 0.5) {$x=0$};
+            \node at (0.3, 0.3) {\small Region $D$};
+            
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1,0) circle (1.5pt) node[below right] {$(1,0)$};
+            \fill (0,1) circle (1.5pt) node[above left] {$(0,1)$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Set Up and Evaluate the Double Region Integral</strong>
+    </p>
+    <p>
+      The triangular region <m>D</m> is bounded below by the <m>x</m>-axis (<m>y=0</m>) and above by the slanted line path connecting <m>(1,0)</m> and <m>(0,1)</m>, which gives the equation <m>y = 1-x</m>. Treating <m>D</m> as a Type I domain, our variable bounds span:
+      <me>0 \leq x \leq 1 \quad \text{and} \quad 0 \leq y \leq 1-x.</me>
+      Applying Green's Theorem, we set up and evaluate the iterated integral:
+      <me>\oint_C x^4\,dx + xy\,dy = \int_{0}^{1} \int_{0}^{1-x} y \, dy \, dx</me>
+      Evaluating the inner variable layer with respect to <m>y</m>:
+      <me>\int_{0}^{1-x} y \, dy = \left[ \frac{1}{2}y^2 \right]_{0}^{1-x} = \frac{1}{2}(1-x)^2 = \frac{1}{2}(1 - 2x + x^2).</me>
+      Substituting this expression into our outer layer and evaluating with respect to <m>x</m>:
+      <md>
+        <mrow>\int_{0}^{1} \frac{1}{2}(1 - 2x + x^2) \, dx \amp = \frac{1}{2} \left[ x - x^2 + \frac{1}{3}x^3 \right]_{0}^{1}</mrow>
+        <mrow>\amp = \frac{1}{2} \left( 1 - (1)^2 + \frac{1}{3}(1)^3 - 0 \right)</mrow>
+        <mrow>\amp = \frac{1}{2} \left( 1 - 1 + \frac{1}{3} \right) = \frac{1}{2}\left(\frac{1}{3}\right) = \frac{1}{6}.</mrow>
+      </md>
+      The value of the closed-loop line integral evaluated via Green's Theorem is exactly <m>\frac{1}{6}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-greens-theorem-circle">
+  <statement>
+    <p>
+      Evaluate <m>\oint_C(3y-e^{\sin x})\,dx + (7x+\sqrt{y^4+1})\,dy</m>, where <m>C</m> is the circle <m>x^2+y^2=9</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Compute Partial Derivatives and Apply Green's Theorem</strong>
+    </p>
+    <p>
+      The path <m>C</m> is a closed circle centered at the origin with a radius of <m>r=3</m>, oriented counterclockwise. Evaluating this coordinate line integral directly would be extremely difficult due to the transcendental terms <m>e^{\sin x}</m> and <m>\sqrt{y^4+1}</m>. Instead, we match the terms to component fields:
+      <me>P(x,y) = 3y - e^{\sin x} \quad \text{and} \quad Q(x,y) = 7x + \sqrt{y^4+1}.</me>
+      Next, we calculate their respective first-order partial derivatives:
+      <me>\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(3y - e^{\sin x}) = 3,</me>
+      <me>\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(7x + \sqrt{y^4+1}) = 7.</me>
+      By Green's Theorem, the closed line integral transforms into a double integral over the circular interior region <m>D</m>:
+      <me>\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA = \iint_D (7 - 3) \, dA = \iint_D 4 \, dA.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 Circular Boundary Track Figure -->
+    <figure xml:id="fig-greens-circular-path">
+      <caption>The positively oriented boundary circle <m>C: x^2 + y^2 = 9</m> enclosing region <m>D</m>.</caption>
+      <image xml:id="img-greens-circular-path" width="60%">
+        <description>A 2D coordinate plot showing a counterclockwise oriented circle of radius 3 centered at the origin enclosing a shaded disk region D.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=0.7cm, y=0.7cm, >=latex]
+            % Shaded Interior Region D
+            \fill[blue!15, domain=0:360, samples=80, variable=\t] plot ({3*cos(\t)}, {3*sin(\t)}) -- cycle;
+            
+            % Primary Grid Axes (Isometric balanced 1:1 layout)
+            \draw[->, thick] (-4.0, 0) -- (4.0, 0) node[below] {$x$};
+            \draw[->, thick] (0, -4.0) -- (0, 4.0) node[left] {$y$};
+            
+            % Closed Directed Boundary Path Lines
+            \draw[blue!80!black, thick, domain=0:360, samples=80, variable=\t] plot ({3*cos(\t)}, {3*sin(\t)});
+            
+            % Explicit orientation indicator arrowheads along the path circle track
+            \draw[->, red, thick] (45:3) -- (46:3);
+            \draw[->, red, thick] (135:3) -- (136:3);
+            \draw[->, red, thick] (225:3) -- (226:3);
+            \draw[->, red, thick] (315:3) -- (316:3);
+            
+            % Labels and Key Intercept Coordinates
+            \node[above right, blue!60!black] at (30:3.0) {$x^2+y^2=9$};
+            \node at (0.8, -0.8) {\small Region $D$};
+            
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (3,0) circle (1.5pt) node[below right] {$3$};
+            \fill (-3,0) circle (1.5pt) node[below left] {$-3$};
+            \fill (0,3) circle (1.5pt) node[above left] {$3$};
+            \fill (0,-3) circle (1.5pt) node[below left] {$-3$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Evaluate the Factored Region Integral</strong>
+    </p>
+    <p>
+      We can factor the constant out of the double integral:
+      <me>\iint_D 4 \, dA = 4 \iint_D 1 \, dA.</me>
+      Recall that the double integral <m>\iint_D 1 \, dA</m> represents the geometric area of the region <m>D</m>. Because <m>D</m> is a complete circle of radius <m>R = 3</m>, we use the standard formula for circular areas:
+      <me>\text{Area}(D) = \pi R^2 = \pi (3)^2 = 9\pi.</me>
+      Substituting this area evaluation back into the factored expression gives:
+      <me>V = 4 \cdot \text{Area}(D) = 4(9\pi) = 36\pi.</me>
+      The value of the closed-loop line integral is exactly <m>36\pi</m>.
+    </p>
+  </solution>
+</example>
+
+<p>
+  If it is known that <m>P(x,y)=Q(x,y)=0</m> on the curve <m>C</m>, then Green's Theorem dictates:
+  <me>\iint_D \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) dA = \int_{C} P\,dx + Q\,dy = 0,</me>
+  regardless of what values <m>P</m> and <m>Q</m> assume within the interior region <m>D</m>.
+</p>
+
+<p>
+  Suppose we are computing the area of <m>D</m>. Since the area of <m>D</m> is given by <m>\iint_D 1 \, dA</m>, we want to select component fields <m>P</m> and <m>Q</m> such that:
+  <me>\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1.</me>
+  There are several standard choices that satisfy this criterion, leading to useful line integral formulas for area calculation:
+</p>
+
+<assemblage xml:id="asm-greens-theorem-area-formulas">
+  <title>Area Formulas via Green's Theorem</title>
+  <p>
+    By applying Green's Theorem, the area of a planar region <m>D</m> can be calculated along its boundary <m>C = \partial D</m> using any of the following equivalent formulas:
+  
+  <ol label="1">
+    <li>
+      <p>
+        If <m>P(x,y)=0</m> and <m>Q(x,y)=x</m>:
+        <me>\text{Area}(D) = \oint_C x \, dy</me>
+      </p>
+    </li>
+    <li>
+      <p>
+        If <m>P(x,y)=-y</m> and <m>Q(x,y)=0</m>:
+        <me>\text{Area}(D) = -\oint_C y \, dx</me>
+      </p>
+    </li>
+    <li>
+      <p>
+        If <m>P(x,y)=-\frac{1}{2}y</m> and <m>Q(x,y)=\frac{1}{2}x</m>:
+        <me>\text{Area}(D) = \frac{1}{2} \oint_C x \, dy - y \, dx</me>
+      </p>
+    </li>
+  </ol>
+  </p>
+</assemblage>
+
+<corollary xml:id="cor-greens-theorem-area">
+  <title>Area Formulas via Green's Theorem</title>
+  <statement>
+    <p>
+      Green's Theorem yields the following equivalent line integral formulas for calculating the geometric area <m>A</m> of a planar region <m>D</m> along its positively oriented boundary curve <m>C</m>:
+      <me>A = \oint_C x\,dy = -\oint_C y\,dx = \frac{1}{2}\oint_C x\,dy - y\,dx.</me>
+    </p>
+  </statement>
+</corollary>
+
+<example xml:id="ex-ellipse-area-greens">
+  <statement>
+    <p>
+      Find the area enclosed by the ellipse <m>\displaystyle \frac{x^2}{a^2}+\frac{y^2}{b^2}=1</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Parameterize the Elliptical Boundary Curve <m>C</m></strong>
+    </p>
+    <p>
+      The complete, positively oriented perimeter of the ellipse can be parameterized by standard trigonometric tracking angles:
+      <me>x(t) = a\cos(t) \implies dx = -a\sin(t)\,dt,</me>
+      <me>y(t) = b\sin(t) \implies dy = b\cos(t)\,dt,</me>
+      where the parameter <m>t</m> sweeps across a full revolution: <m>0 \leq t \leq 2\pi</m>.
+    </p>
+
+    <!-- Balanced Isometric 1:1 Ellipse Path Figure -->
+    <figure xml:id="fig-ellipse-path-greens">
+      <caption>The positively oriented boundary curve <m>C</m> enclosing the elliptical region.</caption>
+      <image xml:id="img-ellipse-path-greens" width="60%">
+        <description>A 2D coordinate plot mapping an ellipse centered at the origin stretching from -a to a on the x-axis and -b to b on the y-axis, with counterclockwise orientation arrows.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.2cm, y=1.2cm, >=latex]
+            % Shaded Elliptical Interior Region D (Using test scalars a=1.5, b=1.0 for visual balance)
+            \fill[blue!15, domain=0:360, samples=60, variable=\t] plot ({1.5*cos(\t)}, {1.0*sin(\t)}) -- cycle;
+            
+            % Primary Grid Axes (Isometric balanced 1:1 layout)
+            \draw[->, thick] (-2.0, 0) -- (2.0, 0) node[below] {$x$};
+            \draw[->, thick] (0, -1.4) -- (0, 1.4) node[left] {$y$};
+            
+            % Closed Directed Boundary Path Lines
+            \draw[blue!80!black, thick, domain=0:360, samples=60, variable=\t] plot ({1.5*cos(\t)}, {1.0*sin(\t)});
+            
+            % Orientation tracking indicator arrowheads
+            \draw[->, red, thick] (45:1.2) -- (46:1.2);
+            \draw[->, red, thick] (225:1.2) -- (226:1.2);
+            
+            % Key Intercept Coordinates
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1.5,0) circle (1.5pt) node[below right] {$a$};
+            \fill (-1.5,0) circle (1.5pt) node[below left] {$-a$};
+            \fill (0,1) circle (1.5pt) node[above left] {$b$};
+            \fill (0,-1) circle (1.5pt) node[below left] {$-b$};
+            \node at (0.4, 0.4) {\small Domain $D$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Apply the Symmetric Line Integral Area Formula</strong>
+    </p>
+    <p>
+      Using the symmetric area differential layout from <xref ref="cor-greens-theorem-area" />, we expand the integrand:
+      <md>
+        <mrow>A \amp = \frac{1}{2}\oint_C x\,dy - y\,dx</mrow>
+        <mrow>\amp = \frac{1}{2} \int_{0}^{2\pi} \left[ (a\cos t)(b\cos t\,dt) - (b\sin t)(-a\sin t\,dt) \right]</mrow>
+        <mrow>\amp = \frac{1}{2} \int_{0}^{2\pi} \left( ab\cos^2 t + ab\sin^2 t \right) \, dt</mrow>
+        <mrow>\amp = \frac{1}{2} \int_{0}^{2\pi} ab\left(\cos^2 t + \sin^2 t\right) \, dt = \frac{1}{2} \int_{0}^{2\pi} ab \, dt.</mrow>
+      </md>
+      Evaluating this simple constant single variable integral:
+      <me>A = \frac{1}{2}ab \Big[ t \Big]_{0}^{2\pi} = \frac{1}{2}ab(2\pi - 0) = \pi ab.</me>
+      The area enclosed by the general ellipse is exactly <m>\pi ab</m>.
+    </p>
+  </solution>
+</example>
+
+<exercise xml:id="ex-greens-semi-annulus">
+  <statement>
+    <p>
+      Evaluate <m>\oint_C y^2\,dx + 3x\,dy</m>, where <m>C</m> is the boundary of the semi-annular region <m>D</m> in the upper half-plane between the circles <m>x^2+y^2=1</m> and <m>x^2+y^2=4</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Compute Partial Derivatives and Apply Green's Theorem</strong>
+    </p>
+    <p>
+      The boundary <m>C = \partial D</m> consists of four smooth pieces: two concentric upper semicircles and two connecting straight segments along the <m>x</m>-axis. Evaluating all four parts as individual line integrals would be tedious, so we apply Green's Theorem. First, isolate the component fields:
+      <me>P(x,y) = y^2 \quad \text{and} \quad Q(x,y) = 3x.</me>
+      Next, calculate their first-order partial derivatives:
+      <me>\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(y^2) = 2y \quad \text{and} \quad \frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(3x) = 3.</me>
+      This transforms the closed line integral into a double integral over the upper semi-annular region <m>D</m>:
+      <me>\oint_C y^2\,dx + 3x\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA = \iint_D (3 - 2y) \, dA.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 Semi-Annulus Track Figure -->
+    <figure xml:id="fig-greens-semi-annulus-path">
+      <caption>The semi-annular integration domain <m>D</m> and its complete closed boundary path <m>C</m>.</caption>
+      <image xml:id="img-greens-semi-annulus-path" width="60%">
+        <description>A 2D coordinate plot showing a shaded half-ring in the upper half-plane between radius 1 and 2, with counterclockwise tracking arrowheads outlining the perimeter.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.2cm, y=1.2cm, >=latex]
+            % Shaded Semi-Annular Region D (Outer radius 2, inner radius 1)
+            \fill[blue!15, domain=0:180, samples=60, variable=\t] plot ({2*cos(\t)}, {2*sin(\t)}) -- 
+                  plot ({1*cos(180-\t)}, {1*sin(180-\t)}) -- cycle;
+            
+            % Primary Grid Axes (Isometric balanced 1:1 layout)
+            \draw[->, thick] (-2.5, 0) -- (2.5, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.3) -- (0, 2.3) node[left] {$y$};
+            
+            % Boundary Tracks (Solid outer outlines)
+            \draw[blue!80!black, thick, domain=0:180, samples=60, variable=\t] plot ({2*cos(\t)}, {2*sin(\t)});
+            \draw[blue!80!black, thick, domain=0:180, samples=40, variable=\t] plot ({1*cos(\t)}, {1*sin(\t)});
+            \draw[blue!80!black, thick] (1,0) -- (2,0);
+            \draw[blue!80!black, thick] (-2,0) -- (-1,0);
+            
+            % Directional orientation arrowheads tracking counterclockwise
+            \draw[->, red, thick] (45:2) -- (46:2);     % Outer arc up-left
+            \draw[->, red, thick] (-1.5, 0) -- (-1.4, 0); % Axis segment right-in
+            \draw[->, red, thick] (135:1) -- (134:1);   % Inner arc down-right
+            \draw[->, red, thick] (1.4, 0) -- (1.5, 0);   % Axis segment right-out
+            
+            % Labels
+            \fill (0,0) circle (1.5pt) node[below left] {$0$};
+            \fill (1,0) circle (1.2pt) node[below] {$1$};
+            \fill (2,0) circle (1.2pt) node[below] {$2$};
+            \fill (-1,0) circle (1.2pt) node[below] {$-1$};
+            \fill (-2,0) circle (1.2pt) node[below] {$-2$};
+            \node at (0, 1.4) {\small Region $D$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Convert to Polar Coordinates and Evaluate</strong>
+    </p>
+    <p>
+      Because the region <m>D</m> is a circular sector, we evaluate the double integral by converting to polar coordinates using the substitutions <m>y = r\sin\theta</m> and <m>dA = r\,drd\theta</m>. The bounds for the semi-annulus are:
+      <me>0 \leq \theta \leq \pi \quad \text{and} \quad 1 \leq r \leq 2.</me>
+      Substituting these parameters into the integral:
+      <me>\iint_D (3 - 2y) \, dA = \int_{0}^{\pi} \int_{1}^{2} (3 - 2r\sin\theta)r \, dr d\theta = \int_{0}^{\pi} \int_{1}^{2} \left( 3r - 2r^2\sin\theta \right) \, dr d\theta.</me>
+      Evaluating the inner radial integral layer with respect to <m>r</m>:
+      <md>
+        <mrow>\int_{1}^{2} \left( 3r - 2r^2\sin\theta \right) \, dr \amp = \left[ \frac{3}{2}r^2 - \frac{2}{3}r^3\sin\theta \right]_{r=1}^{r=2}</mrow>
+        <mrow>\amp = \left( \frac{3}{2}(4) - \frac{2}{3}(8)\sin\theta \right) - \left( \frac{3}{2}(1) - \frac{2}{3}(1)\sin\theta \right)</mrow>
+        <mrow>\amp = \left( 6 - \frac{16}{3}\sin\theta \right) - \left( \frac{3}{2} - \frac{2}{3}\sin\theta \right)</mrow>
+        <mrow>\amp = \left( 6 - \frac{3}{2} \right) + \left( -\frac{16}{3} + \frac{2}{3} \right)\sin\theta = \frac{9}{2} - \frac{14}{3}\sin\theta.</mrow>
+      </md>
+      Now, substitute this expression into the outer layer and integrate with respect to <m>\theta</m>:
+      <md>
+        <mrow>\int_{0}^{\pi} \left( \frac{9}{2} - \frac{14}{3}\sin\theta \right) \, d\theta \amp = \left[ \frac{9}{2}\theta + \frac{14}{3}\cos\theta \right]_{0}^{\pi}</mrow>
+        <mrow>\amp = \left( \frac{9\pi}{2} + \frac{14}{3}\cos(\pi) \right) - \left( 0 + \frac{14}{3}\cos(0) \right)</mrow>
+        <mrow>\amp = \left( \frac{9\pi}{2} - \frac{14}{3} \right) - \frac{14}{3} = \frac{9\pi}{2} - \frac{28}{3}.</mrow>
+      </md>
+      The value of the closed boundary line integral over the semi-annulus is exactly <m>\frac{9\pi}{2} - \frac{28}{3}</m>.
+    </p>
+  </solution>
+</exercise>
+
+
+        </section>

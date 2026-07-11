@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-Line-Integrals">
+    <title>5.2 Line Integrals</title>
+    <introduction>
+        <p>
+            A line integral is a type of integral where the function to be integrated is evaluated along a curve or path in space. 
+            It generalizes the concept of integration to functions defined on curves, allowing us to compute quantities such as work done by a force field along a path.
+        </p>
+    </introduction>
+
+ <definition xml:id="def-line-integral-arc-length">
+  <title>Line Integral along a Curve</title>
+  <statement>
+    <p>
+      If <m>f</m> is defined on a smooth curve <m>C</m> given by parametric equations
+      <me>x=x(t), \quad y=y(y), \quad a \leq t \leq b,</me>
+      or by the vector equation <m>\mathbf{r}(t) = x(t)\mathbf{i} + y(t)\mathbf{j}</m>, then the <term>line integral of <m>f</m> along <m>C</m></term> is:
+      <me>\int_C f(x,y)\,ds = \lim_{n \rightarrow \infty} \sum^{n}_{i=1} f(x_i, y_i)\Delta s_i,</me>
+      provided this limit exists.
+    </p>
+  </statement>
+</definition>
+
+<p>
+  Since the differential of arc length along <m>C</m> is related to the parameter <m>t</m> by <m>ds = \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt</m>, we arrive at the following formula for evaluation:
+</p>
+
+<theorem xml:id="thm-line-integral-evaluation">
+  <title>Evaluation of Line Integrals</title>
+  <statement>
+    <p>
+      <me>\int_C f(x,y)\,ds = \int^b_a f(x(t), y(t)) \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt.</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-line-integral-semicircle">
+  <statement>
+    <p>
+      Evaluate <m>\int_C (2+x^2y)\,ds</m>, where <m>C</m> is the upper half of the unit circle <m>x^2+y^2=1</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Parameterize the Path curve <m>C</m></strong>
+    </p>
+    <p>
+      The upper half of the unit circle can be parameterized using standard polar angles where:
+      <me>x(t) = \cos(t), \quad y(t) = \sin(t), \quad 0 \leq t \leq \pi.</me>
+      Next, we calculate the derivatives and the arc length differential element <m>ds</m>:
+      <me>\frac{dx}{dt} = -\sin(t), \quad \frac{dy}{dt} = \cos(t)</me>
+      <me>ds = \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt = \sqrt{(-\sin t)^2 + (\cos t)^2}\,dt = 1\,dt.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 Upper Semicircle Path Figure -->
+    <figure xml:id="fig-semicircle-line-integral-path">
+      <caption>The upper semicircular path <m>C</m> plotted with a balanced 1:1 ratio.</caption>
+      <image xml:id="img-semicircle-line-integral-path" width="60%">
+        <description>A 2D coordinate plot mapping the upper branch of a unit circle path stretching from (1,0) counterclockwise around to (-1,0).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.8cm, y=1.8cm, >=latex]
+            % Primary Grid Axes (Isometric balanced aspect layout)
+            \draw[->, thick] (-1.4, 0) -- (1.4, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.2) -- (0, 1.4) node[left] {$y$};
+            
+            % Directed Path curve
+            \draw[blue!80!black, thick, ->, domain=0:180, samples=60, variable=\t] plot ({cos(\t)}, {sin(\t)});
+            
+            % Direction directional tracking indicator markers
+            \draw[->, red, thick] (45:1) -- (46:1);
+            \draw[->, red, thick] (135:1) -- (136:1);
+            
+            % Labels
+            \node[above left, blue!60!black] at (60:1.0) {$C$};
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1,0) circle (1.5pt) node[below right] {$(1,0)$};
+            \fill (-1,0) circle (1.5pt) node[below left] {$(-1,0)$};
+            \fill (0,1) circle (1.5pt) node[above right] {$(0,1)$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Evaluate the Iterated Integral</strong>
+    </p>
+    <p>
+      Substituting the parametric expressions into our line integral layout formula:
+      <md>
+        <mrow>\int_C (2+x^2y)\,ds \amp = \int_{0}^{\pi} \left( 2 + (\cos(t))^2\sin(t) \right) \cdot (1)\,dt</mrow>
+        <mrow>\amp = \int_{0}^{\pi} 2\,dt + \int_{0}^{\pi} \cos^2(t)\sin(t)\,dt</mrow>
+        <mrow>\amp = \Big[ 2t \Big]_{0}^{\pi} + \left[ -\frac{1}{3}\cos^3(t) \right]_{0}^{\pi}</mrow>
+        <mrow>\amp = (2\pi - 0) + \left( -\frac{1}{3}(-1)^3 - \left(-\frac{1}{3}(1)^3\right) \right)</mrow>
+        <mrow>\amp = 2\pi + \left( \frac{1}{3} + \frac{1}{3} \right) = 2\pi + \frac{2}{3}.</mrow>
+      </md>
+      The exact value of the line integral along the semicircle path is <m>2\pi + \frac{2}{3}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-line-integral-piecewise">
+  <statement>
+    <p>
+      Evaluate <m>\int_C (2x)\,ds</m>, where <m>C</m> consists of the arc <m>C_1</m> of the parabola <m>y=x^2</m> from <m>(0,0)</m> to <m>(1,1)</m> followed by the vertical line segment <m>C_2</m> from <m>(1,1)</m> to <m>(1,2)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Parameterize the Piecewise Paths and Sketch</strong>
+    </p>
+    <p>
+      Because <m>C</m> is a piecewise smooth curve, we split the line integral into two separate parts: <m>\int_C = \int_{C_1} + \int_{C_2}</m>.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Path <m>C_1</m> (Parabola):</strong> Parameterizing using <m>x=t</m> gives:
+          <me>x(t) = t, \quad y(t) = t^2, \quad 0 \leq t \leq 1.</me>
+          <me>\frac{dx}{dt} = 1, \quad \frac{dy}{dt} = 2t \implies ds = \sqrt{1 + (2t)^2}\,dt = \sqrt{1+4t^2}\,dt.</me>
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Path <m>C_2</m> (Vertical Line):</strong> Parameterizing using <m>y=t</m> along the vertical boundary line <m>x=1</m> gives:
+          <me>x(t) = 1, \quad y(t) = t, \quad 1 \leq t \leq 2.</me>
+          <me>\frac{dx}{dt} = 0, \quad \frac{dy}{dt} = 1 \implies ds = \sqrt{0^2 + 1^2}\,dt = 1\,dt.</me>
+        </p>
+      </li>
+    </ul>
+
+    <!-- Balanced Isometric 1:1 Piecewise Path Figure -->
+    <figure xml:id="fig-piecewise-line-integral-path">
+      <caption>The piecewise smooth path <m>C = C_1 \cup C_2</m> plotted with a balanced 1:1 ratio.</caption>
+      <image xml:id="img-piecewise-line-integral-path" width="55%">
+        <description>A 2D coordinate plot mapping a path made of a parabolic segment from (0,0) up to (1,1), continuing straight up to (1,2).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=3.0cm, y=1.8cm, >=latex]
+            % Primary Grid Axes (Isometric balanced 1:1 layout)
+            \draw[->, thick] (-0.3, 0) -- (1.5, 0) node[below] {$x$};
+            \draw[->, thick] (0, -0.2) -- (0, 2.4) node[left] {$y$};
+            
+            % Path C1 (Parabola)
+            \draw[blue!80!black, thick, ->, domain=0:1, samples=40, variable=\x] plot ({\x}, {\x*\x});
+            
+            % Path C2 (Vertical line segment)
+            \draw[blue!80!black, thick, ->] (1,1) -- (1,2);
+            
+            % Guide Lines
+            \draw[gray, dashed, thin] (1,0) -- (1,1);
+            
+            % Labels
+            \node[below right, blue!60!black] at (0.5, 0.25) {$C_1$};
+            \node[right, blue!60!black] at (1.0, 1.5) {$C_2$};
+            
+            % Key vertices
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+            \fill (1,1) circle (1.5pt) node[right=2pt] {$(1,1)$};
+            \fill (1,2) circle (1.5pt) node[above right] {$(1,2)$};
+            \node[below] at (1,0) {\small $1$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Evaluate the Component Integrals</strong>
+    </p>
+    <p>
+      We evaluate each integral expression independently:
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Evaluation along <m>C_1</m>:</strong>
+          <me>\int_{C_1} 2x\,ds = \int_{0}^{1} 2t\sqrt{1+4t^2}\,dt</me>
+          Using <m>u</m>-substitution where <m>u = 1+4t^2 \implies du = 8t\,dt \implies \frac{1}{4}\,du = 2t\,dt</m>. 
+          Limits: when <m>t=0 \implies u=1</m>, and when <m>t=1 \implies u=5</m>.
+          <me>\int_{1}^{5} \frac{1}{4}u^{1/2}\,du = \left[ \frac{1}{4} \cdot \frac{2}{3}u^{3/2} \right]_{1}^{5} = \frac{1}{6}\left( 5^{3/2} - 1^{3/2} \right) = \frac{5\sqrt{5}-1}{6}.</me>
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Evaluation along <m>C_2</m>:</strong>
+          <me>\int_{C_2} 2x\,ds = \int_{1}^{2} 2(1) \cdot (1)\,dt = \int_{1}^{2} 2\,dt = \Big[ 2t \Big]_{1}^{2} = 4 - 2 = 2.</me>
+        </p>
+      </li>
+    </ul>
+    <p>
+      <strong>Step 3: Combine Results</strong>
+    </p>
+    <p>
+      Adding the two individual components together gives the total value of the line integral:
+      <me>\int_C 2x\,ds = \frac{5\sqrt{5}-1}{6} + 2 = \frac{5\sqrt{5}-1 + 12}{6} = \frac{5\sqrt{5}+11}{6}.</me>
+      The complete line integral value along the piecewise path is exactly <m>\frac{5\sqrt{5}+11}{6}</m>.
+    </p>
+  </solution>
+</example>
+
+<p>
+  To distinguish the original line integral <m>\int_C f(x,y)\,ds</m> from <m>\int_C f(x,y)\,dx</m> and <m>\int_C f(x,y)\,dy</m>, we call the first the <term>line integral with respect to arc length</term>. If everything is expressed in terms of the parameter <m>t</m>, where <m>x=x(t)</m>, <m>y=y(t)</m>, <m>dx=x'(t)\,dt</m>, and <m>dy=y'(t)\,dt</m>, we have:
+  <me>\int_C f(x,y)\,dx = \int^b_a f(x(t),y(t))x'(t)\,dt</me>
+  <me>\int_C f(x,y)\,dy = \int^b_a f(x(t),y(t))y'(t)\,dt.</me>
+  It often happens that line integrals with respect to <m>x</m> and <m>y</m> occur together. When this happens, we write:
+  <me>\int_C P(x,y)\,dx + \int_C Q(x,y)\,dy = \int_C P(x,y)\,dx + Q(x,y)\,dy.</me>
+</p>
+
+<p>
+  A vector representation of the straight line segment that starts from <m>\mathbf{r}_0</m> and ends at <m>\mathbf{r}_1</m> is given by:
+  <me>\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1, \quad 0 \leq t \leq 1.</me>
+</p>
+
+<example xml:id="ex-line-integral-coordinate-segment">
+  <statement>
+    <p>
+      Evaluate <m>\int_C y^2\,dx + x\,dy</m>, where <m>C</m> is the line segment from <m>(-5,-3)</m> to <m>(0,2)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Parameterize the Straight Line Segment <m>C</m></strong>
+    </p>
+    <p>
+      Using the vector representation for a line segment with initial point <m>\mathbf{r}_0 = \langle -5, -3 \rangle</m> and terminal point <m>\mathbf{r}_1 = \langle 0, 2 \rangle</m>:
+      <md>
+        <mrow>\mathbf{r}(t) \amp = (1-t)\langle -5, -3 \rangle + t\langle 0, 2 \rangle</mrow>
+        <mrow>\amp = \langle -5 + 5t, -3 + 3t \rangle + \langle 0, 2t \rangle = \langle 5t - 5, 5t - 3 \rangle</mrow>
+      </md>
+      This gives our parametric equations on the interval <m>0 \leq t \leq 1</m>:
+      <me>x(t) = 5t - 5 \implies dx = 5\,dt</me>
+      <me>y(t) = 5t - 3 \implies dy = 5\,dt.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 Line Segment Path Figure -->
+    <figure xml:id="fig-segment-line-integral-path">
+      <caption>The directed straight line segment path <m>C</m> plotted with a balanced 1:1 ratio.</caption>
+      <image xml:id="img-segment-line-integral-path" width="55%">
+        <description>A 2D coordinate plot mapping a straight line segment path running from (-5,-3) diagonally up-right to (0,2).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=0.6cm, y=0.6cm, >=latex]
+            % Primary Grid Axes (Isometric balanced 1:1 scale layout)
+            \draw[->, thick] (-6.0, 0) -- (1.5, 0) node[below] {$x$};
+            \draw[->, thick] (0, -4.0) -- (0, 3.5) node[left] {$y$};
+            
+            % Grid backdrop helper for clear coordinates visualization
+            \draw[gray!20, thin, step=1] (-5.5,-3.5) grid (1.0,3.0);
+            
+            % Directed Path Line Segment C
+            \draw[blue!80!black, thick, ->] (-5,-3) -- (0,2);
+            
+            % Custom midpoint arrowhead pointing along trajectory to prevent extraction crashes
+            \draw[->, red, thick] (-2.5,-0.5) -- (-2.4,-0.4);
+            
+            % Labels and Node markers
+            \node[above left, blue!60!black] at (-2.5, -0.5) {$C$};
+            \fill (-5,-3) circle (2.0pt) node[below left] {$(-5,-3)$};
+            \fill (0,2) circle (2.0pt) node[right] {$(0,2)$};
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Setup and Evaluate the Iterated Integral</strong>
+    </p>
+    <p>
+      Substituting our parametric definitions and differentials into the given coordinate line integral string:
+      <md>
+        <mrow>\int_C y^2\,dx + x\,dy \amp = \int_{0}^{1} \left[ (5t-3)^2 \cdot (5) + (5t-5) \cdot (5) \right] \, dt</mrow>
+        <mrow>\amp = 5 \int_{0}^{1} \left[ (25t^2 - 30t + 9) + (5t - 5) \right] \, dt</mrow>
+        <mrow>\amp = 5 \int_{0}^{1} \left( 25t^2 - 25t + 4 \right) \, dt</mrow>
+        <mrow>\amp = 5 \left[ \frac{25}{3}t^3 - \frac{25}{2}t^2 + 4t \right]_{0}^{1}</mrow>
+        <mrow>\amp = 5 \left( \frac{25}{3}(1)^3 - \frac{25}{2}(1)^2 + 4(1) - 0 \right)</mrow>
+        <mrow>\amp = 5 \left( \frac{25}{3} - \frac{25}{2} + 4 \right).</mrow>
+      </md>
+      Finding a common denominator of <m>6</m> for the rational components:
+      <md>
+        <mrow>\int_C y^2\,dx + x\,dy \amp = 5 \left( \frac{50}{6} - \frac{75}{6} + \frac{24}{6} \right)</mrow>
+        <mrow>\amp = 5 \left( -\frac{1}{6} \right) = -\frac{5}{6}.</mrow>
+      </md>
+      The value of the line integral with respect to the coordinate variables is exactly <m>-\frac{5}{6}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-line-integral-coordinate-parabola">
+  <statement>
+    <p>
+      Evaluate <m>\int_C y^2\,dx + x\,dy</m>, where <m>C</m> is the arc of the parabola <m>x=4-y^2</m> from <m>(-5,-3)</m> to <m>(0,2)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Parameterize the Parabolic Path Curve <m>C</m></strong>
+    </p>
+    <p>
+      Since the parabola is given in the form <m>x = g(y)</m>, it is most natural to use <m>y</m> itself as the parameter. Let:
+      <me>y = t \implies dy = dt</me>
+      where the parameter <m>t</m> varies from the initial <m>y</m>-coordinate (<m>-3</m>) to the terminal <m>y</m>-coordinate (<m>2</m>): <m>-3 \leq t \leq 2</m>. 
+      Substituting this into the parabola equation gives the parametric description for <m>x</m> and its differential:
+      <me>x = 4 - t^2 \implies dx = -2t\,dt.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1 Parabolic Path Figure -->
+    <figure xml:id="fig-parabola-line-integral-path">
+      <caption>The directed parabolic arc path <m>C</m> plotted with a balanced 1:1 ratio.</caption>
+      <image xml:id="img-parabola-line-integral-path" width="65%">
+        <description>A 2D coordinate plot mapping a parabolic arc starting at (-5,-3), curving up-right to an x-intercept at (4,0), and ending at (0,2).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=0.7cm, y=1.0cm, >=latex]
+            % Grid backdrop helper for clear coordinates visualization
+            \draw[gray!15, thin, step=1] (-5.5,-3.5) grid (4.5,2.5);
+            
+            % Primary Grid Axes (Isometric balanced 1:1 scale layout)
+            \draw[->, thick] (-5.8, 0) -- (4.8, 0) node[below] {$x$};
+            \draw[->, thick] (0, -3.8) -- (0, 2.8) node[left] {$y$};
+            
+            % Directed Parabolic Arc Path C
+            \draw[blue!80!black, thick, domain=-3:2, samples=50, variable=\y] plot ({4-\y*\y}, {\y});
+            
+            % Directional trajectory arrows along the path
+            \draw[->, red, thick] ({4-(-1.5)*(-1.5)}, -1.5) -- ({4-(-1.45)*(-1.45)}, -1.45);
+            \draw[->, red, thick] ({4-(0.5)*(0.5)}, 0.5) -- ({4-(0.55)*(0.55)}, 0.55);
+            
+            % Labels and Vertex Nodes
+            \node[right, blue!60!black] at (3.0, 1.2) {$C$};
+            \node[below, blue!60!black] at (2.0, -2.0) {$x=4-y^2$};
+            
+            \fill (-5,-3) circle (2.0pt) node[below left] {$(-5,-3)$};
+            \fill (0,2) circle (2.0pt) node[above left] {$(0,2)$};
+            \fill (4,0) circle (1.5pt) node[above right] {$4$};
+            \fill (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 2: Setup and Evaluate the Iterated Integral</strong>
+    </p>
+    <p>
+      Substituting our parametric equations and differentials into the given line integral yields:
+      <md>
+        <mrow>\int_C y^2\,dx + x\,dy \amp = \int_{-3}^{2} \left[ (t)^2 \cdot (-2t\,dt) + (4 - t^2) \cdot (dt) \right]</mrow>
+        <mrow>\amp = \int_{-3}^{2} \left( -2t^3 + 4 - t^2 \right) \, dt</mrow>
+        <mrow>\amp = \left[ -\frac{1}{2}t^4 + 4t - \frac{1}{3}t^3 \right]_{-3}^{2}</mrow>
+      </md>
+    </p>
+    <p>
+      Now, evaluating at the upper and lower limits:
+      <md>
+        <mrow>\text{Upper Limit } (t=2): \amp \quad -\frac{1}{2}(2)^4 + 4(2) - \frac{1}{3}(2)^3 = -8 + 8 - \frac{8}{3} = -\frac{8}{3}</mrow>
+        <mrow>\text{Lower Limit } (t=-3): \amp \quad -\frac{1}{2}(-3)^4 + 4(-3) - \frac{1}{3}(-3)^3 = -\frac{81}{2} - 12 - (-9) = -\frac{81}{2} - 3 = -\frac{87}{2}</mrow>
+      </md>
+    </p>
+    <p>
+      Subtracting the lower limit evaluation from the upper limit evaluation gives:
+      <md>
+        <mrow>V \amp = -\frac{8}{3} - \left( -\frac{87}{2} \right) = -\frac{16}{6} + \frac{261}{6}</mrow>
+        <mrow>\amp = \frac{245}{6}.</mrow>
+      </md>
+      The value of the line integral along the parabolic arc path is exactly <m>\frac{245}{6}</m>.
+    </p>
+  </solution>
+</example>
+
+<p>
+  If <m>-C</m> denotes the curve consisting of the same points as <m>C</m> but with the opposite orientation, then we have:
+  <me>\int_{-C} f(x,y)\,dx = -\int_C f(x,y)\,dx, \quad \int_{-C} f(x,y)\,dy = -\int_C f(x,y)\,dy.</me>
+  But if we integrate with respect to arc length, the value of the line integral does <alert>not</alert> change when we reverse the orientation of the curve:
+  <me>\int_{-C} f(x,y)\,ds = \int_C f(x,y)\,ds.</me>
+  This occurs because the arc length differential segment <m>\Delta s_i</m> is always positive, whereas the coordinate differentials <m>\Delta x_i</m> and <m>\Delta y_i</m> change sign when we reverse the orientation of <m>C</m>.
+</p>
+
+<definition xml:id="def-line-integral-space">
+  <title>Line Integrals in Space</title>
+  <statement>
+    <p>
+      If <m>f</m> is defined on a smooth space curve <m>C</m> given by parametric equations
+      <me>x=x(t), \quad y=y(t), \quad z=z(t), \quad a \leq t \leq b,</me>
+      or by the vector equation <m>\mathbf{r}(t) = x(t)\mathbf{i} + y(t)\mathbf{j} + z(t)\mathbf{k}</m>, then the <term>line integral of <m>f</m> along <m>C</m></term> is:
+      <me>\int_C f(x,y,z)\,ds = \lim_{n \rightarrow \infty} \sum^{n}_{i=1} f(x_i, y_i, z_i)\Delta s_i,</me>
+      provided this limit exists.
+    </p>
+  </statement>
+</definition>
+
+<theorem xml:id="thm-line-integral-space-evaluation">
+  <title>Evaluation of Space Line Integrals</title>
+  <statement>
+    <p>
+      The line integral can be evaluated by expressing the differential element <m>ds</m> in terms of the parameter <m>t</m>:
+      <me>\int_C f(x,y,z)\,ds = \int^b_a f(x(t),y(t),z(t)) \sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2+\left(\frac{dz}{dt}\right)^2}\,dt = \int^b_a f(\mathbf{r}(t))|\mathbf{r}'(t)|\,dt.</me>
+    </p>
+  </statement>
+</theorem>
+
+<example xml:id="ex-line-integral-helix">
+  <statement>
+    <p>
+      Evaluate <m>\int_C y \sin z \,ds</m>, where <m>C</m> is the circular helix given by 
+      the equations <m>x=\cos t, \ y=\sin t, \ z=t</m>, for <m>0 \leq t \leq 2\pi</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Compute the Arc Length Differential Element <m>ds</m></strong>
+    </p>
+    <p>
+      We find the derivatives of the parametric equations with respect to the parameter <m>t</m>:
+      <me>\frac{dx}{dt} = -\sin t, \quad \frac{dy}{dt} = \cos t, \quad \frac{z}{dt} = 1.</me>
+      Substituting these into the radical magnitude formula for space curves gives:
+      <me>ds = \sqrt{(-\sin t)^2 + (\cos t)^2 + (1)^2}\,dt = \sqrt{\sin^2 t + \cos^2 t + 1}\,dt = \sqrt{1 + 1}\,dt = \sqrt{2}\,dt.</me>
+    </p>
+
+    <!-- Balanced Isometric 1:1:1 3D Helix Path Figure -->
+    <!-- Fixed Smooth Balanced Isometric 3D Helix Path Figure -->
+<figure xml:id="fig-helix-integral-path-smooth">
+  <caption>The circular helix path <m>C</m> tracing smoothly upward in 3D space from <m>t=0</m> to <m>t=2\pi</m>.</caption>
+  <image xml:id="img-helix-integral-path-smooth" width="55%">
+    <description>A smooth, mathematically accurate 3D coordinate plot mapping a circular helical curve winding upward over one full revolution around the z-axis.</description>
+    <latex-image>
+      <![CDATA[
+      \begin{tikzpicture}[x={(-0.6cm,-0.45cm)}, y={(0.85cm,-0.3cm)}, z={(0cm,0.5cm)}, >=latex, line join=round, line cap=round]
+        
+        % 1. Reference floor ellipse shadow showing circular radius base footprint (r = 1.5)
+        \draw[gray!20, thin] (0,0,0) ellipse (1.5 and 1.5);
+
+        % 2. Primary 3D Spatial Coordinate Framework Axes
+        \draw[->, thick] (0,0,0) -- (2.5, 0, 0) node[below left] {$x$};
+        \draw[->, thick] (0,0,0) -- (0, 2.5, 0) node[below right] {$y$};
+        \draw[->, thick] (0,0,-0.5) -- (0, 0, 7.2) node[above] {$z$};
+
+        % 3. Smooth Piecewise Bézier Helical Spiral Path C
+        % Divided into exact 90-degree quadrant sectors to ensure perfect circularity and ascending pitch
+        % Q1: t = 0 to pi/2 -> (1.5,0,0) to (0,1.5,1.57)
+        \draw[blue!80!black, thick] (1.5,0,0) .. controls (1.5,0.83,0.52) and (0.83,1.5,1.05) .. (0,1.5,1.571)
+        % Q2: t = pi/2 to pi -> (0,1.5,1.57) to (-1.5,0,3.14)
+        .. controls (-0.83,1.5,2.09) and (-1.5,0.83,2.62) .. (-1.5,0,3.142)
+        % Q3: t = pi to 3pi/2 -> (-1.5,0,3.14) to (0,-1.5,4.71)
+        .. controls (-1.5,-0.83,3.66) and (-0.83,-1.5,4.19) .. (0,-1.5,4.712)
+        % Q4: t = 3pi/2 to 2pi -> (0,-1.5,4.71) to (1.5,0,6.28)
+        .. controls (0.83,-1.5,5.24) and (1.5,-0.83,5.76) .. (1.5,0,6.283);
+
+        % Directional tracking indicator arrows positioned dynamically on the smooth path
+        \draw[->, red, thick] (0.75, 1.30, 0.79) -- (0.70, 1.32, 0.84);
+        \draw[->, red, thick] (-0.75, -1.30, 3.93) -- (-0.70, -1.32, 3.98);
+
+        % 4. Key Axis Anchor Points and Text Labels
+        \fill (1.5,0,0) circle (1.5pt) node[right] {$(1,0,0)$};
+        \fill (1.5,0,6.283) circle (1.5pt) node[right] {$(1,0,2\pi)$};
+        \fill (0,0,0) circle (1.5pt) node[below left] {$(0,0,0)$};
+        \node[above left, blue!60!black] at (-1.5,0,3.142) {$C$};
+      \end{tikzpicture}
+      ]]>
+    </latex-image>
+  </image>
+</figure>
+
+    <p>
+      <strong>Step 2: Set Up and Evaluate the Iterated Integral</strong>
+    </p>
+    <p>
+      We rewrite the integrand entirely in terms of <m>t</m> by substituting <m>y = \sin t</m>, <m>z = t</m>, and <m>ds = \sqrt{2}\,dt</m> across our bounds from <m>0</m> to <m>2\pi</m>:
+      <me>\int_C y \sin z \,ds = \int_{0}^{2\pi} (\sin t)(\sin t) \cdot \left(\sqrt{2}\,dt\right) = \sqrt{2} \int_{0}^{2\pi} \sin^2 t \,dt.</me>
+      Using the trigonometric half-angle reduction identity <m>\sin^2 t = \frac{1-\cos(2t)}{2}</m>:
+      <md>
+        <mrow>\sqrt{2} \int_{0}^{2\pi} \left( \frac{1-\cos(2t)}{2} \right) \,dt \amp = \frac{\sqrt{2}}{2} \Big[ t - \frac{1}{2}\sin(2t) \Big]_{0}^{2\pi}</mrow>
+        <mrow>\amp = \frac{\sqrt{2}}{2} \left[ \left(2\pi - \frac{1}{2}\sin(4\pi)\right) - \left(0 - \frac{1}{2}\sin(0)\right) \right]</mrow>
+        <mrow>\amp = \frac{\sqrt{2}}{2} \Big[ (2\pi - 0) - 0 \Big] = \frac{\sqrt{2}}{2}(2\pi) = \pi\sqrt{2}.</mrow>
+      </md>
+      The exact value of the line integral along the circular helix space curve is <m>\pi\sqrt{2}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-line-integral-space-piecewise">
+  <statement>
+    <p>
+      Evaluate <m>\int_C y\,dx + z\,dy + x\,dz</m>, where <m>C</m> consists of the line segment <m>C_1</m> from <m>(2,0,0)</m> to <m>(3,4,5)</m> followed by the vertical line segment <m>C_2</m> from <m>(3,4,5)</m> to <m>(3,4,0)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Because <m>C</m> is a piecewise smooth curve, we split the line integral into the sum of its two separate component tracks: <m>\int_C = \int_{C_1} + \int_{C_2}</m>.
+    </p>
+    <p>
+      <strong>Step 1: Parameterize Path <m>C_1</m> and Evaluate</strong>
+    </p>
+    <p>
+      The straight line segment <m>C_1</m> starts at <m>\mathbf{r}_0 = \langle 2,0,0 \rangle</m> and ends at <m>\mathbf{r}_1 = \langle 3,4,5 \rangle</m>. Using the standard vector parameterization formula <m>\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1</m> for <m>0 \leq t \leq 1</m>:
+      <me>x(t) = 2 + t \implies dx = dt</me>
+      <me>y(t) = 4t \implies dy = 4\,dt</me>
+      <me>z(t) = 5t \implies dz = 5\,dt.</me>
+      Substituting these parametric expressions into the first line integral gives:
+      <md>
+        <mrow>\int_{C_1} y\,dx + z\,dy + x\,dz \amp = \int_{0}^{1} \left[ (4t)(dt) + (5t)(4\,dt) + (2+t)(5\,dt) \right]</mrow>
+        <mrow>\amp = \int_{0}^{1} \left( 4t + 20t + 10 + 5t \right) \, dt</mrow>
+        <mrow>\amp = \int_{0}^{1} \left( 29t + 10 \right) \, dt = \left[ \frac{29}{2}t^2 + 10t \right]_{0}^{1} = \frac{29}{2} + 10 = \frac{49}{2}.</mrow>
+      </md>
+    </p>
+    <p>
+      <strong>Step 2: Parameterize Path <m>C_2</m> and Evaluate</strong>
+    </p>
+    <p>
+      The vertical line segment <m>C_2</m> goes straight downward from <m>(3,4,5)</m> to <m>(3,4,0)</m>. Along this path, <m>x</m> and <m>y</m> remain constant, which makes their differentials zero:
+      <me>x = 3 \implies dx = 0</me>
+      <me>y = 4 \implies dy = 0</me>
+      The height variable <m>z</m> drops continuously from <m>5</m> down to <m>0</m>. Let's use <m>z = t</m> as our parameter on the directional interval from <m>t = 5</m> to <m>t = 0</m>, where <m>dz = dt</m>:
+      <md>
+        <mrow>\int_{C_2} y\,dx + z\,dy + x\,dz \amp = \int_{5}^{0} \left[ (4)(0) + (t)(0) + (3)(dt) \right]</mrow>
+        <mrow>\amp = \int_{5}^{0} 3 \, dt = \Big[ 3t \Big]_{5}^{0} = 3(0) - 3(5) = -15.</mrow>
+      </md>
+    </p>
+
+    <!-- Balanced Isometric 1:1:1 3D Piecewise Smooth Curve Figure -->
+    <figure xml:id="fig-space-piecewise-path">
+      <caption>The piecewise space path <m>C = C_1 \cup C_2</m> tracing through three-dimensional space.</caption>
+      <image xml:id="img-space-piecewise-path" width="65%">
+        <description>A 3D coordinate plot mapping a straight line segment path running diagonally up from (2,0,0) to (3,4,5), followed by a vertical segment dropping straight down to (3,4,0).</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x={(-0.6cm,-0.45cm)}, y={(0.85cm,-0.3cm)}, z={(0cm,0.6cm)}, >=latex, line join=round, line cap=round]
+            
+            % 1. Reference floor tracks showing base footprints
+            \draw[gray!20, thin] (0,0,0) -- (3,0,0) -- (3,4,0) -- (0,4,0) -- cycle;
+            \draw[gray!30, dashed, thin] (2,0,0) -- (3,4,0);
+
+            % 2. Primary 3D Spatial Coordinate Framework Axes
+            \draw[->, thick] (0,0,0) -- (4.0, 0, 0) node[below left] {$x$};
+            \draw[->, thick] (0,0,0) -- (0, 5.0, 0) node[below right] {$y$};
+            \draw[->, thick] (0,0,-0.5) -- (0, 0, 6.0) node[above] {$z$};
+
+            % 3. Piecewise Smooth Space Path Curves
+            % Path C1: (2,0,0) -> (3,4,5)
+            \draw[blue!80!black, thick, ->] (2,0,0) -- (3,4,5);
+            % Path C2: (3,4,5) -> (3,4,0)
+            \draw[blue!80!black, thick, ->] (3,4,5) -- (3,4,0);
+
+            % Key Intercept Anchors and Labels
+            \fill (2,0,0) circle (1.5pt) node[below left] {$(2,0,0)$};
+            \fill (3,4,5) circle (1.5pt) node[above right] {$(3,4,5)$};
+            \fill (3,4,0) circle (1.5pt) node[below right] {$(3,4,0)$};
+            \fill (0,0,0) circle (1.5pt) node[below left] {$(0,0,0)$};
+            
+            \node[above left, blue!60!black] at (2.5,2.0,2.5) {$C_1$};
+            \node[right, blue!60!black] at (3.0,4.0,2.5) {$C_2$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      <strong>Step 3: Combine Component Integrals</strong>
+    </p>
+    <p>
+      Adding the results from the two paths together gives the final total evaluation:
+      <me>\int_C y\,dx + z\,dy + x\,dz = \frac{49}{2} + (-15) = \frac{49}{2} - \frac{30}{2} = \frac{19}{2}.</me>
+      The complete line integral value along the piecewise space curve path is exactly <m>\frac{19}{2}</m> (or <m>9.5</m>).
+    </p>
+  </solution>
+</example>
+
+<definition xml:id="def-line-integral-vector-field">
+  <title>Line Integral of a Vector Field</title>
+  <statement>
+    <p>
+      Let <m>\mathbf{F}</m> be a continuous vector field defined on a smooth curve <m>C</m> given by a vector function <m>\mathbf{r}(t)</m> for <m>a \leq t \leq b</m>. Then the <term>line integral of <m>\mathbf{F}</m> along <m>C</m></term> is:
+      <me>\int_C \mathbf{F} \cdot d\mathbf{r} = \int^b_a \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt = \int_C \mathbf{F} \cdot \mathbf{T}\,ds,</me>
+      where <m>\mathbf{T}</m> is the unit tangent vector at the point <m>(x,y,z)</m> on <m>C</m>.
+    </p>
+  </statement>
+</definition>
+
+<definition xml:id="def-work-done-force-field">
+  <title>Work Done by a Force Field</title>
+  <statement>
+    <p>
+      We define the <term>work</term> <m>W</m> done by a continuous force field <m>\mathbf{F}</m> as the limit of Riemann sums over a smooth curve <m>C</m>:
+      <me>W = \int_C \mathbf{F}(x,y,z) \cdot \mathbf{Y}(x,y,z)\,ds = \int_C \mathbf{F} \cdot \mathbf{T}\,ds.</me>
+      If the curve <m>C</m> is given by the parametric vector equation <m>\mathbf{r}(t) = x(t)\mathbf{i} + y(t)\mathbf{j} + z(t)\mathbf{k}</m>, then the unit tangent vector profile simplifies to <m>\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}</m>, allowing us to rewrite the definition as an evaluation formula:
+      <me>W = \int^b_a \left[ \mathbf{F}(\mathbf{r}(t)) \cdot \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} \right] |\mathbf{r}'(t)|\,dt = \int^b_a \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt.</me>
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-work-done-quarter-circle">
+  <statement>
+    <p>
+      Find the work done by the force field <m>\mathbf{F}(x,y) = x^2\mathbf{i} - xy\mathbf{j}</m> in moving a particle along the quarter-circle <m>\mathbf{r}(t) = \cos t\mathbf{i} + \sin t\mathbf{j}</m> for <m>0 \leq t \leq \pi/2</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Express the Vector Field and Velocity Vector in terms of <m>t</m></strong>
+    </p>
+    <p>
+      From the parametric equations of the curve, we have <m>x = \cos t</m> and <m>y = \sin t</m>. Substituting these into the vector field equation yields:
+      <me>\mathbf{F}(\mathbf{r}(t)) = (\cos t)^2\mathbf{i} - (\cos t)(\sin t)\mathbf{j} = \langle \cos^2 t, -\cos t\sin t \rangle.</me>
+      Next, we take the derivative of the path vector equation to compute the velocity vector:
+      <me>\mathbf{r}'(t) = -\sin t\mathbf{i} + \cos t\mathbf{j} = \langle -\sin t, \cos t \rangle.</me>
+    </p>
+    <p>
+      <strong>Step 2: Calculate the Inner Dot Product</strong>
+    </p>
+    <p>
+      We find the dot product of the field and the tangent vector:
+      <md>
+        <mrow>\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \amp = \langle \cos^2 t, -\cos t\sin t \rangle \cdot \langle -\sin t, \cos t \rangle</mrow>
+        <mrow>\amp = (\cos^2 t)(-\sin t) + (-\cos t\sin t)(\cos t)</mrow>
+        <mrow>\amp = -\cos^2 t\sin t - \cos^2 t\sin t = -2\cos^2 t\sin t.</mrow>
+      </md>
+    </p>
+    <p>
+      <strong>Step 3: Evaluate the Work Integral</strong>
+    </p>
+    <p>
+      Using the work formula for a vector field, we evaluate the definite integral from <m>t=0</m> to <m>t=\pi/2</m>:
+      <me>W = \int_{0}^{\pi/2} \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt = \int_{0}^{\pi/2} -2\cos^2 t\sin t \, dt.</me>
+      We solve this using a simple <m>u</m>-substitution. Let:
+      <me>u = \cos t \implies du = -\sin t \, dt \implies -du = \sin t \, dt.</me>
+      Updating limits: when <m>t = 0 \implies u = \cos(0) = 1</m>, and when <m>t = \pi/2 \implies u = \cos(\pi/2) = 0</m>.
+      <md>
+        <mrow>W \amp = \int_{1}^{0} -2u^2 (-du) = \int_{1}^{0} 2u^2 \, du = -\int_{0}^{1} 2u^2 \, du</mrow>
+        <mrow>\amp = -\left[ \frac{2}{3}u^3 \right]_{0}^{1} = -\left( \frac{2}{3}(1)^3 - 0 \right) = -\frac{2}{3}.</mrow>
+      </md>
+      The total work done by the force field along the quarter-circle is exactly <m>-\frac{2}{3}</m>.
+    </p>
+  </solution>
+</example>
+
+<example xml:id="ex-line-integral-twisted-cubic">
+  <statement>
+    <p>
+      Evaluate <m>\int_C \mathbf{F} \cdot d\mathbf{r}</m>, where 
+      <m>\mathbf{F}(x,y,z) = xy\mathbf{i} + yz\mathbf{j} + zx\mathbf{k}</m> and <m>C</m> 
+      is the twisted cubic given by:
+      <me>x = t, \quad y = t^2, \quad z = t^3, \quad 0 \leq t \leq 1.</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Express the Field and Differentials in terms of <m>t</m></strong>
+    </p>
+    <p>
+      We translate the position and component paths into the parameter space:
+      <me>x = t \implies dx = dt</me>
+      <me>y = t^2 \implies dy = 2t\,dt</me>
+      <me>z = t^3 \implies dz = 3t^2\,dt.</me>
+      Substituting these variables into our component definitions for the field vector gives:
+      <me>\mathbf{F}(\mathbf{r}(t)) = \langle (t)(t^2), (t^2)(t^3), (t^3)(t) \rangle = \langle t^3, t^5, t^4 \rangle.</me>
+      The tangent vector is: <m>\mathbf{r}'(t) = \langle 1, 2t, 3t^2 \rangle</m>.
+    </p>
+    <p>
+      <strong>Step 2: Setup and Evaluate the Vector Line Integral</strong>
+    </p>
+    <p>
+      We find the dot product <m>\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)</m> and substitute it into the work form expression:
+      <md>
+        <mrow>\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \amp = \langle t^3, t^5, t^4 \rangle \cdot \langle 1, 2t, 3t^2 \rangle</mrow>
+        <mrow>\amp = (t^3)(1) + (t^5)(2t) + (t^4)(3t^2)</mrow>
+        <mrow>\amp = t^3 + 2t^6 + 3t^6 = t^3 + 5t^6.</mrow>
+      </md>
+      Now evaluate the integral over the parameter limits from <m>0</m> to <m>1</m>:
+      <md>
+        <mrow>\int_C \mathbf{F} \cdot d\mathbf{r} \amp = \int_{0}^{1} \left( t^3 + 5t^6 \right) \, dt</mrow>
+        <mrow>\amp = \left[ \frac{1}{4}t^4 + \frac{5}{7}t^7 \right]_{0}^{1}</mrow>
+        <mrow>\amp = \left( \frac{1}{4}(1)^4 + \frac{5}{7}(1)^7 \right) - 0</mrow>
+        <mrow>\amp = \frac{1}{4} + \frac{5}{7} = \frac{7 + 20}{28} = \frac{27}{28}.</mrow>
+      </md>
+      The value of the line integral along the twisted cubic curve is exactly <m>\frac{27}{28}</m>.
+    </p>
+  </solution>
+</example>
+
+<p>
+  Suppose the vector field <m>\mathbf{F}</m> on <m>\mathbb{R}^3</m> is given in component form by the equation <m>\mathbf{F} = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}</m>. We use the definition of the line integral of <m>\mathbf{F}</m> along the curve <m>C</m> to expand the expression into coordinate components:
+</p>
+
+<md>
+  <mrow>\int_C \mathbf{F} \cdot d\mathbf{r} \amp = \int^b_a \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt</mrow>
+  <mrow>\amp = \int^b_a (P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}) \cdot (x'(t)\mathbf{i} + y'(t)\mathbf{j} + z'(t)\mathbf{k})\,dt</mrow>
+  <mrow>\amp = \int^b_a \left[ Px'(t) + Qy'(t) + Rz'(t) \right]\,dt.</mrow>
+</md>
+
+<theorem xml:id="thm-line-integral-vector-component-equivalence">
+  <title>Equivalence of Vector and Coordinate Form</title>
+  <statement>
+    <p>
+      The last integral matches the definition of a line integral with respect to coordinate variables. Therefore, we establish the following equivalence:
+      <me>\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C P\,dx + Q\,dy + R\,dz, \quad \text{where } \mathbf{F} = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}.</me>
+    </p>
+  </statement>
+</theorem>
+<proof xml:id="proof-line-integral-component-equivalence">
+  <p>
+    Let the smooth space curve <m>C</m> be parameterized by the vector function <m>\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle</m> for <m>a \leq t \leq b</m>. The derivative of <m>\mathbf{r}(t)</m> with respect to the parameter <m>t</m> provides the tangent velocity vector:
+    <me>\mathbf{r}'(t) = \frac{d\mathbf{r}}{dt} = \left\langle \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt} \right\rangle = x'(t)\mathbf{i} + y'(t)\mathbf{j} + z'(t)\mathbf{k}.</me>
+  </p>
+  <p>
+    By definition, the line integral of a continuous vector field <m>\mathbf{F} = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}</m> along <m>C</m> is evaluated as:
+    <me>\int_C \mathbf{F} \cdot d\mathbf{r} = \int^b_a \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt.</me>
+    Substituting the component forms of both <m>\mathbf{F}</m> and <m>\mathbf{r}'(t)</m> into the dot product yields:
+    <md>
+      <mrow>\int_C \mathbf{F} \cdot d\mathbf{r} \amp = \int^b_a \langle P, Q, R \rangle \cdot \langle x'(t), y'(t), z'(t) \rangle\,dt</mrow>
+      <mrow>\amp = \int^b_a \left[ P(x(t),y(t),z(t))x'(t) + Q(x(t),y(t),z(t))y'(t) + R(x(t),y(t),z(t))z'(t) \right]\,dt.</mrow>
+    </md>
+  </p>
+  <p>
+    We can distribute the integral across the addition operations. Separating this into three distinct single integrals gives:
+    <me>= \int^b_a P(x(t),y(t),z(t))x'(t)\,dt + \int^b_a Q(x(t),y(t),z(t))y'(t)\,dt + \int^b_a R(x(t),y(t),z(t))z'(t)\,dt.</me>
+  </p>
+  <p>
+    Recall from the definition of line integrals with respect to coordinate variables that the differentials <m>dx</m>, <m>dy</m>, and <m>dz</m> are defined parametrically as:
+    <me>dx = x'(t)\,dt, \quad dy = y'(t)\,dt, \quad dz = z'(t)\,dt.</me>
+    Replacing these differential terms back into the single integrals transforms the parameter space representations into their corresponding coordinate line integrals along <m>C</m>:
+    <me>= \int_C P(x,y,z)\,dx + \int_C Q(x,y,z)\,dy + \int_C R(x,y,z)\,dz.</me>
+  </p>
+  <p>
+    Combining these three adjacent coordinate integrals under a single integral sign produces the standard shorthand notation:
+    <me>\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C P\,dx + Q\,dy + R\,dz.</me>
+  </p>
+</proof>
+
+
+</section>

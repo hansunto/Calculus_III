@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<worksheet xml:id="ws-vector-fields-chapter-review">
+    <title>Worksheet 05: Vector Fields</title>
+
+    <!-- ========================================== -->
+<!-- PAGE 1                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-vf-page1">
+  <exercise xml:id="ex-ws-vf-p1">
+    <statement>
+      <p>
+        Integrate the scalar function <m>f(x,y,z)=\sqrt{x^2+z^2}</m> over the circle path parameterization:
+        <me>\mathbf{r}(t)=(4\cos t)\mathbf{i}+(4\sin t)\mathbf{k}, \qquad 0\leq t\leq 2\pi.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Compute the Derivatives and the Arc Length Element <m>ds</m></strong>
+      </p>
+      <p>
+        From the given vector path equation, the components are:
+        <me>x(t) = 4\cos t, \quad y(t) = 0, \quad z(t) = 4\sin t.</me>
+        Differentiating each coordinate component with respect to the parameter <m>t</m> yields:
+        <me>\frac{dx}{dt} = -4\sin t, \quad \frac{dy}{dt} = 0, \quad \frac{dz}{dt} = 4\cos t.</me>
+        We substitute these into the 3D arc length differential equation:
+        <me>ds = \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2}\,dt = \sqrt{(-4\sin t)^2 + 0^2 + (4\cos t)^2}\,dt</me>
+        <me>ds = \sqrt{16\sin^2 t + 16\cos^2 t}\,dt = \sqrt{16(\sin^2 t + \cos^2 t)}\,dt = 4\,dt.</me>
+      </p>
+
+      <!-- Balanced Isometric 1:1:1 xz-Plane Circle Track Figure -->
+      <figure xml:id="fig-ws-p1-xz-circle">
+        <caption>The circular integration path <m>C</m> lying entirely within the vertical <m>xz</m>-plane.</caption>
+        <image xml:id="img-ws-p1-xz-circle" width="60%">
+          <description>A 3D coordinate plot showing a circle of radius 4 centered at the origin resting in the vertical xz plane, with counterclockwise orientation tracking arrows.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(0.8cm,-0.25cm)}, z={(0cm,0.8cm)}, >=latex, line join=round, line cap=round]
+              % 1. Reference floor tracks showing base footprints
+              \draw[gray!20, thin] (-2,-2,0) grid (2,2,0);
+
+              % 2. Primary 3D Spatial Coordinate Framework Axes
+              \draw[->, thick] (0,0,0) -- (2.5, 0, 0) node[below left] {$x$};
+              \draw[->, thick] (0,0,0) -- (0, 2.5, 0) node[below right] {$y$};
+              \draw[->, thick] (0,0,-2.2) -- (0, 0, 2.5) node[above] {$z$};
+
+              % 3. Circle Path in the xz-plane (y = 0, r = 2.0 on canvas scale)
+              \draw[blue!80!black, thick, domain=0:360, samples=60, variable=\t] plot ({2*cos(\t)}, 0, {2*sin(\t)});
+              
+              % Trajectory arrows
+              \draw[->, red, thick] ({2*cos(45)}, 0, {2*sin(45)}) -- ({2*cos(46)}, 0, {2*sin(46)});
+              \draw[->, red, thick] ({2*cos(225)}, 0, {2*sin(225)}) -- ({2*cos(226)}, 0, {2*sin(226)});
+
+              % Key Intercept Center Anchors
+              \fill (0,0,0) circle (1.5pt) node[below left] {$(0,0,0)$};
+              \node[right, blue!60!black] at ({2*cos(30)}, 0, {2*sin(30)}) {$C$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 2: Setup and Evaluate the Line Integral</strong>
+      </p>
+      <p>
+        Next, we substitute the component equations into the integrand function <m>f(x,y,z)</m>:
+        <me>f(x(t), y(t), z(t)) = \sqrt{(4\cos t)^2 + (4\sin t)^2} = \sqrt{16\cos^2 t + 16\sin^2 t} = 4.</me>
+        Combining the function value, the element <m>ds = 4\,dt</m>, and our parameters from <m>0</m> to <m>2\pi</m>:
+        <me>\int_C f(x,y,z)\,ds = \int_{0}^{2\pi} 4 \cdot (4\,dt) = \int_{0}^{2\pi} 16 \, dt = \Big[ 16t \Big]_{0}^{2\pi} = 32\pi.</me>
+        The exact value of the line integral around the vertical circle path is <m>32\pi</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-ws-vf-p2">
+    <statement>
+      <p>
+        Evaluate the line integral along a straight line path segment:
+        <me>\int_C \frac{dx+dy+dz}{\sqrt{x+y+z}},</me>
+        where <m>C</m> is the directed straight line segment starting from the initial coordinate point <m>(-1,1,1)</m> and ending at the terminal point <m>(4,-3,0)</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Parameterize the Straight Line Segment <m>C</m></strong>
+      </p>
+      <p>
+        Using the vector parameterization equation <m>\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1</m> for a line segment with initial point <m>\mathbf{r}_0 = \langle -1,1,1 \rangle</m> and terminal point <m>\mathbf{r}_1 = \langle 4,-3,0 \rangle</m>:
+        <me>x(t) = (1-t)(-1) + 4t = 5t - 1 \implies dx = 5\,dt,</me>
+        <me>y(t) = (1-t)(1) - 3t = 1 - 4t \implies dy = -4\,dt,</me>
+        <me>z(t) = (1-t)(1) + 0t = 1 - t \implies dz = -dt,</me>
+        where the parameter varies along the continuous interval: <m>0 \leq t \leq 1</m>.
+      </p>
+      <p>
+        <strong>Step 2: Setup and Simplify the Integrand Components</strong>
+      </p>
+      <p>
+        We combine the differentials and coordinates into the core parameter groups:
+        <me>\text{Numerator: } dx + dy + dz = (5 - 4 - 1)\,dt = 0\,dt.</me>
+        Because the combined differential vector sums perfectly to zero everywhere along this straight linear trajectory, the entire line integral drops:
+        <me>\int_C \frac{dx+dy+dz}{\sqrt{x+y+z}} = \int_{0}^{1} \frac{0}{\sqrt{(5t-1) + (1-4t) + (1-t)}} \, dt = \int_{0}^{1} 0 \, dt = 0.</me>
+        The exact value of the coordinate line integral along this specific segment is <m>0</m>.
+      </p>
+    </solution>
+  </exercise>
+</page>
+
+<!-- ========================================== -->
+<!-- PAGE 2                                     -->
+<!-- ========================================== -->
+<page xml:id="ws-vf-page2">
+  <exercise xml:id="ex-ws-vf-p3">
+    <statement>
+      <p>
+        Integrate the vector field <m>\mathbf{F}=-(y\sin z)\mathbf{i}+(x\sin z)\mathbf{j}+(xy\cos z)\mathbf{k}</m> around the circular path cut from the sphere <m>x^2+y^2+z^2=5</m> by the horizontal plane <m>z=-1</m>, oriented clockwise as viewed from above.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <strong>Step 1: Identify the Geometry and Path Parameterization</strong>
+      </p>
+      <p>
+        Substituting the plane constraint <m>z = -1</m> into the sphere equation reveals the radius of the circular intersection track:
+        <me>x^2 + y^2 + (-1)^2 = 5 \implies x^2 + y^2 + 1 = 5 \implies x^2 + y^2 = 4.</me>
+        This describes a horizontal circle of radius <m>R = 2</m> resting at a height of <m>z = -1</m>. A standard counterclockwise orientation uses <m>\langle 2\cos t, 2\sin t, -1 \rangle</m>. Because the question explicitly specifies a <strong>clockwise</strong> orientation as viewed from above, we reverse the tracking parameter direction:
+        <me>x(t) = 2\cos t \implies dx = -2\sin t\,dt,</me>
+        <me>y(t) = -2\sin t \implies dy = -2\cos t\,dt,</me>
+        <me>z(t) = -1 \implies dz = 0\,dt,</me>
+        where the parameter varies continuously across a full revolution: <m>0 \leq t \leq 2\pi</m>.
+      </p>
+
+      <!-- Balanced Isometric 3D Closed Sphere Ring Section Track Figure -->
+      <figure xml:id="fig-ws-p2-sphere-slice">
+        <caption>The circular path loop <m>C</m> formed by slicing the sphere at the horizontal plane <m>z=-1</m>.</caption>
+        <image xml:id="img-ws-p2-sphere-slice" width="60%">
+          <description>A 3D coordinate plot showing a sphere cut by a horizontal plane at z=-1 with a clockwise tracking circle trajectory.</description>
+          <latex-image>
+            <![CDATA[
+            \begin{tikzpicture}[x={(-0.6cm,-0.45cm)}, y={(0.85cm,-0.3cm)}, z={(0cm,0.9cm)}, >=latex, line join=round, line cap=round]
+              % Shaded Sphere Background (Radius = sqrt(5) approx 2.23)
+              \fill[cyan!10, opacity=0.5] (0,0,0) circle (2.23);
+              \draw[gray!40, thin] (0,0,0) circle (2.23);
+
+              % Primary Coordinate Axes
+              \draw[->, thick] (0,0,0) -- (2.8, 0, 0) node[below left] {$x$};
+              \draw[->, thick] (0,0,0) -- (0, 2.8, 0) node[below right] {$y$};
+              \draw[->, thick] (0,0,-2.5) -- (0, 0, 2.8) node[above] {$z$};
+
+              % Intersection Ring Plane Floor Outline at z = -1 (Radius = 2)
+              \fill[cyan!20, opacity=0.5] (0,0,-1) ellipse (2.0 and 0.5);
+              \draw[blue!80!black, thick] (0,0,-1) ellipse (2.0 and 0.5);
+              
+              % Clockwise orientation markers
+              \draw[->, red, thick] (1.414, -0.35, -1) -- (1.3, -0.37, -1);
+              \draw[->, red, thick] (-1.414, 0.35, -1) -- (-1.3, 0.37, -1);
+
+              % Intercept Pointers
+              \fill (0,0,-1) circle (1.2pt) node[left] {$-1$};
+              \node[right, blue!60!black] at (1.5, -0.5, -1) {$C$};
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        <strong>Step 2: Setup and Evaluate the Vector Line Integral</strong>
+      </p>
+      <p>
+        We rewrite the vector line integral in differential component form: <m>\oint_C P\,dx + Q\,dy + R\,dz</m>. Substituting <m>z = -1</m> into our component fields gives:
+        <me>P = -y\sin(-1) = y\sin(1), \quad Q = x\sin(-1) = -x\sin(1), \quad R = xy\cos(-1) = xy\cos(1).</me>
+        Because <m>dz = 0</m>, the <m>\mathbf{k}</m> component drops out completely. Substituting the parametric equations into the line integral yields:
+        <md>
+          <mrow>\oint_C \mathbf{F} \cdot d\mathbf{r} \amp = \int_{0}^{2\pi} \left[ \Big( (-2\sin t)\sin(1) \Big)(-2\sin t) + \Big( -(2\cos t)\sin(1) \Big)(-2\cos t) \right] \, dt</mrow>
+          <mrow>\amp = \int_{0}^{2\pi} \left( 4\sin^2 t\sin(1) + 4\cos^2 t\sin(1) \right) \, dt</mrow>
+          <mrow>\amp = 4\sin(1) \int_{0}^{2\pi} \left(\sin^2 t + \cos^2 t\right) \, dt = 4\sin(1) \int_{0}^{2\pi} 1 \, dt</mrow>
+          <mrow>\amp = 4\sin(1) \Big[ t \Big]_{0}^{2\pi} = 8\pi\sin(1).</mrow>
+        </md>
+    </p>
+    <p>
+      <strong>Step 3: Evaluate the Double Area Integral</strong>
+    </p>
+    <p>
+      Using the parameters, we assemble the iterated region integral:
+      <md>
+        <mrow>A(S) \amp = \int_{0}^{2\pi} \int_{0}^{5} 3 \, dz \, d\theta</mrow>
+        <mrow>\amp = 3 \left( \int_{0}^{2\pi} \, d\theta \right) \left( \int_{0}^{5} \, dz \right)</mrow>
+        <mrow>\amp = 3 \cdot \Big[ \theta \Big]_{0}^{2\pi} \cdot \Big[ z \Big]_{0}^{5} = 3 \cdot (2\pi) \cdot (5) = 30\pi.</mrow>
+      </md>
+      The lateral surface area of the cylinder is exactly <m>30\pi</m> (which perfectly matches our geometric formula verification: <m>A = 2\pi r h = 2\pi(3)(5) = 30\pi</m>).
+    </p>
+  </solution>
+</exercise>
+
+<exercise xml:id="ex-ws-vf-p4">
+  <statement>
+    <p>
+      Evaluate the closed loop coordinate line integral by applying Green's Theorem:
+      <me>\oint_C 8x\sin y\,dx - 8y\cos x\,dy,</me>
+      where <m>C</m> is the perimeter boundary curve of the square cut from the first quadrant by the horizontal and vertical lines <m>x=\frac{\pi}{2}</m> and <m>y=\frac{\pi}{2}</m>, oriented counterclockwise.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Compute Partial Derivatives and Apply Green's Theorem</strong>
+    </p>
+    <p>
+      The path forms a closed square loop oriented counterclockwise. Evaluating each of the four edges independently would be tedious, so we apply Green's Theorem:
+      <me>P(x,y) = 8x\sin y \quad \text{and} \quad Q(x,y) = -8y\cos x.</me>
+      Next, we find their respective first-order cross-partial derivatives:
+      <me>\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(8x\sin y) = 8x\cos y,</me>
+      <me>\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(-8y\cos x) = 8y\sin x.</me>
+      By Green's Theorem, the closed line integral transforms into a double integral over the square domain <m>D</m>:
+      <me>\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA = \int_{0}^{\pi/2} \int_{0}^{\pi/2} \left( 8y\sin x - 8x\cos y \right) \, dy \, dx.</me>
+    </p>
+    <p>
+      <strong>Step 2: Evaluate the Iterated Double Integral</strong>
+    </p>
+    <p>
+      First, we integrate the inner expression with respect to <m>y</m>, treating <m>x</m> as a constant factor:
+      <md>
+        <mrow>\int_{0}^{\pi/2} \left( 8y\sin x - 8x\cos y \right) \, dy \amp = \left[ 4y^2\sin x - 8x\sin y \right]_{y=0}^{y=\pi/2}</mrow>
+        <mrow>\amp = \left( 4\left(\frac{\pi^2}{4}\right)\sin x - 8x\sin\left(\frac{\pi}{2}\right) \right) - 0</mrow>
+        <mrow>\amp = \pi^2\sin x - 8x.</mrow>
+      </md>
+      Now, substitute this polynomial expression into the outer layer and integrate with respect to <m>x</m>:
+      <md>
+        <mrow>\int_{0}^{\pi/2} \left( \pi^2\sin x - 8x \right) \, dx \amp = \left[ -\pi^2\cos x - 4x^2 \right]_{0}^{\pi/2}</mrow>
+        <mrow>\amp = \left( -\pi^2\cos\left(\frac{\pi}{2}\right) - 4\left(\frac{\pi^2}{4}\right) \right) - \left( -\pi^2\cos(0) - 0 \right)</mrow>
+        <mrow>\amp = \left( 0 - \pi^2 \right) - \left( -\pi^2 \right) = -\pi^2 + \pi^2 = 0.</mrow>
+      </md>
+      The final value of the closed square line integral is exactly <m>0</m>.
+    </p>
+  </solution>
+</exercise>
+</page>
+<!-- ========================================== -->
+<!-- PAGE 3: TESTING CONSERVATIVE FIELDS / WORK INTEGRAL ALONG A PATH  -->
+<!-- ========================================== -->
+ <page xml:id="ws-vf-page3">
+<exercise xml:id="ex-ws-vf-p5">
+  <statement>
+    <p>
+      Determine which of the following vector fields are conservative, and which are not. Support your answers with partial derivative tests:
+    </p>
+    <ol label="a">
+      <li><p><m>\mathbf{F} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}</m></p></li>
+      <li><p><m>\mathbf{F} = \frac{x\mathbf{i} + y\mathbf{j} + z\mathbf{k}}{(x^2+y^2+z^2)^{3/2}}</m></p></li>
+      <li><p><m>\mathbf{F} = xe^{y}\mathbf{i} + ye^z\mathbf{j} + ze^x\mathbf{k}</m></p></li>
+      <li><p><m>\mathbf{F} = \frac{\mathbf{i} + z\mathbf{j} + y\mathbf{k}}{x+yz}</m></p></li>
+    </ol>
+  </statement>
+  <solution>
+    <p>
+      We apply the 3D curl component test (<m>\operatorname{curl} \mathbf{F} = \mathbf{0}</m> for a field to be conservative) across all four cases:
+    </p>
+    <ol label="a">
+      <li>
+        <p>
+          <strong>Field (a):</strong> Here, <m>P=x, Q=y, R=z</m>. Calculating cross-partials shows:
+          <me>\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} = 0, \quad \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} = 0, \quad \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 0.</me>
+          Since <m>\operatorname{curl}\mathbf{F} = \mathbf{0}</m>, Field (a) is <strong>conservative</strong> (with potential function <m>f = \frac{1}{2}(x^2+y^2+z^2)</m>).
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Field (b):</strong> This is the classical inverse-square gravitational/electric field model. Let <m>\rho = (x^2+y^2+z^2)^{1/2}</m>. The components are <m>P = x\rho^{-3}, Q = y\rho^{-3}, R = z\rho^{-3}</m>. Differentiating the components yields symmetric cross-partials:
+          <me>\frac{\partial P}{\partial y} = x(-3\rho^{-4})\frac{y}{\rho} = -\frac{3xy}{\rho^5} \quad = \quad \frac{\partial Q}{\partial x} = y(-3\rho^{-4})\frac{x}{\rho} = -\frac{3xy}{\rho^5}.</me>
+          All component pairs match identically, meaning <m>\operatorname{curl}\mathbf{F} = \mathbf{0}</m>. Thus, Field (b) is <strong>conservative</strong> (with potential function <m>f = -\frac{1}{\sqrt{x^2+y^2+z^2}}</m>).
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Field (c):</strong> Here, <m>P=xe^y, Q=ye^z, R=ze^x</m>. Let's compute the cross-partial derivative of the first two components:
+          <me>\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(xe^y) = xe^y \quad \neq \quad \frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(ye^z) = 0.</me>
+          Because the cross-partials are unequal (<m>\frac{\partial P}{\partial y} \neq \frac{\partial Q}{\partial x}</m>), the curl is non-zero. Thus, Field (c) is <strong>not conservative</strong>.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Field (d):</strong> The components are <m>P = \frac{1}{x+yz}, Q = \frac{z}{x+yz}, R = \frac{y}{x+yz}</m>. Let's check the cross-partial derivative of <m>Q</m> and <m>R</m>:
+          <me>\frac{\partial R}{\partial y} = \frac{(1)(x+yz) - y(z)}{(x+yz)^2} = \frac{x}{(x+yz)^2},</me>
+          <me>\frac{\partial Q}{\partial z} = \frac{(1)(x+yz) - z(y)}{(x+yz)^2} = \frac{x}{(x+yz)^2}.</me>
+          Checking the remaining component pairs reveals that <m>\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}</m> and <m>\frac{\partial P}{\partial z} = \frac{\partial R}{\partial x}</m> match symmetrically everywhere on its domain. Since <m>\operatorname{curl}\mathbf{F} = \mathbf{0}</m>, Field (d) is <strong>conservative</strong> (with potential function <m>f = \ln|x+yz|</m>).
+        </p>
+      </li>
+    </ol>
+  </solution>
+</exercise>
+
+<exercise xml:id="ex-ws-vf-p6">
+  <statement>
+    <p>
+      Find the work done by the force field <m>\mathbf{F} = 2xy\mathbf{i} + \mathbf{j} + x^2\mathbf{k}</m> along a straight line segment path from the origin <m>(0,0,0)</m> to the point <m>(1,1,1)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Step 1: Check if the Field is Conservative</strong>
+    </p>
+    <p>
+      Let's determine if <m>\mathbf{F} = \langle 2xy, 1, x^2 \rangle</m> is conservative by checking its curl components:
+      <me>\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} = 0 - 0 = 0,</me>
+      <me>\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} = 0 - 2x = -2x \neq 0.</me>
+      Because the curl is not zero (<m>\operatorname{curl}\mathbf{F} \neq \mathbf{0}</m>), the field is not conservative. Therefore, the work depends on the path, and we must evaluate the line integral directly along the specified straight line segment path.
+    </p>
+    <p>
+      <strong>Step 2: Parameterize the Path and Compute Differentials</strong>
+    </p>
+    <p>
+      The straight line segment connecting <m>(0,0,0)</m> to <m>(1,1,1)</m> can be parameterized linearly as:
+      <me>x(t) = t \implies dx = dt,</me>
+      <me>y(t) = t \implies dy = dt,</me>
+      <me>z(t) = t \implies dz = dt,</me>
+      where the parameter varies continuously over the interval: <m>0 \leq t \leq 1</m>.
+    </p>
+    <p>
+      <strong>Step 3: Setup and Evaluate the Work Integral</strong>
+    </p>
+    <p>
+      We rewrite the work line integral in differential component form: <m>W = \int_C P\,dx + Q\,dy + R\,dz</m>. Substituting our parametric expressions and differentials gives:
+      <md>
+        <mrow>W \amp = \int_{0}^{1} \left[ 2(t)(t) \cdot (dt) + (1) \cdot (dt) + (t)^2 \cdot (dt) \right]</mrow>
+        <mrow>\amp = \int_{0}^{1} \left( 2t^2 + 1 + t^2 \right) \, dt = \int_{0}^{1} \left( 3t^2 + 1 \right) \, dt</mrow>
+        <mrow>\amp = \Big[ t^3 + t \Big]_{0}^{1} = \left( (1)^3 + 1 \right) - 0 = 2.</mrow>
+      </md>
+      The total work done by the field along the straight line path is exactly <m>2</m>.
+    </p>
+  </solution>
+</exercise>
+</page>
+
+
+
+
+
+</worksheet>

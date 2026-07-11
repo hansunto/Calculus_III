@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-Vector-fields">
+    <title>5.1 Vector Fields </title>
+    <introduction>
+        <p>
+            A vector field is a function that assigns a vector to each point in space. 
+            It can be visualized as a collection of arrows, where each arrow represents the vector at a specific point.
+        </p>
+    </introduction>
+
+    <definition xml:id="def-vector-field-2d">
+  <title>Vector Field on <m>\mathbb{R}^2</m></title>
+  <statement>
+    <p>
+      Let <m>D</m> be a set in <m>\mathbb{R}^2</m>. A <term>vector field on <m>\mathbb{R}^2</m></term> is a function <m>\mathbf{F}</m> that assigns to each point <m>(x,y)</m> in <m>D</m> a two-dimensional vector <m>\mathbf{F}(x,y)</m>.
+    </p>
+  </statement>
+</definition>
+
+<p>
+  Since <m>\mathbf{F}(x,y)</m> is a two-dimensional vector, we can write it in terms of its <term>component functions</term> <m>P</m> and <m>Q</m> as follows:
+  <me>\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j} = \langle P(x,y), Q(x,y) \rangle</me>
+  or in shorthand notation:
+  <me>\mathbf{F}(x,y) = P\mathbf{i} + Q\mathbf{j} = \langle P, Q \rangle.</me>
+  Here, <m>P</m> and <m>Q</m> are scalar functions of two variables and are referred to as <term>scalar fields</term> to clearly distinguish them from vector fields.
+</p>
+
+<definition xml:id="def-vector-field-3d">
+  <title>Vector Field on <m>\mathbb{R}^3</m></title>
+  <statement>
+    <p>
+      Let <m>E</m> be a subset of <m>\mathbb{R}^3</m>. A <term>vector field on <m>\mathbb{R}^3</m></term> is a function <m>\mathbf{F}</m> that assigns to each point <m>(x,y,z)</m> in <m>E</m> a three-dimensional vector <m>\mathbf{F}(x,y,z)</m>.
+    </p>
+  </statement>
+</definition>
+
+<example xml:id="ex-vector-field-rotation">
+  <statement>
+    <p>
+      A vector field on <m>\mathbb{R}^2</m> is defined by:
+      <me>\mathbf{F}(x,y) = -y\mathbf{i} + x\mathbf{j}.</me>
+      Describe <m>\mathbf{F}</m> by sketching some vectors of <m>\mathbf{F}(x,y)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To understand the behavior of this field, we evaluate the vector outputs at a few sample points across different quadrants:
+    </p>
+    <ul>
+      <li><p>At <m>(1,0)</m>: <m>\mathbf{F}(1,0) = 0\mathbf{i} + 1\mathbf{j} = \langle 0, 1 \rangle</m> (pointing straight up).</p></li>
+      <li><p>At <m>(0,1)</m>: <m>\mathbf{F}(0,1) = -1\mathbf{i} + 0\mathbf{j} = \langle -1, 0 \rangle</m> (pointing straight left).</p></li>
+      <li><p>At <m>(-1,0)</m>: <m>\mathbf{F}(-1,0) = 0\mathbf{i} - 1\mathbf{j} = \langle 0, -1 \rangle</m> (pointing straight down).</p></li>
+      <li><p>At <m>(0,-1)</m>: <m>\mathbf{F}(0,-1) = 1\mathbf{i} + 0\mathbf{j} = \langle 1, 0 \rangle</m> (pointing straight right).</p></li>
+    </ul>
+
+    <!-- Balanced Isometric 1:1 Rotational Vector Field Plot -->
+    <figure xml:id="fig-rotational-vector-field">
+      <caption>Sample vectors from the field <m>\mathbf{F}(x,y) = \langle -y, x \rangle</m> indicating a counterclockwise rotation.</caption>
+      <image xml:id="img-rotational-vector-field" width="60%">
+        <description>A 2D vector field plot showing concentric circular field arrays revolving counterclockwise around the origin.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x=1.5cm, y=1.5cm, >=latex]
+            % Concentric dashed circle guides for reference
+            \draw[gray!40, dashed] (0,0) circle (1.0);
+            \draw[gray!40, dashed] (0,0) circle (1.8);
+            
+            % Primary Axes Space (Isometric balanced 1:1 scale layout)
+            \draw[->, thick] (-2.2, 0) -- (2.2, 0) node[below] {$x$};
+            \draw[->, thick] (0, -2.2) -- (0, 2.2) node[left] {$y$};
+            
+            % Innermost Vector Ring (Radius r = 1)
+            \draw[->, blue, thick] (1,0) -- (1,0.6);
+            \draw[->, blue, thick] (0,1) -- (-0.6,1);
+            \draw[->, blue, thick] (-1,0) -- (-1,-0.6);
+            \draw[->, blue, thick] (0,-1) -- (0.6,-1);
+            
+            % Intercardinal Ring 1 (Midpoints on radius 1)
+            \draw[->, blue, thick] (0.707,0.707) -- (0.283, 1.131);  % (-y, x) scaled down slightly
+            \draw[->, blue, thick] (-0.707,0.707) -- (-1.131, 0.283);
+            \draw[->, blue, thick] (-0.707,-0.707) -- (-0.283, -1.131);
+            \draw[->, blue, black] (0.707,-0.707) -- (1.131, -0.283);
+            
+            % Outermost Vector Ring (Radius r = 1.8)
+            \draw[->, blue, thick] (1.8,0) -- (1.8,0.9);
+            \draw[->, blue, thick] (0,1.8) -- (-0.9,1.8);
+            \draw[->, blue, thick] (-1.8,0) -- (-1.8,-0.9);
+            \draw[->, blue, thick] (0,-1.8) -- (0.9,-1.8);
+            
+            % Origin point node
+            \fill (0,0) circle (1.5pt) node[below left] {$0$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</example>
+
+<p>
+  Taking the dot product of the position vector <m>\mathbf{x} = x\mathbf{i} + y\mathbf{j}</m> with the vector field <m>\mathbf{F} = -y\mathbf{i} + x\mathbf{j}</m>, we get:
+  <me>\mathbf{x} \cdot \mathbf{F} = x(-y) + y(x) = -xy + xy = 0.</me>
+  Since the dot product of the position vector and the field vector is zero at all points, <m>\mathbf{F}(x,y)</m> is always perpendicular to the radius vector. Thus, <m>\mathbf{F}</m> is strictly tangent to a circle centered at the origin, showing that the vector fields forms an explicit counterclockwise rotation.
+</p>
+
+<example xml:id="ex-vector-field-3d-vertical">
+  <statement>
+    <p>
+      Sketch the vector field in <m>\mathbb{R}^3</m> given by:
+      <me>\mathbf{F}(x,y,z) = z\mathbf{k}.</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <strong>Geometric Analysis:</strong>
+    </p>
+    <p>
+      The vector field <m>\mathbf{F}(x,y,z) = \langle 0, 0, z \rangle</m> depends entirely on the height variable <m>z</m>. Its structural behaviors can be summarized as follows:
+    </p>
+    <ul>
+      <li><p>The vectors have no horizontal components (<m>P=0</m>, <m>Q=0</m>), meaning they are completely vertical, pointing parallel to the <m>z</m>-axis.</p></li>
+      <li><p>On the <m>xy</m>-plane where <m>z = 0</m>, the field vectors are all zero vectors (<m>\mathbf{F} = \mathbf{0}</m>).</p></li>
+      <li><p>Above the <m>xy</m>-plane where <m>z \gt 0</m>, the vectors point straight up, and their magnitudes increase linearly with their height distance from the floor.</p></li>
+      <li><p>Below the <m>xy</m>-plane where <m>z \lt 0</m>, the vectors point straight down, and their lengths similarly increase as <m>z</m> becomes more negative.</p></li>
+    </ul>
+
+    <!-- Balanced Isometric 3D Spatial Vector Field Figure with Source Nodes -->
+    <figure xml:id="fig-vector-field-3d-z-directional">
+      <caption>Sample vectors from the 3D field <m>\mathbf{F}(x,y,z) = z\mathbf{k}</m> with explicit marker nodes highlighting their initial starting points.</caption>
+      <image xml:id="img-vector-field-3d-z-directional" width="65%">
+        <description>A 3D coordinate plot showing vertical vectors with black dots indicating their initial starting points, growing larger as they move further above or below the horizontal xy plane grid track.</description>
+        <latex-image>
+          <![CDATA[
+          \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(0.8cm,-0.25cm)}, z={(0cm,0.9cm)}, >=latex, line join=round, line cap=round]
+            
+            % 1. Reference Grid on the xy-plane (z = 0 floor)
+            \draw[gray!30, thin] (-1.5,-1.5,0) grid (1.5,1.5,0);
+
+            % 2. Primary 3D Spatial Coordinate Framework Axes
+            \draw[->, thick] (0,0,0) -- (2.0, 0, 0) node[below left] {$x$};
+            \draw[->, thick] (0,0,0) -- (0, 2.2, 0) node[below right] {$y$};
+            \draw[->, thick] (0,0,-1.8) -- (0, 0, 2.5) node[above] {$z$};
+
+            % 3. Field Vectors Below the xy-plane (z < 0 region, pointing downwards)
+            % Marker dots at the initial positions at z = -1
+            \fill (1,1, -1) circle (1.2pt);
+            \fill (-1,1, -1) circle (1.2pt);
+            \fill (1,-1, -1) circle (1.2pt);
+            \fill (-1,-1, -1) circle (1.2pt);
+            
+            % Vector arrows pointing downwards
+            \draw[->, blue, thick] (1,1, -1) -- (1,1, -1.5);
+            \draw[->, blue, thick] (-1,1, -1) -- (-1,1, -1.5);
+            \draw[->, blue, thick] (1,-1, -1) -- (1,-1, -1.5);
+            \draw[->, blue, thick] (-1,-1, -1) -- (-1,-1, -1.5);
+
+            % 4. Field Vectors Above the xy-plane (z > 0 region, pointing upwards)
+            % Level 1: Initial marker dots at z = 1
+            \fill (1,0, 1) circle (1.2pt);
+            \fill (0,1, 1) circle (1.2pt);
+            \fill (-1,0, 1) circle (1.2pt);
+            \fill (0,-1, 1) circle (1.2pt);
+            
+            % Level 1: Vector arrows pointing upwards
+            \draw[->, blue, thick] (1,0, 1) -- (1,0, 1.5);
+            \draw[->, blue, thick] (0,1, 1) -- (0,1, 1.5);
+            \draw[->, blue, thick] (-1,0, 1) -- (-1,0, 1.5);
+            \draw[->, blue, thick] (0,-1, 1) -- (0,-1, 1.5);
+            
+            % Level 2: Initial marker dots at z = 1.8
+            \fill (1,1, 1.8) circle (1.2pt);
+            \fill (-1,1, 1.8) circle (1.2pt);
+            \fill (1,-1, 1.8) circle (1.2pt);
+            \fill (-1,-1, 1.8) circle (1.2pt);
+            
+            % Level 2: Scaled vector arrows showing linear growth
+            \draw[->, blue, thick] (1,1, 1.8) -- (1,1, 2.7);
+            \draw[->, blue, thick] (-1,1, 1.8) -- (-1,1, 2.7);
+            \draw[->, blue, thick] (1,-1, 1.8) -- (1,-1, 2.7);
+            \draw[->, blue, thick] (-1,-1, 1.8) -- (-1,-1, 2.7);
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </solution>
+</example>
+
+    
+</section>

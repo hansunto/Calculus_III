@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>5.2 Line Integrals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "textmacros",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[tex]/textmacros",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA-310 (Calculus III)">
+<meta property="book:author" content="Professor Hansun To, Ph. D.">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.11';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.8b6d53d5a91823a0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.2901d6466316ff22.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">MA-310 (Calculus III)</span> <span class="subtitle">Worcester State University</span></a></h1>
+<p class="byline">Professor Hansun To, Ph. D.</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="embed-button" class="embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><div class="embed-popup hidden" id="embed-popup">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<div class="embed-code-container">
+<textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div>
+</div>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-Vector-fields.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-Vector-fields.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-Green-theorem.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{′}{\textprime}
+\newunicodechar{″}{\textdoubleprime}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vectors-and-the-Geometry-of-Space.html" class="internal"><span class="codenumber">1</span> <span class="title">Vectors and the Geometry of Space</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-2d.html" class="internal"><span class="title">1.1 Vectors in Two Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-vectors-3d.html" class="internal"><span class="title">1.2 Vectors in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dot-product.html" class="internal"><span class="title">1.3 The Dot Product</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-dot-product-component-form" class="internal"><span class="title">The Dot Product in Component Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dot-product.html#subsec-vector-projections" class="internal"><span class="title">Projections</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cross-product.html" class="internal"><span class="title">1.4 The Cross Product (The vector product)</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cross-product.html#subsec-cross-product-component-form" class="internal"><span class="title">The Cross Product in Component Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lines-planes.html" class="internal"><span class="title">1.5 Lines and Planes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lines-planes.html#subsec-planes-in-space" class="internal"><span class="title">Planes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-surfaces.html" class="internal"><span class="title">1.6 Surfaces</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions.html" class="internal"><span class="codenumber">2</span> <span class="title">Vector-valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Vector-valued-functions.html" class="internal"><span class="title">2.1 Vector-valued Functions and space curves</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-Vector-valued-functions.html#subsec-Limits-and-Continuity" class="internal"><span class="title">Limits and Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html" class="internal"><span class="title">2.2 Derivatives of Vector Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-4.html#subsec-Differentiability" class="internal"><span class="title">Differentiability</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Vector-valued-functions-5.html" class="internal"><span class="title">2.3 Integrals of Vector Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html" class="internal"><span class="title">2.4 Arc Length and Curvature</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-Vector-valued-functions-6.html#subsec-curvature" class="internal"><span class="title">The Curvature</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-motion-in-space.html" class="internal"><span class="title">2.5 Motion in Space: Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangential-normal-components.html" class="internal"><span class="title">2.6 Tangential and Normal Components of Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Partial-Derivatives.html" class="internal"><span class="codenumber">3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-functions-several-variables.html" class="internal"><span class="title">Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-limits-continuity.html" class="internal"><span class="title">3.2 Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-partial-derivatives.html" class="internal"><span class="title">3.3 Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-increment.html" class="internal"><span class="title">3.4 Increments and Differentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-chain-rules.html" class="internal"><span class="title">3.5 Chain Rules</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-directional-derivatives.html" class="internal"><span class="title">3.6 Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tangent-plane.html" class="internal"><span class="title">3.7 Tangent Planes and Normal Lines</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-extrema.html" class="internal"><span class="title">3.8 Extrema of Functions of Several Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lagrange-multipliers.html" class="internal"><span class="title">3.9 Lagrange Multipliers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Multiple-Integrals.html" class="internal"><span class="codenumber">4</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Double-integrals.html" class="internal"><span class="title">4.1 Double Integrals</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-area-volume.html" class="internal"><span class="title">4.2 Area and Volume</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-area-volume.html#exercises-multivariable-volumes" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polar-coordinates.html" class="internal"><span class="title">4.3 Double Integrals in Polar coordinates</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-polar-coordinates.html#exercises-polar-coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Triple-integrals.html" class="internal"><span class="title">4.4 Triple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Triple-integrals.html#exercises-triple-integrals-regions" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Triple-integrals.html#exercises-triple-integrals-advanced" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-Cylindrical-Coordinates.html" class="internal"><span class="title">4.5 Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-Cylindrical-Coordinates.html#exercises-exercises-Cylindrical-Coordinates-advanced" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Change-of-Variables.html" class="internal"><span class="title">4.6 Change of Variables and Jacobians</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-Vector-fields.html" class="internal"><span class="codenumber">5</span> <span class="title">Integration in Vector Fields</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Vector-fields.html" class="internal"><span class="title">5.1 Vector Fields</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-Line-Integrals.html" class="internal"><span class="title">5.2 Line Integrals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Green-theorem.html" class="internal"><span class="title">5.3 Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Curl-Divergence.html" class="internal"><span class="title">5.4 Curl and Divergence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Exercises.html" class="internal"><span class="codenumber">6</span> <span class="title">Chapter Exercises</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vectors-chapter-review.html" class="internal"><span class="title">Worksheet 01: Vectors and the Geometry of Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-functions-chapter-review.html" class="internal"><span class="title">Worksheet 02: Vector Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-partial-derivatives-chapter-review.html" class="internal"><span class="title">Worksheet 03: Partial Derivatives</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-multiple-integrals-chapter-review.html" class="internal"><span class="title">Worksheet 04: Multiple Integrals</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="ws-vector-fields-chapter-review.html" class="internal"><span class="title">Worksheet 05: Vector Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="activities.html" class="internal"><span class="codenumber">7</span> <span class="title">MyOpenMath Interactive Activities</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="codenumber">8</span> <span class="title">Homework</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="codenumber">9</span> <span class="title">Course Documents</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ma-150-syllabus.html" class="internal"><span class="title">MA-105-BL: Survey of Math</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-150-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#sec-105-grading" class="internal"><span class="title">Assignments and Grading</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-Course_Policies" class="internal"><span class="title">Course Policies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-StudentLearningOutcomes" class="internal"><span class="title">Student Learning Outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-LASC" class="internal"><span class="title">LASC</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ma-150-syllabus.html#subsec-105-TentativeSchedule" class="internal"><span class="title">Course Schedule</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-Line-Integrals">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">5.2 Line Integrals</span>
+</h2>
+<section class="introduction" id="sec-Line-Integrals-2">
+<div class="para" id="sec-Line-Integrals-2-1">A line integral is a type of integral where the function to be integrated is evaluated along a curve or path in space. It generalizes the concept of integration to functions defined on curves, allowing us to compute quantities such as work done by a force field along a path.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Line-Integrals-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<article class="definition definition-like" id="def-line-integral-arc-length"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Line Integral along a Curve.</span>
+</h3>
+<div class="para logical" id="def-line-integral-arc-length-2-1">
+<div class="para">If <span class="process-math">\(f\)</span> is defined on a smooth curve <span class="process-math">\(C\)</span> given by parametric equations</div>
+<div class="displaymath process-math" id="def-line-integral-arc-length-2-1-3">
+\begin{equation*}
+x=x(t), \quad y=y(y), \quad a \leq t \leq b,
+\end{equation*}
+</div>
+<div class="para">or by the vector equation <span class="process-math">\(\mathbf{r}(t) = x(t)\mathbf{i} + y(t)\mathbf{j}\text{,}\)</span> then the <dfn class="terminology">line integral of <span class="process-math">\(f\)</span> along <span class="process-math">\(C\)</span></dfn> is:</div>
+<div class="displaymath process-math" id="def-line-integral-arc-length-2-1-6">
+\begin{equation*}
+\int_C f(x,y)\,ds = \lim_{n \rightarrow \infty} \sum^{n}_{i=1} f(x_i, y_i)\Delta s_i,
+\end{equation*}
+</div>
+<div class="para">provided this limit exists.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-line-integral-arc-length-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.7: Line Integral along a Curve"><a href="#def-line-integral-arc-length" title="Copy heading and permalink for Definition 5.7: Line Integral along a Curve" aria-label="Copy heading and permalink for Definition 5.7: Line Integral along a Curve">🔗</a></div>
+</article>
+<div class="para" id="sec-Line-Integrals-4">Since the differential of arc length along <span class="process-math">\(C\)</span> is related to the parameter <span class="process-math">\(t\)</span> by <span class="process-math">\(ds = \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt\text{,}\)</span> we arrive at the following formula for evaluation:<div class="autopermalink" data-description="Paragraph"><a href="#sec-Line-Integrals-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-line-integral-evaluation"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluation of Line Integrals.</span>
+</h3>
+<div class="para logical" id="thm-line-integral-evaluation-2-1">
+<div class="displaymath process-math" id="thm-line-integral-evaluation-2-1-1">
+\begin{equation*}
+\int_C f(x,y)\,ds = \int^b_a f(x(t), y(t)) \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-line-integral-evaluation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.8: Evaluation of Line Integrals"><a href="#thm-line-integral-evaluation" title="Copy heading and permalink for Theorem 5.8: Evaluation of Line Integrals" aria-label="Copy heading and permalink for Theorem 5.8: Evaluation of Line Integrals">🔗</a></div>
+</article>
+<details id="ex-line-integral-semicircle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-line-integral-semicircle-1-1">Evaluate <span class="process-math">\(\int_C (2+x^2y)\,ds\text{,}\)</span> where <span class="process-math">\(C\)</span> is the upper half of the unit circle <span class="process-math">\(x^2+y^2=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-semicircle-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-line-integral-semicircle-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-line-integral-semicircle-2-1">Step 1: Parameterize the Path curve <span class="process-math">\(C\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-semicircle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-semicircle-2-2">
+<div class="para">The upper half of the unit circle can be parameterized using standard polar angles where:</div>
+<div class="displaymath process-math" id="ex-line-integral-semicircle-2-2-1">
+\begin{equation*}
+x(t) = \cos(t), \quad y(t) = \sin(t), \quad 0 \leq t \leq \pi.
+\end{equation*}
+</div>
+<div class="para">Next, we calculate the derivatives and the arc length differential element <span class="process-math">\(ds\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-semicircle-2-2-3">
+\begin{equation*}
+\frac{dx}{dt} = -\sin(t), \quad \frac{dy}{dt} = \cos(t)
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-semicircle-2-2-4">
+\begin{equation*}
+ds = \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt = \sqrt{(-\sin t)^2 + (\cos t)^2}\,dt = 1\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-semicircle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-semicircle-line-integral-path"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-semicircle-line-integral-path.svg" role="img" class="contained" alt="A 2D coordinate plot mapping the upper branch of a unit circle path stretching from (1,0) counterclockwise around to (-1,0)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The upper semicircular path <span class="process-math">\(C\)</span> plotted with a balanced 1:1 ratio.<div class="autopermalink" data-description="Figure 5.10"><a href="#fig-semicircle-line-integral-path" title="Copy heading and permalink for Figure 5.10" aria-label="Copy heading and permalink for Figure 5.10">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-line-integral-semicircle-2-4">Step 2: Evaluate the Iterated Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-semicircle-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-semicircle-2-5">
+<div class="para">Substituting the parametric expressions into our line integral layout formula:</div>
+<div class="displaymath process-math" id="ex-line-integral-semicircle-2-5-1">
+\begin{align*}
+\int_C (2+x^2y)\,ds \amp = \int_{0}^{\pi} \left( 2 + (\cos(t))^2\sin(t) \right) \cdot (1)\,dt\\
+\amp = \int_{0}^{\pi} 2\,dt + \int_{0}^{\pi} \cos^2(t)\sin(t)\,dt\\
+\amp = \Big[ 2t \Big]_{0}^{\pi} + \left[ -\frac{1}{3}\cos^3(t) \right]_{0}^{\pi}\\
+\amp = (2\pi - 0) + \left( -\frac{1}{3}(-1)^3 - \left(-\frac{1}{3}(1)^3\right) \right)\\
+\amp = 2\pi + \left( \frac{1}{3} + \frac{1}{3} \right) = 2\pi + \frac{2}{3}.
+\end{align*}
+</div>
+<div class="para">The exact value of the line integral along the semicircle path is <span class="process-math">\(2\pi + \frac{2}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-semicircle-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.9.1"><a href="#ex-line-integral-semicircle-2" title="Copy heading and permalink for Solution 5.9.1" aria-label="Copy heading and permalink for Solution 5.9.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.9"><a href="#ex-line-integral-semicircle" title="Copy heading and permalink for Example 5.9" aria-label="Copy heading and permalink for Example 5.9">🔗</a></div>
+</article></details>
+<details id="ex-line-integral-piecewise" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-line-integral-piecewise-1-1">Evaluate <span class="process-math">\(\int_C (2x)\,ds\text{,}\)</span> where <span class="process-math">\(C\)</span> consists of the arc <span class="process-math">\(C_1\)</span> of the parabola <span class="process-math">\(y=x^2\)</span> from <span class="process-math">\((0,0)\)</span> to <span class="process-math">\((1,1)\)</span> followed by the vertical line segment <span class="process-math">\(C_2\)</span> from <span class="process-math">\((1,1)\)</span> to <span class="process-math">\((1,2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-line-integral-piecewise-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-line-integral-piecewise-2-1">Step 1: Parameterize the Piecewise Paths and Sketch<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-line-integral-piecewise-2-2">Because <span class="process-math">\(C\)</span> is a piecewise smooth curve, we split the line integral into two separate parts: <span class="process-math">\(\int_C = \int_{C_1} + \int_{C_2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ex-line-integral-piecewise-2-3">
+<li id="ex-line-integral-piecewise-2-3-1">
+<div class="para logical" id="ex-line-integral-piecewise-2-3-1-1">
+<div class="para">Path <span class="process-math">\(C_1\)</span> (Parabola): Parameterizing using <span class="process-math">\(x=t\)</span> gives:</div>
+<div class="displaymath process-math" id="ex-line-integral-piecewise-2-3-1-1-3">
+\begin{equation*}
+x(t) = t, \quad y(t) = t^2, \quad 0 \leq t \leq 1.
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-piecewise-2-3-1-1-4">
+\begin{equation*}
+\frac{dx}{dt} = 1, \quad \frac{dy}{dt} = 2t \implies ds = \sqrt{1 + (2t)^2}\,dt = \sqrt{1+4t^2}\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-line-integral-piecewise-2-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-line-integral-piecewise-2-3-2">
+<div class="para logical" id="ex-line-integral-piecewise-2-3-2-1">
+<div class="para">Path <span class="process-math">\(C_2\)</span> (Vertical Line): Parameterizing using <span class="process-math">\(y=t\)</span> along the vertical boundary line <span class="process-math">\(x=1\)</span> gives:</div>
+<div class="displaymath process-math" id="ex-line-integral-piecewise-2-3-2-1-4">
+\begin{equation*}
+x(t) = 1, \quad y(t) = t, \quad 1 \leq t \leq 2.
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-piecewise-2-3-2-1-5">
+\begin{equation*}
+\frac{dx}{dt} = 0, \quad \frac{dy}{dt} = 1 \implies ds = \sqrt{0^2 + 1^2}\,dt = 1\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-line-integral-piecewise-2-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<figure class="figure figure-like" id="fig-piecewise-line-integral-path"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/latex-image/img-piecewise-line-integral-path.svg" role="img" class="contained" alt="A 2D coordinate plot mapping a path made of a parabolic segment from (0,0) up to (1,1), continuing straight up to (1,2)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The piecewise smooth path <span class="process-math">\(C = C_1 \cup C_2\)</span> plotted with a balanced 1:1 ratio.<div class="autopermalink" data-description="Figure 5.12"><a href="#fig-piecewise-line-integral-path" title="Copy heading and permalink for Figure 5.12" aria-label="Copy heading and permalink for Figure 5.12">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-line-integral-piecewise-2-5">Step 2: Evaluate the Component Integrals<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-line-integral-piecewise-2-6">We evaluate each integral expression independently:<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ex-line-integral-piecewise-2-7">
+<li id="ex-line-integral-piecewise-2-7-1">
+<div class="para logical" id="ex-line-integral-piecewise-2-7-1-1">
+<div class="para">Evaluation along <span class="process-math">\(C_1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-piecewise-2-7-1-1-2">
+\begin{equation*}
+\int_{C_1} 2x\,ds = \int_{0}^{1} 2t\sqrt{1+4t^2}\,dt
+\end{equation*}
+</div>
+<div class="para">Using <span class="process-math">\(u\)</span>-substitution where <span class="process-math">\(u = 1+4t^2 \implies du = 8t\,dt \implies \frac{1}{4}\,du = 2t\,dt\text{.}\)</span> Limits: when <span class="process-math">\(t=0 \implies u=1\text{,}\)</span> and when <span class="process-math">\(t=1 \implies u=5\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-piecewise-2-7-1-1-7">
+\begin{equation*}
+\int_{1}^{5} \frac{1}{4}u^{1/2}\,du = \left[ \frac{1}{4} \cdot \frac{2}{3}u^{3/2} \right]_{1}^{5} = \frac{1}{6}\left( 5^{3/2} - 1^{3/2} \right) = \frac{5\sqrt{5}-1}{6}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-line-integral-piecewise-2-7-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-line-integral-piecewise-2-7-2">
+<div class="para logical" id="ex-line-integral-piecewise-2-7-2-1">
+<div class="para">Evaluation along <span class="process-math">\(C_2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-piecewise-2-7-2-1-2">
+\begin{equation*}
+\int_{C_2} 2x\,ds = \int_{1}^{2} 2(1) \cdot (1)\,dt = \int_{1}^{2} 2\,dt = \Big[ 2t \Big]_{1}^{2} = 4 - 2 = 2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-line-integral-piecewise-2-7-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="ex-line-integral-piecewise-2-8">Step 3: Combine Results<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-piecewise-2-9">
+<div class="para">Adding the two individual components together gives the total value of the line integral:</div>
+<div class="displaymath process-math" id="ex-line-integral-piecewise-2-9-1">
+\begin{equation*}
+\int_C 2x\,ds = \frac{5\sqrt{5}-1}{6} + 2 = \frac{5\sqrt{5}-1 + 12}{6} = \frac{5\sqrt{5}+11}{6}.
+\end{equation*}
+</div>
+<div class="para">The complete line integral value along the piecewise path is exactly <span class="process-math">\(\frac{5\sqrt{5}+11}{6}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-piecewise-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.11.1"><a href="#ex-line-integral-piecewise-2" title="Copy heading and permalink for Solution 5.11.1" aria-label="Copy heading and permalink for Solution 5.11.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.11"><a href="#ex-line-integral-piecewise" title="Copy heading and permalink for Example 5.11" aria-label="Copy heading and permalink for Example 5.11">🔗</a></div>
+</article></details>
+<div class="para logical" id="sec-Line-Integrals-8">
+<div class="para">To distinguish the original line integral <span class="process-math">\(\int_C f(x,y)\,ds\)</span> from <span class="process-math">\(\int_C f(x,y)\,dx\)</span> and <span class="process-math">\(\int_C f(x,y)\,dy\text{,}\)</span> we call the first the <dfn class="terminology">line integral with respect to arc length</dfn>. If everything is expressed in terms of the parameter <span class="process-math">\(t\text{,}\)</span> where <span class="process-math">\(x=x(t)\text{,}\)</span> <span class="process-math">\(y=y(t)\text{,}\)</span> <span class="process-math">\(dx=x'(t)\,dt\text{,}\)</span> and <span class="process-math">\(dy=y'(t)\,dt\text{,}\)</span> we have:</div>
+<div class="displaymath process-math" id="sec-Line-Integrals-8-10">
+\begin{equation*}
+\int_C f(x,y)\,dx = \int^b_a f(x(t),y(t))x'(t)\,dt
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="sec-Line-Integrals-8-11">
+\begin{equation*}
+\int_C f(x,y)\,dy = \int^b_a f(x(t),y(t))y'(t)\,dt.
+\end{equation*}
+</div>
+<div class="para">It often happens that line integrals with respect to <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> occur together. When this happens, we write:</div>
+<div class="displaymath process-math" id="sec-Line-Integrals-8-14">
+\begin{equation*}
+\int_C P(x,y)\,dx + \int_C Q(x,y)\,dy = \int_C P(x,y)\,dx + Q(x,y)\,dy.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-Line-Integrals-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-Line-Integrals-9">
+<div class="para">A vector representation of the straight line segment that starts from <span class="process-math">\(\mathbf{r}_0\)</span> and ends at <span class="process-math">\(\mathbf{r}_1\)</span> is given by:</div>
+<div class="displaymath process-math" id="sec-Line-Integrals-9-3">
+\begin{equation*}
+\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1, \quad 0 \leq t \leq 1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-Line-Integrals-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-line-integral-coordinate-segment" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-line-integral-coordinate-segment-1-1">Evaluate <span class="process-math">\(\int_C y^2\,dx + x\,dy\text{,}\)</span> where <span class="process-math">\(C\)</span> is the line segment from <span class="process-math">\((-5,-3)\)</span> to <span class="process-math">\((0,2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-segment-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-line-integral-coordinate-segment-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-line-integral-coordinate-segment-2-1">Step 1: Parameterize the Straight Line Segment <span class="process-math">\(C\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-segment-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-coordinate-segment-2-2">
+<div class="para">Using the vector representation for a line segment with initial point <span class="process-math">\(\mathbf{r}_0 = \langle -5, -3 \rangle\)</span> and terminal point <span class="process-math">\(\mathbf{r}_1 = \langle 0, 2 \rangle\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-segment-2-2-3">
+\begin{align*}
+\mathbf{r}(t) \amp = (1-t)\langle -5, -3 \rangle + t\langle 0, 2 \rangle\\
+\amp = \langle -5 + 5t, -3 + 3t \rangle + \langle 0, 2t \rangle = \langle 5t - 5, 5t - 3 \rangle
+\end{align*}
+</div>
+<div class="para">This gives our parametric equations on the interval <span class="process-math">\(0 \leq t \leq 1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-segment-2-2-5">
+\begin{equation*}
+x(t) = 5t - 5 \implies dx = 5\,dt
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-segment-2-2-6">
+\begin{equation*}
+y(t) = 5t - 3 \implies dy = 5\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-segment-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-segment-line-integral-path"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/latex-image/img-segment-line-integral-path.svg" role="img" class="contained" alt="A 2D coordinate plot mapping a straight line segment path running from (-5,-3) diagonally up-right to (0,2)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The directed straight line segment path <span class="process-math">\(C\)</span> plotted with a balanced 1:1 ratio.<div class="autopermalink" data-description="Figure 5.14"><a href="#fig-segment-line-integral-path" title="Copy heading and permalink for Figure 5.14" aria-label="Copy heading and permalink for Figure 5.14">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-line-integral-coordinate-segment-2-4">Step 2: Setup and Evaluate the Iterated Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-segment-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-coordinate-segment-2-5">
+<div class="para">Substituting our parametric definitions and differentials into the given coordinate line integral string:</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-segment-2-5-1">
+\begin{align*}
+\int_C y^2\,dx + x\,dy \amp = \int_{0}^{1} \left[ (5t-3)^2 \cdot (5) + (5t-5) \cdot (5) \right] \, dt\\
+\amp = 5 \int_{0}^{1} \left[ (25t^2 - 30t + 9) + (5t - 5) \right] \, dt\\
+\amp = 5 \int_{0}^{1} \left( 25t^2 - 25t + 4 \right) \, dt\\
+\amp = 5 \left[ \frac{25}{3}t^3 - \frac{25}{2}t^2 + 4t \right]_{0}^{1}\\
+\amp = 5 \left( \frac{25}{3}(1)^3 - \frac{25}{2}(1)^2 + 4(1) - 0 \right)\\
+\amp = 5 \left( \frac{25}{3} - \frac{25}{2} + 4 \right).
+\end{align*}
+</div>
+<div class="para">Finding a common denominator of <span class="process-math">\(6\)</span> for the rational components:</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-segment-2-5-3">
+\begin{align*}
+\int_C y^2\,dx + x\,dy \amp = 5 \left( \frac{50}{6} - \frac{75}{6} + \frac{24}{6} \right)\\
+\amp = 5 \left( -\frac{1}{6} \right) = -\frac{5}{6}.
+\end{align*}
+</div>
+<div class="para">The value of the line integral with respect to the coordinate variables is exactly <span class="process-math">\(-\frac{5}{6}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-segment-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.13.1"><a href="#ex-line-integral-coordinate-segment-2" title="Copy heading and permalink for Solution 5.13.1" aria-label="Copy heading and permalink for Solution 5.13.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.13"><a href="#ex-line-integral-coordinate-segment" title="Copy heading and permalink for Example 5.13" aria-label="Copy heading and permalink for Example 5.13">🔗</a></div>
+</article></details>
+<details id="ex-line-integral-coordinate-parabola" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-line-integral-coordinate-parabola-1-1">Evaluate <span class="process-math">\(\int_C y^2\,dx + x\,dy\text{,}\)</span> where <span class="process-math">\(C\)</span> is the arc of the parabola <span class="process-math">\(x=4-y^2\)</span> from <span class="process-math">\((-5,-3)\)</span> to <span class="process-math">\((0,2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-parabola-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-line-integral-coordinate-parabola-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-line-integral-coordinate-parabola-2-1">Step 1: Parameterize the Parabolic Path Curve <span class="process-math">\(C\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-parabola-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-coordinate-parabola-2-2">
+<div class="para">Since the parabola is given in the form <span class="process-math">\(x = g(y)\text{,}\)</span> it is most natural to use <span class="process-math">\(y\)</span> itself as the parameter. Let:</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-parabola-2-2-3">
+\begin{equation*}
+y = t \implies dy = dt
+\end{equation*}
+</div>
+<div class="para">where the parameter <span class="process-math">\(t\)</span> varies from the initial <span class="process-math">\(y\)</span>-coordinate (<span class="process-math">\(-3\)</span>) to the terminal <span class="process-math">\(y\)</span>-coordinate (<span class="process-math">\(2\)</span>): <span class="process-math">\(-3 \leq t \leq 2\text{.}\)</span> Substituting this into the parabola equation gives the parametric description for <span class="process-math">\(x\)</span> and its differential:</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-parabola-2-2-11">
+\begin{equation*}
+x = 4 - t^2 \implies dx = -2t\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-parabola-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-parabola-line-integral-path"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="generated/latex-image/img-parabola-line-integral-path.svg" role="img" class="contained" alt="A 2D coordinate plot mapping a parabolic arc starting at (-5,-3), curving up-right to an x-intercept at (4,0), and ending at (0,2)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The directed parabolic arc path <span class="process-math">\(C\)</span> plotted with a balanced 1:1 ratio.<div class="autopermalink" data-description="Figure 5.16"><a href="#fig-parabola-line-integral-path" title="Copy heading and permalink for Figure 5.16" aria-label="Copy heading and permalink for Figure 5.16">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-line-integral-coordinate-parabola-2-4">Step 2: Setup and Evaluate the Iterated Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-parabola-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-coordinate-parabola-2-5">
+<div class="para">Substituting our parametric equations and differentials into the given line integral yields:</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-parabola-2-5-1">
+\begin{align*}
+\int_C y^2\,dx + x\,dy \amp = \int_{-3}^{2} \left[ (t)^2 \cdot (-2t\,dt) + (4 - t^2) \cdot (dt) \right]\\
+\amp = \int_{-3}^{2} \left( -2t^3 + 4 - t^2 \right) \, dt\\
+\amp = \left[ -\frac{1}{2}t^4 + 4t - \frac{1}{3}t^3 \right]_{-3}^{2}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-parabola-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-coordinate-parabola-2-6">
+<div class="para">Now, evaluating at the upper and lower limits:</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-parabola-2-6-1">
+\begin{align*}
+\text{Upper Limit } (t=2): \amp \quad -\frac{1}{2}(2)^4 + 4(2) - \frac{1}{3}(2)^3 = -8 + 8 - \frac{8}{3} = -\frac{8}{3}\\
+\text{Lower Limit } (t=-3): \amp \quad -\frac{1}{2}(-3)^4 + 4(-3) - \frac{1}{3}(-3)^3 = -\frac{81}{2} - 12 - (-9) = -\frac{81}{2} - 3 = -\frac{87}{2}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-parabola-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-coordinate-parabola-2-7">
+<div class="para">Subtracting the lower limit evaluation from the upper limit evaluation gives:</div>
+<div class="displaymath process-math" id="ex-line-integral-coordinate-parabola-2-7-1">
+\begin{align*}
+V \amp = -\frac{8}{3} - \left( -\frac{87}{2} \right) = -\frac{16}{6} + \frac{261}{6}\\
+\amp = \frac{245}{6}.
+\end{align*}
+</div>
+<div class="para">The value of the line integral along the parabolic arc path is exactly <span class="process-math">\(\frac{245}{6}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-coordinate-parabola-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.15.1"><a href="#ex-line-integral-coordinate-parabola-2" title="Copy heading and permalink for Solution 5.15.1" aria-label="Copy heading and permalink for Solution 5.15.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.15"><a href="#ex-line-integral-coordinate-parabola" title="Copy heading and permalink for Example 5.15" aria-label="Copy heading and permalink for Example 5.15">🔗</a></div>
+</article></details>
+<div class="para logical" id="sec-Line-Integrals-12">
+<div class="para">If <span class="process-math">\(-C\)</span> denotes the curve consisting of the same points as <span class="process-math">\(C\)</span> but with the opposite orientation, then we have:</div>
+<div class="displaymath process-math" id="sec-Line-Integrals-12-3">
+\begin{equation*}
+\int_{-C} f(x,y)\,dx = -\int_C f(x,y)\,dx, \quad \int_{-C} f(x,y)\,dy = -\int_C f(x,y)\,dy.
+\end{equation*}
+</div>
+<div class="para">But if we integrate with respect to arc length, the value of the line integral does <em class="alert">not</em> change when we reverse the orientation of the curve:</div>
+<div class="displaymath process-math" id="sec-Line-Integrals-12-5">
+\begin{equation*}
+\int_{-C} f(x,y)\,ds = \int_C f(x,y)\,ds.
+\end{equation*}
+</div>
+<div class="para">This occurs because the arc length differential segment <span class="process-math">\(\Delta s_i\)</span> is always positive, whereas the coordinate differentials <span class="process-math">\(\Delta x_i\)</span> and <span class="process-math">\(\Delta y_i\)</span> change sign when we reverse the orientation of <span class="process-math">\(C\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-Line-Integrals-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-line-integral-space"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Line Integrals in Space.</span>
+</h3>
+<div class="para logical" id="def-line-integral-space-2-1">
+<div class="para">If <span class="process-math">\(f\)</span> is defined on a smooth space curve <span class="process-math">\(C\)</span> given by parametric equations</div>
+<div class="displaymath process-math" id="def-line-integral-space-2-1-3">
+\begin{equation*}
+x=x(t), \quad y=y(t), \quad z=z(t), \quad a \leq t \leq b,
+\end{equation*}
+</div>
+<div class="para">or by the vector equation <span class="process-math">\(\mathbf{r}(t) = x(t)\mathbf{i} + y(t)\mathbf{j} + z(t)\mathbf{k}\text{,}\)</span> then the <dfn class="terminology">line integral of <span class="process-math">\(f\)</span> along <span class="process-math">\(C\)</span></dfn> is:</div>
+<div class="displaymath process-math" id="def-line-integral-space-2-1-6">
+\begin{equation*}
+\int_C f(x,y,z)\,ds = \lim_{n \rightarrow \infty} \sum^{n}_{i=1} f(x_i, y_i, z_i)\Delta s_i,
+\end{equation*}
+</div>
+<div class="para">provided this limit exists.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-line-integral-space-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.17: Line Integrals in Space"><a href="#def-line-integral-space" title="Copy heading and permalink for Definition 5.17: Line Integrals in Space" aria-label="Copy heading and permalink for Definition 5.17: Line Integrals in Space">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-line-integral-space-evaluation"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluation of Space Line Integrals.</span>
+</h3>
+<div class="para logical" id="thm-line-integral-space-evaluation-2-1">
+<div class="para">The line integral can be evaluated by expressing the differential element <span class="process-math">\(ds\)</span> in terms of the parameter <span class="process-math">\(t\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="thm-line-integral-space-evaluation-2-1-3">
+\begin{equation*}
+\int_C f(x,y,z)\,ds = \int^b_a f(x(t),y(t),z(t)) \sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2+\left(\frac{dz}{dt}\right)^2}\,dt = \int^b_a f(\mathbf{r}(t))|\mathbf{r}'(t)|\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-line-integral-space-evaluation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.18: Evaluation of Space Line Integrals"><a href="#thm-line-integral-space-evaluation" title="Copy heading and permalink for Theorem 5.18: Evaluation of Space Line Integrals" aria-label="Copy heading and permalink for Theorem 5.18: Evaluation of Space Line Integrals">🔗</a></div>
+</article>
+<details id="ex-line-integral-helix" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-line-integral-helix-1-1">Evaluate <span class="process-math">\(\int_C y \sin z \,ds\text{,}\)</span> where <span class="process-math">\(C\)</span> is the circular helix given by the equations <span class="process-math">\(x=\cos t, \ y=\sin t, \ z=t\text{,}\)</span> for <span class="process-math">\(0 \leq t \leq 2\pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-helix-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-line-integral-helix-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-line-integral-helix-2-1">Step 1: Compute the Arc Length Differential Element <span class="process-math">\(ds\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-helix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-helix-2-2">
+<div class="para">We find the derivatives of the parametric equations with respect to the parameter <span class="process-math">\(t\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-helix-2-2-2">
+\begin{equation*}
+\frac{dx}{dt} = -\sin t, \quad \frac{dy}{dt} = \cos t, \quad \frac{z}{dt} = 1.
+\end{equation*}
+</div>
+<div class="para">Substituting these into the radical magnitude formula for space curves gives:</div>
+<div class="displaymath process-math" id="ex-line-integral-helix-2-2-3">
+\begin{equation*}
+ds = \sqrt{(-\sin t)^2 + (\cos t)^2 + (1)^2}\,dt = \sqrt{\sin^2 t + \cos^2 t + 1}\,dt = \sqrt{1 + 1}\,dt = \sqrt{2}\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-helix-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-helix-integral-path-smooth"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/latex-image/img-helix-integral-path-smooth.svg" role="img" class="contained" alt="A smooth, mathematically accurate 3D coordinate plot mapping a circular helical curve winding upward over one full revolution around the z-axis."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The circular helix path <span class="process-math">\(C\)</span> tracing smoothly upward in 3D space from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=2\pi\text{.}\)</span><div class="autopermalink" data-description="Figure 5.20"><a href="#fig-helix-integral-path-smooth" title="Copy heading and permalink for Figure 5.20" aria-label="Copy heading and permalink for Figure 5.20">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-line-integral-helix-2-4">Step 2: Set Up and Evaluate the Iterated Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-helix-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-helix-2-5">
+<div class="para">We rewrite the integrand entirely in terms of <span class="process-math">\(t\)</span> by substituting <span class="process-math">\(y = \sin t\text{,}\)</span> <span class="process-math">\(z = t\text{,}\)</span> and <span class="process-math">\(ds = \sqrt{2}\,dt\)</span> across our bounds from <span class="process-math">\(0\)</span> to <span class="process-math">\(2\pi\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-helix-2-5-7">
+\begin{equation*}
+\int_C y \sin z \,ds = \int_{0}^{2\pi} (\sin t)(\sin t) \cdot \left(\sqrt{2}\,dt\right) = \sqrt{2} \int_{0}^{2\pi} \sin^2 t \,dt.
+\end{equation*}
+</div>
+<div class="para">Using the trigonometric half-angle reduction identity <span class="process-math">\(\sin^2 t = \frac{1-\cos(2t)}{2}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-helix-2-5-9">
+\begin{align*}
+\sqrt{2} \int_{0}^{2\pi} \left( \frac{1-\cos(2t)}{2} \right) \,dt \amp = \frac{\sqrt{2}}{2} \Big[ t - \frac{1}{2}\sin(2t) \Big]_{0}^{2\pi}\\
+\amp = \frac{\sqrt{2}}{2} \left[ \left(2\pi - \frac{1}{2}\sin(4\pi)\right) - \left(0 - \frac{1}{2}\sin(0)\right) \right]\\
+\amp = \frac{\sqrt{2}}{2} \Big[ (2\pi - 0) - 0 \Big] = \frac{\sqrt{2}}{2}(2\pi) = \pi\sqrt{2}.
+\end{align*}
+</div>
+<div class="para">The exact value of the line integral along the circular helix space curve is <span class="process-math">\(\pi\sqrt{2}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-helix-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.19.1"><a href="#ex-line-integral-helix-2" title="Copy heading and permalink for Solution 5.19.1" aria-label="Copy heading and permalink for Solution 5.19.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.19"><a href="#ex-line-integral-helix" title="Copy heading and permalink for Example 5.19" aria-label="Copy heading and permalink for Example 5.19">🔗</a></div>
+</article></details>
+<details id="ex-line-integral-space-piecewise" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-line-integral-space-piecewise-1-1">Evaluate <span class="process-math">\(\int_C y\,dx + z\,dy + x\,dz\text{,}\)</span> where <span class="process-math">\(C\)</span> consists of the line segment <span class="process-math">\(C_1\)</span> from <span class="process-math">\((2,0,0)\)</span> to <span class="process-math">\((3,4,5)\)</span> followed by the vertical line segment <span class="process-math">\(C_2\)</span> from <span class="process-math">\((3,4,5)\)</span> to <span class="process-math">\((3,4,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-space-piecewise-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-line-integral-space-piecewise-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-line-integral-space-piecewise-2-1">Because <span class="process-math">\(C\)</span> is a piecewise smooth curve, we split the line integral into the sum of its two separate component tracks: <span class="process-math">\(\int_C = \int_{C_1} + \int_{C_2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-space-piecewise-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-line-integral-space-piecewise-2-2">Step 1: Parameterize Path <span class="process-math">\(C_1\)</span> and Evaluate<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-space-piecewise-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-space-piecewise-2-3">
+<div class="para">The straight line segment <span class="process-math">\(C_1\)</span> starts at <span class="process-math">\(\mathbf{r}_0 = \langle 2,0,0 \rangle\)</span> and ends at <span class="process-math">\(\mathbf{r}_1 = \langle 3,4,5 \rangle\text{.}\)</span> Using the standard vector parameterization formula <span class="process-math">\(\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1\)</span> for <span class="process-math">\(0 \leq t \leq 1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-space-piecewise-2-3-6">
+\begin{equation*}
+x(t) = 2 + t \implies dx = dt
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-space-piecewise-2-3-7">
+\begin{equation*}
+y(t) = 4t \implies dy = 4\,dt
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-space-piecewise-2-3-8">
+\begin{equation*}
+z(t) = 5t \implies dz = 5\,dt.
+\end{equation*}
+</div>
+<div class="para">Substituting these parametric expressions into the first line integral gives:</div>
+<div class="displaymath process-math" id="ex-line-integral-space-piecewise-2-3-9">
+\begin{align*}
+\int_{C_1} y\,dx + z\,dy + x\,dz \amp = \int_{0}^{1} \left[ (4t)(dt) + (5t)(4\,dt) + (2+t)(5\,dt) \right]\\
+\amp = \int_{0}^{1} \left( 4t + 20t + 10 + 5t \right) \, dt\\
+\amp = \int_{0}^{1} \left( 29t + 10 \right) \, dt = \left[ \frac{29}{2}t^2 + 10t \right]_{0}^{1} = \frac{29}{2} + 10 = \frac{49}{2}.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-space-piecewise-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-line-integral-space-piecewise-2-4">Step 2: Parameterize Path <span class="process-math">\(C_2\)</span> and Evaluate<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-space-piecewise-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-space-piecewise-2-5">
+<div class="para">The vertical line segment <span class="process-math">\(C_2\)</span> goes straight downward from <span class="process-math">\((3,4,5)\)</span> to <span class="process-math">\((3,4,0)\text{.}\)</span> Along this path, <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> remain constant, which makes their differentials zero:</div>
+<div class="displaymath process-math" id="ex-line-integral-space-piecewise-2-5-6">
+\begin{equation*}
+x = 3 \implies dx = 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-space-piecewise-2-5-7">
+\begin{equation*}
+y = 4 \implies dy = 0
+\end{equation*}
+</div>
+<div class="para">The height variable <span class="process-math">\(z\)</span> drops continuously from <span class="process-math">\(5\)</span> down to <span class="process-math">\(0\text{.}\)</span> Let’s use <span class="process-math">\(z = t\)</span> as our parameter on the directional interval from <span class="process-math">\(t = 5\)</span> to <span class="process-math">\(t = 0\text{,}\)</span> where <span class="process-math">\(dz = dt\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-space-piecewise-2-5-15">
+\begin{align*}
+\int_{C_2} y\,dx + z\,dy + x\,dz \amp = \int_{5}^{0} \left[ (4)(0) + (t)(0) + (3)(dt) \right]\\
+\amp = \int_{5}^{0} 3 \, dt = \Big[ 3t \Big]_{5}^{0} = 3(0) - 3(5) = -15.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-space-piecewise-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-space-piecewise-path"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="generated/latex-image/img-space-piecewise-path.svg" role="img" class="contained" alt="A 3D coordinate plot mapping a straight line segment path running diagonally up from (2,0,0) to (3,4,5), followed by a vertical segment dropping straight down to (3,4,0)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The piecewise space path <span class="process-math">\(C = C_1 \cup C_2\)</span> tracing through three-dimensional space.<div class="autopermalink" data-description="Figure 5.22"><a href="#fig-space-piecewise-path" title="Copy heading and permalink for Figure 5.22" aria-label="Copy heading and permalink for Figure 5.22">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ex-line-integral-space-piecewise-2-7">Step 3: Combine Component Integrals<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-space-piecewise-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-space-piecewise-2-8">
+<div class="para">Adding the results from the two paths together gives the final total evaluation:</div>
+<div class="displaymath process-math" id="ex-line-integral-space-piecewise-2-8-1">
+\begin{equation*}
+\int_C y\,dx + z\,dy + x\,dz = \frac{49}{2} + (-15) = \frac{49}{2} - \frac{30}{2} = \frac{19}{2}.
+\end{equation*}
+</div>
+<div class="para">The complete line integral value along the piecewise space curve path is exactly <span class="process-math">\(\frac{19}{2}\)</span> (or <span class="process-math">\(9.5\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-space-piecewise-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.21.1"><a href="#ex-line-integral-space-piecewise-2" title="Copy heading and permalink for Solution 5.21.1" aria-label="Copy heading and permalink for Solution 5.21.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.21"><a href="#ex-line-integral-space-piecewise" title="Copy heading and permalink for Example 5.21" aria-label="Copy heading and permalink for Example 5.21">🔗</a></div>
+</article></details>
+<article class="definition definition-like" id="def-line-integral-vector-field"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Line Integral of a Vector Field.</span>
+</h3>
+<div class="para logical" id="def-line-integral-vector-field-2-1">
+<div class="para">Let <span class="process-math">\(\mathbf{F}\)</span> be a continuous vector field defined on a smooth curve <span class="process-math">\(C\)</span> given by a vector function <span class="process-math">\(\mathbf{r}(t)\)</span> for <span class="process-math">\(a \leq t \leq b\text{.}\)</span> Then the <dfn class="terminology">line integral of <span class="process-math">\(\mathbf{F}\)</span> along <span class="process-math">\(C\)</span></dfn> is:</div>
+<div class="displaymath process-math" id="def-line-integral-vector-field-2-1-6">
+\begin{equation*}
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int^b_a \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt = \int_C \mathbf{F} \cdot \mathbf{T}\,ds,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mathbf{T}\)</span> is the unit tangent vector at the point <span class="process-math">\((x,y,z)\)</span> on <span class="process-math">\(C\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-line-integral-vector-field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.23: Line Integral of a Vector Field"><a href="#def-line-integral-vector-field" title="Copy heading and permalink for Definition 5.23: Line Integral of a Vector Field" aria-label="Copy heading and permalink for Definition 5.23: Line Integral of a Vector Field">🔗</a></div>
+</article>
+<article class="definition definition-like" id="def-work-done-force-field"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work Done by a Force Field.</span>
+</h3>
+<div class="para logical" id="def-work-done-force-field-2-1">
+<div class="para">We define the <dfn class="terminology">work</dfn> <span class="process-math">\(W\)</span> done by a continuous force field <span class="process-math">\(\mathbf{F}\)</span> as the limit of Riemann sums over a smooth curve <span class="process-math">\(C\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="def-work-done-force-field-2-1-5">
+\begin{equation*}
+W = \int_C \mathbf{F}(x,y,z) \cdot \mathbf{Y}(x,y,z)\,ds = \int_C \mathbf{F} \cdot \mathbf{T}\,ds.
+\end{equation*}
+</div>
+<div class="para">If the curve <span class="process-math">\(C\)</span> is given by the parametric vector equation <span class="process-math">\(\mathbf{r}(t) = x(t)\mathbf{i} + y(t)\mathbf{j} + z(t)\mathbf{k}\text{,}\)</span> then the unit tangent vector profile simplifies to <span class="process-math">\(\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}\text{,}\)</span> allowing us to rewrite the definition as an evaluation formula:</div>
+<div class="displaymath process-math" id="def-work-done-force-field-2-1-9">
+\begin{equation*}
+W = \int^b_a \left[ \mathbf{F}(\mathbf{r}(t)) \cdot \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} \right] |\mathbf{r}'(t)|\,dt = \int^b_a \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-work-done-force-field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.24: Work Done by a Force Field"><a href="#def-work-done-force-field" title="Copy heading and permalink for Definition 5.24: Work Done by a Force Field" aria-label="Copy heading and permalink for Definition 5.24: Work Done by a Force Field">🔗</a></div>
+</article>
+<details id="ex-work-done-quarter-circle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.25</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-work-done-quarter-circle-1-1">Find the work done by the force field <span class="process-math">\(\mathbf{F}(x,y) = x^2\mathbf{i} - xy\mathbf{j}\)</span> in moving a particle along the quarter-circle <span class="process-math">\(\mathbf{r}(t) = \cos t\mathbf{i} + \sin t\mathbf{j}\)</span> for <span class="process-math">\(0 \leq t \leq \pi/2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-quarter-circle-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-work-done-quarter-circle-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-work-done-quarter-circle-2-1">Step 1: Express the Vector Field and Velocity Vector in terms of <span class="process-math">\(t\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-quarter-circle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-work-done-quarter-circle-2-2">
+<div class="para">From the parametric equations of the curve, we have <span class="process-math">\(x = \cos t\)</span> and <span class="process-math">\(y = \sin t\text{.}\)</span> Substituting these into the vector field equation yields:</div>
+<div class="displaymath process-math" id="ex-work-done-quarter-circle-2-2-3">
+\begin{equation*}
+\mathbf{F}(\mathbf{r}(t)) = (\cos t)^2\mathbf{i} - (\cos t)(\sin t)\mathbf{j} = \langle \cos^2 t, -\cos t\sin t \rangle.
+\end{equation*}
+</div>
+<div class="para">Next, we take the derivative of the path vector equation to compute the velocity vector:</div>
+<div class="displaymath process-math" id="ex-work-done-quarter-circle-2-2-4">
+\begin{equation*}
+\mathbf{r}'(t) = -\sin t\mathbf{i} + \cos t\mathbf{j} = \langle -\sin t, \cos t \rangle.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-quarter-circle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-work-done-quarter-circle-2-3">Step 2: Calculate the Inner Dot Product<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-quarter-circle-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-work-done-quarter-circle-2-4">
+<div class="para">We find the dot product of the field and the tangent vector:</div>
+<div class="displaymath process-math" id="ex-work-done-quarter-circle-2-4-1">
+\begin{align*}
+\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \amp = \langle \cos^2 t, -\cos t\sin t \rangle \cdot \langle -\sin t, \cos t \rangle\\
+\amp = (\cos^2 t)(-\sin t) + (-\cos t\sin t)(\cos t)\\
+\amp = -\cos^2 t\sin t - \cos^2 t\sin t = -2\cos^2 t\sin t.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-quarter-circle-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-work-done-quarter-circle-2-5">Step 3: Evaluate the Work Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-quarter-circle-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-work-done-quarter-circle-2-6">
+<div class="para">Using the work formula for a vector field, we evaluate the definite integral from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=\pi/2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-work-done-quarter-circle-2-6-3">
+\begin{equation*}
+W = \int_{0}^{\pi/2} \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt = \int_{0}^{\pi/2} -2\cos^2 t\sin t \, dt.
+\end{equation*}
+</div>
+<div class="para">We solve this using a simple <span class="process-math">\(u\)</span>-substitution. Let:</div>
+<div class="displaymath process-math" id="ex-work-done-quarter-circle-2-6-5">
+\begin{equation*}
+u = \cos t \implies du = -\sin t \, dt \implies -du = \sin t \, dt.
+\end{equation*}
+</div>
+<div class="para">Updating limits: when <span class="process-math">\(t = 0 \implies u = \cos(0) = 1\text{,}\)</span> and when <span class="process-math">\(t = \pi/2 \implies u = \cos(\pi/2) = 0\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-work-done-quarter-circle-2-6-8">
+\begin{align*}
+W \amp = \int_{1}^{0} -2u^2 (-du) = \int_{1}^{0} 2u^2 \, du = -\int_{0}^{1} 2u^2 \, du\\
+\amp = -\left[ \frac{2}{3}u^3 \right]_{0}^{1} = -\left( \frac{2}{3}(1)^3 - 0 \right) = -\frac{2}{3}.
+\end{align*}
+</div>
+<div class="para">The total work done by the force field along the quarter-circle is exactly <span class="process-math">\(-\frac{2}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-done-quarter-circle-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.25.1"><a href="#ex-work-done-quarter-circle-2" title="Copy heading and permalink for Solution 5.25.1" aria-label="Copy heading and permalink for Solution 5.25.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.25"><a href="#ex-work-done-quarter-circle" title="Copy heading and permalink for Example 5.25" aria-label="Copy heading and permalink for Example 5.25">🔗</a></div>
+</article></details>
+<details id="ex-line-integral-twisted-cubic" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.26</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-line-integral-twisted-cubic-1-1">
+<div class="para">Evaluate <span class="process-math">\(\int_C \mathbf{F} \cdot d\mathbf{r}\text{,}\)</span> where <span class="process-math">\(\mathbf{F}(x,y,z) = xy\mathbf{i} + yz\mathbf{j} + zx\mathbf{k}\)</span> and <span class="process-math">\(C\)</span> is the twisted cubic given by:</div>
+<div class="displaymath process-math" id="ex-line-integral-twisted-cubic-1-1-4">
+\begin{equation*}
+x = t, \quad y = t^2, \quad z = t^3, \quad 0 \leq t \leq 1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-twisted-cubic-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-line-integral-twisted-cubic-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-line-integral-twisted-cubic-2-1">Step 1: Express the Field and Differentials in terms of <span class="process-math">\(t\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-twisted-cubic-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-twisted-cubic-2-2">
+<div class="para">We translate the position and component paths into the parameter space:</div>
+<div class="displaymath process-math" id="ex-line-integral-twisted-cubic-2-2-1">
+\begin{equation*}
+x = t \implies dx = dt
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-twisted-cubic-2-2-2">
+\begin{equation*}
+y = t^2 \implies dy = 2t\,dt
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-line-integral-twisted-cubic-2-2-3">
+\begin{equation*}
+z = t^3 \implies dz = 3t^2\,dt.
+\end{equation*}
+</div>
+<div class="para">Substituting these variables into our component definitions for the field vector gives:</div>
+<div class="displaymath process-math" id="ex-line-integral-twisted-cubic-2-2-4">
+\begin{equation*}
+\mathbf{F}(\mathbf{r}(t)) = \langle (t)(t^2), (t^2)(t^3), (t^3)(t) \rangle = \langle t^3, t^5, t^4 \rangle.
+\end{equation*}
+</div>
+<div class="para">The tangent vector is: <span class="process-math">\(\mathbf{r}'(t) = \langle 1, 2t, 3t^2 \rangle\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-twisted-cubic-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-line-integral-twisted-cubic-2-3">Step 2: Setup and Evaluate the Vector Line Integral<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-twisted-cubic-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-line-integral-twisted-cubic-2-4">
+<div class="para">We find the dot product <span class="process-math">\(\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\)</span> and substitute it into the work form expression:</div>
+<div class="displaymath process-math" id="ex-line-integral-twisted-cubic-2-4-2">
+\begin{align*}
+\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \amp = \langle t^3, t^5, t^4 \rangle \cdot \langle 1, 2t, 3t^2 \rangle\\
+\amp = (t^3)(1) + (t^5)(2t) + (t^4)(3t^2)\\
+\amp = t^3 + 2t^6 + 3t^6 = t^3 + 5t^6.
+\end{align*}
+</div>
+<div class="para">Now evaluate the integral over the parameter limits from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-line-integral-twisted-cubic-2-4-5">
+\begin{align*}
+\int_C \mathbf{F} \cdot d\mathbf{r} \amp = \int_{0}^{1} \left( t^3 + 5t^6 \right) \, dt\\
+\amp = \left[ \frac{1}{4}t^4 + \frac{5}{7}t^7 \right]_{0}^{1}\\
+\amp = \left( \frac{1}{4}(1)^4 + \frac{5}{7}(1)^7 \right) - 0\\
+\amp = \frac{1}{4} + \frac{5}{7} = \frac{7 + 20}{28} = \frac{27}{28}.
+\end{align*}
+</div>
+<div class="para">The value of the line integral along the twisted cubic curve is exactly <span class="process-math">\(\frac{27}{28}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-line-integral-twisted-cubic-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.26.1"><a href="#ex-line-integral-twisted-cubic-2" title="Copy heading and permalink for Solution 5.26.1" aria-label="Copy heading and permalink for Solution 5.26.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.26"><a href="#ex-line-integral-twisted-cubic" title="Copy heading and permalink for Example 5.26" aria-label="Copy heading and permalink for Example 5.26">🔗</a></div>
+</article></details>
+<div class="para" id="sec-Line-Integrals-21">Suppose the vector field <span class="process-math">\(\mathbf{F}\)</span> on <span class="process-math">\(\mathbb{R}^3\)</span> is given in component form by the equation <span class="process-math">\(\mathbf{F} = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}\text{.}\)</span> We use the definition of the line integral of <span class="process-math">\(\mathbf{F}\)</span> along the curve <span class="process-math">\(C\)</span> to expand the expression into coordinate components:<div class="autopermalink" data-description="Paragraph"><a href="#sec-Line-Integrals-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="sec-Line-Integrals-22">
+\begin{align*}
+\int_C \mathbf{F} \cdot d\mathbf{r} \amp = \int^b_a \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt\\
+\amp = \int^b_a (P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}) \cdot (x'(t)\mathbf{i} + y'(t)\mathbf{j} + z'(t)\mathbf{k})\,dt\\
+\amp = \int^b_a \left[ Px'(t) + Qy'(t) + Rz'(t) \right]\,dt.
+\end{align*}
+</div>
+<article class="theorem theorem-like" id="thm-line-integral-vector-component-equivalence"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.27</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equivalence of Vector and Coordinate Form.</span>
+</h3>
+<div class="para logical" id="thm-line-integral-vector-component-equivalence-2-1">
+<div class="para">The last integral matches the definition of a line integral with respect to coordinate variables. Therefore, we establish the following equivalence:</div>
+<div class="displaymath process-math" id="thm-line-integral-vector-component-equivalence-2-1-1">
+\begin{equation*}
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C P\,dx + Q\,dy + R\,dz, \quad \text{where } \mathbf{F} = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-line-integral-vector-component-equivalence-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.27: Equivalence of Vector and Coordinate Form"><a href="#thm-line-integral-vector-component-equivalence" title="Copy heading and permalink for Theorem 5.27: Equivalence of Vector and Coordinate Form" aria-label="Copy heading and permalink for Theorem 5.27: Equivalence of Vector and Coordinate Form">🔗</a></div>
+</article>
+<details id="proof-line-integral-component-equivalence" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para logical" id="proof-line-integral-component-equivalence-1">
+<div class="para">Let the smooth space curve <span class="process-math">\(C\)</span> be parameterized by the vector function <span class="process-math">\(\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle\)</span> for <span class="process-math">\(a \leq t \leq b\text{.}\)</span> The derivative of <span class="process-math">\(\mathbf{r}(t)\)</span> with respect to the parameter <span class="process-math">\(t\)</span> provides the tangent velocity vector:</div>
+<div class="displaymath process-math" id="proof-line-integral-component-equivalence-1-6">
+\begin{equation*}
+\mathbf{r}'(t) = \frac{d\mathbf{r}}{dt} = \left\langle \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt} \right\rangle = x'(t)\mathbf{i} + y'(t)\mathbf{j} + z'(t)\mathbf{k}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proof-line-integral-component-equivalence-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="proof-line-integral-component-equivalence-2">
+<div class="para">By definition, the line integral of a continuous vector field <span class="process-math">\(\mathbf{F} = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}\)</span> along <span class="process-math">\(C\)</span> is evaluated as:</div>
+<div class="displaymath process-math" id="proof-line-integral-component-equivalence-2-3">
+\begin{equation*}
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int^b_a \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt.
+\end{equation*}
+</div>
+<div class="para">Substituting the component forms of both <span class="process-math">\(\mathbf{F}\)</span> and <span class="process-math">\(\mathbf{r}'(t)\)</span> into the dot product yields:</div>
+<div class="displaymath process-math" id="proof-line-integral-component-equivalence-2-6">
+\begin{align*}
+\int_C \mathbf{F} \cdot d\mathbf{r} \amp = \int^b_a \langle P, Q, R \rangle \cdot \langle x'(t), y'(t), z'(t) \rangle\,dt\\
+\amp = \int^b_a \left[ P(x(t),y(t),z(t))x'(t) + Q(x(t),y(t),z(t))y'(t) + R(x(t),y(t),z(t))z'(t) \right]\,dt.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proof-line-integral-component-equivalence-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="proof-line-integral-component-equivalence-3">
+<div class="para">We can distribute the integral across the addition operations. Separating this into three distinct single integrals gives:</div>
+<div class="displaymath process-math" id="proof-line-integral-component-equivalence-3-1">
+\begin{equation*}
+= \int^b_a P(x(t),y(t),z(t))x'(t)\,dt + \int^b_a Q(x(t),y(t),z(t))y'(t)\,dt + \int^b_a R(x(t),y(t),z(t))z'(t)\,dt.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proof-line-integral-component-equivalence-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="proof-line-integral-component-equivalence-4">
+<div class="para">Recall from the definition of line integrals with respect to coordinate variables that the differentials <span class="process-math">\(dx\text{,}\)</span> <span class="process-math">\(dy\text{,}\)</span> and <span class="process-math">\(dz\)</span> are defined parametrically as:</div>
+<div class="displaymath process-math" id="proof-line-integral-component-equivalence-4-4">
+\begin{equation*}
+dx = x'(t)\,dt, \quad dy = y'(t)\,dt, \quad dz = z'(t)\,dt.
+\end{equation*}
+</div>
+<div class="para">Replacing these differential terms back into the single integrals transforms the parameter space representations into their corresponding coordinate line integrals along <span class="process-math">\(C\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="proof-line-integral-component-equivalence-4-6">
+\begin{equation*}
+= \int_C P(x,y,z)\,dx + \int_C Q(x,y,z)\,dy + \int_C R(x,y,z)\,dz.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proof-line-integral-component-equivalence-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="proof-line-integral-component-equivalence-5">
+<div class="para">Combining these three adjacent coordinate integrals under a single integral sign produces the standard shorthand notation:</div>
+<div class="displaymath process-math" id="proof-line-integral-component-equivalence-5-1">
+\begin{equation*}
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C P\,dx + Q\,dy + R\,dz.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proof-line-integral-component-equivalence-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1"><a href="#proof-line-integral-component-equivalence" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section: 5.2 Line Integrals"><a href="#sec-Line-Integrals" title="Copy heading and permalink for Section: 5.2 Line Integrals" aria-label="Copy heading and permalink for Section: 5.2 Line Integrals">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-Vector-fields.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-Green-theorem.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

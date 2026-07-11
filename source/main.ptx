@@ -93,10 +93,44 @@
       <xi:include href="./notes/Cylindrical-Coordinates.ptx" />
       <xi:include href="./notes/Change-of-variables.ptx" />
 
-      
-
       </chapter>
 
+    <chapter xml:id="ch-Vector-fields">
+      <title>Integration in Vector Fields</title>
+      <introduction>
+        <p>
+          Vector fields are functions that assign a vector to every point in space. 
+          They are used to model physical phenomena such as fluid flow, electromagnetic fields, 
+          and gravitational fields.
+        </p>
+      </introduction>
+
+      <xi:include href="./notes/Vector-fields.ptx" />
+      <xi:include href="./notes/Line-Integrals.ptx" />
+      <xi:include href="./notes/Green-theorem.ptx" />
+      <xi:include href="./notes/Curl.ptx" />
+      <!--<xi:include href="./notes/Stokes-theorem.ptx" />  -->
+      
+
+    </chapter>
+
+    <chapter xml:id="ch-Exercises">
+      <title>Chapter Exercises</title>
+      <introduction>
+        <p>
+          This chapter contains exercises for students to practice the concepts learned in the course. 
+          Each exercise is designed to reinforce understanding and application of each chapter's topics.
+        </p>
+      </introduction>
+      <xi:include href="./ch_exercises/vector-values.ptx" />
+      <xi:include href="./ch_exercises/vector-functions.ptx" />
+      <xi:include href="./ch_exercises/partial-derivatives.ptx" />
+      <xi:include href="./ch_exercises/multiple-integrals.ptx" />
+      <xi:include href="./ch_exercises/vector-f.ptx" />
+      
+
+
+    </chapter>
 
 
     <chapter xml:id="activities">
@@ -114,23 +148,6 @@
 
       <!-- Add more xi:include files here to include them in the main course -->
     </chapter>
-
-    <chapter xml:id="ch-Exercises">
-      <title>Chapter Exercises</title>
-      <introduction>
-        <p>
-          This chapter contains exercises for students to practice the concepts learned in the course. 
-          Each exercise is designed to reinforce understanding and application of each chapter's topics.
-        </p>
-      </introduction>
-      <xi:include href="./ch_exercises/vector-values.ptx" />
-      <xi:include href="./ch_exercises/vector-functions.ptx" />
-      <xi:include href="./ch_exercises/partial-derivatives.ptx" />
-      <xi:include href="./ch_exercises/multiple-integrals.ptx" />
-
-    </chapter>
-
-
 
 
 
