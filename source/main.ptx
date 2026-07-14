@@ -91,7 +91,7 @@
       <xi:include href="./notes/polar.ptx" />
       <xi:include href="./notes/Triple-integrals.ptx" />
       <xi:include href="./notes/Cylindrical-Coordinates.ptx" />
-      <xi:include href="./notes/Change-of-variables.ptx" />
+      <!--<xi:include href="./notes/Change-of-variables.ptx" />-->
 
       </chapter>
 
