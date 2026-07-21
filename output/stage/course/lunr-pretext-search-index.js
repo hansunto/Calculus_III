@@ -4396,7 +4396,7 @@ var ptx_lunr_docs = [
   "id": "activities",
   "level": "1",
   "url": "activities.html",
-  "type": "Chapter",
+  "type": "Module",
   "number": "7",
   "title": "MyOpenMath Activities",
   "body": " MyOpenMath Activities   These files contain copies of the interactive MyOpenMath exercises that guided our learning for each topic. Special thanks to Professor Jason Hardin for sharing his MyOpenMath question bank.      "
@@ -4405,7 +4405,7 @@ var ptx_lunr_docs = [
   "id": "homework",
   "level": "1",
   "url": "homework.html",
-  "type": "Chapter",
+  "type": "Module",
   "number": "8",
   "title": "Homework",
   "body": " Homework    "
@@ -4414,7 +4414,7 @@ var ptx_lunr_docs = [
   "id": "course-documents",
   "level": "1",
   "url": "course-documents.html",
-  "type": "Chapter",
+  "type": "Module",
   "number": "9",
   "title": "Course Documents",
   "body": " Course Documents     "
