@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<worksheet xml:id="ma310-written-hw02">
+<title>MA-310 Calculus III: Written Homework 2</title>
+  <!-- ====================================================== -->
+  <!-- Question 1 -->
+  <!-- ====================================================== -->
+
+  <page xml:id="page-question-1">
+
+    <exercise xml:id="question-1">
+      <statement>
+        <p>
+          Let
+          <me>
+            \mathbf{a}=3\mathbf{i}-\mathbf{j}-4\mathbf{k}
+          </me>
+          and
+          <me>
+            \mathbf{b}=2\mathbf{i}+5\mathbf{j}-2\mathbf{k}.
+          </me>
+          Find the following:
+        </p>
+
+        <ol>
+          <li>
+            <p>The dot product of <m>\mathbf{a}</m> with itself,
+              <me>\mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{a}.</me>
+            </p>
+          </li>
+
+          <li>
+            <p>The dot product of <m>\mathbf{a}</m> and <m>\mathbf{b}</m>,
+              <me>\mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{b}.</me>
+            </p>
+          </li>
+
+          <li>
+            <p>The cross product of <m>\mathbf{b}</m> and <m>\mathbf{a}</m>,
+              <me>\mathbf{b}\mathbin{\boldsymbol{\times}}\mathbf{a}.</me>
+            </p>
+          </li>
+        </ol>
+      </statement>
+
+      <solution>
+        <ol>
+          <li>
+            <p>For the dot product of <m>\mathbf{a}</m> with itself:</p>
+
+            <me>
+              \mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{a}
+              =(3)(3)+(-1)(-1)+(-4)(-4)=9+1+16=26.
+            </me>
+
+            <p>
+              Therefore,
+              <me>
+                \mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{a}=26.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <p>For the dot product of <m>\mathbf{a}</m> and <m>\mathbf{b}</m>:</p>
+
+            <me>
+              \mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{b}
+              =(3)(2)+(-1)(5)+(-4)(-2)=6-5+8=9.
+            </me>
+
+            <p>
+              Therefore,
+              <me>
+                \mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{b}=9.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              For the cross product, write the vectors in component form:
+            </p>
+
+            <me>
+              \mathbf{b}=\langle 2,5,-2\rangle,
+              \qquad
+              \mathbf{a}=\langle 3,-1,-4\rangle.
+            </me>
+
+            <me>
+              \mathbf{b}\mathbin{\boldsymbol{\times}}\mathbf{a}
+              =\left\langle
+              5(-4)-(-2)(-1),
+              -\left(2(-4)-(-2)(3)\right),
+              2(-1)-5(3)\right\rangle
+              =\langle-22,2,-17\rangle.
+            </me>
+
+            <p>
+              Therefore,
+              <me>
+                \mathbf{b}\mathbin{\boldsymbol{\times}}\mathbf{a}
+                =\langle-22,2,-17\rangle.
+              </me>
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </exercise>
+
+  </page>
+
+
+  <!-- ====================================================== -->
+  <!-- Question 2 -->
+  <!-- ====================================================== -->
+
+  <page xml:id="page-question-2">
+
+    <exercise xml:id="question-2">
+      <statement>
+        <p>
+          Find an equation of the plane that passes through the point
+          <me>(-1,6,0)</me>
+          and is perpendicular to the line
+          <me>
+            x=-1+t,\qquad y=6-2t,\qquad z=3t.
+          </me>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The direction vector of the line is
+        </p>
+
+        <me>
+          \mathbf{n}=\langle1,-2,3\rangle.
+        </me>
+
+        <p>
+          Since the plane is perpendicular to the line, this direction
+          vector is a normal vector to the plane.
+        </p>
+
+        <p>
+          Using the point-normal form of a plane,
+        </p>
+
+        <me>
+          \mathbf{n}\mathbin{\boldsymbol{\cdot}}
+          \langle x-x_0,y-y_0,z-z_0\rangle=0,
+        </me>
+
+        <p>we obtain</p>
+
+        <me>
+          \langle1,-2,3\rangle
+          \mathbin{\boldsymbol{\cdot}}
+          \langle x+1,y-6,z\rangle=0.
+        </me>
+
+        <me>
+          x+1-2(y-6)+3z=0,
+          \qquad x-2y+3z=-13.
+        </me>
+
+        <p>
+          Therefore, an equation of the plane is
+        </p>
+
+        <me>
+          \boxed{x-2y+3z=-13}.
+        </me>
+      </solution>
+    </exercise>
+
+  </page>
+
+
+  <!-- ====================================================== -->
+  <!-- Question 3 -->
+  <!-- ====================================================== -->
+
+  <page xml:id="page-question-3">
+
+    <exercise xml:id="question-3">
+      <statement>
+        <p>
+          The lines <m>L_1</m> and <m>L_2</m> have the following
+          parametric equations for <m>t\in\mathbb{R}</m>:
+        </p>
+
+        <me>
+          L_1: x=1+2t,\qquad y=3-4t,\qquad z=-2+t,
+          \qquad
+          L_2: x=-5-t,\qquad y=2-3t,\qquad z=4+3t.
+        </me>
+
+        <p>
+          Find the angle between <m>L_1</m> and <m>L_2</m>.
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The direction vectors of the two lines are
+        </p>
+
+        <me>
+          \mathbf{u}=\langle2,-4,1\rangle,
+          \qquad
+          \mathbf{v}=\langle-1,-3,3\rangle.
+        </me>
+
+        <p>
+          Use the dot-product formula
+        </p>
+
+        <me>
+          \cos\theta=
+          \frac{\mathbf{u}\mathbin{\boldsymbol{\cdot}}\mathbf{v}}
+          {|\mathbf{u}||\mathbf{v}|}.
+        </me>
+
+        <me>
+          \mathbf{u}\mathbin{\boldsymbol{\cdot}}\mathbf{v}
+          =(2)(-1)+(-4)(-3)+(1)(3)=-2+12+3=13.
+        </me>
+
+        <p>
+          The magnitudes are
+        </p>
+
+        <me>
+          |\mathbf{u}|=\sqrt{2^2+(-4)^2+1^2}=\sqrt{21},
+          \qquad
+          |\mathbf{v}|=\sqrt{(-1)^2+(-3)^2+3^2}=\sqrt{19}.
+        </me>
+
+        <p>
+          Therefore,
+        </p>
+
+        <me>
+          \cos\theta=\frac{13}{\sqrt{21}\sqrt{19}}
+          =\frac{13}{\sqrt{399}}.
+        </me>
+
+        <me>
+          \theta=\arccos\left(\frac{13}{\sqrt{399}}\right)
+          \approx49.4^\circ.
+        </me>
+
+        <p>
+          Therefore, the angle between the two lines is
+          <me>\boxed{\theta\approx49.4^\circ}.</me>
+        </p>
+      </solution>
+    </exercise>
+
+  </page>
+
+
+  <!-- ====================================================== -->
+  <!-- Question 4 -->
+  <!-- ====================================================== -->
+
+  <page xml:id="page-question-4">
+
+    <exercise xml:id="question-4">
+      <statement>
+        <p>
+          Find all real numbers <m>t</m> for which the vectors
+        </p>
+
+        <me>
+          \mathbf{u}=\langle2t,4,3\rangle
+          \qquad\text{and}\qquad
+          \mathbf{v}=\langle-t,t,1\rangle
+        </me>
+
+        <p>are orthogonal.</p>
+      </statement>
+
+      <solution>
+        <p>
+          Two vectors are orthogonal when their dot product is zero.
+          Therefore,
+        </p>
+
+        <me>
+          \mathbf{u}\mathbin{\boldsymbol{\cdot}}\mathbf{v}=0.
+        </me>
+
+        <me>
+          (2t)(-t)+(4)(t)+(3)(1)=0,
+          \qquad -2t^2+4t+3=0.
+        </me>
+
+        <p>
+          Multiply by <m>-1</m>:
+        </p>
+
+        <me>
+          2t^2-4t-3=0.
+        </me>
+
+        <p>
+          Using the quadratic formula,
+        </p>
+
+        <me>
+          t=
+          \frac{-(-4)\mathbin{\boldsymbol{\pm}}
+          \sqrt{(-4)^2-4(2)(-3)}}{2(2)}.
+        </me>
+
+        <me>
+          t=\frac{4\mathbin{\boldsymbol{\pm}}\sqrt{40}}{4}
+          =1\mathbin{\boldsymbol{\pm}}\frac{\sqrt{10}}{2}.
+        </me>
+
+        <p>
+          Therefore,
+        </p>
+
+        <me>
+          \boxed{t=1+\frac{\sqrt{10}}{2}
+          \quad\text{or}\quad
+          t=1-\frac{\sqrt{10}}{2}}.
+        </me>
+      </solution>
+    </exercise>
+
+  </page>
+
+
+  <!-- ====================================================== -->
+  <!-- Question 5 -->
+  <!-- ====================================================== -->
+
+  <page xml:id="page-question-5">
+
+    <exercise xml:id="question-5">
+      <statement>
+        <p>
+          Find two vectors, each with magnitude <m>10</m>, which are
+          orthogonal to both
+        </p>
+
+        <me>
+          \mathbf{u}=\langle-2,3,1\rangle
+          \qquad\text{and}\qquad
+          \mathbf{v}=\langle4,4,-1\rangle.
+        </me>
+      </statement>
+
+      <solution>
+        <p>
+          A vector perpendicular to both <m>\mathbf{u}</m> and
+          <m>\mathbf{v}</m> can be found using the cross product:
+        </p>
+
+        <me>
+  \mathbf{u}\mathbin{\boldsymbol{\times}}\mathbf{v}
+  =
+  \left\langle
+  3(-1)-1(4),
+  -\left((-2)(-1)-1(4)\right),
+  (-2)(4)-3(4)
+  \right\rangle.
+</me>
+
+        <me>
+          \mathbf{u}\mathbin{\boldsymbol{\times}}\mathbf{v}
+          =-7\mathbf{i}+2\mathbf{j}-20\mathbf{k}.
+        </me>
+
+        <p>
+          Thus,
+        </p>
+
+        <me>
+          \mathbf{u}\mathbin{\boldsymbol{\times}}\mathbf{v}
+          =\langle-7,2,-20\rangle.
+        </me>
+
+        <p>
+          Its magnitude is
+        </p>
+
+        <me>
+          |\mathbf{u}\mathbin{\boldsymbol{\times}}\mathbf{v}|
+          =\sqrt{(-7)^2+2^2+(-20)^2}
+          =\sqrt{49+4+400}=\sqrt{453}.
+        </me>
+
+        <p>
+          Therefore, a unit vector perpendicular to both vectors is
+        </p>
+
+        <me>
+          \frac{1}{\sqrt{453}}\langle-7,2,-20\rangle.
+        </me>
+
+        <p>
+          To obtain magnitude <m>10</m>, multiply by <m>10</m>:
+        </p>
+
+        <me>
+          \mathbf{w}_1=
+          \frac{10}{\sqrt{453}}\langle-7,2,-20\rangle.
+        </me>
+
+        <p>
+          The vector in the opposite direction also has magnitude
+          <m>10</m>:
+        </p>
+
+        <me>
+          \mathbf{w}_2=
+          -\frac{10}{\sqrt{453}}\langle-7,2,-20\rangle.
+        </me>
+
+        <p>
+          Therefore, the two vectors are
+        </p>
+
+        <me>
+          \boxed{
+          \mathbf{w}_1=
+          \frac{10}{\sqrt{453}}\langle-7,2,-20\rangle,
+          \qquad
+          \mathbf{w}_2=
+          -\frac{10}{\sqrt{453}}\langle-7,2,-20\rangle
+          }.
+        </me>
+      </solution>
+    </exercise>
+
+  </page>
+
+</worksheet>

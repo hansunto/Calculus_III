@@ -240,21 +240,16 @@
             </p>
 
             <me>
-  <mrow>
-    <m>3\mathbf{a}-5\mathbf{b}</m>
-    <m>=</m>
-    <m>\langle 9,-3,-12\rangle
-      -
-      \langle 10,25,-10\rangle</m>
-  </mrow>
-</me>
+              3\mathbf{a}-5\mathbf{b}
+              =
+              \langle 9,-3,-12\rangle
+              -
+              \langle 10,25,-10\rangle
+            </me>
 
-<me>
-  <mrow>
-    <m>=</m>
-    <m>\langle -1,-28,-2\rangle</m>
-  </mrow>
-</me>
+            <me>
+              =\langle -1,-28,-2\rangle
+            </me>
 
             <p>
               Hence,
@@ -286,21 +281,12 @@
               First calculate the dot product:
             </p>
 
-            <md>
-  <mrow>
-    <m>\mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{b}</m>
-    <m>=</m>
-    <m>(3)(2)+(-1)(5)+(-4)(-2)</m>
-  </mrow>
-  <mrow>
-    <m>=</m>
-    <m>6-5+8</m>
-  </mrow>
-  <mrow>
-    <m>=</m>
-    <m>9.</m>
-  </mrow>
-</md>
+            <me>
+              \mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{b}
+              =(3)(2)+(-1)(5)+(-4)(-2)
+              =6-5+8
+              =9.
+            </me>
 
             <p>
               We already know that

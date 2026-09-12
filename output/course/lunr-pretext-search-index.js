@@ -4429,6 +4429,60 @@ var ptx_lunr_docs = [
   "body": "  Let   and   Find each of the following:    a unit vector having the opposite direction of ;    the vector ;    the angle between the vectors and .         First find the magnitude of :   A unit vector in the direction of is   Therefore, a unit vector having the opposite direction of is   Hence the answer is      Write the vectors in component form:   Calculate :   Calculate :   Therefore,    Hence,      Use the dot-product formula   First calculate the dot product:   We already know that   Also,   Substitute these values into the dot-product formula:   Since , we have   Therefore,   In degrees,   Hence,      "
 },
 {
+  "id": "ma310-written-hw02",
+  "level": "1",
+  "url": "ma310-written-hw02.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "MA-310 Calculus III: Written Homework 2",
+  "body": " MA-310 Calculus III: Written Homework 2        Let and Find the following:    The dot product of with itself,     The dot product of and ,     The cross product of and ,         For the dot product of with itself:   Therefore,     For the dot product of and :   Therefore,     For the cross product, write the vectors in component form:    Therefore,              Find an equation of the plane that passes through the point and is perpendicular to the line     The direction vector of the line is   Since the plane is perpendicular to the line, this direction vector is a normal vector to the plane.  Using the point-normal form of a plane,   we obtain    Therefore, an equation of the plane is            The lines and have the following parametric equations for :   Find the angle between and .    The direction vectors of the two lines are   Use the dot-product formula    The magnitudes are   Therefore,    Therefore, the angle between the two lines is            Find all real numbers for which the vectors   are orthogonal.    Two vectors are orthogonal when their dot product is zero. Therefore,    Multiply by :   Using the quadratic formula,    Therefore,            Find two vectors, each with magnitude , which are orthogonal to both     A vector perpendicular to both and can be found using the cross product:    Thus,   Its magnitude is   Therefore, a unit vector perpendicular to both vectors is   To obtain magnitude , multiply by :   The vector in the opposite direction also has magnitude :   Therefore, the two vectors are      "
+},
+{
+  "id": "question-1",
+  "level": "2",
+  "url": "ma310-written-hw02.html#question-1",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Let and Find the following:    The dot product of with itself,     The dot product of and ,     The cross product of and ,         For the dot product of with itself:   Therefore,     For the dot product of and :   Therefore,     For the cross product, write the vectors in component form:    Therefore,      "
+},
+{
+  "id": "question-2",
+  "level": "2",
+  "url": "ma310-written-hw02.html#question-2",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  Find an equation of the plane that passes through the point and is perpendicular to the line     The direction vector of the line is   Since the plane is perpendicular to the line, this direction vector is a normal vector to the plane.  Using the point-normal form of a plane,   we obtain    Therefore, an equation of the plane is    "
+},
+{
+  "id": "question-3",
+  "level": "2",
+  "url": "ma310-written-hw02.html#question-3",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": "  The lines and have the following parametric equations for :   Find the angle between and .    The direction vectors of the two lines are   Use the dot-product formula    The magnitudes are   Therefore,    Therefore, the angle between the two lines is    "
+},
+{
+  "id": "question-4",
+  "level": "2",
+  "url": "ma310-written-hw02.html#question-4",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": "  Find all real numbers for which the vectors   are orthogonal.    Two vectors are orthogonal when their dot product is zero. Therefore,    Multiply by :   Using the quadratic formula,    Therefore,    "
+},
+{
+  "id": "question-5",
+  "level": "2",
+  "url": "ma310-written-hw02.html#question-5",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": "  Find two vectors, each with magnitude , which are orthogonal to both     A vector perpendicular to both and can be found using the cross product:    Thus,   Its magnitude is   Therefore, a unit vector perpendicular to both vectors is   To obtain magnitude , multiply by :   The vector in the opposite direction also has magnitude :   Therefore, the two vectors are    "
+},
+{
   "id": "course-documents",
   "level": "1",
   "url": "course-documents.html",
