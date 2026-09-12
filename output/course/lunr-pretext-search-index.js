@@ -4402,13 +4402,31 @@ var ptx_lunr_docs = [
   "body": " MyOpenMath Activities   These files contain copies of the interactive MyOpenMath exercises that guided our learning for each topic. Special thanks to Professor Jason Hardin for sharing his MyOpenMath question bank.      "
 },
 {
-  "id": "homework",
+  "id": "ma310-written-hw01",
   "level": "1",
-  "url": "homework.html",
-  "type": "Module",
-  "number": "8",
-  "title": "Homework",
-  "body": " Homework    "
+  "url": "ma310-written-hw01.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "MA-310 Calculus III: Written Homework 1",
+  "body": " MA-310 Calculus III: Written Homework 1   Prepare neatly written solutions to the following problems. Show all relevant work and use proper notation and terminology.     Problem 1    Find the center and radius of the sphere given by     Group the terms involving each variable:   Complete the square for each variable:     Substitute these expressions into the equation:   Simplify the right-hand side:   Therefore, the sphere is in standard form:   The standard equation of a sphere is   Thus, the center is   and the radius is   Therefore, Center:  and radius:  .       Problem 2    Let   and   Find each of the following:    a unit vector having the opposite direction of ;    the vector ;    the angle between the vectors and .         First find the magnitude of :   A unit vector in the direction of is   Therefore, a unit vector having the opposite direction of is   Hence the answer is      Write the vectors in component form:   Calculate :   Calculate :   Therefore,    Hence,      Use the dot-product formula   First calculate the dot product:   We already know that   Also,   Substitute these values into the dot-product formula:   Since , we have   Therefore,   In degrees,   Hence,        "
+},
+{
+  "id": "sphere-center-radius",
+  "level": "2",
+  "url": "ma310-written-hw01.html#sphere-center-radius",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Find the center and radius of the sphere given by     Group the terms involving each variable:   Complete the square for each variable:     Substitute these expressions into the equation:   Simplify the right-hand side:   Therefore, the sphere is in standard form:   The standard equation of a sphere is   Thus, the center is   and the radius is   Therefore, Center:  and radius:  .   "
+},
+{
+  "id": "vector-computations",
+  "level": "2",
+  "url": "ma310-written-hw01.html#vector-computations",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  Let   and   Find each of the following:    a unit vector having the opposite direction of ;    the vector ;    the angle between the vectors and .         First find the magnitude of :   A unit vector in the direction of is   Therefore, a unit vector having the opposite direction of is   Hence the answer is      Write the vectors in component form:   Calculate :   Calculate :   Therefore,    Hence,      Use the dot-product formula   First calculate the dot product:   We already know that   Also,   Substitute these values into the dot-product formula:   Since , we have   Therefore,   In degrees,   Hence,      "
 },
 {
   "id": "course-documents",

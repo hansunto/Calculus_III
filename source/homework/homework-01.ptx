@@ -1,21 +1,377 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<worksheet>
-  <title>Homework 01</title>
+<worksheet xml:id="ma310-written-hw01">
+  <title>MA-310 Calculus III: Written Homework 1</title>
+
   <introduction>
     <p>
-      <alert>Instructions:</alert> Complete all the exercises below and submit your work by the due date.
+      Prepare neatly written solutions to the following problems.
+      Show all relevant work and use proper notation and terminology.
     </p>
   </introduction>
 
-  <page>
-    <exercise>
-      <statement>
-        <p>
-          This is the first homework exercise.
-        </p>
-      </statement>
-    </exercise>
 
+  <!-- ==================== QUESTION 1 ==================== -->
+
+  <page xml:id="page-sphere">
+    <title>Problem 1</title>
+
+    <exercise xml:id="sphere-center-radius">
+      <statement>
+        <p> Find the center and radius of the sphere given by  </p>
+
+        <me>  x^2+y^2+z^2-10x+3y+5z+\frac{47}{2}=0. </me>
+      </statement>
+
+      <solution>
+        <p>  Group the terms involving each variable: </p>
+
+        <me>
+          (x^2-10x)+(y^2+3y)+(z^2+5z) =-\frac{47}{2}.
+        </me>
+
+        <p> Complete the square for each variable: </p>
+
+        <me>  x^2-10x=(x-5)^2-25. </me>
+
+        <me>
+          y^2+3y=\left(y+\frac{3}{2}\right)^2-\frac{9}{4}.
+        </me>
+
+        <me>
+          z^2+5z=\left(z+\frac{5}{2}\right)^2-\frac{25}{4}.
+        </me>
+
+        <p> Substitute these expressions into the equation: </p>
+
+        <me>
+          (x-5)^2+
+          \left(y+\frac{3}{2}\right)^2+
+          \left(z+\frac{5}{2}\right)^2
+          =
+          -\frac{47}{2}+25+\frac{9}{4}+\frac{25}{4}.
+        </me>
+
+        <p>  Simplify the right-hand side: </p>
+
+        <me>
+          -\frac{47}{2}+25+\frac{9}{4}+\frac{25}{4}=10.
+        </me>
+
+        <p> Therefore, the sphere is in standard form: </p>
+
+        <me>
+          (x-5)^2+
+          \left(y+\frac{3}{2}\right)^2+
+          \left(z+\frac{5}{2}\right)^2
+          =10.
+        </me>
+
+        <p> The standard equation of a sphere is </p>
+
+        <me>  (x-h)^2+(y-k)^2+(z-\ell)^2=r^2. </me>
+
+        <p> Thus, the center is </p>
+
+        <me>  \left(5,-\frac{3}{2},-\frac{5}{2}\right) </me>
+
+        <p>  and the radius is </p>
+
+        <me>  \sqrt{10}. </me>
+
+        <p>
+          Therefore,
+          <em>Center:</em>
+          <m>\left(5,-\frac{3}{2},-\frac{5}{2}\right)</m>
+          and
+          <em>radius:</em>
+          <m>\sqrt{10}</m>.
+        </p>
+      </solution>
+    </exercise>
   </page>
+
+
+  <!-- ==================== QUESTION 2 ==================== -->
+
+  <page xml:id="page-vectors">
+    <title>Problem 2</title>
+
+    <exercise xml:id="vector-computations">
+      <statement>
+        <p>  Let </p>
+
+        <me>
+          \mathbf{a}=3\mathbf{i}-\mathbf{j}-4\mathbf{k}
+        </me>
+
+        <p>  and </p>
+
+        <me>
+          \mathbf{b}=2\mathbf{i}+5\mathbf{j}-2\mathbf{k}.
+        </me>
+
+        <p>
+          Find each of the following:
+        </p>
+
+        <ol>
+          <li>
+            <p>
+              a unit vector having the opposite direction of
+              <m>\mathbf{a}</m>;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              the vector <m>3\mathbf{a}-5\mathbf{b}</m>;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              the angle between the vectors
+              <m>\mathbf{a}</m> and <m>\mathbf{b}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+
+
+      <solution>
+        <ol>
+
+          <!-- PART A -->
+
+          <li>
+            <p>
+              First find the magnitude of <m>\mathbf{a}</m>:
+            </p>
+
+            <me>
+              \lVert\mathbf{a}\rVert
+              =
+              \sqrt{3^2+(-1)^2+(-4)^2}
+              =
+              \sqrt{26}.
+            </me>
+
+            <p>
+              A unit vector in the direction of <m>\mathbf{a}</m> is
+            </p>
+
+            <me>
+              \frac{\mathbf{a}}{\lVert\mathbf{a}\rVert}
+              =
+              \frac{1}{\sqrt{26}}
+              \langle 3,-1,-4\rangle.
+            </me>
+
+            <p>
+              Therefore, a unit vector having the opposite direction
+              of <m>\mathbf{a}</m> is
+            </p>
+
+            <me>
+              -\frac{\mathbf{a}}{\lVert\mathbf{a}\rVert}
+              =
+              \left\langle
+              -\frac{3}{\sqrt{26}},
+              \frac{1}{\sqrt{26}},
+              \frac{4}{\sqrt{26}}
+              \right\rangle.
+            </me>
+
+            <p>
+              Hence the answer is
+            </p>
+
+            <me>
+              \boxed{
+              \left\langle
+              -\frac{3}{\sqrt{26}},
+              \frac{1}{\sqrt{26}},
+              \frac{4}{\sqrt{26}}
+              \right\rangle}.
+            </me>
+          </li>
+
+
+          <!-- PART B -->
+
+          <li>
+            <p>
+              Write the vectors in component form:
+            </p>
+
+            <me>
+              \mathbf{a}=\langle3,-1,-4\rangle,
+              \qquad
+              \mathbf{b}=\langle2,5,-2\rangle.
+            </me>
+
+            <p>
+              Calculate <m>3\mathbf{a}</m>:
+            </p>
+
+            <me>
+              3\mathbf{a}
+              =
+              3\langle3,-1,-4\rangle
+              =
+              \langle9,-3,-12\rangle.
+            </me>
+
+            <p>
+              Calculate <m>5\mathbf{b}</m>:
+            </p>
+
+            <me>
+              5\mathbf{b}
+              =
+              5\langle2,5,-2\rangle
+              =
+              \langle10,25,-10\rangle.
+            </me>
+
+            <p>
+              Therefore,
+            </p>
+
+            <me>
+  <mrow>
+    <m>3\mathbf{a}-5\mathbf{b}</m>
+    <m>=</m>
+    <m>\langle 9,-3,-12\rangle
+      -
+      \langle 10,25,-10\rangle</m>
+  </mrow>
+</me>
+
+<me>
+  <mrow>
+    <m>=</m>
+    <m>\langle -1,-28,-2\rangle</m>
+  </mrow>
+</me>
+
+            <p>
+              Hence,
+            </p>
+
+            <me>
+              \boxed{3\mathbf{a}-5\mathbf{b}
+              =\langle-1,-28,-2\rangle}.
+            </me>
+          </li>
+
+
+          <!-- PART C -->
+
+          <li>
+            <p>
+              Use the dot-product formula
+            </p>
+
+            <me>
+              \mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{b}
+              =
+              \lVert\mathbf{a}\rVert
+              \lVert\mathbf{b}\rVert
+              \cos(\theta).
+            </me>
+
+            <p>
+              First calculate the dot product:
+            </p>
+
+            <md>
+  <mrow>
+    <m>\mathbf{a}\mathbin{\boldsymbol{\cdot}}\mathbf{b}</m>
+    <m>=</m>
+    <m>(3)(2)+(-1)(5)+(-4)(-2)</m>
+  </mrow>
+  <mrow>
+    <m>=</m>
+    <m>6-5+8</m>
+  </mrow>
+  <mrow>
+    <m>=</m>
+    <m>9.</m>
+  </mrow>
+</md>
+
+            <p>
+              We already know that
+            </p>
+
+            <me>
+              \lVert\mathbf{a}\rVert=\sqrt{26}.
+            </me>
+
+            <p>
+              Also,
+            </p>
+
+            <me>
+              \lVert\mathbf{b}\rVert
+              =
+              \sqrt{2^2+5^2+(-2)^2}
+              =
+              \sqrt{33}.
+            </me>
+
+            <p>
+              Substitute these values into the dot-product formula:
+            </p>
+
+            <me>
+              9=\sqrt{26}\sqrt{33}\cos(\theta).
+            </me>
+
+            <p>
+              Since
+              <m>\sqrt{26}\sqrt{33}=\sqrt{858}</m>,
+              we have
+            </p>
+
+            <me>
+              \cos(\theta)=\frac{9}{\sqrt{858}}.
+            </me>
+
+            <p>
+              Therefore,
+            </p>
+
+            <me>
+              \theta=
+              \cos^{-1}\left(\frac{9}{\sqrt{858}}\right).
+            </me>
+
+            <p>
+              In degrees,
+            </p>
+
+            <me>
+              \theta\approx72.1^\circ.
+            </me>
+
+            <p>
+              Hence,
+            </p>
+
+            <me>
+              \boxed{
+              \theta=
+              \cos^{-1}\left(\frac{9}{\sqrt{858}}\right)
+              \approx72.1^\circ}.
+            </me>
+          </li>
+
+        </ol>
+      </solution>
+    </exercise>
+  </page>
+
 </worksheet>
